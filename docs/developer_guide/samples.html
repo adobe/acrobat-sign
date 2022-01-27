@@ -1,0 +1,1440 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn how to integrate Adobe products in your apps with the Acrobat, PDFL, and Acrobat Sign SDKs. Developers-friendly code samples, demos, and easy to use APIs support enterprise class workflows."
+  
+  <title>REST API Samples &mdash; Acrobat Sign SDK</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+    
+  
+  
+  <link rel="canonical" href="https://www.adobe.com/go/acrobatsigndevhome/samples.html" />
+  
+
+  
+  
+  
+  <script type="text/javascript" src="../_static/jquery.js"></script>
+  <script type="text/javascript" src="../_static/underscore.js"></script>
+  <script type="text/javascript" src="../_static/doctools.js"></script>
+  <script type="text/javascript" src="../_static/language_data.js"></script>
+  <script type="text/javascript" src="../_static/searchtools.js"></script>
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+   
+  
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Events" href="events.html" />
+    <link rel="prev" title="Webhook Events" href="webhookevents.html" /> 
+  
+<script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
+<script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+
+	<script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+          $('.fixedbar, .wy-nav-side').addClass('scroll');
+          $('.wy-top-menu-wrapper').fadeOut();
+        } else {
+          $('.fixedbar, .wy-nav-side').removeClass('scroll');
+          $('.wy-top-menu-wrapper').fadeIn();
+        }
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn();
+        } else {
+          $('#scroll').fadeOut();
+        }
+      });
+      $('#scroll').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+      });
+    });
+  </script>
+
+<style>
+  .wy-nav-content {max-width:90%}
+  </style>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+	  
+	  	  
+<!-- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+        <div class="wy-logo-wrapper">
+          <a href="https://www.adobe.com/go/dc_developer">
+            <img src="../_static/acrobaticon.png" class="logo"/> 
+          Acrobat, Adobe Sign, PDFL Developer
+          </a>
+        </div> 
+ <!-- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+ 
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Acrobat Sign SDK
+          
+
+          
+          </a>
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Welcome!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gstarted.html">Create a Developer Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#next-steps">Next steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="helloworld.html">Hello World App</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="helloworld.html#create-an-app-in-the-ui">Create an app in the UI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helloworld.html#configure-oauth">Configure OAuth</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#get-the-app-id-and-secret">Get the app ID and secret</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#set-the-app-scopes">Set the app scopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="helloworld.html#oauth-token-exchange">OAuth token exchange</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#authorization-request">Authorization Request</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scenarios.html">Example Scenarios</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scenarios.html#parental-consent">Parental Consent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scenarios.html#creating-a-widget">Creating a Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scenarios.html#photo-rights">Photo Rights</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apiusage.html">API Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#send-for-signing-create-an-agreement">Send for Signing (Create an Agreement)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#upload-a-document">Upload a document</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#send-the-document">Send the document</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#check-the-document-signing-status">Check the Document Signing Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#send-reminders">Send Reminders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#download-the-agreement">Download the Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#create-a-widget">Create a Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#get-the-signing-url">Get the Signing URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#api-throttling">API Throttling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#rest-api-response">REST API Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#steps-to-take-when-throttled">Steps to take when throttled</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#adobe-sign-v6-rest-api-enhancements">Adobe Sign v6 REST API Enhancements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#enhancements">Enhancements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#pagination-support">Pagination Support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#constant-ids">Constant IDs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#etag-support">ETag support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#get-put-post-consistency">GET, PUT, POST consistency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#performance-improvements">Performance improvements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#asynchronous-apis"><strong>Asynchronous API’s</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#authorization-header">Authorization header</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#features">Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#agreement-sharing">Agreement sharing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#authoring-apis">Authoring APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#document-visibility">Document visibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#draft">Draft</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#notes-management">Notes management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#reminders">Reminders</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#resource-views">Resource views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#resource-visibility">Resource visibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#suppress-email">Suppress email</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#webhooks">Webhooks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#api-change-log">API Change Log</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#new-apis">New APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#updated-apis">Updated APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#removed-apis">Removed APIs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhooks.html">Webhooks in Adobe Sign v6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html#how-do-webhooks-work">How do webhooks work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html#creating-a-webhook">Creating a webhook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#configure-a-webhook-and-subscribe-to-events">Configure a webhook and subscribe to events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#verification-of-intent-of-the-webhook-url">Verification of intent of the webhook URL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#how-to-respond-to-a-webhook-notification">How to respond to a webhook notification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#hosting-your-webhook-in-the-cloud">Hosting your webhook in the cloud</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html#webhook-properties">Webhook properties</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#webhook-url">Webhook URL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#webhook-status">Webhook status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#webhook-scopes">Webhook scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#webhook-events">Webhook events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#webhook-conditional-parameters">Webhook conditional parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html#managing-webhooks-and-subscriptions">Managing webhooks and subscriptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#securing-webhooks">Securing webhooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#best-practices">Best practices</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhookapis.html">Webhook APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#post-webhooks">POST /webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#get-webhooks">GET /webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#get-webhooks-webhookid">GET /webhooks/{webhookId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#put-webhooks-webhookid">PUT /webhooks/{webhookId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#put-webhooks-webhookid-state">PUT /webhooks/{webhookId}/state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#delete-webhooks-webhookid">DELETE /webhooks/{webhookId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#standard-error-codes-in-every-api-request">Standard error codes in every API request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#standard-headers-in-every-api-request">Standard headers in every API request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#using-aws-lambda-functions">Using AWS Lambda Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#create-an-aws-lambda-function">Create an AWS Lambda function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#register-your-adobe-sign-webhook">Register your Adobe Sign webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#configure-the-aws-api-gateway">Configure the AWS API Gateway</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#deploy-the-api">Deploy the API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#ready-to-use">Ready to Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#using-azure-functions">Using Azure Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#steps-to-create-an-azure-functions-trigger-that-serves-as-an-adobe-sign-webhook">Steps to create an Azure Functions Trigger that serves as an Adobe Sign Webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#create-a-javascript-httptrigger-function">Create a JavaScript HttpTrigger function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#add-logic-to-register-your-adobe-sign-webhook">Add logic to register your Adobe Sign webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#id1">Ready to use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#get-the-functions-url">Get the function’s URL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhookevents.html">Webhook Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#notification-payload-for-events">Notification payload for events</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#payload-info">Payload info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#basic-webhook-payload-for-all-notifications">Basic webhook payload for all notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#webhooknotificationapplicableusers">WebhookNotificationApplicableUsers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#webhookurlinfo">WebhookUrlInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#agreement">Agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#widget">Widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#library-document">Library Document</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#megasign">MegaSign</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#receiving-a-webhook-notification">Receiving a webhook notification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#reliable-delivery-of-webhook-notifications">Reliable delivery of webhook notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#webhook-uniqueness">Webhook uniqueness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#superset-events">SuperSet events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-action-completed">AGREEMENT_ACTION_COMPLETED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#event-specific-payload-attributes">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#payload-attributes-inherited-from-agreement">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#payload-template">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-action-delegated">AGREEMENT_ACTION_DELEGATED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id1">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id2">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id3">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-action-replaced-signer">AGREEMENT_ACTION_REPLACED_SIGNER</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id4">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id5">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id6">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-action-requested">AGREEMENT_ACTION_REQUESTED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id7">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id8">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id9">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-auto-cancelled-conversion-problem">AGREEMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id10">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id11">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id12">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-created">AGREEMENT_CREATED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id13">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id14">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id15">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-documents-deleted">AGREEMENT_DOCUMENTS_DELETED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id16">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id17">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id18">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-email-bounced">AGREEMENT_EMAIL_BOUNCED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id19">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id20">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id21">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-email-viewed">AGREEMENT_EMAIL_VIEWED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id22">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id23">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id24">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-expired">AGREEMENT_EXPIRED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id25">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id26">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id27">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-kba-authenticated">AGREEMENT_KBA_AUTHENTICATED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id28">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id29">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id30">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-modified">AGREEMENT_MODIFIED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id31">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id32">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id33">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-offline-sync">AGREEMENT_OFFLINE_SYNC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id34">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id35">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id36">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-recalled">AGREEMENT_RECALLED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id37">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id38">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id39">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-rejected">AGREEMENT_REJECTED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id40">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id41">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id42">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-shared">AGREEMENT_SHARED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id43">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id44">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id45">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-uploaded-by-sender">AGREEMENT_UPLOADED_BY_SENDER</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id46">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id47">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id48">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-user-ack-agreement-modified">AGREEMENT_USER_ACK_AGREEMENT_MODIFIED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id49">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id50">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id51">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-vaulted">AGREEMENT_VAULTED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id52">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id53">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id54">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-web-identity-authenticated">AGREEMENT_WEB_IDENTITY_AUTHENTICATED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id55">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id56">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id57">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-workflow-completed">AGREEMENT_WORKFLOW_COMPLETED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id58">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id59">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id60">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#library-document-auto-cancelled-conversion-problem">LIBRARY_DOCUMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id61">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#inherited-from-library-document">Inherited from Library Document:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id62">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#library-document-created">LIBRARY_DOCUMENT_CREATED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id63">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id64">Inherited from Library Document:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id65">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#library-document-modified">LIBRARY_DOCUMENT_MODIFIED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id66">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id67">Inherited from Library Document:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id68">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#megasign-created">MEGASIGN_CREATED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id69">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#inherted-from-megasign">Inherted from MegaSign</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id70">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#megasign-recalled">MEGASIGN_RECALLED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id71">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id72">Inherted from MegaSign:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id73">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#megasign-shared">MEGASIGN_SHARED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id74">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id75">Inherted from MegaSign:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id76">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#widget-auto-cancelled-conversion-problem">WIDGET_AUTO_CANCELLED_CONVERSION_PROBLEM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id77">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#inherted-from-widget">Inherted from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id78">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#widget-created">WIDGET_CREATED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id79">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#inherited-from-widget">Inherited from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id80">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#widget-disabled">WIDGET_DISABLED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id81">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id82">Inherited from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id83">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#widget-enabled">WIDGET_ENABLED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id84">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id85">Inherited from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id86">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#widget-modified">WIDGET_MODIFIED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id87">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id88">Inherted from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id89">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#widget-shared">WIDGET_SHARED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id90">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id91">Inherted from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id92">Payload template</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">REST API Samples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-package">The package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-samples">Using the Samples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#output-path">Output Path</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-new-widget-with-countersigners">Create a New Widget with Countersigners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-an-agreements-audit-report">Download an Agreement’s Audit Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-the-combined-document-for-an-agreement">Download the Combined Document for an Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-documents-from-an-agreement">Download Documents from an Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-an-agreements-status">Get an Agreement’s Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-an-agreements-signing-url">Get an Agreement’s Signing URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#send-reminders-to-participants">Send Reminders to Participants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#send-an-agreement-using-a-library-document">Send an Agreement Using a Library Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#send-an-agreement-using-a-transient-document">Send an Agreement Using a Transient Document</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="events.html#system-requirements">System requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#supported-events">Supported events</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="events.html#workflow-events">Workflow events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="events.html#page-load-events">Page Load events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="events.html#session-events">Session events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="events.html#user-action-events">User action events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#using-events">Using events</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developerguides.html">Developer Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrating.html">Migrating From SOAP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migrating.html#general-purpose-methods">General-purpose Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating.html#document-methods">Document Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating.html#status-methods">Status Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating.html#user-methods">User Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating.html#web-form-methods">Web Form Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating.html#test-methods">Test Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating.html#deprecated-methods-from-legacy-soap-versions">Deprecated Methods from legacy SOAP versions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html#access-methods">Access Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#id1">Document Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html#id2">Status Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html#id3">User Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#terminology">Terminology</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+        <div class="fixedbar">  
+          <div class="wy-menu-items">
+            <a href="https://www.adobe.com/go/dc_developer" class="topbarlink">Acrobat Developer Home</a>
+            <a href="https://www.adobe.io/apis/documentcloud/dcsdk/" class="topbarlink">Document Services SDK</a>
+            <a href="https://opensource.adobe.com/dc-acrobat-sdk-docs/acrobatsignsdk/" class="topbarlink">Adobe Sign SDK</a>
+            <a href="https://www.adobe.com/go/acrobatsdk_home" class="topbarlink">Acrobat SDK</a>
+            <a href="https://www.adobe.com/go/pdflibrary" class="topbarlink">PDF Library SDK</a>
+          </div>  
+          <div class="sign-in">
+            <a href="https://adminconsole.adobe.com//" class="btn btn-console">Console</a>
+           <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
+          </div>
+        </div>
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+
+
+
+
+   
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Acrobat Sign SDK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+      <a href="#" id="scroll" style="display:inline;"><span></span></a>
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>REST API Samples</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="events.html" class="btn btn-neutral float-right" title="Events" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="webhookevents.html" class="btn btn-neutral float-left" title="Webhook Events" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rest-api-samples">
+<h1>REST API Samples<a class="headerlink" href="#rest-api-samples" title="Permalink to this headline">¶</a></h1>
+<p>The samples included in this section are Java clients of the Adobe Sign REST API that demonstrate how to use the API as well as some of its key capabilities.</p>
+<div class="section" id="the-package">
+<h2>The package<a class="headerlink" href="#the-package" title="Permalink to this headline">¶</a></h2>
+<p>All sources are under the <em>adobesign.api.rest.sample</em> package (and sub packages) as published in the <a class="reference external" href="https://www.adobe.com/go/esign-api-samples">Adobe Sign GitHub repo</a> and are laid out as follows:</p>
+<ul class="simple">
+<li><p><strong>adobesign.api.rest.sample</strong>: Contains individual sample clients, each demonstrating a specific capability. Each client is named according to the capability it demonstrates. For example, the client GetUsersInAccount.java shows how to retrieve a list of users from the account of the user on whose behalf the API call is made (also called <strong>API user</strong> in this document).</p></li>
+<li><p><strong>adobesign.api.rest.sample.util</strong>: Contains helper classes that encapsulate the REST calls required by the sample clients. Of particular note is RestApiUtils.java, which contains methods that make the actual low-level REST API calls.</p></li>
+<li><p><strong>adobesign.api.rest.sample.requests</strong>: Contains input files used by the sample clients. These include JSON objects that specify the input data and arguments required by some of the API calls.</p></li>
+</ul>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>Before using the samples, you need to obtain either an OAuth access token or an integration key. Please refer to the AdobeSign API page (<a class="reference external" href="https://secure.echosign.com/account/echosignApi">https://secure.echosign.com/account/echosignApi</a>) for information on how to do this for your account.</p>
+<p>You can provide this token or key as a value to the <code class="docutils literal notranslate"><span class="pre">OAUTH_ACCESS_TOKEN</span></code> constant in RestApiOAuthTokens.java, or you can provide a refresh token as a value to the <code class="docutils literal notranslate"><span class="pre">OAUTH_REFRESH_TOKEN</span></code> constant (in the same class) which will be used to refresh the OAuth access token.</p>
+<p>If neither is provided, then a new OAuth access token will be requested from AdobeSign based on credentials provided in the OAuthCredentials.json file. Please refer to the AdobeSign OAuth page (<a class="reference external" href="https://secure.echosign.com/public/static/oauthDoc.jsp">https://secure.echosign.com/public/static/oauthDoc.jsp</a>) for information on how to obtain OAuth credentials for your account.</p>
+</div>
+<div class="section" id="using-the-samples">
+<h2>Using the Samples<a class="headerlink" href="#using-the-samples" title="Permalink to this headline">¶</a></h2>
+<p>Each sample client has a set of instructions (provided as class comments) that need to be followed. In particular, look for “TODO” comments in the client code and in the JSON input files for values that need to be updated before the client can work properly. Once the clients and support files are updated with appropriate values, they can be compiled and run.</p>
+<p>The following steps outline one way this can be done using the command line on Windows.</p>
+<ul class="simple">
+<li><p>Navigate to the top-most folder (the one containing “adobesign” and “lib”) so that it becomes the current directory.</p></li>
+<li><p>Compile the sources using the following command:  <code class="docutils literal notranslate"><span class="pre">javac</span> <span class="pre">-sourcepath</span> <span class="pre">.;adobesign</span> <span class="pre">-cp</span> <span class="pre">lib/json_simple-1.1.jar</span> <span class="pre">adobesign/api/rest/sample/*.java</span></code></p></li>
+<li><p>To run a specific client, use the following command: <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-cp</span> <span class="pre">.;lib/json_simple-1.1.jar</span> <span class="pre">adobesign.api.rest.sample.{name</span> <span class="pre">of</span> <span class="pre">client</span> <span class="pre">class}</span></code></p></li>
+</ul>
+<p>For example, to run GetUsersInAccount, use: <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-cp</span> <span class="pre">.;lib/json_simple-1.1.jar</span> <span class="pre">adobesign.api.rest.sample.GetUsersInAccount</span></code></p>
+<p>You may also use an IDE of your choice. In that case, you will need to create a new project with sources taken from the adobesign folder and lib/json.jar set up as an input library.</p>
+<div class="section" id="output-path">
+<h3>Output Path<a class="headerlink" href="#output-path" title="Permalink to this headline">¶</a></h3>
+<p>The default output path used in the sample clients is the user temp directory. If needed, this can be changed by updating the method <code class="docutils literal notranslate"><span class="pre">adobesign.api.rest.sample.util.FileUtils.getDefaultOutputPath()</span></code>.</p>
+</div>
+</div>
+<div class="section" id="create-a-new-widget-with-countersigners">
+<h2>Create a New Widget with Countersigners<a class="headerlink" href="#create-a-new-widget-with-countersigners" title="Permalink to this headline">¶</a></h2>
+<p>This sample client demonstrates how to create a new widget.</p>
+<ol class="arabic simple">
+<li><p>Before running this sample, check that you have modified the JSON files OAuthCredentials.json and CreateWidget.json with appropriate values. Which values need to be specified is indicated in the files.</p></li>
+<li><p>You can also provide your OAuth access token in the <code class="docutils literal notranslate"><span class="pre">OAUTH_ACCESS_TOKEN</span></code> constant in the <code class="docutils literal notranslate"><span class="pre">RestApiOAuthTokens</span></code> class, which will then be used as the OAuth access token for making API calls.</p></li>
+<li><p>You can also provide a refresh token in the <code class="docutils literal notranslate"><span class="pre">OAUTH_REFRESH_TOKEN</span> <span class="pre">constant</span></code> in the <code class="docutils literal notranslate"><span class="pre">RestApiOAuthTokens</span></code> class to refresh the OAuth access token.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">adobesign</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">rest</span><span class="o">.</span><span class="n">sample</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.json.simple.JSONObject</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestApiAgreements</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestApiOAuthTokens</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestApiUtils</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestApiWidgets</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestApiAgreements.DocumentIdentifierName</span><span class="p">;</span>
+
+
+<span class="n">public</span> <span class="k">class</span> <span class="nc">CreateNewWidgetWithCounterSigners</span> <span class="p">{</span>
+
+  <span class="o">//</span> <span class="n">File</span> <span class="n">containing</span> <span class="n">request</span> <span class="n">body</span> <span class="n">to</span> <span class="n">get</span> <span class="n">an</span> <span class="n">access</span> <span class="n">token</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">final</span> <span class="n">String</span> <span class="n">authRequestJSONFileName</span> <span class="o">=</span> <span class="s2">&quot;OAuthCredentials.json&quot;</span><span class="p">;</span>
+
+  <span class="o">//</span> <span class="n">File</span> <span class="n">containing</span> <span class="n">request</span> <span class="n">body</span> <span class="k">for</span> <span class="n">creating</span> <span class="n">a</span> <span class="n">widget</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">final</span> <span class="n">static</span> <span class="n">String</span> <span class="n">createWidgetJSONFileName</span> <span class="o">=</span> <span class="s2">&quot;CreateWidget.json&quot;</span><span class="p">;</span>
+
+  <span class="o">//</span><span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span> <span class="n">to</span> <span class="n">be</span> <span class="n">uploaded</span> <span class="k">for</span> <span class="n">sending</span> <span class="n">an</span> <span class="n">agreement</span><span class="o">.</span>
+  <span class="o">//</span> <span class="n">TODO</span><span class="p">:</span> <span class="n">Specify</span> <span class="n">file</span> <span class="n">name</span> <span class="n">of</span> <span class="n">choice</span> <span class="n">here</span><span class="o">.</span> <span class="n">The</span> <span class="n">file</span> <span class="n">must</span> <span class="n">exist</span> <span class="ow">in</span> <span class="n">the</span> <span class="s2">&quot;requests&quot;</span> <span class="n">sub</span><span class="o">-</span><span class="n">package</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">final</span> <span class="n">String</span> <span class="n">fileToBeUploaded</span> <span class="o">=</span> <span class="s2">&quot;Sample.pdf&quot;</span><span class="p">;</span>
+
+  <span class="o">//</span><span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span> <span class="kn">from</span> <span class="nn">which</span> <span class="n">form</span> <span class="n">fields</span> <span class="n">are</span> <span class="n">to</span> <span class="n">be</span> <span class="n">extracted</span><span class="o">.</span>
+  <span class="o">//</span> <span class="n">TODO</span><span class="p">:</span> <span class="n">Specify</span> <span class="n">file</span> <span class="n">name</span> <span class="n">of</span> <span class="n">choice</span> <span class="n">here</span><span class="o">.</span> <span class="n">The</span> <span class="n">file</span> <span class="n">must</span> <span class="n">exist</span> <span class="ow">in</span> <span class="n">the</span> <span class="s2">&quot;requests&quot;</span> <span class="n">sub</span><span class="o">-</span><span class="n">package</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">final</span> <span class="n">String</span> <span class="n">fileforFormFields</span> <span class="o">=</span> <span class="s2">&quot;DocumentWithFormFields.pdf&quot;</span><span class="p">;</span>
+
+  <span class="o">//</span> <span class="n">Mime</span><span class="o">-</span><span class="nb">type</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span> <span class="n">being</span> <span class="n">uploaded</span><span class="o">.</span>
+  <span class="o">//</span> <span class="n">TODO</span><span class="p">:</span> <span class="n">Change</span> <span class="n">this</span> <span class="n">depending</span> <span class="n">on</span> <span class="n">actual</span> <span class="n">file</span> <span class="n">used</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">final</span> <span class="n">String</span> <span class="n">mimeType</span> <span class="o">=</span> <span class="n">RestApiUtils</span><span class="o">.</span><span class="n">MimeType</span><span class="o">.</span><span class="n">PDF</span><span class="o">.</span><span class="n">toString</span><span class="p">();</span>
+
+  <span class="o">//</span> <span class="n">Name</span> <span class="n">to</span> <span class="n">be</span> <span class="n">given</span> <span class="n">to</span> <span class="n">the</span> <span class="n">file</span> <span class="n">after</span> <span class="n">uploading</span> <span class="n">it</span><span class="o">.</span>
+  <span class="o">//</span> <span class="n">TODO</span><span class="p">:</span> <span class="n">Specify</span> <span class="n">a</span> <span class="n">file</span> <span class="n">name</span> <span class="n">of</span> <span class="n">choice</span><span class="p">,</span> <span class="n">ensuring</span> <span class="n">that</span> <span class="n">its</span> <span class="n">name</span> <span class="n">consists</span> <span class="n">only</span> <span class="n">of</span> <span class="n">characters</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">ASCII</span> <span class="n">character</span> <span class="nb">set</span> <span class="p">(</span><span class="n">given</span> <span class="n">this</span> <span class="n">basic</span>
+  <span class="o">//</span> <span class="n">sample</span> <span class="n">implementation</span><span class="p">)</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">final</span> <span class="n">String</span> <span class="n">uploadedFileName</span> <span class="o">=</span> <span class="s2">&quot;UploadedSample.pdf&quot;</span><span class="p">;</span>
+
+  <span class="o">//</span> <span class="n">Name</span> <span class="n">to</span> <span class="n">be</span> <span class="n">given</span> <span class="n">to</span> <span class="n">the</span> <span class="n">file</span> <span class="n">containing</span> <span class="n">form</span> <span class="n">fields</span><span class="o">.</span>
+  <span class="o">//</span> <span class="n">TODO</span><span class="p">:</span> <span class="n">Specify</span> <span class="n">a</span> <span class="n">file</span> <span class="n">name</span> <span class="n">of</span> <span class="n">choice</span><span class="p">,</span> <span class="n">ensuring</span> <span class="n">that</span> <span class="n">its</span> <span class="n">name</span> <span class="n">consists</span> <span class="n">only</span> <span class="n">of</span> <span class="n">characters</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">ASCII</span> <span class="n">character</span> <span class="nb">set</span> <span class="p">(</span><span class="n">given</span> <span class="n">this</span> <span class="n">basic</span>
+  <span class="o">//</span> <span class="n">sample</span> <span class="n">implementation</span><span class="p">)</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">final</span> <span class="n">String</span> <span class="n">formFieldsFileName</span> <span class="o">=</span> <span class="s2">&quot;formFieldsSample.pdf&quot;</span><span class="p">;</span>
+
+
+  <span class="o">/**</span>
+   <span class="o">*</span> <span class="n">Entry</span> <span class="n">point</span> <span class="k">for</span> <span class="n">this</span> <span class="n">sample</span> <span class="n">client</span> <span class="n">program</span><span class="o">.</span>
+   <span class="o">*/</span>
+  <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="n">CreateNewWidgetWithCounterSigners</span> <span class="n">client</span> <span class="o">=</span> <span class="n">new</span> <span class="n">CreateNewWidgetWithCounterSigners</span><span class="p">();</span>
+      <span class="n">client</span><span class="o">.</span><span class="n">run</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="n">catch</span> <span class="p">(</span><span class="ne">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="n">err</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Failure in creating a new widget for the user.&quot;</span><span class="p">);</span>
+      <span class="n">e</span><span class="o">.</span><span class="n">printStackTrace</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="o">/**</span>
+   <span class="o">*</span> <span class="n">Main</span> <span class="n">work</span> <span class="n">function</span><span class="o">.</span> <span class="n">See</span> <span class="n">the</span> <span class="k">class</span> <span class="nc">comment</span> <span class="k">for</span> <span class="n">details</span><span class="o">.</span>
+   <span class="o">*/</span>
+  <span class="n">private</span> <span class="n">void</span> <span class="n">run</span><span class="p">()</span> <span class="n">throws</span> <span class="ne">Exception</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Get</span> <span class="n">oauth</span> <span class="n">access</span> <span class="n">token</span> <span class="n">to</span> <span class="n">make</span> <span class="n">further</span> <span class="n">API</span> <span class="n">calls</span><span class="o">.</span>
+    <span class="n">String</span> <span class="n">accessToken</span> <span class="o">=</span> <span class="n">RestApiOAuthTokens</span><span class="o">.</span><span class="n">getOauthAccessToken</span><span class="p">(</span><span class="n">authRequestJSONFileName</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Upload</span> <span class="n">a</span> <span class="n">transient</span> <span class="n">document</span> <span class="k">with</span> <span class="n">form</span> <span class="n">fields</span> <span class="n">to</span> <span class="n">be</span> <span class="n">used</span> <span class="k">for</span> <span class="n">extracting</span> <span class="n">form</span> <span class="n">fields</span> <span class="k">for</span> <span class="n">the</span> <span class="n">created</span> <span class="n">widget</span><span class="o">.</span>
+    <span class="n">JSONObject</span> <span class="n">uploadFormFieldDocumentResponse</span> <span class="o">=</span> <span class="n">RestApiAgreements</span><span class="o">.</span><span class="n">postTransientDocument</span><span class="p">(</span><span class="n">accessToken</span><span class="p">,</span> <span class="n">mimeType</span><span class="p">,</span> <span class="n">fileforFormFields</span><span class="p">,</span> <span class="n">formFieldsFileName</span><span class="p">);</span>
+    <span class="n">String</span> <span class="n">formFieldDocumentId</span> <span class="o">=</span> <span class="p">(</span><span class="n">String</span><span class="p">)</span> <span class="n">uploadFormFieldDocumentResponse</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;transientDocumentId&quot;</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Associate</span> <span class="n">the</span> <span class="n">identifiers</span> <span class="k">with</span> <span class="n">the</span> <span class="n">uploaded</span> <span class="n">documents</span><span class="o">.</span>
+    <span class="n">DocumentIdentifierName</span> <span class="n">formFieldIdName</span> <span class="o">=</span> <span class="n">DocumentIdentifierName</span><span class="o">.</span><span class="n">TRANSIENT_DOCUMENT_ID</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Make</span> <span class="n">API</span> <span class="n">call</span> <span class="n">to</span> <span class="n">create</span> <span class="n">new</span> <span class="n">widget</span>
+    <span class="n">JSONObject</span> <span class="n">widget</span> <span class="o">=</span> <span class="n">RestApiWidgets</span><span class="o">.</span><span class="n">createWidget</span><span class="p">(</span><span class="n">accessToken</span><span class="p">,</span> <span class="n">createWidgetJSONFileName</span><span class="p">,</span> <span class="n">formFieldDocumentId</span><span class="p">,</span> <span class="n">formFieldIdName</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Display</span> <span class="n">widget</span> <span class="n">ID</span> <span class="ow">and</span> <span class="n">corresponding</span> <span class="n">code</span> <span class="n">of</span> <span class="n">newly</span> <span class="n">created</span> <span class="n">widget</span><span class="o">.</span>
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Newly created widget&#39;s ID: &quot;</span> <span class="o">+</span> <span class="n">widget</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="download-an-agreements-audit-report">
+<h2>Download an Agreement’s Audit Report<a class="headerlink" href="#download-an-agreements-audit-report" title="Permalink to this headline">¶</a></h2>
+<p>This sample client demonstrates how to to download the audit report for the specified agreement.</p>
+<ol class="arabic simple">
+<li><p>Before running this sample, check that you have modified the JSON file OAuthCredentials.json with appropriate values. Which values need to be specified is indicated in the file.</p></li>
+<li><p>You can also provide your OAuth access token in the <code class="docutils literal notranslate"><span class="pre">OAUTH_ACCESS_TOKEN</span></code> constant in the <code class="docutils literal notranslate"><span class="pre">RestApiOAuthTokens</span></code> class, which will then be used as the OAuth access token for making API calls.</p></li>
+<li><p>You can also provide a refresh token in the <code class="docutils literal notranslate"><span class="pre">OAUTH_REFRESH_TOKEN</span> <span class="pre">constant</span></code> in the <code class="docutils literal notranslate"><span class="pre">RestApiOAuthTokens</span></code> class to refresh the OAuth access token.</p></li>
+<li><p>Make sure that you have specified a valid agreement ID in <code class="docutils literal notranslate"><span class="pre">agreementId</span></code> below.</p></li>
+<li><p>Check that the default output location in the field <code class="docutils literal notranslate"><span class="pre">OUTPUT_PATH</span></code> of FileUtils.java is suitable.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">adobesign</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">rest</span><span class="o">.</span><span class="n">sample</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.json.simple.JSONObject</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.FileUtils</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestApiAgreements</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestApiOAuthTokens</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestError</span><span class="p">;</span>
+
+<span class="n">public</span> <span class="k">class</span> <span class="nc">DownloadAuditTrail</span> <span class="p">{</span>
+  <span class="o">//</span> <span class="n">TODO</span><span class="p">:</span> <span class="n">Enter</span> <span class="n">a</span> <span class="n">valid</span> <span class="n">agreement</span> <span class="n">ID</span><span class="o">.</span> <span class="n">Please</span> <span class="n">refer</span> <span class="n">to</span> <span class="n">the</span> <span class="s2">&quot;agreements&quot;</span> <span class="n">end</span><span class="o">-</span><span class="n">point</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">API</span> <span class="n">documentation</span> <span class="n">to</span> <span class="n">learn</span> <span class="n">how</span> <span class="n">to</span> <span class="n">obtain</span> <span class="n">IDs</span> <span class="n">of</span>
+  <span class="o">//</span> <span class="n">agreements</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">Adobe</span> <span class="n">Sign</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">String</span> <span class="n">agreementId</span> <span class="o">=</span> <span class="s2">&quot;a valid agreement ID&quot;</span><span class="p">;</span>
+
+  <span class="o">//</span> <span class="n">File</span> <span class="n">containing</span> <span class="n">request</span> <span class="n">body</span> <span class="n">to</span> <span class="n">get</span> <span class="n">an</span> <span class="n">access</span> <span class="n">token</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">final</span> <span class="n">String</span> <span class="n">authRequestJSONFileName</span> <span class="o">=</span> <span class="s2">&quot;OAuthCredentials.json&quot;</span><span class="p">;</span>
+
+  <span class="o">/**</span>
+   <span class="o">*</span> <span class="n">Entry</span> <span class="n">point</span> <span class="k">for</span> <span class="n">this</span> <span class="n">sample</span> <span class="n">client</span> <span class="n">program</span><span class="o">.</span>
+   <span class="o">*/</span>
+  <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="n">DownloadAuditTrail</span> <span class="n">client</span> <span class="o">=</span> <span class="n">new</span> <span class="n">DownloadAuditTrail</span><span class="p">();</span>
+      <span class="n">client</span><span class="o">.</span><span class="n">run</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="n">catch</span> <span class="p">(</span><span class="ne">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="n">err</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Error while retrieving audit trail for agreement&quot;</span><span class="p">);</span>
+      <span class="n">e</span><span class="o">.</span><span class="n">printStackTrace</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="o">/**</span>
+   <span class="o">*</span> <span class="n">Main</span> <span class="n">work</span> <span class="n">function</span><span class="o">.</span> <span class="n">See</span> <span class="n">the</span> <span class="k">class</span> <span class="nc">comment</span> <span class="k">for</span> <span class="n">details</span><span class="o">.</span>
+   <span class="o">*/</span>
+  <span class="n">private</span> <span class="n">void</span> <span class="n">run</span><span class="p">()</span> <span class="n">throws</span> <span class="ne">Exception</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Get</span> <span class="n">oauth</span> <span class="n">access</span> <span class="n">token</span> <span class="n">to</span> <span class="n">make</span> <span class="n">further</span> <span class="n">API</span> <span class="n">calls</span><span class="o">.</span>
+    <span class="n">String</span> <span class="n">accessToken</span> <span class="o">=</span> <span class="n">RestApiOAuthTokens</span><span class="o">.</span><span class="n">getOauthAccessToken</span><span class="p">(</span><span class="n">authRequestJSONFileName</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Display</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">agreement</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">agreement</span> <span class="n">ID</span><span class="o">.</span>
+    <span class="n">JSONObject</span> <span class="n">agreementInfo</span> <span class="o">=</span> <span class="n">RestApiAgreements</span><span class="o">.</span><span class="n">getAgreementInfo</span><span class="p">(</span><span class="n">accessToken</span><span class="p">,</span> <span class="n">agreementId</span><span class="p">);</span>
+    <span class="n">String</span> <span class="n">agreementName</span> <span class="o">=</span> <span class="p">(</span><span class="n">String</span><span class="p">)</span> <span class="n">agreementInfo</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Agreement name: &quot;</span> <span class="o">+</span> <span class="n">agreementName</span><span class="p">);</span>
+
+    <span class="n">String</span> <span class="n">fileName</span> <span class="o">=</span> <span class="n">agreementName</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">System</span><span class="o">.</span><span class="n">currentTimeMillis</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.pdf&quot;</span><span class="p">;</span>
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Saving audit report &#39;&quot;</span> <span class="o">+</span> <span class="n">fileName</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Make</span> <span class="n">API</span> <span class="n">call</span> <span class="n">to</span> <span class="n">get</span> <span class="n">audit</span> <span class="n">trail</span> <span class="n">of</span> <span class="n">this</span> <span class="n">agreement</span><span class="o">.</span>
+    <span class="n">byte</span> <span class="n">auditStream</span><span class="p">[]</span> <span class="o">=</span> <span class="n">RestApiAgreements</span><span class="o">.</span><span class="n">getAgreementAuditTrailBytes</span><span class="p">(</span><span class="n">accessToken</span><span class="p">,</span> <span class="n">agreementId</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">auditStream</span> <span class="o">!=</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">boolean</span> <span class="n">success</span> <span class="o">=</span> <span class="n">FileUtils</span><span class="o">.</span><span class="n">saveToFile</span><span class="p">(</span><span class="n">auditStream</span><span class="p">,</span> <span class="n">FileUtils</span><span class="o">.</span><span class="n">AUDIT_FILES_OUTPUT_PATH</span><span class="p">,</span> <span class="n">fileName</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">success</span><span class="p">)</span>
+        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Successfully saved audit report in &#39;&quot;</span> <span class="o">+</span> <span class="n">FileUtils</span><span class="o">.</span><span class="n">AUDIT_FILES_OUTPUT_PATH</span> <span class="o">+</span> <span class="s2">&quot;&#39;.&quot;</span><span class="p">);</span>
+      <span class="k">else</span>
+        <span class="n">System</span><span class="o">.</span><span class="n">err</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">RestError</span><span class="o">.</span><span class="n">FILE_NOT_SAVED</span><span class="o">.</span><span class="n">errMessage</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="n">err</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Error while retrieving audit trail for agreement: &quot;</span> <span class="o">+</span> <span class="n">agreementName</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="download-the-combined-document-for-an-agreement">
+<h2>Download the Combined Document for an Agreement<a class="headerlink" href="#download-the-combined-document-for-an-agreement" title="Permalink to this headline">¶</a></h2>
+<p>This sample client demonstrates how to to download the combined document for the specified agreement.</p>
+<p><strong>IMPORTANT:</strong></p>
+<ol class="arabic simple">
+<li><p>Before running this sample, check that you have modified the JSON file OAuthCredentials.json with appropriate values. Which values need to be specified is indicated in the file.</p></li>
+<li><p>You can also provide your OAuth access token in the ’OAUTH_ACCESS_TOKEN<code class="docutils literal notranslate"><span class="pre">constant</span> <span class="pre">in</span> <span class="pre">the</span></code>RestApiOAuthTokens` class, which will then be used as the OAuth access token for making API calls.</p></li>
+<li><p>You can also provide a refresh token in the <code class="docutils literal notranslate"><span class="pre">OAUTH_REFRESH_TOKEN</span> <span class="pre">constant</span></code> in the <code class="docutils literal notranslate"><span class="pre">RestApiOAuthTokens</span></code> class to refresh the OAuth access token.</p></li>
+<li><p>Make sure that you have specified a valid agreement ID in <code class="docutils literal notranslate"><span class="pre">agreementId</span></code> below.</p></li>
+<li><p>Check that the default output location in the field <code class="docutils literal notranslate"><span class="pre">OUTPUT_PATH</span></code> of FileUtils.java is suitable.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">adobesign</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">rest</span><span class="o">.</span><span class="n">sample</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.FileUtils</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestApiAgreements</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestApiOAuthTokens</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestError</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.json.simple.JSONObject</span><span class="p">;</span>
+
+<span class="n">public</span> <span class="k">class</span> <span class="nc">DownloadCombinedDocumentOfAgreement</span> <span class="p">{</span>
+  <span class="o">//</span> <span class="n">TODO</span><span class="p">:</span> <span class="n">Enter</span> <span class="n">a</span> <span class="n">valid</span> <span class="n">agreement</span> <span class="n">ID</span><span class="o">.</span> <span class="n">Please</span> <span class="n">refer</span> <span class="n">to</span> <span class="n">the</span> <span class="s2">&quot;agreements&quot;</span> <span class="n">end</span><span class="o">-</span><span class="n">point</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">API</span> <span class="n">documentation</span> <span class="n">to</span> <span class="n">learn</span> <span class="n">how</span> <span class="n">to</span> <span class="n">obtain</span> <span class="n">IDs</span> <span class="n">of</span>
+  <span class="o">//</span> <span class="n">agreements</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">Adobe</span> <span class="n">Sign</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">String</span> <span class="n">agreementId</span> <span class="o">=</span> <span class="s2">&quot;a valid agreement ID&quot;</span><span class="p">;</span>
+
+  <span class="o">//</span> <span class="n">File</span> <span class="n">containing</span> <span class="n">request</span> <span class="n">body</span> <span class="n">to</span> <span class="n">get</span> <span class="n">an</span> <span class="n">access</span> <span class="n">token</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">final</span> <span class="n">String</span> <span class="n">authRequestJSONFileName</span> <span class="o">=</span> <span class="s2">&quot;OAuthCredentials.json&quot;</span><span class="p">;</span>
+
+  <span class="o">/**</span>
+   <span class="o">*</span> <span class="n">Entry</span> <span class="n">point</span> <span class="k">for</span> <span class="n">this</span> <span class="n">sample</span> <span class="n">client</span> <span class="n">program</span><span class="o">.</span>
+   <span class="o">*/</span>
+  <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="n">DownloadCombinedDocumentOfAgreement</span> <span class="n">client</span> <span class="o">=</span> <span class="n">new</span> <span class="n">DownloadCombinedDocumentOfAgreement</span><span class="p">();</span>
+      <span class="n">client</span><span class="o">.</span><span class="n">run</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="n">catch</span> <span class="p">(</span><span class="ne">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="n">err</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Error while retrieving combined document of agreement&quot;</span><span class="p">);</span>
+      <span class="n">e</span><span class="o">.</span><span class="n">printStackTrace</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="o">/**</span>
+   <span class="o">*</span> <span class="n">Main</span> <span class="n">work</span> <span class="n">function</span><span class="o">.</span> <span class="n">See</span> <span class="n">the</span> <span class="k">class</span> <span class="nc">comment</span> <span class="k">for</span> <span class="n">details</span><span class="o">.</span>
+   <span class="o">*/</span>
+  <span class="n">private</span> <span class="n">void</span> <span class="n">run</span><span class="p">()</span> <span class="n">throws</span> <span class="ne">Exception</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Get</span> <span class="n">oauth</span> <span class="n">access</span> <span class="n">token</span> <span class="n">to</span> <span class="n">make</span> <span class="n">further</span> <span class="n">API</span> <span class="n">calls</span><span class="o">.</span>
+    <span class="n">String</span> <span class="n">accessToken</span> <span class="o">=</span> <span class="n">RestApiOAuthTokens</span><span class="o">.</span><span class="n">getOauthAccessToken</span><span class="p">(</span><span class="n">authRequestJSONFileName</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Display</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">agreement</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">agreement</span> <span class="n">ID</span><span class="o">.</span>
+    <span class="n">JSONObject</span> <span class="n">agreementInfo</span> <span class="o">=</span> <span class="n">RestApiAgreements</span><span class="o">.</span><span class="n">getAgreementInfo</span><span class="p">(</span><span class="n">accessToken</span><span class="p">,</span> <span class="n">agreementId</span><span class="p">);</span>
+    <span class="n">String</span> <span class="n">agreementName</span> <span class="o">=</span> <span class="p">(</span><span class="n">String</span><span class="p">)</span> <span class="n">agreementInfo</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Agreement name: &quot;</span> <span class="o">+</span> <span class="n">agreementName</span><span class="p">);</span>
+
+    <span class="n">String</span> <span class="n">fileName</span> <span class="o">=</span> <span class="n">agreementName</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">System</span><span class="o">.</span><span class="n">currentTimeMillis</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.pdf&quot;</span><span class="p">;</span>
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Saving combined document of agreement &#39;&quot;</span> <span class="o">+</span> <span class="n">fileName</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Make</span> <span class="n">API</span> <span class="n">call</span> <span class="n">to</span> <span class="n">get</span> <span class="n">audit</span> <span class="n">trail</span> <span class="n">of</span> <span class="n">this</span> <span class="n">agreement</span><span class="o">.</span>
+    <span class="n">byte</span> <span class="n">auditStream</span><span class="p">[]</span> <span class="o">=</span> <span class="n">RestApiAgreements</span><span class="o">.</span><span class="n">getAgreementCombinedBytes</span><span class="p">(</span><span class="n">accessToken</span><span class="p">,</span> <span class="n">agreementId</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">auditStream</span> <span class="o">!=</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">boolean</span> <span class="n">success</span> <span class="o">=</span> <span class="n">FileUtils</span><span class="o">.</span><span class="n">saveToFile</span><span class="p">(</span><span class="n">auditStream</span><span class="p">,</span> <span class="n">FileUtils</span><span class="o">.</span><span class="n">AGREEMENT_COMBINED_DOC_OUTPUT_PATH</span><span class="p">,</span> <span class="n">fileName</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">success</span><span class="p">)</span>
+        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Successfully saved combined document of agreement in &#39;&quot;</span> <span class="o">+</span> <span class="n">FileUtils</span><span class="o">.</span><span class="n">AGREEMENT_COMBINED_DOC_OUTPUT_PATH</span> <span class="o">+</span> <span class="s2">&quot;&#39;.&quot;</span><span class="p">);</span>
+      <span class="k">else</span>
+        <span class="n">System</span><span class="o">.</span><span class="n">err</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">RestError</span><span class="o">.</span><span class="n">FILE_NOT_SAVED</span><span class="o">.</span><span class="n">errMessage</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="n">err</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Error while retrieving combined document of agreement: &quot;</span> <span class="o">+</span> <span class="n">agreementName</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="download-documents-from-an-agreement">
+<h2>Download Documents from an Agreement<a class="headerlink" href="#download-documents-from-an-agreement" title="Permalink to this headline">¶</a></h2>
+<p>This sample client demonstrates how to to download documents from a specified agreement.</p>
+<p><strong>IMPORTANT:</strong></p>
+<ol class="arabic simple">
+<li><p>Before running this sample, check that you have modified the JSON file OAuthCredentials.json with appropriate values. Which values need to be specified is indicated in the file.</p></li>
+<li><p>You can also provide your OAuth access token in the <code class="docutils literal notranslate"><span class="pre">OAUTH_ACCESS_TOKEN</span></code> constant in the <code class="docutils literal notranslate"><span class="pre">RestApiOAuthTokens</span></code> class, which will then be used as the OAuth access token for making API calls.</p></li>
+<li><p>You can also provide a refresh token in the <code class="docutils literal notranslate"><span class="pre">OAUTH_REFRESH_TOKEN</span> <span class="pre">constant</span></code> in the <code class="docutils literal notranslate"><span class="pre">RestApiOAuthTokens</span></code> class to refresh the OAuth access token.</p></li>
+<li><p>Make sure that you have specified a valid agreement ID in <code class="docutils literal notranslate"><span class="pre">agreementId</span></code> below.</p></li>
+<li><p>Check that the default output location in the field <code class="docutils literal notranslate"><span class="pre">OUTPUT_PATH</span></code> of FileUtils.java is suitable.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>package adobesign.api.rest.sample;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import adobesign.api.rest.sample.util.FileUtils;
+import adobesign.api.rest.sample.util.RestApiAgreements;
+import adobesign.api.rest.sample.util.RestApiOAuthTokens;
+import adobesign.api.rest.sample.util.RestError;
+
+ ```java
+public class DownloadDocumentsOfAgreement {
+  // TODO: Enter a valid agreement ID. Please refer to the &quot;agreements&quot; end-point in the API documentation to learn how to obtain IDs of
+  // agreements present in Adobe Sign.
+  private static String agreementId = &quot;a valid agreement ID&quot;;
+
+  // File containing request body to get an access token.
+  private static final String authRequestJSONFileName = &quot;OAuthCredentials.json&quot;;
+
+  /**
+   * Entry point for this sample client program.
+   */
+  public static void main(String args[]) {
+    try {
+      DownloadDocumentsOfAgreement client = new DownloadDocumentsOfAgreement();
+      client.run();
+    }
+    catch (Exception e) {
+      System.err.println(&quot;Error while retrieving documents of the agreement&quot;);
+      e.printStackTrace();
+    }
+  }
+
+  /**
+   * Main work function. See the class comment for details.
+   */
+  private void run() throws Exception {
+    // Get oauth access token to make further API calls.
+    String accessToken = RestApiOAuthTokens.getOauthAccessToken(authRequestJSONFileName);
+
+    // Display name of the agreement associated with the specified agreement ID.
+    JSONObject agreementInfo = RestApiAgreements.getAgreementInfo(accessToken, agreementId);
+    String agreementName = (String) agreementInfo.get(&quot;name&quot;);
+    System.out.println(&quot;Agreement name: &quot; + agreementName);
+
+    // Fetch list of documents associated with the specified agreement.
+    JSONObject docJson = RestApiAgreements.getAgreementDocuments(accessToken, agreementId);
+    JSONArray documentList = (JSONArray) docJson.get(&quot;documents&quot;);
+
+    for (Object eachDocument : documentList) {
+      JSONObject document = (JSONObject) eachDocument;
+
+      // Get ID and name of each document.
+      String documentId = (String) document.get(&quot;id&quot;);
+      String documentName = (String) document.get(&quot;name&quot;);
+
+      // Generate a running file name for storing locally. Note that in practice the document may not be a PDF file (e.g. the API call
+      // requested the document in its original format) and document name itself might contain an extension. For simplicity we ignore
+      // these possibilities.
+      String fileName = documentName + &quot;_&quot; + System.currentTimeMillis() + &quot;.pdf&quot;;
+      System.out.println(&quot;Saving document &#39;&quot; + fileName + &quot;&#39;&quot;);
+
+      // Download and save these documents.
+      byte docStream[] = RestApiAgreements.getDocumentBytes(accessToken, agreementId, documentId);
+      if (docStream != null) {
+        boolean success = FileUtils.saveToFile(docStream, FileUtils.AGREEMENT_DOCS_OUTPUT_PATH, fileName);
+        if (success)
+          System.out.println(&quot;Successfully saved document in &#39;&quot; + FileUtils.AGREEMENT_DOCS_OUTPUT_PATH + &quot;&#39;.&quot;);
+        else
+          System.err.println(RestError.FILE_NOT_SAVED.errMessage);
+      }
+      else {
+        System.err.println(&quot;Error while retrieving documents of the agreement: &quot; + agreementName);
+      }
+    }
+  }
+
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-an-agreements-status">
+<h2>Get an Agreement’s Status<a class="headerlink" href="#get-an-agreements-status" title="Permalink to this headline">¶</a></h2>
+<p>This sample client demonstrates how to to get status of all agreements of an account and display their agreement ID, name and status.</p>
+<p><strong>IMPORTANT:</strong></p>
+<ol class="arabic simple">
+<li><p>Before running this sample, check that you have modified the JSON file OAuthCredentials.json with appropriate values. Which values need to be specified is indicated in the file.</p></li>
+<li><p>You can also provide your OAuth access token in the <code class="docutils literal notranslate"><span class="pre">OAUTH_ACCESS_TOKEN</span></code> constant in the <code class="docutils literal notranslate"><span class="pre">RestApiOAuthTokens</span></code> class, which will then be used as the OAuth access token for making API calls.</p></li>
+<li><p>You can also provide a refresh token in the <code class="docutils literal notranslate"><span class="pre">OAUTH_REFRESH_TOKEN</span> <span class="pre">constant</span></code> in the <code class="docutils literal notranslate"><span class="pre">RestApiOAuthTokens</span></code> class to refresh the OAuth access token.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">adobesign</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">rest</span><span class="o">.</span><span class="n">sample</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestApiAgreements</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestApiOAuthTokens</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.json.simple.JSONArray</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.json.simple.JSONObject</span><span class="p">;</span>
+
+<span class="n">public</span> <span class="k">class</span> <span class="nc">GetStatusOfAgreements</span> <span class="p">{</span>
+  <span class="o">//</span> <span class="n">File</span> <span class="n">containing</span> <span class="n">request</span> <span class="n">body</span> <span class="n">to</span> <span class="n">get</span> <span class="n">an</span> <span class="n">access</span> <span class="n">token</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">final</span> <span class="n">String</span> <span class="n">authRequestJSONFileName</span> <span class="o">=</span> <span class="s2">&quot;OAuthCredentials.json&quot;</span><span class="p">;</span>
+
+  <span class="o">/**</span>
+   <span class="o">*</span> <span class="n">Entry</span> <span class="n">point</span> <span class="k">for</span> <span class="n">this</span> <span class="n">sample</span> <span class="n">client</span> <span class="n">program</span><span class="o">.</span>
+   <span class="o">*/</span>
+  <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="n">GetStatusOfAgreements</span> <span class="n">client</span> <span class="o">=</span> <span class="n">new</span> <span class="n">GetStatusOfAgreements</span><span class="p">();</span>
+      <span class="n">client</span><span class="o">.</span><span class="n">run</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="n">catch</span> <span class="p">(</span><span class="ne">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="n">err</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Failure in getting status of the agreements.&quot;</span><span class="p">);</span>
+      <span class="n">e</span><span class="o">.</span><span class="n">printStackTrace</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="o">/**</span>
+   <span class="o">*</span> <span class="n">Main</span> <span class="n">work</span> <span class="n">function</span><span class="o">.</span> <span class="n">See</span> <span class="n">the</span> <span class="k">class</span> <span class="nc">comment</span> <span class="k">for</span> <span class="n">details</span><span class="o">.</span>
+   <span class="o">*/</span>
+  <span class="n">private</span> <span class="n">void</span> <span class="n">run</span><span class="p">()</span> <span class="n">throws</span> <span class="ne">Exception</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Get</span> <span class="n">oauth</span> <span class="n">access</span> <span class="n">token</span> <span class="n">to</span> <span class="n">make</span> <span class="n">further</span> <span class="n">API</span> <span class="n">calls</span><span class="o">.</span>
+    <span class="n">String</span> <span class="n">accessToken</span> <span class="o">=</span> <span class="n">RestApiOAuthTokens</span><span class="o">.</span><span class="n">getOauthAccessToken</span><span class="p">(</span><span class="n">authRequestJSONFileName</span><span class="p">);</span>
+
+    <span class="n">JSONArray</span> <span class="n">agreementList</span> <span class="o">=</span> <span class="n">RestApiAgreements</span><span class="o">.</span><span class="n">getMyAgreements</span><span class="p">(</span><span class="n">accessToken</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">agreementList</span> <span class="o">!=</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="p">(</span><span class="n">Object</span> <span class="n">eachAgreement</span> <span class="p">:</span> <span class="n">agreementList</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">JSONObject</span> <span class="n">agreement</span> <span class="o">=</span> <span class="p">(</span><span class="n">JSONObject</span><span class="p">)</span> <span class="n">eachAgreement</span><span class="p">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;AgreementName: &quot;</span> <span class="o">+</span> <span class="n">agreement</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">));</span>
+        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;AgreementID: &quot;</span> <span class="o">+</span> <span class="n">agreement</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">));</span>
+        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;AgreementStatus: &quot;</span> <span class="o">+</span> <span class="n">agreement</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">));</span>
+        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">();</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-an-agreements-signing-url">
+<h2>Get an Agreement’s Signing URL<a class="headerlink" href="#get-an-agreements-signing-url" title="Permalink to this headline">¶</a></h2>
+<p>This sample client demonstrates how to to get the signing URL for an agreement.</p>
+<p><strong>IMPORTANT:</strong></p>
+<ol class="arabic simple">
+<li><p>Before running this sample, check that you have modified the JSON file OAuthCredentials.json with appropriate values. Which values need to be specified is indicated in the file.</p></li>
+<li><p>You can also provide your OAuth access token in the <code class="docutils literal notranslate"><span class="pre">OAUTH_ACCESS_TOKEN</span></code> constant in the <code class="docutils literal notranslate"><span class="pre">RestApiOAuthTokens</span></code> class, which will then be used as the OAuth access token for making API calls.</p></li>
+<li><p>You can also provide a refresh token in the <code class="docutils literal notranslate"><span class="pre">OAUTH_REFRESH_TOKEN</span> <span class="pre">constant</span></code> in the <code class="docutils literal notranslate"><span class="pre">RestApiOAuthTokens</span></code> class to refresh the OAuth access token.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">adobesign</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">rest</span><span class="o">.</span><span class="n">sample</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestApiAgreements</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestApiOAuthTokens</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.json.simple.JSONArray</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.json.simple.JSONObject</span><span class="p">;</span>
+
+<span class="n">public</span> <span class="k">class</span> <span class="nc">GetSigningUrlForAnAgreement</span> <span class="p">{</span>
+  <span class="o">//</span> <span class="n">TODO</span><span class="p">:</span> <span class="n">Enter</span> <span class="n">a</span> <span class="n">valid</span> <span class="n">agreement</span> <span class="n">ID</span><span class="o">.</span> <span class="n">Please</span> <span class="n">refer</span> <span class="n">to</span> <span class="n">the</span> <span class="s2">&quot;agreements&quot;</span> <span class="n">end</span><span class="o">-</span><span class="n">point</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">API</span> <span class="n">documentation</span> <span class="n">to</span> <span class="n">learn</span> <span class="n">how</span> <span class="n">to</span> <span class="n">obtain</span> <span class="n">IDs</span> <span class="n">of</span>
+  <span class="o">//</span> <span class="n">agreements</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">Adobe</span> <span class="n">Sign</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">String</span> <span class="n">agreementId</span> <span class="o">=</span> <span class="s2">&quot;a valid agreement ID&quot;</span><span class="p">;</span>
+
+  <span class="o">//</span> <span class="n">File</span> <span class="n">containing</span> <span class="n">request</span> <span class="n">body</span> <span class="n">to</span> <span class="n">get</span> <span class="n">an</span> <span class="n">access</span> <span class="n">token</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">final</span> <span class="n">String</span> <span class="n">authRequestJSONFileName</span> <span class="o">=</span> <span class="s2">&quot;OAuthCredentials.json&quot;</span><span class="p">;</span>
+
+  <span class="o">/**</span>
+   <span class="o">*</span> <span class="n">Entry</span> <span class="n">point</span> <span class="k">for</span> <span class="n">this</span> <span class="n">sample</span> <span class="n">client</span> <span class="n">program</span><span class="o">.</span>
+   <span class="o">*/</span>
+  <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="n">GetSigningUrlForAnAgreement</span> <span class="n">client</span> <span class="o">=</span> <span class="n">new</span> <span class="n">GetSigningUrlForAnAgreement</span><span class="p">();</span>
+      <span class="n">client</span><span class="o">.</span><span class="n">run</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="n">catch</span> <span class="p">(</span><span class="ne">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="n">err</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Failure in getting signing urls of the agreement.&quot;</span><span class="p">);</span>
+      <span class="n">e</span><span class="o">.</span><span class="n">printStackTrace</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="o">/**</span>
+   <span class="o">*</span> <span class="n">Main</span> <span class="n">work</span> <span class="n">function</span><span class="o">.</span> <span class="n">See</span> <span class="n">the</span> <span class="k">class</span> <span class="nc">comment</span> <span class="k">for</span> <span class="n">details</span><span class="o">.</span>
+   <span class="o">*/</span>
+  <span class="n">private</span> <span class="n">void</span> <span class="n">run</span><span class="p">()</span> <span class="n">throws</span> <span class="ne">Exception</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Get</span> <span class="n">oauth</span> <span class="n">access</span> <span class="n">token</span> <span class="n">to</span> <span class="n">make</span> <span class="n">further</span> <span class="n">API</span> <span class="n">calls</span><span class="o">.</span>
+    <span class="n">String</span> <span class="n">accessToken</span> <span class="o">=</span> <span class="n">RestApiOAuthTokens</span><span class="o">.</span><span class="n">getOauthAccessToken</span><span class="p">(</span><span class="n">authRequestJSONFileName</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Display</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">agreement</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">agreement</span> <span class="n">ID</span><span class="o">.</span>
+    <span class="n">JSONObject</span> <span class="n">agreementInfo</span> <span class="o">=</span> <span class="n">RestApiAgreements</span><span class="o">.</span><span class="n">getAgreementInfo</span><span class="p">(</span><span class="n">accessToken</span><span class="p">,</span> <span class="n">agreementId</span><span class="p">);</span>
+    <span class="n">String</span> <span class="n">agreementName</span> <span class="o">=</span> <span class="p">(</span><span class="n">String</span><span class="p">)</span> <span class="n">agreementInfo</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Agreement name: &quot;</span> <span class="o">+</span> <span class="n">agreementName</span><span class="p">);</span>
+
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Fetching signing url&quot;</span><span class="p">);</span>
+
+    <span class="n">JSONObject</span> <span class="n">response</span> <span class="o">=</span> <span class="n">RestApiAgreements</span><span class="o">.</span><span class="n">getSigningUrl</span><span class="p">(</span><span class="n">accessToken</span><span class="p">,</span> <span class="n">agreementId</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">response</span> <span class="o">!=</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">JSONArray</span> <span class="n">signingUrlSetInfos</span> <span class="o">=</span> <span class="p">(</span><span class="n">JSONArray</span><span class="p">)</span> <span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;signingUrlSetInfos&quot;</span><span class="p">);</span>
+      <span class="k">for</span> <span class="p">(</span><span class="n">Object</span> <span class="n">eachSigningUrlSet</span> <span class="p">:</span> <span class="n">signingUrlSetInfos</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">JSONObject</span> <span class="n">signingUrlSetInfo</span> <span class="o">=</span> <span class="p">(</span><span class="n">JSONObject</span><span class="p">)</span><span class="n">eachSigningUrlSet</span><span class="p">;</span>
+        <span class="n">JSONArray</span> <span class="n">signingUrls</span> <span class="o">=</span> <span class="p">(</span><span class="n">JSONArray</span><span class="p">)</span> <span class="n">signingUrlSetInfo</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;signingUrls&quot;</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Object</span> <span class="n">eachSigningUrl</span> <span class="p">:</span> <span class="n">signingUrls</span><span class="p">)</span> <span class="p">{</span>
+          <span class="n">JSONObject</span> <span class="n">signingUrl</span> <span class="o">=</span> <span class="p">(</span><span class="n">JSONObject</span><span class="p">)</span> <span class="n">eachSigningUrl</span><span class="p">;</span>
+          <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Signer Email: &quot;</span> <span class="o">+</span> <span class="n">signingUrl</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span><span class="p">);</span>
+          <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Signing Url: &quot;</span> <span class="o">+</span> <span class="n">signingUrl</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;esignUrl&quot;</span><span class="p">));</span>
+          <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">();</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;API User is not the current signer or sender of agreement: &quot;</span> <span class="o">+</span> <span class="n">agreementName</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="send-reminders-to-participants">
+<h2>Send Reminders to Participants<a class="headerlink" href="#send-reminders-to-participants" title="Permalink to this headline">¶</a></h2>
+<p>This sample client demonstrates how to send reminders to active participants (those who are next in line in the signing process) of various agreements. It retrieves all agreements of the current API user and checks to see which agreements are out for signature, and if any of them has a participant that has not signed for longer than a specified amount of time. If the time limit has been crossed, all active articipants of that agreement are sent a reminder email.</p>
+<p><strong>IMPORTANT:</strong></p>
+<ol class="arabic simple">
+<li><p>Before running this sample, check that you have modified the JSON files OAuthCredentials.json and SendReminder.json with appropriate values. Which values need to be specified is indicated in the files.</p></li>
+<li><p>You can also provide your OAuth access token in the <code class="docutils literal notranslate"><span class="pre">OAUTH_ACCESS_TOKEN</span></code> constant in the <code class="docutils literal notranslate"><span class="pre">RestApiOAuthTokens</span></code> class, which will then be used as the OAuth access token for making API calls.</p></li>
+<li><p>You can also provide a refresh token in the <code class="docutils literal notranslate"><span class="pre">OAUTH_REFRESH_TOKEN</span> <span class="pre">constant</span></code> in the <code class="docutils literal notranslate"><span class="pre">RestApiOAuthTokens</span></code> class to refresh the OAuth access token.</p></li>
+<li><p>The constant <code class="docutils literal notranslate"><span class="pre">WAITING_TIME_LIMIT</span></code> below determines how long a participant needs to have been waiting before a reminder becomes necessary. Any suitable value can be set here.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">adobesign</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">rest</span><span class="o">.</span><span class="n">sample</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Date</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestApiAgreements</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestApiOAuthTokens</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestError</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.json.simple.JSONArray</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.json.simple.JSONObject</span><span class="p">;</span>
+
+<span class="n">public</span> <span class="k">class</span> <span class="nc">SendRemindersForAgreement</span> <span class="p">{</span>
+  <span class="o">//</span> <span class="n">TODO</span><span class="p">:</span> <span class="n">Enter</span> <span class="n">a</span> <span class="n">valid</span> <span class="n">agreement</span> <span class="n">ID</span><span class="o">.</span> <span class="n">Please</span> <span class="n">refer</span> <span class="n">to</span> <span class="n">the</span> <span class="s2">&quot;agreements&quot;</span> <span class="n">end</span><span class="o">-</span><span class="n">point</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">API</span> <span class="n">documentation</span> <span class="n">to</span> <span class="n">learn</span> <span class="n">how</span> <span class="n">to</span> <span class="n">obtain</span> <span class="n">IDs</span> <span class="n">of</span>
+  <span class="o">//</span> <span class="n">agreements</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">Adobe</span> <span class="n">Sign</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">String</span> <span class="n">agreementId</span> <span class="o">=</span> <span class="s2">&quot;CBJCHBCAABAAEv-2_cscgcFJYHuloiuAf7eEiQ2WnYbB&quot;</span><span class="p">;</span>
+
+  <span class="o">//</span> <span class="n">How</span> <span class="n">long</span> <span class="n">a</span> <span class="n">participant</span> <span class="n">needs</span> <span class="n">to</span> <span class="n">have</span> <span class="n">been</span> <span class="n">waiting</span> <span class="p">(</span><span class="ow">in</span> <span class="n">milliseconds</span><span class="p">)</span> <span class="n">before</span> <span class="n">we</span> <span class="n">can</span> <span class="n">send</span> <span class="n">them</span> <span class="n">a</span> <span class="n">reminder</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">final</span> <span class="n">long</span> <span class="n">MILLISECS_PER_DAY</span> <span class="o">=</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">long</span> <span class="n">WAITING_TIME_LIMIT</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">MILLISECS_PER_DAY</span><span class="p">;</span> <span class="o">//</span> <span class="n">one</span> <span class="n">day</span>
+
+  <span class="o">//</span> <span class="n">JSON</span> <span class="n">resource</span> <span class="n">file</span> <span class="n">used</span> <span class="n">to</span> <span class="n">obtain</span> <span class="n">an</span> <span class="n">access</span> <span class="n">token</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">final</span> <span class="n">String</span> <span class="n">authRequestJsonFileName</span> <span class="o">=</span> <span class="s2">&quot;OAuthCredentials.json&quot;</span><span class="p">;</span>
+
+  <span class="o">//</span> <span class="n">JSON</span> <span class="n">resource</span> <span class="n">file</span> <span class="n">used</span> <span class="n">to</span> <span class="n">specify</span> <span class="n">the</span> <span class="n">agreement</span> <span class="k">for</span> <span class="n">which</span> <span class="n">to</span> <span class="n">send</span> <span class="n">reminders</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">final</span> <span class="n">static</span> <span class="n">String</span> <span class="n">sendReminderJsonFileName</span> <span class="o">=</span> <span class="s2">&quot;SendReminder.json&quot;</span><span class="p">;</span>
+
+  <span class="o">/**</span>
+   <span class="o">*</span> <span class="n">Entry</span> <span class="n">point</span> <span class="k">for</span> <span class="n">this</span> <span class="n">sample</span> <span class="n">client</span> <span class="n">program</span><span class="o">.</span>
+   <span class="o">*/</span>
+  <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="n">SendRemindersForAgreement</span> <span class="n">client</span> <span class="o">=</span> <span class="n">new</span> <span class="n">SendRemindersForAgreement</span><span class="p">();</span>
+      <span class="n">client</span><span class="o">.</span><span class="n">run</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="n">catch</span> <span class="p">(</span><span class="ne">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="n">err</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">RestError</span><span class="o">.</span><span class="n">SEND_REMINDER_ERROR</span><span class="o">.</span><span class="n">errMessage</span><span class="p">);</span>
+      <span class="n">e</span><span class="o">.</span><span class="n">printStackTrace</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="o">/**</span>
+   <span class="o">*</span> <span class="n">Main</span> <span class="n">work</span> <span class="n">function</span><span class="o">.</span> <span class="n">See</span> <span class="n">the</span> <span class="k">class</span> <span class="nc">comment</span> <span class="k">for</span> <span class="n">details</span><span class="o">.</span>
+   <span class="o">*/</span>
+  <span class="n">private</span> <span class="n">void</span> <span class="n">run</span><span class="p">()</span> <span class="n">throws</span> <span class="ne">Exception</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Get</span> <span class="n">the</span> <span class="n">current</span> <span class="n">system</span> <span class="n">date</span><span class="o">.</span>
+    <span class="n">Date</span> <span class="n">now</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Date</span><span class="p">();</span>
+
+    <span class="o">//</span> <span class="n">Fetch</span> <span class="n">oauth</span> <span class="n">access</span> <span class="n">token</span> <span class="n">to</span> <span class="n">make</span> <span class="n">further</span> <span class="n">API</span> <span class="n">calls</span><span class="o">.</span>
+    <span class="n">String</span> <span class="n">accessToken</span> <span class="o">=</span> <span class="n">RestApiOAuthTokens</span><span class="o">.</span><span class="n">getOauthAccessToken</span><span class="p">(</span><span class="n">authRequestJsonFileName</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Display</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">agreement</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">agreement</span> <span class="n">ID</span><span class="o">.</span>
+    <span class="n">JSONObject</span> <span class="n">agreement</span> <span class="o">=</span> <span class="n">RestApiAgreements</span><span class="o">.</span><span class="n">getAgreementInfo</span><span class="p">(</span><span class="n">accessToken</span><span class="p">,</span> <span class="n">agreementId</span><span class="p">);</span>
+    <span class="n">String</span> <span class="n">agreementName</span> <span class="o">=</span> <span class="p">(</span><span class="n">String</span><span class="p">)</span> <span class="n">agreement</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Agreement name: &quot;</span> <span class="o">+</span> <span class="n">agreementName</span><span class="p">);</span>
+
+    <span class="n">sendRemindersForAgreement</span><span class="p">(</span><span class="n">accessToken</span><span class="p">,</span> <span class="n">agreement</span><span class="p">,</span> <span class="n">now</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="o">/**</span>
+   <span class="o">*</span> <span class="n">Sends</span> <span class="n">reminders</span> <span class="n">to</span> <span class="n">active</span> <span class="n">participants</span> <span class="n">of</span> <span class="n">an</span> <span class="n">agreement</span> <span class="k">if</span> <span class="nb">any</span> <span class="n">of</span> <span class="n">them</span> <span class="ow">is</span> <span class="n">taking</span> <span class="n">too</span> <span class="n">long</span> <span class="n">to</span> <span class="n">sign</span><span class="o">.</span>
+   <span class="o">*</span>
+   <span class="o">*</span> <span class="nd">@param</span> <span class="n">accessToken</span> <span class="n">Access</span> <span class="n">token</span> <span class="n">of</span> <span class="n">the</span> <span class="n">user</span><span class="o">.</span>
+   <span class="o">*</span> <span class="nd">@param</span> <span class="n">agreement</span> <span class="n">JSON</span> <span class="nb">object</span> <span class="n">representing</span> <span class="n">an</span> <span class="n">agreement</span><span class="o">.</span>
+   <span class="o">*</span> <span class="nd">@param</span> <span class="n">now</span> <span class="n">Current</span> <span class="n">time</span><span class="o">.</span>
+   <span class="o">*</span> <span class="nd">@throws</span> <span class="ne">Exception</span>
+   <span class="o">*/</span>
+  <span class="n">private</span> <span class="n">void</span> <span class="n">sendRemindersForAgreement</span><span class="p">(</span><span class="n">String</span> <span class="n">accessToken</span><span class="p">,</span> <span class="n">JSONObject</span> <span class="n">agreement</span><span class="p">,</span> <span class="n">Date</span> <span class="n">now</span><span class="p">)</span> <span class="n">throws</span> <span class="ne">Exception</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">For</span> <span class="n">the</span> <span class="n">given</span> <span class="n">agreement</span><span class="p">,</span> <span class="n">get</span> <span class="n">the</span> <span class="nb">list</span> <span class="n">of</span> <span class="nb">next</span> <span class="p">(</span><span class="ow">in</span> <span class="n">line</span><span class="p">)</span> <span class="n">participants</span><span class="o">.</span>
+    <span class="n">String</span> <span class="n">agreementId</span> <span class="o">=</span> <span class="p">(</span><span class="n">String</span><span class="p">)</span> <span class="n">agreement</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">);</span>
+    <span class="n">JSONArray</span> <span class="n">nextParticipantList</span> <span class="o">=</span> <span class="n">getNextParticipantInfos</span><span class="p">(</span><span class="n">accessToken</span><span class="p">,</span> <span class="n">agreementId</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">nextParticipantList</span> <span class="o">==</span> <span class="n">null</span><span class="p">)</span>
+      <span class="k">return</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">For</span> <span class="n">each</span> <span class="nb">next</span><span class="o">/</span><span class="n">active</span> <span class="n">participant</span><span class="p">,</span> <span class="n">check</span> <span class="k">if</span> <span class="n">her</span> <span class="n">waiting</span> <span class="n">time</span> <span class="n">exceeds</span> <span class="n">the</span> <span class="n">limit</span> <span class="ow">and</span> <span class="k">if</span> <span class="n">so</span> <span class="n">send</span> <span class="n">a</span> <span class="n">reminder</span><span class="o">.</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">Object</span> <span class="n">eachNextParticipant</span> <span class="p">:</span> <span class="n">nextParticipantList</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">JSONObject</span> <span class="n">nextParticipant</span> <span class="o">=</span> <span class="p">(</span><span class="n">JSONObject</span><span class="p">)</span> <span class="n">eachNextParticipant</span><span class="p">;</span>
+
+      <span class="n">JSONArray</span> <span class="n">members</span> <span class="o">=</span> <span class="p">(</span><span class="n">JSONArray</span><span class="p">)</span><span class="n">nextParticipant</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memberInfos&quot;</span><span class="p">);</span>
+
+      <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">participantIdList</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+
+      <span class="k">for</span> <span class="p">(</span><span class="n">Object</span> <span class="n">eachMember</span> <span class="p">:</span> <span class="n">members</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">JSONObject</span> <span class="n">member</span> <span class="o">=</span> <span class="p">(</span><span class="n">JSONObject</span><span class="p">)</span><span class="n">eachMember</span><span class="p">;</span>
+        <span class="n">participantIdList</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">String</span><span class="p">)</span><span class="n">member</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">));</span>
+      <span class="p">}</span>
+
+      <span class="o">//</span> <span class="n">Time</span> <span class="n">limit</span> <span class="n">exceeded</span><span class="o">.</span> <span class="n">Send</span> <span class="n">a</span> <span class="n">reminder</span> <span class="n">to</span> <span class="nb">all</span> <span class="n">active</span> <span class="n">participants</span> <span class="n">of</span> <span class="n">the</span> <span class="n">agreement</span><span class="o">.</span>
+      <span class="n">JSONObject</span> <span class="n">reminderResponse</span> <span class="o">=</span> <span class="n">RestApiAgreements</span><span class="o">.</span><span class="n">sendReminder</span><span class="p">(</span><span class="n">accessToken</span><span class="p">,</span> <span class="n">sendReminderJsonFileName</span><span class="p">,</span> <span class="n">agreementId</span><span class="p">,</span> <span class="n">participantIdList</span><span class="p">);</span>
+
+      <span class="o">//</span> <span class="n">Parse</span> <span class="ow">and</span> <span class="n">display</span> <span class="n">result</span>
+      <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">formatResponse</span><span class="p">(</span><span class="n">reminderResponse</span><span class="p">,</span> <span class="n">agreement</span><span class="p">));</span>
+
+      <span class="o">//</span> <span class="n">All</span> <span class="n">relevant</span> <span class="n">participants</span> <span class="n">have</span> <span class="n">been</span> <span class="n">sent</span> <span class="n">a</span> <span class="n">reminder</span><span class="p">;</span> <span class="n">no</span> <span class="n">need</span> <span class="n">to</span> <span class="n">check</span> <span class="n">remaining</span> <span class="n">participants</span><span class="o">.</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="o">/**</span>
+   <span class="o">*</span> <span class="n">Gets</span> <span class="n">information</span> <span class="n">about</span> <span class="n">the</span> <span class="nb">next</span> <span class="nb">set</span> <span class="n">of</span> <span class="n">participants</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">signing</span> <span class="n">process</span> <span class="n">of</span> <span class="n">a</span> <span class="n">given</span> <span class="n">agreement</span><span class="o">.</span>
+   <span class="o">*</span>
+   <span class="o">*</span> <span class="nd">@param</span> <span class="n">accessToken</span> <span class="n">Access</span> <span class="n">token</span> <span class="n">of</span> <span class="n">the</span> <span class="n">user</span><span class="o">.</span>
+   <span class="o">*</span> <span class="nd">@param</span> <span class="n">agreementId</span> <span class="n">ID</span> <span class="n">of</span> <span class="n">the</span> <span class="n">agreement</span> <span class="ow">in</span> <span class="n">question</span><span class="o">.</span>
+   <span class="o">*</span> <span class="nd">@return</span> <span class="n">A</span> <span class="n">JSON</span> <span class="nb">object</span> <span class="n">containing</span> <span class="n">the</span> <span class="nb">list</span> <span class="n">of</span> <span class="nb">next</span> <span class="p">(</span><span class="n">active</span><span class="p">)</span> <span class="n">participants</span> <span class="n">of</span> <span class="n">this</span> <span class="n">agreement</span><span class="o">.</span>
+   <span class="o">*</span> <span class="nd">@throws</span> <span class="ne">Exception</span>
+   <span class="o">*/</span>
+  <span class="n">private</span> <span class="n">JSONArray</span> <span class="n">getNextParticipantInfos</span><span class="p">(</span><span class="n">String</span> <span class="n">accessToken</span><span class="p">,</span> <span class="n">String</span> <span class="n">agreementId</span><span class="p">)</span> <span class="n">throws</span> <span class="ne">Exception</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Get</span> <span class="n">the</span> <span class="n">agreement</span> <span class="n">information</span><span class="o">.</span>
+    <span class="n">JSONObject</span> <span class="n">agreementInfo</span> <span class="o">=</span> <span class="n">RestApiAgreements</span><span class="o">.</span><span class="n">getAgreementMembers</span><span class="p">(</span><span class="n">accessToken</span><span class="p">,</span> <span class="n">agreementId</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Retrieve</span> <span class="nb">next</span> <span class="nb">set</span> <span class="n">of</span> <span class="n">participants</span> <span class="n">of</span> <span class="n">this</span> <span class="n">agreement</span><span class="o">.</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">JSONArray</span><span class="p">)</span> <span class="n">agreementInfo</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;nextParticipantSets&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+
+  <span class="o">/**</span>
+   <span class="o">*</span> <span class="n">Formats</span> <span class="p">(</span><span class="k">for</span> <span class="n">displaying</span><span class="p">)</span> <span class="n">the</span> <span class="n">response</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">call</span> <span class="n">to</span> <span class="n">send</span> <span class="n">reminders</span><span class="o">.</span>
+   <span class="o">*</span>
+   <span class="o">*</span> <span class="nd">@param</span> <span class="n">reminderResponse</span> <span class="n">The</span> <span class="n">response</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">call</span> <span class="n">to</span> <span class="n">send</span> <span class="n">reminders</span><span class="o">.</span>
+   <span class="o">*</span> <span class="nd">@param</span> <span class="n">agreement</span> <span class="n">The</span> <span class="n">agreement</span> <span class="n">on</span> <span class="n">which</span> <span class="n">the</span> <span class="n">call</span> <span class="n">was</span> <span class="n">made</span><span class="o">.</span>
+   <span class="o">*</span> <span class="nd">@return</span> <span class="n">Formatted</span> <span class="n">response</span><span class="o">.</span>
+   <span class="o">*/</span>
+  <span class="n">private</span> <span class="n">String</span> <span class="n">formatResponse</span><span class="p">(</span><span class="n">JSONObject</span> <span class="n">reminderResponse</span><span class="p">,</span> <span class="n">JSONObject</span> <span class="n">agreement</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">&quot;Sent a reminder to the next participant in line to sign the agreement &#39;&quot;</span> <span class="o">+</span> <span class="n">agreement</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;. Result: &quot;</span>
+        <span class="o">+</span> <span class="n">reminderResponse</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="send-an-agreement-using-a-library-document">
+<h2>Send an Agreement Using a Library Document<a class="headerlink" href="#send-an-agreement-using-a-library-document" title="Permalink to this headline">¶</a></h2>
+<p>This sample client demonstrates how to send an agreement using a library document ID.</p>
+<p><strong>IMPORTANT:</strong></p>
+<ol class="arabic simple">
+<li><p>Before running this sample, check that you have modified the JSON file OAuthCredentials.json with appropriate values. Which values need to be specified is indicated in the file.</p></li>
+<li><p>You can also provide your OAuth access token in the <code class="docutils literal notranslate"><span class="pre">OAUTH_ACCESS_TOKEN</span></code> constant in the <code class="docutils literal notranslate"><span class="pre">RestApiOAuthTokens</span></code> class, which will then be used as the OAuth access token for making API calls.</p></li>
+<li><p>You can also provide a refresh token in the <code class="docutils literal notranslate"><span class="pre">OAUTH_REFRESH_TOKEN</span> <span class="pre">constant</span></code> in the <code class="docutils literal notranslate"><span class="pre">RestApiOAuthTokens</span></code> class to refresh the OAuth access token.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>package adobesign.api.rest.sample;
+
+import adobesign.api.rest.sample.util.RestApiAgreements;
+import adobesign.api.rest.sample.util.RestApiLibraryDocuments;
+import adobesign.api.rest.sample.util.RestApiOAuthTokens;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+public class SendAgreementUsingLibraryDocument {
+  // File containing the request JSON for fetching access token.
+  private static final String authRequestJSONFileName = &quot;OAuthCredentials.json&quot;;
+
+  // File containing the request JSON for sending an agreement.
+  private static final String sendAgreementJSONFileName = &quot;SendAgreement.json&quot;;
+
+  /**
+   * Entry point for this sample client program.
+   */
+  public static void main(String args[]) {
+    try {
+      SendAgreementUsingLibraryDocument client = new SendAgreementUsingLibraryDocument();
+      client.run();
+    }
+    catch (Exception e) {
+      System.err.println(&quot;Failure in sending the agreemnet using the library document ID specified.&quot;);
+      e.printStackTrace();
+    }
+  }
+
+  /**
+   * Execution of this sample client program.
+   */
+  private void run() throws Exception {
+    // Fetch oauth access token to make further API calls.
+    String accessToken = RestApiOAuthTokens.getOauthAccessToken(authRequestJSONFileName);
+
+    // Fetch library documents of the user using access token from above.
+    JSONObject libraryDocumentsResponse = RestApiLibraryDocuments.getLibraryDocuments(accessToken);
+
+    // Retrieve library documents list for the user and fetch the ID of first library document.
+    JSONArray libraryDocumentList = (JSONArray) libraryDocumentsResponse.get(&quot;libraryDocumentList&quot;);
+
+    String libraryDocumentId = null;
+
+    // Fetch the first personal or shared library document of the user.
+    for (Object eachLibraryDocument : libraryDocumentList) {
+      JSONObject libraryDocument = (JSONObject) eachLibraryDocument;
+      if (libraryDocument.get(&quot;sharingMode&quot;).equals(&quot;ACCOUNT&quot;) || libraryDocument.get(&quot;sharingMode&quot;).equals(&quot;GROUP&quot;) || libraryDocument.get(&quot;sharingMode&quot;).equals(&quot;USER&quot;)) {
+        libraryDocumentId = (String) libraryDocument.get(&quot;id&quot;);
+        break;
+      }
+    }
+
+    if (libraryDocumentId != null &amp;&amp; !libraryDocumentId.isEmpty()) {
+      // Send agreement using this library document ID retrieved from above.
+      JSONObject sendAgreementResponse = RestApiAgreements.sendAgreement(accessToken, sendAgreementJSONFileName, libraryDocumentId,
+                                                                         RestApiAgreements.DocumentIdentifierName.LIBRARY_DOCUMENT_ID);
+
+      // Parse and read response.
+      System.out.println(&quot;Agreement Sent. Agreement ID = &quot; + sendAgreementResponse.get(&quot;id&quot;));
+    }
+    else {
+      System.err.println(&quot;No library documents found.&quot;);
+    }
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="send-an-agreement-using-a-transient-document">
+<h2>Send an Agreement Using a Transient Document<a class="headerlink" href="#send-an-agreement-using-a-transient-document" title="Permalink to this headline">¶</a></h2>
+<p>This sample client demonstrates how to send an agreement using a transient document ID. See the postTransientDocument method in the file /util/RestApiAgreements.java for a definition of transient documents.</p>
+<p><strong>IMPORTANT:</strong></p>
+<ol class="arabic simple">
+<li><p>Before running this sample, check that you have modified the JSON files OAuthCredentials.json and SendAgreement.json with appropriate values. Which values need to be specified is indicated in the files.</p></li>
+<li><p>You can also provide your OAuth access token in the <code class="docutils literal notranslate"><span class="pre">OAUTH_ACCESS_TOKEN</span></code> constant in the <code class="docutils literal notranslate"><span class="pre">RestApiOAuthTokens</span></code> class, which will then be used as the OAuth access token for making API calls.</p></li>
+<li><p>You can also provide a refresh token in the <code class="docutils literal notranslate"><span class="pre">OAUTH_REFRESH_TOKEN</span> <span class="pre">constant</span></code> in the <code class="docutils literal notranslate"><span class="pre">RestApiOAuthTokens</span></code> class to refresh the OAuth access token.</p></li>
+<li><p>Check that the default input file in the field <code class="docutils literal notranslate"><span class="pre">fileToBeUploaded</span></code> below is suitable.</p></li>
+<li><p>Check that the name to be given to the uploaded file in the field <code class="docutils literal notranslate"><span class="pre">uploadedFileName</span></code> below is suitable. This name can be different from the original file name.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">adobesign</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">rest</span><span class="o">.</span><span class="n">sample</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.json.simple.JSONObject</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestApiAgreements</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestApiOAuthTokens</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestApiUtils</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">adobesign.api.rest.sample.util.RestApiAgreements.DocumentIdentifierName</span><span class="p">;</span>
+
+<span class="n">public</span> <span class="k">class</span> <span class="nc">SendAgreementUsingTransientDocument</span> <span class="p">{</span>
+
+  <span class="o">//</span> <span class="n">File</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">request</span> <span class="n">JSON</span> <span class="k">for</span> <span class="n">fetching</span> <span class="n">access</span> <span class="n">token</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">final</span> <span class="n">String</span> <span class="n">authRequestJSONFileName</span> <span class="o">=</span> <span class="s2">&quot;OAuthCredentials.json&quot;</span><span class="p">;</span>
+
+  <span class="o">//</span> <span class="n">File</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">request</span> <span class="n">JSON</span> <span class="k">for</span> <span class="n">sending</span> <span class="n">an</span> <span class="n">agreement</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">final</span> <span class="n">String</span> <span class="n">sendAgreementJSONFileName</span> <span class="o">=</span> <span class="s2">&quot;SendAgreement.json&quot;</span><span class="p">;</span>
+
+  <span class="o">//</span> <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span> <span class="n">to</span> <span class="n">be</span> <span class="n">uploaded</span> <span class="k">for</span> <span class="n">sending</span> <span class="n">an</span> <span class="n">agreement</span><span class="o">.</span>
+  <span class="o">//</span> <span class="n">TODO</span><span class="p">:</span> <span class="n">Specify</span> <span class="n">file</span> <span class="n">name</span> <span class="n">of</span> <span class="n">choice</span> <span class="n">here</span><span class="o">.</span> <span class="n">The</span> <span class="n">file</span> <span class="n">must</span> <span class="n">exist</span> <span class="ow">in</span> <span class="n">the</span> <span class="s2">&quot;requests&quot;</span> <span class="n">sub</span><span class="o">-</span><span class="n">package</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">final</span> <span class="n">String</span> <span class="n">fileToBeUploaded</span> <span class="o">=</span> <span class="s2">&quot;Sample.pdf&quot;</span><span class="p">;</span>
+
+  <span class="o">//</span> <span class="n">Mime</span><span class="o">-</span><span class="nb">type</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span> <span class="n">being</span> <span class="n">uploaded</span><span class="o">.</span>
+  <span class="o">//</span> <span class="n">TODO</span><span class="p">:</span> <span class="n">Change</span> <span class="n">this</span> <span class="n">depending</span> <span class="n">on</span> <span class="n">actual</span> <span class="n">file</span> <span class="n">used</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">final</span> <span class="n">String</span> <span class="n">mimeType</span> <span class="o">=</span> <span class="n">RestApiUtils</span><span class="o">.</span><span class="n">MimeType</span><span class="o">.</span><span class="n">PDF</span><span class="o">.</span><span class="n">toString</span><span class="p">();</span>
+
+  <span class="o">//</span> <span class="n">Name</span> <span class="n">to</span> <span class="n">be</span> <span class="n">given</span> <span class="n">to</span> <span class="n">the</span> <span class="n">file</span> <span class="n">after</span> <span class="n">uploading</span> <span class="n">it</span><span class="o">.</span>
+  <span class="o">//</span> <span class="n">TODO</span><span class="p">:</span> <span class="n">Specify</span> <span class="n">a</span> <span class="n">file</span> <span class="n">name</span> <span class="n">of</span> <span class="n">choice</span><span class="p">,</span> <span class="n">ensuring</span> <span class="n">that</span> <span class="n">its</span> <span class="n">name</span> <span class="n">consists</span> <span class="n">only</span> <span class="n">of</span> <span class="n">characters</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">ASCII</span> <span class="n">character</span> <span class="nb">set</span> <span class="p">(</span><span class="n">given</span> <span class="n">this</span> <span class="n">basic</span>
+  <span class="o">//</span> <span class="n">sample</span> <span class="n">implementation</span><span class="p">)</span><span class="o">.</span>
+  <span class="n">private</span> <span class="n">static</span> <span class="n">final</span> <span class="n">String</span> <span class="n">uploadedFileName</span> <span class="o">=</span> <span class="s2">&quot;UploadedSample.pdf&quot;</span><span class="p">;</span>
+
+  <span class="o">/**</span>
+   <span class="o">*</span> <span class="n">Entry</span> <span class="n">point</span> <span class="k">for</span> <span class="n">this</span> <span class="n">sample</span> <span class="n">client</span> <span class="n">program</span><span class="o">.</span>
+   <span class="o">*/</span>
+  <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="n">SendAgreementUsingTransientDocument</span> <span class="n">client</span> <span class="o">=</span> <span class="n">new</span> <span class="n">SendAgreementUsingTransientDocument</span><span class="p">();</span>
+      <span class="n">client</span><span class="o">.</span><span class="n">run</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="n">catch</span> <span class="p">(</span><span class="ne">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="n">err</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Failure in sending the agreement using the transient document ID.&quot;</span><span class="p">);</span>
+      <span class="n">e</span><span class="o">.</span><span class="n">printStackTrace</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="o">/**</span>
+   <span class="o">*</span> <span class="n">Main</span> <span class="n">work</span> <span class="n">function</span><span class="o">.</span> <span class="n">See</span> <span class="n">the</span> <span class="k">class</span> <span class="nc">comment</span> <span class="k">for</span> <span class="n">details</span><span class="o">.</span>
+   <span class="o">*/</span>
+  <span class="n">private</span> <span class="n">void</span> <span class="n">run</span><span class="p">()</span> <span class="n">throws</span> <span class="ne">Exception</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Fetch</span> <span class="n">oauth</span> <span class="n">access</span> <span class="n">token</span> <span class="n">to</span> <span class="n">make</span> <span class="n">further</span> <span class="n">API</span> <span class="n">calls</span><span class="o">.</span>
+    <span class="n">String</span> <span class="n">accessToken</span> <span class="o">=</span> <span class="n">RestApiOAuthTokens</span><span class="o">.</span><span class="n">getOauthAccessToken</span><span class="p">(</span><span class="n">authRequestJSONFileName</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Upload</span> <span class="n">a</span> <span class="n">transient</span> <span class="n">document</span> <span class="ow">and</span> <span class="n">retrieve</span> <span class="n">transient</span> <span class="n">document</span> <span class="n">ID</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">response</span><span class="o">.</span>
+    <span class="n">JSONObject</span> <span class="n">uploadDocumentResponse</span> <span class="o">=</span> <span class="n">RestApiAgreements</span><span class="o">.</span><span class="n">postTransientDocument</span><span class="p">(</span><span class="n">accessToken</span><span class="p">,</span> <span class="n">mimeType</span><span class="p">,</span> <span class="n">fileToBeUploaded</span><span class="p">,</span> <span class="n">uploadedFileName</span><span class="p">);</span>
+    <span class="n">String</span> <span class="n">transientDocumentId</span> <span class="o">=</span> <span class="p">(</span><span class="n">String</span><span class="p">)</span> <span class="n">uploadDocumentResponse</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;transientDocumentId&quot;</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Send</span> <span class="n">an</span> <span class="n">agreement</span> <span class="n">using</span> <span class="n">the</span> <span class="n">transient</span> <span class="n">document</span> <span class="n">ID</span> <span class="n">derived</span> <span class="kn">from</span> <span class="nn">above.</span>
+    <span class="n">DocumentIdentifierName</span> <span class="n">idName</span> <span class="o">=</span> <span class="n">DocumentIdentifierName</span><span class="o">.</span><span class="n">TRANSIENT_DOCUMENT_ID</span><span class="p">;</span>
+    <span class="n">JSONObject</span> <span class="n">sendAgreementResponse</span> <span class="o">=</span> <span class="n">RestApiAgreements</span><span class="o">.</span><span class="n">sendAgreement</span><span class="p">(</span><span class="n">accessToken</span><span class="p">,</span> <span class="n">sendAgreementJSONFileName</span><span class="p">,</span> <span class="n">transientDocumentId</span><span class="p">,</span> <span class="n">idName</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Parse</span> <span class="ow">and</span> <span class="n">read</span> <span class="n">response</span><span class="o">.</span>
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Agreement Sent. Agreement ID = &quot;</span> <span class="o">+</span> <span class="n">sendAgreementResponse</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Adobe Inc..
+      <span class="lastupdated">
+        Last update: Jan 27, 2022. 
+        <img src="../_static/adobelogo.png" class="logo"/> 
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

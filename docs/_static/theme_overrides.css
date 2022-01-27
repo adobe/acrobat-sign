@@ -1,0 +1,880 @@
+/* override table width restrictions */
+
+/* Theme Overrides */
+@font-face {
+    font-family: 'Adobe Clean';
+    src: url('./fonts/AdobeClean/AdobeClean-Medium.woff2') format('woff2'),
+        url('./fonts/AdobeClean/AdobeClean-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Adobe Clean';
+    src: url('./fonts/AdobeClean/AdobeClean-Black.woff2') format('woff2'),
+        url('./fonts/AdobeClean/AdobeClean-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Adobe Clean';
+    src: url('./fonts/AdobeClean/AdobeClean-Black.woff2') format('woff2'),
+        url('./fonts/AdobeClean/AdobeClean-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Adobe Clean';
+    src: url('./fonts/AdobeClean/AdobeClean-Regular.woff2') format('woff2'),
+        url('./fonts/AdobeClean/AdobeClean-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.wy-side-nav-search > a { 
+   color: #222; 
+   font-weight: normal; 
+   line-height: 1.3; 
+}
+
+/*
+div.shadow {	
+	-webkit-box-shadow: 4px 4px 8px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow: 4px 4px 8px 0px rgba(50, 50, 50, 0.75);
+	box-shadow: 4px 4px 8px 0px rgba(50, 50, 50, 0.75);
+	margin:2em;
+	}
+
+img {
+  max-width: 98%;
+	-webkit-box-shadow: 4px 4px 8px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow: 4px 4px 8px 0px rgba(50, 50, 50, 0.75);
+	box-shadow: 4px 4px 8px 0px rgba(50, 50, 50, 0.75);
+  margin: 1em 0 2.5em 1em
+}
+*/
+.logo {
+   margin:0; 
+   padding:0;
+   box-shadow: none;
+   border:10px;
+}
+
+a.topbarlink {
+   color: #2c2c2c;
+   font-weight: normal; 
+}
+
+td,
+td > p { font-size: 16px; }
+th > p { padding-bottom:0; margin-bottom:0; }
+
+.pre {font-size: 120%;}
+
+body {
+   background: #fff;
+   color: #2C2C2C;
+   font-family: "Adobe Clean" !important;
+   font-size: 16px;
+   font-weight: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   color: #4B4B4B;
+   font-family: inherit;
+   font-weight: 400;
+}
+
+h1 { 
+   border-bottom: 2px solid #2d2d2d;
+   font-size: 28px; 
+   margin-bottom: 20px;
+   padding-bottom: 10px;
+}
+
+h2 {
+   font-size: 24px;
+   margin-bottom: 20px;
+}
+
+h3 {
+   font-size: 22px;
+   margin-bottom: 20px;
+}
+
+p {
+   font-size: inherit;
+   line-height: 1.4;
+   margin-bottom: 20px;
+}
+
+/* ----------------------------
+ * BUTTONS
+ * ---------------------------- */
+.btn,
+.btn:active {
+   border: 2px solid #505050;
+   border-radius: 20px;
+   box-shadow: none;
+   cursor: pointer;
+   display: inline-block;
+   font-weight: normal;
+   line-height: normal;
+   outline: none;
+   padding: 6px 15px;
+   text-align: center;
+   text-decoration: none;
+   -webkit-user-drag: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+   vertical-align: middle;
+   white-space: nowrap;
+   zoom: 1;
+}
+
+.btn-neutral,
+.btn-neutral:hover {
+   background: #fff !important;
+   font-size: 14px;
+}
+
+.btn-neutral span { display: none !important; }
+
+.btn-console { background: #106DE0; border: 0; color: #fff !important; }
+.btn-console:hover { background: #0f66d0; border: 0; }
+
+/* ----------------------------
+ * HEADER
+ * ---------------------------- */
+img {
+   border: 1px solid #EAEAEA;
+}
+
+/* Adobe Sign In */
+.wy-top-menu-wrapper {
+   background: #fff;
+   font-size: 14px;
+   min-height: 50px;
+   padding: 10px 15px;
+   position: fixed;
+   z-index: 9;
+   width: 100%;
+}
+
+.wy-top-menu-wrapper a { color: #2c2c2c; position: relative; }
+
+.wy-top-menu-wrapper .logo { font-size: 16px; padding-top: 5px; }
+
+.wy-top-menu-wrapper div:nth-child(1) { float: left; }
+.wy-top-menu-wrapper div:nth-child(2) { float: right; }
+.btn-console { margin-right: 10px; }
+
+/* Needed for hiding top white bar */
+/* .wy-nav-side { top: 50px; } */
+
+.fixedbar {
+   background: #F8F8F8;
+   padding: 0;
+   margin-top: 0;
+   height: auto;
+   margin-bottom: 0;
+   position: fixed;
+   width: calc(100% - 350px);
+   z-index: 9;
+}
+
+.wy-nav-side.scroll,
+.fixedbar.scroll {
+   transition: all 300ms ease-in-out;
+}
+
+.wy-nav-side.scroll,
+.fixedbar.scroll {
+   top: 0;
+}
+
+.fixedbar .wy-menu-items a { 
+   display: inline-block;
+   font-size: 14px;
+   font-weight: 400;
+   padding: 17px 20px 20px; 
+}
+
+.fixedbar .wy-menu-items a:hover {
+   background: #E4E4E4;   
+}
+
+.fixedbar .sign-in a { color: #2c2c2c; font-size: 14px; }
+
+td > p {
+   font-size: 90%;
+}
+
+th > p {
+   padding-bottom: 0;
+   margin-bottom: 0;
+}
+
+.pre {
+   font-size: 120%;
+}
+
+.topleft {
+   background: #fff;
+   color: #2d2d2d;
+   padding: 24px;
+   font-size: 16px;
+   font-weight: bold;
+}
+
+.topleft::before {
+   background: url("./images/icon-line.jpg") top right no-repeat;
+   content: "";
+   height: 70px;
+   position: absolute;
+   right: 0;
+   top: 0;
+   width: 1px;
+}
+
+/* Adobe Logo */
+.wy-logo-wrapper a { 
+   background:#F8F8F8;  
+   color: #2c2c2c;
+   display: block;
+   font-size: 15px;
+   padding: 15px 20px 14px;
+   width: 100%;
+}
+
+.wy-logo-wrapper a:hover {
+   background: #E4E4E4 !important;
+}
+
+.wy-logo-wrapper .logo {
+   margin-right: 5px;
+   width: 25px;
+}
+
+/* ----------------------------
+ * BREADCRUMBS
+ * ---------------------------- */
+#homebreadcrumb a:link, 
+#homebreadcrumb a:visited, 
+#homebreadcrumb a:hover, 
+#homebreadcrumb a:focus, 
+#homebreadcrumb a:active {
+   color: #6e6e6e !important;
+}
+
+.wy-breadcrumbs li {
+   font-size: 0.85rem;
+}
+
+.wy-breadcrumbs li.pagebreadcrumb { 
+   color: #2C2C2C;
+   font-weight: bold;
+   margin-left: 0.15rem;
+}
+
+.wy-breadcrumbs li a:first-child {
+   color: #707070;
+}
+
+.wy-nav-top {
+   padding: 0.5rem 1.5rem;
+}
+
+.wy-nav-top, 
+.wy-nav-top a {
+   color: #2d2d2d;
+   font-size: 16px;
+   line-height: 2;
+   margin-bottom: 0;
+}
+
+
+/* SEARCH */
+.wy-side-nav-search {
+   background: #f8f8f8;
+   margin-bottom: 0;
+   max-width: 800px;
+   padding: 1rem 1.5rem 1.5rem 1.5rem;
+   width: 100%;
+}
+
+#rtd-search-form { margin: 0; position: relative; }
+
+#rtd-search-form::after {
+   background: url("./images/icon-search.png") no-repeat;
+   content: "";
+   height: 18px;
+   position: absolute;
+   right: 0.75rem;
+   top: 0.70rem;
+   width: 18px;
+   z-index: 99999;
+}
+
+.wy-side-nav-search input[type=text] {
+   border: 1px solid #D3D3D3;
+   border-radius: 4px;
+   box-shadow: none;
+   color: #AEAEAE;
+   font-size: 16px;
+   padding: 10px;
+   position: relative;
+   width: 100%;
+}
+
+.wy-side-nav-content, 
+.wy-nav-content-wrap, 
+.wy-body-for-nav, 
+.rst-content, 
+.wy-nav-content, 
+.wy-nav-top, 
+.wy-nav-top a {
+   background-color: white !important;
+   background: white !important;
+
+}
+
+/* Needed for hiding top white bar */
+.wy-nav-content { padding-top: 4.6em; }
+
+.rst-content .section ul,
+.rst-content .section ol, 
+.rst-content ol.arabic {
+   line-height: 1.6;
+   margin-left: 0;
+}
+
+.rst-content .section ul li,
+.rst-content .section ol li, 
+.rst-content ol.arabic li {
+   margin-left: 19px;
+}
+
+.accordionheading {
+   font-family: inherit;
+}
+
+.section {
+   margin-top: 1.5rem; 
+}
+
+.section p:last-child {
+   margin-bottom: 0;
+}
+
+#scroll {
+   background: #1473E6;
+   border-radius: 3rem;
+   bottom: 1.5rem;
+   box-shadow: 0 3px 0.75rem rgba(0,0,0,0.2);
+   cursor: pointer;
+   display: none;
+   height: 3.25rem;
+   position: fixed;
+   right: 1.5rem;
+   width: 3.25rem;
+   z-index: 9;
+}
+
+#scroll span {
+   background: url("./images/icon-back-to-top-arrow.png");
+   background-repeat: no-repeat;
+   display: block;
+   height: 24px;
+   left: 50%;
+   margin-left: -12px;
+   margin-top: -12px;
+   position: absolute;
+   top: 50%;
+   width: 24px;
+}
+
+#scroll:hover {
+   background-color: #e74c3c;
+   opacity: 1;
+   filter: "alpha(opacity=100)";
+   -ms-filter: "alpha(opacity=100)";
+}
+
+#dialog-link {
+   padding: .4em 1em .4em 20px;
+   text-decoration: none;
+   position: relative;
+}
+
+#dialog-link span.ui-icon {
+   margin: 0 5px 0 0;
+   position: absolute;
+   left: .2em;
+   top: 50%;
+   margin-top: -8px;
+}
+
+#icons {
+   margin: 0;
+   padding: 0;
+}
+
+#icons li {
+   margin: 2px;
+   position: relative;
+   padding: 4px 0;
+   cursor: pointer;
+   float: left;
+   list-style: none;
+}
+
+#icons span.ui-icon {
+   float: left;
+   margin: 0 4px;
+}
+
+.fakewindowcontain .ui-widget-overlay {
+   position: absolute;
+}
+
+.ui-icon.ui-icon-triangle-1-e {
+   background: url("./images/icon-right-arrow-blue.png");
+   background-repeat: no-repeat;
+   height: 20px;
+   position: relative;
+   top: 2px;
+   width: 20px;
+}
+
+.ui-icon.ui-icon-triangle-1-s {
+   background: url("./images/icon-down-arrow-blue.png");
+   background-repeat: no-repeat;
+   height: 20px;
+   left: -2px;
+   position: relative;
+   top: 5px;
+   width: 20px;
+}
+
+select {
+   width: 200px;
+}
+
+p > strong { font-weight: bold; }
+
+p > img {
+   border: none;
+   box-shadow: none;
+   display: inline;
+   margin: 0;
+   padding: 0;
+   position: relative;
+   top: 5px;
+}
+
+li > img {
+   margin: 0;
+   padding: 0;
+   box-shadow: none;
+   border: none;
+   display: inline;
+}
+
+td > img {
+   border: 0;
+   clear: both;
+   margin: 0;
+   padding: 0;
+   box-shadow: none;
+}
+
+.rst-breadcrumbs-buttons {
+   margin: 0.75rem 0;
+}
+
+.ui-widget-content,
+.ui-accordion .ui-accordion-header {
+   border: 1px solid #EAEAEA;
+   border-radius: 0 !important;
+   font-size: 16px;
+}
+
+.ui-accordion .ui-accordion-header {
+   background: #F7F7F7;
+   font-weight: bold;
+   padding: 0.75rem 20px;
+}
+
+.ui-accordion .ui-accordion-header.ui-accordion-header-active {
+   background: #fff;
+   border-bottom: 0;
+   padding-bottom: 0;
+}
+
+.ui-widget-content {
+   font-weight: normal;
+}
+
+.ui-widget-content a {
+   color: #1473E6;
+   display: block;
+}
+
+.ui-accordion .ui-accordion-content {
+   line-height: 2.25;
+   padding: 1rem 3rem;
+}
+
+.ui-accordion-content br {
+    display: none;
+}
+
+/* ----------------------------
+ * SIDE NAVIGATION 
+ * ---------------------------- */
+.wy-menu-vertical {
+   background: #fff !important;
+
+}
+
+.wy-menu-vertical li {
+   border-top: 1px solid #EAEAEA;
+}
+
+.wy-menu-vertical li:last-child {
+   border-bottom: 1px solid #EAEAEA;
+}
+
+.wy-menu-vertical li ul li,
+.wy-menu-vertical li ul li ul li {
+   border-bottom: none !important;
+}
+
+/* LEVEL 1 */
+.wy-menu-vertical li a {
+   background: #fff !important;
+   border-right: 1px solid #eaeaea !important;
+   color: #2c2c2c;
+   font-size: 16px;
+}
+
+.wy-menu-vertical li a,
+.wy-menu-vertical li.current a {
+   padding: 10px;
+}
+
+.wy-menu-vertical li a:active,
+.wy-menu-vertical li.current a {
+   background: #8E8E8E !important;
+   border-right: 1px solid #eaeaea !important;
+   color: #fff !important;
+   font-weight: bold !important;
+}
+
+.wy-menu-vertical li.toctree-l1.current > a {
+   border-top: none !important;
+}
+
+.wy-menu-vertical li > a span.toctree-expand {
+   float: right;
+}
+
+.wy-menu-vertical li > a span.toctree-expand:before {
+   color: #2c2c2c;
+   content: "+";
+   height: 16px;
+   margin-left: 0px;
+   width: 16px;
+   font-size: 25px;
+   position: relative;
+   top: -5px;
+}
+
+.wy-menu-vertical li.current > a span.toctree-expand::before {
+   background: url("./images/icon-minus.png");
+   background-repeat: no-repeat;
+   content: "";
+   height: 4px;
+   position: relative;
+   top: -2px;
+   width: 20px;
+   right: -4px;
+}
+
+/* LEVEL 2 */
+.wy-menu-vertical li.current ul li a {
+   background: #fff !important;
+   color: #1473E6 !important;
+   font-weight: normal !important;
+   line-height: 1.3;
+}
+
+.wy-menu-vertical li.current ul li > a span {
+   float: left;
+   margin-right: -1px;
+}
+
+.wy-menu-vertical li.current ul li > a span.highlighted { float: none; margin-right: 0; }
+
+.wy-menu-vertical li.current ul li > a span.toctree-expand::before{
+   background: url("./images/icon-right-arrow-blue.png");
+   background-repeat: no-repeat;
+   content: "";
+   height: 14px;
+   left: 0px;
+   margin-left: 0;
+   position: relative;
+   top: 3px;
+   width: 8px;
+}
+
+.wy-menu-vertical li.current ul li.current a {
+   font-weight: bold !important;
+}
+
+.wy-menu-vertical li.current ul li.current > a span.toctree-expand::before{
+   background: url("./images/icon-down-arrow-blue.png");
+   background-repeat: no-repeat;
+   content: "";
+   height: 24px;
+   left: -3px;
+   position: relative;
+   top: 6px;
+   width: 15px;
+}
+
+.wy-menu-vertical li ul li {
+   border-top: none !important;
+}
+
+.wy-menu-vertical li ul li a,
+.wy-menu-vertical li.current ul li.current a {
+   background: #fff !important;
+   color: #1473E6 !important;
+   padding: 6px 25px !important;
+}
+
+/* LEVEL 3 */
+.wy-menu-vertical li ul li ul li a {
+   background: #fff !important;
+   color: #1473E6 !important;
+}
+
+.wy-menu-vertical li ul li ul li a,
+.wy-menu-vertical li.current ul li.current ul li a {
+   font-size: 16px;
+   font-weight: normal;
+   line-height: 1.4;
+   padding: 5px 20px 5px 35px !important;
+}
+
+.wy-menu-vertical li.current ul li.current ul li a {
+   font-weight: normal !important;
+}
+
+.wy-side-scroll {
+   background-color: #ffffff;
+   overflow-y: scroll;
+   scrollbar-width: none; /* Firefox */
+   -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+.wy-side-scroll::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
+
+.wy-nav-side {
+   background-color: #fff;
+}
+
+.wy-nav-side.scroll { top: 0; }
+
+.fa-bars:before {
+   background: url("./images/icon-menu.png") no-repeat;
+   content: "";
+   height: 20px;
+   width: 20px;
+}
+
+.wy-menu-vertical li a,
+.wy-menu-vertical li.current ul li a,
+.wy-menu-vertical li.current ul li.current ul li a { 
+   font-size: 15px; 
+}
+
+.highlighted {
+   background: #f1c40f;
+   box-shadow: 0 0 0 2px #f1c40f;
+   display: inline;
+   font-weight: bold;
+}
+
+.rst-content blockquote { margin-left: 0; }
+
+@media screen and (min-width: 767px) {
+   .wy-table-responsive table td {
+      /* !important prevents the common CSS stylesheets from overriding
+         this as on RTD they are loaded after this stylesheet */
+      white-space: normal !important;
+   }
+   .wy-table-responsive {
+      overflow: visible !important;
+   }
+}
+
+@media screen and (max-width: 768px) {
+
+   .fixedbar {
+      padding: 10px 0;
+      position: relative;
+   }
+
+   .fixedbar a {
+      display: block;
+      padding: 5px 20px;
+      width: 100%;
+   }
+
+   .wy-menu-vertical {
+      margin-top: 2px;
+      width: 100% !important;
+   }
+   .wy-nav-side {
+      background-color: white;
+      border-right: none;
+   }
+   .wy-side-scroll {
+      max-width: 100%;
+   }
+
+   .wy-side-scroll > div:first-child {
+      width: 100%;
+      max-width: 800px;
+      position: relative;
+   }
+
+   .wy-side-nav-search { padding: 1.5rem; }
+
+   
+   /* Needed for hiding top white bar */
+   /* .wy-nav-top { padding: 4.5rem 1.5rem 0; } */
+   .wy-nav-top { padding: 1.5rem 1.5rem 0; }
+   
+   .wy-nav-top i { padding-top: 0; }
+
+   /* break lines that extend too far wide */
+   .admonition p a,
+   .section p a { word-break: break-all; }
+
+}
+
+@media screen and (max-width: 500px) {
+   .topleft { font-size: 15px; }
+   
+   .wy-nav-top a { line-height: 1.4 !important; }
+}
+
+/* *************************************
+ * SIDEBAR 
+ * Changes width from 300px to 350px
+ * ********************************** */
+.wy-nav-side, .wy-menu-vertical { width: 350px; }
+.wy-side-scroll { max-width: 350px; width: 350px; }
+.wy-nav-content-wrap { margin-left: 350px; }
+
+/* *************************************
+ * TOP WHITE BAR (visibility)
+ * To hide the top white bar, comment 
+ * out lines 803-806
+ * ********************************** 
+.wy-top-menu-wrapper { display: block; }
+.fixedbar,
+.wy-nav-side { top: 50px; }
+.wy-nav-content*/
+
+/* *************************************
+ * TOP WHITE BAR (sign in/console)
+ * To hide buttons, change "display: block" 
+ * to "display: none" on line 813
+ * ********************************** */
+.wy-top-menu-wrapper .sign-in { display: block; }
+
+/* *************************************
+ * TOP GRAY BAR (sign in/console)
+ * To hide buttons, change "display: flex"
+ * to "display: none" on line 822
+ * ********************************** */
+.fixedbar { display: flex; flex-direction: row; justify-content: space-between; }
+.fixedbar > div { display: flex; }
+.fixedbar .sign-in { align-items: center; display: flex; justify-content: flex-end; }
+.fixedbar .sign-in a:nth-child(2) { width: 100px; }
+.fixedbar .sign-in a.btn.btn-console  /* { display: none; } hide console button*/
+
+/* removed from layout and added here */
+
+
+  td {font-size:130%}
+
+
+
+/* *************************************
+ * MEDIA QUERIES - TOP BAR / GRAY MENU
+ * ********************************** */
+ @media screen and (max-width: 1100px) {
+   .wy-nav-content { max-width: 100% !important; }
+}
+
+@media screen and (max-width: 880px) {
+   .fixedbar .wy-menu-items a { display: block; padding: 17px 12px 20px; }
+}
+
+@media screen and (max-width: 820px) {
+   .fixedbar .wy-menu-items a { display: block; padding: 17px 7px 20px; text-align: center; }
+}
+
+@media screen and (max-width: 768px) {
+   .fixedbar { display: flex; padding: 10px 0; width: 100%; }
+
+   .fixedbar > div { align-items: center; display: flex; justify-content: center; }
+
+   .fixedbar .wy-menu-items { width: 50%; }
+   .fixedbar .wy-menu-items a { padding: 10px; text-align: center; }
+
+   .fixedbar .sign-in { align-items: center; flex-direction: row; justify-content: flex-start; }
+
+   .fixedbar .sign-in > a:first-child { display: inline-flex; margin-left: 20px; width: auto; }
+
+   .wy-nav-top { padding-top: 4.5rem; }
+   .wy-side-scroll { margin-right: 0; }
+
+   .wy-nav-side { left: -350px; }
+   .wy-side-scroll { max-width: 100%; width: auto; }
+   .wy-nav-content-wrap { margin-left: 0; }
+}
+
+@media screen and (max-width: 550px) {
+   .fixedbar { padding: 0 0 10px; }
+
+   .fixedbar, 
+   .fixedbar > div { display: block; }
+
+   .fixedbar .wy-menu-items { width: 100%; }
+   .fixedbar .wy-menu-items a { text-align: left; }
+   
+   .fixedbar > div > a { display: block; width: 100%; }
+}

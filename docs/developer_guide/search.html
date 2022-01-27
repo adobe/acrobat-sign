@@ -1,0 +1,657 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn how to integrate Adobe products in your apps with the Acrobat, PDFL, and Acrobat Sign SDKs. Developers-friendly code samples, demos, and easy to use APIs support enterprise class workflows."
+  
+  <title>Search &mdash; Acrobat Sign SDK</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+    
+  
+  
+  <link rel="canonical" href="https://www.adobe.com/go/acrobatsigndevhome/search.html" />
+  
+
+  
+    
+  
+  
+  <script type="text/javascript" src="../_static/jquery.js"></script>
+  <script type="text/javascript" src="../_static/underscore.js"></script>
+  <script type="text/javascript" src="../_static/doctools.js"></script>
+  <script type="text/javascript" src="../_static/language_data.js"></script>
+  <script type="text/javascript" src="../_static/searchtools.js"></script>
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+   
+  
+    <script type="text/javascript" src="_static/searchtools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="search" title="Search" href="#" /> 
+  
+<script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
+<script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+
+	<script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+          $('.fixedbar, .wy-nav-side').addClass('scroll');
+          $('.wy-top-menu-wrapper').fadeOut();
+        } else {
+          $('.fixedbar, .wy-nav-side').removeClass('scroll');
+          $('.wy-top-menu-wrapper').fadeIn();
+        }
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn();
+        } else {
+          $('#scroll').fadeOut();
+        }
+      });
+      $('#scroll').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+      });
+    });
+  </script>
+
+<style>
+  .wy-nav-content {max-width:90%}
+  </style>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+	  
+	  	  
+<!-- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+        <div class="wy-logo-wrapper">
+          <a href="https://www.adobe.com/go/dc_developer">
+            <img src="../_static/acrobaticon.png" class="logo"/> 
+          Acrobat, Adobe Sign, PDFL Developer
+          </a>
+        </div> 
+ <!-- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+ 
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Acrobat Sign SDK
+          
+
+          
+          </a>
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Welcome!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gstarted.html">Create a Developer Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#next-steps">Next steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="helloworld.html">Hello World App</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="helloworld.html#create-an-app-in-the-ui">Create an app in the UI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helloworld.html#configure-oauth">Configure OAuth</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#get-the-app-id-and-secret">Get the app ID and secret</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#set-the-app-scopes">Set the app scopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="helloworld.html#oauth-token-exchange">OAuth token exchange</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#authorization-request">Authorization Request</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scenarios.html">Example Scenarios</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scenarios.html#parental-consent">Parental Consent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scenarios.html#creating-a-widget">Creating a Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scenarios.html#photo-rights">Photo Rights</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apiusage.html">API Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#send-for-signing-create-an-agreement">Send for Signing (Create an Agreement)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#upload-a-document">Upload a document</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#send-the-document">Send the document</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#check-the-document-signing-status">Check the Document Signing Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#send-reminders">Send Reminders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#download-the-agreement">Download the Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#create-a-widget">Create a Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#get-the-signing-url">Get the Signing URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#api-throttling">API Throttling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#rest-api-response">REST API Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#steps-to-take-when-throttled">Steps to take when throttled</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#adobe-sign-v6-rest-api-enhancements">Adobe Sign v6 REST API Enhancements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#enhancements">Enhancements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#pagination-support">Pagination Support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#constant-ids">Constant IDs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#etag-support">ETag support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#get-put-post-consistency">GET, PUT, POST consistency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#performance-improvements">Performance improvements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#asynchronous-apis"><strong>Asynchronous API’s</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#authorization-header">Authorization header</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#features">Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#agreement-sharing">Agreement sharing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#authoring-apis">Authoring APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#document-visibility">Document visibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#draft">Draft</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#notes-management">Notes management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#reminders">Reminders</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#resource-views">Resource views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#resource-visibility">Resource visibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#suppress-email">Suppress email</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#webhooks">Webhooks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#api-change-log">API Change Log</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#new-apis">New APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#updated-apis">Updated APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#removed-apis">Removed APIs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhooks.html">Webhooks in Adobe Sign v6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html#how-do-webhooks-work">How do webhooks work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html#creating-a-webhook">Creating a webhook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#configure-a-webhook-and-subscribe-to-events">Configure a webhook and subscribe to events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#verification-of-intent-of-the-webhook-url">Verification of intent of the webhook URL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#how-to-respond-to-a-webhook-notification">How to respond to a webhook notification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#hosting-your-webhook-in-the-cloud">Hosting your webhook in the cloud</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html#webhook-properties">Webhook properties</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#webhook-url">Webhook URL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#webhook-status">Webhook status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#webhook-scopes">Webhook scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#webhook-events">Webhook events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#webhook-conditional-parameters">Webhook conditional parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html#managing-webhooks-and-subscriptions">Managing webhooks and subscriptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#securing-webhooks">Securing webhooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#best-practices">Best practices</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhookapis.html">Webhook APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#post-webhooks">POST /webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#get-webhooks">GET /webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#get-webhooks-webhookid">GET /webhooks/{webhookId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#put-webhooks-webhookid">PUT /webhooks/{webhookId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#put-webhooks-webhookid-state">PUT /webhooks/{webhookId}/state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#delete-webhooks-webhookid">DELETE /webhooks/{webhookId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#standard-error-codes-in-every-api-request">Standard error codes in every API request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#standard-headers-in-every-api-request">Standard headers in every API request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#using-aws-lambda-functions">Using AWS Lambda Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#create-an-aws-lambda-function">Create an AWS Lambda function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#register-your-adobe-sign-webhook">Register your Adobe Sign webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#configure-the-aws-api-gateway">Configure the AWS API Gateway</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#deploy-the-api">Deploy the API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#ready-to-use">Ready to Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#using-azure-functions">Using Azure Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#steps-to-create-an-azure-functions-trigger-that-serves-as-an-adobe-sign-webhook">Steps to create an Azure Functions Trigger that serves as an Adobe Sign Webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#create-a-javascript-httptrigger-function">Create a JavaScript HttpTrigger function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#add-logic-to-register-your-adobe-sign-webhook">Add logic to register your Adobe Sign webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#id1">Ready to use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#get-the-functions-url">Get the function’s URL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhookevents.html">Webhook Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#notification-payload-for-events">Notification payload for events</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#payload-info">Payload info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#basic-webhook-payload-for-all-notifications">Basic webhook payload for all notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#webhooknotificationapplicableusers">WebhookNotificationApplicableUsers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#webhookurlinfo">WebhookUrlInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#agreement">Agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#widget">Widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#library-document">Library Document</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#megasign">MegaSign</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#receiving-a-webhook-notification">Receiving a webhook notification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#reliable-delivery-of-webhook-notifications">Reliable delivery of webhook notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#webhook-uniqueness">Webhook uniqueness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#superset-events">SuperSet events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-action-completed">AGREEMENT_ACTION_COMPLETED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#event-specific-payload-attributes">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#payload-attributes-inherited-from-agreement">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#payload-template">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-action-delegated">AGREEMENT_ACTION_DELEGATED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id1">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id2">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id3">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-action-replaced-signer">AGREEMENT_ACTION_REPLACED_SIGNER</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id4">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id5">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id6">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-action-requested">AGREEMENT_ACTION_REQUESTED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id7">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id8">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id9">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-auto-cancelled-conversion-problem">AGREEMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id10">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id11">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id12">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-created">AGREEMENT_CREATED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id13">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id14">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id15">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-documents-deleted">AGREEMENT_DOCUMENTS_DELETED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id16">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id17">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id18">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-email-bounced">AGREEMENT_EMAIL_BOUNCED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id19">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id20">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id21">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-email-viewed">AGREEMENT_EMAIL_VIEWED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id22">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id23">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id24">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-expired">AGREEMENT_EXPIRED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id25">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id26">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id27">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-kba-authenticated">AGREEMENT_KBA_AUTHENTICATED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id28">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id29">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id30">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-modified">AGREEMENT_MODIFIED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id31">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id32">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id33">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-offline-sync">AGREEMENT_OFFLINE_SYNC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id34">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id35">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id36">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-recalled">AGREEMENT_RECALLED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id37">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id38">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id39">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-rejected">AGREEMENT_REJECTED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id40">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id41">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id42">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-shared">AGREEMENT_SHARED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id43">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id44">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id45">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-uploaded-by-sender">AGREEMENT_UPLOADED_BY_SENDER</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id46">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id47">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id48">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-user-ack-agreement-modified">AGREEMENT_USER_ACK_AGREEMENT_MODIFIED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id49">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id50">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id51">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-vaulted">AGREEMENT_VAULTED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id52">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id53">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id54">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-web-identity-authenticated">AGREEMENT_WEB_IDENTITY_AUTHENTICATED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id55">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id56">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id57">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#agreement-workflow-completed">AGREEMENT_WORKFLOW_COMPLETED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id58">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id59">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id60">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#library-document-auto-cancelled-conversion-problem">LIBRARY_DOCUMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id61">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#inherited-from-library-document">Inherited from Library Document:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id62">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#library-document-created">LIBRARY_DOCUMENT_CREATED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id63">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id64">Inherited from Library Document:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id65">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#library-document-modified">LIBRARY_DOCUMENT_MODIFIED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id66">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id67">Inherited from Library Document:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id68">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#megasign-created">MEGASIGN_CREATED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id69">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#inherted-from-megasign">Inherted from MegaSign</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id70">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#megasign-recalled">MEGASIGN_RECALLED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id71">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id72">Inherted from MegaSign:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id73">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#megasign-shared">MEGASIGN_SHARED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id74">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id75">Inherted from MegaSign:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id76">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#widget-auto-cancelled-conversion-problem">WIDGET_AUTO_CANCELLED_CONVERSION_PROBLEM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id77">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#inherted-from-widget">Inherted from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id78">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#widget-created">WIDGET_CREATED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id79">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#inherited-from-widget">Inherited from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id80">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#widget-disabled">WIDGET_DISABLED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id81">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id82">Inherited from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id83">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#widget-enabled">WIDGET_ENABLED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id84">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id85">Inherited from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id86">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#widget-modified">WIDGET_MODIFIED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id87">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id88">Inherted from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id89">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookevents.html#widget-shared">WIDGET_SHARED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id90">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id91">Inherted from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookevents.html#id92">Payload template</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="samples.html">REST API Samples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#the-package">The package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#using-the-samples">Using the Samples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="samples.html#output-path">Output Path</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#create-a-new-widget-with-countersigners">Create a New Widget with Countersigners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#download-an-agreements-audit-report">Download an Agreement’s Audit Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#download-the-combined-document-for-an-agreement">Download the Combined Document for an Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#download-documents-from-an-agreement">Download Documents from an Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#get-an-agreements-status">Get an Agreement’s Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#get-an-agreements-signing-url">Get an Agreement’s Signing URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#send-reminders-to-participants">Send Reminders to Participants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#send-an-agreement-using-a-library-document">Send an Agreement Using a Library Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#send-an-agreement-using-a-transient-document">Send an Agreement Using a Transient Document</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="events.html#system-requirements">System requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#supported-events">Supported events</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="events.html#workflow-events">Workflow events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="events.html#page-load-events">Page Load events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="events.html#session-events">Session events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="events.html#user-action-events">User action events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#using-events">Using events</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developerguides.html">Developer Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrating.html">Migrating From SOAP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migrating.html#general-purpose-methods">General-purpose Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating.html#document-methods">Document Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating.html#status-methods">Status Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating.html#user-methods">User Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating.html#web-form-methods">Web Form Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating.html#test-methods">Test Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating.html#deprecated-methods-from-legacy-soap-versions">Deprecated Methods from legacy SOAP versions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html#access-methods">Access Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#id1">Document Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html#id2">Status Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html#id3">User Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#terminology">Terminology</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+        <div class="fixedbar">  
+          <div class="wy-menu-items">
+            <a href="https://www.adobe.com/go/dc_developer" class="topbarlink">Acrobat Developer Home</a>
+            <a href="https://www.adobe.io/apis/documentcloud/dcsdk/" class="topbarlink">Document Services SDK</a>
+            <a href="https://opensource.adobe.com/dc-acrobat-sdk-docs/acrobatsignsdk/" class="topbarlink">Adobe Sign SDK</a>
+            <a href="https://www.adobe.com/go/acrobatsdk_home" class="topbarlink">Acrobat SDK</a>
+            <a href="https://www.adobe.com/go/pdflibrary" class="topbarlink">PDF Library SDK</a>
+          </div>  
+          <div class="sign-in">
+            <a href="https://adminconsole.adobe.com//" class="btn btn-console">Console</a>
+           <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
+          </div>
+        </div>
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+
+
+
+
+   
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Acrobat Sign SDK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+      <a href="#" id="scroll" style="display:inline;"><span></span></a>
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Search</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <noscript>
+  <div id="fallback" class="admonition warning">
+    <p class="last">
+      Please activate JavaScript to enable the search functionality.
+    </p>
+  </div>
+  </noscript>
+
+  
+  <div id="search-results">
+  
+  </div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Adobe Inc..
+      <span class="lastupdated">
+        Last update: Jan 27, 2022. 
+        <img src="../_static/adobelogo.png" class="logo"/> 
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+  <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("searchindex.js"); });
+  </script>
+  
+  <script type="text/javascript" id="searchindexloader"></script>
+   
+
+
+</body>
+</html>
