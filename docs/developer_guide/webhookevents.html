@@ -5,9 +5,9 @@
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Learn how to integrate Adobe products in your apps with the Acrobat, PDFL, and Acrobat Sign SDKs. Developers-friendly code samples, demos, and easy to use APIs support enterprise class workflows."
+  <meta name="description" content="Learn now to automate and monitor signing workflows with the Acrobat Sign APIs. Create apps that integrate with and leverage features across Adobe's enterprise-class product lineup."
   
-  <title>Webhook Events &mdash; Acrobat Sign SDK</title>
+  <title>Webhook Events &mdash; Acrobat Sign Developer Guide</title>
   
 
   
@@ -79,20 +79,20 @@
       <div class="wy-side-scroll">
 	  
 	  	  
-<!-- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -
         <div class="wy-logo-wrapper">
           <a href="https://www.adobe.com/go/dc_developer">
             <img src="../_static/acrobaticon.png" class="logo"/> 
           Acrobat, Adobe Sign, PDFL Developer
           </a>
         </div> 
- <!-- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+  @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
  
         <div class="wy-side-nav-search" >
           
 
           
-            <a href="index.html" class="icon icon-home"> Acrobat Sign SDK
+            <a href="index.html" class="icon icon-home"> Acrobat Sign Developer Guide
           
 
           
@@ -125,14 +125,22 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="helloworld.html">Hello World App</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="helloworld.html#create-an-app-in-the-ui">Create an app in the UI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helloworld.html#create-an-app">Create an app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helloworld.html#get-the-app-id-and-secret">Get the app ID and secret</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helloworld.html#configure-oauth">Configure OAuth</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="helloworld.html#get-the-app-id-and-secret">Get the app ID and secret</a></li>
-<li class="toctree-l3"><a class="reference internal" href="helloworld.html#set-the-app-scopes">Set the app scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#configure-the-redirect-uri">Configure the redirect URI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#configure-scopes">Configure scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#add-an-authorization-request-link">Add an Authorization Request link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#success-vs-failure">Success vs failure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#the-customer-experience">The customer experience</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#getting-the-access-token">Getting the Access Token</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="helloworld.html#oauth-token-exchange">OAuth token exchange</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="helloworld.html#authorization-request">Authorization Request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helloworld.html#using-oauth-tokens">Using OAuth tokens</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#authorization-request">Authorization request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#access-token-request">Access token request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#refresh-token-request">Refresh token request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#revoking-a-token">Revoking a token</a></li>
 </ul>
 </li>
 </ul>
@@ -529,14 +537,14 @@
         <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
         <div class="fixedbar">  
           <div class="wy-menu-items">
-            <a href="https://www.adobe.com/go/dc_developer" class="topbarlink">Acrobat Developer Home</a>
-            <a href="https://www.adobe.io/apis/documentcloud/dcsdk/" class="topbarlink">Document Services SDK</a>
-            <a href="https://opensource.adobe.com/dc-acrobat-sdk-docs/acrobatsignsdk/" class="topbarlink">Adobe Sign SDK</a>
-            <a href="https://www.adobe.com/go/acrobatsdk_home" class="topbarlink">Acrobat SDK</a>
-            <a href="https://www.adobe.com/go/pdflibrary" class="topbarlink">PDF Library SDK</a>
+            <a href="https://www.adobe.com/go/acrobatsigndevguide" class="topbarlink">Developer Guide</a>
+            <a href="https://www.adobe.com/go/acrobatsignapireference" class="topbarlink">API Reference</a>
+            <a href="https://www.adobe.com/go/acrobatsigntechblog" class="topbarlink">Tech Blog</a>
+            <a href="https://www.adobe.com/go/acrobatsigndevaccount" class="topbarlink">Get a Dev Account</a>
+            <a href="https://www.adobe.com/go/acrobatsigndevforum" class="topbarlink">Developer Forum</a>
           </div>  
           <div class="sign-in">
-            <a href="https://adminconsole.adobe.com//" class="btn btn-console">Console</a>
+            <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
            <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
           </div>
         </div>
@@ -550,7 +558,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Acrobat Sign SDK</a>
+          <a href="index.html">Acrobat Sign Developer Guide</a>
         
       </nav>
 
@@ -670,76 +678,161 @@ This may happen, for example, on an agreement completion event if it includes si
 </div>
 <div class="section" id="basic-webhook-payload-for-all-notifications">
 <h3>Basic webhook payload for all notifications<a class="headerlink" href="#basic-webhook-payload-for-all-notifications" title="Permalink to this headline">¶</a></h3>
-<p>All events will include the following common attributes in their payloads. Additional parameters returned along with basic agreement/widget/megasign info in the payload JSON object for particular keys are defined in the payload specificiations for each event; see <a class="reference external" href="#notificationpayloadforevents">Notification payload for events</a> for links.
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| Parameter name                         | Type            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Possible values                                                                                                                                                                                                                             |
-+========================================+=================+===============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================+=============================================================================================================================================================================================================================================+
-| <code class="docutils literal notranslate"><span class="pre">webhookId</span></code>                          | String          | Webhook identifier of the webhook for which the notification is being sent                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |                                                                                                                                                                                                                                             |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| <code class="docutils literal notranslate"><span class="pre">webhookname</span></code>                        | String          | Name of the webhook which was provided while creating a webhook                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                                                                                                                             |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| <code class="docutils literal notranslate"><span class="pre">webhookNotificationId</span></code>              | String          | The unique identifier of the webhook notification. This will be helpful in identifying duplicate notifications, if any.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                                                                                                                                                             |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| <code class="docutils literal notranslate"><span class="pre">webhookNotificationApplicableUsers</span></code> | Object          | An array of the details of the users for which this notification is delivered. For example: Say User A and User B are in a Group G1. Say User C is in Group G2. Say both these groups and all 3 users are in Account A. Assume, group level “webhook W1” is registered on Group G1 and group level “webhook W2” is registered on Group G2. Now an agreement is sent by User A and to User B. And User B delegates the signing to User C. In the above case, the sign will generate only two notifications (corresponding to W1 and W2) for the delegation event. Current field for W1 notification will be an array of details of User A and User B. Current field for W2 notification will be an array of details of User C. |                                                                                                                                                                                                                                             |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| <code class="docutils literal notranslate"><span class="pre">webhookUrlInfo</span></code>                     | Object          | URL on which this HTTPS POST notification is triggered.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                                                                                                                                                             |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| <code class="docutils literal notranslate"><span class="pre">webhookScope</span></code>                       | String          | Scope of the webhook                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | <code class="docutils literal notranslate"><span class="pre">ACCOUNT</span></code>,<code class="docutils literal notranslate"><span class="pre">GROUP</span></code>,<code class="docutils literal notranslate"><span class="pre">USER</span></code>,<code class="docutils literal notranslate"><span class="pre">RESOURCE</span></code>                                                                                                                                                                                           |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| <code class="docutils literal notranslate"><span class="pre">event</span></code>                              | String          | Event for which the webhook notification is triggered                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | <code class="docutils literal notranslate"><span class="pre">AGREEMENT_CREATED</span></code>                                                                                                                                                                                                                       |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| <code class="docutils literal notranslate"><span class="pre">eventDate</span></code>                          | String          | Timestamp of when the event happened.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Example value: 2018-08-09T12:01:00Z                                                                                                                                                                                                         |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| <code class="docutils literal notranslate"><span class="pre">eventResourceParentType</span></code>            | enum            | In case of agreements, it is possible that the agreement is created by signing a widget or while creating a megasign. This field informs about such cases. <em>Only added in payloads of agreement type resources.</em>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | <code class="docutils literal notranslate"><span class="pre">WIDGET</span></code>,<code class="docutils literal notranslate"><span class="pre">MEGASIGN</span></code>                                                                                                                                                                                                                   |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| <code class="docutils literal notranslate"><span class="pre">eventResourceParentId</span></code>              | String          | Unique identifier of the widget or megasign from which this agreement is created. <em>Only added in payloads of agreement type resources.</em>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                                                                                                                                                             |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| <code class="docutils literal notranslate"><span class="pre">subEvent</span></code>                           | String          | Subevent for which the webhook notification is triggered. <em>This field is event specific and returned with only few events, please look into individual event for the details</em>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                                                                                             |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| <code class="docutils literal notranslate"><span class="pre">eventResourceType</span></code>                  | String          | The resource type on which the event is triggered.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | <code class="docutils literal notranslate"><span class="pre">AGREEMENT</span></code>,<code class="docutils literal notranslate"><span class="pre">WIDGET</span></code>,<code class="docutils literal notranslate"><span class="pre">MEGASIGN</span></code>                                                                                                                                                                                                   |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| <code class="docutils literal notranslate"><span class="pre">participantRole</span></code>                    | String          | Role assumed by all participants in the participant set to which the participant belongs (signer, approver etc.). This is the role of the <code class="docutils literal notranslate"><span class="pre">participantUser</span></code>. This key will be returned only for the following events: <code class="docutils literal notranslate"><span class="pre">AGREEMENT_WORKFLOW_COMPLETED</span></code>, <code class="docutils literal notranslate"><span class="pre">AGREEMENT_ACTION_COMPLETED</span></code>, <code class="docutils literal notranslate"><span class="pre">AGREEMENT_ACTION_DELEGATED</span></code>, <code class="docutils literal notranslate"><span class="pre">AGREEMENT_ACTION_REQUESTED</span></code>                                                                                                                                                                                                                                                                                                                                                                      | <code class="docutils literal notranslate"><span class="pre">SIGNER</span></code>, <code class="docutils literal notranslate"><span class="pre">DELEGATE_TO_SIGNER</span></code>, <code class="docutils literal notranslate"><span class="pre">APPROVER</span></code>, <code class="docutils literal notranslate"><span class="pre">DELEGATE_TO_APPROVER</span></code>, <code class="docutils literal notranslate"><span class="pre">ACCEPTOR</span></code>, <code class="docutils literal notranslate"><span class="pre">DELEGATE_TO_ACCEPTOR</span></code>, <code class="docutils literal notranslate"><span class="pre">FORM_FILLER</span></code>, <code class="docutils literal notranslate"><span class="pre">DELEGATE_TO_FORM_FILLER</span></code>, <code class="docutils literal notranslate"><span class="pre">CERTIFIED_RECIPIENT</span></code>, <code class="docutils literal notranslate"><span class="pre">DELEGATE_TO_CERTIFIED_RECIPIENT</span></code> or <code class="docutils literal notranslate"><span class="pre">SHARE</span></code> |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| <code class="docutils literal notranslate"><span class="pre">actionType</span></code>                         | String          | This key will be returned only with the event <code class="docutils literal notranslate"><span class="pre">AGREEMENT_ACTION_COMPLETED</span></code>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                                                                                             |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| <code class="docutils literal notranslate"><span class="pre">participantUserId</span></code>                  | String          | <em>This field is Event-specific payload attributes; please look into the individual event for details</em>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |                                                                                                                                                                                                                                             |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| participantUserEmail               | String          | <em>This field is Event-specific payload attributes; please look into the individual event for details</em>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |                                                                                                                                                                                                                                             |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| actingUserId                       | String          | <em>This field is Event-specific payload attributes; please look into the individual event for details</em>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |                                                                                                                                                                                                                                             |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| actingUserEmail                    | String          | <em>This field is Event-specific payload attributes; please look into the individual event for details</em>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |                                                                                                                                                                                                                                             |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| initiatingUserId                   | String          | <em>This field is Event-specific payload attributes; please look into the individual event for details</em>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |                                                                                                                                                                                                                                             |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| initiatingUserEmail                | String          | <em>This field is Event-specific payload attributes; please look into the individual event for details</em>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |                                                                                                                                                                                                                                             |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| <code class="docutils literal notranslate"><span class="pre">actingUserIpAddress</span></code>                | String          | IP address of user that triggered the event                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |                                                                                                                                                                                                                                             |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| <code class="docutils literal notranslate"><span class="pre">agreement</span></code>                          | Agreement       | Information about the agreement on which the event occurred. This key will be returned only if the event is an agreement event.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                                                                                                                             |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| <code class="docutils literal notranslate"><span class="pre">widget</span></code>                             | Widget          | Information about the widget on which the event occurred. This key will be returned only if the event is a widget event.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |                                                                                                                                                                                                                                             |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+
-| <code class="docutils literal notranslate"><span class="pre">megasign</span></code>                           | MegaSign        | Information about the megaSign on which the event occurred. This key will be returned only if the event is a megaSign event.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                             |
-+—————————————-+—————–+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-+———————————————————————————————————————————————————————————————————————————————+</p>
+<p>All events will include the following common attributes in their payloads. Additional parameters returned along with basic agreement/widget/megasign info in the payload JSON object for particular keys are defined in the payload specificiations for each event; see <a class="reference external" href="#notificationpayloadforevents">Notification payload for events</a> for links.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Parameter name</p></td>
+<td><p>Type</p></td>
+<td><p>Description</p></td>
+<td><p>Possible values</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">webhookId</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Webhook identifier of the webhook for which the notification is being sent</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">webhookname</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Name of the webhook which was provided while creating a webhook</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">webhookNotificationId</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The unique identifier of the webhook notification. This will be helpful in identifying duplicate notifications, if any.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">webhookNotificationApplicableUsers</span></code></p></td>
+<td><p>Object</p></td>
+<td><p>An array of the details of the users for which this notification is delivered. For example: Say User A and User B are in a Group G1. Say User C is in Group G2. Say both these groups and all 3 users are in Account A. Assume, group level “webhook W1” is registered on Group G1 and group level “webhook W2” is registered on Group G2. Now an agreement is sent by User A and to User B. And User B delegates the signing to User C. In the above case, the sign will generate only two notifications (corresponding to W1 and W2) for the delegation event. Current field for W1 notification will be an array of details of User A and User B. Current field for W2 notification will be an array of details of User C.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">webhookUrlInfo</span></code></p></td>
+<td><p>Object</p></td>
+<td><p>URL on which this HTTPS POST notification is triggered.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">webhookScope</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Scope of the webhook</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ACCOUNT</span></code>,<code class="docutils literal notranslate"><span class="pre">GROUP</span></code>,<code class="docutils literal notranslate"><span class="pre">USER</span></code>,<code class="docutils literal notranslate"><span class="pre">RESOURCE</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">event</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Event for which the webhook notification is triggered</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AGREEMENT_CREATED</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">eventDate</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Timestamp of when the event happened.</p></td>
+<td><p>Example value: 2018-08-09T12:01:00Z</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">eventResourceParentType</span></code></p></td>
+<td><p>enum</p></td>
+<td><p>In case of agreements, it is possible that the agreement is created by signing a widget or while creating a megasign. This field informs about such cases. <em>Only added in payloads of agreement type resources.</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">WIDGET</span></code>,<code class="docutils literal notranslate"><span class="pre">MEGASIGN</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">eventResourceParentId</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Unique identifier of the widget or megasign from which this agreement is created. <em>Only added in payloads of agreement type resources.</em></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">subEvent</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Subevent for which the webhook notification is triggered. <em>This field is event specific and returned with only few events, please look into individual event for the details</em></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">eventResourceType</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The resource type on which the event is triggered.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AGREEMENT</span></code>,<code class="docutils literal notranslate"><span class="pre">WIDGET</span></code>,<code class="docutils literal notranslate"><span class="pre">MEGASIGN</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">participantRole</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Role assumed by all participants in the participant set to which the participant belongs (signer, approver etc.). This is the role of the <code class="docutils literal notranslate"><span class="pre">participantUser</span></code>. This key will be returned only for the following events: <code class="docutils literal notranslate"><span class="pre">AGREEMENT_WORKFLOW_COMPLETED</span></code>, <code class="docutils literal notranslate"><span class="pre">AGREEMENT_ACTION_COMPLETED</span></code>, <code class="docutils literal notranslate"><span class="pre">AGREEMENT_ACTION_DELEGATED</span></code>, <code class="docutils literal notranslate"><span class="pre">AGREEMENT_ACTION_REQUESTED</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SIGNER</span></code>, <code class="docutils literal notranslate"><span class="pre">DELEGATE_TO_SIGNER</span></code>, <code class="docutils literal notranslate"><span class="pre">APPROVER</span></code>, <code class="docutils literal notranslate"><span class="pre">DELEGATE_TO_APPROVER</span></code>, <code class="docutils literal notranslate"><span class="pre">ACCEPTOR</span></code>, <code class="docutils literal notranslate"><span class="pre">DELEGATE_TO_ACCEPTOR</span></code>, <code class="docutils literal notranslate"><span class="pre">FORM_FILLER</span></code>, <code class="docutils literal notranslate"><span class="pre">DELEGATE_TO_FORM_FILLER</span></code>, <code class="docutils literal notranslate"><span class="pre">CERTIFIED_RECIPIENT</span></code>, <code class="docutils literal notranslate"><span class="pre">DELEGATE_TO_CERTIFIED_RECIPIENT</span></code> or <code class="docutils literal notranslate"><span class="pre">SHARE</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">actionType</span></code></p></td>
+<td><p>String</p></td>
+<td><p>This key will be returned only with the event <code class="docutils literal notranslate"><span class="pre">AGREEMENT_ACTION_COMPLETED</span></code>.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserId</span></code></p></td>
+<td><p>String</p></td>
+<td><p><em>This field is Event-specific payload attributes; please look into the individual event for details</em></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>participantUserEmail</p></td>
+<td><p>String</p></td>
+<td><p><em>This field is Event-specific payload attributes; please look into the individual event for details</em></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>actingUserId</p></td>
+<td><p>String</p></td>
+<td><p><em>This field is Event-specific payload attributes; please look into the individual event for details</em></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>actingUserEmail</p></td>
+<td><p>String</p></td>
+<td><p><em>This field is Event-specific payload attributes; please look into the individual event for details</em></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>initiatingUserId</p></td>
+<td><p>String</p></td>
+<td><p><em>This field is Event-specific payload attributes; please look into the individual event for details</em></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>initiatingUserEmail</p></td>
+<td><p>String</p></td>
+<td><p><em>This field is Event-specific payload attributes; please look into the individual event for details</em></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserIpAddress</span></code></p></td>
+<td><p>String</p></td>
+<td><p>IP address of user that triggered the event</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">agreement</span></code></p></td>
+<td><p>Agreement</p></td>
+<td><p>Information about the agreement on which the event occurred. This key will be returned only if the event is an agreement event.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></td>
+<td><p>Widget</p></td>
+<td><p>Information about the widget on which the event occurred. This key will be returned only if the event is a widget event.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">megasign</span></code></p></td>
+<td><p>MegaSign</p></td>
+<td><p>Information about the megaSign on which the event occurred. This key will be returned only if the event is a megaSign event.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="webhooknotificationapplicableusers">
 <h3>WebhookNotificationApplicableUsers<a class="headerlink" href="#webhooknotificationapplicableusers" title="Permalink to this headline">¶</a></h3>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 5%" />
-<col style="width: 3%" />
-<col style="width: 44%" />
-<col style="width: 48%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Possible values</p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p>Parameter name</p></td>
+<td><p>Type</p></td>
+<td><p>Description</p></td>
+<td><p>Possible values</p></td>
+</tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
 <td><p>String</p></td>
 <td><p>The unique identifier of the user for which the notification is applicable.</p></td>
@@ -765,21 +858,19 @@ This may happen, for example, on an agreement completion event if it includes si
 </div>
 <div class="section" id="webhookurlinfo">
 <h3>WebhookUrlInfo<a class="headerlink" href="#webhookurlinfo" title="Permalink to this headline">¶</a></h3>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 16%" />
-<col style="width: 13%" />
-<col style="width: 26%" />
-<col style="width: 44%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
-<th class="head"><p>REST object</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Sample value</p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p>Parameter name</p></td>
+<td><p>REST object</p></td>
+<td><p>Description</p></td>
+<td><p>Sample value</p></td>
+</tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Url</span></code></p></td>
 <td><p>String</p></td>
 <td><p>HTTPS URL of the webhook</p></td>
@@ -790,35 +881,54 @@ This may happen, for example, on an agreement completion event if it includes si
 </div>
 <div class="section" id="agreement">
 <h3>Agreement<a class="headerlink" href="#agreement" title="Permalink to this headline">¶</a></h3>
-<p>This is the minimal info which will be returned for an agreement event if all the conditional parameters are set to false while creating webhooks.
-+—————–+—————–+—————————————————————————————————-+—————————————————————————————————————————————————————————————————————————————–+
-| Parameter name  | Type            | Description                                                                                        | Possible enums                                                                                                                                                                                                                          |
-+=================+=================+====================================================================================================+=========================================================================================================================================================================================================================================+
-| <code class="docutils literal notranslate"><span class="pre">id</span></code>          | String          | The unique identifier of agreement that can be used to query status and download signed documents. |                                                                                                                                                                                                                                         |
-+—————–+—————–+—————————————————————————————————-+—————————————————————————————————————————————————————————————————————————————–+
-| <code class="docutils literal notranslate"><span class="pre">name</span></code>        | String          | The name of the agreement that will be used to identify it, in emails and on the website.          |                                                                                                                                                                                                                                         |
-+—————–+—————–+—————————————————————————————————-+—————————————————————————————————————————————————————————————————————————————–+
-| <code class="docutils literal notranslate"><span class="pre">status</span></code>      | Enum            | The current status of the agreement.                                                               | <code class="docutils literal notranslate"><span class="pre">OUT_FOR_SIGNATURE</span></code>, <code class="docutils literal notranslate"><span class="pre">SIGNED</span></code>, <code class="docutils literal notranslate"><span class="pre">APPROVED</span></code>, <code class="docutils literal notranslate"><span class="pre">ACCEPTED</span></code>, <code class="docutils literal notranslate"><span class="pre">DELIVERED</span></code>, <code class="docutils literal notranslate"><span class="pre">FORM_FILLED</span></code>, <code class="docutils literal notranslate"><span class="pre">ABORTED</span></code>, <code class="docutils literal notranslate"><span class="pre">EXPIRED</span></code>, <code class="docutils literal notranslate"><span class="pre">OUT_FOR_APPROVAL</span></code>, <code class="docutils literal notranslate"><span class="pre">OUT_FOR_ACCEPTANCE</span></code>, <code class="docutils literal notranslate"><span class="pre">OUT_FOR_DELIVERY</span></code>, <code class="docutils literal notranslate"><span class="pre">OUT_FOR_FORM_FILLING</span></code>, or <code class="docutils literal notranslate"><span class="pre">CANCELLED</span></code> |
-+—————–+—————–+—————————————————————————————————-+—————————————————————————————————————————————————————————————————————————————–+</p>
+<p>This is the minimal info which will be returned for an agreement event if all the conditional parameters are set to false while creating webhooks.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Parameter name</p></td>
+<td><p>Type</p></td>
+<td><p>Description</p></td>
+<td><p>Possible enums</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The unique identifier of agreement that can be used to query status and download signed documents.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The name of the agreement that will be used to identify it, in emails and on the website.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></td>
+<td><p>Enum</p></td>
+<td><p>The current status of the agreement.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUT_FOR_SIGNATURE</span></code>, <code class="docutils literal notranslate"><span class="pre">SIGNED</span></code>, <code class="docutils literal notranslate"><span class="pre">APPROVED</span></code>, <code class="docutils literal notranslate"><span class="pre">ACCEPTED</span></code>, <code class="docutils literal notranslate"><span class="pre">DELIVERED</span></code>, <code class="docutils literal notranslate"><span class="pre">FORM_FILLED</span></code>, <code class="docutils literal notranslate"><span class="pre">ABORTED</span></code>, <code class="docutils literal notranslate"><span class="pre">EXPIRED</span></code>, <code class="docutils literal notranslate"><span class="pre">OUT_FOR_APPROVAL</span></code>, <code class="docutils literal notranslate"><span class="pre">OUT_FOR_ACCEPTANCE</span></code>, <code class="docutils literal notranslate"><span class="pre">OUT_FOR_DELIVERY</span></code>, <code class="docutils literal notranslate"><span class="pre">OUT_FOR_FORM_FILLING</span></code>, or <code class="docutils literal notranslate"><span class="pre">CANCELLED</span></code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="widget">
 <h3>Widget<a class="headerlink" href="#widget" title="Permalink to this headline">¶</a></h3>
 <p>This is the minimal info which will be returned for a widget event if all the conditional parameters are set to false while creating webhooks.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 56%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
 <col style="width: 25%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Possible enums</p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p>Parameter name</p></td>
+<td><p>Type</p></td>
+<td><p>Description</p></td>
+<td><p>Possible enums</p></td>
+</tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
 <td><p>String</p></td>
 <td><p>The unique identifier of widget that can be used to retrieve the data entered by the signers</p></td>
@@ -839,32 +949,77 @@ This may happen, for example, on an agreement completion event if it includes si
 </div>
 <div class="section" id="library-document">
 <h3>Library Document<a class="headerlink" href="#library-document" title="Permalink to this headline">¶</a></h3>
-<p>This is the minimal info which will be returned for a Library Document event if all the conditional parameters are set to false while creating webhooks.
-+—————–+—————–+————————————————————————————————–+——————————————+
-| Parameter name  | Type            | Description                                                                                      | Possible enums                           |
-+=================+=================+==================================================================================================+==========================================+
-| <code class="docutils literal notranslate"><span class="pre">id</span></code>          | String          | The unique identifier that is used to refer to the library template.                             |                                          |
-+—————–+—————–+————————————————————————————————–+——————————————+
-| <code class="docutils literal notranslate"><span class="pre">name</span></code>        | String          | The name of the library template that will be used to identify it, in emails and on the website. |                                          |
-+—————–+—————–+————————————————————————————————–+——————————————+
-| <code class="docutils literal notranslate"><span class="pre">status</span></code>      | Enum            | The current status of the library document.                                                      | <code class="docutils literal notranslate"><span class="pre">AUTHORING</span></code>, <code class="docutils literal notranslate"><span class="pre">ACTIVE</span></code> or <code class="docutils literal notranslate"><span class="pre">REMOVED</span></code> |
-+—————–+—————–+————————————————————————————————–+——————————————+</p>
+<p>This is the minimal info which will be returned for a Library Document event if all the conditional parameters are set to false while creating webhooks.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Parameter name</p></td>
+<td><p>Type</p></td>
+<td><p>Description</p></td>
+<td><p>Possible enums</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The unique identifier that is used to refer to the library template.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The name of the library template that will be used to identify it, in emails and on the website.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></td>
+<td><p>Enum</p></td>
+<td><p>The current status of the library document.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AUTHORING</span></code>, <code class="docutils literal notranslate"><span class="pre">ACTIVE</span></code> or <code class="docutils literal notranslate"><span class="pre">REMOVED</span></code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="megasign">
 <h3>MegaSign<a class="headerlink" href="#megasign" title="Permalink to this headline">¶</a></h3>
-<p>This is the minimal info which will be returned for a MegaSign event if all the conditional parameters are set to false while creating webhooks.
-+———————–+—————–+————————————————————————————————————————————————————————————————————————+—————————————————————————————————————————————————————————————————————————————–+
-| Parameter name        | Type            | Description                                                                                                                                                                                                            | Possible enums                                                                                                                                                                                                                          |
-+=======================+=================+========================================================================================================================================================================================================================+=========================================================================================================================================================================================================================================+
-| <code class="docutils literal notranslate"><span class="pre">id</span></code>                | String          | The unique identifier of the agreement; it can be used to query status and download signed documents.                                                                                                                  |                                                                                                                                                                                                                                         |
-+———————–+—————–+————————————————————————————————————————————————————————————————————————+—————————————————————————————————————————————————————————————————————————————–+
-| <code class="docutils literal notranslate"><span class="pre">name</span></code>              | String          | The name of the agreement that will be used to identify it, in emails and on the website.                                                                                                                              |                                                                                                                                                                                                                                         |
-+———————–+—————–+————————————————————————————————————————————————————————————————————————+—————————————————————————————————————————————————————————————————————————————–+
-| <code class="docutils literal notranslate"><span class="pre">status</span></code>            | Enum            | The current status of the agreement.                                                                                                                                                                                   | <code class="docutils literal notranslate"><span class="pre">OUT_FOR_SIGNATURE</span></code>, <code class="docutils literal notranslate"><span class="pre">SIGNED</span></code>, <code class="docutils literal notranslate"><span class="pre">APPROVED</span></code>, <code class="docutils literal notranslate"><span class="pre">ACCEPTED</span></code>, <code class="docutils literal notranslate"><span class="pre">DELIVERED</span></code>, <code class="docutils literal notranslate"><span class="pre">FORM_FILLED</span></code>, <code class="docutils literal notranslate"><span class="pre">ABORTED</span></code>, <code class="docutils literal notranslate"><span class="pre">EXPIRED</span></code>, <code class="docutils literal notranslate"><span class="pre">OUT_FOR_APPROVAL</span></code>, <code class="docutils literal notranslate"><span class="pre">OUT_FOR_ACCEPTANCE</span></code>, <code class="docutils literal notranslate"><span class="pre">OUT_FOR_DELIVERY</span></code>, <code class="docutils literal notranslate"><span class="pre">OUT_FOR_FORM_FILLING</span></code>, or <code class="docutils literal notranslate"><span class="pre">CANCELLED</span></code> |
-+———————–+—————–+————————————————————————————————————————————————————————————————————————+—————————————————————————————————————————————————————————————————————————————–+
-| <code class="docutils literal notranslate"><span class="pre">payloadApplicable</span></code> | boolean         | Indicates whether the payload attached to this notification is fetched in the context of this user or not. The boolean will be true for one and only one of the users in the webhookNotificationApplicableUsers array. |                                                                                                                                                                                                                                         |
-+———————–+—————–+————————————————————————————————————————————————————————————————————————+—————————————————————————————————————————————————————————————————————————————–+
-For different MegaSign events, the detailed agreement info, participant info, document info, and the signed document will be returned based on the conditional parameters specified during webhook creation.</p>
+<p>This is the minimal info which will be returned for a MegaSign event if all the conditional parameters are set to false while creating webhooks.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Parameter name</p></td>
+<td><p>Type</p></td>
+<td><p>Description</p></td>
+<td><p>Possible enums</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The unique identifier of the agreement; it can be used to query status and download signed documents.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The name of the agreement that will be used to identify it, in emails and on the website.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></td>
+<td><p>Enum</p></td>
+<td><p>The current status of the agreement.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUT_FOR_SIGNATURE</span></code>, <code class="docutils literal notranslate"><span class="pre">SIGNED</span></code>, <code class="docutils literal notranslate"><span class="pre">APPROVED</span></code>, <code class="docutils literal notranslate"><span class="pre">ACCEPTED</span></code>, <code class="docutils literal notranslate"><span class="pre">DELIVERED</span></code>, <code class="docutils literal notranslate"><span class="pre">FORM_FILLED</span></code>, <code class="docutils literal notranslate"><span class="pre">ABORTED</span></code>, <code class="docutils literal notranslate"><span class="pre">EXPIRED</span></code>, <code class="docutils literal notranslate"><span class="pre">OUT_FOR_APPROVAL</span></code>, <code class="docutils literal notranslate"><span class="pre">OUT_FOR_ACCEPTANCE</span></code>, <code class="docutils literal notranslate"><span class="pre">OUT_FOR_DELIVERY</span></code>, <code class="docutils literal notranslate"><span class="pre">OUT_FOR_FORM_FILLING</span></code>, or <code class="docutils literal notranslate"><span class="pre">CANCELLED</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">payloadApplicable</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p>Indicates whether the payload attached to this notification is fetched in the context of this user or not. The boolean will be true for one and only one of the users in the webhookNotificationApplicableUsers array.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>For different MegaSign events, the detailed agreement info, participant info, document info, and the signed document will be returned based on the conditional parameters specified during webhook creation.</p>
 </div>
 <div class="section" id="receiving-a-webhook-notification">
 <h3>Receiving a webhook notification<a class="headerlink" href="#receiving-a-webhook-notification" title="Permalink to this headline">¶</a></h3>
@@ -889,18 +1044,30 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </div>
 <div class="section" id="superset-events">
 <h3>SuperSet events<a class="headerlink" href="#superset-events" title="Permalink to this headline">¶</a></h3>
-<p>If you want to subscribe for all the agreement, widget or megaSign events, you can subscribe to the following events:
-+———————————–+————————————————————————————————————————————————————————————–+
-| Event type                        | Description                                                                                                                                                                          |
-+===================================+======================================================================================================================================================================================+
-| <code class="docutils literal notranslate"><span class="pre">AGREEMENT_ALL</span></code>                 | All the supported agreement events. If new agreement events are added in future, those events will be taken care automatically.                                                      |
-+———————————–+————————————————————————————————————————————————————————————–+
-| <code class="docutils literal notranslate"><span class="pre">LIBRARY_ALL</span></code>                   | For all the supported library document events. If new library document events are added in future that are supported for webhooks, those events will be taken care of automatically. |
-+———————————–+————————————————————————————————————————————————————————————–+
-| <code class="docutils literal notranslate"><span class="pre">WIDGET_ALL</span></code>                    | All the supported widget events. If new widget events are added in future, those events will be taken care automatically.                                                            |
-+———————————–+————————————————————————————————————————————————————————————–+
-| <code class="docutils literal notranslate"><span class="pre">MEGASIGN_ALL</span></code>                  | All the supported megasign events.                                                                                                                                                   |
-+———————————–+————————————————————————————————————————————————————————————–+</p>
+<p>If you want to subscribe for all the agreement, widget or megaSign events, you can subscribe to the following events:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Event type</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AGREEMENT_ALL</span></code></p></td>
+<td><p>All the supported agreement events. If new agreement events are added in future, those events will be taken care automatically.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">LIBRARY_ALL</span></code></p></td>
+<td><p>For all the supported library document events. If new library document events are added in future that are supported for webhooks, those events will be taken care of automatically.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WIDGET_ALL</span></code></p></td>
+<td><p>All the supported widget events. If new widget events are added in future, those events will be taken care automatically.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MEGASIGN_ALL</span></code></p></td>
+<td><p>All the supported megasign events.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="section" id="agreement-action-completed">
@@ -924,27 +1091,27 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>actionType</p></td>
 <td><p>String</p></td>
-<td><p>Action type for the event for which Webhook notification is triggered.</p></td>
+<td><p>Action type for the event for which Webhook notification is triggered.</p></td>
 <td><p>ESIGNED, DIGSIGNED, WRITTEN_SIGNED, PRESIGNED, ACCEPTED, SIGNED, APPROVED, DELIVERED, FORM_FILLED, ACKNOWLEDGED, DIGITAL_SIGN_UIDAI_SIGNER_CONSENT</p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID   of the action taker. This can be the signer or the delegatee.</p></td>
+<td><p>The user ID   of the action taker. This can be the signer or the delegatee.</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the action taker. This can be the signer or the delegatee.</p></td>
+<td><p>The user email  of the action taker. This can be the signer or the delegatee.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID   of the action taker. This can be the signer or the delegatee.</p></td>
+<td><p>The user ID   of the action taker. This can be the signer or the delegatee.</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the action taker. This can be the signer or the delegatee.</p></td>
+<td><p>The user email  of the action taker. This can be the signer or the delegatee.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>initiatingUserId</p></td>
@@ -1234,27 +1401,27 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>subEvent</p></td>
 <td><p>String</p></td>
-<td><p>Subevent for which Webhook notification is triggered.</p></td>
+<td><p>Subevent for which Webhook notification is triggered.</p></td>
 <td><p>DELEGATED, AUTO_DELEGATED</p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the delegatee.</p></td>
+<td><p>The user ID  of the delegatee.</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p> The user email of the delegatee.</p></td>
+<td><p>The user email of the delegatee.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the delegator.</p></td>
+<td><p>The user ID of the delegator.</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the delegator.</p></td>
+<td><p>The user email  of the delegator.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>initiatingUserId</p></td>
@@ -1567,27 +1734,27 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the replaced signer.</p></td>
+<td><p>The user ID  of the replaced signer.</p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the replaced signer.</p></td>
+<td><p>The user email  of the replaced signer.</p></td>
 </tr>
 <tr class="row-even"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The ID of the originator of the agreement.</p></td>
+<td><p>The ID of the originator of the agreement.</p></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The email of the originator of the agreement.</p></td>
+<td><p>The email of the originator of the agreement.</p></td>
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the sharee of the originator of the agreement who replaced a signer on behalf of the sender in the case of account sharing.</p></td>
+<td><p>The user ID  of the sharee of the originator of the agreement who replaced a signer on behalf of the sender in the case of account sharing.</p></td>
 </tr>
 <tr class="row-odd"><td><p>initiatingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the sharee of the originator of the agreement who replaced a signer on behalf of the sender in the case of account sharing.</p></td>
+<td><p>The user email  of the sharee of the originator of the agreement who replaced a signer on behalf of the sender in the case of account sharing.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2208,19 +2375,19 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the sender or originator of the agreement. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
+<td><p>The user ID of the sender or originator of the agreement. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the sender or originator of the agreement. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
+<td><p>The user ID of the sender or originator of the agreement. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
 </tr>
 <tr class="row-even"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the <em>sender or originator of the agreement.</em> When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
+<td><p>The user ID  of the <em>sender or originator of the agreement.</em> When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
+<td><p>When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
@@ -2783,27 +2950,27 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the sender or originator of the agreement. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
+<td><p>The user ID of the sender or originator of the agreement. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the sender or originator of the agreement. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
+<td><p>The user email  of the sender or originator of the agreement. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
 </tr>
 <tr class="row-even"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the <em>sender or originator of the agreement.</em> When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
+<td><p>The user ID of the <em>sender or originator of the agreement.</em> When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the <em>sender or originator of the agreement.</em> When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
+<td><p>The user email  of the <em>sender or originator of the agreement.</em> When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the <em>sharee of the originator of the agreement</em> who deleted the documents on behalf of the sender in the case of account sharing.</p></td>
+<td><p>The user ID  of the <em>sharee of the originator of the agreement</em> who deleted the documents on behalf of the sender in the case of account sharing.</p></td>
 </tr>
 <tr class="row-odd"><td><p>initiatingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the <em>sharee of the originator of the agreement</em> who deleted the documents on behalf of the sender in the case of account sharing.</p></td>
+<td><p>The user email  of the <em>sharee of the originator of the agreement</em> who deleted the documents on behalf of the sender in the case of account sharing.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3048,19 +3215,19 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the user for which email bounced. This can be the signer or the delegatee.</p></td>
+<td><p>The user ID of the user for which email bounced. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the user for which email bounced. This can be the signer or the delegatee.</p></td>
+<td><p>The user email  of the user for which email bounced. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-even"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID   of the user for which email bounced. This can be the signer or the delegatee.</p></td>
+<td><p>The user ID   of the user for which email bounced. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the user for which email bounced. This can be the signer or the delegatee.</p></td>
+<td><p>The user email  of the user for which email bounced. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
@@ -3368,15 +3535,15 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the user who viewed the email. This can be the signer or the delegatee.</p></td>
+<td><p>The user ID  of the user who viewed the email. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the user who viewed the email. This can be the signer or the delegatee.</p></td>
+<td><p>The user email  of the user who viewed the email. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-even"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the user who viewed the email. This can be the signer or the delegatee.</p></td>
+<td><p>The user ID  of the user who viewed the email. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
@@ -3690,27 +3857,27 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>subEvent</p></td>
 <td><p>String</p></td>
-<td><p>Subevent for which Webhook notification is triggered.</p></td>
+<td><p>Subevent for which Webhook notification is triggered.</p></td>
 <td><p>EXPIRED, EXPIRED_AUTOMATICALLY</p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID   of the user for which agreement expired. This can be the signer or the delegatee.</p></td>
+<td><p>The user ID   of the user for which agreement expired. This can be the signer or the delegatee.</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p> The user  email  of the user for which agreement expired. This can be the signer or the delegatee.</p></td>
+<td><p>The user  email  of the user for which agreement expired. This can be the signer or the delegatee.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID   of the user for which agreement expired. This can be the signer or the delegatee.</p></td>
+<td><p>The user ID   of the user for which agreement expired. This can be the signer or the delegatee.</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p> The user  email  of the user for which agreement expired. This can be the signer or the delegatee.</p></td>
+<td><p>The user  email  of the user for which agreement expired. This can be the signer or the delegatee.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>initiatingUserId</p></td>
@@ -4316,27 +4483,27 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the sender or originator of the agreement. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
+<td><p>The user ID of the sender or originator of the agreement. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the <em>sender or originator of the agreement</em>.  When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
+<td><p>The user email  of the <em>sender or originator of the agreement</em>.  When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
 </tr>
 <tr class="row-even"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID   of the <em>sender or originator of the agreement</em>. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
+<td><p>The user ID   of the <em>sender or originator of the agreement</em>. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the <em>sender or originator of the agreement</em>. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
+<td><p>The user email  of the <em>sender or originator of the agreement</em>. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the <em>sharee of the originator of the agreement</em> who modified the agreement on behalf of the sender in the case of account sharing.</p></td>
+<td><p>The user ID  of the <em>sharee of the originator of the agreement</em> who modified the agreement on behalf of the sender in the case of account sharing.</p></td>
 </tr>
 <tr class="row-odd"><td><p>initiatingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the <em>sharee of the originator of the agreement</em> who modified the agreement on behalf of the sender in the case of account sharing.</p></td>
+<td><p>The user email  of the <em>sharee of the originator of the agreement</em> who modified the agreement on behalf of the sender in the case of account sharing.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4636,19 +4803,19 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the user for whom the signing URL is fetched. This can be the signer or the delegatee.</p></td>
+<td><p>The user ID of the user for whom the signing URL is fetched. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the user for whom the signing URL is fetched. This can be the signer or the delegatee.</p></td>
+<td><p>The user email  of the user for whom the signing URL is fetched. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-even"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the user for whom the signing URL is fetched. This can be the signer or the delegatee.</p></td>
+<td><p>The user ID  of the user for whom the signing URL is fetched. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the user for whom the signing URL is fetched. This can be the signer or the delegatee.</p></td>
+<td><p>The user email  of the user for whom the signing URL is fetched. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
@@ -4958,37 +5125,37 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>subEvent</p></td>
 <td><p>String</p></td>
-<td><p>Subevent for which Webhook notification is triggered.</p></td>
+<td><p>Subevent for which Webhook notification is triggered.</p></td>
 <td><p>RECALLED, MAX_SIGNING_KBA_ATTEMPTS_EXCEEDED, MAX_SIGNING_PASSWORD_ATTEMPTS_EXCEEDED, MAX_SIGNING_PHONE_ATTEMPTS_EXCEEDED</p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID   of the sender or originator of the agreement. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
+<td><p>The user ID   of the sender or originator of the agreement. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user ID email  of the sender or originator of the agreement. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
+<td><p>The user ID email  of the sender or originator of the agreement. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the <em>sender or originator of the agreement</em>. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
+<td><p>The user ID  of the <em>sender or originator of the agreement</em>. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget.</em></p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the <em>sharee of the originator of the agreement</em> who recalled the agreement on behalf of the sender in the case of account sharing.</p></td>
+<td><p>The user email  of the <em>sharee of the originator of the agreement</em> who recalled the agreement on behalf of the sender in the case of account sharing.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the <em>sharee of the originator of the agreement</em> who recalled the agreement on behalf of the sender in the case of account sharing.</p></td>
+<td><p>The user ID of the <em>sharee of the originator of the agreement</em> who recalled the agreement on behalf of the sender in the case of account sharing.</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>initiatingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the <em>sharee of the originator of the agreement</em> who recalled the agreement on behalf of the sender in the case of account sharing.</p></td>
+<td><p>The user email  of the <em>sharee of the originator of the agreement</em> who recalled the agreement on behalf of the sender in the case of account sharing.</p></td>
 <td></td>
 </tr>
 </tbody>
@@ -5264,19 +5431,19 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the action taker. This can be the signer or the delegatee.</p></td>
+<td><p>The user ID  of the action taker. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user  email  of the action taker. This can be the signer or the delegatee.</p></td>
+<td><p>The user  email  of the action taker. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-even"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the action taker. This can be the signer or the delegatee.</p></td>
+<td><p>The user ID of the action taker. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the action taker. This can be the signer or the delegatee.</p></td>
+<td><p>The user email  of the action taker. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
@@ -5559,27 +5726,27 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the user to whom the agreement is shared.</p></td>
+<td><p>The user ID of the user to whom the agreement is shared.</p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the user to whom the agreement is shared.</p></td>
+<td><p>The user email  of the user to whom the agreement is shared.</p></td>
 </tr>
 <tr class="row-even"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the user by whom the agreement is shared. This can be sender, signer or delegatee.</p></td>
+<td><p>The user ID of the user by whom the agreement is shared. This can be sender, signer or delegatee.</p></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the user by whom the agreement is shared. This can be sender, signer or delegatee.</p></td>
+<td><p>The user email  of the user by whom the agreement is shared. This can be sender, signer or delegatee.</p></td>
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the sharee of the user on whose behalf this agreement is shared in case of account sharing.</p></td>
+<td><p>The user ID  of the sharee of the user on whose behalf this agreement is shared in case of account sharing.</p></td>
 </tr>
 <tr class="row-odd"><td><p>initiatingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the sharee of the user on whose behalf this agreement is shared in case of account sharing.</p></td>
+<td><p>The user email  of the sharee of the user on whose behalf this agreement is shared in case of account sharing.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5879,27 +6046,27 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the user for which signed document is uploaded. This can be the signer or the delegatee.</p></td>
+<td><p>The user ID  of the user for which signed document is uploaded. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the user for which signed document is uploaded. This can be the signer or the delegatee.</p></td>
+<td><p>The user email  of the user for which signed document is uploaded. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-even"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID   of the originator of the agreement.</p></td>
+<td><p>The user ID   of the originator of the agreement.</p></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the originator of the agreement.</p></td>
+<td><p>The user email  of the originator of the agreement.</p></td>
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the sharee of the originator of the agreement who uploaded the signed document on behalf of originator in the case of account sharing.</p></td>
+<td><p>The user ID of the sharee of the originator of the agreement who uploaded the signed document on behalf of originator in the case of account sharing.</p></td>
 </tr>
 <tr class="row-odd"><td><p>initiatingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the sharee of the originator of the agreement who uploaded the signed document on behalf of originator in the case of account sharing.</p></td>
+<td><p>The user email  of the sharee of the originator of the agreement who uploaded the signed document on behalf of originator in the case of account sharing.</p></td>
 </tr>
 </tbody>
 </table>
@@ -6199,19 +6366,19 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the user who acknowledged the agreement modifications. This can be the signer or the delegatee.</p></td>
+<td><p>The user ID of the user who acknowledged the agreement modifications. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the user who acknowledged the agreement modifications. This can be the signer or the delegatee.</p></td>
+<td><p>The user email  of the user who acknowledged the agreement modifications. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-even"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the user who acknowledged the agreement modifications. This can be the signer or the delegatee.</p></td>
+<td><p>The user ID  of the user who acknowledged the agreement modifications. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the user who acknowledged the agreement modifications. This can be the signer or the delegatee.</p></td>
+<td><p>The user email  of the user who acknowledged the agreement modifications. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
@@ -6519,19 +6686,19 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the most recent signing user. This can be the signer or the delegatee.</p></td>
+<td><p>The user ID of the most recent signing user. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the most recent signing user. This can be the signer or the delegatee.</p></td>
+<td><p>The user email  of the most recent signing user. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-even"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the most recent signing user. This can be the signer or the delegatee.</p></td>
+<td><p>The user ID  of the most recent signing user. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user  email  of the most recent signing user. This can be the signer or the delegatee.</p></td>
+<td><p>The user  email  of the most recent signing user. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
@@ -7134,19 +7301,19 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the last action taker. This can be the signer or the delegatee.</p></td>
+<td><p>The user ID of the last action taker. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the last action taker. This can be the signer or the delegatee.</p></td>
+<td><p>The user email  of the last action taker. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-even"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID   of the last action taker. This can be the signer or the delegatee.</p></td>
+<td><p>The user ID   of the last action taker. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user  email  of the last action taker. This can be the signer or the delegatee.</p></td>
+<td><p>The user  email  of the last action taker. This can be the signer or the delegatee.</p></td>
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
@@ -7438,19 +7605,19 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the creator of the library document.</p></td>
+<td><p>The user ID  of the creator of the library document.</p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the creator of the library document.</p></td>
+<td><p>The user email  of the creator of the library document.</p></td>
 </tr>
 <tr class="row-even"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID   of the creator of the library document.</p></td>
+<td><p>The user ID   of the creator of the library document.</p></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the creator of the library document.</p></td>
+<td><p>The user email  of the creator of the library document.</p></td>
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
@@ -7465,21 +7632,19 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </div>
 <div class="section" id="inherited-from-library-document">
 <h3>Inherited from Library Document:<a class="headerlink" href="#inherited-from-library-document" title="Permalink to this headline">¶</a></h3>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 6%" />
-<col style="width: 3%" />
-<col style="width: 82%" />
-<col style="width: 9%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Possible enums</p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p>Parameter name</p></td>
+<td><p>Type</p></td>
+<td><p>Description</p></td>
+<td><p>Possible enums</p></td>
+</tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
 <td><p>String</p></td>
 <td><p>The unique identifier that is used to refer to the library template.</p></td>
@@ -7589,19 +7754,19 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the creator of the library document.</p></td>
+<td><p>The user ID  of the creator of the library document.</p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user  email  of the creator of the library document.</p></td>
+<td><p>The user  email  of the creator of the library document.</p></td>
 </tr>
 <tr class="row-even"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the creator of the library document.</p></td>
+<td><p>The user ID  of the creator of the library document.</p></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the creator of the library document.</p></td>
+<td><p>The user email  of the creator of the library document.</p></td>
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
@@ -7616,21 +7781,19 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </div>
 <div class="section" id="id64">
 <h3>Inherited from Library Document:<a class="headerlink" href="#id64" title="Permalink to this headline">¶</a></h3>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 5%" />
-<col style="width: 2%" />
-<col style="width: 86%" />
-<col style="width: 7%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Possible enums</p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p>Parameter name</p></td>
+<td><p>Type</p></td>
+<td><p>Description</p></td>
+<td><p>Possible enums</p></td>
+</tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
 <td><p>String</p></td>
 <td><p>The unique identifier that is used to refer to the library template.</p></td>
@@ -7756,19 +7919,19 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the creator of the library document.</p></td>
+<td><p>The user ID of the creator of the library document.</p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the creator of the library document.</p></td>
+<td><p>The user email  of the creator of the library document.</p></td>
 </tr>
 <tr class="row-even"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the creator of the library document.</p></td>
+<td><p>The user ID  of the creator of the library document.</p></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the creator of the library document.</p></td>
+<td><p>The user email  of the creator of the library document.</p></td>
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
@@ -7783,21 +7946,19 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </div>
 <div class="section" id="id67">
 <h3>Inherited from Library Document:<a class="headerlink" href="#id67" title="Permalink to this headline">¶</a></h3>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 5%" />
-<col style="width: 2%" />
-<col style="width: 86%" />
-<col style="width: 7%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Possible enums</p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p>Parameter name</p></td>
+<td><p>Type</p></td>
+<td><p>Description</p></td>
+<td><p>Possible enums</p></td>
+</tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
 <td><p>String</p></td>
 <td><p>The unique identifier that is used to refer to the library template.</p></td>
@@ -7923,27 +8084,27 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID   of the creator of the MegaSign.</p></td>
+<td><p>The user ID   of the creator of the MegaSign.</p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the creator of the MegaSign.</p></td>
+<td><p>The user email  of the creator of the MegaSign.</p></td>
 </tr>
 <tr class="row-even"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the creator of the MegaSign.</p></td>
+<td><p>The user ID  of the creator of the MegaSign.</p></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the creator of the MegaSign.</p></td>
+<td><p>The user email  of the creator of the MegaSign.</p></td>
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the sharee of the creator of the megasign who created the MegaSign on behalf of the creator in the case of account sharing.</p></td>
+<td><p>The user ID  of the sharee of the creator of the megasign who created the MegaSign on behalf of the creator in the case of account sharing.</p></td>
 </tr>
 <tr class="row-odd"><td><p>initiatingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the sharee of the creator of the megasign who created the MegaSign on behalf of the creator in the case of account sharing.</p></td>
+<td><p>The user email  of the sharee of the creator of the megasign who created the MegaSign on behalf of the creator in the case of account sharing.</p></td>
 </tr>
 </tbody>
 </table>
@@ -8012,7 +8173,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-odd"><td><p>message</p></td>
 <td><p>String</p></td>
-<td><p>The message associated with the agreement that the sender has provided, describing what is being sent or why their signature is required.</p></td>
+<td><p>The message associated with the agreement that the sender has provided, describing what is being sent or why their signature is required.</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>postSignOption</p></td>
@@ -8124,27 +8285,27 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the creator of the MegaSign.</p></td>
+<td><p>The user ID of the creator of the MegaSign.</p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the creator of the MegaSign.</p></td>
+<td><p>The user email  of the creator of the MegaSign.</p></td>
 </tr>
 <tr class="row-even"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the creator of the MegaSign.</p></td>
+<td><p>The user ID  of the creator of the MegaSign.</p></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the creator of the MegaSign.</p></td>
+<td><p>The user email  of the creator of the MegaSign.</p></td>
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the sharee of the creator of the MegaSign who recalled the MegaSign on behalf of the creator in the case of account sharing.</p></td>
+<td><p>The user ID  of the sharee of the creator of the MegaSign who recalled the MegaSign on behalf of the creator in the case of account sharing.</p></td>
 </tr>
 <tr class="row-odd"><td><p>initiatingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email of the sharee of the creator of the MegaSign who recalled the MegaSign on behalf of the creator in the case of account sharing.</p></td>
+<td><p>The user email of the sharee of the creator of the MegaSign who recalled the MegaSign on behalf of the creator in the case of account sharing.</p></td>
 </tr>
 </tbody>
 </table>
@@ -8218,7 +8379,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>message</p></td>
 <td><p>String</p></td>
-<td><p>The message associated with the agreement that the sender has provided, describing what is being sent or why their signature is required.</p></td>
+<td><p>The message associated with the agreement that the sender has provided, describing what is being sent or why their signature is required.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>postSignOption</p></td>
@@ -8336,27 +8497,27 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the user to whom the MegaSign is shared.</p></td>
+<td><p>The user ID  of the user to whom the MegaSign is shared.</p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the user to whom the MegaSign is shared.</p></td>
+<td><p>The user email  of the user to whom the MegaSign is shared.</p></td>
 </tr>
 <tr class="row-even"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the user by whom the MegaSign is shared. This will be creator of the MegaSign.</p></td>
+<td><p>The user ID  of the user by whom the MegaSign is shared. This will be creator of the MegaSign.</p></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the user by whom the MegaSign is shared. This will be creator of the MegaSign.</p></td>
+<td><p>The user email  of the user by whom the MegaSign is shared. This will be creator of the MegaSign.</p></td>
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the sharee of the user on whose behalf this MegaSign is shared in the case of account sharing.</p></td>
+<td><p>The user ID  of the sharee of the user on whose behalf this MegaSign is shared in the case of account sharing.</p></td>
 </tr>
 <tr class="row-odd"><td><p>initiatingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the sharee of the user on whose behalf this MegaSign is shared in the case of account sharing.</p></td>
+<td><p>The user email  of the sharee of the user on whose behalf this MegaSign is shared in the case of account sharing.</p></td>
 </tr>
 </tbody>
 </table>
@@ -8430,7 +8591,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>message</p></td>
 <td><p>String</p></td>
-<td><p>The message associated with the agreement that the sender has provided, describing what is being sent or why their signature is required.</p></td>
+<td><p>The message associated with the agreement that the sender has provided, describing what is being sent or why their signature is required.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>postSignOption</p></td>
@@ -8647,7 +8808,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-odd"><td><p>participantSetsInfo</p></td>
 <td><p>Object</p></td>
-<td><p>List of all the participants in the widget except the widget signer. Returned only if the conditional parameter includeParticipantInfo is set to true and the payload size is less than the threshold.</p></td>
+<td><p>List of all the participants in the widget except the widget signer. Returned only if the conditional parameter includeParticipantInfo is set to true and the payload size is less than the threshold.</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>widgetParticipantSet</p></td>
@@ -8797,11 +8958,11 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the sharee of the creator of the widget who created the widget on behalf of the creator in the case of account sharing.</p></td>
+<td><p>The user ID  of the sharee of the creator of the widget who created the widget on behalf of the creator in the case of account sharing.</p></td>
 </tr>
 <tr class="row-odd"><td><p>initiatingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email of the sharee of the creator of the widget who created the widget on behalf of the creator in the case of account sharing.</p></td>
+<td><p>The user email of the sharee of the creator of the widget who created the widget on behalf of the creator in the case of account sharing.</p></td>
 </tr>
 </tbody>
 </table>
@@ -8875,7 +9036,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>participantSetsInfo</p></td>
 <td><p>Object</p></td>
-<td><p>List of all the participants in the widget except the widget signer. Returned only if the conditional parameter includeParticipantInfo is set to true and the payload size is less than the threshold.</p></td>
+<td><p>List of all the participants in the widget except the widget signer. Returned only if the conditional parameter includeParticipantInfo is set to true and the payload size is less than the threshold.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>widgetParticipantSet</p></td>
@@ -9036,11 +9197,11 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the sharee of the creator of the widget who disbaled the widget on behalf of the creator in the case of account sharing.</p></td>
+<td><p>The user ID of the sharee of the creator of the widget who disbaled the widget on behalf of the creator in the case of account sharing.</p></td>
 </tr>
 <tr class="row-odd"><td><p>initiatingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the sharee of the creator of the widget who disbaled the widget on behalf of the creator in the case of account sharing.</p></td>
+<td><p>The user email  of the sharee of the creator of the widget who disbaled the widget on behalf of the creator in the case of account sharing.</p></td>
 </tr>
 </tbody>
 </table>
@@ -9119,7 +9280,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-odd"><td><p>participantSetsInfo</p></td>
 <td><p>Object</p></td>
-<td><p>List of all the participants in the widget except the widget signer. Returned only if the conditional parameter includeParticipantInfo is set to true and the payload size is less than the threshold.</p></td>
+<td><p>List of all the participants in the widget except the widget signer. Returned only if the conditional parameter includeParticipantInfo is set to true and the payload size is less than the threshold.</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>widgetParticipantSet</p></td>
@@ -9284,11 +9445,11 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the sharee of the creator of the widget who enabled the widget on behalf of the creator in case of account sharing.</p></td>
+<td><p>The user ID of the sharee of the creator of the widget who enabled the widget on behalf of the creator in case of account sharing.</p></td>
 </tr>
 <tr class="row-odd"><td><p>initiatingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email of the sharee of the creator of the widget who enabled the widget on behalf of the creator in case of account sharing.</p></td>
+<td><p>The user email of the sharee of the creator of the widget who enabled the widget on behalf of the creator in case of account sharing.</p></td>
 </tr>
 </tbody>
 </table>
@@ -9362,7 +9523,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>participantSetsInfo</p></td>
 <td><p>Object</p></td>
-<td><p>List of all the participants in the widget except the widget signer. Returned only if the conditional parameter includeParticipantInfo is set to true and the payload size is less than the threshold.</p></td>
+<td><p>List of all the participants in the widget except the widget signer. Returned only if the conditional parameter includeParticipantInfo is set to true and the payload size is less than the threshold.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>widgetParticipantSet</p></td>
@@ -9523,11 +9684,11 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the sharee of the creator of the widget who modified the widget on behalf of the creator in the case of account sharing.</p></td>
+<td><p>The user ID  of the sharee of the creator of the widget who modified the widget on behalf of the creator in the case of account sharing.</p></td>
 </tr>
 <tr class="row-odd"><td><p>initiatingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the sharee of the creator of the widget who modified the widget on behalf of the creator in the case of account sharing.</p></td>
+<td><p>The user email  of the sharee of the creator of the widget who modified the widget on behalf of the creator in the case of account sharing.</p></td>
 </tr>
 </tbody>
 </table>
@@ -9606,7 +9767,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-odd"><td><p>participantSetsInfo</p></td>
 <td><p>Object</p></td>
-<td><p>List of all the participants in the widget except the widget signer. Returned only if the conditional parameter includeParticipantInfo is set to true and the payload size is less than the threshold.</p></td>
+<td><p>List of all the participants in the widget except the widget signer. Returned only if the conditional parameter includeParticipantInfo is set to true and the payload size is less than the threshold.</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>widgetParticipantSet</p></td>
@@ -9755,27 +9916,27 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 <tbody>
 <tr class="row-even"><td><p>participantUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the user to whom the widget is shared.</p></td>
+<td><p>The user ID of the user to whom the widget is shared.</p></td>
 </tr>
 <tr class="row-odd"><td><p>participantUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the user to whom the widget is shared.</p></td>
+<td><p>The user email  of the user to whom the widget is shared.</p></td>
 </tr>
 <tr class="row-even"><td><p>actingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID   of the user by whom the widget is shared. This will be creator of the widget.</p></td>
+<td><p>The user ID   of the user by whom the widget is shared. This will be creator of the widget.</p></td>
 </tr>
 <tr class="row-odd"><td><p>actingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the user by whom the widget is shared. This will be creator of the widget.</p></td>
+<td><p>The user email  of the user by whom the widget is shared. This will be creator of the widget.</p></td>
 </tr>
 <tr class="row-even"><td><p>initiatingUserId</p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the sharee of the user on whose behalf this widget is shared in the case of account sharing.</p></td>
+<td><p>The user ID of the sharee of the user on whose behalf this widget is shared in the case of account sharing.</p></td>
 </tr>
 <tr class="row-odd"><td><p>initiatingUserEmail</p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the sharee of the user on whose behalf this widget is shared in the case of account sharing.</p></td>
+<td><p>The user email  of the sharee of the user on whose behalf this widget is shared in the case of account sharing.</p></td>
 </tr>
 </tbody>
 </table>
@@ -9854,7 +10015,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-odd"><td><p>participantSetsInfo</p></td>
 <td><p>Object</p></td>
-<td><p>List of all the participants in the widget except the widget signer. Returned only if the conditional parameter includeParticipantInfo is set to true and the payload size is less than the threshold.</p></td>
+<td><p>List of all the participants in the widget except the widget signer. Returned only if the conditional parameter includeParticipantInfo is set to true and the payload size is less than the threshold.</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>widgetParticipantSet</p></td>
@@ -9998,7 +10159,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
     <p>
         &#169; Copyright 2021, Adobe Inc..
       <span class="lastupdated">
-        Last update: Jan 27, 2022. 
+        Last update: Feb 03, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

@@ -5,9 +5,9 @@
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Learn how to integrate Adobe products in your apps with the Acrobat, PDFL, and Acrobat Sign SDKs. Developers-friendly code samples, demos, and easy to use APIs support enterprise class workflows."
+  <meta name="description" content="Learn now to automate and monitor signing workflows with the Acrobat Sign APIs. Create apps that integrate with and leverage features across Adobe's enterprise-class product lineup."
   
-  <title>REST API Samples &mdash; Acrobat Sign SDK</title>
+  <title>REST API Samples &mdash; Acrobat Sign Developer Guide</title>
   
 
   
@@ -79,20 +79,20 @@
       <div class="wy-side-scroll">
 	  
 	  	  
-<!-- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -
         <div class="wy-logo-wrapper">
           <a href="https://www.adobe.com/go/dc_developer">
             <img src="../_static/acrobaticon.png" class="logo"/> 
           Acrobat, Adobe Sign, PDFL Developer
           </a>
         </div> 
- <!-- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+  @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
  
         <div class="wy-side-nav-search" >
           
 
           
-            <a href="index.html" class="icon icon-home"> Acrobat Sign SDK
+            <a href="index.html" class="icon icon-home"> Acrobat Sign Developer Guide
           
 
           
@@ -125,14 +125,22 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="helloworld.html">Hello World App</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="helloworld.html#create-an-app-in-the-ui">Create an app in the UI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helloworld.html#create-an-app">Create an app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helloworld.html#get-the-app-id-and-secret">Get the app ID and secret</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helloworld.html#configure-oauth">Configure OAuth</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="helloworld.html#get-the-app-id-and-secret">Get the app ID and secret</a></li>
-<li class="toctree-l3"><a class="reference internal" href="helloworld.html#set-the-app-scopes">Set the app scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#configure-the-redirect-uri">Configure the redirect URI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#configure-scopes">Configure scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#add-an-authorization-request-link">Add an Authorization Request link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#success-vs-failure">Success vs failure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#the-customer-experience">The customer experience</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#getting-the-access-token">Getting the Access Token</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="helloworld.html#oauth-token-exchange">OAuth token exchange</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="helloworld.html#authorization-request">Authorization Request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helloworld.html#using-oauth-tokens">Using OAuth tokens</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#authorization-request">Authorization request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#access-token-request">Access token request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#refresh-token-request">Refresh token request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld.html#revoking-a-token">Revoking a token</a></li>
 </ul>
 </li>
 </ul>
@@ -529,14 +537,14 @@
         <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
         <div class="fixedbar">  
           <div class="wy-menu-items">
-            <a href="https://www.adobe.com/go/dc_developer" class="topbarlink">Acrobat Developer Home</a>
-            <a href="https://www.adobe.io/apis/documentcloud/dcsdk/" class="topbarlink">Document Services SDK</a>
-            <a href="https://opensource.adobe.com/dc-acrobat-sdk-docs/acrobatsignsdk/" class="topbarlink">Adobe Sign SDK</a>
-            <a href="https://www.adobe.com/go/acrobatsdk_home" class="topbarlink">Acrobat SDK</a>
-            <a href="https://www.adobe.com/go/pdflibrary" class="topbarlink">PDF Library SDK</a>
+            <a href="https://www.adobe.com/go/acrobatsigndevguide" class="topbarlink">Developer Guide</a>
+            <a href="https://www.adobe.com/go/acrobatsignapireference" class="topbarlink">API Reference</a>
+            <a href="https://www.adobe.com/go/acrobatsigntechblog" class="topbarlink">Tech Blog</a>
+            <a href="https://www.adobe.com/go/acrobatsigndevaccount" class="topbarlink">Get a Dev Account</a>
+            <a href="https://www.adobe.com/go/acrobatsigndevforum" class="topbarlink">Developer Forum</a>
           </div>  
           <div class="sign-in">
-            <a href="https://adminconsole.adobe.com//" class="btn btn-console">Console</a>
+            <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
            <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
           </div>
         </div>
@@ -550,7 +558,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Acrobat Sign SDK</a>
+          <a href="index.html">Acrobat Sign Developer Guide</a>
         
       </nav>
 
@@ -1414,7 +1422,7 @@ public class SendAgreementUsingLibraryDocument {
     <p>
         &#169; Copyright 2021, Adobe Inc..
       <span class="lastupdated">
-        Last update: Jan 27, 2022. 
+        Last update: Feb 03, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

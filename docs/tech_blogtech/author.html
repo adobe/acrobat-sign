@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn now to automate and monitor signing workflows with the Acrobat Sign APIs. Create apps that integrate with and leverage features across Adobe's enterprise-class product lineup."
+  
+  <title>How to Author Docs &mdash; Acrobat Sign Tech Blog</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+    
+  
+  
+  <link rel="canonical" href="https://www.adobe.com/go/acrobatsigndevguideauthor.html" />
+  
+
+  
+  
+  
+  <script type="text/javascript" src="../_static/jquery.js"></script>
+  <script type="text/javascript" src="../_static/underscore.js"></script>
+  <script type="text/javascript" src="../_static/doctools.js"></script>
+  <script type="text/javascript" src="../_static/language_data.js"></script>
+  <script type="text/javascript" src="../_static/searchtools.js"></script>
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+   
+  
+    <link rel="search" title="Search" href="search.html" /> 
+  
+<script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
+<script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+
+	<script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+          $('.fixedbar, .wy-nav-side').addClass('scroll');
+          $('.wy-top-menu-wrapper').fadeOut();
+        } else {
+          $('.fixedbar, .wy-nav-side').removeClass('scroll');
+          $('.wy-top-menu-wrapper').fadeIn();
+        }
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn();
+        } else {
+          $('#scroll').fadeOut();
+        }
+      });
+      $('#scroll').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+      });
+    });
+  </script>
+
+<style>
+  .wy-nav-content {max-width:90%}
+  </style>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+	  
+	  	  
+<!-- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -
+        <div class="wy-logo-wrapper">
+          <a href="https://www.adobe.com/go/dc_developer">
+            <img src="../_static/acrobaticon.png" class="logo"/> 
+          Acrobat, Adobe Sign, PDFL Developer
+          </a>
+        </div> 
+  @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+ 
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Acrobat Sign Tech Blog
+          
+
+          
+          </a>
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Adobe Sign Tech Blog</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tips and Tricks by Aaron Smusz</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="aaron1.html">Welcome!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="provisioning.html">Provisioning Adobe Sign</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="provisioning.html#isv-reference-partners-vs-embedded-partners">ISV (reference) partners VS “embedded” partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provisioning.html#implications-for-you-and-your-customers">Implications for you and your customers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provisioning.html#provisioning-and-soap">Provisioning and SOAP</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+        <div class="fixedbar">  
+          <div class="wy-menu-items">
+            <a href="https://www.adobe.com/go/acrobatsigndevguide" class="topbarlink">Developer Guide</a>
+            <a href="https://www.adobe.com/go/acrobatsignapireference" class="topbarlink">API Reference</a>
+            <a href="https://www.adobe.com/go/acrobatsigntechblog" class="topbarlink">Tech Blog</a>
+            <a href="https://www.adobe.com/go/acrobatsigndevaccount" class="topbarlink">Get a Dev Account</a>
+            <a href="https://www.adobe.com/go/acrobatsigndevforum" class="topbarlink">Developer Forum</a>
+          </div>  
+          <div class="sign-in">
+            <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+           <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
+          </div>
+        </div>
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+
+
+
+
+   
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Acrobat Sign Tech Blog</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+      <a href="#" id="scroll" style="display:inline;"><span></span></a>
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>How to Author Docs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-author-docs">
+<h1>How to Author Docs<a class="headerlink" href="#how-to-author-docs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="authoring">
+<h2>Authoring<a class="headerlink" href="#authoring" title="Permalink to this headline">¶</a></h2>
+<p>This doc is authored in restructured text (RST) which is quite similar to markdown. However, it’s more powerful, and coupled with Python’s Sphinx module, generates beautiful docs with great usability. If you want more detail than the basic markup below, start here: <a class="reference external" href="https://www.writethedocs.org/guide/writing/reStructuredText/">https://www.writethedocs.org/guide/writing/reStructuredText/</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* bullet
+
+#. Number
+
+Indented text is indented (block quote).
+
+.. note:: something
+
+.. tip:: something
+
+.. caution:: don’t do it
+
+Inline ``code``
+
+Heading 1
+================
+
+Heading 2
+----------------------------
+
+::
+
+Code block is indented under two colons
+    Code block is indented under two colons
+                        Code block is indented under two colons
+Code block is indented under two colons
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-the-docs">
+<h2>Build the Docs<a class="headerlink" href="#build-the-docs" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Install Python.</p></li>
+<li><p>Install the Sphinx module: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">sphinx</span></code></p></li>
+<li><p>Install a theme. These docs use sphinx-rtd-theme:  <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">sphinx-rtd-theme</span></code></p></li>
+<li><p>Install the optional package(s):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">todo</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Pull the repo.</p></li>
+<li><p>Edit the .rst files.</p></li>
+<li><p>Run buildthedocs.bat(sh).</p></li>
+<li><p>Verify the new HTML docs look good.</p></li>
+<li><p>Push back the repo. <strong>Use a branch and/or create a pull request</strong>.</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Adobe Inc..
+      <span class="lastupdated">
+        Last update: Feb 03, 2022. 
+        <img src="../_static/adobelogo.png" class="logo"/> 
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
