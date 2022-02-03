@@ -819,7 +819,7 @@ td > img {
  * To hide buttons, change "display: flex"
  * to "display: none" on line 822
  * ********************************** */
-.fixedbar { display: flex; flex-direction: row; justify-content: space-between; top: 0; }
+.fixedbar { display: flex; flex-direction: row; justify-content: space-between; top: 0; top: 0; }
 .fixedbar > div { display: flex; }
 .fixedbar .sign-in { align-items: center; display: flex; justify-content: flex-end; }
 .fixedbar .sign-in a:nth-child(2) { width: 100px; }
