@@ -167,7 +167,7 @@
 <li class="toctree-l3"><a class="reference internal" href="apiusage.html#steps-to-take-when-throttled">Steps to take when throttled</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="apiusage.html#adobe-sign-v6-rest-api-enhancements">Adobe Sign v6 REST API Enhancements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#acrobat-sign-v6-rest-api-enhancements">Acrobat Sign v6 REST API Enhancements</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apiusage.html#enhancements">Enhancements</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="apiusage.html#pagination-support">Pagination Support</a></li>
 <li class="toctree-l4"><a class="reference internal" href="apiusage.html#constant-ids">Constant IDs</a></li>
@@ -201,7 +201,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="webhooks.html">Webhooks in Adobe Sign v6</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="webhooks.html">Webhooks in Acrobat Sign v6</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="webhooks.html#how-do-webhooks-work">How do webhooks work?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhooks.html#creating-a-webhook">Creating a webhook</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhooks.html#prerequisites">Prerequisites</a></li>
@@ -237,7 +237,7 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookapis.html#standard-headers-in-every-api-request">Standard headers in every API request</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookapis.html#using-aws-lambda-functions">Using AWS Lambda Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#create-an-aws-lambda-function">Create an AWS Lambda function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#register-your-adobe-sign-webhook">Register your Adobe Sign webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#register-your-acrobat-sign-webhook">Register your Acrobat Sign webhook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#configure-the-aws-api-gateway">Configure the AWS API Gateway</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#deploy-the-api">Deploy the API</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#ready-to-use">Ready to Use</a></li>
@@ -245,9 +245,9 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="webhookapis.html#using-azure-functions">Using Azure Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#steps-to-create-an-azure-functions-trigger-that-serves-as-an-adobe-sign-webhook">Steps to create an Azure Functions Trigger that serves as an Adobe Sign Webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#steps-to-create-an-azure-functions-trigger-that-serves-as-an-acrobat-sign-webhook">Steps to create an Azure Functions Trigger that serves as an Acrobat Sign Webhook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#create-a-javascript-httptrigger-function">Create a JavaScript HttpTrigger function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#add-logic-to-register-your-adobe-sign-webhook">Add logic to register your Adobe Sign webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#add-logic-to-register-your-acrobat-sign-webhook">Add logic to register your Acrobat Sign webhook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#id1">Ready to use</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#get-the-functions-url">Get the function’s URL</a></li>
 </ul>
@@ -620,10 +620,10 @@
             
   <div class="section" id="rest-api-samples">
 <h1>REST API Samples<a class="headerlink" href="#rest-api-samples" title="Permalink to this headline">¶</a></h1>
-<p>The samples included in this section are Java clients of the Adobe Sign REST API that demonstrate how to use the API as well as some of its key capabilities.</p>
+<p>The samples included in this section are Java clients of the Acrobat Sign REST API that demonstrate how to use the API as well as some of its key capabilities.</p>
 <div class="section" id="the-package">
 <h2>The package<a class="headerlink" href="#the-package" title="Permalink to this headline">¶</a></h2>
-<p>All sources are under the <em>adobesign.api.rest.sample</em> package (and sub packages) as published in the <a class="reference external" href="https://www.adobe.com/go/esign-api-samples">Adobe Sign GitHub repo</a> and are laid out as follows:</p>
+<p>All sources are under the <em>adobesign.api.rest.sample</em> package (and sub packages) as published in the <a class="reference external" href="https://www.adobe.com/go/esign-api-samples">Acrobat Sign GitHub repo</a> and are laid out as follows:</p>
 <ul class="simple">
 <li><p><strong>adobesign.api.rest.sample</strong>: Contains individual sample clients, each demonstrating a specific capability. Each client is named according to the capability it demonstrates. For example, the client GetUsersInAccount.java shows how to retrieve a list of users from the account of the user on whose behalf the API call is made (also called <strong>API user</strong> in this document).</p></li>
 <li><p><strong>adobesign.api.rest.sample.util</strong>: Contains helper classes that encapsulate the REST calls required by the sample clients. Of particular note is RestApiUtils.java, which contains methods that make the actual low-level REST API calls.</p></li>
@@ -761,7 +761,7 @@
 
 <span class="n">public</span> <span class="k">class</span> <span class="nc">DownloadAuditTrail</span> <span class="p">{</span>
   <span class="o">//</span> <span class="n">TODO</span><span class="p">:</span> <span class="n">Enter</span> <span class="n">a</span> <span class="n">valid</span> <span class="n">agreement</span> <span class="n">ID</span><span class="o">.</span> <span class="n">Please</span> <span class="n">refer</span> <span class="n">to</span> <span class="n">the</span> <span class="s2">&quot;agreements&quot;</span> <span class="n">end</span><span class="o">-</span><span class="n">point</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">API</span> <span class="n">documentation</span> <span class="n">to</span> <span class="n">learn</span> <span class="n">how</span> <span class="n">to</span> <span class="n">obtain</span> <span class="n">IDs</span> <span class="n">of</span>
-  <span class="o">//</span> <span class="n">agreements</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">Adobe</span> <span class="n">Sign</span><span class="o">.</span>
+  <span class="o">//</span> <span class="n">agreements</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">Acrobat</span> <span class="n">Sign</span><span class="o">.</span>
   <span class="n">private</span> <span class="n">static</span> <span class="n">String</span> <span class="n">agreementId</span> <span class="o">=</span> <span class="s2">&quot;a valid agreement ID&quot;</span><span class="p">;</span>
 
   <span class="o">//</span> <span class="n">File</span> <span class="n">containing</span> <span class="n">request</span> <span class="n">body</span> <span class="n">to</span> <span class="n">get</span> <span class="n">an</span> <span class="n">access</span> <span class="n">token</span><span class="o">.</span>
@@ -835,7 +835,7 @@
 
 <span class="n">public</span> <span class="k">class</span> <span class="nc">DownloadCombinedDocumentOfAgreement</span> <span class="p">{</span>
   <span class="o">//</span> <span class="n">TODO</span><span class="p">:</span> <span class="n">Enter</span> <span class="n">a</span> <span class="n">valid</span> <span class="n">agreement</span> <span class="n">ID</span><span class="o">.</span> <span class="n">Please</span> <span class="n">refer</span> <span class="n">to</span> <span class="n">the</span> <span class="s2">&quot;agreements&quot;</span> <span class="n">end</span><span class="o">-</span><span class="n">point</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">API</span> <span class="n">documentation</span> <span class="n">to</span> <span class="n">learn</span> <span class="n">how</span> <span class="n">to</span> <span class="n">obtain</span> <span class="n">IDs</span> <span class="n">of</span>
-  <span class="o">//</span> <span class="n">agreements</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">Adobe</span> <span class="n">Sign</span><span class="o">.</span>
+  <span class="o">//</span> <span class="n">agreements</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">Acrobat</span> <span class="n">Sign</span><span class="o">.</span>
   <span class="n">private</span> <span class="n">static</span> <span class="n">String</span> <span class="n">agreementId</span> <span class="o">=</span> <span class="s2">&quot;a valid agreement ID&quot;</span><span class="p">;</span>
 
   <span class="o">//</span> <span class="n">File</span> <span class="n">containing</span> <span class="n">request</span> <span class="n">body</span> <span class="n">to</span> <span class="n">get</span> <span class="n">an</span> <span class="n">access</span> <span class="n">token</span><span class="o">.</span>
@@ -912,7 +912,7 @@ import adobesign.api.rest.sample.util.RestError;
  ```java
 public class DownloadDocumentsOfAgreement {
   // TODO: Enter a valid agreement ID. Please refer to the &quot;agreements&quot; end-point in the API documentation to learn how to obtain IDs of
-  // agreements present in Adobe Sign.
+  // agreements present in Acrobat Sign.
   private static String agreementId = &quot;a valid agreement ID&quot;;
 
   // File containing request body to get an access token.
@@ -1055,7 +1055,7 @@ public class DownloadDocumentsOfAgreement {
 
 <span class="n">public</span> <span class="k">class</span> <span class="nc">GetSigningUrlForAnAgreement</span> <span class="p">{</span>
   <span class="o">//</span> <span class="n">TODO</span><span class="p">:</span> <span class="n">Enter</span> <span class="n">a</span> <span class="n">valid</span> <span class="n">agreement</span> <span class="n">ID</span><span class="o">.</span> <span class="n">Please</span> <span class="n">refer</span> <span class="n">to</span> <span class="n">the</span> <span class="s2">&quot;agreements&quot;</span> <span class="n">end</span><span class="o">-</span><span class="n">point</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">API</span> <span class="n">documentation</span> <span class="n">to</span> <span class="n">learn</span> <span class="n">how</span> <span class="n">to</span> <span class="n">obtain</span> <span class="n">IDs</span> <span class="n">of</span>
-  <span class="o">//</span> <span class="n">agreements</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">Adobe</span> <span class="n">Sign</span><span class="o">.</span>
+  <span class="o">//</span> <span class="n">agreements</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">Acrobat</span> <span class="n">Sign</span><span class="o">.</span>
   <span class="n">private</span> <span class="n">static</span> <span class="n">String</span> <span class="n">agreementId</span> <span class="o">=</span> <span class="s2">&quot;a valid agreement ID&quot;</span><span class="p">;</span>
 
   <span class="o">//</span> <span class="n">File</span> <span class="n">containing</span> <span class="n">request</span> <span class="n">body</span> <span class="n">to</span> <span class="n">get</span> <span class="n">an</span> <span class="n">access</span> <span class="n">token</span><span class="o">.</span>
@@ -1137,7 +1137,7 @@ public class DownloadDocumentsOfAgreement {
 
 <span class="n">public</span> <span class="k">class</span> <span class="nc">SendRemindersForAgreement</span> <span class="p">{</span>
   <span class="o">//</span> <span class="n">TODO</span><span class="p">:</span> <span class="n">Enter</span> <span class="n">a</span> <span class="n">valid</span> <span class="n">agreement</span> <span class="n">ID</span><span class="o">.</span> <span class="n">Please</span> <span class="n">refer</span> <span class="n">to</span> <span class="n">the</span> <span class="s2">&quot;agreements&quot;</span> <span class="n">end</span><span class="o">-</span><span class="n">point</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">API</span> <span class="n">documentation</span> <span class="n">to</span> <span class="n">learn</span> <span class="n">how</span> <span class="n">to</span> <span class="n">obtain</span> <span class="n">IDs</span> <span class="n">of</span>
-  <span class="o">//</span> <span class="n">agreements</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">Adobe</span> <span class="n">Sign</span><span class="o">.</span>
+  <span class="o">//</span> <span class="n">agreements</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">Acrobat</span> <span class="n">Sign</span><span class="o">.</span>
   <span class="n">private</span> <span class="n">static</span> <span class="n">String</span> <span class="n">agreementId</span> <span class="o">=</span> <span class="s2">&quot;CBJCHBCAABAAEv-2_cscgcFJYHuloiuAf7eEiQ2WnYbB&quot;</span><span class="p">;</span>
 
   <span class="o">//</span> <span class="n">How</span> <span class="n">long</span> <span class="n">a</span> <span class="n">participant</span> <span class="n">needs</span> <span class="n">to</span> <span class="n">have</span> <span class="n">been</span> <span class="n">waiting</span> <span class="p">(</span><span class="ow">in</span> <span class="n">milliseconds</span><span class="p">)</span> <span class="n">before</span> <span class="n">we</span> <span class="n">can</span> <span class="n">send</span> <span class="n">them</span> <span class="n">a</span> <span class="n">reminder</span><span class="o">.</span>
@@ -1422,7 +1422,7 @@ public class SendAgreementUsingLibraryDocument {
     <p>
         &#169; Copyright 2021, Adobe Inc..
       <span class="lastupdated">
-        Last update: Feb 03, 2022. 
+        Last update: Feb 10, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

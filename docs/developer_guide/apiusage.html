@@ -35,7 +35,7 @@
    
   
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Webhooks in Adobe Sign v6" href="webhooks.html" />
+    <link rel="next" title="Webhooks in Acrobat Sign v6" href="webhooks.html" />
     <link rel="prev" title="Example Scenarios" href="scenarios.html" /> 
   
 <script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
@@ -167,7 +167,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#steps-to-take-when-throttled">Steps to take when throttled</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#adobe-sign-v6-rest-api-enhancements">Adobe Sign v6 REST API Enhancements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#acrobat-sign-v6-rest-api-enhancements">Acrobat Sign v6 REST API Enhancements</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#enhancements">Enhancements</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#pagination-support">Pagination Support</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#constant-ids">Constant IDs</a></li>
@@ -201,7 +201,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="webhooks.html">Webhooks in Adobe Sign v6</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="webhooks.html">Webhooks in Acrobat Sign v6</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="webhooks.html#how-do-webhooks-work">How do webhooks work?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhooks.html#creating-a-webhook">Creating a webhook</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhooks.html#prerequisites">Prerequisites</a></li>
@@ -237,7 +237,7 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookapis.html#standard-headers-in-every-api-request">Standard headers in every API request</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookapis.html#using-aws-lambda-functions">Using AWS Lambda Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#create-an-aws-lambda-function">Create an AWS Lambda function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#register-your-adobe-sign-webhook">Register your Adobe Sign webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#register-your-acrobat-sign-webhook">Register your Acrobat Sign webhook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#configure-the-aws-api-gateway">Configure the AWS API Gateway</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#deploy-the-api">Deploy the API</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#ready-to-use">Ready to Use</a></li>
@@ -245,9 +245,9 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="webhookapis.html#using-azure-functions">Using Azure Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#steps-to-create-an-azure-functions-trigger-that-serves-as-an-adobe-sign-webhook">Steps to create an Azure Functions Trigger that serves as an Adobe Sign Webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#steps-to-create-an-azure-functions-trigger-that-serves-as-an-acrobat-sign-webhook">Steps to create an Azure Functions Trigger that serves as an Acrobat Sign Webhook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#create-a-javascript-httptrigger-function">Create a JavaScript HttpTrigger function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#add-logic-to-register-your-adobe-sign-webhook">Add logic to register your Adobe Sign webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#add-logic-to-register-your-acrobat-sign-webhook">Add logic to register your Acrobat Sign webhook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#id1">Ready to use</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#get-the-functions-url">Get the function’s URL</a></li>
 </ul>
@@ -606,7 +606,7 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="webhooks.html" class="btn btn-neutral float-right" title="Webhooks in Adobe Sign v6" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="webhooks.html" class="btn btn-neutral float-right" title="Webhooks in Acrobat Sign v6" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
       
       
         <a href="scenarios.html" class="btn btn-neutral float-left" title="Example Scenarios" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
@@ -620,8 +620,8 @@
             
   <div class="section" id="api-usage">
 <h1>API Usage<a class="headerlink" href="#api-usage" title="Permalink to this headline">¶</a></h1>
-<p>The Adobe Sign API allows you to quickly build client-side applications that can utilize the signing functionalities offered by Adobe Sign. This guide contains the most common scenarios in which you can use the API.</p>
-<p>Using the Adobe Sign REST APIs, you can build elegant and scalable client-side applications in any scripting language that supports REST-based API calls. This section provides information on the API endpoint, request headers, request body, and the response.</p>
+<p>The Acrobat Sign API allows you to quickly build client-side applications that can utilize the signing functionalities offered by Acrobat Sign. This guide contains the most common scenarios in which you can use the API.</p>
+<p>Using the Acrobat Sign REST APIs, you can build elegant and scalable client-side applications in any scripting language that supports REST-based API calls. This section provides information on the API endpoint, request headers, request body, and the response.</p>
 <ul>
 <li><div class="line-block">
 <div class="line"><a class="reference external" href="https://www.adobe.com/go/acrobatsignapireference">Read the API Reference</a></div>
@@ -630,7 +630,7 @@
 </li>
 <li><div class="line-block">
 <div class="line"><a class="reference external" href="https://secure.na1.echosign.com/redirect/latestRestApiSamples">REST samples</a></div>
-<div class="line">Download the REST samples for Adobe Sign.</div>
+<div class="line">Download the REST samples for Acrobat Sign.</div>
 </div>
 </li>
 </ul>
@@ -644,17 +644,17 @@
 <span id="sendforsigning"></span><h2>Send for Signing (Create an Agreement)<a class="headerlink" href="#send-for-signing-create-an-agreement" title="Permalink to this headline">¶</a></h2>
 <p>Your CRM or document management system can send/upload documents for signing, either automatically or through user-initiated actions. When the document gets signed by all the parties, a PDF copy of the signed document(agreement) can be retrieved by your application.</p>
 <img alt="_images/sign_devguide_1.png" src="_images/sign_devguide_1.png" />
-<p>While getting the authorization code from the Adobe Sign service, you also received the API access point as part of a query parameter (See <a class="reference internal" href="helloworld.html#token"><span class="std std-ref">Add an Authorization Request link</span></a>)</p>
+<p>While getting the authorization code from the Acrobat Sign service, you also received the API access point as part of a query parameter (See <a class="reference internal" href="helloworld.html#token"><span class="std std-ref">Add an Authorization Request link</span></a>)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://myserver.com/?
     code=CBNCKBAThIsIsNoTaReAlcs_sL4K32wCzs4N&amp;
     api_access_point=https://api.na1.echosign.com/&amp;
     web_access_point=https://secure.na1.echosign.com/
 </pre></div>
 </div>
-<p>For all future service calls, Adobe Sign sends the requests to this access point.</p>
+<p>For all future service calls, Acrobat Sign sends the requests to this access point.</p>
 <div class="section" id="upload-a-document">
 <span id="upload"></span><h3>Upload a document<a class="headerlink" href="#upload-a-document" title="Permalink to this headline">¶</a></h3>
-<p>To upload a PDF document for signing, send a POST request to the <code class="docutils literal notranslate"><span class="pre">transientDocuments</span></code> endpoint. This is a multipart request consisting of filename, MIME type, and the file stream. You will get back an ID as a response that uniquely represents the document. Your application needs to specify the recipients and other sending options required for sending the document for signing. Your application can also specify a callback URL that will be used by Adobe Sign to notify when the signature process is complete.</p>
+<p>To upload a PDF document for signing, send a POST request to the <code class="docutils literal notranslate"><span class="pre">transientDocuments</span></code> endpoint. This is a multipart request consisting of filename, MIME type, and the file stream. You will get back an ID as a response that uniquely represents the document. Your application needs to specify the recipients and other sending options required for sending the document for signing. Your application can also specify a callback URL that will be used by Acrobat Sign to notify when the signature process is complete.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">v6</span><span class="o">/</span><span class="n">transientDocuments</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 <span class="n">Host</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">na1</span><span class="o">.</span><span class="n">echosign</span><span class="o">.</span><span class="n">com</span>
 <span class="n">Authorization</span><span class="p">:</span> <span class="n">Bearer</span> <span class="n">MvyABjNotARealTokenHkYyi</span>
@@ -741,13 +741,13 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The returned <code class="docutils literal notranslate"><span class="pre">agreementId</span></code> must be used to refer to the agreement in all subsequent API calls. This ID must be used to retrieve up-to-date status of the agreement, either by polling or when Adobe Sign notifies your application of any status change.</p>
+<p>The returned <code class="docutils literal notranslate"><span class="pre">agreementId</span></code> must be used to refer to the agreement in all subsequent API calls. This ID must be used to retrieve up-to-date status of the agreement, either by polling or when Acrobat Sign notifies your application of any status change.</p>
 <p><a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/">TRY IT OUT</a></p>
 </div>
 </div>
 <div class="section" id="check-the-document-signing-status">
 <span id="checkstatus"></span><h2>Check the Document Signing Status<a class="headerlink" href="#check-the-document-signing-status" title="Permalink to this headline">¶</a></h2>
-<p>Adobe Sign can return the current status of the agreement and a complete history of events that have happened on that particular agreement. The simplest mechanism is for your application to provide a webhook URL when sending the document for signature. Adobe Sign will then ping your webhook with the appropriate <a class="reference internal" href="webhookevents.html#webhookevents"><span class="std std-ref">Webhook Events</span></a> whenever the status of the agreement changes.</p>
+<p>Acrobat Sign can return the current status of the agreement and a complete history of events that have happened on that particular agreement. The simplest mechanism is for your application to provide a webhook URL when sending the document for signature. Acrobat Sign will then ping your webhook with the appropriate <a class="reference internal" href="webhookevents.html#webhookevents"><span class="std std-ref">Webhook Events</span></a> whenever the status of the agreement changes.</p>
 <img alt="_images/sign_devguide_2.png" src="_images/sign_devguide_2.png" />
 <p>You can also get the current status of an agreement by sending a GET request to <code class="docutils literal notranslate"><span class="pre">/agreements/{agreementid}</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">v6</span><span class="o">/</span><span class="n">agreements</span><span class="o">/</span><span class="mi">3</span><span class="n">AAABLblqZNOTREALAGREEMENTID5_BjiH</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
@@ -778,9 +778,9 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>By default, the webhook URL is called whenever an event involving a particular transaction occurs in Adobe Sign. The webhook event includes the ID of the agreement whose status has changed, the current status of the agreement, and information on the event that resulted in the callback. Your application logic can evaluate the received status and decide whether to perform an action in the calling system.</p>
-<p>In addition to HTTPS GET, Adobe Sign also alternatively supports PUT for receiving events about the signature process. Included in the request will be the completed signed PDF. Adobe Sign uses an PUT request to return the signed PDF. Please ensure that your application can correctly handle such a request. Please contact Adobe Support or your assigned Client Success Manager to get your account configured to receive PUT events.</p>
-<p>The second mechanism to reflect the most current or up-to-date status of an agreement sent for signature is for your application to periodically poll Adobe Sign regarding the agreement’s status. The upside of polling is that it can be used in cases where your calling application is behind your firewall and not accessible from the Internet, thus enabling Adobe Sign to complete a callback. The down side of polling is that you have to create a scheduling mechanism within your application to periodically query the status of all documents that were not yet signed, check whether the document’s status has changed, and update your system accordingly. If you choose to use polling, we recommend you have different policies based on document “age”. In other words, you would reduce the frequency of polling for documents not signed after a certain number of days.</p>
+<p>By default, the webhook URL is called whenever an event involving a particular transaction occurs in Acrobat Sign. The webhook event includes the ID of the agreement whose status has changed, the current status of the agreement, and information on the event that resulted in the callback. Your application logic can evaluate the received status and decide whether to perform an action in the calling system.</p>
+<p>In addition to HTTPS GET, Acrobat Sign also alternatively supports PUT for receiving events about the signature process. Included in the request will be the completed signed PDF. Acrobat Sign uses an PUT request to return the signed PDF. Please ensure that your application can correctly handle such a request. Please contact Adobe Support or your assigned Client Success Manager to get your account configured to receive PUT events.</p>
+<p>The second mechanism to reflect the most current or up-to-date status of an agreement sent for signature is for your application to periodically poll Acrobat Sign regarding the agreement’s status. The upside of polling is that it can be used in cases where your calling application is behind your firewall and not accessible from the Internet, thus enabling Acrobat Sign to complete a callback. The down side of polling is that you have to create a scheduling mechanism within your application to periodically query the status of all documents that were not yet signed, check whether the document’s status has changed, and update your system accordingly. If you choose to use polling, we recommend you have different policies based on document “age”. In other words, you would reduce the frequency of polling for documents not signed after a certain number of days.</p>
 <p><a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/_0_1_2">TRY IT OUT</a></p>
 </div>
 <div class="section" id="send-reminders">
@@ -889,7 +889,7 @@
 <h2>API Throttling<a class="headerlink" href="#api-throttling" title="Permalink to this headline">¶</a></h2>
 <p>To prevent your API from being overwhelmed by too many requests, Adobe throttles requests to your API.</p>
 <p>When a request is throttled, the client will receive an <strong>HTTP 429 “Too Many Requests”</strong> response with an error message appropriate to the request. When a request gets back an HTTP 429 response, it means the user has consumed over the limit of allowed resources in a certain period of time. It could be a violation of per-minute, -hour, or -day limit. The user will be allowed to make more requests in the next minute, hour, or day (depending on which threshold was crossed).</p>
-<p>Each request made to Adobe Sign is evaluated based on the amount of system resources it will consume. Different parameters passed to the same endpoint might contribute a different amount of resource consumption. Your service package (small business, business, enterprise) directly influences your transaction rate. Higher tiers of service have higher throttle thresholds.</p>
+<p>Each request made to Acrobat Sign is evaluated based on the amount of system resources it will consume. Different parameters passed to the same endpoint might contribute a different amount of resource consumption. Your service package (small business, business, enterprise) directly influences your transaction rate. Higher tiers of service have higher throttle thresholds.</p>
 <div class="section" id="rest-api-response">
 <h3>REST API Response<a class="headerlink" href="#rest-api-response" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -910,14 +910,14 @@
 <p>It is recommended that developers design workflows that can handle the Http 429 exceptions gracefully and use the retry-time from either the response body or from the “Retry-After” header to recover from such errors.</p>
 </div>
 </div>
-<div class="section" id="adobe-sign-v6-rest-api-enhancements">
-<h2>Adobe Sign v6 REST API Enhancements<a class="headerlink" href="#adobe-sign-v6-rest-api-enhancements" title="Permalink to this headline">¶</a></h2>
-<p>This page is a comprehensive guide for developers who are looking to plug Adobe Sign Version 6 REST APIs in their solutions. We list out all the enhancements and new features that are part of the v6 Adobe Sign APIs. To facilitate developers who are already using older versions of our APIs in migrating to Version 6, we have tabulated the v6 APIs against their closest counterparts in previous versions in the <a class="reference internal" href="#apichange"><span class="std std-ref">API Change Log</span></a>. In the change log, we have documented enhancements, features, and any changes from the prior version. In addition to the information compiled here, you can also refer to the <a class="reference external" href="https://www.adobe.com/go/acrobatsignapireference">Adobe Sign API Reference</a> to get a quick reference for the Adobe Sign APIs. This page lists all our APIs in a easily discoverable format and lets you try them out without having to write any code!</p>
+<div class="section" id="acrobat-sign-v6-rest-api-enhancements">
+<h2>Acrobat Sign v6 REST API Enhancements<a class="headerlink" href="#acrobat-sign-v6-rest-api-enhancements" title="Permalink to this headline">¶</a></h2>
+<p>This page is a comprehensive guide for developers who are looking to plug Acrobat Sign Version 6 REST APIs in their solutions. We list out all the enhancements and new features that are part of the v6 Acrobat Sign APIs. To facilitate developers who are already using older versions of our APIs in migrating to Version 6, we have tabulated the v6 APIs against their closest counterparts in previous versions in the <a class="reference internal" href="#apichange"><span class="std std-ref">API Change Log</span></a>. In the change log, we have documented enhancements, features, and any changes from the prior version. In addition to the information compiled here, you can also refer to the <a class="reference external" href="https://www.adobe.com/go/acrobatsignapireference">Acrobat Sign API Reference</a> to get a quick reference for the Acrobat Sign APIs. This page lists all our APIs in a easily discoverable format and lets you try them out without having to write any code!</p>
 <div class="section" id="enhancements">
 <h3>Enhancements<a class="headerlink" href="#enhancements" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="pagination-support">
 <h4>Pagination Support<a class="headerlink" href="#pagination-support" title="Permalink to this headline">¶</a></h4>
-<p>Existing Adobe Sign APIs return the entire list of resources (agreements, widgets, or library documents) that a user has in a GET call. For some users with a large number of transactions this resource list becomes too big for consumption. The v6 APIs have introduced pagination support to all these resources with a client-configurable page size. This will be especially useful to our mobile clients and integrations who are constrained by their consumption capacity. This sample shows pagination in a request and response:</p>
+<p>Existing Acrobat Sign APIs return the entire list of resources (agreements, widgets, or library documents) that a user has in a GET call. For some users with a large number of transactions this resource list becomes too big for consumption. The v6 APIs have introduced pagination support to all these resources with a client-configurable page size. This will be especially useful to our mobile clients and integrations who are constrained by their consumption capacity. This sample shows pagination in a request and response:</p>
 <p><strong>Sample Request</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">https://api.na1.echosign.com:443/api/rest/v6/agreements?pageSize=50</span></code></p>
 <p><strong>Sample Response</strong></p>
@@ -957,8 +957,8 @@
 </div>
 <div class="section" id="constant-ids">
 <h4>Constant IDs<a class="headerlink" href="#constant-ids" title="Permalink to this headline">¶</a></h4>
-<p>Our Partners and Integrators have requested that the identifiers remain constant in the lifetime of a resource. This is because they tend to store these resource IDs and do a match later, which can break with ID changes. The v6 APIs address this by ensuring that IDs stay constant through time and across all API callers for a given resource. This will enable clients to build their own metadata associated with an Adobe Sign resource ID.</p>
-<p>Identifiers are forward-compatible: <strong>older identifiers will continue working in v6 Sign APIs.</strong> However, new identifiers generated through v6 APIs <strong>will only be compatible with Adobe Sign v6 or any higher version.</strong></p>
+<p>Our Partners and Integrators have requested that the identifiers remain constant in the lifetime of a resource. This is because they tend to store these resource IDs and do a match later, which can break with ID changes. The v6 APIs address this by ensuring that IDs stay constant through time and across all API callers for a given resource. This will enable clients to build their own metadata associated with an Acrobat Sign resource ID.</p>
+<p>Identifiers are forward-compatible: <strong>older identifiers will continue working in v6 Sign APIs.</strong> However, new identifiers generated through v6 APIs <strong>will only be compatible with Acrobat Sign v6 or any higher version.</strong></p>
 </div>
 <div class="section" id="etag-support">
 <h4>ETag support<a class="headerlink" href="#etag-support" title="Permalink to this headline">¶</a></h4>
@@ -1071,7 +1071,7 @@
 </div>
 <div class="section" id="get-put-post-consistency">
 <h4>GET, PUT, POST consistency<a class="headerlink" href="#get-put-post-consistency" title="Permalink to this headline">¶</a></h4>
-<p>In building the Adobe Sign v6 APIs, we have enabled more simplicity in the design of client applications by creating consistency across GET, POST, and PUT operations in each API, thereby enabling clients to reuse the same model across these APIs. For reference see the <a class="reference external" href="https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementInfo">agreement model</a> in the (POST|PUT|GET) /agreements API.</p>
+<p>In building the Acrobat Sign v6 APIs, we have enabled more simplicity in the design of client applications by creating consistency across GET, POST, and PUT operations in each API, thereby enabling clients to reuse the same model across these APIs. For reference see the <a class="reference external" href="https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementInfo">agreement model</a> in the (POST|PUT|GET) /agreements API.</p>
 </div>
 <div class="section" id="performance-improvements">
 <h4>Performance improvements<a class="headerlink" href="#performance-improvements" title="Permalink to this headline">¶</a></h4>
@@ -1080,7 +1080,7 @@
 </div>
 <div class="section" id="asynchronous-apis">
 <h4><strong>Asynchronous API’s</strong><a class="headerlink" href="#asynchronous-apis" title="Permalink to this headline">¶</a></h4>
-<p>One of the significant change in v6 API’s has been to make resource intensive operations asynchronous to a larger extent. This reduces waiting/blocking time for clients in most of the scenarios. For example, in v5, workflows such as sending an agreement, creating megasign or a widgets etc. has significantly larger response time than v6. In v6, the API execution time has been improved by making the time intensive processes asynchronous and executing them in the background. Adobe Sign provides status/error codes in the GET api’s for clients to know the status of these background processes and decide on their next steps accordingly. The clients can poll on these GET api’s or move on to new resource creation/workflow depending on their use case.</p>
+<p>One of the significant change in v6 API’s has been to make resource intensive operations asynchronous to a larger extent. This reduces waiting/blocking time for clients in most of the scenarios. For example, in v5, workflows such as sending an agreement, creating megasign or a widgets etc. has significantly larger response time than v6. In v6, the API execution time has been improved by making the time intensive processes asynchronous and executing them in the background. Acrobat Sign provides status/error codes in the GET api’s for clients to know the status of these background processes and decide on their next steps accordingly. The clients can poll on these GET api’s or move on to new resource creation/workflow depending on their use case.</p>
 <p>Refer the lists below all the asynchronous api’s and their corresponding GET api’s which clients can poll on till polling condition holds true.</p>
 <p><strong>Asynchronous API:</strong> <a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/createAgreement">POST /agreements</a></p>
 <p><strong>GET API To Poll:</strong> <a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementInfo">GET /agreements/{agreementId}</a></p>
@@ -1124,7 +1124,7 @@
 <hr class="docutils" />
 <div class="section" id="hosted-signing">
 <h5>Hosted Signing<a class="headerlink" href="#hosted-signing" title="Permalink to this headline">¶</a></h5>
-<p>One of the common workflows used by Adobe Sign clients is to create an agreement and get the corresponding signing url. Since, the agreement creation is asynchronous the clients needs to poll on <a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/getSigningUrl">GET /agreements/{agreementId}/signingUrls</a> for fetching signing url. The sample code below implements this use case.</p>
+<p>One of the common workflows used by Acrobat Sign clients is to create an agreement and get the corresponding signing url. Since, the agreement creation is asynchronous the clients needs to poll on <a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/getSigningUrl">GET /agreements/{agreementId}/signingUrls</a> for fetching signing url. The sample code below implements this use case.</p>
 <p><strong>Polling For Signing Url</strong></p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">APIConfig</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;apiBaseUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;base-uri-for-client&gt;&quot;</span><span class="p">,</span>
@@ -1313,7 +1313,7 @@
 </div>
 <div class="section" id="authorization-header">
 <h4>Authorization header<a class="headerlink" href="#authorization-header" title="Permalink to this headline">¶</a></h4>
-<p>The Adobe Sign API accepts an authorization token in the <code class="docutils literal notranslate"><span class="pre">access-token</span></code> header; however, from v6 onwards we will be migrating to the standard <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header. The <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header will hold the user’s authorization token in this format:</p>
+<p>The Acrobat Sign API accepts an authorization token in the <code class="docutils literal notranslate"><span class="pre">access-token</span></code> header; however, from v6 onwards we will be migrating to the standard <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header. The <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header will hold the user’s authorization token in this format:</p>
 <p><code class="docutils literal notranslate"><span class="pre">Authorization:</span> <span class="pre">Bearer</span> <span class="pre">&lt;access-token&gt;</span></code></p>
 <p>Clients can continue using their older access token, but in the <code class="docutils literal notranslate"><span class="pre">authorization</span></code> header using this format.</p>
 </div>
@@ -1322,7 +1322,7 @@
 <h3>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="agreement-sharing">
 <h4>Agreement sharing<a class="headerlink" href="#agreement-sharing" title="Permalink to this headline">¶</a></h4>
-<p>This feature enables users associated with an agreement to share the agreement at any point of time through Adobe Sign APIs. This feature brings the agreement sharing capability in Adobe Sign web app and Adobe Sign APIs at par. The <a class="reference external" href="https://secure.echosign.com/public/docs/restapi/v6#!/agreements/createShareOnAgreement">POST /agreements/{agreementId}/members/share</a> API exposes the agreement sharing feature.</p>
+<p>This feature enables users associated with an agreement to share the agreement at any point of time through Acrobat Sign APIs. This feature brings the agreement sharing capability in Acrobat Sign web app and Acrobat Sign APIs at par. The <a class="reference external" href="https://secure.echosign.com/public/docs/restapi/v6#!/agreements/createShareOnAgreement">POST /agreements/{agreementId}/members/share</a> API exposes the agreement sharing feature.</p>
 </div>
 <div class="section" id="authoring-apis">
 <h4>Authoring APIs<a class="headerlink" href="#authoring-apis" title="Permalink to this headline">¶</a></h4>
@@ -1437,7 +1437,7 @@
 </div>
 <div class="section" id="notes-management">
 <h4>Notes management<a class="headerlink" href="#notes-management" title="Permalink to this headline">¶</a></h4>
-<p>The v6 Adobe Sign APIs has endpoints to manage notes in an agreement. Clients can add notes to an agreement and retrieve them using these API’s. The table below lists all these APIs and their operation.</p>
+<p>The v6 Acrobat Sign APIs has endpoints to manage notes in an agreement. Clients can add notes to an agreement and retrieve them using these API’s. The table below lists all these APIs and their operation.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 71%" />
@@ -1496,7 +1496,7 @@
 <div class="section" id="resource-views">
 <h4>Resource views<a class="headerlink" href="#resource-views" title="Permalink to this headline">¶</a></h4>
 <div class="line-block">
-<div class="line">There are a number of <em>views</em> associated with a resource. For example, an agreement may have an authoring view, agreement documents view, signing page view, or a manage page view with the agreement selected. The availaibility of all these views depends on both the state of the resource and also the relationship of the user with the resource. To access and customize these resource views, the v6 Adobe Sign API includes this endpoint to list all such views in their desired configuration:</div>
+<div class="line">There are a number of <em>views</em> associated with a resource. For example, an agreement may have an authoring view, agreement documents view, signing page view, or a manage page view with the agreement selected. The availaibility of all these views depends on both the state of the resource and also the relationship of the user with the resource. To access and customize these resource views, the v6 Acrobat Sign API includes this endpoint to list all such views in their desired configuration:</div>
 <div class="line"><a class="reference external" href="https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementView">POST /resource/{resourceId}/views</a></div>
 </div>
 <p><strong>Sample request/response:</strong></p>
@@ -1524,7 +1524,7 @@
 </div>
 <div class="section" id="resource-visibility">
 <h4>Resource visibility<a class="headerlink" href="#resource-visibility" title="Permalink to this headline">¶</a></h4>
-<p>The agreement visibility feature enables a client to control which resources are included in the response body of the enumeration/reource listing APIs like <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/agreements</span></code>. This helps users to hide all resources from their view that they don’t want to focus on. The <a class="reference external" href="https://secure.echosign.com/public/docs/restapi/v6#!/agreements/updateAgreementVisibility">PUT /resource/{resourceId}/me/visibility</a> API exposes this functionality, wherein a resource can be an agreement, widget, template or megasign in Adobe Sign.</p>
+<p>The agreement visibility feature enables a client to control which resources are included in the response body of the enumeration/reource listing APIs like <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/agreements</span></code>. This helps users to hide all resources from their view that they don’t want to focus on. The <a class="reference external" href="https://secure.echosign.com/public/docs/restapi/v6#!/agreements/updateAgreementVisibility">PUT /resource/{resourceId}/me/visibility</a> API exposes this functionality, wherein a resource can be an agreement, widget, template or megasign in Acrobat Sign.</p>
 </div>
 <div class="section" id="suppress-email">
 <h4>Suppress email<a class="headerlink" href="#suppress-email" title="Permalink to this headline">¶</a></h4>
@@ -1561,14 +1561,14 @@
 </div>
 <div class="section" id="webhooks">
 <h4>Webhooks<a class="headerlink" href="#webhooks" title="Permalink to this headline">¶</a></h4>
-<p>Callbacks in Adobe Sign are now handled through <strong>webhooks</strong>. A <em>webhook</em> is essentially a web service designed to listen for and respond to POST requests. When you create a webhook and register it with Adobe Sign, Adobe Sign’s Webhook Subscription Service will notify your webhook of any relevant event by sending a POST request via HTTPS containing a JSON object with the details of the event. Your webhook then passes those details on to your application for handling. The service operates on a push model: your app doesn’t have to poll for events at all—those events are automatically sent to your webhook as they happen, with virtually no delay, so your app is instantaneously, automatically updated with any changes.</p>
-<p>See <a class="reference internal" href="webhooks.html#webhooks"><span class="std std-ref">Webhooks in Adobe Sign v6</span></a> to learn how webhooks work in Adobe Sign and how to set one up for your application.</p>
+<p>Callbacks in Acrobat Sign are now handled through <strong>webhooks</strong>. A <em>webhook</em> is essentially a web service designed to listen for and respond to POST requests. When you create a webhook and register it with Acrobat Sign, Acrobat Sign’s Webhook Subscription Service will notify your webhook of any relevant event by sending a POST request via HTTPS containing a JSON object with the details of the event. Your webhook then passes those details on to your application for handling. The service operates on a push model: your app doesn’t have to poll for events at all—those events are automatically sent to your webhook as they happen, with virtually no delay, so your app is instantaneously, automatically updated with any changes.</p>
+<p>See <a class="reference internal" href="webhooks.html#webhooks"><span class="std std-ref">Webhooks in Acrobat Sign v6</span></a> to learn how webhooks work in Acrobat Sign and how to set one up for your application.</p>
 </div>
 </div>
 </div>
 <div class="section" id="api-change-log">
 <span id="apichange"></span><h2>API Change Log<a class="headerlink" href="#api-change-log" title="Permalink to this headline">¶</a></h2>
-<p>Adobe Sign version 6 includes many changes to the API model.</p>
+<p>Acrobat Sign version 6 includes many changes to the API model.</p>
 <p>On this page: <a class="reference external" href="#newapis">New APIs</a> <a class="reference external" href="#updatedapis">Updated APIs</a> <a class="reference external" href="#removedapis">Removed APIs</a></p>
 <div class="section" id="new-apis">
 <h3>New APIs<a class="headerlink" href="#new-apis" title="Permalink to this headline">¶</a></h3>
@@ -1682,7 +1682,7 @@
 <h3>Updated APIs<a class="headerlink" href="#updated-apis" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://secure.echosign.com/public/docs/restapi/v6#!/base_uris/getBaseUris">GET /baseUris</a></p>
 <ul class="simple">
-<li><p>The endpoint path is now changed to be consistent with the camel casing convention in Adobe Sign API (<code class="docutils literal notranslate"><span class="pre">base_uri</span></code> is now <code class="docutils literal notranslate"><span class="pre">baseUri</span></code>).</p></li>
+<li><p>The endpoint path is now changed to be consistent with the camel casing convention in Acrobat Sign API (<code class="docutils literal notranslate"><span class="pre">base_uri</span></code> is now <code class="docutils literal notranslate"><span class="pre">baseUri</span></code>).</p></li>
 <li><p>The response parameter is also renamed to have camel casing.</p></li>
 </ul>
 <p><a class="reference external" href="https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getAgreements">GET /agreements</a></p>
@@ -1807,7 +1807,7 @@
 </ul>
 <p><a class="reference external" href="https://secure.echosign.com/public/docs/restapi/v6#!/transientDocuments/createTransientDocument">POST /transientDocuments</a></p>
 <ul class="simple">
-<li><p>Returns an <code class="docutils literal notranslate"><span class="pre">UNSUPPORTED_MEDIA_TYPE</span></code> error for unsupported media types in Adobe Sign.</p></li>
+<li><p>Returns an <code class="docutils literal notranslate"><span class="pre">UNSUPPORTED_MEDIA_TYPE</span></code> error for unsupported media types in Acrobat Sign.</p></li>
 </ul>
 <p><a class="reference external" href="https://secure.echosign.com/public/docs/restapi/v6#!/widgets/createWidget">POST /widgets</a></p>
 <ul class="simple">
@@ -1862,7 +1862,7 @@
     <p>
         &#169; Copyright 2021, Adobe Inc..
       <span class="lastupdated">
-        Last update: Feb 03, 2022. 
+        Last update: Feb 10, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

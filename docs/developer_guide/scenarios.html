@@ -167,7 +167,7 @@
 <li class="toctree-l3"><a class="reference internal" href="apiusage.html#steps-to-take-when-throttled">Steps to take when throttled</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="apiusage.html#adobe-sign-v6-rest-api-enhancements">Adobe Sign v6 REST API Enhancements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#acrobat-sign-v6-rest-api-enhancements">Acrobat Sign v6 REST API Enhancements</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apiusage.html#enhancements">Enhancements</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="apiusage.html#pagination-support">Pagination Support</a></li>
 <li class="toctree-l4"><a class="reference internal" href="apiusage.html#constant-ids">Constant IDs</a></li>
@@ -201,7 +201,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="webhooks.html">Webhooks in Adobe Sign v6</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="webhooks.html">Webhooks in Acrobat Sign v6</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="webhooks.html#how-do-webhooks-work">How do webhooks work?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhooks.html#creating-a-webhook">Creating a webhook</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhooks.html#prerequisites">Prerequisites</a></li>
@@ -237,7 +237,7 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookapis.html#standard-headers-in-every-api-request">Standard headers in every API request</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookapis.html#using-aws-lambda-functions">Using AWS Lambda Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#create-an-aws-lambda-function">Create an AWS Lambda function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#register-your-adobe-sign-webhook">Register your Adobe Sign webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#register-your-acrobat-sign-webhook">Register your Acrobat Sign webhook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#configure-the-aws-api-gateway">Configure the AWS API Gateway</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#deploy-the-api">Deploy the API</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#ready-to-use">Ready to Use</a></li>
@@ -245,9 +245,9 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="webhookapis.html#using-azure-functions">Using Azure Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#steps-to-create-an-azure-functions-trigger-that-serves-as-an-adobe-sign-webhook">Steps to create an Azure Functions Trigger that serves as an Adobe Sign Webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#steps-to-create-an-azure-functions-trigger-that-serves-as-an-acrobat-sign-webhook">Steps to create an Azure Functions Trigger that serves as an Acrobat Sign Webhook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#create-a-javascript-httptrigger-function">Create a JavaScript HttpTrigger function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#add-logic-to-register-your-adobe-sign-webhook">Add logic to register your Adobe Sign webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#add-logic-to-register-your-acrobat-sign-webhook">Add logic to register your Acrobat Sign webhook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#id1">Ready to use</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#get-the-functions-url">Get the function’s URL</a></li>
 </ul>
@@ -625,7 +625,7 @@
 <h2>Parental Consent<a class="headerlink" href="#parental-consent" title="Permalink to this headline">¶</a></h2>
 <img alt="_images/sign_scenarios_1.png" src="_images/sign_scenarios_1.png" />
 <p>A common scenario involves an application where users need to sign documents within the application as part of a process. For example, a partner portal for onboarding new partners that requires them to sign an NDA or an e-commerce application that requires users to sign a purchase agreement. In these cases, the document is not sent to recipients for signature, but is presented to them within your application.</p>
-<p>For this type of integration, Adobe Sign supports creating a Widget through the Adobe Sign APIs. A widget is like a reusable template that can be presented to users multiple times and signed multiple times. Each time a widget gets signed, the signed document becomes a separate instance of the document. A good way to think about the relationship of the widget and the documents signed through it is a parent-child relationship. A widget can be presented either to an anonymous signer, in which case Adobe Sign can validate the signer&amp;rsquo;s identity as part of the signing process, or to a signer whose identity can be specified through the API by the hosting application.</p>
+<p>For this type of integration, Acrobat Sign supports creating a Widget through the Acrobat Sign APIs. A widget is like a reusable template that can be presented to users multiple times and signed multiple times. Each time a widget gets signed, the signed document becomes a separate instance of the document. A good way to think about the relationship of the widget and the documents signed through it is a parent-child relationship. A widget can be presented either to an anonymous signer, in which case Acrobat Sign can validate the signer&amp;rsquo;s identity as part of the signing process, or to a signer whose identity can be specified through the API by the hosting application.</p>
 <p>Now, consider a scenario where parents&amp;rsquo; consent is required for young school-going kids to do some light work as part of their school trip. In this case, the school is required to get the parent&amp;rsquo;s consent by asking them to sign a form. Once the form has been completed and signed by the child&amp;rsquo;s parent, the school can engage the kid with the planned activities.</p>
 <p>The entire consent workflow can be achieved through the Sign APIs.</p>
 <p>The school does the following:</p>
@@ -634,7 +634,7 @@
 <li><p>The Widget URL is circulated to all the parents.</p></li>
 <li><p>Whenever a parent signs the widget, a signed agreement can be downloaded by the school.</p></li>
 </ol>
-<p>You can create a signable web form (Widget) by uploading any standard document and adding fields using the drag-and-drop interface provided by Adobe Sign. You can also upload an existing PDF form with its fields, or insert text tags into a document which Adobe Sign will automatically turn into form fields. You can do all of these through the Sign APIs.</p>
+<p>You can create a signable web form (Widget) by uploading any standard document and adding fields using the drag-and-drop interface provided by Acrobat Sign. You can also upload an existing PDF form with its fields, or insert text tags into a document which Acrobat Sign will automatically turn into form fields. You can do all of these through the Sign APIs.</p>
 <p>Before you begin creating a Widget, learn to <a class="reference internal" href="apiusage.html#sendforsigning"><span class="std std-ref">Send for Signing (Create an Agreement)</span></a>.</p>
 </div>
 <div class="section" id="creating-a-widget">
@@ -666,7 +666,7 @@
     <p>
         &#169; Copyright 2021, Adobe Inc..
       <span class="lastupdated">
-        Last update: Feb 03, 2022. 
+        Last update: Feb 10, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

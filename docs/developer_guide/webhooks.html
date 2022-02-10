@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Learn now to automate and monitor signing workflows with the Acrobat Sign APIs. Create apps that integrate with and leverage features across Adobe's enterprise-class product lineup."
   
-  <title>Webhooks in Adobe Sign v6 &mdash; Acrobat Sign Developer Guide</title>
+  <title>Webhooks in Acrobat Sign v6 &mdash; Acrobat Sign Developer Guide</title>
   
 
   
@@ -167,7 +167,7 @@
 <li class="toctree-l3"><a class="reference internal" href="apiusage.html#steps-to-take-when-throttled">Steps to take when throttled</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="apiusage.html#adobe-sign-v6-rest-api-enhancements">Adobe Sign v6 REST API Enhancements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#acrobat-sign-v6-rest-api-enhancements">Acrobat Sign v6 REST API Enhancements</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apiusage.html#enhancements">Enhancements</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="apiusage.html#pagination-support">Pagination Support</a></li>
 <li class="toctree-l4"><a class="reference internal" href="apiusage.html#constant-ids">Constant IDs</a></li>
@@ -201,7 +201,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Webhooks in Adobe Sign v6</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Webhooks in Acrobat Sign v6</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-webhooks-work">How do webhooks work?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#creating-a-webhook">Creating a webhook</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
@@ -237,7 +237,7 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookapis.html#standard-headers-in-every-api-request">Standard headers in every API request</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookapis.html#using-aws-lambda-functions">Using AWS Lambda Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#create-an-aws-lambda-function">Create an AWS Lambda function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#register-your-adobe-sign-webhook">Register your Adobe Sign webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#register-your-acrobat-sign-webhook">Register your Acrobat Sign webhook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#configure-the-aws-api-gateway">Configure the AWS API Gateway</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#deploy-the-api">Deploy the API</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#ready-to-use">Ready to Use</a></li>
@@ -245,9 +245,9 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="webhookapis.html#using-azure-functions">Using Azure Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#steps-to-create-an-azure-functions-trigger-that-serves-as-an-adobe-sign-webhook">Steps to create an Azure Functions Trigger that serves as an Adobe Sign Webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#steps-to-create-an-azure-functions-trigger-that-serves-as-an-acrobat-sign-webhook">Steps to create an Azure Functions Trigger that serves as an Acrobat Sign Webhook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#create-a-javascript-httptrigger-function">Create a JavaScript HttpTrigger function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#add-logic-to-register-your-adobe-sign-webhook">Add logic to register your Adobe Sign webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#add-logic-to-register-your-acrobat-sign-webhook">Add logic to register your Acrobat Sign webhook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#id1">Ready to use</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#get-the-functions-url">Get the function’s URL</a></li>
 </ul>
@@ -592,7 +592,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Webhooks in Adobe Sign v6</li>
+      <li>Webhooks in Acrobat Sign v6</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -618,19 +618,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="webhooks-in-adobe-sign-v6">
-<span id="webhooks"></span><h1>Webhooks in Adobe Sign v6<a class="headerlink" href="#webhooks-in-adobe-sign-v6" title="Permalink to this headline">¶</a></h1>
-<p>Webhooks are HTTPS callbacks that receive real-time notification messages for events. When the event occurs, the service makes an HTTPS POST request to the webhook’s HTTPS URL. In simple words, a webhook is a <strong>web service that accepts HTTPS POST requests</strong> (rather, listens to requests) from a source. As a developer, you can create webhooks in Adobe Sign to listen to events happening for your agreements and other resources. The webhooks can be created using REST APIs as well as the Adobe Sign web application.</p>
+  <div class="section" id="webhooks-in-acrobat-sign-v6">
+<span id="webhooks"></span><h1>Webhooks in Acrobat Sign v6<a class="headerlink" href="#webhooks-in-acrobat-sign-v6" title="Permalink to this headline">¶</a></h1>
+<p>Webhooks are HTTPS callbacks that receive real-time notification messages for events. When the event occurs, the service makes an HTTPS POST request to the webhook’s HTTPS URL. In simple words, a webhook is a <strong>web service that accepts HTTPS POST requests</strong> (rather, listens to requests) from a source. As a developer, you can create webhooks in Acrobat Sign to listen to events happening for your agreements and other resources. The webhooks can be created using REST APIs as well as the Acrobat Sign web application.</p>
 <div class="section" id="how-do-webhooks-work">
 <h2>How do webhooks work?<a class="headerlink" href="#how-do-webhooks-work" title="Permalink to this headline">¶</a></h2>
-<p>Webhooks are a useful tool for apps that want to receive and process real-time data updates happening in Adobe Sign; for example, after an agreement is signed, update the status of that agreement in an on-premises Content Management System like SharePoint.</p>
-<p>Instead of requiring your application to make an API call every X number of minutes to check for a specific event in Sign (also known as polling), you can now register webhooks in Adobe Sign, which will push HTTPS POST notifications to your webhook’s URL telling your application that the event has occurred. This push-based model requires fewer API requests overall and provides you with real-time updates, allowing you to build more robust apps and update your application instantly.</p>
-<p>Adobe Sign webhooks notifications are generated by changes to the agreement as it progresses from creation to sending to completed or aborted state. In the webhook notification, we provide updated information about the status of these agreements, optionally including the detailed agreement information, information about the documents, participants information and finally, the signed document.</p>
+<p>Webhooks are a useful tool for apps that want to receive and process real-time data updates happening in Acrobat Sign; for example, after an agreement is signed, update the status of that agreement in an on-premises Content Management System like SharePoint.</p>
+<p>Instead of requiring your application to make an API call every X number of minutes to check for a specific event in Sign (also known as polling), you can now register webhooks in Acrobat Sign, which will push HTTPS POST notifications to your webhook’s URL telling your application that the event has occurred. This push-based model requires fewer API requests overall and provides you with real-time updates, allowing you to build more robust apps and update your application instantly.</p>
+<p>Acrobat Sign webhooks notifications are generated by changes to the agreement as it progresses from creation to sending to completed or aborted state. In the webhook notification, we provide updated information about the status of these agreements, optionally including the detailed agreement information, information about the documents, participants information and finally, the signed document.</p>
 <p><strong>A simple workflow for webhooks:</strong></p>
 <ol class="arabic simple">
 <li><p>A webhook client application (your app) calls <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/webhooks</span></code> with a user token to register (“create”) a webhook for a resource.</p></li>
-<li><p>Adobe Sign validates that the request and the webhook URL is valid. There is a defined mechanism for this validation where Adobe Sign makes an HTTPS GET request (with the calling application’s client ID in a custom HTTPS request header) to the webhook URL and the webhook URL is expected to respond in a specific way; see <a class="reference external" href="#verificationofintentofthewebhookurl">Verification of intent</a>.</p></li>
-<li><p>Adobe Sign sends a success response (any HTTPS 2XX code) to your client app with the unique webhook identifier and Location header, which contains the URL of the webhook resource created in Adobe Sign.</p></li>
+<li><p>Acrobat Sign validates that the request and the webhook URL is valid. There is a defined mechanism for this validation where Acrobat Sign makes an HTTPS GET request (with the calling application’s client ID in a custom HTTPS request header) to the webhook URL and the webhook URL is expected to respond in a specific way; see <a class="reference external" href="#verificationofintentofthewebhookurl">Verification of intent</a>.</p></li>
+<li><p>Acrobat Sign sends a success response (any HTTPS 2XX code) to your client app with the unique webhook identifier and Location header, which contains the URL of the webhook resource created in Acrobat Sign.</p></li>
 <li><p>Whenever an event happens in Sign, a notification for that event will be sent to the webhook URL.</p></li>
 </ol>
 </div>
@@ -638,9 +638,9 @@
 <h2>Creating a webhook<a class="headerlink" href="#creating-a-webhook" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="prerequisites">
 <h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
-<p>Before you can create webhooks in Adobe Sign, you must complete the following prerequisites:</p>
+<p>Before you can create webhooks in Acrobat Sign, you must complete the following prerequisites:</p>
 <ol class="arabic simple">
-<li><p>Obtain a unique set of application credentials (an application ID and an application secret). Account administrators can generate these credentials through the Adobe Sign API page under “My Profile”.</p></li>
+<li><p>Obtain a unique set of application credentials (an application ID and an application secret). Account administrators can generate these credentials through the Acrobat Sign API page under “My Profile”.</p></li>
 <li><p>Webhook API calls require an <a class="reference external" href="https://secure.echosign.com/public/static/oauthDoc.jsp">OAuth Access Token</a>. Each operation on a resource requires specific OAuth scope(s), and your application will need to request all of the needed scopes during the OAuth authorization process.</p></li>
 <li><p>Use the access token received from the OAuth authentication and authorization process in the following REST endpoints to perform operations on behalf of the user who authorized the API access.</p></li>
 </ol>
@@ -649,17 +649,17 @@
 </div>
 <div class="section" id="configure-a-webhook-and-subscribe-to-events">
 <h3>Configure a webhook and subscribe to events<a class="headerlink" href="#configure-a-webhook-and-subscribe-to-events" title="Permalink to this headline">¶</a></h3>
-<p>To create a webhook in Adobe Sign, you must configure a webhook URL and register it as a webhook with Adobe Sign, specifying the events on which the notifications should be sent. This can be done by calling the POST /webhooks API from the <strong>client application</strong>, passing along the subscription data. The subscription specifies how a subscriber intends to consume events. The first requirement is the foundation by which the subscriptions are managed. At the most basic level, a subscription really needs the following fields:</p>
+<p>To create a webhook in Acrobat Sign, you must configure a webhook URL and register it as a webhook with Acrobat Sign, specifying the events on which the notifications should be sent. This can be done by calling the POST /webhooks API from the <strong>client application</strong>, passing along the subscription data. The subscription specifies how a subscriber intends to consume events. The first requirement is the foundation by which the subscriptions are managed. At the most basic level, a subscription really needs the following fields:</p>
 <ul class="simple">
 <li><p><strong>An event name</strong>: The names of events to which you want to subscribe</p></li>
 <li><p><strong>A resource type and corresponding resource identifier</strong></p></li>
-<li><p><strong>A webhook URL, to receive event notifications from Adobe Sign</strong>: This is the URL where your webhook will listen for HTTPS POST notifications sent by Adobe Sign for all the events to which you’ve subscribed.</p></li>
+<li><p><strong>A webhook URL, to receive event notifications from Acrobat Sign</strong>: This is the URL where your webhook will listen for HTTPS POST notifications sent by Acrobat Sign for all the events to which you’ve subscribed.</p></li>
 </ul>
-<p>When Adobe Sign receives a webhook creation call from your app, the Sign service first <em>verifies the intent</em> of the webhook URL by making a GET call (see the next section) to the webhook URL. If that call succeeds, the Sign service then returns the response of the POST call, with the URL of the newly created webhook resource contained in the HTTPS Location header. The client service can later make PUT/GET/DELETE calls on this URL; see the <a class="reference external" href="#managingwebhooksandsubscriptionswebhookapis">list of APIs for webhook subscription management</a>.</p>
+<p>When Acrobat Sign receives a webhook creation call from your app, the Sign service first <em>verifies the intent</em> of the webhook URL by making a GET call (see the next section) to the webhook URL. If that call succeeds, the Sign service then returns the response of the POST call, with the URL of the newly created webhook resource contained in the HTTPS Location header. The client service can later make PUT/GET/DELETE calls on this URL; see the <a class="reference external" href="#managingwebhooksandsubscriptionswebhookapis">list of APIs for webhook subscription management</a>.</p>
 </div>
 <div class="section" id="verification-of-intent-of-the-webhook-url">
 <span id="verifyintent"></span><h3>Verification of intent of the webhook URL<a class="headerlink" href="#verification-of-intent-of-the-webhook-url" title="Permalink to this headline">¶</a></h3>
-<p>Before registering a webhook successfully, Adobe Sign verifies that the webhook URL that is provided in the registration request really intends to receive notifications. For this purpose, when a new webhook registration request is received by Adobe Sign, it first makes a verification request to the webhook URL. This verification request is an HTTPS GET request sent to the webhook URL with a custom HTTP header, <code class="docutils literal notranslate"><span class="pre">xAdobeSignClientId</span></code>. The value in this header is set to the client ID (Application ID) of the API application that is requesting to register the webhook. To register a webhook successfully, the webhook URL must respond to this verification request with an HTTPS 2XX response code, and it also MUST send back the same client ID value in one of the following two ways.</p>
+<p>Before registering a webhook successfully, Acrobat Sign verifies that the webhook URL that is provided in the registration request really intends to receive notifications. For this purpose, when a new webhook registration request is received by Acrobat Sign, it first makes a verification request to the webhook URL. This verification request is an HTTPS GET request sent to the webhook URL with a custom HTTP header, <code class="docutils literal notranslate"><span class="pre">xAdobeSignClientId</span></code>. The value in this header is set to the client ID (Application ID) of the API application that is requesting to register the webhook. To register a webhook successfully, the webhook URL must respond to this verification request with an HTTPS 2XX response code, and it also MUST send back the same client ID value in one of the following two ways.</p>
 <ul class="simple">
 <li><p>In a custom response header, <code class="docutils literal notranslate"><span class="pre">xAdobeSignClientId</span></code>. This is the same header which was passed in the request, and can be echoed back in the response.</p></li>
 </ul>
@@ -728,7 +728,7 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>The webhook will be successfully registered only on a success response (2XX response code) and the validation of the client ID in either the header or response body.</strong> The purpose of this verification request is to demonstrate to Adobe Sign that your webhook really does want to receive notifications at that URL. Had you accidentally entered the wrong URL, the webhook would fail to respond correctly to the verification-of-intent request, and Adobe Sign would not send any notifications to that URL. Your app can also validate that it will receive notifications only through webhooks which are registered by a specific application. This can be done by validating the client ID of the application passed in the <code class="docutils literal notranslate"><span class="pre">xAdobeSignClientId</span></code> header. If the webhook does not recognize that client ID, it MUST NOT respond with the success response code and Adobe Sign will take care that the URL is not registered as a webhook.</p>
+<p><strong>The webhook will be successfully registered only on a success response (2XX response code) and the validation of the client ID in either the header or response body.</strong> The purpose of this verification request is to demonstrate to Acrobat Sign that your webhook really does want to receive notifications at that URL. Had you accidentally entered the wrong URL, the webhook would fail to respond correctly to the verification-of-intent request, and Acrobat Sign would not send any notifications to that URL. Your app can also validate that it will receive notifications only through webhooks which are registered by a specific application. This can be done by validating the client ID of the application passed in the <code class="docutils literal notranslate"><span class="pre">xAdobeSignClientId</span></code> header. If the webhook does not recognize that client ID, it MUST NOT respond with the success response code and Acrobat Sign will take care that the URL is not registered as a webhook.</p>
 <p>The call to verify the webhook URL will be made in the following scenarios:</p>
 <ul class="simple">
 <li><p>Registering a webhook: If this verification of webhook URL call fails, the webhook will not be created.</p></li>
@@ -737,7 +737,7 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
 </div>
 <div class="section" id="how-to-respond-to-a-webhook-notification">
 <h3>How to respond to a webhook notification<a class="headerlink" href="#how-to-respond-to-a-webhook-notification" title="Permalink to this headline">¶</a></h3>
-<p>Adobe Sign performs an implicit verification of intent in each webhook notification request that is sent to the webhook URL. Every webhook notification HTTPS request contains the customer HTTP header called <strong>X-AdobeSign-ClientId.</strong> The value of this header is the client ID (Application ID) of the application that created the webhook. We will consider the webhook notification successfully delivered, if and only if a success response <strong>(2XX response code)</strong> is returned and the the client ID is sent in either the HTTP header <strong>(X-AdobeSign-ClientId)</strong> or in a JSON response body with key as <code class="docutils literal notranslate"><span class="pre">xAdobeSignClientId</span></code> and value as the same client ID; otherwise, Adobe Sign will retry to deliver the notification to the webhook URL until the retries are exhausted.</p>
+<p>Acrobat Sign performs an implicit verification of intent in each webhook notification request that is sent to the webhook URL. Every webhook notification HTTPS request contains the customer HTTP header called <strong>X-AdobeSign-ClientId.</strong> The value of this header is the client ID (Application ID) of the application that created the webhook. We will consider the webhook notification successfully delivered, if and only if a success response <strong>(2XX response code)</strong> is returned and the the client ID is sent in either the HTTP header <strong>(X-AdobeSign-ClientId)</strong> or in a JSON response body with key as <code class="docutils literal notranslate"><span class="pre">xAdobeSignClientId</span></code> and value as the same client ID; otherwise, Acrobat Sign will retry to deliver the notification to the webhook URL until the retries are exhausted.</p>
 </div>
 <div class="section" id="hosting-your-webhook-in-the-cloud">
 <h3>Hosting your webhook in the cloud<a class="headerlink" href="#hosting-your-webhook-in-the-cloud" title="Permalink to this headline">¶</a></h3>
@@ -748,16 +748,16 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
 <li><p>Microsoft Azure Functions (See <a class="reference internal" href="webhookapis.html#azure"><span class="std std-ref">Using Azure Functions</span></a>)</p></li>
 <li><p>Amazon AWS Lambda Functions (See <a class="reference internal" href="webhookapis.html#aws"><span class="std std-ref">Using AWS Lambda Functions</span></a>)</p></li>
 </ul>
-<p>These platforms let you place your webhook code in the cloud, where it’s always ready to respond to Adobe Sign; using cloud-based functions offloads the most demanding functionality of your application to the cloud, which lets you build apps that can focus on functionality for the user without worrying about network loads and management.</p>
+<p>These platforms let you place your webhook code in the cloud, where it’s always ready to respond to Acrobat Sign; using cloud-based functions offloads the most demanding functionality of your application to the cloud, which lets you build apps that can focus on functionality for the user without worrying about network loads and management.</p>
 </div>
 </div>
 <div class="section" id="webhook-properties">
 <h2>Webhook properties<a class="headerlink" href="#webhook-properties" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="webhook-url">
 <h3>Webhook URL<a class="headerlink" href="#webhook-url" title="Permalink to this headline">¶</a></h3>
-<p>A webhook is an HTTPS-based service that listens at a specific URL for incoming HTTPS POST notification messages that are triggered when events occur. After you configure a webhook to listen on a given URL, note that URL for registering with Adobe Sign. You need this URL to subscribe your webhook to the events for which you want to be notified.</p>
+<p>A webhook is an HTTPS-based service that listens at a specific URL for incoming HTTPS POST notification messages that are triggered when events occur. After you configure a webhook to listen on a given URL, note that URL for registering with Acrobat Sign. You need this URL to subscribe your webhook to the events for which you want to be notified.</p>
 <ul class="simple">
-<li><p>The client must include an HTTPS URL to which Adobe Sign can send a POST request. This URL must be available on the public internet. For example, 127.0.0.1 and localhost URIs will not work, since the Adobe Sign Service will not be able to contact your local computer.</p></li>
+<li><p>The client must include an HTTPS URL to which Acrobat Sign can send a POST request. This URL must be available on the public internet. For example, 127.0.0.1 and localhost URIs will not work, since the Acrobat Sign Service will not be able to contact your local computer.</p></li>
 <li><p>Make sure your webhook supports POST requests for incoming notifications and GET requests for the verification of intent request.</p></li>
 <li><p>Your webhook URL must not be blocked by a firewall.</p></li>
 </ul>
@@ -766,7 +766,7 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
 <h3>Webhook status<a class="headerlink" href="#webhook-status" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>A webhook can be either active or inactive. By default, a webhook is active.</p></li>
-<li><p>An active webhook will receive requests for events as they occur within Adobe Sign.</p></li>
+<li><p>An active webhook will receive requests for events as they occur within Acrobat Sign.</p></li>
 <li><p>A webhook marked as inactive will stop receiving event requests. If an event’s request is processing while the webhook is made inactive, this request will finish. Any other existing, unprocessed event requests will be canceled and not sent to your endpoint.</p></li>
 <li><p>If an inactive webhook is made active, it will begin receiving event requests once more as soon as new event requests are created.</p></li>
 </ul>
@@ -783,11 +783,11 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
 </div>
 <div class="section" id="webhook-events">
 <h3>Webhook events<a class="headerlink" href="#webhook-events" title="Permalink to this headline">¶</a></h3>
-<p>Events are the reason for webhooks: webhooks are a way for your Adobe Sign integration to listen for and respond to Adobe Sign events. See <a class="reference internal" href="webhookevents.html#webhookevents"><span class="std std-ref">Webhook Events</span></a></p>
+<p>Events are the reason for webhooks: webhooks are a way for your Acrobat Sign integration to listen for and respond to Acrobat Sign events. See <a class="reference internal" href="webhookevents.html#webhookevents"><span class="std std-ref">Webhook Events</span></a></p>
 </div>
 <div class="section" id="webhook-conditional-parameters">
 <h3>Webhook conditional parameters<a class="headerlink" href="#webhook-conditional-parameters" title="Permalink to this headline">¶</a></h3>
-<p>When you register or update a webhook, you can specify whether you want to receive the minimum payload or detailed info such as participant info, document info, and more details using these parameters. By default, all the conditional parameters are set to false and Adobe Sign will send the minimum payload (resourceId, status and name) in the payload info. Specify the following conditional parameters in the API request to receive the corresponding details in the payload:</p>
+<p>When you register or update a webhook, you can specify whether you want to receive the minimum payload or detailed info such as participant info, document info, and more details using these parameters. By default, all the conditional parameters are set to false and Acrobat Sign will send the minimum payload (resourceId, status and name) in the payload info. Specify the following conditional parameters in the API request to receive the corresponding details in the payload:</p>
 <p><strong>Agreement</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">includeDetailedInfo</span></code>: Determines whether agreement detailed info will be returned in the response payload. Based on the state of the agreement and the event being notified, the keys in the JSON payload will change.</p></li>
@@ -814,7 +814,7 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
 </div>
 <div class="section" id="managing-webhooks-and-subscriptions">
 <h2>Managing webhooks and subscriptions<a class="headerlink" href="#managing-webhooks-and-subscriptions" title="Permalink to this headline">¶</a></h2>
-<p>The Adobe Sign webhook APIs are essential, as you use the <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/webhooks</span></code> API to create your webhook, and use the other API endpoints to retrieve information about your webhooks and their status, as well as to modify or delete webhooks. See <a class="reference internal" href="#webhooks"><span class="std std-ref">Webhooks in Adobe Sign v6</span></a> for standard headers, error codes, and endpoint details:</p>
+<p>The Acrobat Sign webhook APIs are essential, as you use the <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/webhooks</span></code> API to create your webhook, and use the other API endpoints to retrieve information about your webhooks and their status, as well as to modify or delete webhooks. See <a class="reference internal" href="#webhooks"><span class="std std-ref">Webhooks in Acrobat Sign v6</span></a> for standard headers, error codes, and endpoint details:</p>
 <ul class="simple">
 <li><p>POST /webhooks  Creates a new webhook.</p></li>
 <li><p>GET /webhooks  Retrieves webhooks for a user.</p></li>
@@ -825,15 +825,15 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
 </ul>
 <div class="section" id="securing-webhooks">
 <h3>Securing webhooks<a class="headerlink" href="#securing-webhooks" title="Permalink to this headline">¶</a></h3>
-<p>Adobe Sign secures your webhooks in the following ways:</p>
+<p>Acrobat Sign secures your webhooks in the following ways:</p>
 <ul class="simple">
 <li><p><strong>Allowing only HTTPS URLs:</strong> Only HTTPS URLs are permitted to register as webhook urls.</p></li>
-<li><p><strong>Validating webhooks subscription for authentication and authorization for webhooks created through the API:</strong> This is done using the existing API authentication and authorization validation in Sign. The first step for securing Adobe Sign webhooks is to include the standard authentication mechanism (OAuth access token and authorization header). While setting up a webhook subscription, we will validate that the token is valid and the API caller has permissions to create a webhook on the resource. We will also validate that the API caller has appropriate authorization to create account-level webhooks.</p></li>
-<li><p><strong>Two-way SSL authentication:</strong> Adobe Sign supports a two-way SSL handshake when making callbacks to our customer’s servers. Two-way SSL, often called Client-Side SSL, is a mode of SSL wherein both the server and the client (web browser) present certificates to identify themselves. We allow the account admins, via their account Security Settings page, to upload an identifying certificate, which the AdobeSign webhooks system will use to identify itself when making webhook calls to their servers. Adobe Sign will verify SSL certificates when delivering payloads to HTTPS webhook addresses. Webhooks that fail the SSL certificate verification will not successfully deliver to their respective hosts. Please ensure your server is correctly configured to support HTTPS with a valid SSL certificate.</p></li>
+<li><p><strong>Validating webhooks subscription for authentication and authorization for webhooks created through the API:</strong> This is done using the existing API authentication and authorization validation in Sign. The first step for securing Acrobat Sign webhooks is to include the standard authentication mechanism (OAuth access token and authorization header). While setting up a webhook subscription, we will validate that the token is valid and the API caller has permissions to create a webhook on the resource. We will also validate that the API caller has appropriate authorization to create account-level webhooks.</p></li>
+<li><p><strong>Two-way SSL authentication:</strong> Acrobat Sign supports a two-way SSL handshake when making callbacks to our customer’s servers. Two-way SSL, often called Client-Side SSL, is a mode of SSL wherein both the server and the client (web browser) present certificates to identify themselves. We allow the account admins, via their account Security Settings page, to upload an identifying certificate, which the AdobeSign webhooks system will use to identify itself when making webhook calls to their servers. Acrobat Sign will verify SSL certificates when delivering payloads to HTTPS webhook addresses. Webhooks that fail the SSL certificate verification will not successfully deliver to their respective hosts. Please ensure your server is correctly configured to support HTTPS with a valid SSL certificate.</p></li>
 <li><p><strong>Keeping the webhook configuration immutable:</strong> If your webhook URL changes, there is a possibility that your application consumer key and consumer secret have been compromised. By requiring you to create a new webhook configuration, we also require you to resubscribe to your user’s events. This requires the use of access tokens that a malicious party is less likely to posses. As a result, the likelihood that another party will receive your user’s private information is reduced.</p></li>
 <li><p><strong>Sending and receiving the client ID in the webhook notification request:</strong> You can whitelist the client/application ids through which you want to receive the payload. Notifications from the remaining apps can be ignored.</p></li>
 <li><p><strong>Recommended server configurations:</strong> We are only supporting TLS 1.2 for webhooks. TLS 1.0 and 1.1 are not supported.</p></li>
-<li><p><strong>IP validation:</strong> To prevent setting an internal subnet (for example, a 10.x address), special IP address ranges such as the 169.254.169.254 range, and other invalid IP addresses as webhook URLs, Adobe Sign will validate the IP address at the time of webhook creation as well as while sending notifications. If the IP address is invalid, the webhook will not be created. IP validation is done in the following way:</p>
+<li><p><strong>IP validation:</strong> To prevent setting an internal subnet (for example, a 10.x address), special IP address ranges such as the 169.254.169.254 range, and other invalid IP addresses as webhook URLs, Acrobat Sign will validate the IP address at the time of webhook creation as well as while sending notifications. If the IP address is invalid, the webhook will not be created. IP validation is done in the following way:</p>
 <ol class="arabic simple">
 <li><p>The host name is resolved using DNS lookup.</p></li>
 <li><p>The IP address obtained is validated. The following IP addresses are considered invalid and a webook cannot be created using them:</p>
@@ -847,7 +847,7 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
 </li>
 </ol>
 </li>
-<li><p><strong>Avoid sending sensitive information:</strong> Adobe Sign will not send any sensitive information such as passwords or signing URLs in the payload.</p></li>
+<li><p><strong>Avoid sending sensitive information:</strong> Acrobat Sign will not send any sensitive information such as passwords or signing URLs in the payload.</p></li>
 </ul>
 </div>
 <div class="section" id="best-practices">
@@ -856,14 +856,14 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
 <li><p><strong>Be prepared to dedupe events:</strong> If you have more than one app sharing the same webhook URL and the same user mapped to each app, the same event will be sent to your webhook multiple times (once per app). In some cases your webhook may receive duplicate events. Your webhook application should be tolerant of this and dedupe by event ID.</p></li>
 <li><p><strong>Always respond to webhook requests quickly:</strong> Your app only has ten seconds to respond to webhook requests. For the verification request, this is never really an issue, since your app doesn’t need to do any real work to respond. For notification requests, however, your app will usually do something that takes time in response to the request. For example, it may need to process and then store signed documents. To make sure you can always respond within ten seconds, you should always do your work on a separate thread or asynchronously, using a queue.</p></li>
 <li><p><strong>Manage concurrency:</strong> When a user makes a number of changes in rapid succession, your app is likely to receive multiple notifications for the same user at roughly the same time. If you’re not careful about how you manage concurrency, your app can end up processing the same changes for the same user more than once.</p>
-<p>To take advantage of Adobe Sign webhooks, a clear understanding of the use of the information needs to be understood. Be sure to ask questions such as:</p>
+<p>To take advantage of Acrobat Sign webhooks, a clear understanding of the use of the information needs to be understood. Be sure to ask questions such as:</p>
 <ol class="arabic simple">
 <li><p>What data do you want to return in payload?</p></li>
 <li><p>Who will be accessing this information?</p></li>
 <li><p>What decisions or reporting will be generated?</p></li>
 </ol>
 </li>
-<li><p><strong>Recommendations for receiving signed documents:</strong> There are several factors to consider when determining how to receive agreements (signed PDFs) from Adobe Sign in your document management system. While it is perfectly acceptable to just select the IncludeSignedDocument option while creating a webhook to include the PDF documents when an event is triggered, you might consider using the Adobe Sign API to retrieve the documents when a triggering event (such as agreement status Complete) is received.</p></li>
+<li><p><strong>Recommendations for receiving signed documents:</strong> There are several factors to consider when determining how to receive agreements (signed PDFs) from Acrobat Sign in your document management system. While it is perfectly acceptable to just select the IncludeSignedDocument option while creating a webhook to include the PDF documents when an event is triggered, you might consider using the Acrobat Sign API to retrieve the documents when a triggering event (such as agreement status Complete) is received.</p></li>
 </ul>
 </div>
 </div>
@@ -881,7 +881,7 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
     <p>
         &#169; Copyright 2021, Adobe Inc..
       <span class="lastupdated">
-        Last update: Feb 03, 2022. 
+        Last update: Feb 10, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

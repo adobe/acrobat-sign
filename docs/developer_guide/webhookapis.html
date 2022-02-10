@@ -36,7 +36,7 @@
   
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Webhook Events" href="webhookevents.html" />
-    <link rel="prev" title="Webhooks in Adobe Sign v6" href="webhooks.html" /> 
+    <link rel="prev" title="Webhooks in Acrobat Sign v6" href="webhooks.html" /> 
   
 <script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
 <script src="https://www.adobe.com/marketingtech/main.min.js"></script>
@@ -167,7 +167,7 @@
 <li class="toctree-l3"><a class="reference internal" href="apiusage.html#steps-to-take-when-throttled">Steps to take when throttled</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="apiusage.html#adobe-sign-v6-rest-api-enhancements">Adobe Sign v6 REST API Enhancements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#acrobat-sign-v6-rest-api-enhancements">Acrobat Sign v6 REST API Enhancements</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apiusage.html#enhancements">Enhancements</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="apiusage.html#pagination-support">Pagination Support</a></li>
 <li class="toctree-l4"><a class="reference internal" href="apiusage.html#constant-ids">Constant IDs</a></li>
@@ -201,7 +201,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="webhooks.html">Webhooks in Adobe Sign v6</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="webhooks.html">Webhooks in Acrobat Sign v6</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="webhooks.html#how-do-webhooks-work">How do webhooks work?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhooks.html#creating-a-webhook">Creating a webhook</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhooks.html#prerequisites">Prerequisites</a></li>
@@ -237,7 +237,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#standard-headers-in-every-api-request">Standard headers in every API request</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-aws-lambda-functions">Using AWS Lambda Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#create-an-aws-lambda-function">Create an AWS Lambda function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#register-your-adobe-sign-webhook">Register your Adobe Sign webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#register-your-acrobat-sign-webhook">Register your Acrobat Sign webhook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#configure-the-aws-api-gateway">Configure the AWS API Gateway</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#deploy-the-api">Deploy the API</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ready-to-use">Ready to Use</a></li>
@@ -245,9 +245,9 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#using-azure-functions">Using Azure Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#steps-to-create-an-azure-functions-trigger-that-serves-as-an-adobe-sign-webhook">Steps to create an Azure Functions Trigger that serves as an Adobe Sign Webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#steps-to-create-an-azure-functions-trigger-that-serves-as-an-acrobat-sign-webhook">Steps to create an Azure Functions Trigger that serves as an Acrobat Sign Webhook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-a-javascript-httptrigger-function">Create a JavaScript HttpTrigger function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#add-logic-to-register-your-adobe-sign-webhook">Add logic to register your Adobe Sign webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-logic-to-register-your-acrobat-sign-webhook">Add logic to register your Acrobat Sign webhook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Ready to use</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#get-the-functions-url">Get the function’s URL</a></li>
 </ul>
@@ -609,7 +609,7 @@
         <a href="webhookevents.html" class="btn btn-neutral float-right" title="Webhook Events" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
       
       
-        <a href="webhooks.html" class="btn btn-neutral float-left" title="Webhooks in Adobe Sign v6" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="webhooks.html" class="btn btn-neutral float-left" title="Webhooks in Acrobat Sign v6" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
       
   </div>
   
@@ -620,8 +620,8 @@
             
   <div class="section" id="webhook-apis">
 <h1>Webhook APIs<a class="headerlink" href="#webhook-apis" title="Permalink to this headline">¶</a></h1>
-<p>Webhook APIs are the means by which your integration communicates with the Adobe Sign service about webhooks. Use the various API endpoints to create, delete, modify, and retrieve status information about your webhooks.</p>
-<p>Adobe Sign APIs include the endpoints described below.</p>
+<p>Webhook APIs are the means by which your integration communicates with the Acrobat Sign service about webhooks. Use the various API endpoints to create, delete, modify, and retrieve status information about your webhooks.</p>
+<p>Acrobat Sign APIs include the endpoints described below.</p>
 <div class="section" id="post-webhooks">
 <h2>POST /webhooks<a class="headerlink" href="#post-webhooks" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-given docutils align-default">
@@ -761,7 +761,7 @@
 </tr>
 </tbody>
 </table>
-<p>This API will be used to create a webhook on a particular resource in Adobe Sign.</p>
+<p>This API will be used to create a webhook on a particular resource in Acrobat Sign.</p>
 <ul class="simple">
 <li><p>You need to register the webhook with your application and a user token using this API.</p></li>
 <li><p>Group level webhooks can only be created by a Group admin and Account level webhooks can only be created by an Account admin.</p></li>
@@ -1266,77 +1266,6 @@
 <div class="section" id="standard-error-codes-in-every-api-request">
 <h2>Standard error codes in every API request<a class="headerlink" href="#standard-error-codes-in-every-api-request" title="Permalink to this headline">¶</a></h2>
 <p>Any API request may return any of these standard error codes:</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 17%" />
-<col style="width: 73%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>HTTPS status code</strong></p></th>
-<th class="head"><p><strong>Error code</strong></p></th>
-<th class="head"><p><strong>Message</strong></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>400</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">BAD_REQUEST</span></code></p></td>
-<td><p>The request provided is invalid.</p></td>
-</tr>
-<tr class="row-odd"><td><p>400</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">INVALID_JSON</span></code></p></td>
-<td><p>An invalid JSON was specified.</p></td>
-</tr>
-<tr class="row-even"><td><p>400</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">INVALID_ON_BEHALF_OF_USER_HEADER</span></code></p></td>
-<td><p>The value provided in the <code class="docutils literal notranslate"><span class="pre">x-on-behalf-of-user</span></code> header is in invalid format.</p></td>
-</tr>
-<tr class="row-odd"><td><p>400</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">INVALID_X_API_USER_HEADER</span></code></p></td>
-<td><p>The value provided in <code class="docutils literal notranslate"><span class="pre">x-api-user</span></code> header is in invalid format.</p></td>
-</tr>
-<tr class="row-even"><td><p>400</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">MISC_ERROR</span></code></p></td>
-<td><p>Some miscellaneous error has occurred.</p></td>
-</tr>
-<tr class="row-odd"><td><p>401</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">UNAUTHORIZED</span></code></p></td>
-<td><p>You cannot work on behalf of this user.</p></td>
-</tr>
-<tr class="row-even"><td><p>401</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">UNVERIFIED_USER</span></code></p></td>
-<td><p>The user has registered but has not verified their email address. The user must use the Adobe Sign web site to complete verification.</p></td>
-</tr>
-<tr class="row-odd"><td><p>401</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">NO_AUTHORIZATION_HEADER</span></code></p></td>
-<td><p>The authorization header was not provided.</p></td>
-</tr>
-<tr class="row-even"><td><p>401</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">INVALID_ACCESS_TOKEN</span></code></p></td>
-<td><p>The access token provided is invalid or has expired.</p></td>
-</tr>
-<tr class="row-odd"><td><p>401</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">INVALID_USER</span></code></p></td>
-<td><p>An invalid user ID or email was provided in the <code class="docutils literal notranslate"><span class="pre">x-user</span></code> header.</p></td>
-</tr>
-<tr class="row-even"><td><p>401</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">INVALID_ON_BEHALF_OF_USER</span></code></p></td>
-<td><p>An invalid user ID or email was provided in the <code class="docutils literal notranslate"><span class="pre">x-on-behalf-of-user</span></code> header.</p></td>
-</tr>
-<tr class="row-odd"><td><p>403</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">API_TERMS_NOT_ACCEPTED</span></code></p></td>
-<td><p>Your account is locked because an administrator has not agreed to Adobe Sign’s Terms of Use. Please contact your account administrator to activate your account.</p></td>
-</tr>
-<tr class="row-even"><td><p>404</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">PERMISSION_DENIED</span></code></p></td>
-<td><p>The API caller does not have the permission to execute this operation.</p></td>
-</tr>
-<tr class="row-odd"><td><p>500</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">MISC_SERVER_ERROR</span></code></p></td>
-<td><p>Some miscellaneous server error has occurred.</p></td>
-</tr>
-</tbody>
-</table>
 </div>
 <div class="section" id="standard-headers-in-every-api-request">
 <h2>Standard headers in every API request<a class="headerlink" href="#standard-headers-in-every-api-request" title="Permalink to this headline">¶</a></h2>
@@ -1366,7 +1295,7 @@
 </div>
 <div class="section" id="using-aws-lambda-functions">
 <span id="aws"></span><h2>Using AWS Lambda Functions<a class="headerlink" href="#using-aws-lambda-functions" title="Permalink to this headline">¶</a></h2>
-<p>AWS Lambda Functions is a serverless computing service offered by Amazon Web Services. AWS Lambda Functions offer you a platform in which you can execute function code on demand over the internet without the need to manage your own web servers. This gives you a no-overhead solution for hosting functions in the cloud, such as webhooks for Adobe Sign. AWS Lambda Functions support Node.js (JavaScript), Java, Python, C#, and Go.</p>
+<p>AWS Lambda Functions is a serverless computing service offered by Amazon Web Services. AWS Lambda Functions offer you a platform in which you can execute function code on demand over the internet without the need to manage your own web servers. This gives you a no-overhead solution for hosting functions in the cloud, such as webhooks for Acrobat Sign. AWS Lambda Functions support Node.js (JavaScript), Java, Python, C#, and Go.</p>
 <div class="section" id="create-an-aws-lambda-function">
 <h3>Create an AWS Lambda function<a class="headerlink" href="#create-an-aws-lambda-function" title="Permalink to this headline">¶</a></h3>
 <p>To create an AWS Lambda function:</p>
@@ -1386,9 +1315,9 @@
 <li><p>On the new AWS lambda function page, select <strong>Edit code inline</strong> as the code entry type; keep index.handler as the Handler.</p></li>
 </ol>
 </div>
-<div class="section" id="register-your-adobe-sign-webhook">
-<h3>Register your Adobe Sign webhook<a class="headerlink" href="#register-your-adobe-sign-webhook" title="Permalink to this headline">¶</a></h3>
-<p>Before registering a webhook, Adobe Sign verifies that the webhook URL that is provided in the registration request really intends to receive notifications; see <a class="reference internal" href="webhooks.html#verifyintent"><span class="std std-ref">Verification of intent of the webhook URL</span></a>. For this purpose, when a new webhook registration request is received by Adobe Sign, it first makes an HTTPS GET verification request to the webhook URL with a custom HTTP header, <code class="docutils literal notranslate"><span class="pre">X-AdobeSign-ClientId</span></code>. The value in this header is set to the client ID of the application that is requesting to create and register the webhook. The webhook URL must respond to this verification request with a <strong>2XX response code</strong>, and it must send back the same client ID value in one of the following two ways: Also note the same behaviour for clientID is expected when the Webhook URL receives POST notifications.</p>
+<div class="section" id="register-your-acrobat-sign-webhook">
+<h3>Register your Acrobat Sign webhook<a class="headerlink" href="#register-your-acrobat-sign-webhook" title="Permalink to this headline">¶</a></h3>
+<p>Before registering a webhook, Acrobat Sign verifies that the webhook URL that is provided in the registration request really intends to receive notifications; see <a class="reference internal" href="webhooks.html#verifyintent"><span class="std std-ref">Verification of intent of the webhook URL</span></a>. For this purpose, when a new webhook registration request is received by Acrobat Sign, it first makes an HTTPS GET verification request to the webhook URL with a custom HTTP header, <code class="docutils literal notranslate"><span class="pre">X-AdobeSign-ClientId</span></code>. The value in this header is set to the client ID of the application that is requesting to create and register the webhook. The webhook URL must respond to this verification request with a <strong>2XX response code</strong>, and it must send back the same client ID value in one of the following two ways: Also note the same behaviour for clientID is expected when the Webhook URL receives POST notifications.</p>
 <p><strong>Case 1: Pass the client ID as X-AdobeSign-ClientId in the response header</strong></p>
 <p>This is the same header which was passed in the request, and it must be echoed back in the response.</p>
 <p>Replace the contents of the Index.js file with the following code snippet:</p>
@@ -1480,12 +1409,12 @@
 </div>
 <div class="section" id="ready-to-use">
 <h3>Ready to Use<a class="headerlink" href="#ready-to-use" title="Permalink to this headline">¶</a></h3>
-<p>It’s done. Use the above URL with “/{nodeJSfunctionName}” appended as the webhook URL in your <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/webhooks</span></code> API request. Once you have verified the behavior, the webhook URL is functional as per Adobe Sign standards. You can further update your new webhook and add custom logic as needed for your application.</p>
+<p>It’s done. Use the above URL with “/{nodeJSfunctionName}” appended as the webhook URL in your <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/webhooks</span></code> API request. Once you have verified the behavior, the webhook URL is functional as per Acrobat Sign standards. You can further update your new webhook and add custom logic as needed for your application.</p>
 </div>
 </div>
 <div class="section" id="using-azure-functions">
 <span id="azure"></span><h2>Using Azure Functions<a class="headerlink" href="#using-azure-functions" title="Permalink to this headline">¶</a></h2>
-<p>Azure Functions is Microsoft’s serverless computing cloud platform. Using Azure Functions, you can write functional code and host it in the Azure cloud, ready to execute on demand. This always-on functionality, combined with the ease of management offered by cloud-based serverless architecture, makes Azure Functions a viable alternative for hosting your Adobe Sign webhooks.</p>
+<p>Azure Functions is Microsoft’s serverless computing cloud platform. Using Azure Functions, you can write functional code and host it in the Azure cloud, ready to execute on demand. This always-on functionality, combined with the ease of management offered by cloud-based serverless architecture, makes Azure Functions a viable alternative for hosting your Acrobat Sign webhooks.</p>
 <p>Azure Functions executes individual serverless functions within a function app. Function apps can host many different functions, and you can have many function apps on Azure; so the infrastructure enables you to organize related functions into apps.</p>
 <div class="section" id="prerequisites">
 <h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
@@ -1496,8 +1425,8 @@
 <li><p>For this example, basic knowledge of JavaScript. Azure Functions understands and executes functions written in several different languages; see <a class="reference external" href="https://docs.microsoft.com/en-us/azure/azure-functions/supported-languages">Supported languages in Azure Functions</a> in the Azure documentation.</p></li>
 </ol>
 </div>
-<div class="section" id="steps-to-create-an-azure-functions-trigger-that-serves-as-an-adobe-sign-webhook">
-<h3>Steps to create an Azure Functions Trigger that serves as an Adobe Sign Webhook<a class="headerlink" href="#steps-to-create-an-azure-functions-trigger-that-serves-as-an-adobe-sign-webhook" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="steps-to-create-an-azure-functions-trigger-that-serves-as-an-acrobat-sign-webhook">
+<h3>Steps to create an Azure Functions Trigger that serves as an Acrobat Sign Webhook<a class="headerlink" href="#steps-to-create-an-azure-functions-trigger-that-serves-as-an-acrobat-sign-webhook" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="create-a-javascript-httptrigger-function">
 <h3>Create a JavaScript HttpTrigger function<a class="headerlink" href="#create-a-javascript-httptrigger-function" title="Permalink to this headline">¶</a></h3>
@@ -1516,9 +1445,9 @@
 </ol>
 <p>This will create a new function that has the capability of handling incoming API requests.</p>
 </div>
-<div class="section" id="add-logic-to-register-your-adobe-sign-webhook">
-<h3>Add logic to register your Adobe Sign webhook<a class="headerlink" href="#add-logic-to-register-your-adobe-sign-webhook" title="Permalink to this headline">¶</a></h3>
-<p>Before registering a webhook successfully, Adobe Sign verifies that the webhook URL that is provided in the registration request really intends to receive notifications; see <a class="reference internal" href="webhooks.html#verifyintent"><span class="std std-ref">Verification of intent of the webhook URL</span></a>. For this purpose, when a new webhook registration request is received by Adobe Sign, it first makes an HTTPS GET verification request to the webhook URL with a custom HTTP header, <code class="docutils literal notranslate"><span class="pre">X-AdobeSign-ClientId</span></code>. The value in this header is set to the client ID of the application that is requesting to create and register the webhook. The webhook URL must respond to this verification request with a <strong>2XX response code</strong>, and it must send back the same client ID value in one of the following two ways:</p>
+<div class="section" id="add-logic-to-register-your-acrobat-sign-webhook">
+<h3>Add logic to register your Acrobat Sign webhook<a class="headerlink" href="#add-logic-to-register-your-acrobat-sign-webhook" title="Permalink to this headline">¶</a></h3>
+<p>Before registering a webhook successfully, Acrobat Sign verifies that the webhook URL that is provided in the registration request really intends to receive notifications; see <a class="reference internal" href="webhooks.html#verifyintent"><span class="std std-ref">Verification of intent of the webhook URL</span></a>. For this purpose, when a new webhook registration request is received by Acrobat Sign, it first makes an HTTPS GET verification request to the webhook URL with a custom HTTP header, <code class="docutils literal notranslate"><span class="pre">X-AdobeSign-ClientId</span></code>. The value in this header is set to the client ID of the application that is requesting to create and register the webhook. The webhook URL must respond to this verification request with a <strong>2XX response code</strong>, and it must send back the same client ID value in one of the following two ways:</p>
 <p><strong>Case 1: Pass the client ID as ``X-AdobeSign-ClientId`` in the response header</strong></p>
 <p>This is the same header which was passed in the request, and it must be echoed back in the response.</p>
 <ol class="arabic simple">
@@ -1598,7 +1527,7 @@
 </div>
 <div class="section" id="id1">
 <h3>Ready to use<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>It’s done. Once you have verified the behavior, the webhook URL is functional as per Adobe Sign standards. You can further update your new webhook and add custom logic as needed for your application.</p>
+<p>It’s done. Once you have verified the behavior, the webhook URL is functional as per Acrobat Sign standards. You can further update your new webhook and add custom logic as needed for your application.</p>
 </div>
 <div class="section" id="get-the-functions-url">
 <h3>Get the function’s URL<a class="headerlink" href="#get-the-functions-url" title="Permalink to this headline">¶</a></h3>
@@ -1609,7 +1538,7 @@
 </div>
 </li>
 <li><div class="line-block">
-<div class="line">Copy the URL and use it for creating webhooks in Adobe Sign.</div>
+<div class="line">Copy the URL and use it for creating webhooks in Acrobat Sign.</div>
 <div class="line"><img alt="The function URL displayed for copying" src="_images/sign_webhooks_azure_6.png" /></div>
 </div>
 </li>
@@ -1630,7 +1559,7 @@
     <p>
         &#169; Copyright 2021, Adobe Inc..
       <span class="lastupdated">
-        Last update: Feb 03, 2022. 
+        Last update: Feb 10, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

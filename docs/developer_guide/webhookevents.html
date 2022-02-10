@@ -167,7 +167,7 @@
 <li class="toctree-l3"><a class="reference internal" href="apiusage.html#steps-to-take-when-throttled">Steps to take when throttled</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="apiusage.html#adobe-sign-v6-rest-api-enhancements">Adobe Sign v6 REST API Enhancements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#acrobat-sign-v6-rest-api-enhancements">Acrobat Sign v6 REST API Enhancements</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apiusage.html#enhancements">Enhancements</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="apiusage.html#pagination-support">Pagination Support</a></li>
 <li class="toctree-l4"><a class="reference internal" href="apiusage.html#constant-ids">Constant IDs</a></li>
@@ -201,7 +201,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="webhooks.html">Webhooks in Adobe Sign v6</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="webhooks.html">Webhooks in Acrobat Sign v6</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="webhooks.html#how-do-webhooks-work">How do webhooks work?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhooks.html#creating-a-webhook">Creating a webhook</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhooks.html#prerequisites">Prerequisites</a></li>
@@ -237,7 +237,7 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookapis.html#standard-headers-in-every-api-request">Standard headers in every API request</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookapis.html#using-aws-lambda-functions">Using AWS Lambda Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#create-an-aws-lambda-function">Create an AWS Lambda function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#register-your-adobe-sign-webhook">Register your Adobe Sign webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#register-your-acrobat-sign-webhook">Register your Acrobat Sign webhook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#configure-the-aws-api-gateway">Configure the AWS API Gateway</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#deploy-the-api">Deploy the API</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#ready-to-use">Ready to Use</a></li>
@@ -245,9 +245,9 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="webhookapis.html#using-azure-functions">Using Azure Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#steps-to-create-an-azure-functions-trigger-that-serves-as-an-adobe-sign-webhook">Steps to create an Azure Functions Trigger that serves as an Adobe Sign Webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#steps-to-create-an-azure-functions-trigger-that-serves-as-an-acrobat-sign-webhook">Steps to create an Azure Functions Trigger that serves as an Acrobat Sign Webhook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#create-a-javascript-httptrigger-function">Create a JavaScript HttpTrigger function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#add-logic-to-register-your-adobe-sign-webhook">Add logic to register your Adobe Sign webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#add-logic-to-register-your-acrobat-sign-webhook">Add logic to register your Acrobat Sign webhook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#id1">Ready to use</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#get-the-functions-url">Get the function’s URL</a></li>
 </ul>
@@ -620,7 +620,7 @@
             
   <div class="section" id="webhook-events">
 <span id="webhookevents"></span><h1>Webhook Events<a class="headerlink" href="#webhook-events" title="Permalink to this headline">¶</a></h1>
-<p>Events are the reason for webhooks: webhooks are a way for your Adobe Sign integration to listen for and respond to Adobe Sign events. This page provides the info you need to determine what events your integration will listen for and respond to, and what details are included in event notifications so you can design your integration to extract the info you need from an event.</p>
+<p>Events are the reason for webhooks: webhooks are a way for your Acrobat Sign integration to listen for and respond to Acrobat Sign events. This page provides the info you need to determine what events your integration will listen for and respond to, and what details are included in event notifications so you can design your integration to extract the info you need from an event.</p>
 <div class="section" id="notification-payload-for-events">
 <h2>Notification payload for events<a class="headerlink" href="#notification-payload-for-events" title="Permalink to this headline">¶</a></h2>
 <p>When configuring a webhook, you can choose which events for which you would like to receive payloads. Subscribing only to the specific events is useful for limiting the number of HTTPS requests to the server. You can change the list of subscribed events through the API or UI anytime.
@@ -664,7 +664,7 @@ Refer to the following events for details about the payload sent in webhook noti
 <div class="section" id="payload-info">
 <h3>Payload info<a class="headerlink" href="#payload-info" title="Permalink to this headline">¶</a></h3>
 <p>Webhook notification payloads will be delivered using the application/json content type.
-The payload object contains all the relevant information about what just happened, including the type of event and the data associated with that event. Adobe Sign then sends the payload object, via an HTTP POST request, to any endpoint URLs that you have defined as webhook URLs. The payload size is restricted to 10 MB.
+The payload object contains all the relevant information about what just happened, including the type of event and the data associated with that event. Acrobat Sign then sends the payload object, via an HTTP POST request, to any endpoint URLs that you have defined as webhook URLs. The payload size is restricted to 10 MB.
 If an event generates a larger payload, a webhook will triggered but the conditional parameters attributes, if they’re in the request, will be removed to reduce the size of the payload. Also a <strong>conditionalParametersTrimmed</strong> array object will be included in the response for this case to tell the client which conditionalParameters info is removed.
 The truncation will be done in the following order:</p>
 <ul class="simple">
@@ -1028,12 +1028,12 @@ Additionally, we perform an implicit verification of intent in each webhook noti
 </div>
 <div class="section" id="reliable-delivery-of-webhook-notifications">
 <h3>Reliable delivery of webhook notifications<a class="headerlink" href="#reliable-delivery-of-webhook-notifications" title="Permalink to this headline">¶</a></h3>
-<p>Adobe Sign incorporates an advanced, reliable strategy for delivery of webhook notifications. If there is an outage on the receiving end (suppose, for instance, the customer’s server is down), Adobe Sign will retry the notification at a later time—minutes or hours later.
+<p>Acrobat Sign incorporates an advanced, reliable strategy for delivery of webhook notifications. If there is an outage on the receiving end (suppose, for instance, the customer’s server is down), Acrobat Sign will retry the notification at a later time—minutes or hours later.
 Undelivered events will be persisted in a retry queue and a best effort will be made over the next 72 hours to deliver the notifications in the order they occurred to the client-provided endpoints. The strategy for retrying delivery of notifications is a doubling of time between attempts, starting with a one-minute interval and doubling the interval with each attempt, up to a maximum interval of 12 hours, resulting in 15 retries in the space of 72 hours. If the webhook fails to respond and either the maximum retry time or the maximum retry interval is exceeded, the webhook will be disabled. No notifications will be sent to the webhook URL until the webhook is activated again; all the notifications between the time the webhook is disabled and enabled again will be lost.</p>
 </div>
 <div class="section" id="webhook-uniqueness">
 <h3>Webhook uniqueness<a class="headerlink" href="#webhook-uniqueness" title="Permalink to this headline">¶</a></h3>
-<p>Adobe Sign does not allow the creation of duplicate webhooks. The uniqueness of a webhook is based on a combination of the following attributes:
+<p>Acrobat Sign does not allow the creation of duplicate webhooks. The uniqueness of a webhook is based on a combination of the following attributes:
 - Subscription event
 - URL
 - Scope/ResoureType
@@ -1226,7 +1226,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>workflowId</p></td>
@@ -1536,7 +1536,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>workflowId</p></td>
@@ -1858,7 +1858,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>workflowId</p></td>
@@ -2177,7 +2177,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>workflowId</p></td>
@@ -2499,7 +2499,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>workflowId</p></td>
@@ -2779,7 +2779,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>workflowId</p></td>
@@ -3074,7 +3074,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>workflowId</p></td>
@@ -3339,7 +3339,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>workflowId</p></td>
@@ -3659,7 +3659,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>workflowId</p></td>
@@ -3992,7 +3992,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>workflowId</p></td>
@@ -4287,7 +4287,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>workflowId</p></td>
@@ -4607,7 +4607,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>workflowId</p></td>
@@ -4927,7 +4927,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>workflowId</p></td>
@@ -5260,7 +5260,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>workflowId</p></td>
@@ -5555,7 +5555,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>workflowId</p></td>
@@ -5850,7 +5850,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>workflowId</p></td>
@@ -6170,7 +6170,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>workflowId</p></td>
@@ -6490,7 +6490,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>workflowId</p></td>
@@ -6810,7 +6810,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>workflowId</p></td>
@@ -7105,7 +7105,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>workflowId</p></td>
@@ -7425,7 +7425,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>workflowId</p></td>
@@ -8198,7 +8198,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 </tbody>
@@ -8404,7 +8404,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-odd"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 </tbody>
@@ -8616,7 +8616,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-odd"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 </tbody>
@@ -8803,7 +8803,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>participantSetsInfo</p></td>
@@ -9031,7 +9031,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-odd"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>participantSetsInfo</p></td>
@@ -9275,7 +9275,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>participantSetsInfo</p></td>
@@ -9518,7 +9518,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-odd"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>participantSetsInfo</p></td>
@@ -9762,7 +9762,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>participantSetsInfo</p></td>
@@ -10010,7 +10010,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
 </tr>
 <tr class="row-even"><td><p>vaultingInfo</p></td>
 <td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Adobe Sign to securely store documents with a vault provider.</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>participantSetsInfo</p></td>
@@ -10159,7 +10159,7 @@ If a webhook’s status is changed from INACTIVE to ACTIVE and another webhook w
     <p>
         &#169; Copyright 2021, Adobe Inc..
       <span class="lastupdated">
-        Last update: Feb 03, 2022. 
+        Last update: Feb 10, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
