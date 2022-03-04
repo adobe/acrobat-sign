@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en">
 <head>
@@ -584,8 +583,6 @@
 
 
 
-
-
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -597,7 +594,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
     
@@ -606,10 +603,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="webhookapis.html" class="btn btn-neutral float-right" title="Webhook APIs" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="webhookapis.html" class="btn btn-neutral float-right" title="Webhook APIs" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="apiusage.html" class="btn btn-neutral float-left" title="API Usage" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="apiusage.html" class="btn btn-neutral float-left" title="API Usage" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
   </div>
   
@@ -654,6 +651,7 @@
 <li><p><strong>An event name</strong>: The names of events to which you want to subscribe</p></li>
 <li><p><strong>A resource type and corresponding resource identifier</strong></p></li>
 <li><p><strong>A webhook URL, to receive event notifications from Acrobat Sign</strong>: This is the URL where your webhook will listen for HTTPS POST notifications sent by Acrobat Sign for all the events to which you’ve subscribed.</p></li>
+<li><p>The URL endpoint must be listening to <strong>port 443</strong>.</p></li>
 </ul>
 <p>When Acrobat Sign receives a webhook creation call from your app, the Sign service first <em>verifies the intent</em> of the webhook URL by making a GET call (see the next section) to the webhook URL. If that call succeeds, the Sign service then returns the response of the POST call, with the URL of the newly created webhook resource contained in the HTTPS Location header. The client service can later make PUT/GET/DELETE calls on this URL; see the <a class="reference external" href="#managingwebhooksandsubscriptionswebhookapis">list of APIs for webhook subscription management</a>.</p>
 </div>
@@ -881,7 +879,7 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
     <p>
         &#169; Copyright 2021, Adobe Inc..
       <span class="lastupdated">
-        Last update: Feb 10, 2022. 
+        Last update: Mar 04, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
