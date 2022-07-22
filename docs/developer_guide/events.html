@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Learn now to automate and monitor signing workflows with the Acrobat Sign APIs. Create apps that integrate with and leverage features across Adobe's enterprise-class product lineup."
+  <meta name="description" content="Learn now to create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup."
   
   <title>Events &mdash; Acrobat Sign Developer Guide</title>
   
@@ -35,7 +35,7 @@
    
   
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Developer Guides" href="developerguides.html" />
+    <link rel="next" title="Migrating From SOAP" href="migrating.html" />
     <link rel="prev" title="REST API Samples" href="samples.html" /> 
   
 <script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
@@ -92,7 +92,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> Acrobat Sign Developer Guide
+            <a href="toc.html" class="icon icon-home"> Acrobat Sign Developer Guide
           
 
           
@@ -118,8 +118,9 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="index.html">Welcome!</a></li>
+              <p class="caption"><span class="caption-text">Developer Guide TOC</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Acrobat Sign Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gstarted.html">Create a Developer Account</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="gstarted.html#next-steps">Next steps</a></li>
 </ul>
@@ -233,8 +234,8 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookapis.html#put-webhooks-webhookid">PUT /webhooks/{webhookId}</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookapis.html#put-webhooks-webhookid-state">PUT /webhooks/{webhookId}/state</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookapis.html#delete-webhooks-webhookid">DELETE /webhooks/{webhookId}</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#standard-error-codes-in-every-api-request">Standard error codes in every API request</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#standard-headers-in-every-api-request">Standard headers in every API request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#standard-api-request-error-codes">Standard API request error codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#standard-api-request-headers">Standard API request headers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookapis.html#using-aws-lambda-functions">Using AWS Lambda Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#create-an-aws-lambda-function">Create an AWS Lambda function</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#register-your-acrobat-sign-webhook">Register your Acrobat Sign webhook</a></li>
@@ -245,11 +246,12 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="webhookapis.html#using-azure-functions">Using Azure Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookapis.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#steps-to-create-an-azure-functions-trigger-that-serves-as-an-acrobat-sign-webhook">Steps to create an Azure Functions Trigger that serves as an Acrobat Sign Webhook</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#create-a-javascript-httptrigger-function">Create a JavaScript HttpTrigger function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#add-logic-to-register-your-acrobat-sign-webhook">Add logic to register your Acrobat Sign webhook</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#id1">Ready to use</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#get-the-functions-url">Get the function’s URL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#creating-an-azure-functions-trigger-webhook">Creating an Azure Functions Trigger-Webhook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="webhookapis.html#create-a-js-httptrigger-function">Create a JS HttpTrigger function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="webhookapis.html#register-the-webhook">Register the webhook</a></li>
+<li class="toctree-l4"><a class="reference internal" href="webhookapis.html#get-the-function-s-url">Get the function’s URL</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -500,7 +502,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#using-events">Using events</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="developerguides.html">Developer Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="migrating.html">Migrating From SOAP</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="migrating.html#general-purpose-methods">General-purpose Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="migrating.html#document-methods">Document Methods</a></li>
@@ -519,10 +520,17 @@
 </li>
 </ul>
 </li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="glossary.html#terminology">Terminology</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v.6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/esign-dev-cert#://">Application Certification Form</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://helpx.adobe.com/sign/using/integration-guides.html">Acrobat Sign integration guides</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
 </ul>
 
             
@@ -558,7 +566,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Acrobat Sign Developer Guide</a>
+          <a href="toc.html">Acrobat Sign Developer Guide</a>
         
       </nav>
 
@@ -590,7 +598,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Events</li>
     
@@ -606,7 +614,7 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="developerguides.html" class="btn btn-neutral float-right" title="Developer Guides" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="migrating.html" class="btn btn-neutral float-right" title="Migrating From SOAP" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
       
       
         <a href="samples.html" class="btn btn-neutral float-left" title="REST API Samples" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
@@ -813,9 +821,9 @@ if(!window.addEventListener){
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2021, Adobe Inc..
+        &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Feb 10, 2022. 
+        Last update: Jul 22, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
