@@ -1,0 +1,47 @@
+# IO.Swagger.model.agreements.FormField
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Alignment** | **string** | Alignment of the text. | [optional] 
+**Assignee** | **string** | Who the field is assigned to.  Either a participant set id, null, NOBODY or PREFILL. | [optional] 
+**BackgroundColor** | **string** | Background color of the form field in RGB or HEX format | [optional] 
+**BorderColor** | **string** | Color of the border of the field in RGB or HEX format | [optional] 
+**BorderStyle** | **string** | Style of the border of the field. | [optional] 
+**BorderWidth** | **double?** | Width of the border of the field in pixels | [optional] 
+**Calculated** | **bool?** | true if this field&#39;s value is calculated from an expression, else false | [optional] 
+**ConditionalAction** | [**FormFieldConditionalAction**](FormFieldConditionalAction.md) | A predicate (or set of predicates) that determines whether this field is visible and enabled. | [optional] 
+**ContentType** | **string** | Content Type of the form field. | [optional] 
+**DefaultValue** | **string** | Default value of the form field | [optional] 
+**DisplayFormat** | **string** | Format of the value of the field to be displayed based on the displayFormatType property. | [optional] 
+**DisplayFormatType** | **string** | Format type of the text field. | [optional] 
+**DisplayLabel** | **string** | Display label attached to the field | [optional] 
+**FontColor** | **string** | Font color of the form field in RGB or HEX format | [optional] 
+**FontName** | **string** | Font name of the form field | [optional] 
+**FontSize** | **double?** | Font size of the form field in points | [optional] 
+**HiddenOptions** | **List&lt;string&gt;** | Text values which are hidden in a drop down form field | [optional] 
+**Hyperlink** | [**FormFieldHyperlink**](FormFieldHyperlink.md) | Hyperlink-specific data (e.g. as url, link type) | [optional] 
+**InputType** | **string** | Input type of the form field | [optional] 
+**Locations** | [**List&lt;FormFieldLocation&gt;**](FormFieldLocation.md) | All locations in a document where the form field is placed | [optional] 
+**Masked** | **bool?** | true if the input entered by the signer has to be masked (like password), false if it shouldn&#39;t be | [optional] 
+**MaskingText** | **string** | Text to mask the masked form field | [optional] 
+**MaxLength** | **int?** | Maximum length of the input text field in terms of no. of characters | [optional] 
+**MaxValue** | **double?** | Upper bound of the number that can be entered by the signer | [optional] 
+**MinLength** | **int?** | Minimum length of the input text field in terms of no. of characters | [optional] 
+**MinValue** | **double?** | Lower bound of the number that can be entered by the signer | [optional] 
+**Name** | **string** | The name of the form field | [optional] 
+**Origin** | **string** | Origin of Form Field | [optional] 
+**RadioCheckType** | **string** | The type of radio button (if field is radio button, identified by inputType). | [optional] 
+**_ReadOnly** | **bool?** | true if it is a read-only field, else false | [optional] 
+**Required** | **bool?** | true if it is a mandatory field to be filled by the signer, else false | [optional] 
+**Tooltip** | **string** | Text that appears while hovering over the field | [optional] 
+**UrlOverridable** | **bool?** | For widget text fields only - true if the default value may come from the URL, else false | [optional] 
+**Validation** | **string** | Rule for validating the field value. | [optional] 
+**ValidationData** | **string** | Further data for validating input with regards to the field&#39;s specified format. The contents and interpretation of formatData depends on the value of validation. | [optional] 
+**ValidationErrMsg** | **string** | Error message to be shown to the signer if filled value doesn&#39;t match the validations of the form field | [optional] 
+**ValueExpression** | **string** | Expression to calculate value of the form field | [optional] 
+**Visible** | **bool?** | If set to false, then the form field is hidden.  Otherwise, it is visible. | [optional] 
+**VisibleOptions** | **List&lt;string&gt;** | Text values which are visible in a drop down form field | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

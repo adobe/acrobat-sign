@@ -1,0 +1,15 @@
+{
+  "megaSignCreationInfo": {
+    "name": "TODO : The name of the agreement that will be used to identify it, in emails and on the website",
+    "signatureType": "TODO : ['ESIGN' or 'WRITTEN'] ",
+    "recipientSetInfos": [
+      {
+        "recipientSetMemberInfos": [
+          {
+            "email": "TODO : A valid email of the recepient"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "REST API Sample Agreement",
+  "message": "TODO: an appropriate message to the recipient",
+
+  "participantSetsInfo": [{
+    "memberInfos": [{
+      "email": "TODO: participant's email ID"
+    }],
+    "role": "TODO: participant's role (SIGNER/APPROVER)",
+    "order": 1
+  }],
+
+  "signatureType": "TODO: a valid value for signature type (ESIGN/WRITTEN)",
+
+  "state": "TODO: valid state of agreement (IN_PROCESS/AUTHORING/DRAFT)"
+}

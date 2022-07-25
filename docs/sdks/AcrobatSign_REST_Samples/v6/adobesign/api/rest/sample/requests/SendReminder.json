@@ -1,0 +1,9 @@
+{
+  "recipientParticipantIds": [
+    "TODO: Id's of the participants."
+  ],
+
+  "nextSentDate": "TODO: The date when the reminder is scheduled to be sent next.",
+
+  "status": "TODO: valid status of reminder (ACTIVE)"
+}

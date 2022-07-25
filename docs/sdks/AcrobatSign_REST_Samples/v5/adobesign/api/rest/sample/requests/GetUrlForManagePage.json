@@ -1,0 +1,5 @@
+{
+  "noChrome": "TODO : If true, the embedded page is shown without a navigation header or footer. If false, the standard page header and footer will be present. By default its value is false",
+  "autoLogin": "TODO : If true, the URL returned will automatically log the user in. If false, the URL returned will require the credentials. By default its value is false",
+  "agreementAssetId": "TODO: The ID of the agreement asset which will be shown selected in the Manage Page when the user will go to the generated URL."
+}

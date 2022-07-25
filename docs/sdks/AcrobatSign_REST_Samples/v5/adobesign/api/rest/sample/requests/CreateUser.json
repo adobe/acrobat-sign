@@ -1,0 +1,6 @@
+{
+    "email": "TODO: a valid email ID for which account is to be created",
+    "password": "TODO: a valid password for the account",
+    "firstName": "TODO: first name of user",
+    "lastName": "TODO: last name of user"
+}

@@ -1,0 +1,178 @@
+
+{
+    "apiVersion":"6.0.0"
+    ,"swaggerVersion":"1.2"
+    ,"basePath":"/api/rest/v6"
+    ,"resourcePath":"/workflows"
+    ,"produces":
+    ["application/json"
+    ]
+    ,"apis":
+    [
+        {
+            "path":"/workflows"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves workflows for a user."
+                    ,"notes":null
+                    ,"type":"UserWorkflows"
+                    ,"nickname":"getWorkflows"
+                    ,"order":156
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"workflow_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('workflow_read')\" oncontextmenu=\"this.href=oauthDoc('workflow_read')\" target=\"oauthDoc\">workflow_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"includeDraftWorkflows"
+                            ,"description":"Include draft workflows"
+                            ,"required":false
+                            ,"type":"boolean"
+                            ,"paramType":"query"
+                        }
+                        ,{
+                            "name":"includeInactiveWorkflows"
+                            ,"description":"Include inactive workflows"
+                            ,"required":false
+                            ,"type":"boolean"
+                            ,"paramType":"query"
+                        }
+                        ,{
+                            "name":"groupId"
+                            ,"description":"The group identifier for which the workflows will be fetched"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"query"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_GROUP_ID: The Group ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+    ,"models":
+    {
+        "UserWorkflows":
+        {
+            "id":"UserWorkflows"
+            ,"properties":
+            {
+                "userWorkflowList":
+                {
+                    "required":true
+                    ,"description":"An array of workflows"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"UserWorkflow"
+                    }
+                }
+            }
+        }
+        ,"UserWorkflow":
+        {
+            "id":"UserWorkflow"
+            ,"properties":
+            {
+                "created":
+                {
+                    "required":true
+                    ,"description":"The date on which the workflow was created. Format would be yyyy-MM-dd'T'HH:mm:ssZ. For example, e.g 2016-02-25T18:46:19Z represents UTC time"
+                    ,"type":"string"
+                    ,"format":"date"
+                }
+                ,"description":
+                {
+                    "required":true
+                    ,"description":"Description provided for this workflow at the time of its creation"
+                    ,"type":"string"
+                }
+                ,"displayName":
+                {
+                    "required":true
+                    ,"description":"The display name of the workflow."
+                    ,"type":"string"
+                }
+                ,"id":
+                {
+                    "required":true
+                    ,"description":"The unique identifier of a workflow"
+                    ,"type":"string"
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"The name of the workflow."
+                    ,"type":"string"
+                }
+                ,"scope":
+                {
+                    "required":true
+                    ,"description":"The workflow scope (ACCOUNT or GROUP or OTHER)"
+                    ,"type":"string"
+                    ,"enum":["ACCOUNT","GROUP"]
+                }
+                ,"scopeId":
+                {
+                    "required":false
+                    ,"description":"Identifier of scope. Currently it is applicable for scope GROUP only and the value will be groupId."
+                    ,"type":"string"
+                }
+                ,"status":
+                {
+                    "required":true
+                    ,"description":"The workflow status (ACTIVE or DRAFT or INACTIVE or OTHER)"
+                    ,"type":"string"
+                    ,"enum":["ACTIVE","DRAFT","HIDDEN"]
+                }
+            }
+        }
+    }
+}

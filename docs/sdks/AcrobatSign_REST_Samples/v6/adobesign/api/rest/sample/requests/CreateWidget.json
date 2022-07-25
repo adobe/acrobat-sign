@@ -1,0 +1,26 @@
+{
+  "name": "TODO: name of the widget",
+
+  "widgetParticipantSetInfo": {
+    "memberInfos": [
+      {
+        "email": ""
+      }
+    ],
+    "role": "TODO: a valid role of the widget signer (SIGNER/APPROVER)"
+  },
+
+  "additionalParticipantSetsInfo": [
+    {
+      "role": "TODO: a valid role of the counter widget signer (SIGNER/APPROVER)",
+      "memberInfos": [
+        {
+          "email": "TODO: counter signer's email ID"
+        }
+      ],
+      "order": "TODO: an index indicating position at which this signing group needs to sign"
+    }
+  ],
+
+  "state": "a valid state in which the widget should land (ACTIVE/AUTHORING/DRAFT)"
+}

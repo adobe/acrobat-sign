@@ -1,0 +1,25 @@
+{
+  "widgetCreationInfo": {
+    "name": "TODO: name of the widget",
+    "securityOptions": {
+      "passwordProtection": "NONE",
+      "kbaProtection": "NONE",
+      "webIdentityProtection": "NONE",
+      "protectOpen": "false",
+      "internalPassword": "",
+      "externalPassword": "",
+      "openPassword": ""
+    },
+    "counterSignerSetInfos": [
+      {
+        "counterSignerSetRole": "TODO: recipient's role (SIGNER/APPROVER)",
+        "counterSignerSetMemberInfos": [
+          {
+            "email": "TODO: email of counter signer"
+          }
+        ]
+      }
+    ],
+    "signatureFlow": "TODO: a valid value for signature flow (SENDER_SIGNS_LAST/SENDER_SIGNATURE_NOT_REQUIRED)"
+  }
+}

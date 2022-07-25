@@ -1,0 +1,32 @@
+{
+    "documentCreationInfo": {
+        "name": "TODO: name of the agreement",
+        "message": "TODO: an appropriate message to the recipient",
+        "recipientSetInfos": [
+            {
+                "recipientSetRole": "TODO: recipient's role (SIGNER/APPROVER)",
+                "recipientSetMemberInfos": [
+                    {
+                        "email": "TODO: recipient's email ID"
+                    }
+                ]
+            }
+        ],
+        "signatureType": "TODO: a valid value for signature type (ESIGN/WRITTEN)",
+        "signatureFlow": "TODO: a valid value for signature flow (SENDER_SIGNS_LAST/SENDER_SIGNS_FIRST/SENDER_SIGNATURE_NOT_REQUIRED/SEQUENTIAL)",
+        "securityOptions": {
+            "passwordProtection": "NONE",
+            "kbaProtection": "NONE",
+            "webIdentityProtection": "NONE",
+            "protectOpen": false,
+            "internalPassword": "",
+            "externalPassword": "",
+            "openPassword": ""
+        }
+    },
+    "options": {
+        "noChrome": false,
+        "authoringRequested": false,
+        "autoLoginUser": false
+    }
+}

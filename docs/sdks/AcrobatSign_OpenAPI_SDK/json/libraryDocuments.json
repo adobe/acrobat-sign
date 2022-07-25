@@ -1,0 +1,2450 @@
+
+{
+    "apiVersion":"6.0.0"
+    ,"swaggerVersion":"1.2"
+    ,"basePath":"/api/rest/v6"
+    ,"resourcePath":"/libraryDocuments"
+    ,"produces":
+    ["application/json"
+    ]
+    ,"apis":
+    [
+        {
+            "path":"/libraryDocuments"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"POST"
+                    ,"summary":"Creates a template that is placed in the library of the user for reuse."
+                    ,"notes":null
+                    ,"type":"LibraryDocumentCreationResponse"
+                    ,"nickname":"createLibraryDocument"
+                    ,"order":102
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"library_write"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('library_write')\" oncontextmenu=\"this.href=oauthDoc('library_write')\" target=\"oauthDoc\">library_write<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"LibraryDocumentInfo"
+                            ,"description":"Information about the library document that you want to create."
+                            ,"required":true
+                            ,"type":"LibraryDocumentInfo"
+                            ,"paramType":"body"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"INVALID_ARGUMENTS: One or more arguments to the method are invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_EMAIL: Email provided is invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_FILE_INFO: Invalid or no file info is provided."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_JSON: An invalid JSON was specified."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER_HEADER: Value provided in x-on-behalf-Of-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"MISSING_REQUIRED_PARAM: Required parameters are missing."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NOT_AUTHORIZED_FOR_TRANSIENT_RESOURCE: Not authorized for the transient resource referred in the request."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"UNAUTHORIZED: You cannot work on behalf of this user."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"UNVERIFIED_USER: The user has registered but has not verified their email address. The user must use the Adobe Sign web site to complete verification."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"SEND_LIMIT_EXCEEDED: Agreement creation quota of the user is exhausted."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_TRANSIENTDOCUMENT_ID: The Transient Document ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"TRANSIENT_RESOURCE_DELETED: Transient Resource deleted from the server."
+                        }
+                        ,{
+                            "code":"415"
+                            ,"reason":"UNSUPPORTED_MEDIA_TYPE: Content type was not provided or is not supported."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/libraryDocuments/{libraryDocumentId}/views"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"POST"
+                    ,"summary":"Retrieves the latest state view url of a library document."
+                    ,"notes":null
+                    ,"type":"LibraryDocumentViewResponse"
+                    ,"nickname":"createLibraryDocumentView"
+                    ,"order":103
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"library_read"
+                                ,"description":"library document read is always required"
+                            }
+                            ,{
+                                "scope":"user_login"
+                                ,"description":"Required additionally if the autoLoginUser parameter is set to true"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('library_read')\" oncontextmenu=\"this.href=oauthDoc('library_read')\" target=\"oauthDoc\">library_read<\/a> - library document read is always required<\/li><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('user_login')\" oncontextmenu=\"this.href=oauthDoc('user_login')\" target=\"oauthDoc\">user_login<\/a> - Required additionally if the autoLoginUser parameter is set to true<\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-None-Match"
+                            ,"description":"Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"libraryDocumentId"
+                            ,"description":"The document identifier, as retrieved from the API to fetch library documents."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"LibraryViewInfo"
+                            ,"description":"Name of the required view and its desired configuration."
+                            ,"required":true
+                            ,"type":"LibraryViewInfo"
+                            ,"paramType":"body"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER_HEADER: Value provided in x-on-behalf-Of-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"MISSING_REQUIRED_PARAM: Required parameters are missing."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"VIEW_NOT_AVAILABLE: Requested view is not available for the resource in the current state."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_LIBRARYDOCUMENT_ID: The Library Document ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/libraryDocuments"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves library documents for a user."
+                    ,"notes":null
+                    ,"type":"LibraryDocuments"
+                    ,"nickname":"getLibraryDocuments"
+                    ,"order":104
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"library_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('library_read')\" oncontextmenu=\"this.href=oauthDoc('library_read')\" target=\"oauthDoc\">library_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"showHiddenLibraryDocuments"
+                            ,"description":"A query parameter to fetch all the hidden library documents along with the visible library documents."
+                            ,"required":false
+                            ,"type":"boolean"
+                            ,"paramType":"query"
+                        }
+                        ,{
+                            "name":"cursor"
+                            ,"description":"Used to navigate through the pages. If not provided, returns the first page."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"query"
+                        }
+                        ,{
+                            "name":"pageSize"
+                            ,"description":"Number of intended items in the response page."
+                            ,"required":false
+                            ,"type":"integer"
+                            ,"paramType":"query"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"INVALID_CURSOR: Page cursor provided is invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER_HEADER: Value provided in x-on-behalf-Of-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_PAGE_SIZE: Page size is either invalid or not within permissible range."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/libraryDocuments/{libraryDocumentId}"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves the details of a library document."
+                    ,"notes":null
+                    ,"type":"LibraryDocumentInfo"
+                    ,"nickname":"getLibraryDocumentInfo"
+                    ,"order":105
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"library_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('library_read')\" oncontextmenu=\"this.href=oauthDoc('library_read')\" target=\"oauthDoc\">library_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-None-Match"
+                            ,"description":"Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"libraryDocumentId"
+                            ,"description":"The document identifier, as retrieved from the API to fetch library documents."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"304"
+                            ,"reason":"RESOURCE_NOT_MODIFIED: Resource is not modified."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER_HEADER: Value provided in x-on-behalf-Of-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_LIBRARYDOCUMENT_ID: The Library Document ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/libraryDocuments/{libraryDocumentId}/auditTrail"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves the audit trail associated with a library document."
+                    ,"notes":null
+                    ,"type":"string"
+                    ,"format":"byte"
+                    ,"nickname":"getLibraryDocumentAuditTrail"
+                    ,"order":108
+                    ,"produces":
+                    ["application/pdf","application/pdf;encoding=base64"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"library_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('library_read')\" oncontextmenu=\"this.href=oauthDoc('library_read')\" target=\"oauthDoc\">library_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"libraryDocumentId"
+                            ,"description":"The document identifier, as retrieved from the API to fetch library documents."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER_HEADER: Value provided in x-on-behalf-Of-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_LIBRARYDOCUMENT_ID: The Library Document ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/libraryDocuments/{libraryDocumentId}/combinedDocument"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves the combined document associated with a library document."
+                    ,"notes":null
+                    ,"type":"string"
+                    ,"format":"byte"
+                    ,"nickname":"getCombinedDocument"
+                    ,"order":110
+                    ,"produces":
+                    ["application/pdf","application/pdf;encoding=base64"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"library_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('library_read')\" oncontextmenu=\"this.href=oauthDoc('library_read')\" target=\"oauthDoc\">library_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-None-Match"
+                            ,"description":"Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"libraryDocumentId"
+                            ,"description":"The document identifier, as retrieved from the API to fetch library documents."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"attachAuditReport"
+                            ,"description":"When set to YES attach an audit report to the library document PDF. Default value will be false."
+                            ,"required":false
+                            ,"type":"boolean"
+                            ,"paramType":"query"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"304"
+                            ,"reason":"RESOURCE_NOT_MODIFIED: Resource is not modified."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER_HEADER: Value provided in x-on-behalf-Of-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"DOCUMENT_NOT_AVAILABLE: The document is not yet available or will have no pages to view."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_LIBRARYDOCUMENT_ID: The Library Document ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"LIBRARYDOCUMENT_REMOVED: The library document has been removed from the system."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/libraryDocuments/{libraryDocumentId}/documents"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves the IDs of the documents associated with library document."
+                    ,"notes":null
+                    ,"type":"Documents"
+                    ,"nickname":"getDocuments"
+                    ,"order":111
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"library_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('library_read')\" oncontextmenu=\"this.href=oauthDoc('library_read')\" target=\"oauthDoc\">library_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-None-Match"
+                            ,"description":"Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"libraryDocumentId"
+                            ,"description":"The document identifier, as retrieved from the API to fetch library documents."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"versionId"
+                            ,"description":"The version identifier of library_document as provided by the API which retrieves information of a specific library document. If not provided then latest version will be used."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"query"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"304"
+                            ,"reason":"RESOURCE_NOT_MODIFIED: Resource is not modified."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER_HEADER: Value provided in x-on-behalf-Of-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"DOCUMENT_NOT_AVAILABLE: The document is not yet available or will have no pages to view."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_LIBRARYDOCUMENT_ID: The Library Document ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"LIBRARYDOCUMENT_REMOVED: The library document has been removed from the system."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/libraryDocuments/{libraryDocumentId}/documents/{documentId}"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves the file stream of a document of library document."
+                    ,"notes":null
+                    ,"type":"string"
+                    ,"format":"byte"
+                    ,"nickname":"getLibraryDocument"
+                    ,"order":112
+                    ,"produces":
+                    ["application/pdf","application/pdf;encoding=base64"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"library_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('library_read')\" oncontextmenu=\"this.href=oauthDoc('library_read')\" target=\"oauthDoc\">library_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-None-Match"
+                            ,"description":"Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"libraryDocumentId"
+                            ,"description":"The document identifier, as retrieved from the API to fetch library documents."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"documentId"
+                            ,"description":"The document identifier, as retrieved from the API which fetches the documents of a specified library document"
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"304"
+                            ,"reason":"RESOURCE_NOT_MODIFIED: Resource is not modified."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER_HEADER: Value provided in x-on-behalf-Of-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_DOCUMENT_ID: The Document ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_LIBRARYDOCUMENT_ID: The Library Document ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"LIBRARYDOCUMENT_REMOVED: The library document has been removed from the system."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/libraryDocuments/{libraryDocumentId}/documents/{documentId}/imageUrls"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves image urls of all visible pages of a document associated with a library document."
+                    ,"notes":null
+                    ,"type":"DocumentImageUrlsInfo"
+                    ,"nickname":"getLibraryDocumentImageUrls"
+                    ,"order":114
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"library_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('library_read')\" oncontextmenu=\"this.href=oauthDoc('library_read')\" target=\"oauthDoc\">library_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-None-Match"
+                            ,"description":"Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"libraryDocumentId"
+                            ,"description":"The document identifier, as retrieved from the API to fetch library documents."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"documentId"
+                            ,"description":"The document identifier, as retrieved from the API which fetches the documents of a specified library document"
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"imageSizes"
+                            ,"description":"A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. "
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"query"
+                        }
+                        ,{
+                            "name":"startPage"
+                            ,"description":"Start of page number range for which imageUrls are requested. Starting page number should be greater than 0."
+                            ,"required":false
+                            ,"type":"integer"
+                            ,"paramType":"query"
+                        }
+                        ,{
+                            "name":"endPage"
+                            ,"description":"End of page number range for which imageUrls are requested."
+                            ,"required":false
+                            ,"type":"integer"
+                            ,"paramType":"query"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"304"
+                            ,"reason":"RESOURCE_NOT_MODIFIED: Resource is not modified."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_ARGUMENTS: One or more arguments to the method are invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_IMAGE_SIZE: Must provide a comma separated list of valid image sizes."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER_HEADER: Value provided in x-on-behalf-Of-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"DOCUMENT_NOT_AVAILABLE: The document is not yet available or will have no pages to view."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_DOCUMENT_ID: The Document ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_LIBRARYDOCUMENT_ID: The Library Document ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"LIBRARYDOCUMENT_REMOVED: The library document has been removed from the system."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/libraryDocuments/{libraryDocumentId}/events"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves the events information for a library document."
+                    ,"notes":null
+                    ,"type":"LibraryDocumentEventList"
+                    ,"nickname":"getEvents"
+                    ,"order":183
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"library_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('library_read')\" oncontextmenu=\"this.href=oauthDoc('library_read')\" target=\"oauthDoc\">library_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-None-Match"
+                            ,"description":"Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"libraryDocumentId"
+                            ,"description":"The document identifier, as retrieved from the API to fetch library documents."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"304"
+                            ,"reason":"RESOURCE_NOT_MODIFIED: Resource is not modified."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER_HEADER: Value provided in x-on-behalf-Of-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_LIBRARYDOCUMENT_ID: The Library Document ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/libraryDocuments/{libraryDocumentId}/me/note"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves the latest note of a library document for the API user."
+                    ,"notes":null
+                    ,"type":"Note"
+                    ,"nickname":"getLibraryDocumentNoteForApiUser"
+                    ,"order":184
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"library_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('library_read')\" oncontextmenu=\"this.href=oauthDoc('library_read')\" target=\"oauthDoc\">library_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"libraryDocumentId"
+                            ,"description":"The document identifier, as retrieved from the API to fetch library documents."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER_HEADER: Value provided in x-on-behalf-Of-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_LIBRARYDOCUMENT_ID: The Library Document ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/libraryDocuments/{libraryDocumentId}"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"PUT"
+                    ,"summary":"Updates the library document."
+                    ,"notes":"Currently status, name, sharingMode and templateTypes of the library document can only be updated."
+                    ,"type":"void"
+                    ,"nickname":"updateLibraryDocument"
+                    ,"order":187
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"library_write"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('library_write')\" oncontextmenu=\"this.href=oauthDoc('library_write')\" target=\"oauthDoc\">library_write<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-Match"
+                            ,"description":"The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"libraryDocumentId"
+                            ,"description":"The document identifier, as retrieved from the API to fetch library documents."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"LibraryDocumentInfo"
+                            ,"description":"Information about the library document that you want to create."
+                            ,"required":true
+                            ,"type":"LibraryDocumentInfo"
+                            ,"paramType":"body"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"BAD_REQUEST: The request provided is invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER_HEADER: Value provided in x-on-behalf-Of-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_LIBRARYDOCUMENT_ID: The Library Document ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"LIBRARYDOCUMENT_REMOVED: The library document has been removed from the system."
+                        }
+                        ,{
+                            "code":"412"
+                            ,"reason":"LIBRARYDOCUMENT_NOT_MODIFIED: The library document has not been modified."
+                        }
+                        ,{
+                            "code":"412"
+                            ,"reason":"RESOURCE_MODIFIED: Resource is already modified with newer version."
+                        }
+                        ,{
+                            "code":"415"
+                            ,"reason":"UNSUPPORTED_MEDIA_TYPE: Content type was not provided or is not supported."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/libraryDocuments/{libraryDocumentId}/me/visibility"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"PUT"
+                    ,"summary":"Updates the visibility of library document."
+                    ,"notes":null
+                    ,"type":"void"
+                    ,"nickname":"updateLibraryDocumentVisibility"
+                    ,"order":188
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"library_write"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('library_write')\" oncontextmenu=\"this.href=oauthDoc('library_write')\" target=\"oauthDoc\">library_write<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"libraryDocumentId"
+                            ,"description":"The document identifier, as retrieved from the API to fetch library documents."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"VisibilityInfo"
+                            ,"description":"Information to update visibility of agreement"
+                            ,"required":true
+                            ,"type":"VisibilityInfo"
+                            ,"paramType":"body"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"BAD_REQUEST: The request provided is invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_JSON: An invalid JSON was specified."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER_HEADER: Value provided in x-on-behalf-Of-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"MISSING_REQUIRED_PARAM: Required parameters are missing."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_LIBRARYDOCUMENT_ID: The Library Document ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"LIBRARYDOCUMENT_REMOVED: The library document has been removed from the system."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/libraryDocuments/{libraryDocumentId}/state"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"PUT"
+                    ,"summary":"Updates the library document's state."
+                    ,"notes":"Currently state can be changed from AUTHORING to ACTIVE."
+                    ,"type":"void"
+                    ,"nickname":"updateLibraryDocumentState"
+                    ,"order":189
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"library_write"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('library_write')\" oncontextmenu=\"this.href=oauthDoc('library_write')\" target=\"oauthDoc\">library_write<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-Match"
+                            ,"description":"The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"libraryDocumentId"
+                            ,"description":"The document identifier, as retrieved from the API to fetch library documents."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"LibraryDocumentStateInfo"
+                            ,"description":"Information about the state of library document to which you want to update"
+                            ,"required":true
+                            ,"type":"LibraryDocumentStateInfo"
+                            ,"paramType":"body"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"BAD_REQUEST: The request provided is invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER_HEADER: Value provided in x-on-behalf-Of-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"OPERATION_NOT_ALLOWED: Requested Operation is not allowed."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_LIBRARYDOCUMENT_ID: The Library Document ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"LIBRARYDOCUMENT_REMOVED: The library document has been removed from the system."
+                        }
+                        ,{
+                            "code":"412"
+                            ,"reason":"RESOURCE_MODIFIED: Resource is already modified with newer version."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+    ,"models":
+    {
+        "LibraryDocumentInfo":
+        {
+            "id":"LibraryDocumentInfo"
+            ,"properties":
+            {
+                "createdDate":
+                {
+                    "required":false
+                    ,"description":"Date when library document was created. Format would be yyyy-MM-dd'T'HH:mm:ssZ. For example, e.g 2016-02-25T18:46:19Z represents UTC time"
+                    ,"type":"string"
+                    ,"format":"date"
+                }
+                ,"creatorEmail":
+                {
+                    "required":false
+                    ,"description":"Email address of the library document creator. It will be ignored in POST call"
+                    ,"type":"string"
+                }
+                ,"fileInfos":
+                {
+                    "required":true
+                    ,"description":"A list of one or more files (or references to files) that will be used to create the template. If more than one file is provided, they will be combined into one PDF. Note: Only a single parameter in every FileInfo object must be specified"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"FileInfo"
+                    }
+                }
+                ,"id":
+                {
+                    "required":false
+                    ,"description":"The unique identifier that is used to refer to the library template. It will be ignored in POST call"
+                    ,"type":"string"
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"The name of the library template that will be used to identify it, in emails and on the website"
+                    ,"type":"string"
+                }
+                ,"sharingMode":
+                {
+                    "required":true
+                    ,"description":"Specifies who should have access to this library document. GLOBAL sharing mode is not applicable in POST/PUT calls"
+                    ,"type":"string"
+                    ,"enum":["USER","GROUP","ACCOUNT","GLOBAL"]
+                }
+                ,"state":
+                {
+                    "required":true
+                    ,"description":"State of the library document."
+                    ,"type":"string"
+                    ,"enum":["AUTHORING","ACTIVE"]
+                }
+                ,"status":
+                {
+                    "required":false
+                    ,"description":"Status of the library document"
+                    ,"type":"string"
+                    ,"enum":["AUTHORING","ACTIVE","REMOVED"]
+                }
+                ,"templateTypes":
+                {
+                    "required":true
+                    ,"description":"A list of one or more library template types"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "type":"string"
+                        ,"enum":["DOCUMENT","FORM_FIELD_LAYER"]
+                    }
+                }
+            }
+        }
+        ,"FileInfo":
+        {
+            "id":"FileInfo"
+            ,"properties":
+            {
+                "label":
+                {
+                    "required":false
+                    ,"description":"The unique label value of a file info element. In case of custom workflow this will map a file to corresponding file element in workflow definition. This must be specified in case of custom workflow agreement creation request "
+                    ,"type":"string"
+                }
+                ,"transientDocumentId":
+                {
+                    "required":false
+                    ,"description":"ID for a transient document that will be added to the library document"
+                    ,"showInSampleRequest":true
+                    ,"type":"string"
+                }
+                ,"urlFileInfo":
+                {
+                    "required":false
+                    ,"description":"URL for an external document to add to the library document"
+                    ,"type":"URLFileInfo"
+                    ,"items":
+                    {
+                        "$ref":"URLFileInfo"
+                    }
+                }
+            }
+        }
+        ,"URLFileInfo":
+        {
+            "id":"URLFileInfo"
+            ,"properties":
+            {
+                "mimeType":
+                {
+                    "required":true
+                    ,"description":"The mime type of the referenced file, used to determine if the file can be accepted and the necessary conversion steps can be performed"
+                    ,"type":"string"
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"The original system file name of the document being sent"
+                    ,"type":"string"
+                }
+                ,"url":
+                {
+                    "required":true
+                    ,"description":"A publicly accessible URL for retrieving the raw file content"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"LibraryDocumentCreationResponse":
+        {
+            "id":"LibraryDocumentCreationResponse"
+            ,"description":"A JSON object describing the library template"
+            ,"properties":
+            {
+                "id":
+                {
+                    "required":true
+                    ,"description":"The unique identifier that is used to refer to the library template"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"LibraryViewInfo":
+        {
+            "id":"LibraryViewInfo"
+            ,"properties":
+            {
+                "commonViewConfiguration":
+                {
+                    "required":false
+                    ,"description":"Common view configuration for all the available views"
+                    ,"type":"CommonViewConfiguration"
+                    ,"items":
+                    {
+                        "$ref":"CommonViewConfiguration"
+                    }
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"Name of the requested libraryDocument view"
+                    ,"showInSampleRequest":true
+                    ,"type":"string"
+                    ,"enum":["EDIT","DOCUMENT","MANAGE","SEND","ALL"]
+                }
+            }
+        }
+        ,"CommonViewConfiguration":
+        {
+            "id":"CommonViewConfiguration"
+            ,"properties":
+            {
+                "autoLoginUser":
+                {
+                    "required":false
+                    ,"description":"Auto LogIn Flag. If true, the URL returned will automatically log the user in. If false, the URL returned will require the credentials. By default its value is false"
+                    ,"type":"boolean"
+                }
+                ,"locale":
+                {
+                    "required":false
+                    ,"description":"Message template locale"
+                    ,"type":"string"
+                }
+                ,"noChrome":
+                {
+                    "required":false
+                    ,"description":"No Chrome Flag. If true, the embedded page is shown without a navigation header or footer. If false, the standard page header and footer will be present. By default its value is false"
+                    ,"type":"boolean"
+                }
+            }
+        }
+        ,"LibraryDocumentViewResponse":
+        {
+            "id":"LibraryDocumentViewResponse"
+            ,"properties":
+            {
+                "libraryViewList":
+                {
+                    "required":true
+                    ,"description":"List of library docuemnt views"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"LibraryView"
+                    }
+                }
+            }
+        }
+        ,"LibraryView":
+        {
+            "id":"LibraryView"
+            ,"properties":
+            {
+                "embeddedCode":
+                {
+                    "required":false
+                    ,"description":"Embedded code of url of resource "
+                    ,"type":"string"
+                }
+                ,"expiration":
+                {
+                    "required":false
+                    ,"description":"Expiration of user url "
+                    ,"type":"string"
+                    ,"format":"date"
+                }
+                ,"isCurrent":
+                {
+                    "required":true
+                    ,"description":"True if this view is the current view"
+                    ,"type":"boolean"
+                }
+                ,"url":
+                {
+                    "required":false
+                    ,"description":"Url of resource location"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"LibraryDocuments":
+        {
+            "id":"LibraryDocuments"
+            ,"properties":
+            {
+                "libraryDocumentList":
+                {
+                    "required":true
+                    ,"description":"An array of document library items"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"LibraryDocument"
+                    }
+                }
+                ,"page":
+                {
+                    "required":true
+                    ,"description":"Pagination information for navigating through the response"
+                    ,"type":"PageInfo"
+                    ,"items":
+                    {
+                        "$ref":"PageInfo"
+                    }
+                }
+            }
+        }
+        ,"LibraryDocument":
+        {
+            "id":"LibraryDocument"
+            ,"properties":
+            {
+                "creatorEmail":
+                {
+                    "required":false
+                    ,"description":"Email address of the library document creator. It will be ignored in POST call"
+                    ,"type":"string"
+                }
+                ,"id":
+                {
+                    "required":true
+                    ,"description":"The unique identifier that is used to refer to the library template"
+                    ,"type":"string"
+                }
+                ,"hidden":
+                {
+                    "required":true
+                    ,"description":"True if Library Document is hidden"
+                    ,"type":"boolean"
+                }
+                ,"modifiedDate":
+                {
+                    "required":true
+                    ,"description":"The date on which the library document was last modified. Format would be yyyy-MM-dd'T'HH:mm:ssZ. For example, e.g 2016-02-25T18:46:19Z represents UTC time"
+                    ,"type":"string"
+                    ,"format":"date"
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"The name of the library document"
+                    ,"type":"string"
+                }
+                ,"sharingMode":
+                {
+                    "required":true
+                    ,"description":"Specifies who should have access to this library document. GLOBAL sharing mode is not applicable in POST/PUT calls"
+                    ,"type":"string"
+                    ,"enum":["USER","GROUP","ACCOUNT","GLOBAL"]
+                }
+                ,"status":
+                {
+                    "required":false
+                    ,"description":"Status of the library document"
+                    ,"type":"string"
+                    ,"enum":["AUTHORING","ACTIVE","REMOVED"]
+                }
+                ,"templateTypes":
+                {
+                    "required":true
+                    ,"description":"A list of one or more library template types"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "type":"string"
+                        ,"enum":["DOCUMENT","FORM_FIELD_LAYER"]
+                    }
+                }
+            }
+        }
+        ,"PageInfo":
+        {
+            "id":"PageInfo"
+            ,"properties":
+            {
+                "nextCursor":
+                {
+                    "required":true
+                    ,"description":"Used to navigate to the next page. If not returned, there are no further pages."
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"Documents":
+        {
+            "id":"Documents"
+            ,"properties":
+            {
+                "documents":
+                {
+                    "required":true
+                    ,"description":"A list of documents"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"Document"
+                    }
+                }
+            }
+        }
+        ,"Document":
+        {
+            "id":"Document"
+            ,"properties":
+            {
+                "id":
+                {
+                    "required":true
+                    ,"description":"ID of the document. In case of PUT call, this is the only field that is accepted in Document structure. Name and mimeType are ignored in case of PUT call"
+                    ,"type":"string"
+                }
+                ,"label":
+                {
+                    "required":true
+                    ,"description":"Label of the document"
+                    ,"type":"string"
+                }
+                ,"mimeType":
+                {
+                    "required":false
+                    ,"description":"mimeType of the original file. This is returned in GET but not accepted back in PUT"
+                    ,"type":"string"
+                }
+                ,"name":
+                {
+                    "required":false
+                    ,"description":"Name of the original document uploaded. This is returned in GET but not accepted back in PUT"
+                    ,"type":"string"
+                }
+                ,"numPages":
+                {
+                    "required":true
+                    ,"description":"Number of pages in the document"
+                    ,"type":"integer"
+                }
+            }
+        }
+        ,"DocumentImageUrlsInfo":
+        {
+            "id":"DocumentImageUrlsInfo"
+            ,"properties":
+            {
+                "documentId":
+                {
+                    "required":true
+                    ,"description":"Id of the document"
+                    ,"type":"string"
+                }
+                ,"documentImageUrlsList":
+                {
+                    "required":true
+                    ,"description":"A list of documents image URLs."
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"DocumentImageUrls"
+                    }
+                }
+            }
+        }
+        ,"DocumentImageUrls":
+        {
+            "id":"DocumentImageUrls"
+            ,"properties":
+            {
+                "imageSize":
+                {
+                    "required":false
+                    ,"description":"ImageSize corresponding to the imageUrl returned "
+                    ,"type":"string"
+                    ,"enum":["FIXED_WIDTH_50px","FIXED_WIDTH_250px","FIXED_WIDTH_675px","ZOOM_50_PERCENT","ZOOM_75_PERCENT","ZOOM_100_PERCENT","ZOOM_125_PERCENT","ZOOM_150_PERCENT","ZOOM_200_PERCENT"]
+                }
+                ,"imageURLs":
+                {
+                    "required":true
+                    ,"description":"A list of image url (one per page)."
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"PageImageUrl"
+                    }
+                }
+                ,"imagesAvailable":
+                {
+                    "required":false
+                    ,"description":"true if images for the associated image size is available, else false."
+                    ,"type":"boolean"
+                }
+            }
+        }
+        ,"PageImageUrl":
+        {
+            "id":"PageImageUrl"
+            ,"properties":
+            {
+                "pageNumber":
+                {
+                    "required":true
+                    ,"description":"Page number within the document."
+                    ,"type":"int"
+                }
+                ,"url":
+                {
+                    "required":true
+                    ,"description":"An image url."
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"LibraryDocumentEventList":
+        {
+            "id":"EventList"
+            ,"properties":
+            {
+                "events":
+                {
+                    "required":true
+                    ,"description":"An array of event objects."
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"LibraryDocumentEvent"
+                    }
+                }
+            }
+        }
+        ,"LibraryDocumentEvent":
+        {
+            "id":"Event"
+            ,"properties":
+            {
+                "actingUserEmail":
+                {
+                    "required":true
+                    ,"description":"Email address of the user that created the event"
+                    ,"type":"string"
+                }
+                ,"actingUserIpAddress":
+                {
+                    "required":true
+                    ,"description":"The IP address of the user that created the event"
+                    ,"type":"string"
+                }
+                ,"actingUserName":
+                {
+                    "required":true
+                    ,"description":"The name of the acting user"
+                    ,"type":"string"
+                }
+                ,"comment":
+                {
+                    "required":false
+                    ,"description":"The event comment. For RECALLED or REJECTED, the reason given by the user that initiates the event. For DELEGATE or SHARE, the message from the acting user to the participant"
+                    ,"type":"string"
+                }
+                ,"date":
+                {
+                    "required":true
+                    ,"description":"The date of the audit event. Format would be yyyy-MM-dd'T'HH:mm:ssZ. For example, e.g 2016-02-25T18:46:19Z represents UTC time"
+                    ,"type":"string"
+                    ,"format":"date"
+                }
+                ,"description":
+                {
+                    "required":true
+                    ,"description":"A description of the audit event"
+                    ,"type":"string"
+                }
+                ,"deviceLocation":
+                {
+                    "required":true
+                    ,"description":"Location of the device that generated the event (This value may be null due to limited privileges)"
+                    ,"type":"LibDocEventDeviceLocation"
+                    ,"items":
+                    {
+                        "$ref":"LibDocEventDeviceLocation"
+                    }
+                }
+                ,"devicePhoneNumber":
+                {
+                    "required":true
+                    ,"description":"Phone number from the device used when the participation is completed on a mobile phone"
+                    ,"type":"string"
+                }
+                ,"digitalSignatureInfo":
+                {
+                    "required":true
+                    ,"description":"This is present for ESIGNED events when the participation is signed digitally"
+                    ,"type":"DigitalSignatureInfo"
+                    ,"items":
+                    {
+                        "$ref":"DigitalSignatureInfo"
+                    }
+                }
+                ,"initiatingUserEmail":
+                {
+                    "required":true
+                    ,"description":"Email address of the user that initiated the event on behalf of the acting user when the account is shared. Will be empty if there is no account sharing in effect"
+                    ,"type":"string"
+                }
+                ,"initiatingUserName":
+                {
+                    "required":true
+                    ,"description":"Full name of the user that initiated the event on behalf of the acting user when the account is shared. Will be empty if there is no account sharing in effect"
+                    ,"type":"string"
+                }
+                ,"participantEmail":
+                {
+                    "required":true
+                    ,"description":"Email address of the user that is the participant for the event. This may be different than the acting user for certain event types. For example, for a DELEGATION event, this is the user who was delegated to"
+                    ,"type":"string"
+                }
+                ,"participantId":
+                {
+                    "required":true
+                    ,"description":"The unique identifier of the participant for the event. This may be different than the acting user for certain event types. For example, for a DELEGATION event, this is the user who was delegated to"
+                    ,"type":"string"
+                }
+                ,"participantRole":
+                {
+                    "required":true
+                    ,"description":"Role assumed by all participants in the participant set the participant belongs to (signer, approver etc.)."
+                    ,"type":"string"
+                    ,"enum":["SIGNER","DELEGATE_TO_SIGNER","APPROVER","DELEGATE_TO_APPROVER","ACCEPTOR","DELEGATE_TO_ACCEPTOR","FORM_FILLER","DELEGATE_TO_FORM_FILLER","CERTIFIED_RECIPIENT","DELEGATE_TO_CERTIFIED_RECIPIENT","SHARE","SENDER"]
+                }
+                ,"synchronizationId":
+                {
+                    "required":true
+                    ,"description":"A unique identifier linking offline events to synchronization events (specified for offline signing events and synchronization events, else null)"
+                    ,"type":"string"
+                }
+                ,"type":
+                {
+                    "required":true
+                    ,"description":"Type of library document event"
+                    ,"type":"string"
+                    ,"enum":["AUTO_CANCELLED_CONVERSION_PROBLEM","CREATED","MODIFIED","DOCUMENTS_DELETED"]
+                }
+                ,"vaultEventId":
+                {
+                    "required":true
+                    ,"description":"The identifier assigned by the vault provider for the vault event (if vaulted, otherwise null)"
+                    ,"type":"string"
+                }
+                ,"vaultProviderName":
+                {
+                    "required":true
+                    ,"description":"Name of the vault provider for the vault event (if vaulted, otherwise null)"
+                    ,"type":"string"
+                }
+                ,"versionId":
+                {
+                    "required":true
+                    ,"description":"An ID which uniquely identifies the version of the document associated with this audit event"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"LibDocEventDeviceLocation":
+        {
+            "id":"LibDocEventDeviceLocation"
+            ,"properties":
+            {
+                "latitude":
+                {
+                    "required":true
+                    ,"description":"Latitude coordinate"
+                    ,"type":"float"
+                }
+                ,"longitude":
+                {
+                    "required":true
+                    ,"description":"Longitude coordinate"
+                    ,"type":"float"
+                }
+            }
+        }
+        ,"DigitalSignatureInfo":
+        {
+            "id":"DigitalSignatureInfo"
+            ,"properties":
+            {
+                "company":
+                {
+                    "required":true
+                    ,"description":"Company name captured during digital signing"
+                    ,"type":"string"
+                }
+                ,"email":
+                {
+                    "required":true
+                    ,"description":"Email captured during digital signing"
+                    ,"type":"string"
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"Name captured during digital signing"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"Note":
+        {
+            "id":"Note"
+            ,"properties":
+            {
+                "note":
+                {
+                    "required":true
+                    ,"description":"Content of Note field"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"VisibilityInfo":
+        {
+            "id":"VisibilityInfo"
+            ,"properties":
+            {
+                "visibility":
+                {
+                    "required":true
+                    ,"description":"Specifies the visibility. The possible values are HIDE or SHOW"
+                    ,"type":"string"
+                    ,"enum":["SHOW","HIDE"]
+                }
+            }
+        }
+        ,"LibraryDocumentStateInfo":
+        {
+            "id":"LibraryDocumentStateInfo"
+            ,"properties":
+            {
+                "state":
+                {
+                    "required":true
+                    ,"description":"State of the library document."
+                    ,"type":"string"
+                    ,"enum":["AUTHORING","ACTIVE"]
+                }
+            }
+        }
+    }
+}

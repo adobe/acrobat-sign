@@ -1,0 +1,5 @@
+{
+  "pageSize": "TODO : A valid page number less than the maximum page size(500) that determines the number of agreement asset events which will be returned in the response",
+  "searchId": "TODO : A valid value which the user get from the POST /search/agreementAssetEvents endpoint",
+  "pageCursor": "TODO : A valid page cursor value that the user gets from either the POST /search/agreementAssetEvents endpoint or from GET /search/agreementAssetEvents/{searchId} endpoint"
+}

@@ -1,0 +1,468 @@
+
+{
+    "apiVersion":"6.0.0"
+    ,"swaggerVersion":"1.2"
+    ,"basePath":"/api/rest/v6"
+    ,"resourcePath":"/groups"
+    ,"produces":
+    ["application/json"
+    ]
+    ,"apis":
+    [
+        {
+            "path":"/groups"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves all the groups in an account."
+                    ,"notes":null
+                    ,"type":"GroupsInfo"
+                    ,"nickname":"getGroups"
+                    ,"order":161
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"user_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('user_read')\" oncontextmenu=\"this.href=oauthDoc('user_read')\" target=\"oauthDoc\">user_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"cursor"
+                            ,"description":"Used to navigate through the pages. If not provided, returns the first page."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"query"
+                        }
+                        ,{
+                            "name":"pageSize"
+                            ,"description":"Number of intended items in the response page."
+                            ,"required":false
+                            ,"type":"integer"
+                            ,"paramType":"query"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"INVALID_CURSOR: Page cursor provided is invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_PAGE_SIZE: Page size is either invalid or not within permissible range."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"NOT_IN_ACCOUNT: The API user must be inside an account in order to use group management methods."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/groups/{groupId}"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves detailed information about the group."
+                    ,"notes":null
+                    ,"type":"DetailedGroupInfo"
+                    ,"nickname":"getGroupDetails"
+                    ,"order":162
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"user_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('user_read')\" oncontextmenu=\"this.href=oauthDoc('user_read')\" target=\"oauthDoc\">user_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"groupId"
+                            ,"description":"The group identifier, as returned by the group creation API or retrieved from the API to fetch groups"
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"BAD_REQUEST: The request provided is invalid."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"NOT_IN_ACCOUNT: The API user must be inside an account in order to use group management methods."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_GROUP_ID: The Group ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/groups/{groupId}/users"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves all the users in a group."
+                    ,"notes":null
+                    ,"type":"GroupUsersInfo"
+                    ,"nickname":"getUsersInGroup"
+                    ,"order":163
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"user_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('user_read')\" oncontextmenu=\"this.href=oauthDoc('user_read')\" target=\"oauthDoc\">user_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"cursor"
+                            ,"description":"Used to navigate through the pages. If not provided, returns the first page."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"query"
+                        }
+                        ,{
+                            "name":"pageSize"
+                            ,"description":"Number of intended items in the response page."
+                            ,"required":false
+                            ,"type":"integer"
+                            ,"paramType":"query"
+                        }
+                        ,{
+                            "name":"groupId"
+                            ,"description":"The group identifier, as returned by the group creation API or retrieved from the API to fetch groups"
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"BAD_REQUEST: The request provided is invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_ARGUMENTS: One or more arguments to the method are invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_CURSOR: Page cursor provided is invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_PAGE_SIZE: Page size is either invalid or not within permissible range."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_GROUP_ID: The Group ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+    ,"models":
+    {
+        "GroupsInfo":
+        {
+            "id":"GroupsInfo"
+            ,"properties":
+            {
+                "groupInfoList":
+                {
+                    "required":true
+                    ,"description":"The list of groups in the account."
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"GroupInfo"
+                    }
+                }
+                ,"page":
+                {
+                    "required":true
+                    ,"description":"Pagination information for navigating through the response"
+                    ,"type":"PageInfo"
+                    ,"items":
+                    {
+                        "$ref":"PageInfo"
+                    }
+                }
+            }
+        }
+        ,"GroupInfo":
+        {
+            "id":"GroupInfo"
+            ,"properties":
+            {
+                "groupId":
+                {
+                    "required":true
+                    ,"description":"Unique identifier of the group"
+                    ,"type":"string"
+                }
+                ,"groupName":
+                {
+                    "required":true
+                    ,"description":"Name of the group"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"PageInfo":
+        {
+            "id":"PageInfo"
+            ,"properties":
+            {
+                "nextCursor":
+                {
+                    "required":true
+                    ,"description":"Used to navigate to the next page. If not returned, there are no further pages."
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"DetailedGroupInfo":
+        {
+            "id":"DetailedGroupInfo"
+            ,"properties":
+            {
+                "created":
+                {
+                    "required":true
+                    ,"description":"Date of creation of the group. Format would be yyyy-MM-dd'T'HH:mm:ssZ. For example, e.g 2016-02-25T18:46:19Z represents UTC time"
+                    ,"type":"string"
+                    ,"format":"date"
+                }
+                ,"id":
+                {
+                    "required":false
+                    ,"description":"The unique identifier of the Group. This will be returned as part of GET call but is not mandatory to be passed as part of PUT/POST call for groups/{groupId}"
+                    ,"type":"string"
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"Name of the group"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"GroupUsersInfo":
+        {
+            "id":"GroupUsersInfo"
+            ,"properties":
+            {
+                "page":
+                {
+                    "required":true
+                    ,"description":"Pagination information for navigating through the response"
+                    ,"type":"PageInfo"
+                    ,"items":
+                    {
+                        "$ref":"PageInfo"
+                    }
+                }
+                ,"userInfoList":
+                {
+                    "required":true
+                    ,"description":"The list of users in the account."
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"GroupUserInfo"
+                    }
+                }
+            }
+        }
+        ,"GroupUserInfo":
+        {
+            "id":"GroupUserInfo"
+            ,"properties":
+            {
+                "company":
+                {
+                    "required":false
+                    ,"description":"The name of company of the user"
+                    ,"type":"string"
+                }
+                ,"email":
+                {
+                    "required":true
+                    ,"description":"The email address of the user"
+                    ,"type":"string"
+                }
+                ,"firstName":
+                {
+                    "required":false
+                    ,"description":"The first name of the user"
+                    ,"type":"string"
+                }
+                ,"id":
+                {
+                    "required":true
+                    ,"description":"A unique identifier of the user resource for REST APIs. This identifier can not be used in SOAP APIs"
+                    ,"type":"string"
+                }
+                ,"isGroupAdmin":
+                {
+                    "required":true
+                    ,"description":"True if user is group admin"
+                    ,"type":"boolean"
+                }
+                ,"lastName":
+                {
+                    "required":false
+                    ,"description":"The last name of the user"
+                    ,"type":"string"
+                }
+            }
+        }
+    }
+}

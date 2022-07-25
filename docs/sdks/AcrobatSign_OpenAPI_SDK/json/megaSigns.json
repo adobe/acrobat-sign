@@ -1,0 +1,2017 @@
+
+{
+    "apiVersion":"6.0.0"
+    ,"swaggerVersion":"1.2"
+    ,"basePath":"/api/rest/v6"
+    ,"resourcePath":"/megaSigns"
+    ,"produces":
+    ["application/json"
+    ]
+    ,"apis":
+    [
+        {
+            "path":"/megaSigns"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"POST"
+                    ,"summary":"Send an agreement out for signature to multiple recipients. Each recipient will receive and sign their own copy of the agreement."
+                    ,"notes":"This is a primary endpoint which is used to create a new megaSign. A megaSign can be created using transientDocument, libraryDocument or a URL. You can create a megaSign in <b>IN_PROCESS<\/b> - Create a megaSign in this state to immediately send it. You can use the PUT/megaSigns/{megaSignId}/state endpoint to transition the state of megaSign. An allowed transition would follow the following sequence: IN_PROCESS -> CANCELLED."
+                    ,"type":"MegaSignCreationResponse"
+                    ,"nickname":"createMegaSign"
+                    ,"order":167
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"agreement_write"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_write')\" oncontextmenu=\"this.href=oauthDoc('agreement_write')\" target=\"oauthDoc\">agreement_write<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"MegaSignInfo"
+                            ,"description":"Information about the MegaSign that you want to send."
+                            ,"required":true
+                            ,"type":"MegaSignCreationInfo"
+                            ,"paramType":"body"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"AUTH_METHOD_PROVIDED_MORE_THAN_ONCE: Auth method has been provided more than once."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"BAD_REQUEST: The request provided is invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"EMPTY_REDIRECT_URL: If PostSignOptions are specified, the redirectUrl must not be empty."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"EXTERNAL_AUTH_METHOD_PROVIDED_MORE_THAN_ONCE: External auth method has been provided more than once."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INTERNAL_AUTH_METHOD_PROVIDED_MORE_THAN_ONCE: Internal auth method has been provided more than once."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_ARGUMENTS: One or more arguments to the method are invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_EMAIL: Email provided is invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_FILE_INFO: Invalid or no file info is provided."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_JSON: An invalid JSON was specified."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_REDIRECT_DELAY: The redirectDelay specified in PostSignOptions must be nonnegative integer."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_REDIRECT_URL: The redirectUrl specified in PostSignOptions is not a valid URL."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"MISC_ERROR: Some miscellaneous error has occurred."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"MISSING_REQUIRED_PARAM: Required parameters are missing."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"RECIPIENT_SET_NOT_SUPPORTED: Recipient set with multiple recipients is not supported for a Mega Sign."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NOT_AUTHORIZED_FOR_TRANSIENT_RESOURCE: Not authorized for the transient resource referred in the request."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_ACCESS_TOKEN_HEADER: Access token header not provided."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"UNAUTHORIZED: You cannot work on behalf of this user."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"UNVERIFIED_USER: The user has registered but has not verified their email address. The user must use the Adobe Sign web site to complete verification."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"AUTH_METHOD_PROVIDED_IS_NOT_ALLOWED: Auth method provided is not allowed."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"EXTERNAL_AUTH_METHOD_PROVIDED_IS_NOT_ALLOWED: External auth method provided is not allowed."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"INTERNAL_AUTH_METHOD_PROVIDED_IS_NOT_ALLOWED: Internal auth method provided is not allowed."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"INTERNAL_SIGNER_AUTH_NOT_ALLOWED: User settings do not permit internal signer auth."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"KBA_LIMIT_EXCEEDED: KBA limit for identity verification is exhausted. Please select another method or contact your administrator."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"SEND_LIMIT_EXCEEDED: Agreement creation quota of the user is exhausted."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"SIGNER_AUTH_NOT_ALLOWED: User settings do not permit signer auth specification."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_LIBRARYDOCUMENT_ID: The Library Document ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_TRANSIENTDOCUMENT_ID: The Transient Document ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"LIBRARYDOCUMENT_REMOVED: The library document has been removed from the system."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"TRANSIENT_RESOURCE_DELETED: Transient Resource deleted from the server."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/megaSigns/{megaSignId}/views"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"POST"
+                    ,"summary":"Retrieves the requested views of mega sign agreement."
+                    ,"notes":null
+                    ,"type":"MegaSignViewResponse"
+                    ,"nickname":"getMegaSignView"
+                    ,"order":168
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"agreement_read"
+                                ,"description":"agreement read is always required"
+                            }
+                            ,{
+                                "scope":"user_login"
+                                ,"description":"Required additionally if the autoLoginUser parameter is set to true"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read<\/a> - agreement read is always required<\/li><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('user_login')\" oncontextmenu=\"this.href=oauthDoc('user_login')\" target=\"oauthDoc\">user_login<\/a> - Required additionally if the autoLoginUser parameter is set to true<\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"megaSignId"
+                            ,"description":"The identifier of the MegaSign parent agreement, as returned by the megaSign creation API or retrieved from the API to fetch megaSign agreements"
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"MegaSignViewInfo"
+                            ,"description":"Name of the required view and its desired configuration."
+                            ,"required":true
+                            ,"type":"MegaSignViewInfo"
+                            ,"paramType":"body"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"INVALID_ARGUMENTS: One or more arguments to the method are invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_MEGASIGN_ID: The Mega Sign ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"MEGASIGN_DELETED: The Mega Sign has been deleted."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/megaSigns"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves MegaSign parent agreements for a user."
+                    ,"notes":null
+                    ,"type":"MegaSigns"
+                    ,"nickname":"getMegaSigns"
+                    ,"order":170
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"agreement_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"cursor"
+                            ,"description":"Used to navigate through the pages. If not provided, returns the first page."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"query"
+                        }
+                        ,{
+                            "name":"pageSize"
+                            ,"description":"Number of intended items in the response page."
+                            ,"required":false
+                            ,"type":"integer"
+                            ,"paramType":"query"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"INVALID_CURSOR: Page cursor provided is invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER_HEADER: Value provided in x-on-behalf-Of-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_PAGE_SIZE: Page size is either invalid or not within permissible range."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/megaSigns/{megaSignId}"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Get detailed information of the specified MegaSign parent agreement."
+                    ,"notes":null
+                    ,"type":"MegaSignCreationInfo"
+                    ,"nickname":"getMegaSignInfo"
+                    ,"order":171
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"agreement_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-None-Match"
+                            ,"description":"Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"megaSignId"
+                            ,"description":"The identifier of the MegaSign parent agreement, as returned by the megaSign creation API or retrieved from the API to fetch megaSign agreements"
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_MEGASIGN_ID: The Mega Sign ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/megaSigns/{megaSignId}/agreements"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Get all the child agreements of the specified MegaSign parent agreement."
+                    ,"notes":null
+                    ,"type":"MegaSignChildAgreements"
+                    ,"nickname":"getMegaSignChildAgreements"
+                    ,"order":172
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"agreement_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"megaSignId"
+                            ,"description":"The identifier of the MegaSign parent agreement, as returned by the megaSign creation API or retrieved from the API to fetch megaSign agreements"
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"cursor"
+                            ,"description":"Used to navigate through the pages. If not provided, returns the first page."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"query"
+                        }
+                        ,{
+                            "name":"pageSize"
+                            ,"description":"Number of intended items in the response page."
+                            ,"required":false
+                            ,"type":"integer"
+                            ,"paramType":"query"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"INVALID_CURSOR: Page cursor provided is invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_PAGE_SIZE: Page size is either invalid or not within permissible range."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"MEGA_SIGN_EXPIRED: The specified Mega Sign has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_MEGASIGN_ID: The Mega Sign ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"MEGASIGN_DELETED: The Mega Sign has been deleted."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/megaSigns/{megaSignId}/childAgreementsInfo/{childAgreementsInfoFileId}"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves the file stream of the original childAgreementsInfoFile that was uploaded by sender while creating the MegaSign."
+                    ,"notes":"CSV file stream containing form data information"
+                    ,"type":"string"
+                    ,"format":"byte"
+                    ,"nickname":"getChildAgreementsInfoFile"
+                    ,"order":173
+                    ,"produces":
+                    ["text/csv"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"agreement_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-None-Match"
+                            ,"description":"Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"megaSignId"
+                            ,"description":"The identifier of the MegaSign parent agreement, as returned by the megaSign creation API or retrieved from the API to fetch megaSign agreements"
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"childAgreementsInfoFileId"
+                            ,"description":"The identifier of the childAgreementsInfoFile that has been uploaded by sender while creating the megaSign or retrieved from the API to fetch megaSignInfo "
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_MEGASIGN_ID: The Mega Sign ID specified is invalid."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/megaSigns/{megaSignId}/combinedDocument"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves a single combined PDF document for the documents associated with the MegaSign parent agreement."
+                    ,"notes":null
+                    ,"type":"string"
+                    ,"format":"byte"
+                    ,"nickname":"getMegaSignCombinedDocument"
+                    ,"order":174
+                    ,"produces":
+                    ["application/pdf","application/pdf;encoding=base64"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"agreement_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-None-Match"
+                            ,"description":"Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"megaSignId"
+                            ,"description":"The identifier of the MegaSign parent agreement, as returned by the megaSign creation API or retrieved from the API to fetch megaSign agreements"
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"attachAuditReport"
+                            ,"description":"When set to true attach an audit report to the MegaSign document PDF. Default value will be false."
+                            ,"required":false
+                            ,"type":"boolean"
+                            ,"paramType":"query"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"DOCUMENT_NOT_AVAILABLE: The document is not yet available or will have no pages to view."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_MEGASIGN_ID: The Mega Sign ID specified is invalid."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/megaSigns/{megaSignId}/events"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves the events information for the MegaSign parent agreement."
+                    ,"notes":null
+                    ,"type":"MegasignEventList"
+                    ,"nickname":"getEvents"
+                    ,"order":175
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"agreement_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-None-Match"
+                            ,"description":"Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"megaSignId"
+                            ,"description":"The identifier of the MegaSign parent agreement, as returned by the megaSign creation API or retrieved from the API to fetch megaSign agreements"
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_MEGASIGN_ID: The Mega Sign ID specified is invalid."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/megaSigns/{megaSignId}/formData"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves data entered by recipients into interactive form fields at the time they signed the child agreements of the specified MegaSign agreement"
+                    ,"notes":"CSV file stream containing form data information"
+                    ,"type":"string"
+                    ,"format":"byte"
+                    ,"nickname":"getMegaSignFormData"
+                    ,"order":176
+                    ,"produces":
+                    ["text/csv"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"agreement_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"megaSignId"
+                            ,"description":"The identifier of the MegaSign parent agreement, as returned by the megaSign creation API or retrieved from the API to fetch megaSign agreements"
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"304"
+                            ,"reason":"RESOURCE_NOT_MODIFIED: Resource is not modified."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_MEGASIGN_ID: The Mega Sign ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"MEGASIGN_DELETED: The Mega Sign has been deleted."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"NO_FORM_DATA: There is no form data available."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/megaSigns/{megaSignId}/state"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"PUT"
+                    ,"summary":"Updates the state of a MegaSign identified by MegaSignId in the path."
+                    ,"notes":"This endpoint can be used by creator of the MegaSign to transition between the states of megaSign. An allowed transition would follow the following sequence :  IN_PROCESS->CANCELLED."
+                    ,"type":"void"
+                    ,"nickname":"updateMegaSignState"
+                    ,"order":178
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"agreement_write"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_write')\" oncontextmenu=\"this.href=oauthDoc('agreement_write')\" target=\"oauthDoc\">agreement_write<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-Match"
+                            ,"description":"The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"megaSignId"
+                            ,"description":"The identifier of the MegaSign parent agreement, as returned by the megaSign creation API or retrieved from the API to fetch megaSign agreements"
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"MegaSignStateInfo"
+                            ,"description":"MegaSign state update information object."
+                            ,"required":true
+                            ,"type":"MegaSignStateInfo"
+                            ,"paramType":"body"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"MISSING_IF_MATCH_HEADER: If-Match header missing."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"MUST_PROVIDE_VALID_MEGASIGN_STATUS: Must provide a valid megaSign status."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_ACCESS_TOKEN_HEADER: Access token header not provided."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_MEGASIGN_ID: The Mega Sign ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"MEGASIGN_DELETED: The Mega Sign has been deleted."
+                        }
+                        ,{
+                            "code":"409"
+                            ,"reason":"MEGASIGN_ALREADY_CANCELLED: The Mega Sign being modified has already been cancelled."
+                        }
+                        ,{
+                            "code":"412"
+                            ,"reason":"RESOURCE_MODIFIED: Resource is already modified with newer version."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+    ,"models":
+    {
+        "MegaSignCreationInfo":
+        {
+            "id":"MegaSignInfo"
+            ,"properties":
+            {
+                "ccs":
+                {
+                    "required":false
+                    ,"description":"A list of one or more CCs that will be copied in the megasign transaction. The CCs will each receive an email at the beginning of the transaction and also when the final document is signed. The email addresses will also receive a copy of the document, attached as a PDF file "
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"MegaSignCcInfo"
+                    }
+                }
+                ,"childAgreementsInfo":
+                {
+                    "required":true
+                    ,"description":"Info corresponding to each child agreement of the megaSign "
+                    ,"type":"ChildAgreementsInfo"
+                    ,"items":
+                    {
+                        "$ref":"ChildAgreementsInfo"
+                    }
+                }
+                ,"createdDate":
+                {
+                    "required":false
+                    ,"description":"Date when megasign was created. Format would be yyyy-MM-dd'T'HH:mm:ssZ. For example, e.g 2016-02-25T18:46:19Z represents UTC time"
+                    ,"type":"string"
+                    ,"format":"date"
+                }
+                ,"expirationTime":
+                {
+                    "required":false
+                    ,"description":"Time after which Agreement expires and needs to be signed before it. Format should be yyyy-MM-dd'T'HH:mm:ssZ. For example, e.g 2016-02-25T18:46:19Z represents UTC time. Should not be provided in offline agreement creation."
+                    ,"type":"date"
+                }
+                ,"externalId":
+                {
+                    "required":false
+                    ,"description":"An arbitrary value from your system, which can be specified at sending time and then later returned or queried"
+                    ,"type":"ExternalId"
+                    ,"items":
+                    {
+                        "$ref":"ExternalId"
+                    }
+                }
+                ,"fileInfos":
+                {
+                    "required":true
+                    ,"description":"A list of one or more files (or references to files) that will be sent out for signature. If more than one file is provided, they will be combined into one PDF before being sent out. Note: Only one of the four parameters in every FileInfo object must be specified"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"FileInfo"
+                    }
+                }
+                ,"firstReminderDelay":
+                {
+                    "required":false
+                    ,"description":"Integer which specifies the delay in hours before sending the first reminder.<br>This is an optional field. The minimum value allowed is 1 hour and the maximum value can\u2019t be more than the difference of agreement creation and expiry time of the agreement in hours.<br>If this is not specified but the reminder frequency is specified, then the first reminder will be sent based on frequency.<br>i.e. if the reminder is created with frequency specified as daily, the firstReminderDelay will be 24 hours"
+                    ,"type":"integer"
+                }
+                ,"id":
+                {
+                    "required":false
+                    ,"description":"The unique identifier of megasign "
+                    ,"type":"string"
+                }
+                ,"locale":
+                {
+                    "required":false
+                    ,"description":"The locale associated with this agreement - specifies the language for the signing page and emails, for example en_US or fr_FR. If none specified, defaults to the language configured for the agreement sender"
+                    ,"type":"string"
+                }
+                ,"message":
+                {
+                    "required":false
+                    ,"description":"An optional message to the participants, describing what is being sent or why their signature is required"
+                    ,"type":"string"
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"The name of the agreement that will be used to identify it, in emails, website and other places"
+                    ,"type":"string"
+                }
+                ,"postSignOption":
+                {
+                    "required":false
+                    ,"description":"URL and associated properties for the success page the user will be taken to after completing the signing process"
+                    ,"type":"PostSignOption"
+                    ,"items":
+                    {
+                        "$ref":"PostSignOption"
+                    }
+                }
+                ,"reminderFrequency":
+                {
+                    "required":false
+                    ,"description":"Optional parameter that sets how often you want to send reminders to the participants. If it is not specified, the default frequency set for the account will be used"
+                    ,"type":"string"
+                    ,"enum":["DAILY_UNTIL_SIGNED","WEEKLY_UNTIL_SIGNED"]
+                }
+                ,"securityOption":
+                {
+                    "required":false
+                    ,"description":"Optional security parameters for the megasign"
+                    ,"type":"MegaSignSecurityOption"
+                    ,"items":
+                    {
+                        "$ref":"MegaSignSecurityOption"
+                    }
+                }
+                ,"senderEmail":
+                {
+                    "required":false
+                    ,"description":"Email of agreement sender. Only provided in GET. Can not be provided in POST/PUT request. If provided in POST/PUT, it will be ignored"
+                    ,"type":"string"
+                }
+                ,"signatureType":
+                {
+                    "required":true
+                    ,"description":"Specifies the type of signature you would like to request - written or e-signature. The possible values are <br> ESIGN : Agreement needs to be signed electronically <br>,\nWRITTEN : Agreement will be signed using handwritten signature and signed document will be uploaded into the system"
+                    ,"type":"string"
+                    ,"enum":["ESIGN","WRITTEN"]
+                }
+                ,"state":
+                {
+                    "required":true
+                    ,"description":"State of the Megasign"
+                    ,"type":"string"
+                    ,"enum":["IN_PROCESS"]
+                }
+                ,"status":
+                {
+                    "required":true
+                    ,"description":"Status of the Megasign"
+                    ,"type":"string"
+                    ,"enum":["AUTHORING","IN_PROCESS","CANCELLED","COMPLETED","EXPIRED","PREFILL"]
+                }
+                ,"vaultingInfo":
+                {
+                    "required":false
+                    ,"description":"Vaulting properties that allows Adobe Sign to securely store documents with a vault provider"
+                    ,"type":"VaultingInfo"
+                    ,"items":
+                    {
+                        "$ref":"VaultingInfo"
+                    }
+                }
+            }
+        }
+        ,"MegaSignCcInfo":
+        {
+            "id":"MegaSignCcInfo"
+            ,"properties":
+            {
+                "email":
+                {
+                    "required":false
+                    ,"description":"Email of the CC participant of the megaSign."
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"ChildAgreementsInfo":
+        {
+            "id":"ChildAgreementsInfo"
+            ,"properties":
+            {
+                "fileInfo":
+                {
+                    "required":true
+                    ,"description":"File info containing per child agreement information of megaSign."
+                    ,"type":"MegaSignChildAgreementsFileInfo"
+                    ,"items":
+                    {
+                        "$ref":"MegaSignChildAgreementsFileInfo"
+                    }
+                }
+            }
+        }
+        ,"MegaSignChildAgreementsFileInfo":
+        {
+            "id":"MegaSignChildAgreementsFileInfo"
+            ,"properties":
+            {
+                "childAgreementsInfoFileId":
+                {
+                    "required":false
+                    ,"description":"id of the file containg information about the existing childAgreementsInfo associated with the megaSign. Will be ignored in POST call and in case of GET call, this is the only thing that will be returned. The content of the file can be fetched through GET /megaSigns/{megaSignId}/childAgreementsInfo/{childAgreementsInfoFileId} endpoint."
+                    ,"type":"string"
+                }
+                ,"fileType":
+                {
+                    "required":true
+                    ,"description":"Input type through which participantSetsInfos will be provided. Whichever input type is provided, the values should be provided in its corresponding value object. Currently we are supporting CSV file format for providing megaSIgn child recipients."
+                    ,"type":"string"
+                    ,"enum":["CSV"]
+                }
+                ,"transientDocumentId":
+                {
+                    "required":true
+                    ,"description":"Transient id of the input file which contains participantSetsInfos. Currently only csv format is suppported. More details about CSV format <a href='https://www.adobe.com/go/documentcloud_megasigncsv'>here<\/a>  "
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"ExternalId":
+        {
+            "id":"ExternalId"
+            ,"properties":
+            {
+                "id":
+                {
+                    "required":false
+                    ,"description":"An arbitrary value from your system, which can be specified at sending time and then later returned or queried"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"FileInfo":
+        {
+            "id":"FileInfo"
+            ,"properties":
+            {
+                "label":
+                {
+                    "required":false
+                    ,"description":"The unique label value of a file info element. In case of custom workflow this will map a file to corresponding file element in workflow definition. This must be specified in case of custom workflow agreement creation request "
+                    ,"type":"string"
+                }
+                ,"libraryDocumentId":
+                {
+                    "required":false
+                    ,"description":"ID for an existing Library document that will be added to the agreement"
+                    ,"type":"string"
+                }
+                ,"transientDocumentId":
+                {
+                    "required":false
+                    ,"description":"ID for a transient document that will be added to the agreement"
+                    ,"showInSampleRequest":true
+                    ,"type":"string"
+                }
+                ,"urlFileInfo":
+                {
+                    "required":false
+                    ,"description":"URL for an external document to add to the agreement"
+                    ,"type":"URLFileInfo"
+                    ,"items":
+                    {
+                        "$ref":"URLFileInfo"
+                    }
+                }
+            }
+        }
+        ,"URLFileInfo":
+        {
+            "id":"URLFileInfo"
+            ,"properties":
+            {
+                "mimeType":
+                {
+                    "required":true
+                    ,"description":"The mime type of the referenced file, used to determine if the file can be accepted and the necessary conversion steps can be performed"
+                    ,"type":"string"
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"The original system file name of the document being sent"
+                    ,"type":"string"
+                }
+                ,"url":
+                {
+                    "required":true
+                    ,"description":"A publicly accessible URL for retrieving the raw file content"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"PostSignOption":
+        {
+            "id":"PostSignOption"
+            ,"properties":
+            {
+                "redirectDelay":
+                {
+                    "required":false
+                    ,"description":"The delay (in seconds) before the user is taken to the success page. If this value is greater than 0, the user will first see the standard Adobe Sign success message, and then after a delay will be redirected to your success page"
+                    ,"type":"integer"
+                }
+                ,"redirectUrl":
+                {
+                    "required":false
+                    ,"description":"A publicly accessible url to which the user will be sent after successfully completing the signing process"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"MegaSignSecurityOption":
+        {
+            "id":"MegaSignSecurityOption"
+            ,"properties":
+            {
+                "externalAuthenticationMethod":
+                {
+                    "required":true
+                    ,"description":"The authentication method for the participants to have access to view and sign the document."
+                    ,"type":"string"
+                    ,"enum":["NONE","WEB_IDENTITY","KBA","PASSWORD"]
+                }
+                ,"externalPassword":
+                {
+                    "required":false
+                    ,"description":"The secondary password that will be used to protect signing the document for internal signers. Note that Adobe Sign will never show this password to anyone, so you will need to separately communicate it to any relevant parties. This password is applied only if password protection is specified for internal signers or all signers"
+                    ,"type":"string"
+                }
+                ,"internalAuthenticationMethod":
+                {
+                    "required":true
+                    ,"description":"The authentication method for the participants to have access to view and sign the document."
+                    ,"type":"string"
+                    ,"enum":["NONE","WEB_IDENTITY","KBA","PASSWORD"]
+                }
+                ,"internalPassword":
+                {
+                    "required":false
+                    ,"description":"The secondary password that will be used to protect signing the document for external signers. Note that Adobe Sign will never show this password to anyone, so you will need to separately communicate it to any relevant parties. This password is applied only if password protection is specified for external signers or all signers"
+                    ,"type":"string"
+                }
+                ,"openPassword":
+                {
+                    "required":false
+                    ,"description":"The secondary password that will be used to secure the PDF document. Note that AdobeSign will never show this password to anyone, so you will need to separately communicate it to any relevant parties"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"VaultingInfo":
+        {
+            "id":"VaultingInfo"
+            ,"properties":
+            {
+                "enabled":
+                {
+                    "required":false
+                    ,"description":"For accounts set up for document vaulting and the option to enable per agreement, this determines whether the document is to be vaulted"
+                    ,"type":"boolean"
+                }
+            }
+        }
+        ,"MegaSignCreationResponse":
+        {
+            "id":"MegaSignCreationResponse"
+            ,"description":"A JSON  that contains the id of the newly created Mega Sign"
+            ,"properties":
+            {
+                "id":
+                {
+                    "required":true
+                    ,"description":"Unique identifier of the MegaSign parent agreement"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"MegaSignViewInfo":
+        {
+            "id":"MegaSignViewInfo"
+            ,"properties":
+            {
+                "commonViewConfiguration":
+                {
+                    "required":false
+                    ,"description":"Common view configuration for all the available views"
+                    ,"type":"CommonViewConfiguration"
+                    ,"items":
+                    {
+                        "$ref":"CommonViewConfiguration"
+                    }
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"Name of the requested mega sign view"
+                    ,"showInSampleRequest":true
+                    ,"type":"string"
+                    ,"enum":["AUTHORING","DOCUMENT","MANAGE","POST_CREATE","PREFILL","ALL"]
+                }
+            }
+        }
+        ,"CommonViewConfiguration":
+        {
+            "id":"CommonViewConfiguration"
+            ,"properties":
+            {
+                "autoLoginUser":
+                {
+                    "required":false
+                    ,"description":"Auto LogIn Flag. If true, the URL returned will automatically log the user in. If false, the URL returned will require the credentials. By default its value is false"
+                    ,"type":"boolean"
+                }
+                ,"locale":
+                {
+                    "required":false
+                    ,"description":"Message template locale"
+                    ,"type":"string"
+                }
+                ,"noChrome":
+                {
+                    "required":false
+                    ,"description":"No Chrome Flag. If true, the embedded page is shown without a navigation header or footer. If false, the standard page header and footer will be present. By default its value is false"
+                    ,"type":"boolean"
+                }
+            }
+        }
+        ,"MegaSignViewResponse":
+        {
+            "id":"MegaSignViewResponse"
+            ,"properties":
+            {
+                "megaSignViewList":
+                {
+                    "required":true
+                    ,"description":"List of mega sign views"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"MegaSignView"
+                    }
+                }
+            }
+        }
+        ,"MegaSignView":
+        {
+            "id":"MegaSignView"
+            ,"properties":
+            {
+                "embeddedCode":
+                {
+                    "required":false
+                    ,"description":"Embedded code of url of resource "
+                    ,"type":"string"
+                }
+                ,"expiration":
+                {
+                    "required":false
+                    ,"description":"Expiration of user url "
+                    ,"type":"string"
+                    ,"format":"date"
+                }
+                ,"isCurrent":
+                {
+                    "required":true
+                    ,"description":"True if this view is the current view"
+                    ,"type":"boolean"
+                }
+                ,"url":
+                {
+                    "required":false
+                    ,"description":"Url of resource location"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"MegaSigns":
+        {
+            "id":"MegaSigns"
+            ,"properties":
+            {
+                "megaSignList":
+                {
+                    "required":true
+                    ,"description":"An array of MegaSign parent agreements"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"MegaSign"
+                    }
+                }
+                ,"page":
+                {
+                    "required":true
+                    ,"description":"Pagination information for navigating through the response"
+                    ,"type":"PageInfo"
+                    ,"items":
+                    {
+                        "$ref":"PageInfo"
+                    }
+                }
+            }
+        }
+        ,"MegaSign":
+        {
+            "id":"MegaSign"
+            ,"properties":
+            {
+                "displayDate":
+                {
+                    "required":true
+                    ,"description":"The display date for the MegaSign parent agreement. Format would be yyyy-MM-dd'T'HH:mm:ssZ. For example, e.g 2016-02-25T18:46:19Z represents UTC time"
+                    ,"type":"string"
+                    ,"format":"date"
+                }
+                ,"id":
+                {
+                    "required":true
+                    ,"description":"The unique identifier of the MegaSign parent agreement"
+                    ,"type":"string"
+                }
+                ,"esign":
+                {
+                    "required":true
+                    ,"description":"True, if the signature type of the MegaSign parent agreement is ESIGN. False, if the signature type of the MegaSign parent agreement is WRITTEN"
+                    ,"type":"boolean"
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"Name of the MegaSign parent agreement"
+                    ,"type":"string"
+                }
+                ,"status":
+                {
+                    "required":true
+                    ,"description":"Current status of the MegaSign parent agreement from the perspective of the user"
+                    ,"type":"string"
+                    ,"enum":["WAITING_FOR_MY_SIGNATURE","IN_PROCESS","CANCELLED","ARCHIVED","COMPLETED","WAITING_FOR_AUTHORING","WAITING_FOR_PREFILL"]
+                }
+            }
+        }
+        ,"PageInfo":
+        {
+            "id":"PageInfo"
+            ,"properties":
+            {
+                "nextCursor":
+                {
+                    "required":true
+                    ,"description":"Used to navigate to the next page. If not returned, there are no further pages."
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"MegaSignChildAgreements":
+        {
+            "id":"MegaSignChildAgreements"
+            ,"properties":
+            {
+                "megaSignChildAgreementList":
+                {
+                    "required":true
+                    ,"description":"A array of MegaSign child agreements"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"MegaSignChildAgreement"
+                    }
+                }
+                ,"page":
+                {
+                    "required":true
+                    ,"description":"Pagination information for navigating through the response"
+                    ,"type":"PageInfo"
+                    ,"items":
+                    {
+                        "$ref":"PageInfo"
+                    }
+                }
+            }
+        }
+        ,"MegaSignChildAgreement":
+        {
+            "id":"MegaSignChildAgreement"
+            ,"properties":
+            {
+                "displayDate":
+                {
+                    "required":true
+                    ,"description":"The display date for the agreement. Format would be yyyy-MM-dd'T'HH:mm:ssZ. For example, e.g 2016-02-25T18:46:19Z represents UTC time"
+                    ,"type":"string"
+                    ,"format":"date"
+                }
+                ,"id":
+                {
+                    "required":false
+                    ,"description":"The unique identifier of the agreement.If provided in POST, it will simply be ignored"
+                    ,"type":"string"
+                }
+                ,"esign":
+                {
+                    "required":true
+                    ,"description":"True if this is an e-sign document"
+                    ,"type":"boolean"
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"Name of the Agreement"
+                    ,"type":"string"
+                }
+                ,"status":
+                {
+                    "required":false
+                    ,"description":"This is a server generated attribute which provides the detailed status of an agreement with respect to the apiCaller"
+                    ,"type":"string"
+                    ,"enum":["WAITING_FOR_MY_SIGNATURE","WAITING_FOR_MY_APPROVAL","WAITING_FOR_MY_DELEGATION","WAITING_FOR_MY_ACKNOWLEDGEMENT","WAITING_FOR_MY_ACCEPTANCE","WAITING_FOR_MY_FORM_FILLING","OUT_FOR_SIGNATURE","OUT_FOR_APPROVAL","OUT_FOR_DELIVERY","OUT_FOR_ACCEPTANCE","OUT_FOR_FORM_FILLING","SIGNED","APPROVED","FORM_FILLED","DELIVERED","ACCEPTED","ARCHIVED","CANCELLED","EXPIRED","WAITING_FOR_AUTHORING","WAITING_FOR_PREFILL","DRAFT","DOCUMENTS_NOT_YET_PROCESSED","WAITING_FOR_MY_VERIFICATION","WAITING_FOR_VERIFICATION"]
+                }
+            }
+        }
+        ,"MegasignEventList":
+        {
+            "id":"EventList"
+            ,"properties":
+            {
+                "events":
+                {
+                    "required":true
+                    ,"description":"An array of event objects."
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"MegasignEvent"
+                    }
+                }
+            }
+        }
+        ,"MegasignEvent":
+        {
+            "id":"Event"
+            ,"properties":
+            {
+                "actingUserEmail":
+                {
+                    "required":true
+                    ,"description":"Email address of the user that created the event"
+                    ,"type":"string"
+                }
+                ,"actingUserIpAddress":
+                {
+                    "required":true
+                    ,"description":"The IP address of the user that created the event"
+                    ,"type":"string"
+                }
+                ,"actingUserName":
+                {
+                    "required":true
+                    ,"description":"The name of the acting user"
+                    ,"type":"string"
+                }
+                ,"comment":
+                {
+                    "required":false
+                    ,"description":"The event comment. For RECALLED or REJECTED, the reason given by the user that initiates the event. For DELEGATE or SHARE, the message from the acting user to the participant"
+                    ,"type":"string"
+                }
+                ,"date":
+                {
+                    "required":true
+                    ,"description":"The date of the audit event. Format would be yyyy-MM-dd'T'HH:mm:ssZ. For example, e.g 2016-02-25T18:46:19Z represents UTC time"
+                    ,"type":"string"
+                    ,"format":"date"
+                }
+                ,"description":
+                {
+                    "required":true
+                    ,"description":"A description of the audit event"
+                    ,"type":"string"
+                }
+                ,"deviceLocation":
+                {
+                    "required":true
+                    ,"description":"Location of the device that generated the event (This value may be null due to limited privileges)"
+                    ,"type":"DeviceLocation"
+                    ,"items":
+                    {
+                        "$ref":"DeviceLocation"
+                    }
+                }
+                ,"devicePhoneNumber":
+                {
+                    "required":true
+                    ,"description":"Phone number from the device used when the participation is completed on a mobile phone"
+                    ,"type":"string"
+                }
+                ,"digitalSignatureInfo":
+                {
+                    "required":true
+                    ,"description":"This is present for ESIGNED events when the participation is signed digitally"
+                    ,"type":"DigitalSignatureInfo"
+                    ,"items":
+                    {
+                        "$ref":"DigitalSignatureInfo"
+                    }
+                }
+                ,"initiatingUserEmail":
+                {
+                    "required":true
+                    ,"description":"Email address of the user that initiated the event on behalf of the acting user when the account is shared. Will be empty if there is no account sharing in effect"
+                    ,"type":"string"
+                }
+                ,"initiatingUserName":
+                {
+                    "required":true
+                    ,"description":"Full name of the user that initiated the event on behalf of the acting user when the account is shared. Will be empty if there is no account sharing in effect"
+                    ,"type":"string"
+                }
+                ,"participantEmail":
+                {
+                    "required":true
+                    ,"description":"Email address of the user that is the participant for the event. This may be different than the acting user for certain event types. For example, for a DELEGATION event, this is the user who was delegated to"
+                    ,"type":"string"
+                }
+                ,"participantId":
+                {
+                    "required":true
+                    ,"description":"The unique identifier of the participant for the event. This may be different than the acting user for certain event types. For example, for a DELEGATION event, this is the user who was delegated to"
+                    ,"type":"string"
+                }
+                ,"participantRole":
+                {
+                    "required":true
+                    ,"description":"Role assumed by all participants in the participant set the participant belongs to (signer, approver etc.)."
+                    ,"type":"string"
+                    ,"enum":["SIGNER","DELEGATE_TO_SIGNER","APPROVER","DELEGATE_TO_APPROVER","ACCEPTOR","DELEGATE_TO_ACCEPTOR","FORM_FILLER","DELEGATE_TO_FORM_FILLER","CERTIFIED_RECIPIENT","DELEGATE_TO_CERTIFIED_RECIPIENT","SHARE","SENDER"]
+                }
+                ,"synchronizationId":
+                {
+                    "required":true
+                    ,"description":"A unique identifier linking offline events to synchronization events (specified for offline signing events and synchronization events, else null)"
+                    ,"type":"string"
+                }
+                ,"type":
+                {
+                    "required":true
+                    ,"description":"Type of MegaSign event"
+                    ,"type":"string"
+                    ,"enum":["AUTO_CANCELLED_CONVERSION_PROBLEM","CREATED","EXPIRED","EMAIL_BOUNCED","RECALLED","SHARED","VAULTED"]
+                }
+                ,"vaultEventId":
+                {
+                    "required":true
+                    ,"description":"The identifier assigned by the vault provider for the vault event (if vaulted, otherwise null)"
+                    ,"type":"string"
+                }
+                ,"vaultProviderName":
+                {
+                    "required":true
+                    ,"description":"Name of the vault provider for the vault event (if vaulted, otherwise null)"
+                    ,"type":"string"
+                }
+                ,"versionId":
+                {
+                    "required":true
+                    ,"description":"An ID which uniquely identifies the version of the document associated with this audit event"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"DeviceLocation":
+        {
+            "id":"DeviceLocation"
+            ,"properties":
+            {
+                "latitude":
+                {
+                    "required":true
+                    ,"description":"Latitude coordinate"
+                    ,"type":"float"
+                }
+                ,"longitude":
+                {
+                    "required":true
+                    ,"description":"Longitude coordinate"
+                    ,"type":"float"
+                }
+            }
+        }
+        ,"DigitalSignatureInfo":
+        {
+            "id":"DigitalSignatureInfo"
+            ,"properties":
+            {
+                "company":
+                {
+                    "required":true
+                    ,"description":"Company name captured during digital signing"
+                    ,"type":"string"
+                }
+                ,"email":
+                {
+                    "required":true
+                    ,"description":"Email captured during digital signing"
+                    ,"type":"string"
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"Name captured during digital signing"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"MegaSignStateInfo":
+        {
+            "id":"MegaSignStateInfo"
+            ,"properties":
+            {
+                "megaSignCancellationInfo":
+                {
+                    "required":false
+                    ,"description":"Cancellation information for the agreement. Mandatory while cancelling a megaSign"
+                    ,"type":"AgreementCancellationInfo"
+                    ,"items":
+                    {
+                        "$ref":"AgreementCancellationInfo"
+                    }
+                }
+                ,"state":
+                {
+                    "required":true
+                    ,"description":"The state to which the megaSign is to be updated. The only valid state for this variable is currently, CANCELLED"
+                    ,"type":"string"
+                    ,"enum":["CANCELLED"]
+                }
+            }
+        }
+        ,"AgreementCancellationInfo":
+        {
+            "id":"AgreementCancellationInfo"
+            ,"properties":
+            {
+                "comment":
+                {
+                    "required":false
+                    ,"description":"An optional comment describing to the recipients why you want to cancel the transaction"
+                    ,"type":"string"
+                }
+                ,"notifyOthers":
+                {
+                    "required":false
+                    ,"description":"Whether or not you would like the recipients to be notified that the transaction has been cancelled. The default value is false"
+                    ,"type":"boolean"
+                }
+            }
+        }
+    }
+}

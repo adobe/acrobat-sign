@@ -1,0 +1,3428 @@
+
+{
+    "apiVersion":"6.0.0"
+    ,"swaggerVersion":"1.2"
+    ,"basePath":"/api/rest/v6"
+    ,"resourcePath":"/widgets"
+    ,"produces":
+    ["application/json","text/csv"
+    ]
+    ,"apis":
+    [
+        {
+            "path":"/widgets"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"POST"
+                    ,"summary":"Creates a widget and and returns the widgetId in the response to the client."
+                    ,"notes":"This is a primary endpoint which is used to create a new widget. You can create a widget in one of the 3 mentioned states: a) <b>DRAFT<\/b> - to incrementally build the widget, b) <b>AUTHORING<\/b> - to add/edit form fields in the widget, c) <b>ACTIVE<\/b> - to immediately host the widget. You can use the PUT /widgets/{widgetId}/state endpoint to transition a widget between the above mentioned states. An allowed transition would follow the any of the following sequences: DRAFT->AUTHORING->ACTIVE, ACTIVE<->INACTIVE, DRAFT->CANCELLED."
+                    ,"type":"WidgetCreationResponse"
+                    ,"nickname":"createWidget"
+                    ,"order":117
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"widget_write"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_write')\" oncontextmenu=\"this.href=oauthDoc('widget_write')\" target=\"oauthDoc\">widget_write<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"WidgetInfo"
+                            ,"description":"Information about the widget that you want to create."
+                            ,"required":true
+                            ,"type":"WidgetInfo"
+                            ,"paramType":"body"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"BAD_REQUEST: The request provided is invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_ARGUMENTS: One or more arguments to the method are invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_EMAIL: Email provided is invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_FILE_INFO: Invalid or no file info is provided."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_JSON: An invalid JSON was specified."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_ORDER: Order of participant sets define an invalid range."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_PARTICIPANT_ROLE: Role provided is invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_REDIRECT_DELAY: The redirectDelay specified in PostSignOptions must be nonnegative integer."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_REDIRECT_URL: The redirectUrl specified in PostSignOptions is not a valid URL."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"MISSING_REQUIRED_PARAM: Required parameters are missing."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"AUTOLOGIN_DENIED: User settings do not permit autologin as requested."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NOT_AUTHORIZED_FOR_TRANSIENT_RESOURCE: Not authorized for the transient resource referred in the request."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"UNAUTHORIZED: You cannot work on behalf of this user."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"UNVERIFIED_USER: The user has registered but has not verified their email address. The user must use the Adobe Sign web site to complete verification."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"KBA_LIMIT_EXCEEDED: KBA limit for identity verification is exhausted. Please select another method or contact your administrator."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PHONE_AUTH_LIMIT_EXCEEDED: Phone usage limit for identity verification is exhausted. Please select another method or contact your administrator."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"SEND_LIMIT_EXCEEDED: Agreement creation quota of the user is exhausted."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_PARTICIPANT_MEMBER_INFO: The participant member info specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_TRANSIENTDOCUMENT_ID: The Transient Document ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"TRANSIENT_RESOURCE_DELETED: Transient Resource deleted from the server."
+                        }
+                        ,{
+                            "code":"415"
+                            ,"reason":"UNSUPPORTED_MEDIA_TYPE: Content type was not provided or is not supported."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/widgets/{widgetId}/views"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"POST"
+                    ,"summary":"Retrieves the requested views for a widget."
+                    ,"notes":null
+                    ,"type":"WidgetViews"
+                    ,"nickname":"getWidgetView"
+                    ,"order":118
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"widget_read"
+                                ,"description":"widget read is always required"
+                            }
+                            ,{
+                                "scope":"user_login"
+                                ,"description":"Required additionally if the autoLoginUser parameter is set to true"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read<\/a> - widget read is always required<\/li><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('user_login')\" oncontextmenu=\"this.href=oauthDoc('user_login')\" target=\"oauthDoc\">user_login<\/a> - Required additionally if the autoLoginUser parameter is set to true<\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"widgetId"
+                            ,"description":"The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"WidgetViewInfo"
+                            ,"description":"Name of the required view and its desired configuration."
+                            ,"required":true
+                            ,"type":"WidgetViewInfo"
+                            ,"paramType":"body"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"BAD_REQUEST: The request provided is invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"MISSING_REQUIRED_PARAM: Required parameters are missing."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"VIEW_NOT_AVAILABLE: Requested view is not available for the resource in the current state."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"AUTOLOGIN_DENIED: User settings do not permit autologin as requested."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"WIDGET_IN_DRAFT_STATE: The widget is in draft state."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_WIDGET_ID: The Widget ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/widgets"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves widgets for a user."
+                    ,"notes":null
+                    ,"type":"UserWidgets"
+                    ,"nickname":"getWidgets"
+                    ,"order":119
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"widget_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"showHiddenWidgets"
+                            ,"description":"A query parameter to fetch all the hidden widgets along with the visible widgets."
+                            ,"required":false
+                            ,"type":"boolean"
+                            ,"paramType":"query"
+                        }
+                        ,{
+                            "name":"cursor"
+                            ,"description":"Used to navigate through the pages. If not provided, returns the first page."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"query"
+                        }
+                        ,{
+                            "name":"pageSize"
+                            ,"description":"Number of intended items in the response page."
+                            ,"required":false
+                            ,"type":"integer"
+                            ,"paramType":"query"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"INVALID_CURSOR: Page cursor provided is invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_PAGE_SIZE: Page size is either invalid or not within permissible range."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/widgets/{widgetId}"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves the details of a widget."
+                    ,"notes":null
+                    ,"type":"WidgetInfo"
+                    ,"nickname":"getWidgetInfo"
+                    ,"order":120
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"widget_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-None-Match"
+                            ,"description":"Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"widgetId"
+                            ,"description":"The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_WIDGET_ID: The Widget ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/widgets/{widgetId}/agreements"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves agreements for the widget."
+                    ,"notes":null
+                    ,"type":"WidgetAgreements"
+                    ,"nickname":"getWidgetAgreements"
+                    ,"order":121
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"widget_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"widgetId"
+                            ,"description":"The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"showHiddenAgreements"
+                            ,"description":"A query parameter to fetch all the hidden agreements along with the visible agreements."
+                            ,"required":false
+                            ,"type":"boolean"
+                            ,"paramType":"query"
+                        }
+                        ,{
+                            "name":"cursor"
+                            ,"description":"Used to navigate through the pages. If not provided, returns the first page."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"query"
+                        }
+                        ,{
+                            "name":"pageSize"
+                            ,"description":"Number of intended items in the response page."
+                            ,"required":false
+                            ,"type":"integer"
+                            ,"paramType":"query"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"INVALID_CURSOR: Page cursor provided is invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_PAGE_SIZE: Page size is either invalid or not within permissible range."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"MISSING_REQUIRED_PARAM: Required parameters are missing."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_WIDGET_ID: The Widget ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/widgets/{widgetId}/auditTrail"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves the audit trail of a widget identified by widgetId."
+                    ,"notes":null
+                    ,"type":"string"
+                    ,"format":"byte"
+                    ,"nickname":"getWidgetAuditTrail"
+                    ,"order":123
+                    ,"produces":
+                    ["application/pdf","application/pdf;encoding=base64"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"widget_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"widgetId"
+                            ,"description":"The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"WIDGET_IN_DRAFT_STATE: The widget is in draft state."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_WIDGET_ID: The Widget ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/widgets/{widgetId}/combinedDocument"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves a single combined PDF document for the documents associated with a widget."
+                    ,"notes":null
+                    ,"type":"string"
+                    ,"format":"byte"
+                    ,"nickname":"getWidgetCombinedDocument"
+                    ,"order":125
+                    ,"produces":
+                    ["application/pdf","application/pdf;encoding=base64"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"widget_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-None-Match"
+                            ,"description":"Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"widgetId"
+                            ,"description":"The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"versionId"
+                            ,"description":"The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"query"
+                        }
+                        ,{
+                            "name":"participantId"
+                            ,"description":"The ID of the participant to be used to retrieve documents."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"query"
+                        }
+                        ,{
+                            "name":"attachAuditReport"
+                            ,"description":"When set to YES, attach an audit report to the signed Widget PDF. Default value is false"
+                            ,"required":false
+                            ,"type":"boolean"
+                            ,"paramType":"query"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"304"
+                            ,"reason":"RESOURCE_NOT_MODIFIED: Resource is not modified."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"WIDGET_IN_DRAFT_STATE: The widget is in draft state."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"DOCUMENT_NOT_AVAILABLE: The document is not yet available or will have no pages to view."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_PARTICIPANT_ID: The participant ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_VERSION_ID: The Version ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_WIDGET_ID: The Widget ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"WIDGET_NOT_AVAILABLE: The widget document is not yet available or will have no pages to view."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/widgets/{widgetId}/documents"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves the IDs of the documents associated with widget."
+                    ,"notes":null
+                    ,"type":"WidgetDocuments"
+                    ,"nickname":"getWidgetDocuments"
+                    ,"order":126
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"widget_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-None-Match"
+                            ,"description":"Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"widgetId"
+                            ,"description":"The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"versionId"
+                            ,"description":"The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"query"
+                        }
+                        ,{
+                            "name":"participantId"
+                            ,"description":"The ID of the participant to be used to retrieve documents."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"query"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"304"
+                            ,"reason":"RESOURCE_NOT_MODIFIED: Resource is not modified."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"DOCUMENT_ORIGINAL_FORMAT_NOT_ALLOWED: The documents in original format are not enabled for this user."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"WIDGET_IN_DRAFT_STATE: The widget is in draft state."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"DOCUMENT_NOT_AVAILABLE: The document is not yet available or will have no pages to view."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_PARTICIPANT_ID: The participant ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_VERSION_ID: The Version ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_WIDGET_ID: The Widget ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"WIDGET_NOT_AVAILABLE: The widget document is not yet available or will have no pages to view."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/widgets/{widgetId}/documents/{documentId}"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves the file stream of a document of a widget."
+                    ,"notes":null
+                    ,"type":"string"
+                    ,"format":"byte"
+                    ,"nickname":"getWidgetDocumentInfo"
+                    ,"order":129
+                    ,"produces":
+                    ["application/pdf","application/pdf;encoding=base64"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"widget_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-None-Match"
+                            ,"description":"Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"widgetId"
+                            ,"description":"The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"documentId"
+                            ,"description":"The document identifier, as retrieved from the API which fetches the documents of a specified widget"
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"304"
+                            ,"reason":"RESOURCE_NOT_MODIFIED: Resource is not modified."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"WIDGET_IN_DRAFT_STATE: The widget is in draft state."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"DOCUMENT_NOT_AVAILABLE: The document is not yet available or will have no pages to view."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_DOCUMENT_ID: The Document ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_WIDGET_ID: The Widget ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"WIDGET_NOT_AVAILABLE: The widget document is not yet available or will have no pages to view."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/widgets/{widgetId}/events"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves the events information for a widget."
+                    ,"notes":null
+                    ,"type":"WidgetEventList"
+                    ,"nickname":"getEvents"
+                    ,"order":130
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"widget_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-None-Match"
+                            ,"description":"Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"widgetId"
+                            ,"description":"The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"304"
+                            ,"reason":"RESOURCE_NOT_MODIFIED: Resource is not modified."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"MISSING_REQUIRED_PARAM: Required parameters are missing."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_WIDGET_ID: The Widget ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/widgets/{widgetId}/formData"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves data entered by the user into interactive form fields at the time they signed the widget"
+                    ,"notes":"CSV file stream containing form data information"
+                    ,"type":"string"
+                    ,"format":"byte"
+                    ,"nickname":"getWidgetFormData"
+                    ,"order":131
+                    ,"produces":
+                    ["text/csv"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"widget_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-None-Match"
+                            ,"description":"Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"widgetId"
+                            ,"description":"The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"WIDGET_IN_DRAFT_STATE: The widget is in draft state."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_WIDGET_ID: The Widget ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"NO_FORM_DATA: There is no form data available."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"WIDGET_NOT_AVAILABLE: The widget document is not yet available or will have no pages to view."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/widgets/{widgetId}/me/note"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves the latest note of a widget for the API user."
+                    ,"notes":null
+                    ,"type":"Note"
+                    ,"nickname":"getWidgetNoteForApiUser"
+                    ,"order":132
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"widget_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"widgetId"
+                            ,"description":"The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_WIDGET_ID: The Widget ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/widgets/{widgetId}/members"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves detailed member info along with IDs for different types of participants."
+                    ,"notes":null
+                    ,"type":"WidgetMembersInfo"
+                    ,"nickname":"getAllWidgetMembers"
+                    ,"order":133
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"widget_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-None-Match"
+                            ,"description":"Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"widgetId"
+                            ,"description":"The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"304"
+                            ,"reason":"RESOURCE_NOT_MODIFIED: Resource is not modified."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"MISSING_REQUIRED_PARAM: Required parameters are missing."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"WIDGET_IN_DRAFT_STATE: The widget is in draft state."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_WIDGET_ID: The Widget ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/widgets/{widgetId}/members/participantSets/{participantSetId}"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves the participant set of a widget identified by widgetId in the path."
+                    ,"notes":null
+                    ,"type":"DetailedWidgetParticipantSetInfo"
+                    ,"nickname":"getParticipantSet"
+                    ,"order":134
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"widget_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-None-Match"
+                            ,"description":"Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"widgetId"
+                            ,"description":"The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"participantSetId"
+                            ,"description":"The participant set identifier"
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"304"
+                            ,"reason":"RESOURCE_NOT_MODIFIED: Resource is not modified."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"OPERATION_NOT_ALLOWED: Requested Operation is not allowed."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"WIDGET_IN_DRAFT_STATE: The widget is in draft state."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_PARTICIPANT_SET_ID: The participant set ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_WIDGET_ID: The Widget ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"WIDGET_NOT_AVAILABLE: The widget document is not yet available or will have no pages to view."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/widgets/{widgetId}"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"PUT"
+                    ,"summary":"Updates a widget."
+                    ,"notes":null
+                    ,"type":"void"
+                    ,"nickname":"updateWidget"
+                    ,"order":135
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"widget_write"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_write')\" oncontextmenu=\"this.href=oauthDoc('widget_write')\" target=\"oauthDoc\">widget_write<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-Match"
+                            ,"description":"The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"widgetId"
+                            ,"description":"The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"WidgetInfo"
+                            ,"description":"Widget update information object."
+                            ,"required":true
+                            ,"type":"WidgetInfo"
+                            ,"paramType":"body"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"BAD_REQUEST: The request provided is invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_ARGUMENTS: One or more arguments to the method are invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_FILE_INFO: Invalid or no file info is provided."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_JSON: An invalid JSON was specified."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_REDIRECT_URL: The redirectUrl specified in PostSignOptions is not a valid URL."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"MISSING_REQUIRED_PARAM: Required parameters are missing."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"MUST_PROVIDE_VALID_WIDGET_STATUS: Must provide a valid widget status."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"NO_ACTION_SPECIFIED: Either a redirectUrl or a message is required."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"TOO_MANY_ACTIONS_SPECIFIED: Cannot specify both a redirectUrl and a message."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"UPDATE_NOT_ALLOWED: The agreement you are trying to update is not modifiable."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"URL_INVALID: Provided document URL is invalid."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NOT_AUTHORIZED_FOR_TRANSIENT_RESOURCE: Not authorized for the transient resource referred in the request."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"UNAUTHORIZED: You cannot work on behalf of this user."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"UNVERIFIED_USER: The user has registered but has not verified their email address. The user must use the Adobe Sign web site to complete verification."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_DOCUMENT_ID: The Document ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_TRANSIENTDOCUMENT_ID: The Transient Document ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_WIDGET_ID: The Widget ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"TRANSIENT_RESOURCE_DELETED: Transient Resource deleted from the server."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"WIDGET_NOT_AVAILABLE: The widget document is not yet available or will have no pages to view."
+                        }
+                        ,{
+                            "code":"412"
+                            ,"reason":"WIDGET_NOT_MODIFIED: The widget has not been modified."
+                        }
+                        ,{
+                            "code":"415"
+                            ,"reason":"UNSUPPORTED_MEDIA_TYPE: Content type was not provided or is not supported."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/widgets/{widgetId}/me/visibility"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"PUT"
+                    ,"summary":"Updates the visibility of widget."
+                    ,"notes":null
+                    ,"type":"void"
+                    ,"nickname":"updateWidgetVisibility"
+                    ,"order":137
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"widget_write"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_write')\" oncontextmenu=\"this.href=oauthDoc('widget_write')\" target=\"oauthDoc\">widget_write<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"widgetId"
+                            ,"description":"The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"VisibilityInfo"
+                            ,"description":"Information to update visibility of widget"
+                            ,"required":true
+                            ,"type":"VisibilityInfo"
+                            ,"paramType":"body"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"BAD_REQUEST: The request provided is invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_JSON: An invalid JSON was specified."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"MISSING_REQUIRED_PARAM: Required parameters are missing."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_PARTICIPANT_ID: The participant ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_PARTICIPANT_SET_ID: The participant set ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_WIDGET_ID: The Widget ID specified is invalid."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"WIDGET_NOT_AVAILABLE: The widget document is not yet available or will have no pages to view."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/widgets/{widgetId}/state"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"PUT"
+                    ,"summary":"Updates the state of a widget identified by widgetId in the path."
+                    ,"notes":"This endpoint can be used by creator of the widget to transition between the states of widget. An allowed transition would follow any of the following sequence :  DRAFT->AUTHORING->ACTIVE, ACTIVE<->INACTIVE, DRAFT->CANCELLED."
+                    ,"type":"void"
+                    ,"nickname":"updateWidgetState"
+                    ,"order":139
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"widget_write"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_write')\" oncontextmenu=\"this.href=oauthDoc('widget_write')\" target=\"oauthDoc\">widget_write<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"If-Match"
+                            ,"description":"The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"widgetId"
+                            ,"description":"The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"WidgetStateInfo"
+                            ,"description":""
+                            ,"required":true
+                            ,"type":"WidgetStateInfo"
+                            ,"paramType":"body"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"INVALID_ARGUMENTS: One or more arguments to the method are invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_JSON: An invalid JSON was specified."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER_HEADER: Value provided in x-on-behalf-Of-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"MISSING_IF_MATCH_HEADER: If-Match header missing."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"MISSING_REQUIRED_PARAM: Required parameters are missing."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"KBA_LIMIT_EXCEEDED: KBA limit for identity verification is exhausted. Please select another method or contact your administrator."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PHONE_AUTH_LIMIT_EXCEEDED: Phone usage limit for identity verification is exhausted. Please select another method or contact your administrator."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"SEND_LIMIT_EXCEEDED: Agreement creation quota of the user is exhausted."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_WIDGET_ID: The Widget ID specified is invalid."
+                        }
+                        ,{
+                            "code":"412"
+                            ,"reason":"RESOURCE_MODIFIED: Resource is already modified with newer version."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+    ,"models":
+    {
+        "WidgetInfo":
+        {
+            "id":"WidgetInfo"
+            ,"properties":
+            {
+                "additionalParticipantSetsInfo":
+                {
+                    "required":false
+                    ,"description":"List of all the participants in the widget except widget signer"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"WidgetAdditionalParticipationSetInfo"
+                    }
+                }
+                ,"authFailureInfo":
+                {
+                    "required":false
+                    ,"description":"URL and associated properties for the error page the widget signer will be taken after failing to authenticate"
+                    ,"type":"WidgetRedirectionInfo"
+                    ,"items":
+                    {
+                        "$ref":"WidgetRedirectionInfo"
+                    }
+                }
+                ,"ccs":
+                {
+                    "required":false
+                    ,"description":"A list of one or more email addresses that you want to copy on this transaction. The email addresses will each receive an email when the final agreement created through widget is signed. The email addresses will also receive a copy of the document, attached as a PDF file"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"WidgetCcInfo"
+                    }
+                }
+                ,"completionInfo":
+                {
+                    "required":false
+                    ,"description":"URL and associated properties for the success page the widget signer will be taken to after performing desired action on the widget"
+                    ,"type":"WidgetRedirectionInfo"
+                    ,"items":
+                    {
+                        "$ref":"WidgetRedirectionInfo"
+                    }
+                }
+                ,"createdDate":
+                {
+                    "required":false
+                    ,"description":"Date when widget was created. If provided in POST, it will simply be ignored. Format would be yyyy-MM-dd'T'HH:mm:ssZ. For example, e.g 2016-02-25T18:46:19Z represents UTC time"
+                    ,"type":"string"
+                    ,"format":"date"
+                }
+                ,"creatorEmail":
+                {
+                    "required":false
+                    ,"description":"Email of widget creator. Only returned in GET response. Cannot be provided in POST/PUT request. If provided in POST, it will simply be ignored"
+                    ,"type":"string"
+                }
+                ,"fileInfos":
+                {
+                    "required":true
+                    ,"description":"A list of one or more files (or references to files) that will be used to create the widget. If more than one file is provided, they will be combined before the widget is created. Library documents are not permitted. Note: Only one of the four parameters in every FileInfo object must be specified"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"FileInfo"
+                    }
+                }
+                ,"id":
+                {
+                    "required":false
+                    ,"description":"A resource identifier that can be used to uniquely identify the widget in other apis. If provided in POST, it will simply be ignored"
+                    ,"type":"string"
+                }
+                ,"locale":
+                {
+                    "required":false
+                    ,"description":"The locale associated with this widget - specifies the language for the signing page and emails, for example en_US or fr_FR. If none specified, defaults to the language configured for the widget creator"
+                    ,"type":"string"
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"The name of the widget that will be used to identify it, in emails, website and other places"
+                    ,"type":"string"
+                }
+                ,"securityOption":
+                {
+                    "required":false
+                    ,"description":"Secondary security parameters for the widget"
+                    ,"type":"SecurityOption"
+                    ,"items":
+                    {
+                        "$ref":"SecurityOption"
+                    }
+                }
+                ,"state":
+                {
+                    "required":true
+                    ,"description":"The state in which the widget should land. For example in order to create a widget in DRAFT state, field should be DRAFT. The state field will never get returned in GET /widgets/{ID} and will be ignored if provided in PUT /widgets/{ID} call. The eventual status of the widget can be obtained from GET /widgets/ID"
+                    ,"type":"string"
+                    ,"enum":["DRAFT","ACTIVE","AUTHORING"]
+                }
+                ,"status":
+                {
+                    "required":false
+                    ,"description":"Status of the Widget. If provided in POST, it will simply be ignored"
+                    ,"type":"string"
+                    ,"enum":["DRAFT","AUTHORING","ACTIVE","DOCUMENTS_NOT_YET_PROCESSED","DISABLED","DISCARDED"]
+                }
+                ,"vaultingInfo":
+                {
+                    "required":false
+                    ,"description":"Vaulting properties that allows Adobe Sign to securely store documents with a vault provider"
+                    ,"type":"VaultingInfo"
+                    ,"items":
+                    {
+                        "$ref":"VaultingInfo"
+                    }
+                }
+                ,"widgetParticipantSetInfo":
+                {
+                    "required":true
+                    ,"description":"Represents widget participant for whom email should not be provided"
+                    ,"type":"WidgetParticipantSetInfo"
+                    ,"items":
+                    {
+                        "$ref":"WidgetParticipantSetInfo"
+                    }
+                }
+            }
+        }
+        ,"WidgetAdditionalParticipationSetInfo":
+        {
+            "id":"WidgetAdditionalParticipationSetInfo"
+            ,"properties":
+            {
+                "memberInfos":
+                {
+                    "required":true
+                    ,"description":"Array of ParticipantInfo objects, containing participant - specific data (email, e.g.). All participants in the array belong to the same set. Currently we are supporting only one member in the set. Since the email of the widget signer is unknown at the time of widget creation, the email should be left empty and its optional security options should be provided. "
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"ParticipantSetMemberInfo"
+                    }
+                }
+                ,"order":
+                {
+                    "required":false
+                    ,"description":"Index indicating position at which signing group needs to sign. Additional participant to sign at first place is assigned a index of 1. Widget participant should not have any order specified. Widget participant should not have any email address and and can not have phone authentication applied. Different signingOrder specified in input should form a valid consecutive increasing sequence of integers. Otherwise signingOrder will be considered invalid"
+                    ,"type":"integer"
+                }
+                ,"role":
+                {
+                    "required":true
+                    ,"description":"Role assumed by all participants in the set (signer, approver, etc.) Widget First Participant will only have roles - Signer, Approver, Acceptor and Form Filler"
+                    ,"type":"string"
+                    ,"enum":["SIGNER","DELEGATE_TO_SIGNER","APPROVER","DELEGATE_TO_APPROVER","ACCEPTOR","DELEGATE_TO_ACCEPTOR","FORM_FILLER","DELEGATE_TO_FORM_FILLER","CERTIFIED_RECIPIENT","DELEGATE_TO_CERTIFIED_RECIPIENT"]
+                }
+            }
+        }
+        ,"ParticipantSetMemberInfo":
+        {
+            "id":"ParticipantInfo"
+            ,"properties":
+            {
+                "email":
+                {
+                    "required":true
+                    ,"description":"Email of the particpant. In case of creating new Agreements(POST/PUT), this is a required field. In case of GET, this is the required field and will always be returned unless it is a fax workflow( legacy agreements) that were created using fax as input"
+                    ,"type":"string"
+                }
+                ,"securityOption":
+                {
+                    "required":false
+                    ,"description":"Security options that apply to the participant"
+                    ,"type":"ParticipantSecurityOption"
+                    ,"items":
+                    {
+                        "$ref":"ParticipantSecurityOption"
+                    }
+                }
+            }
+        }
+        ,"ParticipantSecurityOption":
+        {
+            "id":"ParticipantSecurityOption"
+            ,"properties":
+            {
+                "authenticationMethod":
+                {
+                    "required":true
+                    ,"description":"The authentication method for the participants to have access to view and sign the document"
+                    ,"type":"string"
+                    ,"enum":["NONE","PASSWORD","PHONE","KBA","WEB_IDENTITY","ADOBE_SIGN"]
+                }
+                ,"password":
+                {
+                    "required":false
+                    ,"description":"The password required for the participant to view and sign the document. Note that AdobeSign will never show this password to anyone, so you will need to separately communicate it to any relevant parties. The password will not be returned in GET call. In case of PUT call, password associated with Agreement resource will remain unchanged if no password is specified but authentication method is provided as PASSWORD"
+                    ,"type":"string"
+                }
+                ,"phoneInfo":
+                {
+                    "required":false
+                    ,"description":"The phoneInfo required for the participant to view and sign the document"
+                    ,"type":"PhoneInfo"
+                    ,"items":
+                    {
+                        "$ref":"PhoneInfo"
+                    }
+                }
+            }
+        }
+        ,"PhoneInfo":
+        {
+            "id":"PhoneInfo"
+            ,"properties":
+            {
+                "countryCode":
+                {
+                    "required":false
+                    ,"description":"The phone Info country code required for the participant to view and sign the document if authentication method is PHONE"
+                    ,"type":"string"
+                }
+                ,"phone":
+                {
+                    "required":false
+                    ,"description":"The phone number required for the participant to view and sign the document if authentication method is PHONE"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"WidgetRedirectionInfo":
+        {
+            "id":"WidgetRedirectionInfo"
+            ,"properties":
+            {
+                "deframe":
+                {
+                    "required":false
+                    ,"description":"If deframe is false, the resultant page will be shown inside the widget frame. If deframe is true, the resultant page will be shown in the full browser window. \n Note that in the case of embedded widgets, browser security restrictions do not permit automatic redirection in the full browser window, so if deframe is true the user will instead just see a link to the success page. We recommend this scenario be avoided - in other words, setting deframe to false is recommended for embedded widgets"
+                    ,"type":"boolean"
+                }
+                ,"delay":
+                {
+                    "required":false
+                    ,"description":"The delay (in seconds) before the user is taken to the resultant page. If this value is greater than 0, the user will first see the standard Adobe Sign result message, and then after a delay will be redirected to your resultant page. \n Note that this parameter has no effect for embedded widgets when deframe is true"
+                    ,"type":"integer"
+                }
+                ,"url":
+                {
+                    "required":true
+                    ,"description":"A publicly accessible url to which the user will be sent after successfully completing the widget. \nIf the URL you provide includes information that allows you to identify the specific transaction, such as your own unique identifier, you can use the browser request to this URL as a callback to notify you that this transaction is completed. \nIn addition, Adobe Sign will append a documentKey parameter to the URL which will contain the Adobe Sign DocumentKey for this signed widget, but only if the sender is the same as the API key user. Your application can use this value to get the form data for this widget"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"WidgetCcInfo":
+        {
+            "id":"CcInfo"
+            ,"properties":
+            {
+                "email":
+                {
+                    "required":true
+                    ,"description":"Email of the CC participant of the widget"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"FileInfo":
+        {
+            "id":"FileInfo"
+            ,"properties":
+            {
+                "document":
+                {
+                    "required":false
+                    ,"description":"A document that is associated with the widget. This field cannot be provided in POST call. In case of GET call, this is the only field returned in the response"
+                    ,"type":"Document"
+                    ,"items":
+                    {
+                        "$ref":"Document"
+                    }
+                }
+                ,"label":
+                {
+                    "required":false
+                    ,"description":"The unique label value of a file info element. In case of custom workflow this will map a file to corresponding file element in workflow definition. This must be specified in case of custom workflow agreement creation request "
+                    ,"type":"string"
+                }
+                ,"libraryDocumentId":
+                {
+                    "required":false
+                    ,"description":"ID for an existing Library document that will be added to the agreement"
+                    ,"type":"string"
+                }
+                ,"transientDocumentId":
+                {
+                    "required":false
+                    ,"description":"ID for a transient document that will be added to the agreement"
+                    ,"showInSampleRequest":true
+                    ,"type":"string"
+                }
+                ,"urlFileInfo":
+                {
+                    "required":false
+                    ,"description":"URL for an external document to add to the agreement"
+                    ,"type":"URLFileInfo"
+                    ,"items":
+                    {
+                        "$ref":"URLFileInfo"
+                    }
+                }
+            }
+        }
+        ,"Document":
+        {
+            "id":"Document"
+            ,"properties":
+            {
+                "id":
+                {
+                    "required":true
+                    ,"description":"ID of the document. In case of PUT call, this is the only field that is accepted in Document structure. Name and mimeType are ignored in case of PUT call"
+                    ,"type":"string"
+                }
+                ,"label":
+                {
+                    "required":true
+                    ,"description":"Label of the document"
+                    ,"type":"string"
+                }
+                ,"mimeType":
+                {
+                    "required":false
+                    ,"description":"mimeType of the original file. This is returned in GET but not accepted back in PUT"
+                    ,"type":"string"
+                }
+                ,"name":
+                {
+                    "required":false
+                    ,"description":"Name of the original document uploaded. This is returned in GET but not accepted back in PUT"
+                    ,"type":"string"
+                }
+                ,"numPages":
+                {
+                    "required":true
+                    ,"description":"Number of pages in the document"
+                    ,"type":"integer"
+                }
+            }
+        }
+        ,"URLFileInfo":
+        {
+            "id":"URLFileInfo"
+            ,"properties":
+            {
+                "mimeType":
+                {
+                    "required":true
+                    ,"description":"The mime type of the referenced file, used to determine if the file can be accepted and the necessary conversion steps can be performed"
+                    ,"type":"string"
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"The original system file name of the document being sent"
+                    ,"type":"string"
+                }
+                ,"url":
+                {
+                    "required":true
+                    ,"description":"A publicly accessible URL for retrieving the raw file content"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"SecurityOption":
+        {
+            "id":"SecurityOption"
+            ,"properties":
+            {
+                "openPassword":
+                {
+                    "required":false
+                    ,"description":"The secondary password that will be used to secure the PDF document. Note that AdobeSign will never show this password to anyone, so you will need to separately communicate it to any relevant parties"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"VaultingInfo":
+        {
+            "id":"VaultingInfo"
+            ,"properties":
+            {
+                "enabled":
+                {
+                    "required":false
+                    ,"description":"For accounts set up for document vaulting and the option to enable per agreement, this determines whether the document is to be vaulted"
+                    ,"type":"boolean"
+                }
+            }
+        }
+        ,"WidgetParticipantSetInfo":
+        {
+            "id":"WidgetParticipantSetInfo"
+            ,"properties":
+            {
+                "memberInfos":
+                {
+                    "required":true
+                    ,"description":"Array of ParticipantInfo objects, containing participant - specific data (email, e.g.). All participants in the array belong to the same set. Currently we are supporting only one member in the set. Since the email of the widget signer is unknown at the time of widget creation, the email should be left empty and its optional security options should be provided. "
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"ParticipantSetMemberInfo"
+                    }
+                }
+                ,"role":
+                {
+                    "required":true
+                    ,"description":"Role assumed by all participants in the set (signer, approver, etc.) Widget First Participant will only have roles - Signer, Approver, Acceptor and Form Filler"
+                    ,"type":"string"
+                    ,"enum":["SIGNER","DELEGATE_TO_SIGNER","APPROVER","DELEGATE_TO_APPROVER","ACCEPTOR","DELEGATE_TO_ACCEPTOR","FORM_FILLER","DELEGATE_TO_FORM_FILLER","CERTIFIED_RECIPIENT","DELEGATE_TO_CERTIFIED_RECIPIENT"]
+                }
+            }
+        }
+        ,"WidgetCreationResponse":
+        {
+            "id":"WidgetCreationResponse"
+            ,"description":"A JSON object describing the widget"
+            ,"properties":
+            {
+                "id":
+                {
+                    "required":true
+                    ,"description":"The unique identifier of widget which can be used to retrieve the data entered by the signers."
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"WidgetViewInfo":
+        {
+            "id":"WidgetViewInfo"
+            ,"properties":
+            {
+                "commonViewConfiguration":
+                {
+                    "required":false
+                    ,"description":"Common view configuration for all the available views"
+                    ,"type":"CommonViewConfiguration"
+                    ,"items":
+                    {
+                        "$ref":"CommonViewConfiguration"
+                    }
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"Name of the requested widget view"
+                    ,"showInSampleRequest":true
+                    ,"type":"string"
+                    ,"enum":["AUTHORING","DOCUMENT","MANAGE","POST_CREATE","SIGNING","ALL"]
+                }
+            }
+        }
+        ,"CommonViewConfiguration":
+        {
+            "id":"CommonViewConfiguration"
+            ,"properties":
+            {
+                "autoLoginUser":
+                {
+                    "required":false
+                    ,"description":"Auto LogIn Flag. If true, the URL returned will automatically log the user in. If false, the URL returned will require the credentials. By default its value is false"
+                    ,"type":"boolean"
+                }
+                ,"locale":
+                {
+                    "required":false
+                    ,"description":"Message template locale"
+                    ,"type":"string"
+                }
+                ,"noChrome":
+                {
+                    "required":false
+                    ,"description":"No Chrome Flag. If true, the embedded page is shown without a navigation header or footer. If false, the standard page header and footer will be present. By default its value is false"
+                    ,"type":"boolean"
+                }
+            }
+        }
+        ,"WidgetViews":
+        {
+            "id":"WidgetViews"
+            ,"properties":
+            {
+                "widgetViewList":
+                {
+                    "required":true
+                    ,"description":"List of widget views"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"WidgetView"
+                    }
+                }
+            }
+        }
+        ,"WidgetView":
+        {
+            "id":"WidgetView"
+            ,"properties":
+            {
+                "embeddedCode":
+                {
+                    "required":false
+                    ,"description":"Embedded code of url of resource "
+                    ,"type":"string"
+                }
+                ,"expiration":
+                {
+                    "required":false
+                    ,"description":"Expiration of user url "
+                    ,"type":"string"
+                    ,"format":"date"
+                }
+                ,"isCurrent":
+                {
+                    "required":true
+                    ,"description":"True if this view is the current view"
+                    ,"type":"boolean"
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"Name of the requested widget view"
+                    ,"showInSampleRequest":true
+                    ,"type":"string"
+                    ,"enum":["AUTHORING","DOCUMENT","MANAGE","POST_CREATE","SIGNING","ALL"]
+                }
+                ,"url":
+                {
+                    "required":false
+                    ,"description":"Url of resource location"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"UserWidgets":
+        {
+            "id":"UserWidgets"
+            ,"properties":
+            {
+                "page":
+                {
+                    "required":true
+                    ,"description":"Pagination information for navigating through the response"
+                    ,"type":"PageInfo"
+                    ,"items":
+                    {
+                        "$ref":"PageInfo"
+                    }
+                }
+                ,"userWidgetList":
+                {
+                    "required":true
+                    ,"description":"An array of widget items"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"UserWidget"
+                    }
+                }
+            }
+        }
+        ,"PageInfo":
+        {
+            "id":"PageInfo"
+            ,"properties":
+            {
+                "nextCursor":
+                {
+                    "required":true
+                    ,"description":"Used to navigate to the next page. If not returned, there are no further pages."
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"UserWidget":
+        {
+            "id":"UserWidget"
+            ,"properties":
+            {
+                "id":
+                {
+                    "required":true
+                    ,"description":"The unique identifier of a widget"
+                    ,"type":"string"
+                }
+                ,"hidden":
+                {
+                    "required":true
+                    ,"description":"True if agreement is hidden for the user"
+                    ,"type":"boolean"
+                }
+                ,"javascript":
+                {
+                    "required":true
+                    ,"description":"The embedded javascript code of the widget"
+                    ,"type":"string"
+                }
+                ,"modifiedDate":
+                {
+                    "required":true
+                    ,"description":"The date on which the widget was last modified. Format would be yyyy-MM-dd'T'HH:mm:ssZ. For example, e.g 2016-02-25T18:46:19Z represents UTC time"
+                    ,"type":"string"
+                    ,"format":"date"
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"The name of the widget."
+                    ,"type":"string"
+                }
+                ,"status":
+                {
+                    "required":true
+                    ,"description":"The widget status (AUTHORING, ACTIVE, DRAFT, DISABLED)"
+                    ,"type":"string"
+                    ,"enum":["AUTHORING","ACTIVE","DRAFT","DISABLED"]
+                }
+                ,"url":
+                {
+                    "required":true
+                    ,"description":"The hosted url of the widget"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"WidgetAgreements":
+        {
+            "id":"UserAgreements"
+            ,"properties":
+            {
+                "page":
+                {
+                    "required":true
+                    ,"description":"Pagination information for navigating through the response"
+                    ,"type":"PageInfo"
+                    ,"items":
+                    {
+                        "$ref":"PageInfo"
+                    }
+                }
+                ,"userAgreementList":
+                {
+                    "required":true
+                    ,"description":"An array of UserAgreement items"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"WidgetAgreement"
+                    }
+                }
+            }
+        }
+        ,"WidgetAgreement":
+        {
+            "id":"UserAgreement"
+            ,"properties":
+            {
+                "displayDate":
+                {
+                    "required":true
+                    ,"description":"The display date for the agreement. Format would be yyyy-MM-dd'T'HH:mm:ssZ. For example, e.g 2016-02-25T18:46:19Z represents UTC time"
+                    ,"type":"string"
+                    ,"format":"date"
+                }
+                ,"displayParticipantSetInfos":
+                {
+                    "required":true
+                    ,"description":"The most relevant current user set for the agreement. It is typically the next signer if the agreement is from the current user, or the sender if received from another user"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"DisplayWidgetParticipantSetInfo"
+                    }
+                }
+                ,"id":
+                {
+                    "required":false
+                    ,"description":"The unique identifier of the agreement.If provided in POST, it will simply be ignored"
+                    ,"type":"string"
+                }
+                ,"esign":
+                {
+                    "required":true
+                    ,"description":"True if this is an e-sign document"
+                    ,"type":"boolean"
+                }
+                ,"hidden":
+                {
+                    "required":true
+                    ,"description":"True if agreement is hidden for the user"
+                    ,"type":"boolean"
+                }
+                ,"latestVersionId":
+                {
+                    "required":true
+                    ,"description":"A version ID which uniquely identifies the current version of the agreement"
+                    ,"type":"string"
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"Name of the Agreement"
+                    ,"type":"string"
+                }
+                ,"status":
+                {
+                    "required":true
+                    ,"description":"The current status of the document from the perspective of the originator"
+                    ,"type":"string"
+                    ,"enum":["WAITING_FOR_MY_SIGNATURE","WAITING_FOR_MY_APPROVAL","WAITING_FOR_MY_DELEGATION","WAITING_FOR_MY_ACKNOWLEDGEMENT","WAITING_FOR_MY_ACCEPTANCE","WAITING_FOR_MY_FORM_FILLING","OUT_FOR_SIGNATURE","OUT_FOR_APPROVAL","OUT_FOR_DELIVERY","OUT_FOR_ACCEPTANCE","OUT_FOR_FORM_FILLING","SIGNED","APPROVED","FORM_FILLED","DELIVERED","ACCEPTED","ARCHIVED","CANCELLED","EXPIRED","WAITING_FOR_PREFILL","DOCUMENTS_NOT_YET_PROCESSED","WAITING_FOR_MY_VERIFICATION","WAITING_FOR_VERIFICATION"]
+                }
+            }
+        }
+        ,"DisplayWidgetParticipantSetInfo":
+        {
+            "id":"DisplayParticipantSetInfo"
+            ,"properties":
+            {
+                "displayUserSetMemberInfos":
+                {
+                    "required":true
+                    ,"description":"Displays the info about user set"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"DisplayParticipantInfo"
+                    }
+                }
+            }
+        }
+        ,"DisplayParticipantInfo":
+        {
+            "id":"DisplayParticipantInfo"
+            ,"properties":
+            {
+                "company":
+                {
+                    "required":false
+                    ,"description":"Displays the name of the company of the user, if available"
+                    ,"type":"string"
+                }
+                ,"email":
+                {
+                    "required":true
+                    ,"description":"Displays the email of the user"
+                    ,"type":"string"
+                }
+                ,"fullName":
+                {
+                    "required":false
+                    ,"description":"Displays the full name of the user, if available. "
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"WidgetDocuments":
+        {
+            "id":"WidgetDocuments"
+            ,"properties":
+            {
+                "documents":
+                {
+                    "required":true
+                    ,"description":"A list of documents"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"Document"
+                    }
+                }
+            }
+        }
+        ,"WidgetEventList":
+        {
+            "id":"EventList"
+            ,"properties":
+            {
+                "events":
+                {
+                    "required":true
+                    ,"description":"An array of event objects."
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"WidgetEvent"
+                    }
+                }
+            }
+        }
+        ,"WidgetEvent":
+        {
+            "id":"Event"
+            ,"properties":
+            {
+                "actingUserEmail":
+                {
+                    "required":true
+                    ,"description":"Email address of the user that created the event"
+                    ,"type":"string"
+                }
+                ,"actingUserIpAddress":
+                {
+                    "required":true
+                    ,"description":"The IP address of the user that created the event"
+                    ,"type":"string"
+                }
+                ,"actingUserName":
+                {
+                    "required":true
+                    ,"description":"The name of the acting user"
+                    ,"type":"string"
+                }
+                ,"comment":
+                {
+                    "required":false
+                    ,"description":"The event comment. For RECALLED or REJECTED, the reason given by the user that initiates the event. For DELEGATE or SHARE, the message from the acting user to the participant"
+                    ,"type":"string"
+                }
+                ,"date":
+                {
+                    "required":true
+                    ,"description":"The date of the audit event. Format would be yyyy-MM-dd'T'HH:mm:ssZ. For example, e.g 2016-02-25T18:46:19Z represents UTC time"
+                    ,"type":"string"
+                    ,"format":"date"
+                }
+                ,"description":
+                {
+                    "required":true
+                    ,"description":"A description of the audit event"
+                    ,"type":"string"
+                }
+                ,"deviceLocation":
+                {
+                    "required":true
+                    ,"description":"Location of the device that generated the event (This value may be null due to limited privileges)"
+                    ,"type":"WidgetEventDeviceLocation"
+                    ,"items":
+                    {
+                        "$ref":"WidgetEventDeviceLocation"
+                    }
+                }
+                ,"devicePhoneNumber":
+                {
+                    "required":true
+                    ,"description":"Phone number from the device used when the participation is completed on a mobile phone"
+                    ,"type":"string"
+                }
+                ,"digitalSignatureInfo":
+                {
+                    "required":true
+                    ,"description":"This is present for ESIGNED events when the participation is signed digitally"
+                    ,"type":"DigitalSignatureInfo"
+                    ,"items":
+                    {
+                        "$ref":"DigitalSignatureInfo"
+                    }
+                }
+                ,"initiatingUserEmail":
+                {
+                    "required":true
+                    ,"description":"Email address of the user that initiated the event on behalf of the acting user when the account is shared. Will be empty if there is no account sharing in effect"
+                    ,"type":"string"
+                }
+                ,"initiatingUserName":
+                {
+                    "required":true
+                    ,"description":"Full name of the user that initiated the event on behalf of the acting user when the account is shared. Will be empty if there is no account sharing in effect"
+                    ,"type":"string"
+                }
+                ,"participantEmail":
+                {
+                    "required":true
+                    ,"description":"Email address of the user that is the participant for the event. This may be different than the acting user for certain event types. For example, for a DELEGATION event, this is the user who was delegated to"
+                    ,"type":"string"
+                }
+                ,"participantId":
+                {
+                    "required":true
+                    ,"description":"The unique identifier of the participant for the event. This may be different than the acting user for certain event types. For example, for a DELEGATION event, this is the user who was delegated to"
+                    ,"type":"string"
+                }
+                ,"participantRole":
+                {
+                    "required":true
+                    ,"description":"Role assumed by all participants in the participant set the participant belongs to (signer, approver etc.)."
+                    ,"type":"string"
+                    ,"enum":["SIGNER","DELEGATE_TO_SIGNER","APPROVER","DELEGATE_TO_APPROVER","ACCEPTOR","DELEGATE_TO_ACCEPTOR","FORM_FILLER","DELEGATE_TO_FORM_FILLER","CERTIFIED_RECIPIENT","DELEGATE_TO_CERTIFIED_RECIPIENT","SHARE","SENDER"]
+                }
+                ,"synchronizationId":
+                {
+                    "required":true
+                    ,"description":"A unique identifier linking offline events to synchronization events (specified for offline signing events and synchronization events, else null)"
+                    ,"type":"string"
+                }
+                ,"type":
+                {
+                    "required":true
+                    ,"description":"Type of widget event"
+                    ,"type":"string"
+                    ,"enum":["AUTO_CANCELLED_CONVERSION_PROBLEM","ACTIVATED","CREATED","DEACTIVATED","MODIFIED"]
+                }
+                ,"vaultEventId":
+                {
+                    "required":true
+                    ,"description":"The identifier assigned by the vault provider for the vault event (if vaulted, otherwise null)"
+                    ,"type":"string"
+                }
+                ,"vaultProviderName":
+                {
+                    "required":true
+                    ,"description":"Name of the vault provider for the vault event (if vaulted, otherwise null)"
+                    ,"type":"string"
+                }
+                ,"versionId":
+                {
+                    "required":true
+                    ,"description":"An ID which uniquely identifies the version of the document associated with this audit event"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"WidgetEventDeviceLocation":
+        {
+            "id":"WidgetEventDeviceLocation"
+            ,"properties":
+            {
+                "latitude":
+                {
+                    "required":true
+                    ,"description":"Latitude coordinate"
+                    ,"type":"float"
+                }
+                ,"longitude":
+                {
+                    "required":true
+                    ,"description":"Longitude coordinate"
+                    ,"type":"float"
+                }
+            }
+        }
+        ,"DigitalSignatureInfo":
+        {
+            "id":"DigitalSignatureInfo"
+            ,"properties":
+            {
+                "company":
+                {
+                    "required":true
+                    ,"description":"Company name captured during digital signing"
+                    ,"type":"string"
+                }
+                ,"email":
+                {
+                    "required":true
+                    ,"description":"Email captured during digital signing"
+                    ,"type":"string"
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"Name captured during digital signing"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"Note":
+        {
+            "id":"Note"
+            ,"properties":
+            {
+                "note":
+                {
+                    "required":true
+                    ,"description":"Content of Note field"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"WidgetMembersInfo":
+        {
+            "id":"WidgetMembersInfo"
+            ,"properties":
+            {
+                "additionalParticipantSets":
+                {
+                    "required":false
+                    ,"description":"Information about the widget additional participant Sets"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"DetailedWidgetParticipantSetInfo"
+                    }
+                }
+                ,"ccsInfo":
+                {
+                    "required":true
+                    ,"description":"Information of CC participants of the widget."
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"CCParticipantInfo"
+                    }
+                }
+                ,"creatorInfo":
+                {
+                    "required":true
+                    ,"description":"Information of the creator of the widget."
+                    ,"type":"SenderInfo"
+                    ,"items":
+                    {
+                        "$ref":"SenderInfo"
+                    }
+                }
+                ,"sharesInfo":
+                {
+                    "required":true
+                    ,"description":"Information of the participants with whom the widget has been shared."
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"ShareParticipantInfo"
+                    }
+                }
+                ,"widgetParticipantSet":
+                {
+                    "required":false
+                    ,"description":"Information about the widget participant Set"
+                    ,"type":"DetailedWidgetParticipantSetInfo"
+                    ,"items":
+                    {
+                        "$ref":"DetailedWidgetParticipantSetInfo"
+                    }
+                }
+            }
+        }
+        ,"DetailedWidgetParticipantSetInfo":
+        {
+            "id":"DetailedWidgetParticipantSetInfo"
+            ,"properties":
+            {
+                "id":
+                {
+                    "required":false
+                    ,"description":"The unique identifier of the participant set. This cannot be changed as part of the PUT call."
+                    ,"type":"string"
+                }
+                ,"memberInfos":
+                {
+                    "required":true
+                    ,"description":"Array of ParticipantInfo objects, containing participant-specific data (e.g. email). All participants in the array belong to the same set"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"DetailedParticipantInfo"
+                    }
+                }
+                ,"order":
+                {
+                    "required":true
+                    ,"description":"Index indicating sequential signing group (specified for hybrid routing). This cannot be changed as part of the PUT call."
+                    ,"type":"integer"
+                }
+                ,"role":
+                {
+                    "required":true
+                    ,"description":"Role assumed by all participants in the set (signer, approver etc.). This cannot be changed as part of the PUT call."
+                    ,"type":"string"
+                    ,"enum":["SIGNER","SENDER","APPROVER","ACCEPTOR","CERTIFIED_RECIPIENT","FORM_FILLER","DELEGATE_TO_SIGNER","DELEGATE_TO_APPROVER","DELEGATE_TO_ACCEPTOR","DELEGATE_TO_CERTIFIED_RECIPIENT","DELEGATE_TO_FORM_FILLER","SHARE"]
+                }
+            }
+        }
+        ,"DetailedParticipantInfo":
+        {
+            "id":"DetailedParticipantInfo"
+            ,"properties":
+            {
+                "company":
+                {
+                    "required":false
+                    ,"description":"The company of the participant, if available. This cannot be changed as part of the PUT call."
+                    ,"type":"string"
+                }
+                ,"email":
+                {
+                    "required":true
+                    ,"description":"Email of the participant. In case of modifying a participant set (PUT) this is a required field. In case of GET, this is the required field and will always be returned unless it is a fax workflow (legacy agreements) that were created using fax as input"
+                    ,"type":"string"
+                }
+                ,"fax":
+                {
+                    "required":false
+                    ,"description":"Fax of the participant. New Agreements can not be created with fax option. This is only returned for legacy agreements created with fax as participants"
+                    ,"type":"string"
+                }
+                ,"id":
+                {
+                    "required":false
+                    ,"description":"The unique identifier of the participant. This will be returned as part of Get call but is not mandatory to be passed as part of PUT call for agreements/{id}/members/participantSets/{id}."
+                    ,"type":"string"
+                }
+                ,"name":
+                {
+                    "required":false
+                    ,"description":"The name of the participant, if available. This cannot be changed as part of the PUT call."
+                    ,"type":"string"
+                }
+                ,"privateMessage":
+                {
+                    "required":false
+                    ,"description":"The private message of the participant, if available. This cannot be changed as part of the PUT call."
+                    ,"type":"string"
+                }
+                ,"securityOption":
+                {
+                    "required":true
+                    ,"description":"Security options that apply to the participant. This cannot be changed as part of the PUT call"
+                    ,"type":"ParticipantSecurityOption"
+                    ,"items":
+                    {
+                        "$ref":"ParticipantSecurityOption"
+                    }
+                }
+                ,"self":
+                {
+                    "required":false
+                    ,"description":"True if this participant is the same user that is calling the API. Returned as part of Get. Ignored (not required) if modifying a participant set (PUT)."
+                    ,"type":"boolean"
+                }
+                ,"status":
+                {
+                    "required":false
+                    ,"description":"The status of the participant. This cannot be changed as part of the PUT call."
+                    ,"type":"string"
+                    ,"enum":["REPLACED","ACTIVE"]
+                }
+            }
+        }
+        ,"CCParticipantInfo":
+        {
+            "id":"CCParticipantInfo"
+            ,"properties":
+            {
+                "company":
+                {
+                    "required":true
+                    ,"description":"Company of the CC participant, if available."
+                    ,"type":"string"
+                }
+                ,"email":
+                {
+                    "required":true
+                    ,"description":"Email of the CC participant of the widget"
+                    ,"type":"string"
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"Name of the CC participant, if available."
+                    ,"type":"string"
+                }
+                ,"participantId":
+                {
+                    "required":true
+                    ,"description":" The unique identifier of the CC participant of the widget."
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"SenderInfo":
+        {
+            "id":"SenderInfo"
+            ,"properties":
+            {
+                "company":
+                {
+                    "required":true
+                    ,"description":"Company of the creator, if available."
+                    ,"type":"string"
+                }
+                ,"email":
+                {
+                    "required":true
+                    ,"description":"Email of the creator of the widget."
+                    ,"type":"string"
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"Name of the creator, if available."
+                    ,"type":"string"
+                }
+                ,"participantId":
+                {
+                    "required":true
+                    ,"description":" The unique identifier of the creator of the widget."
+                    ,"type":"string"
+                }
+                ,"self":
+                {
+                    "required":true
+                    ,"description":"True if the creator of the widget is the same user that is calling the API."
+                    ,"type":"boolean"
+                }
+            }
+        }
+        ,"ShareParticipantInfo":
+        {
+            "id":"ShareParticipantInfo"
+            ,"properties":
+            {
+                "company":
+                {
+                    "required":true
+                    ,"description":"Company of the sharee participant of the widget, if available."
+                    ,"type":"string"
+                }
+                ,"email":
+                {
+                    "required":true
+                    ,"description":"Email of the sharee participant of the widget."
+                    ,"type":"string"
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"Name of the sharee participant of the widget, if available."
+                    ,"type":"string"
+                }
+                ,"participantId":
+                {
+                    "required":true
+                    ,"description":"The unique identifier of the sharee participant of the widget."
+                    ,"type":"string"
+                }
+                ,"sharerParticipantId":
+                {
+                    "required":true
+                    ,"description":"The unique identifier of the participant who shared the widget."
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"VisibilityInfo":
+        {
+            "id":"VisibilityInfo"
+            ,"properties":
+            {
+                "visibility":
+                {
+                    "required":true
+                    ,"description":"Specifies the visibility. The possible values are HIDE or SHOW"
+                    ,"type":"string"
+                    ,"enum":["SHOW","HIDE"]
+                }
+            }
+        }
+        ,"WidgetStateInfo":
+        {
+            "id":"WidgetStateInfo"
+            ,"properties":
+            {
+                "state":
+                {
+                    "required":true
+                    ,"description":"State of the Widget"
+                    ,"type":"string"
+                    ,"enum":["ACTIVE","INACTIVE","AUTHORING","CANCELLED"]
+                }
+                ,"widgetInActiveInfo":
+                {
+                    "required":false
+                    ,"description":"Specify custom message which will be displayed  to the user or the URL to which user will be redirected when the widget is accessed in disabled state. This can be specified only in PUT request"
+                    ,"type":"WidgetInActiveInfo"
+                    ,"items":
+                    {
+                        "$ref":"WidgetInActiveInfo"
+                    }
+                }
+            }
+        }
+        ,"WidgetInActiveInfo":
+        {
+            "id":"WidgetInActiveInfo"
+            ,"properties":
+            {
+                "message":
+                {
+                    "required":true
+                    ,"description":"Display this custom message to the user when the widget is accessed. Note that this can contain wiki markup to include clickable links in the message. This is required if redirectUrl is not provided. Both message and redirectUrl can not be specified."
+                    ,"type":"string"
+                }
+                ,"redirectUrl":
+                {
+                    "required":true
+                    ,"description":"Redirect the user to this URL when the widget is accessed. This is required if message is not provided. Both message and redirectUrl can not be specified."
+                    ,"type":"string"
+                }
+            }
+        }
+    }
+}

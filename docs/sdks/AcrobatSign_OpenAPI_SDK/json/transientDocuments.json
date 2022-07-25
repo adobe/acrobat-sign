@@ -1,0 +1,180 @@
+
+{
+    "apiVersion":"6.0.0"
+    ,"swaggerVersion":"1.2"
+    ,"basePath":"/api/rest/v6"
+    ,"resourcePath":"/transientDocuments"
+    ,"produces":
+    ["application/json"
+    ]
+    ,"apis":
+    [
+        {
+            "path":"/transientDocuments"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"POST"
+                    ,"summary":"Uploads a document and obtains the document's ID."
+                    ,"notes":"The document uploaded through this call is referred to as transient since it is available only for 7 days after the upload. The returned transient document ID can be used in the API calls where the uploaded file needs to be referred. The transient document request is a multipart request consisting of three parts - filename, mime type and the file stream. You can only upload one file at a time in this request."
+                    ,"type":"TransientDocumentResponse"
+                    ,"nickname":"createTransientDocument"
+                    ,"order":3
+                    ,"consumes":
+                    ["multipart/form-data"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"agreement_write"
+                            }
+                            ,{
+                                "scope":"agreement_sign"
+                            }
+                            ,{
+                                "scope":"widget_write"
+                            }
+                            ,{
+                                "scope":"library_write"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with any of the following scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_write')\" oncontextmenu=\"this.href=oauthDoc('agreement_write')\" target=\"oauthDoc\">agreement_write<\/a><\/li><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_sign')\" oncontextmenu=\"this.href=oauthDoc('agreement_sign')\" target=\"oauthDoc\">agreement_sign<\/a><\/li><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_write')\" oncontextmenu=\"this.href=oauthDoc('widget_write')\" target=\"oauthDoc\">widget_write<\/a><\/li><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('library_write')\" oncontextmenu=\"this.href=oauthDoc('library_write')\" target=\"oauthDoc\">library_write<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"File-Name"
+                            ,"description":"A name for the document being uploaded. Maximum number of characters in the name is restricted to 255."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"form"
+                        }
+                        ,{
+                            "name":"Mime-Type"
+                            ,"description":"The mime type of the document being uploaded. If not specified here then mime type is picked up from the file object. If mime type is not present there either then mime type is inferred from file name extension."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"form"
+                        }
+                        ,{
+                            "name":"File"
+                            ,"description":"The file part of the multipart request for document upload. You can upload only one file at a time."
+                            ,"required":true
+                            ,"type":"file"
+                            ,"paramType":"form"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"INVALID_ARGUMENTS: One or more arguments to the method are invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_MULTIPART: An invalid multipart was specified."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER_HEADER: Value provided in x-on-behalf-Of-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"NO_FILE_CONTENT: Must provide file body."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"NO_FILE_NAME: Must provide file name."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ON_BEHALF_OF_USER: Invalid user ID or email provided in x-on-behalf-of-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"LARGE_FILE_SIZE: File size too large."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"TRANSIENT_RESOURCE_PROCESSING_FAILED: The transient document was deleted from the system because Adobe Sign could not process the document. This can happen if uploaded document contains scripts, macros or Visual Basic code. You may wish to inspect your document for these elements, remove them, and try uploading the document again."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"TRANSIENT_RESOURCE_VIRUS_DETECTED: The transient document was deleted because a virus was detected in the file."
+                        }
+                        ,{
+                            "code":"415"
+                            ,"reason":"NO_MEDIA_TYPE: No media type specified."
+                        }
+                        ,{
+                            "code":"415"
+                            ,"reason":"UNSUPPORTED_MEDIA_TYPE: Content type was not provided or is not supported."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+    ,"models":
+    {
+        "TransientDocumentResponse":
+        {
+            "id":"TransientDocumentResponse"
+            ,"properties":
+            {
+                "transientDocumentId":
+                {
+                    "required":true
+                    ,"description":"The unique identifier of the uploaded document that can be used in an agreement or a megaSign or widget creation call"
+                    ,"type":"string"
+                }
+            }
+        }
+    }
+}

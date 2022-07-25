@@ -1,0 +1,7 @@
+{
+  "startDate": "TODO : "A valid date from which the user wants the agreement asset events. The date should be in  YYYY-MM-DDTHH:MM:SS format",
+  "endDate": "TODO : A valid date till which the user wants the agreement asset events.The date should be in  YYYY-MM-DDTHH:MM:SS format",
+  "pageSize": "TODO : A valid page number less than the maximum page size (500) that determines the number of agreement asset events to be returned in the response",
+  "onlyShowLatestEvent": "TODO :  If true, only the latest event for any given agreement asset within the specified date range will be returned. If false, all events will be returned,",
+  "filterEvents" : "TODO : Valid agreement event types which the user wants in the result.If filterEvents are specified, only those event types will be returned otherwise all event types will be returned.The agreement event type should be given in form of array like [\"ESIGNED\",\"SIGNED\"]"
+}

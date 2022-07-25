@@ -1,0 +1,1010 @@
+
+{
+    "apiVersion":"6.0.0"
+    ,"swaggerVersion":"1.2"
+    ,"basePath":"/api/rest/v6"
+    ,"resourcePath":"/users"
+    ,"produces":
+    ["application/json"
+    ]
+    ,"apis":
+    [
+        {
+            "path":"/users/{userId}/views"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"POST"
+                    ,"summary":"Retrieves the URL of manage, account settings and user profile page."
+                    ,"notes":null
+                    ,"type":"UserViewResponse"
+                    ,"nickname":"getUserViews"
+                    ,"order":75
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"user_read"
+                                ,"description":"user read is always required"
+                            }
+                            ,{
+                                "scope":"user_login"
+                                ,"description":"Required additionally if the autoLoginUser parameter is set to true"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('user_read')\" oncontextmenu=\"this.href=oauthDoc('user_read')\" target=\"oauthDoc\">user_read<\/a> - user read is always required<\/li><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('user_login')\" oncontextmenu=\"this.href=oauthDoc('user_login')\" target=\"oauthDoc\">user_login<\/a> - Required additionally if the autoLoginUser parameter is set to true<\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-on-behalf-of-user"
+                            ,"description":"The userId or email in the format <b>userid:{userId} OR email:{email}.<\/b> of the user that has shared his/her account"
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"userId"
+                            ,"description":"The user identifier, as returned by the user creation API or retrieved from the API to fetch users. To get the details for the token owner, UserId can be replaced by \"me\" without quotes."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"UserViewInfo"
+                            ,"description":"Name of the required view and its desired configuration."
+                            ,"required":true
+                            ,"type":"UserViewInfo"
+                            ,"paramType":"body"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"BAD_REQUEST: The request provided is invalid."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"INVALID_X_API_USER_HEADER: Value provided in x-api-user header is in invalid format."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"MISSING_REQUIRED_PARAM: Required parameters are missing."
+                        }
+                        ,{
+                            "code":"400"
+                            ,"reason":"VIEW_NOT_AVAILABLE: Requested view is not available for the resource in the current state."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"AUTOLOGIN_DENIED: User settings do not permit autologin as requested."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_USER_ID: The User ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/users"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves all the users in an account."
+                    ,"notes":null
+                    ,"type":"UsersInfo"
+                    ,"nickname":"getUsers"
+                    ,"order":76
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"user_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('user_read')\" oncontextmenu=\"this.href=oauthDoc('user_read')\" target=\"oauthDoc\">user_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"cursor"
+                            ,"description":"Used to navigate through the pages. If not provided, returns the first page."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"query"
+                        }
+                        ,{
+                            "name":"pageSize"
+                            ,"description":"Number of intended items in the response page."
+                            ,"required":false
+                            ,"type":"integer"
+                            ,"paramType":"query"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"INVALID_PAGE_SIZE: Page size is either invalid or not within permissible range."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_USER_ID: The User ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/users/{userId}"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves detailed information about the user in the caller account."
+                    ,"notes":null
+                    ,"type":"DetailedUserInfo"
+                    ,"nickname":"getUserDetail"
+                    ,"order":79
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"user_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('user_read')\" oncontextmenu=\"this.href=oauthDoc('user_read')\" target=\"oauthDoc\">user_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"userId"
+                            ,"description":"The user identifier, as returned by the user creation API or retrieved from the API to fetch users. To get the details for the token owner, UserId can be replaced by \"me\" without quotes."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_USER_ID: The User ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/users/{userId}/groups"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"GET"
+                    ,"summary":"Retrieves the groups of the user."
+                    ,"notes":null
+                    ,"type":"UserGroupsInfo"
+                    ,"nickname":"getGroupsOfUser"
+                    ,"order":81
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"user_read"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('user_read')\" oncontextmenu=\"this.href=oauthDoc('user_read')\" target=\"oauthDoc\">user_read<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"userId"
+                            ,"description":"The user identifier, as returned by the user creation API or retrieved from the API to fetch users. To get the details for the token owner, UserId can be replaced by \"me\" without quotes."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_USER_ID: The User ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/users/{userId}"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"PUT"
+                    ,"summary":"Update an user."
+                    ,"notes":null
+                    ,"type":"void"
+                    ,"nickname":"modifyUser"
+                    ,"order":90
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"user_write"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('user_write')\" oncontextmenu=\"this.href=oauthDoc('user_write')\" target=\"oauthDoc\">user_write<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"userId"
+                            ,"description":"The user identifier, as provided by GET /users or POST /users"
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"DetailedUserInfo"
+                            ,"description":"Information necessary to update a user."
+                            ,"required":true
+                            ,"type":"DetailedUserInfo"
+                            ,"paramType":"body"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"BAD_REQUEST: The request provided is invalid."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_USER_ID: The User ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/users/{userId}/groups"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"PUT"
+                    ,"summary":"Updates the groups of the user."
+                    ,"notes":null
+                    ,"type":"void"
+                    ,"nickname":"updateGroupsOfUser"
+                    ,"order":91
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"user_write"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('user_write')\" oncontextmenu=\"this.href=oauthDoc('user_write')\" target=\"oauthDoc\">user_write<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"userId"
+                            ,"description":"The user identifier, as returned by the user creation API or retrieved from the API to fetch users. To update the details for the token owner, UserId can be replaced by \"me\" without quotes."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"UserGroupsInfo"
+                            ,"description":""
+                            ,"required":true
+                            ,"type":"UserGroupsInfo"
+                            ,"paramType":"body"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_USER_ID: The User ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+        ,{
+            "path":"/users/{userId}/state"
+            ,"operations":
+            [
+                {
+                    "httpMethod":"PUT"
+                    ,"summary":"Activate/Deactivate a given user."
+                    ,"notes":null
+                    ,"type":"UserStatusUpdateResponse"
+                    ,"nickname":"modifyUserState"
+                    ,"order":93
+                    ,"produces":
+                    ["application/json"
+                    ]
+                    ,"authorizations":
+                    {
+                        "oauth2":
+                        [
+                            {
+                                "scope":"user_write"
+                            }
+                        ]
+                    }
+                    ,"parameters":
+                    [
+                        {
+                            "name":"Authorization"
+                            ,"description":"An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token<\/a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('user_write')\" oncontextmenu=\"this.href=oauthDoc('user_write')\" target=\"oauthDoc\">user_write<\/a><\/li><\/ul>in the format <b>'Bearer {accessToken}'."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"x-api-user"
+                            ,"description":"The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.<\/b> If it is not specified, then the caller is inferred from the token."
+                            ,"required":false
+                            ,"type":"string"
+                            ,"paramType":"header"
+                        }
+                        ,{
+                            "name":"userId"
+                            ,"description":"The user identifier, as returned by the user creation API or retrieved from the API to fetch users. To update the details for the token owner, UserId can be replaced by \"me\" without quotes."
+                            ,"required":true
+                            ,"type":"string"
+                            ,"paramType":"path"
+                        }
+                        ,{
+                            "name":"UserStateInfo"
+                            ,"description":""
+                            ,"required":true
+                            ,"type":"UserStateInfo"
+                            ,"paramType":"body"
+                        }
+                    ]
+                    ,"errorResponses":
+                    [
+                        {
+                            "code":"400"
+                            ,"reason":"BAD_REQUEST: The request provided is invalid."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_ACCESS_TOKEN: Access token provided is invalid or has expired."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"INVALID_USER: Invalid user ID or email provided in x-user header."
+                        }
+                        ,{
+                            "code":"401"
+                            ,"reason":"NO_AUTHORIZATION_HEADER: Authorization header not provided."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"API_TERMS_NOT_ACCEPTED: Your account is locked because an administrator has not agreed to Adobe Sign's Terms of Use. Please contact your account administrator to activate your account."
+                        }
+                        ,{
+                            "code":"403"
+                            ,"reason":"PERMISSION_DENIED: The API caller does not have the permission to execute this operation."
+                        }
+                        ,{
+                            "code":"404"
+                            ,"reason":"INVALID_USER_ID: The User ID specified is invalid."
+                        }
+                        ,{
+                            "code":"500"
+                            ,"reason":"MISC_SERVER_ERROR: Some miscellaneous error has occurred."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+    ,"models":
+    {
+        "UserViewInfo":
+        {
+            "id":"UserViewInfo"
+            ,"properties":
+            {
+                "commonViewConfiguration":
+                {
+                    "required":false
+                    ,"description":"Common view configuration for all the available views"
+                    ,"type":"CommonViewConfiguration"
+                    ,"items":
+                    {
+                        "$ref":"CommonViewConfiguration"
+                    }
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"Name of the requested user view"
+                    ,"showInSampleRequest":true
+                    ,"type":"string"
+                    ,"enum":["MANAGE","ACCOUNT_SETTINGS","USER_PROFILE","ALL"]
+                }
+            }
+        }
+        ,"CommonViewConfiguration":
+        {
+            "id":"CommonViewConfiguration"
+            ,"properties":
+            {
+                "autoLoginUser":
+                {
+                    "required":false
+                    ,"description":"Auto LogIn Flag. If true, the URL returned will automatically log the user in. If false, the URL returned will require the credentials. By default its value is false"
+                    ,"type":"boolean"
+                }
+                ,"noChrome":
+                {
+                    "required":false
+                    ,"description":"No Chrome Flag. If true, the embedded page is shown without a navigation header or footer. If false, the standard page header and footer will be present. By default its value is false"
+                    ,"type":"boolean"
+                }
+            }
+        }
+        ,"UserViewResponse":
+        {
+            "id":"UserViewResponse"
+            ,"properties":
+            {
+                "userViewList":
+                {
+                    "required":true
+                    ,"description":"List of user views"
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"UserView"
+                    }
+                }
+            }
+        }
+        ,"UserView":
+        {
+            "id":"UserView"
+            ,"properties":
+            {
+                "embeddedCode":
+                {
+                    "required":false
+                    ,"description":"Embedded code of url of resource "
+                    ,"type":"string"
+                }
+                ,"expiration":
+                {
+                    "required":false
+                    ,"description":"Expiration of user url "
+                    ,"type":"string"
+                    ,"format":"date"
+                }
+                ,"name":
+                {
+                    "required":true
+                    ,"description":"Name of the requested user view"
+                    ,"showInSampleRequest":true
+                    ,"type":"string"
+                    ,"enum":["MANAGE","ACCOUNT_SETTINGS","USER_PROFILE","ALL"]
+                }
+                ,"url":
+                {
+                    "required":false
+                    ,"description":"Url of resource location"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"UsersInfo":
+        {
+            "id":"UsersInfo"
+            ,"properties":
+            {
+                "page":
+                {
+                    "required":true
+                    ,"description":"Pagination information for navigating through the response"
+                    ,"type":"PageInfo"
+                    ,"items":
+                    {
+                        "$ref":"PageInfo"
+                    }
+                }
+                ,"userInfoList":
+                {
+                    "required":true
+                    ,"description":"The list of users in the account."
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"UserInfo"
+                    }
+                }
+            }
+        }
+        ,"PageInfo":
+        {
+            "id":"PageInfo"
+            ,"properties":
+            {
+                "nextCursor":
+                {
+                    "required":true
+                    ,"description":"Used to navigate to the next page. If not returned, there are no further pages."
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"UserInfo":
+        {
+            "id":"UserInfo"
+            ,"properties":
+            {
+                "company":
+                {
+                    "required":false
+                    ,"description":"The name of company of the user"
+                    ,"type":"string"
+                }
+                ,"email":
+                {
+                    "required":true
+                    ,"description":"The email address of the user"
+                    ,"type":"string"
+                }
+                ,"firstName":
+                {
+                    "required":false
+                    ,"description":"The first name of the user"
+                    ,"type":"string"
+                }
+                ,"id":
+                {
+                    "required":true
+                    ,"description":"A unique identifier of the user resource for REST APIs as issued by Sign."
+                    ,"type":"string"
+                }
+                ,"isAccountAdmin":
+                {
+                    "required":true
+                    ,"description":"True if user is account admin"
+                    ,"type":"boolean"
+                }
+                ,"lastName":
+                {
+                    "required":false
+                    ,"description":"The last name of the user"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"DetailedUserInfo":
+        {
+            "id":"DetailedUserInfo"
+            ,"properties":
+            {
+                "accountType":
+                {
+                    "required":false
+                    ,"description":"Type of account to which the user belongs (null if no account)"
+                    ,"type":"string"
+                    ,"enum":["FREE","PRO","TEAM","TEAM_TRIAL","ENTERPRISE","ENTERPRISE_TRIAL","GLOBAL","GLOBAL_TRIAL"]
+                }
+                ,"company":
+                {
+                    "required":false
+                    ,"description":"The name of company of the user"
+                    ,"type":"string"
+                }
+                ,"email":
+                {
+                    "required":true
+                    ,"description":"The email address of the user"
+                    ,"type":"string"
+                }
+                ,"firstName":
+                {
+                    "required":false
+                    ,"description":"The first name of the user"
+                    ,"type":"string"
+                }
+                ,"id":
+                {
+                    "required":true
+                    ,"description":"A unique identifier of the user resource for REST APIs as issued by Sign."
+                    ,"type":"string"
+                }
+                ,"initials":
+                {
+                    "required":false
+                    ,"description":"The initials of the user"
+                    ,"type":"string"
+                }
+                ,"isAccountAdmin":
+                {
+                    "required":true
+                    ,"description":"True if the user is account admin"
+                    ,"type":"boolean"
+                }
+                ,"lastName":
+                {
+                    "required":false
+                    ,"description":"The last name of the user"
+                    ,"type":"string"
+                }
+                ,"locale":
+                {
+                    "required":false
+                    ,"description":"The UI locale of the user"
+                    ,"type":"string"
+                }
+                ,"phone":
+                {
+                    "required":false
+                    ,"description":"The phone number of the user"
+                    ,"type":"string"
+                }
+                ,"status":
+                {
+                    "required":true
+                    ,"description":"Status of the user"
+                    ,"type":"string"
+                    ,"enum":["ACTIVE","INACTIVE","CREATED","UNVERIFIED"]
+                }
+                ,"title":
+                {
+                    "required":false
+                    ,"description":"The job title of the user"
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"UserGroupsInfo":
+        {
+            "id":"UserGroupsInfo"
+            ,"properties":
+            {
+                "groupInfoList":
+                {
+                    "required":true
+                    ,"description":"The list of groups for given user."
+                    ,"type":"array"
+                    ,"items":
+                    {
+                        "$ref":"UserGroupInfo"
+                    }
+                }
+            }
+        }
+        ,"UserGroupInfo":
+        {
+            "id":"UserGroupInfo"
+            ,"properties":
+            {
+                "id":
+                {
+                    "required":true
+                    ,"description":"Unique identifier of the group"
+                    ,"type":"string"
+                }
+                ,"isGroupAdmin":
+                {
+                    "required":true
+                    ,"description":"True if user is group admin."
+                    ,"type":"boolean"
+                }
+                ,"name":
+                {
+                    "required":false
+                    ,"description":"Name of the group. This will be ignored as part of PUT call."
+                    ,"type":"string"
+                }
+            }
+        }
+        ,"UserStateInfo":
+        {
+            "id":"UserStateInfo"
+            ,"properties":
+            {
+                "comment":
+                {
+                    "required":false
+                    ,"description":"An optional comment describing why you want to activate/deactivate a given user"
+                    ,"type":"string"
+                }
+                ,"state":
+                {
+                    "required":true
+                    ,"description":"The state to which the user is to be updated. The valid states for this variable is currently, ACTIVE and INACTIVE"
+                    ,"type":"string"
+                    ,"enum":["ACTIVE","INACTIVE"]
+                }
+            }
+        }
+        ,"UserStatusUpdateResponse":
+        {
+            "id":"UserStatusUpdateResponse"
+            ,"properties":
+            {
+                "code":
+                {
+                    "required":true
+                    ,"description":"The result of the attempt to activate or deactivate the user"
+                    ,"type":"string"
+                    ,"enum":["ALREADY_ACTIVE","ALREADY_INACTIVE","OK","RESET_PASSWORD_WORKFLOW_INITIATED","SET_PASSWORD_WORKFLOW_INITIATED"]
+                }
+                ,"message":
+                {
+                    "required":false
+                    ,"description":"String result message if there was no error"
+                    ,"type":"string"
+                }
+                ,"state":
+                {
+                    "required":true
+                    ,"description":"A status value showing the result of this operation"
+                    ,"type":"string"
+                    ,"enum":["ACTIVE","INACTIVE","CREATED","PENDING","UNVERIFIED"]
+                }
+            }
+        }
+    }
+}
