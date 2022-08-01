@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn now to create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup."
+  
+  <title>Acrobat Sign REST API Samples &mdash; Acrobat Sign SDK Downloads</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+    
+  
+  
+  <link rel="canonical" href="https://www.adobe.com/go/acrobatsigndevhome/rest.html" />
+  
+
+  
+  
+  
+  <script type="text/javascript" src="../_static/jquery.js"></script>
+  <script type="text/javascript" src="../_static/underscore.js"></script>
+  <script type="text/javascript" src="../_static/doctools.js"></script>
+  <script type="text/javascript" src="../_static/language_data.js"></script>
+  <script type="text/javascript" src="../_static/searchtools.js"></script>
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+   
+  
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Acrobat Sign OpenAPI SDK" href="openapi.html" /> 
+  
+<script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
+<script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+
+	<script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+          $('.fixedbar, .wy-nav-side').addClass('scroll');
+          $('.wy-top-menu-wrapper').fadeOut();
+        } else {
+          $('.fixedbar, .wy-nav-side').removeClass('scroll');
+          $('.wy-top-menu-wrapper').fadeIn();
+        }
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn();
+        } else {
+          $('#scroll').fadeOut();
+        }
+      });
+      $('#scroll').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+      });
+    });
+  </script>
+
+<style>
+  .wy-nav-content {max-width:90%}
+  </style>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+	  
+	  	  
+<!-- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -
+        <div class="wy-logo-wrapper">
+          <a href="https://www.adobe.com/go/dc_developer">
+            <img src="../_static/acrobaticon.png" class="logo"/> 
+          Acrobat, Adobe Sign, PDFL Developer
+          </a>
+        </div> 
+  @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+ 
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="toc.html" class="icon icon-home"> Acrobat Sign SDK Downloads
+          
+
+          
+          </a>
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Acrobat Sign SDK Downloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="js.html">Acrobat Sign JavaScript SDK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="js.html#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="js.html#node-js">Node.js</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="js.html#npm">npm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="js.html#git">git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="js.html#for-browser">For browser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="js.html#webpack-configuration">Webpack Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="js.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js.html#recommendation">Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js.html#report-issues-bugs">Report Issues/Bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js.html#full-documentation">Full Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="java.html">Acrobat Sign JAVA SDK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="java.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="java.html#requirements-for-building-the-sdk">Requirements for Building the SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="java.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="java.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="java.html#recommendation">Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="java.html#report-issues-bugs">Report Issues/Bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="java.html#full-documentation">Full Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="csharp.html">C#: Acrobat Sign SDK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csharp.html#supported-frameworks">Supported Frameworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csharp.html#third-party-dependencies">Third Party Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csharp.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csharp.html#packaging">Packaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csharp.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csharp.html#full-documentation">Full Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="openapi.html">Acrobat Sign OpenAPI SDK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="openapi.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openapi.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openapi.html#downloading-and-building-the-sdk">Downloading and Building the SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openapi.html#java-sdk">Java SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openapi.html#apis">APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openapi.html#report-issues-bugs">Report Issues/Bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openapi.html#full-documentation">Full Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Acrobat Sign REST API Samples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-samples">Using the Samples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#output-path">Output Path</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#versions">Versions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#v3">v3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v4">v4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v5">v5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v6">v6</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+        <div class="fixedbar">  
+          <div class="wy-menu-items">
+            <a href="https://www.adobe.com/go/acrobatsigndevguide" class="topbarlink">Developer Guide</a>
+            <a href="https://www.adobe.com/go/acrobatsignapireference" class="topbarlink">API Reference</a>
+            <a href="https://www.adobe.com/go/acrobatsigntechblog" class="topbarlink">Tech Blog</a>
+            <a href="https://www.adobe.com/go/acrobatsigndevaccount" class="topbarlink">Get a Dev Account</a>
+            <a href="https://www.adobe.com/go/acrobatsigndevforum" class="topbarlink">Developer Forum</a>
+          </div>  
+          <div class="sign-in">
+            <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+           <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
+          </div>
+        </div>
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+
+
+
+
+   
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="toc.html">Acrobat Sign SDK Downloads</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+      <a href="#" id="scroll" style="display:inline;"><span></span></a>
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Acrobat Sign REST API Samples</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+      
+        <a href="openapi.html" class="btn btn-neutral float-left" title="Acrobat Sign OpenAPI SDK" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="acrobat-sign-rest-api-samples">
+<h1>Acrobat Sign REST API Samples<a class="headerlink" href="#acrobat-sign-rest-api-samples" title="Permalink to this headline">¶</a></h1>
+<p>Sample Java clients of Acrobat Sign REST API that demonstrates how to use the API as well as some of its key capabilities.</p>
+<p>The samples are arranged according to the version of the Acrobat Sign REST API’s that they use. For example, the samples for v6 REST API’s are under v6 folder.</p>
+<p>All sources are under the <strong>adobesign.api.rest.sample</strong> package (and sub packages) and are laid out as follows:</p>
+<ul class="simple">
+<li><p><strong>adobesign.api.rest.sample</strong>: Contains individual sample clients each demonstrating a specific capability. Each client is named according to the capability it demonstrates. For example, the client GetUsersInAccount.java shows how to retrieve a list of users from the account of the user on whose behalf the API call is made (also called <strong>API user</strong> in this document).</p></li>
+<li><p><strong>adobesign.api.rest.sample.util</strong>: Contains helper classes that encapsulate the REST calls required by the sample clients. Of particular note is RestApiUtils.java which contains methods that make the actual low-level REST API calls.</p></li>
+<li><p><strong>adobesign.api.rest.sample.requests</strong>: Contains input files used by the sample clients. These include JSON objects that specify the input data and arguments required by some of the API calls.</p></li>
+</ul>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>These instructions will help you run the samples provided here.</p>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>Before using the samples, you need to obtain either an OAuth access token or an integration key. Please refer to the AdobeSign API page (<a class="reference external" href="https://secure.echosign.com/account/echosignApi">https://secure.echosign.com/account/echosignApi</a>) for information on how to do this for your account.</p>
+<p>You can provide this token or key as a value to the OAUTH_ACCESS_TOKEN constant in RestApiOAuthTokens.java, or you can provide a refresh token as a value to the OAUTH_REFRESH_TOKEN constant (in the same class) which will be used to refresh the OAuth access token.</p>
+<p>If neither is provided then a new OAuth access token will be requested from AdobeSign based on credentials provided in the OAuthCredentials.json file. Please refer to the AdobeSign OAuth page (<a class="reference external" href="https://secure.echosign.com/public/static/oauthDoc.jsp">https://secure.echosign.com/public/static/oauthDoc.jsp</a>) for information on how to obtain OAuth credentials for your account.</p>
+</div>
+<div class="section" id="using-the-samples">
+<h2>Using the Samples<a class="headerlink" href="#using-the-samples" title="Permalink to this headline">¶</a></h2>
+<p>Each sample client has a set of instructions (provided as class comments) that needs to be followed. In particular, look for “TODO” comments in the client code and in the JSON input files for values that needs to be updated before the client can work properly. Once the clients and support files are updated with appropriate values, they can be compiled and run.</p>
+<p>The following steps outline one way this can be done using the command line on Windows.</p>
+<p>Note that on Linux and Mac OS, the path separator for the  -cp and -sourcepath options is “:” (colon) instead of “;” (semicolon).</p>
+<ul class="simple">
+<li><p>Navigate to the top-most folder i.e., version of the interested Acrobat Sign REST API, say v6, (the one containing “adobesign” and “lib”) so that it becomes the current directory.</p></li>
+<li><p>Compile the sources using the following command</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">javac</span> <span class="o">-</span><span class="n">sourcepath</span> <span class="o">.</span><span class="p">;</span><span class="n">adobesign</span> <span class="o">-</span><span class="n">cp</span> <span class="n">lib</span><span class="o">/</span><span class="n">json_simple</span><span class="o">-</span><span class="mf">1.1</span><span class="o">.</span><span class="n">jar</span> <span class="n">adobesign</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">sample</span><span class="o">/*.</span><span class="n">java</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>To run a specific client, use the following command</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">java</span> <span class="o">-</span><span class="n">cp</span> <span class="o">.</span><span class="p">;</span><span class="n">lib</span><span class="o">/</span><span class="n">json_simple</span><span class="o">-</span><span class="mf">1.1</span><span class="o">.</span><span class="n">jar</span> <span class="n">adobesign</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">rest</span><span class="o">.</span><span class="n">sample</span><span class="o">.</span><span class="p">{</span><span class="n">name</span> <span class="n">of</span> <span class="n">client</span> <span class="n">class</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>For example, to run DownloadAuditTrail, use</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">java</span> <span class="o">-</span><span class="n">cp</span> <span class="o">.</span><span class="p">;</span><span class="n">lib</span><span class="o">/</span><span class="n">json_simple</span><span class="o">-</span><span class="mf">1.1</span><span class="o">.</span><span class="n">jar</span> <span class="n">adobesign</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">rest</span><span class="o">.</span><span class="n">sample</span><span class="o">.</span><span class="n">DownloadAuditTrail</span>
+</pre></div>
+</div>
+<p>You may also use an IDE of your choice. In that case, you will need to create a new project with sources taken from the adobesign folder and lib/json.jar set up as an input library.</p>
+<div class="section" id="output-path">
+<h3>Output Path<a class="headerlink" href="#output-path" title="Permalink to this headline">¶</a></h3>
+<p>The default output path used in the sample clients is the user temp directory. If needed, this can be changed by updating the method <code class="docutils literal notranslate"><span class="pre">adobesign.api.rest.sample.util.FileUtils.getDefaultOutputPath()</span></code>.</p>
+</div>
+</div>
+<div class="section" id="versions">
+<h2>Versions<a class="headerlink" href="#versions" title="Permalink to this headline">¶</a></h2>
+<p>This distribution contains sample clients built on different versions of AdobeSign REST API. Please refer the change log below to learn about the changes in subsequent versions in the section below.</p>
+<div class="section" id="v3">
+<h3>v3<a class="headerlink" href="#v3" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>The latest version of REST API samples encourages the use of OAuth access tokens instead of access tokens obtained by directly supplying user credentials or API keys. Steps to generate OAuth access and refresh tokens can be found in comments within the sample code and in the API documentation referenced above.</p></li>
+<li><p>The use of “base URLs” is demonstrated. Base URLs are now needed to access the REST API properly.</p></li>
+<li><p>The latest version also contains samples to use new REST APIs which are /views and /search.</p></li>
+</ol>
+</div>
+<div class="section" id="v4">
+<h3>v4<a class="headerlink" href="#v4" title="Permalink to this headline">¶</a></h3>
+<p>Latest samples demonstrate the usage of signer set in the APIs while sending the agreement and fetching the agreement details. Using signer set feature, you can assign same signing step to multiple signers and whoever signs first out of them will be become the actual signer of the signing step.</p>
+</div>
+<div class="section" id="v5">
+<h3>v5<a class="headerlink" href="#v5" title="Permalink to this headline">¶</a></h3>
+<p>Latest samples demonstrate the usage of signer set in the APIs while sending the agreement and fetching the agreement details. Using signer set feature, you can assign same signing step to multiple signers and whoever signs first out of them will be become the actual signer of the signing step.</p>
+</div>
+<div class="section" id="v6">
+<h3>v6<a class="headerlink" href="#v6" title="Permalink to this headline">¶</a></h3>
+<p>The latest version of Acrobat Sign REST API which introduces lots of advance features like Draft, Reminder API’s, Pagination, ETag, Suppress Email among others.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Adobe Inc..
+      <span class="lastupdated">
+        Last update: Aug 01, 2022. 
+        <img src="../_static/adobelogo.png" class="logo"/> 
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

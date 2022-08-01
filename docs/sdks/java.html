@@ -1,0 +1,486 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn now to create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup."
+  
+  <title>Acrobat Sign JAVA SDK &mdash; Acrobat Sign SDK Downloads</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+    
+  
+  
+  <link rel="canonical" href="https://www.adobe.com/go/acrobatsigndevhome/java.html" />
+  
+
+  
+  
+  
+  <script type="text/javascript" src="../_static/jquery.js"></script>
+  <script type="text/javascript" src="../_static/underscore.js"></script>
+  <script type="text/javascript" src="../_static/doctools.js"></script>
+  <script type="text/javascript" src="../_static/language_data.js"></script>
+  <script type="text/javascript" src="../_static/searchtools.js"></script>
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+   
+  
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="C#: Acrobat Sign SDK" href="csharp.html" />
+    <link rel="prev" title="Acrobat Sign JavaScript SDK" href="js.html" /> 
+  
+<script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
+<script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+
+	<script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+          $('.fixedbar, .wy-nav-side').addClass('scroll');
+          $('.wy-top-menu-wrapper').fadeOut();
+        } else {
+          $('.fixedbar, .wy-nav-side').removeClass('scroll');
+          $('.wy-top-menu-wrapper').fadeIn();
+        }
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn();
+        } else {
+          $('#scroll').fadeOut();
+        }
+      });
+      $('#scroll').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+      });
+    });
+  </script>
+
+<style>
+  .wy-nav-content {max-width:90%}
+  </style>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+	  
+	  	  
+<!-- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -
+        <div class="wy-logo-wrapper">
+          <a href="https://www.adobe.com/go/dc_developer">
+            <img src="../_static/acrobaticon.png" class="logo"/> 
+          Acrobat, Adobe Sign, PDFL Developer
+          </a>
+        </div> 
+  @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+ 
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="toc.html" class="icon icon-home"> Acrobat Sign SDK Downloads
+          
+
+          
+          </a>
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Acrobat Sign SDK Downloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="js.html">Acrobat Sign JavaScript SDK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="js.html#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="js.html#node-js">Node.js</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="js.html#npm">npm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="js.html#git">git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="js.html#for-browser">For browser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="js.html#webpack-configuration">Webpack Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="js.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js.html#recommendation">Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js.html#report-issues-bugs">Report Issues/Bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js.html#full-documentation">Full Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Acrobat Sign JAVA SDK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requirements-for-building-the-sdk">Requirements for Building the SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recommendation">Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#report-issues-bugs">Report Issues/Bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#full-documentation">Full Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="csharp.html">C#: Acrobat Sign SDK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csharp.html#supported-frameworks">Supported Frameworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csharp.html#third-party-dependencies">Third Party Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csharp.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csharp.html#packaging">Packaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csharp.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csharp.html#full-documentation">Full Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="openapi.html">Acrobat Sign OpenAPI SDK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="openapi.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openapi.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openapi.html#downloading-and-building-the-sdk">Downloading and Building the SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openapi.html#java-sdk">Java SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openapi.html#apis">APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openapi.html#report-issues-bugs">Report Issues/Bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openapi.html#full-documentation">Full Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rest.html">Acrobat Sign REST API Samples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rest.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rest.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rest.html#using-the-samples">Using the Samples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rest.html#output-path">Output Path</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rest.html#versions">Versions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rest.html#v3">v3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html#v4">v4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html#v5">v5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html#v6">v6</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+        <div class="fixedbar">  
+          <div class="wy-menu-items">
+            <a href="https://www.adobe.com/go/acrobatsigndevguide" class="topbarlink">Developer Guide</a>
+            <a href="https://www.adobe.com/go/acrobatsignapireference" class="topbarlink">API Reference</a>
+            <a href="https://www.adobe.com/go/acrobatsigntechblog" class="topbarlink">Tech Blog</a>
+            <a href="https://www.adobe.com/go/acrobatsigndevaccount" class="topbarlink">Get a Dev Account</a>
+            <a href="https://www.adobe.com/go/acrobatsigndevforum" class="topbarlink">Developer Forum</a>
+          </div>  
+          <div class="sign-in">
+            <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+           <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
+          </div>
+        </div>
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+
+
+
+
+   
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="toc.html">Acrobat Sign SDK Downloads</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+      <a href="#" id="scroll" style="display:inline;"><span></span></a>
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Acrobat Sign JAVA SDK</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="csharp.html" class="btn btn-neutral float-right" title="C#: Acrobat Sign SDK" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="js.html" class="btn btn-neutral float-left" title="Acrobat Sign JavaScript SDK" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="acrobat-sign-java-sdk">
+<h1>Acrobat Sign JAVA SDK<a class="headerlink" href="#acrobat-sign-java-sdk" title="Permalink to this headline">¶</a></h1>
+<p>The Acrobat Sign SDK aims at providing an easy way to integrate the Acrobat Sign RESTful web service into client applications through easy to consume client side objects wrapping the REST API functionality. This repository contains Acrobat Sign’s SDK in Java to integrate with Acrobat Sign v6 REST APIs.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>For the building of Acrobat Sign Java SDK, the client machine should have the following software installed:</p>
+<ul class="simple">
+<li><p>OS: Windows/Mac/Linux</p></li>
+<li><p>Java JDK: version 1.8 or above</p></li>
+<li><p>Maven: 3.3.3 version or above</p></li>
+<li><p>Gradle: 2.11 version or above</p></li>
+</ul>
+</div>
+<div class="section" id="requirements-for-building-the-sdk">
+<h2>Requirements for Building the SDK<a class="headerlink" href="#requirements-for-building-the-sdk" title="Permalink to this headline">¶</a></h2>
+<p>Building the API client library requires <a class="reference external" href="https://maven.apache.org/">Maven</a> for Java 8 or <a class="reference external" href="https://gradle.org/">Gradle</a> for Java (8 or above) to be installed.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>To install the API client library to your local repository:</p>
+<ol class="arabic simple">
+<li><p>Generate the JAR either by executing:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mvn</span> <span class="n">package</span>
+</pre></div>
+</div>
+<ol class="arabic" start="2">
+<li><p>Manually install the following JARs:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">target/swagger-java-client-1.0.0.jar</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">target/lib/*.jar</span></code></p></li>
+</ul>
+<p>or</p>
+</li>
+</ol>
+<dl class="simple">
+<dt>::</dt><dd><p>gradle build</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="3">
+<li><p>Manually install the following JAR: <code class="docutils literal notranslate"><span class="pre">build/libs/swagger-java-client-1.0.0.jar</span></code></p></li>
+</ol>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>Acrobat Sign clients must follow these steps:</p>
+<ol class="arabic simple">
+<li><p>In order to use the SDK, you need to have an account with Acrobat Sign. Please register for a developer account <a class="reference external" href="https://www.adobe.com/go/esign-dev-create">here</a>.</p></li>
+<li><p>Sign in to create an application on the Acrobat Sign web portal and obtain it’s application id and application secret.</p></li>
+<li><p>Generate the OAuth access token by using the above application id and the application secret. The access token will need to be generated by using the OAuth APIs.</p></li>
+<li><p>Use the generated OAuth access token for trying out the sample API code given below.</p></li>
+<li><p>Follow the installation instructions and execute the following Java code:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">java</span>
+<span class="kn">import</span> <span class="nn">java.io.File</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">io.swagger.client.ApiClient</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">io.swagger.client.ApiException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">io.swagger.client.api.AgreementsApi</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">io.swagger.client.api.BaseUrisApi</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">io.swagger.client.api.TransientDocumentsApi</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">io.swagger.client.model.AgreementCreationResponse</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">io.swagger.client.model.AgreementInfo</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">io.swagger.client.model.BaseUriInfo</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">io.swagger.client.model.FileInfo</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">io.swagger.client.model.ParticipantSetInfo</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">io.swagger.client.model.ParticipantSetMemberInfo</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">io.swagger.client.model.TransientDocumentResponse</span><span class="p">;</span>
+
+<span class="o">/**</span>
+<span class="o">*</span> <span class="n">This</span> <span class="n">sample</span> <span class="n">client</span> <span class="n">demonstrates</span> <span class="n">how</span> <span class="n">to</span> <span class="n">send</span> <span class="n">a</span> <span class="n">new</span> <span class="n">agreement</span><span class="o">.</span>
+<span class="o">*</span> <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">*</span> <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">*</span> <span class="n">Following</span> <span class="n">workflow</span> <span class="n">has</span> <span class="n">been</span> <span class="n">implemented</span> <span class="n">here</span> <span class="p">:</span>
+<span class="o">*</span> <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span> <span class="n">Call</span> <span class="n">base</span> <span class="n">uris</span> <span class="n">api</span> <span class="n">to</span> <span class="n">fetch</span> <span class="n">api</span> <span class="n">access</span> <span class="n">point</span> <span class="n">to</span> <span class="n">invoke</span> <span class="n">further</span> <span class="n">API</span> <span class="n">calls</span><span class="o">.&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+<span class="o">*</span> <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span> <span class="n">Create</span> <span class="n">a</span> <span class="n">transient</span> <span class="n">document</span> <span class="ow">and</span> <span class="n">get</span> <span class="n">transient</span> <span class="n">document</span> <span class="nb">id</span><span class="o">.&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+<span class="o">*</span> <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span> <span class="n">Prepare</span> <span class="n">agreement</span> <span class="n">info</span> <span class="ow">and</span> <span class="n">create</span> <span class="n">an</span> <span class="n">agreement</span> <span class="n">using</span> <span class="n">the</span> <span class="n">transient</span> <span class="n">document</span><span class="o">.&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+<span class="o">*</span> <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span> <span class="n">Send</span> <span class="n">the</span> <span class="n">agreement</span><span class="o">.&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+<span class="o">*</span> <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span> <span class="n">Display</span> <span class="n">agreement</span> <span class="n">details</span><span class="o">.&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+<span class="o">*</span> <span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">*/</span>
+<span class="n">public</span> <span class="k">class</span> <span class="nc">SendAgreementUsingTransientDocument</span> <span class="p">{</span>
+
+<span class="o">/**</span>
+<span class="o">*</span> <span class="n">Entry</span> <span class="n">point</span> <span class="k">for</span> <span class="n">this</span> <span class="n">sample</span> <span class="n">client</span> <span class="n">program</span><span class="o">.</span>
+<span class="o">*/</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="k">try</span> <span class="p">{</span>
+    <span class="n">ApiClient</span> <span class="n">apiClient</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ApiClient</span><span class="p">();</span>
+
+            <span class="o">//</span><span class="n">Default</span> <span class="n">baseUrl</span> <span class="n">to</span> <span class="n">make</span> <span class="n">GET</span> <span class="o">/</span><span class="n">baseUris</span> <span class="n">API</span> <span class="n">call</span><span class="o">.</span>
+            <span class="n">String</span> <span class="n">baseUrl</span> <span class="o">=</span> <span class="s2">&quot;https://api.echosign.com/&quot;</span><span class="p">;</span>
+            <span class="n">String</span> <span class="n">endpointUrl</span> <span class="o">=</span> <span class="s2">&quot;/api/rest/v6&quot;</span><span class="p">;</span>
+            <span class="n">apiClient</span><span class="o">.</span><span class="n">setBasePath</span><span class="p">(</span><span class="n">baseUrl</span> <span class="o">+</span> <span class="n">endpointUrl</span><span class="p">);</span>
+
+            <span class="o">//</span><span class="n">TODO</span> <span class="p">:</span> <span class="n">Provide</span> <span class="n">an</span> <span class="n">OAuth</span> <span class="n">Access</span> <span class="n">Token</span> <span class="k">as</span> <span class="s2">&quot;Bearer : access token&quot;</span> <span class="ow">in</span> <span class="n">authorization</span>
+            <span class="n">String</span> <span class="n">authorization</span> <span class="o">=</span> <span class="s2">&quot;authorization_example&quot;</span><span class="p">;</span>
+
+            <span class="o">//</span><span class="n">Get</span> <span class="n">the</span> <span class="n">baseUris</span> <span class="k">for</span> <span class="n">the</span> <span class="n">user</span> <span class="ow">and</span> <span class="nb">set</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">apiClient</span><span class="o">.</span>
+            <span class="n">BaseUrisApi</span> <span class="n">baseUrisApi</span> <span class="o">=</span> <span class="n">new</span> <span class="n">BaseUrisApi</span><span class="p">(</span><span class="n">apiClient</span><span class="p">);</span>
+            <span class="n">BaseUriInfo</span> <span class="n">baseUriInfo</span> <span class="o">=</span> <span class="n">baseUrisApi</span><span class="o">.</span><span class="n">getBaseUris</span><span class="p">(</span><span class="n">authorization</span><span class="p">);</span>
+            <span class="n">apiClient</span><span class="o">.</span><span class="n">setBasePath</span><span class="p">(</span><span class="n">baseUriInfo</span><span class="o">.</span><span class="n">getApiAccessPoint</span><span class="p">()</span> <span class="o">+</span> <span class="n">endpointUrl</span><span class="p">);</span>
+
+            <span class="o">//</span><span class="n">TODO</span> <span class="p">:</span> <span class="n">Provide</span> <span class="n">path</span> <span class="ow">and</span> <span class="n">name</span> <span class="n">of</span> <span class="n">file</span> <span class="n">to</span> <span class="n">be</span> <span class="n">uploaded</span> <span class="k">as</span> <span class="n">transient</span> <span class="n">document</span>
+            <span class="n">String</span> <span class="n">filePath</span> <span class="o">=</span> <span class="s2">&quot;filePath_example&quot;</span><span class="p">;</span>
+            <span class="n">String</span> <span class="n">fileName</span> <span class="o">=</span> <span class="s2">&quot;fileName_example&quot;</span><span class="p">;</span>
+            <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="n">new</span> <span class="n">File</span><span class="p">(</span><span class="n">filePath</span> <span class="o">+</span> <span class="n">fileName</span><span class="p">);</span>
+            <span class="n">String</span> <span class="n">xApiUser</span> <span class="o">=</span> <span class="n">null</span><span class="p">;</span>
+            <span class="n">String</span> <span class="n">xOnBehalfOfUser</span> <span class="o">=</span> <span class="n">null</span><span class="p">;</span>
+            <span class="n">String</span> <span class="n">mimeType</span> <span class="o">=</span> <span class="s2">&quot;application/pdf&quot;</span><span class="p">;</span>
+
+            <span class="o">//</span><span class="n">Get</span> <span class="n">the</span> <span class="nb">id</span> <span class="n">of</span> <span class="n">the</span> <span class="n">transient</span> <span class="n">document</span><span class="o">.</span>
+            <span class="n">TransientDocumentsApi</span> <span class="n">transientDocumentsApi</span> <span class="o">=</span> <span class="n">new</span> <span class="n">TransientDocumentsApi</span><span class="p">(</span><span class="n">apiClient</span><span class="p">);</span>
+            <span class="n">TransientDocumentResponse</span> <span class="n">response</span> <span class="o">=</span> <span class="n">transientDocumentsApi</span><span class="o">.</span><span class="n">createTransientDocument</span><span class="p">(</span><span class="n">authorization</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">xApiUser</span><span class="p">,</span> <span class="n">xOnBehalfOfUser</span><span class="p">,</span> <span class="n">fileName</span><span class="p">,</span> <span class="n">mimeType</span><span class="p">);</span>
+            <span class="n">String</span> <span class="n">transientDocumentId</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">getTransientDocumentId</span><span class="p">();</span>
+
+            <span class="o">//</span><span class="n">prepare</span> <span class="n">request</span> <span class="n">body</span> <span class="k">for</span> <span class="n">agreement</span> <span class="n">creation</span><span class="o">.</span>
+            <span class="n">AgreementInfo</span> <span class="n">agreementInfo</span> <span class="o">=</span> <span class="n">new</span> <span class="n">AgreementInfo</span><span class="p">();</span>
+            <span class="n">agreementInfo</span><span class="o">.</span><span class="n">setName</span><span class="p">(</span><span class="s2">&quot;Sample_Agreement&quot;</span><span class="p">);</span>
+            <span class="n">agreementInfo</span><span class="o">.</span><span class="n">setSignatureType</span><span class="p">(</span><span class="n">AgreementInfo</span><span class="o">.</span><span class="n">SignatureTypeEnum</span><span class="o">.</span><span class="n">ESIGN</span><span class="p">);</span>
+            <span class="n">agreementInfo</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">AgreementInfo</span><span class="o">.</span><span class="n">StateEnum</span><span class="o">.</span><span class="n">DRAFT</span><span class="p">);</span>
+
+            <span class="n">FileInfo</span> <span class="n">fileInfo</span> <span class="o">=</span> <span class="n">new</span> <span class="n">FileInfo</span><span class="p">();</span>
+            <span class="n">fileInfo</span><span class="o">.</span><span class="n">setTransientDocumentId</span><span class="p">(</span><span class="n">transientDocumentId</span><span class="p">);</span>
+            <span class="n">agreementInfo</span><span class="o">.</span><span class="n">addFileInfosItem</span><span class="p">(</span><span class="n">fileInfo</span><span class="p">);</span>
+
+            <span class="n">ParticipantSetInfo</span> <span class="n">participantSetInfo</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ParticipantSetInfo</span><span class="p">();</span>
+            <span class="n">ParticipantSetMemberInfo</span> <span class="n">participantSetMemberInfo</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ParticipantSetMemberInfo</span><span class="p">();</span>
+
+            <span class="o">//</span><span class="n">TODO</span> <span class="p">:</span> <span class="n">Provide</span> <span class="n">email</span> <span class="n">of</span> <span class="n">recipient</span> <span class="n">to</span> <span class="n">whom</span> <span class="n">agreement</span> <span class="n">will</span> <span class="n">be</span> <span class="n">sent</span>
+            <span class="n">participantSetMemberInfo</span><span class="o">.</span><span class="n">setEmail</span><span class="p">(</span><span class="s2">&quot;email_example&quot;</span><span class="p">);</span>
+            <span class="n">participantSetInfo</span><span class="o">.</span><span class="n">addMemberInfosItem</span><span class="p">(</span><span class="n">participantSetMemberInfo</span><span class="p">);</span>
+            <span class="n">participantSetInfo</span><span class="o">.</span><span class="n">setOrder</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+            <span class="n">participantSetInfo</span><span class="o">.</span><span class="n">setRole</span><span class="p">(</span><span class="n">ParticipantSetInfo</span><span class="o">.</span><span class="n">RoleEnum</span><span class="o">.</span><span class="n">SIGNER</span><span class="p">);</span>
+            <span class="n">agreementInfo</span><span class="o">.</span><span class="n">addParticipantSetsInfoItem</span><span class="p">(</span><span class="n">participantSetInfo</span><span class="p">);</span>
+
+            <span class="o">//</span><span class="n">Create</span> <span class="n">agreement</span> <span class="n">using</span> <span class="n">the</span> <span class="n">transient</span> <span class="n">document</span><span class="o">.</span>
+            <span class="n">AgreementsApi</span> <span class="n">agreementsApi</span> <span class="o">=</span> <span class="n">new</span> <span class="n">AgreementsApi</span><span class="p">(</span><span class="n">apiClient</span><span class="p">);</span>
+            <span class="n">AgreementCreationResponse</span> <span class="n">agreementCreationResponse</span> <span class="o">=</span> <span class="n">agreementsApi</span><span class="o">.</span><span class="n">createAgreement</span><span class="p">(</span><span class="n">authorization</span><span class="p">,</span> <span class="n">agreementInfo</span><span class="p">,</span> <span class="n">xApiUser</span><span class="p">,</span> <span class="n">xOnBehalfOfUser</span><span class="p">);</span>
+            <span class="n">String</span> <span class="nb">id</span> <span class="o">=</span> <span class="n">agreementCreationResponse</span><span class="o">.</span><span class="n">getId</span><span class="p">();</span>
+
+            <span class="o">//</span><span class="n">Get</span> <span class="n">agreement</span> <span class="n">info</span> <span class="n">using</span> <span class="n">the</span> <span class="n">agreement</span> <span class="nb">id</span><span class="o">.</span>
+            <span class="n">String</span> <span class="n">ifNoneMatch</span> <span class="o">=</span> <span class="n">null</span><span class="p">;</span>
+            <span class="n">agreementInfo</span> <span class="o">=</span> <span class="n">agreementsApi</span><span class="o">.</span><span class="n">getAgreementInfo</span><span class="p">(</span><span class="n">authorization</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">xApiUser</span><span class="p">,</span> <span class="n">xOnBehalfOfUser</span><span class="p">,</span> <span class="n">ifNoneMatch</span><span class="p">);</span>
+            <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Agreement ID = &quot;</span> <span class="o">+</span> <span class="n">agreementInfo</span><span class="o">.</span><span class="n">getId</span><span class="p">());</span>
+            <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Agreement Name = &quot;</span> <span class="o">+</span> <span class="n">agreementInfo</span><span class="o">.</span><span class="n">getName</span><span class="p">());</span>
+            <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Agreement Status = &quot;</span> <span class="o">+</span> <span class="n">agreementInfo</span><span class="o">.</span><span class="n">getStatus</span><span class="p">());</span>
+
+    <span class="p">}</span>
+    <span class="n">catch</span> <span class="p">(</span><span class="n">ApiException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="n">err</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">toString</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="recommendation">
+<h2>Recommendation<a class="headerlink" href="#recommendation" title="Permalink to this headline">¶</a></h2>
+<p>It’s recommended to create an instance of <cite>ApiClient</cite> per thread and per user (with baseUris fetched for user) in a multithreaded environment to avoid any potential issues.</p>
+</div>
+<div class="section" id="report-issues-bugs">
+<h2>Report Issues/Bugs<a class="headerlink" href="#report-issues-bugs" title="Permalink to this headline">¶</a></h2>
+<p>You can report the issues in the issues section of the GitHub repo.</p>
+</div>
+<div class="section" id="full-documentation">
+<h2>Full Documentation<a class="headerlink" href="#full-documentation" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="./AcrobatSign_JAVA_SDK/README.md">See the Github docs</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Adobe Inc..
+      <span class="lastupdated">
+        Last update: Aug 01, 2022. 
+        <img src="../_static/adobelogo.png" class="logo"/> 
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
