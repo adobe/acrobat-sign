@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Learn now to create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup."
+  <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
   
   <title>Migrating From SOAP &mdash; Acrobat Sign Developer Guide</title>
   
@@ -13,7 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link href="../_static/jquery-ui.css" rel="stylesheet" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />  
+  <link href="../_static/copybutton.css" rel="stylesheet" />
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
 
     
@@ -25,12 +26,14 @@
   
   
   
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
   <script type="text/javascript" src="../_static/jquery.js"></script>
   <script type="text/javascript" src="../_static/underscore.js"></script>
   <script type="text/javascript" src="../_static/doctools.js"></script>
   <script type="text/javascript" src="../_static/language_data.js"></script>
   <script type="text/javascript" src="../_static/searchtools.js"></script>
-  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
   <script type="text/javascript" src="../_static/js/theme.js"></script>
    
   
@@ -503,19 +506,22 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Migrating From SOAP</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#general-purpose-methods">General-purpose Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#document-methods">Document Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#status-methods">Status Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#user-methods">User Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#web-form-methods">Web Form Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#test-methods">Test Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#deprecated-methods-from-legacy-soap-versions">Deprecated Methods from legacy SOAP versions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#access-methods">Access Methods</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">Document Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#soap-to-rest-mapping">SOAP to REST mapping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general-purpose-methods">General-purpose Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#document-methods">Document Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#status-methods">Status Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-methods">User Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#web-form-methods">Web Form Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-methods">Test Methods</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Status Methods</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">User Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deprecated-soap-methods">Deprecated SOAP Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#access-methods">Access Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#doc-methods">Doc Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Status Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">User Methods</a></li>
 </ul>
 </li>
 </ul>
@@ -523,14 +529,19 @@
 </ul>
 <p class="caption"><span class="caption-text">Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="glossary.html#terminology">Terminology</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v.6)</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/esign-dev-cert#://">Application Certification Form</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://helpx.adobe.com/sign/using/integration-guides.html">Acrobat Sign integration guides</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SDKs and Samples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../sdks/js.html#://">JS SDK</a></li>
+<li class="toctree-l1"><a class="reference external" href="../sdks/java.html#://">JAVA SDK</a></li>
+<li class="toctree-l1"><a class="reference external" href="../sdks/openapi.html#://">OpenAPI SDK</a></li>
+<li class="toctree-l1"><a class="reference external" href="../sdks/csharp.html#://">CSharp SDK</a></li>
+<li class="toctree-l1"><a class="reference external" href="../sdks/rest.html#://">REST Samples</a></li>
 </ul>
 
             
@@ -629,20 +640,27 @@
   <div class="section" id="migrating-from-soap">
 <h1>Migrating From SOAP<a class="headerlink" href="#migrating-from-soap" title="Permalink to this headline">¶</a></h1>
 <p>If you are using the legacy Acrobat Sign SOAP APIs, we highly recommend migrating your apps to consume the v6 REST APIs.</p>
-<p>The list below shows the SOAP endpoints with their REST equivalents. Both endpoints link directly to the full method description.</p>
+<p>Adobe is committed to providing a safe and secure product experience for our customers by adhering to the latest industry-standard security protocols. As a part of that process, on December 2021, Adobe Acrobat Sign ended support for older API authentication models that allowed sending username and password in the API call.</p>
+<p>To move to a secure authentication model:</p>
+<ul class="simple">
+<li><p>Use REST APIs: Acrobat Sign APIs are now restricted to REST APIs. <a class="reference external" href="https://secure.echosign.com/public/docs/restapi/v6">You can try out the REST API here</a>.</p></li>
+<li><p>Use OAuth: To enable an end user to use your client app with Acrobat Sign, have the end-user authenticate with Adobe. The recommended way for authenticating end users with Acrobat Sign is the standard OAuth protocol.</p></li>
+</ul>
+<p>The general recommendation is that every user in the organization should directly authenticate with Adobe while using your client app to have their unique access tokens issued. SAML configuration with Acrobat Sign in your user’s organization provides an easy way to do so. However, there might be enterprise use-cases where only a single admin is required to authenticate with Adobe and other users in this organization can just use the client without an Adobe login. This is possible via Adobe’s OAUTH modifiers. Modifiers enable clients to call APIs with admins’ OAUTH token and actual regular user’s identity in “x-api-user” header.</p>
+<div class="section" id="soap-to-rest-mapping">
+<h2>SOAP to REST mapping<a class="headerlink" href="#soap-to-rest-mapping" title="Permalink to this headline">¶</a></h2>
+<p>The tables below maps SOAP endpoints to their REST equivalents. Both endpoints link directly to the full method description.</p>
 <div class="section" id="general-purpose-methods">
-<h2>General-purpose Methods<a class="headerlink" href="#general-purpose-methods" title="Permalink to this headline">¶</a></h2>
-<table class="docutils align-default">
+<h3>General-purpose Methods<a class="headerlink" href="#general-purpose-methods" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getBaseUris">getBaseUris</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/baseUris/getBaseUris">/baseUris, GET</a></p></td>
 </tr>
@@ -654,203 +672,179 @@
 </div>
 </div>
 <div class="section" id="document-methods">
-<h2>Document Methods<a class="headerlink" href="#document-methods" title="Permalink to this headline">¶</a></h2>
-<table class="docutils align-default">
+<h3>Document Methods<a class="headerlink" href="#document-methods" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 49%" />
-<col style="width: 51%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#sendDocument">sendDocument</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createAgreement">/agreements, POST</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>SenderInfo is represented through <code class="docutils literal notranslate"><span class="pre">x-api-user</span></code>. Files are specified through /transientDocuments.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#sendDocumentInteractive">sendDocumentInteractive</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createAgreementView">/agreements/{agrId}/views, POST</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>From v6 onwards, the interactive views can be specified and obtained from the <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/agreements/{agrId}/views</span></code> endpoint for the interactive behavior.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 53%" />
-<col style="width: 47%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#sendDocumentMegaSign">sendDocumentMegaSign</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/megaSigns/createMegaSign">/megaSigns, POST</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>MegaSign allows sending the same agreement to multiple recipients and creating a separate instance of agreement for each recipient.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 49%" />
-<col style="width: 51%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#createLibraryDocument">createLibraryDocument</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/libraryDocuments/createLibraryDocument">/libraryDocuments, POST</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 49%" />
-<col style="width: 51%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#createLibraryDocumentInteractive">createLibraryDocumentInteractive</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/libraryDocuments/createLibraryDocumentView">/libraryDocuments/{libraryDocumentId}, POST</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>From v6 onwards, the interactive views can be specified and obtained from the <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/agreements/{agrId}/views</span></code> endpoint for the interactive behavior.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 43%" />
-<col style="width: 57%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#sendReminder">sendReminder</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createReminderOnParticipant">/agreements/{agrId}/reminders, POST</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 45%" />
-<col style="width: 55%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#removeDocument">removeDocument</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/deleteDocuments">/agreements/{agrId}/documents, DELETE</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>To delete the documents of agreements, use the <code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/agreements/{agrId}/documents</span></code> endpoint; and to remove it from Manage Page(GET /agreements), use <code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/agreements/{agrId}/visibility</span></code></p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 46%" />
-<col style="width: 54%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#cancelDocument">cancelDocument</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/updateAgreementState">/agreements/{agrId}/state, PUT</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Cancel: Called by sender.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 36%" />
-<col style="width: 64%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#rejectDocument">rejectDocument</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/rejectAgreementForParticipation">/agreements/{agrId}/members/participantSets/{psId}/participants/{pId}/reject, PUT</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Reject: Called by current signer.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 38%" />
-<col style="width: 62%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#replaceSigner">replaceSigner</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/updateParticipantSet">/agreements/{agreementId}/members/participantSets/{participantSetId}, PUT</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Replace: Called by sender. Both the original signer and new one can sign.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 35%" />
-<col style="width: 65%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#delegateSigning">delegateSigning</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createDelegatedParticipantSets">/agreements/{agrId}/members/participantSets/{psId}/ participants/{pId}/delegatedParticipantSet, POST</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Delegate: Called by signer. Both the delegator and delegatee can sign.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 47%" />
-<col style="width: 53%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#notifyDocumentVaulted">notifyDocumentVaulted</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/updateAgreementVaulted">/agreements/{agreementId}/vaulted, PUT</a></p></td>
 </tr>
@@ -858,187 +852,165 @@
 </table>
 </div>
 <div class="section" id="status-methods">
-<h2>Status Methods<a class="headerlink" href="#status-methods" title="Permalink to this headline">¶</a></h2>
-<table class="docutils align-default">
+<h3>Status Methods<a class="headerlink" href="#status-methods" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 48%" />
-<col style="width: 52%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentInfo">getDocumentInfo</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAgreementInfo">/agreements/{agrId}, GET</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>In SOAP API, <code class="docutils literal notranslate"><span class="pre">getDocumentInfo</span></code>, <code class="docutils literal notranslate"><span class="pre">getDocuments</span></code>, <code class="docutils literal notranslate"><span class="pre">getAuditTrail</span></code> etc. work on <code class="docutils literal notranslate"><span class="pre">documentKeys</span></code>, which can be an ID for an agreement, widget, or library document. The REST API demarcates these as separate resources (cleaner design and strongly typed) and hence, based on the kind of resource you are working on, there is a corresponding /libraryDocuments, /widgets to these. Example: <code class="docutils literal notranslate"><span class="pre">/widgets/{widgetId},</span> <span class="pre">GET</span></code> will getDocumentInfo for <code class="docutils literal notranslate"><span class="pre">widgetId</span></code>, and similarly for documents, audit trail, etc.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 52%" />
-<col style="width: 48%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentInfosByExternalId">getDocumentInfosByExternalId</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAgreements">/agreements, GET</a> query = externalId</p></td>
 </tr>
 </tbody>
 </table>
 <p><code class="docutils literal notranslate"><span class="pre">externalId</span></code> can be used to map your internal IDs to Acrobat Sign IDs.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 45%" />
-<col style="width: 55%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocuments">getDocuments</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAllDocuments">/agreements/{agrId}/documents, GET</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>REST returns a list of document IDs that can be provided to the following endpoint to get a document stream.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 43%" />
-<col style="width: 57%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentUrls">getDocumentUrls</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getCombinedDocumentUrl">/agreements/{agrId}/combinedDocument/url, GET</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Retrieve the URL of the <strong>combined document</strong>.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 44%" />
-<col style="width: 56%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentUrls">getDocumentUrls</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v5#!/agreements/getDocumentUrl">/agreements/{agrId}/documents/{docId}/url, GET</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Retrieve the URL of an <strong>individual document</strong>.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 45%" />
-<col style="width: 55%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentImageUrls">getDocumentImageUrls</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAllDocumentsImageUrls">/agreements/{agrId}/documents/imageUrls, GET</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Retrieve the image URLs of <strong>all visible pages</strong> of an agreement.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 44%" />
-<col style="width: 56%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentImageUrls">getDocumentImageUrls</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getDocumentImageUrls">/agreements/{agrId}/documents/{docId}/imageUrls, GET</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Retrieve image URLs of a specified documentID.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 49%" />
-<col style="width: 51%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getSupportingDocuments">getSupportingDocuments</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAllDocuments">/agreements/{agrId}/documents, GET</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Can also specify the content format.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 46%" />
-<col style="width: 54%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getFormData">getFormData</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getFormData">/agreements/{agrId}/formData, GET</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Returns a CSV file stream.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 46%" />
-<col style="width: 54%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getAuditTrail">getAuditTrail</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAuditTrail">/agreements/{agrId}/auditTrail, GET</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 45%" />
-<col style="width: 55%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getSigningUrl">getSigningUrl</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getSigningUrl">/agreements/{agrId}/signingUrls, GET</a></p></td>
 </tr>
@@ -1046,329 +1018,289 @@
 </table>
 </div>
 <div class="section" id="user-methods">
-<h2>User Methods<a class="headerlink" href="#user-methods" title="Permalink to this headline">¶</a></h2>
-<table class="docutils align-default">
+<h3>User Methods<a class="headerlink" href="#user-methods" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 51%" />
-<col style="width: 49%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService19#createUser">createUser</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/users/createUser">/users, POST</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 49%" />
-<col style="width: 51%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#verifyUser">verifyUser</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/users/getUserDetail">/users/{userId}, GET</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>The REST equivalent can be used to see if the user exists, but does not support password verification.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 86%" />
-<col style="width: 14%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#searchUserDocuments">searchUserDocuments</a></p></td>
 <td><p>TBD</p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 52%" />
-<col style="width: 48%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getDocumentEventsForUser">getDocumentEventsForUser</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getEvents">/agreement/{agrId}/events, GET</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 46%" />
-<col style="width: 54%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getEmbeddedView">getEmbeddedView</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createAgreementView">/agreements/{agrId}/views, POST</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Use the name = DOCUMENT to get the embedded view of an agreement.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 51%" />
-<col style="width: 49%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getUserDocuments">getUserDocuments</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAgreements">/agreements, GET</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getMyDocuments">getMyDocuments</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAgreements">/agreements, GET</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Use <code class="docutils literal notranslate"><span class="pre">x-api-user</span></code> for specifying the user whose agreements are to be retrieved.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 51%" />
-<col style="width: 49%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getLibraryDocumentsForUser">getLibraryDocumentsForUser</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/libraryDocuments/getLibraryDocuments">/libraryDocuments, GET</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 49%" />
-<col style="width: 51%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getMyLibraryDocuments">getMyLibraryDocuments</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/libraryDocuments/getLibraryDocuments">/libraryDocuments, GET</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Use <code class="docutils literal notranslate"><span class="pre">x-api-user</span></code> for specifying the user whose library documents are to be retrieved.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 54%" />
-<col style="width: 46%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getWidgetsForUser">getWidgetsForUser</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/widgets/getWidgets">/widgets, GET</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 51%" />
-<col style="width: 49%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getMyWidgets">getMyWidgets</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/widgets/getWidgets">/widgets, GET</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Use <code class="docutils literal notranslate"><span class="pre">x-api-user</span></code> for specifying the user whose widgets are to be retrieved.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 45%" />
-<col style="width: 55%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getMegaSignDocument">getMegaSignDocument</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/megaSigns/getMegaSignChildAgreements">/megaSigns/{megaSignId}/agreements, GET</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Get all child agreement IDs of the parent MegaSign.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 55%" />
-<col style="width: 45%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getUsersInAccount">getUsersInAccount</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/users/getUsers">/users, GET</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 51%" />
-<col style="width: 49%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#createGroup">createGroup</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/groups/createGroup">/groups, POST</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 49%" />
-<col style="width: 51%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#deleteGroup">deleteGroup</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/groups/deleteGroup">/groups/groupId, DELETE</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 49%" />
-<col style="width: 51%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#renameGroup">renameGroup</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/groups/modifyGroup">/groups/{groupId}, PUT</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 55%" />
-<col style="width: 45%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getGroupsInAccount">getGroupsInAccount</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/groups/getGroups">/groups, GET</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 49%" />
-<col style="width: 51%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getUsersInGroup">getUsersInGroups</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/groups/getUsersInGroup">/groups/{groupId}/users, GET</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 49%" />
-<col style="width: 51%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#moveUsersToGroup">moveUsersToGroup</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/users/updateGroupsOfUser">/users/{userId}/groups, PUT</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Specify the new <code class="docutils literal notranslate"><span class="pre">groupId</span></code> in the request.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 49%" />
-<col style="width: 51%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#getUserInfo">getUserInfo</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/users/getUserDetail">/users/{userId}, GET</a></p></td>
 </tr>
@@ -1376,166 +1308,146 @@
 </table>
 </div>
 <div class="section" id="web-form-methods">
-<h2>Web Form Methods<a class="headerlink" href="#web-form-methods" title="Permalink to this headline">¶</a></h2>
-<table class="docutils align-default">
+<h3>Web Form Methods<a class="headerlink" href="#web-form-methods" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 54%" />
-<col style="width: 46%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#createEmbeddedWidget">createEmbeddedWidget</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/widgets/createWidget">/widgets, POST</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 54%" />
-<col style="width: 46%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#createPersonalEmbeddedWidget">createPersonalEmbeddedWidget</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/widgets/getWidgetView">/widgets/{widgetId/views, POST</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Use PersonalizedSigningViewConfiguration for specifying personalization options</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 44%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#personalizeEmbeddedWidget">personalizeEmbeddedWidget</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/widgets/createWidget">/widgets, POST</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 52%" />
-<col style="width: 48%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#createUrlWidget">createUrlWidget</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/widgets/createWidget">/widgets, POST</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 52%" />
-<col style="width: 48%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#createPersonalUrlWidget">createPersonalUrlWidget</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/widgets/getWidgetView">/widgets/{widgetId/views, POST</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Use PersonalizedSigningViewConfiguration for specifying personalization options</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 54%" />
-<col style="width: 46%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#personalizeUrlWidget">personalizeUrlWidget</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/widgets/createWidget">/widgets, POST</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 46%" />
-<col style="width: 54%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#disableWidget">disableWidget</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/widgets/updateWidgetState">/widgets/{widgetId}/state, PUT</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Use status value as <code class="docutils literal notranslate"><span class="pre">INACTIVE</span></code>.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 46%" />
-<col style="width: 54%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#enableWidget">enableWidget</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/widgets/updateWidgetState">/widgets/{widgetId}/state, PUT</a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Use status value as <code class="docutils literal notranslate"><span class="pre">ACTIVE</span></code>.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 44%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService19#personalizeEmbeddedWidget">personalizeEmbeddedWidget</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/widgets/createWidget">/widgets, POST</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 54%" />
-<col style="width: 46%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService19#personalizeUrlWidget">personalizeUrlWidget</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/widgets/createWidget">/widgets, POST</a></p></td>
 </tr>
@@ -1543,58 +1455,53 @@
 </table>
 </div>
 <div class="section" id="test-methods">
-<h2>Test Methods<a class="headerlink" href="#test-methods" title="Permalink to this headline">¶</a></h2>
-<table class="docutils align-default">
+<h3>Test Methods<a class="headerlink" href="#test-methods" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 49%" />
-<col style="width: 51%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#testPing">testPing</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/baseUris/getBaseUris">/baseURIs, GET</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 85%" />
-<col style="width: 15%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService22#testEchoFile">testEchoFile</a></p></td>
 <td><p>TBD</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="deprecated-methods-from-legacy-soap-versions">
-<h2>Deprecated Methods from legacy SOAP versions<a class="headerlink" href="#deprecated-methods-from-legacy-soap-versions" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="deprecated-soap-methods">
+<h2>Deprecated SOAP Methods<a class="headerlink" href="#deprecated-soap-methods" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="access-methods">
 <h3>Access Methods<a class="headerlink" href="#access-methods" title="Permalink to this headline">¶</a></h3>
 <p>issueAccessToken - <a class="reference external" href="https://www.adobe.io/apis/documentcloud/sign/docs.html#!adobedocs/adobe-sign/master/gstarted/configure_oauth.md">OAuth has replaced access tokens</a>.</p>
-<div class="section" id="id1">
-<h4>Document Methods<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
-<table class="docutils align-default">
+<div class="section" id="doc-methods">
+<h4>Doc Methods<a class="headerlink" href="#doc-methods" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 53%" />
-<col style="width: 47%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#initiateInteractiveSendDocument">initiateInteractiveSendDocument</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createAgreementView">/agreements/{agrId}/views, POST</a></p></td>
 </tr>
@@ -1602,136 +1509,118 @@
 </table>
 </div>
 </div>
-<div class="section" id="id2">
-<h3>Status Methods<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<table class="docutils align-default">
+<div class="section" id="id1">
+<h3>Status Methods<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 46%" />
-<col style="width: 54%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#getDocumentUrlByVersion">getDocumentUrlByVersion</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getCombinedDocumentUrl">/agreement/{agreementID}/combinedDocument/url, GET</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 45%" />
-<col style="width: 55%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#getDocumentByVersion">getDocumentByVersion</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getCombinedDocument">/agreements/{agreementId}/combinedDocument, GET</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 44%" />
-<col style="width: 56%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#getImagesByVersion">getImagesByVersion</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAllDocumentsImageUrls">/agreements/{agrId}/documents/imageUrls, GET</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 47%" />
-<col style="width: 53%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#getLatestDocument">getLatestDocument</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAllDocuments">/agreements/{agrId}/documents, GET</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 45%" />
-<col style="width: 55%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#getLatestDocumentUrl">getLatestDocumentUrl</a></p></td>
-<td><p><a class="reference external" href="#!adobedocs/adobe-sign/master/">/agreements/{agrId}/documents/{docId}/url, GET</a>
-<a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getCombinedDocumentUrl">/agreements/{agrId}/combinedDocument/url, GET</a></p></td>
+<td><p><a class="reference external" href="#!adobedocs/adobe-sign/master/">/agreements/{agrId}/documents/{docId}/url, GET</a> <a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getCombinedDocumentUrl">/agreements/{agrId}/combinedDocument/url, GET</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 42%" />
-<col style="width: 58%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#getLatestImages">getLatestImages</a></p></td>
-<td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAllDocumentsImageUrls">/agreements/{agrId}/documents/imageUrls, GET</a>
-<a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getDocumentImageUrls">/agreements/{agrId}/documents/{docId}/imageUrls, GET</a></p></td>
+<td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAllDocumentsImageUrls">/agreements/{agrId}/documents/imageUrls, GET</a> <a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getDocumentImageUrls">/agreements/{agrId}/documents/{docId}/imageUrls, GET</a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="id3">
-<h3>User Methods<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<table class="docutils align-default">
+<div class="section" id="id2">
+<h3>User Methods<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 52%" />
-<col style="width: 48%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService13#getDocumentsForUser">getDocumentsForUser</a></p></td>
 <td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/getAgreements">/agreements, GET</a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 85%" />
-<col style="width: 15%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>SOAP Endpoint</strong></p></th>
-<th class="head"><p><strong>REST Endpoint</strong></p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p><strong>SOAP Endpoint</strong></p></td>
+<td><p><strong>REST Endpoint</strong></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/EchoSignDocumentService19#createAccount">createAccount</a></p></td>
 <td><p>None</p></td>
 </tr>
@@ -1753,7 +1642,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Jul 22, 2022. 
+        Last update: Aug 01, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Learn now to create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup."
+  <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
   
   <title>Glossary &mdash; Acrobat Sign Developer Guide</title>
   
@@ -13,7 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link href="../_static/jquery-ui.css" rel="stylesheet" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />  
+  <link href="../_static/copybutton.css" rel="stylesheet" />
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
 
     
@@ -25,12 +26,14 @@
   
   
   
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
   <script type="text/javascript" src="../_static/jquery.js"></script>
   <script type="text/javascript" src="../_static/underscore.js"></script>
   <script type="text/javascript" src="../_static/doctools.js"></script>
   <script type="text/javascript" src="../_static/language_data.js"></script>
   <script type="text/javascript" src="../_static/searchtools.js"></script>
-  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
   <script type="text/javascript" src="../_static/js/theme.js"></script>
    
   
@@ -502,19 +505,22 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="migrating.html">Migrating From SOAP</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="migrating.html#general-purpose-methods">General-purpose Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating.html#document-methods">Document Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating.html#status-methods">Status Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating.html#user-methods">User Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating.html#web-form-methods">Web Form Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating.html#test-methods">Test Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating.html#deprecated-methods-from-legacy-soap-versions">Deprecated Methods from legacy SOAP versions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="migrating.html#access-methods">Access Methods</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="migrating.html#id1">Document Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating.html#soap-to-rest-mapping">SOAP to REST mapping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html#general-purpose-methods">General-purpose Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html#document-methods">Document Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html#status-methods">Status Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html#user-methods">User Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html#web-form-methods">Web Form Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html#test-methods">Test Methods</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="migrating.html#id2">Status Methods</a></li>
-<li class="toctree-l3"><a class="reference internal" href="migrating.html#id3">User Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating.html#deprecated-soap-methods">Deprecated SOAP Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html#access-methods">Access Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#doc-methods">Doc Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html#id1">Status Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html#id2">User Methods</a></li>
 </ul>
 </li>
 </ul>
@@ -522,14 +528,19 @@
 </ul>
 <p class="caption"><span class="caption-text">Resources</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Glossary</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#terminology">Terminology</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Glossary</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v.6)</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/esign-dev-cert#://">Application Certification Form</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://helpx.adobe.com/sign/using/integration-guides.html">Acrobat Sign integration guides</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SDKs and Samples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../sdks/js.html#://">JS SDK</a></li>
+<li class="toctree-l1"><a class="reference external" href="../sdks/java.html#://">JAVA SDK</a></li>
+<li class="toctree-l1"><a class="reference external" href="../sdks/openapi.html#://">OpenAPI SDK</a></li>
+<li class="toctree-l1"><a class="reference external" href="../sdks/csharp.html#://">CSharp SDK</a></li>
+<li class="toctree-l1"><a class="reference external" href="../sdks/rest.html#://">REST Samples</a></li>
 </ul>
 
             
@@ -625,8 +636,6 @@
             
   <div class="section" id="glossary">
 <h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="terminology">
-<h2>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline">¶</a></h2>
 <p><strong>Transient document</strong>
 The document that is used to create an agreement or a web form. The document is first uploaded to Acrobat Sign by the sender. This is referred to as _transient_ since it is available for use only for 7 days after the upload.</p>
 <p><strong>Library template</strong>
@@ -663,7 +672,6 @@ A group of recipients where only one member of the group needs to take action, s
 <p><strong>Routing order</strong>
 Acrobat Sign supports having multiple recipients and routing orders making it easy to collect signatures in the right order. The sequence for the transaction can be sequential, parallel, or hybrid. In sequential signing, a definite order is followed for signing or approving. In parallel workflow, every recipient will get the agreement simultaneously allowing them to sign or approve in any order. You can even have a combination of the two (hybrid routing).</p>
 </div>
-</div>
 
 
            </div>
@@ -677,7 +685,7 @@ Acrobat Sign supports having multiple recipients and routing orders making it ea
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Jul 22, 2022. 
+        Last update: Aug 01, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
