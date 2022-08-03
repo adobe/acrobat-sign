@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Learn now to create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup."
+  <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
   
   <title>C#: Acrobat Sign SDK &mdash; Acrobat Sign SDK Downloads</title>
   
@@ -13,7 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link href="../_static/jquery-ui.css" rel="stylesheet" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />  
+  <link href="../_static/copybutton.css" rel="stylesheet" />
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
 
     
@@ -25,12 +26,14 @@
   
   
   
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
   <script type="text/javascript" src="../_static/jquery.js"></script>
   <script type="text/javascript" src="../_static/underscore.js"></script>
   <script type="text/javascript" src="../_static/doctools.js"></script>
   <script type="text/javascript" src="../_static/language_data.js"></script>
   <script type="text/javascript" src="../_static/searchtools.js"></script>
-  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
   <script type="text/javascript" src="../_static/js/theme.js"></script>
    
   
@@ -134,7 +137,7 @@
 <li class="toctree-l2"><a class="reference internal" href="js.html#getting-started">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="js.html#recommendation">Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="js.html#report-issues-bugs">Report Issues/Bugs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="js.html#full-documentation">Full Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js.html#javascript-sdk-documentation">JavaScript SDK Documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="java.html">Acrobat Sign JAVA SDK</a><ul>
@@ -144,7 +147,7 @@
 <li class="toctree-l2"><a class="reference internal" href="java.html#getting-started">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="java.html#recommendation">Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="java.html#report-issues-bugs">Report Issues/Bugs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="java.html#full-documentation">Full Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="java.html#java-sdk-documentation">JAVA SDK Documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">C#: Acrobat Sign SDK</a><ul>
@@ -153,7 +156,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#packaging">Packaging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#full-documentation">Full Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#c-sdk-documentation">C# SDK Documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="openapi.html">Acrobat Sign OpenAPI SDK</a><ul>
@@ -163,21 +166,20 @@
 <li class="toctree-l2"><a class="reference internal" href="openapi.html#java-sdk">Java SDK</a></li>
 <li class="toctree-l2"><a class="reference internal" href="openapi.html#apis">APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="openapi.html#report-issues-bugs">Report Issues/Bugs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="openapi.html#full-documentation">Full Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openapi.html#openapi-sdk-documentation">OpenAPI SDK Documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rest.html">Acrobat Sign REST API Samples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rest.html#getting-started">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rest.html#prerequisites">Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rest.html#using-the-samples">Using the Samples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="rest.html#output-path">Output Path</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="rest.html#versions">Versions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rest.html#v3">v3</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rest.html#v4">v4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rest.html#v5">v5</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rest.html#v6">v6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html#v5">v5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html#v4">v4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html#v3">v3</a></li>
 </ul>
 </li>
 </ul>
@@ -279,7 +281,7 @@
             
   <div class="section" id="c-acrobat-sign-sdk">
 <h1>C#: Acrobat Sign SDK<a class="headerlink" href="#c-acrobat-sign-sdk" title="Permalink to this headline">¶</a></h1>
-<p>The Acrobat Sign SDK aims at providing an easy way to integrate the Acrobat Sign RESTful web service into client applications through easy to consume client side objects wrapping the REST API functionality. This repository contains Acrobat Sign’s SDK (CSharp) and samples for these APIs.</p>
+<p>The Acrobat Sign SDK supports integrating the Acrobat Sign RESTful web service into client applications via easy-to-consume client side objects wrapping the REST API functionality. This repository contains Acrobat Sign’s SDK (CSharp) and samples for these APIs.</p>
 <p>This C# SDK is automatically generated by the <a class="reference external" href="https://github.com/swagger-api/swagger-codegen">Swagger Codegen</a> project:</p>
 <ul class="simple">
 <li><p>API version: 6.0.0</p></li>
@@ -379,9 +381,9 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="full-documentation">
-<h2>Full Documentation<a class="headerlink" href="#full-documentation" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="./AcrobatSign_CSharp_SDK/README.md">See the Github docs</a>.</p>
+<div class="section" id="c-sdk-documentation">
+<h2>C# SDK Documentation<a class="headerlink" href="#c-sdk-documentation" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/adobe/acrobat-sign/tree/main/sdks/AcrobatSign_CSharp_SDK">See the Github docs</a>.</p>
 </div>
 </div>
 

@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Learn now to create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup."
+  <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
   
   <title>Acrobat Sign REST API Samples &mdash; Acrobat Sign SDK Downloads</title>
   
@@ -13,7 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link href="../_static/jquery-ui.css" rel="stylesheet" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />  
+  <link href="../_static/copybutton.css" rel="stylesheet" />
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
 
     
@@ -25,12 +26,14 @@
   
   
   
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
   <script type="text/javascript" src="../_static/jquery.js"></script>
   <script type="text/javascript" src="../_static/underscore.js"></script>
   <script type="text/javascript" src="../_static/doctools.js"></script>
   <script type="text/javascript" src="../_static/language_data.js"></script>
   <script type="text/javascript" src="../_static/searchtools.js"></script>
-  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
   <script type="text/javascript" src="../_static/js/theme.js"></script>
    
   
@@ -133,7 +136,7 @@
 <li class="toctree-l2"><a class="reference internal" href="js.html#getting-started">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="js.html#recommendation">Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="js.html#report-issues-bugs">Report Issues/Bugs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="js.html#full-documentation">Full Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js.html#javascript-sdk-documentation">JavaScript SDK Documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="java.html">Acrobat Sign JAVA SDK</a><ul>
@@ -143,7 +146,7 @@
 <li class="toctree-l2"><a class="reference internal" href="java.html#getting-started">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="java.html#recommendation">Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="java.html#report-issues-bugs">Report Issues/Bugs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="java.html#full-documentation">Full Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="java.html#java-sdk-documentation">JAVA SDK Documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="csharp.html">C#: Acrobat Sign SDK</a><ul>
@@ -152,7 +155,7 @@
 <li class="toctree-l2"><a class="reference internal" href="csharp.html#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="csharp.html#packaging">Packaging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="csharp.html#getting-started">Getting Started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="csharp.html#full-documentation">Full Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csharp.html#c-sdk-documentation">C# SDK Documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="openapi.html">Acrobat Sign OpenAPI SDK</a><ul>
@@ -162,21 +165,20 @@
 <li class="toctree-l2"><a class="reference internal" href="openapi.html#java-sdk">Java SDK</a></li>
 <li class="toctree-l2"><a class="reference internal" href="openapi.html#apis">APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="openapi.html#report-issues-bugs">Report Issues/Bugs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="openapi.html#full-documentation">Full Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openapi.html#openapi-sdk-documentation">OpenAPI SDK Documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Acrobat Sign REST API Samples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-the-samples">Using the Samples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#output-path">Output Path</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#versions">Versions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#v3">v3</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#v4">v4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#v5">v5</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#v6">v6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v5">v5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v4">v4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v3">v3</a></li>
 </ul>
 </li>
 </ul>
@@ -276,21 +278,17 @@
             
   <div class="section" id="acrobat-sign-rest-api-samples">
 <h1>Acrobat Sign REST API Samples<a class="headerlink" href="#acrobat-sign-rest-api-samples" title="Permalink to this headline">¶</a></h1>
-<p>Sample Java clients of Acrobat Sign REST API that demonstrates how to use the API as well as some of its key capabilities.</p>
-<p>The samples are arranged according to the version of the Acrobat Sign REST API’s that they use. For example, the samples for v6 REST API’s are under v6 folder.</p>
+<p>These sample Java clients of the Acrobat Sign REST APIs demonstrate how to use the API as well as some of its key capabilities.</p>
+<p>The samples are arranged according to the version of the Acrobat Sign REST API’s that they use. For example, the samples for v6 REST API’s are under the v6 folder.</p>
 <p>All sources are under the <strong>adobesign.api.rest.sample</strong> package (and sub packages) and are laid out as follows:</p>
 <ul class="simple">
 <li><p><strong>adobesign.api.rest.sample</strong>: Contains individual sample clients each demonstrating a specific capability. Each client is named according to the capability it demonstrates. For example, the client GetUsersInAccount.java shows how to retrieve a list of users from the account of the user on whose behalf the API call is made (also called <strong>API user</strong> in this document).</p></li>
 <li><p><strong>adobesign.api.rest.sample.util</strong>: Contains helper classes that encapsulate the REST calls required by the sample clients. Of particular note is RestApiUtils.java which contains methods that make the actual low-level REST API calls.</p></li>
 <li><p><strong>adobesign.api.rest.sample.requests</strong>: Contains input files used by the sample clients. These include JSON objects that specify the input data and arguments required by some of the API calls.</p></li>
 </ul>
-<div class="section" id="getting-started">
-<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
-<p>These instructions will help you run the samples provided here.</p>
-</div>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
-<p>Before using the samples, you need to obtain either an OAuth access token or an integration key. Please refer to the AdobeSign API page (<a class="reference external" href="https://secure.echosign.com/account/echosignApi">https://secure.echosign.com/account/echosignApi</a>) for information on how to do this for your account.</p>
+<p>Before using the samples, you need to obtain either an OAuth access token or an integration key as described at <a class="reference external" href="https://opensource.adobe.com/acrobat-sign/developer_guide/gstarted.html">https://opensource.adobe.com/acrobat-sign/developer_guide/gstarted.html</a>.</p>
 <p>You can provide this token or key as a value to the OAUTH_ACCESS_TOKEN constant in RestApiOAuthTokens.java, or you can provide a refresh token as a value to the OAUTH_REFRESH_TOKEN constant (in the same class) which will be used to refresh the OAuth access token.</p>
 <p>If neither is provided then a new OAuth access token will be requested from AdobeSign based on credentials provided in the OAuthCredentials.json file. Please refer to the AdobeSign OAuth page (<a class="reference external" href="https://secure.echosign.com/public/static/oauthDoc.jsp">https://secure.echosign.com/public/static/oauthDoc.jsp</a>) for information on how to obtain OAuth credentials for your account.</p>
 </div>
@@ -325,6 +323,18 @@
 <div class="section" id="versions">
 <h2>Versions<a class="headerlink" href="#versions" title="Permalink to this headline">¶</a></h2>
 <p>This distribution contains sample clients built on different versions of AdobeSign REST API. Please refer the change log below to learn about the changes in subsequent versions in the section below.</p>
+<div class="section" id="v6">
+<h3>v6<a class="headerlink" href="#v6" title="Permalink to this headline">¶</a></h3>
+<p>The latest version of Acrobat Sign REST API which introduces many advanced features, including Draft, Reminder API’s, Pagination, ETag, Suppress Email among others.</p>
+</div>
+<div class="section" id="v5">
+<h3>v5<a class="headerlink" href="#v5" title="Permalink to this headline">¶</a></h3>
+<p>These samples demonstrate the usage of signer set in the APIs while sending the agreement and fetching the agreement details. Using signer set feature, you can assign same signing step to multiple signers and whoever signs first out of them will be become the actual signer of the signing step.</p>
+</div>
+<div class="section" id="v4">
+<h3>v4<a class="headerlink" href="#v4" title="Permalink to this headline">¶</a></h3>
+<p>These samples demonstrate the usage of signer set in the APIs while sending the agreement and fetching the agreement details. Using signer set feature, you can assign same signing step to multiple signers and whoever signs first out of them will be become the actual signer of the signing step.</p>
+</div>
 <div class="section" id="v3">
 <h3>v3<a class="headerlink" href="#v3" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
@@ -332,18 +342,6 @@
 <li><p>The use of “base URLs” is demonstrated. Base URLs are now needed to access the REST API properly.</p></li>
 <li><p>The latest version also contains samples to use new REST APIs which are /views and /search.</p></li>
 </ol>
-</div>
-<div class="section" id="v4">
-<h3>v4<a class="headerlink" href="#v4" title="Permalink to this headline">¶</a></h3>
-<p>Latest samples demonstrate the usage of signer set in the APIs while sending the agreement and fetching the agreement details. Using signer set feature, you can assign same signing step to multiple signers and whoever signs first out of them will be become the actual signer of the signing step.</p>
-</div>
-<div class="section" id="v5">
-<h3>v5<a class="headerlink" href="#v5" title="Permalink to this headline">¶</a></h3>
-<p>Latest samples demonstrate the usage of signer set in the APIs while sending the agreement and fetching the agreement details. Using signer set feature, you can assign same signing step to multiple signers and whoever signs first out of them will be become the actual signer of the signing step.</p>
-</div>
-<div class="section" id="v6">
-<h3>v6<a class="headerlink" href="#v6" title="Permalink to this headline">¶</a></h3>
-<p>The latest version of Acrobat Sign REST API which introduces lots of advance features like Draft, Reminder API’s, Pagination, ETag, Suppress Email among others.</p>
 </div>
 </div>
 </div>
