@@ -20,7 +20,7 @@
     
   
   
-  <link rel="canonical" href="https://www.adobe.com/go/acrobatsigndevhome/events.html" />
+  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/developer_guide/events.html" />
   
 
   
@@ -121,7 +121,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Developer Guide TOC</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Developer Guide TOC</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Acrobat Sign Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gstarted.html">Create a Developer Account</a><ul>
@@ -527,7 +527,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v.6)</a></li>
@@ -535,7 +535,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://helpx.adobe.com/sign/using/integration-guides.html">Acrobat Sign integration guides</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SDKs and Samples</span></p>
+<p class="caption" role="heading"><span class="caption-text">SDKs and Samples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="../sdks/js.html#://">JS SDK</a></li>
 <li class="toctree-l1"><a class="reference external" href="../sdks/java.html#://">JAVA SDK</a></li>
@@ -556,11 +556,11 @@
         <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
         <div class="fixedbar">  
           <div class="wy-menu-items">
-            <a href="https://www.adobe.com/go/acrobatsigndevguide" class="topbarlink">Developer Guide</a>
-            <a href="https://www.adobe.com/go/acrobatsignapireference" class="topbarlink">API Reference</a>
-            <a href="https://www.adobe.com/go/acrobatsigntechblog" class="topbarlink">Tech Blog</a>
-            <a href="https://www.adobe.com/go/acrobatsigndevaccount" class="topbarlink">Get a Dev Account</a>
-            <a href="https://www.adobe.com/go/acrobatsigndevforum" class="topbarlink">Developer Forum</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer Guide</a>
+            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">API Reference</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
+            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Get a Dev Account</a>
+            <a href="" class="topbarlink">Developer Forum</a>
           </div>  
           <div class="sign-in">
             <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
@@ -638,18 +638,18 @@
            <div itemprop="articleBody">
             
   <div class="section" id="events">
-<h1>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h1>
+<h1>Events<a class="headerlink" href="#events" title="Permalink to this heading">¶</a></h1>
 <p>Acrobat Sign capabilities can be incorporated into external applications by directly embedding the Acrobat Sign user interface (UI) within these applications. Acrobat Sign also supports sending events (status updates) to the third-party application pages so that the external application is aware of the actions that the user is performing with the Acrobat Sign UI. These events are passed between the controller window and a receiver window running on different domains for event communication.</p>
 <p>This page provides a guide to all the events supported by Acrobat Sign.</p>
 <div class="section" id="system-requirements">
-<h2>System requirements<a class="headerlink" href="#system-requirements" title="Permalink to this headline">¶</a></h2>
+<h2>System requirements<a class="headerlink" href="#system-requirements" title="Permalink to this heading">¶</a></h2>
 <p>To use the event framework within Acrobat Sign, you need a browser that supports <code class="docutils literal notranslate"><span class="pre">postMessage</span></code>. See <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Window.postMessage">this page</a> to get a list of all supported browsers.</p>
 </div>
 <div class="section" id="supported-events">
-<h2>Supported events<a class="headerlink" href="#supported-events" title="Permalink to this headline">¶</a></h2>
+<h2>Supported events<a class="headerlink" href="#supported-events" title="Permalink to this heading">¶</a></h2>
 <p>The following table lists the Acrobat Sign supported UI events that can be embedded and presented within the UI of external applications.</p>
 <div class="section" id="workflow-events">
-<h3>Workflow events<a class="headerlink" href="#workflow-events" title="Permalink to this headline">¶</a></h3>
+<h3>Workflow events<a class="headerlink" href="#workflow-events" title="Permalink to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 18%" />
@@ -679,7 +679,7 @@
 </table>
 </div>
 <div class="section" id="page-load-events">
-<h3>Page Load events<a class="headerlink" href="#page-load-events" title="Permalink to this headline">¶</a></h3>
+<h3>Page Load events<a class="headerlink" href="#page-load-events" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -725,7 +725,7 @@
 </table>
 </div>
 <div class="section" id="session-events">
-<h3>Session events<a class="headerlink" href="#session-events" title="Permalink to this headline">¶</a></h3>
+<h3>Session events<a class="headerlink" href="#session-events" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -765,7 +765,7 @@
 </table>
 </div>
 <div class="section" id="user-action-events">
-<h3>User action events<a class="headerlink" href="#user-action-events" title="Permalink to this headline">¶</a></h3>
+<h3>User action events<a class="headerlink" href="#user-action-events" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -802,7 +802,7 @@
 </div>
 </div>
 <div class="section" id="using-events">
-<h2>Using events<a class="headerlink" href="#using-events" title="Permalink to this headline">¶</a></h2>
+<h2>Using events<a class="headerlink" href="#using-events" title="Permalink to this heading">¶</a></h2>
 <p>In order to use the events fired by Acrobat Sign, the external application should include a callback handler in the parent page that embeds the Acrobat Sign application UI.</p>
 <p>The following example depicts an event handler that can be placed in the parent page:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>functioneventHandler(e){
@@ -834,7 +834,7 @@ if(!window.addEventListener){
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 01, 2022. 
+        Last update: Aug 16, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

@@ -20,7 +20,7 @@
     
   
   
-  <link rel="canonical" href="https://www.adobe.com/go/acrobatsigndevhome/scenarios.html" />
+  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/developer_guide/scenarios.html" />
   
 
   
@@ -121,7 +121,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Developer Guide TOC</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Developer Guide TOC</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Acrobat Sign Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gstarted.html">Create a Developer Account</a><ul>
@@ -527,7 +527,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v.6)</a></li>
@@ -535,7 +535,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://helpx.adobe.com/sign/using/integration-guides.html">Acrobat Sign integration guides</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SDKs and Samples</span></p>
+<p class="caption" role="heading"><span class="caption-text">SDKs and Samples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="../sdks/js.html#://">JS SDK</a></li>
 <li class="toctree-l1"><a class="reference external" href="../sdks/java.html#://">JAVA SDK</a></li>
@@ -556,11 +556,11 @@
         <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
         <div class="fixedbar">  
           <div class="wy-menu-items">
-            <a href="https://www.adobe.com/go/acrobatsigndevguide" class="topbarlink">Developer Guide</a>
-            <a href="https://www.adobe.com/go/acrobatsignapireference" class="topbarlink">API Reference</a>
-            <a href="https://www.adobe.com/go/acrobatsigntechblog" class="topbarlink">Tech Blog</a>
-            <a href="https://www.adobe.com/go/acrobatsigndevaccount" class="topbarlink">Get a Dev Account</a>
-            <a href="https://www.adobe.com/go/acrobatsigndevforum" class="topbarlink">Developer Forum</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer Guide</a>
+            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">API Reference</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
+            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Get a Dev Account</a>
+            <a href="" class="topbarlink">Developer Forum</a>
           </div>  
           <div class="sign-in">
             <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
@@ -638,10 +638,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="example-scenarios">
-<span id="scenarios"></span><h1>Example Scenarios<a class="headerlink" href="#example-scenarios" title="Permalink to this headline">¶</a></h1>
+<span id="scenarios"></span><h1>Example Scenarios<a class="headerlink" href="#example-scenarios" title="Permalink to this heading">¶</a></h1>
 <p>The <a class="reference external" href="apiusage.html">API Usage</a> section lists simple tasks that can be performed using the Sign APIs. However, you can also use the APIs in other simple to complex signing scenarios as mentioned in this guide.</p>
 <div class="section" id="parental-consent">
-<h2>Parental Consent<a class="headerlink" href="#parental-consent" title="Permalink to this headline">¶</a></h2>
+<h2>Parental Consent<a class="headerlink" href="#parental-consent" title="Permalink to this heading">¶</a></h2>
 <img alt="_images/sign_scenarios_1.png" src="_images/sign_scenarios_1.png" />
 <p>A common scenario involves an application where users need to sign documents within the application as part of a process. For example, a partner portal for onboarding new partners that requires them to sign an NDA or an e-commerce application that requires users to sign a purchase agreement. In these cases, the document is not sent to recipients for signature, but is presented to them within your application.</p>
 <p>For this type of integration, Acrobat Sign supports creating a Widget through the Acrobat Sign APIs. A widget is like a reusable template that can be presented to users multiple times and signed multiple times. Each time a widget gets signed, the signed document becomes a separate instance of the document. A good way to think about the relationship of the widget and the documents signed through it is a parent-child relationship. A widget can be presented either to an anonymous signer, in which case Acrobat Sign can validate the signer&amp;rsquo;s identity as part of the signing process, or to a signer whose identity can be specified through the API by the hosting application.</p>
@@ -657,12 +657,12 @@
 <p>Before you begin creating a Widget, learn to <a class="reference internal" href="apiusage.html#sendforsigning"><span class="std std-ref">Send for Signing (Create an Agreement)</span></a>.</p>
 </div>
 <div class="section" id="creating-a-widget">
-<h2>Creating a Widget<a class="headerlink" href="#creating-a-widget" title="Permalink to this headline">¶</a></h2>
+<h2>Creating a Widget<a class="headerlink" href="#creating-a-widget" title="Permalink to this heading">¶</a></h2>
 <p>See <a class="reference internal" href="apiusage.html#widget"><span class="std std-ref">Create a Widget</span></a></p>
 <p>Each time a widget is signed by a parent, a separate instance of a document gets created. To get the agreements created using the widget, see <a class="reference internal" href="apiusage.html#download"><span class="std std-ref">Download the Agreement</span></a>.</p>
 </div>
 <div class="section" id="photo-rights">
-<h2>Photo Rights<a class="headerlink" href="#photo-rights" title="Permalink to this headline">¶</a></h2>
+<h2>Photo Rights<a class="headerlink" href="#photo-rights" title="Permalink to this heading">¶</a></h2>
 <p>The Sign APIs can also be used for scenarios involving in-person signing. Consider an example wherein you need to get the photo publishing rights of a celebrity. You can use the in-person signing technique to simplify the signing process for the celebrity.</p>
 <p>The steps involved are:</p>
 <ol class="arabic simple">
@@ -685,7 +685,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 01, 2022. 
+        Last update: Aug 16, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

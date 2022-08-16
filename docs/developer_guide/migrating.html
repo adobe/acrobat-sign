@@ -20,7 +20,7 @@
     
   
   
-  <link rel="canonical" href="https://www.adobe.com/go/acrobatsigndevhome/migrating.html" />
+  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/developer_guide/migrating.html" />
   
 
   
@@ -121,7 +121,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Developer Guide TOC</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Developer Guide TOC</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Acrobat Sign Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gstarted.html">Create a Developer Account</a><ul>
@@ -527,7 +527,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v.6)</a></li>
@@ -535,7 +535,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://helpx.adobe.com/sign/using/integration-guides.html">Acrobat Sign integration guides</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SDKs and Samples</span></p>
+<p class="caption" role="heading"><span class="caption-text">SDKs and Samples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="../sdks/js.html#://">JS SDK</a></li>
 <li class="toctree-l1"><a class="reference external" href="../sdks/java.html#://">JAVA SDK</a></li>
@@ -556,11 +556,11 @@
         <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
         <div class="fixedbar">  
           <div class="wy-menu-items">
-            <a href="https://www.adobe.com/go/acrobatsigndevguide" class="topbarlink">Developer Guide</a>
-            <a href="https://www.adobe.com/go/acrobatsignapireference" class="topbarlink">API Reference</a>
-            <a href="https://www.adobe.com/go/acrobatsigntechblog" class="topbarlink">Tech Blog</a>
-            <a href="https://www.adobe.com/go/acrobatsigndevaccount" class="topbarlink">Get a Dev Account</a>
-            <a href="https://www.adobe.com/go/acrobatsigndevforum" class="topbarlink">Developer Forum</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer Guide</a>
+            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">API Reference</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
+            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Get a Dev Account</a>
+            <a href="" class="topbarlink">Developer Forum</a>
           </div>  
           <div class="sign-in">
             <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
@@ -638,7 +638,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="migrating-from-soap">
-<h1>Migrating From SOAP<a class="headerlink" href="#migrating-from-soap" title="Permalink to this headline">¶</a></h1>
+<h1>Migrating From SOAP<a class="headerlink" href="#migrating-from-soap" title="Permalink to this heading">¶</a></h1>
 <p>If you are using the legacy Acrobat Sign SOAP APIs, we highly recommend migrating your apps to consume the v6 REST APIs.</p>
 <p>Adobe is committed to providing a safe and secure product experience for our customers by adhering to the latest industry-standard security protocols. As a part of that process, on December 2021, Adobe Acrobat Sign ended support for older API authentication models that allowed sending username and password in the API call.</p>
 <p>To move to a secure authentication model:</p>
@@ -648,10 +648,10 @@
 </ul>
 <p>The general recommendation is that every user in the organization should directly authenticate with Adobe while using your client app to have their unique access tokens issued. SAML configuration with Acrobat Sign in your user’s organization provides an easy way to do so. However, there might be enterprise use-cases where only a single admin is required to authenticate with Adobe and other users in this organization can just use the client without an Adobe login. This is possible via Adobe’s OAUTH modifiers. Modifiers enable clients to call APIs with admins’ OAUTH token and actual regular user’s identity in “x-api-user” header.</p>
 <div class="section" id="soap-to-rest-mapping">
-<h2>SOAP to REST mapping<a class="headerlink" href="#soap-to-rest-mapping" title="Permalink to this headline">¶</a></h2>
+<h2>SOAP to REST mapping<a class="headerlink" href="#soap-to-rest-mapping" title="Permalink to this heading">¶</a></h2>
 <p>The tables below maps SOAP endpoints to their REST equivalents. Both endpoints link directly to the full method description.</p>
 <div class="section" id="general-purpose-methods">
-<h3>General-purpose Methods<a class="headerlink" href="#general-purpose-methods" title="Permalink to this headline">¶</a></h3>
+<h3>General-purpose Methods<a class="headerlink" href="#general-purpose-methods" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -672,7 +672,7 @@
 </div>
 </div>
 <div class="section" id="document-methods">
-<h3>Document Methods<a class="headerlink" href="#document-methods" title="Permalink to this headline">¶</a></h3>
+<h3>Document Methods<a class="headerlink" href="#document-methods" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -852,7 +852,7 @@
 </table>
 </div>
 <div class="section" id="status-methods">
-<h3>Status Methods<a class="headerlink" href="#status-methods" title="Permalink to this headline">¶</a></h3>
+<h3>Status Methods<a class="headerlink" href="#status-methods" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -1018,7 +1018,7 @@
 </table>
 </div>
 <div class="section" id="user-methods">
-<h3>User Methods<a class="headerlink" href="#user-methods" title="Permalink to this headline">¶</a></h3>
+<h3>User Methods<a class="headerlink" href="#user-methods" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -1308,7 +1308,7 @@
 </table>
 </div>
 <div class="section" id="web-form-methods">
-<h3>Web Form Methods<a class="headerlink" href="#web-form-methods" title="Permalink to this headline">¶</a></h3>
+<h3>Web Form Methods<a class="headerlink" href="#web-form-methods" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -1455,7 +1455,7 @@
 </table>
 </div>
 <div class="section" id="test-methods">
-<h3>Test Methods<a class="headerlink" href="#test-methods" title="Permalink to this headline">¶</a></h3>
+<h3>Test Methods<a class="headerlink" href="#test-methods" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -1487,12 +1487,12 @@
 </div>
 </div>
 <div class="section" id="deprecated-soap-methods">
-<h2>Deprecated SOAP Methods<a class="headerlink" href="#deprecated-soap-methods" title="Permalink to this headline">¶</a></h2>
+<h2>Deprecated SOAP Methods<a class="headerlink" href="#deprecated-soap-methods" title="Permalink to this heading">¶</a></h2>
 <div class="section" id="access-methods">
-<h3>Access Methods<a class="headerlink" href="#access-methods" title="Permalink to this headline">¶</a></h3>
+<h3>Access Methods<a class="headerlink" href="#access-methods" title="Permalink to this heading">¶</a></h3>
 <p>issueAccessToken - <a class="reference external" href="https://www.adobe.io/apis/documentcloud/sign/docs.html#!adobedocs/adobe-sign/master/gstarted/configure_oauth.md">OAuth has replaced access tokens</a>.</p>
 <div class="section" id="doc-methods">
-<h4>Doc Methods<a class="headerlink" href="#doc-methods" title="Permalink to this headline">¶</a></h4>
+<h4>Doc Methods<a class="headerlink" href="#doc-methods" title="Permalink to this heading">¶</a></h4>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -1510,7 +1510,7 @@
 </div>
 </div>
 <div class="section" id="id1">
-<h3>Status Methods<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3>Status Methods<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -1597,7 +1597,7 @@
 </table>
 </div>
 <div class="section" id="id2">
-<h3>User Methods<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3>User Methods<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -1642,7 +1642,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 01, 2022. 
+        Last update: Aug 16, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

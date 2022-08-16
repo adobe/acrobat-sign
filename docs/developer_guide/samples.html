@@ -20,7 +20,7 @@
     
   
   
-  <link rel="canonical" href="https://www.adobe.com/go/acrobatsigndevhome/samples.html" />
+  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/developer_guide/samples.html" />
   
 
   
@@ -121,7 +121,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Developer Guide TOC</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Developer Guide TOC</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Acrobat Sign Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gstarted.html">Create a Developer Account</a><ul>
@@ -527,7 +527,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v.6)</a></li>
@@ -535,7 +535,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://helpx.adobe.com/sign/using/integration-guides.html">Acrobat Sign integration guides</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SDKs and Samples</span></p>
+<p class="caption" role="heading"><span class="caption-text">SDKs and Samples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="../sdks/js.html#://">JS SDK</a></li>
 <li class="toctree-l1"><a class="reference external" href="../sdks/java.html#://">JAVA SDK</a></li>
@@ -556,11 +556,11 @@
         <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
         <div class="fixedbar">  
           <div class="wy-menu-items">
-            <a href="https://www.adobe.com/go/acrobatsigndevguide" class="topbarlink">Developer Guide</a>
-            <a href="https://www.adobe.com/go/acrobatsignapireference" class="topbarlink">API Reference</a>
-            <a href="https://www.adobe.com/go/acrobatsigntechblog" class="topbarlink">Tech Blog</a>
-            <a href="https://www.adobe.com/go/acrobatsigndevaccount" class="topbarlink">Get a Dev Account</a>
-            <a href="https://www.adobe.com/go/acrobatsigndevforum" class="topbarlink">Developer Forum</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer Guide</a>
+            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">API Reference</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
+            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Get a Dev Account</a>
+            <a href="" class="topbarlink">Developer Forum</a>
           </div>  
           <div class="sign-in">
             <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
@@ -638,10 +638,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="rest-api-samples">
-<h1>REST API Samples<a class="headerlink" href="#rest-api-samples" title="Permalink to this headline">¶</a></h1>
+<h1>REST API Samples<a class="headerlink" href="#rest-api-samples" title="Permalink to this heading">¶</a></h1>
 <p>The samples included in this section are Java clients of the Acrobat Sign REST API that demonstrate how to use the API as well as some of its key capabilities.</p>
 <div class="section" id="the-package">
-<h2>The package<a class="headerlink" href="#the-package" title="Permalink to this headline">¶</a></h2>
+<h2>The package<a class="headerlink" href="#the-package" title="Permalink to this heading">¶</a></h2>
 <p>All sources are under the <em>adobesign.api.rest.sample</em> package (and sub packages) as published in the <a class="reference external" href="https://www.adobe.com/go/esign-api-samples">Acrobat Sign GitHub repo</a> and are laid out as follows:</p>
 <ul class="simple">
 <li><p><strong>adobesign.api.rest.sample</strong>: Contains individual sample clients, each demonstrating a specific capability. Each client is named according to the capability it demonstrates. For example, the client GetUsersInAccount.java shows how to retrieve a list of users from the account of the user on whose behalf the API call is made (also called <strong>API user</strong> in this document).</p></li>
@@ -650,13 +650,13 @@
 </ul>
 </div>
 <div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">¶</a></h2>
 <p>Before using the samples, you need to obtain either an OAuth access token or an integration key. Please refer to the AdobeSign API page (<a class="reference external" href="https://secure.echosign.com/account/echosignApi">https://secure.echosign.com/account/echosignApi</a>) for information on how to do this for your account.</p>
 <p>You can provide this token or key as a value to the <code class="docutils literal notranslate"><span class="pre">OAUTH_ACCESS_TOKEN</span></code> constant in RestApiOAuthTokens.java, or you can provide a refresh token as a value to the <code class="docutils literal notranslate"><span class="pre">OAUTH_REFRESH_TOKEN</span></code> constant (in the same class) which will be used to refresh the OAuth access token.</p>
 <p>If neither is provided, then a new OAuth access token will be requested from AdobeSign based on credentials provided in the OAuthCredentials.json file. Please refer to the AdobeSign OAuth page (<a class="reference external" href="https://secure.echosign.com/public/static/oauthDoc.jsp">https://secure.echosign.com/public/static/oauthDoc.jsp</a>) for information on how to obtain OAuth credentials for your account.</p>
 </div>
 <div class="section" id="using-the-samples">
-<h2>Using the Samples<a class="headerlink" href="#using-the-samples" title="Permalink to this headline">¶</a></h2>
+<h2>Using the Samples<a class="headerlink" href="#using-the-samples" title="Permalink to this heading">¶</a></h2>
 <p>Each sample client has a set of instructions (provided as class comments) that need to be followed. In particular, look for “TODO” comments in the client code and in the JSON input files for values that need to be updated before the client can work properly. Once the clients and support files are updated with appropriate values, they can be compiled and run.</p>
 <p>The following steps outline one way this can be done using the command line on Windows.</p>
 <ul class="simple">
@@ -667,12 +667,12 @@
 <p>For example, to run GetUsersInAccount, use: <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-cp</span> <span class="pre">.;lib/json_simple-1.1.jar</span> <span class="pre">adobesign.api.rest.sample.GetUsersInAccount</span></code></p>
 <p>You may also use an IDE of your choice. In that case, you will need to create a new project with sources taken from the adobesign folder and lib/json.jar set up as an input library.</p>
 <div class="section" id="output-path">
-<h3>Output Path<a class="headerlink" href="#output-path" title="Permalink to this headline">¶</a></h3>
+<h3>Output Path<a class="headerlink" href="#output-path" title="Permalink to this heading">¶</a></h3>
 <p>The default output path used in the sample clients is the user temp directory. If needed, this can be changed by updating the method <code class="docutils literal notranslate"><span class="pre">adobesign.api.rest.sample.util.FileUtils.getDefaultOutputPath()</span></code>.</p>
 </div>
 </div>
 <div class="section" id="create-a-new-widget-with-countersigners">
-<h2>Create a New Widget with Countersigners<a class="headerlink" href="#create-a-new-widget-with-countersigners" title="Permalink to this headline">¶</a></h2>
+<h2>Create a New Widget with Countersigners<a class="headerlink" href="#create-a-new-widget-with-countersigners" title="Permalink to this heading">¶</a></h2>
 <p>This sample client demonstrates how to create a new widget.</p>
 <ol class="arabic simple">
 <li><p>Before running this sample, check that you have modified the JSON files OAuthCredentials.json and CreateWidget.json with appropriate values. Which values need to be specified is indicated in the files.</p></li>
@@ -760,7 +760,7 @@
 </div>
 </div>
 <div class="section" id="download-an-agreements-audit-report">
-<h2>Download an Agreement’s Audit Report<a class="headerlink" href="#download-an-agreements-audit-report" title="Permalink to this headline">¶</a></h2>
+<h2>Download an Agreement’s Audit Report<a class="headerlink" href="#download-an-agreements-audit-report" title="Permalink to this heading">¶</a></h2>
 <p>This sample client demonstrates how to to download the audit report for the specified agreement.</p>
 <ol class="arabic simple">
 <li><p>Before running this sample, check that you have modified the JSON file OAuthCredentials.json with appropriate values. Which values need to be specified is indicated in the file.</p></li>
@@ -834,7 +834,7 @@
 </div>
 </div>
 <div class="section" id="download-the-combined-document-for-an-agreement">
-<h2>Download the Combined Document for an Agreement<a class="headerlink" href="#download-the-combined-document-for-an-agreement" title="Permalink to this headline">¶</a></h2>
+<h2>Download the Combined Document for an Agreement<a class="headerlink" href="#download-the-combined-document-for-an-agreement" title="Permalink to this heading">¶</a></h2>
 <p>This sample client demonstrates how to to download the combined document for the specified agreement.</p>
 <p><strong>IMPORTANT:</strong></p>
 <ol class="arabic simple">
@@ -908,7 +908,7 @@
 </div>
 </div>
 <div class="section" id="download-documents-from-an-agreement">
-<h2>Download Documents from an Agreement<a class="headerlink" href="#download-documents-from-an-agreement" title="Permalink to this headline">¶</a></h2>
+<h2>Download Documents from an Agreement<a class="headerlink" href="#download-documents-from-an-agreement" title="Permalink to this heading">¶</a></h2>
 <p>This sample client demonstrates how to to download documents from a specified agreement.</p>
 <p><strong>IMPORTANT:</strong></p>
 <ol class="arabic simple">
@@ -1000,7 +1000,7 @@ public class DownloadDocumentsOfAgreement {
 </div>
 </div>
 <div class="section" id="get-an-agreements-status">
-<h2>Get an Agreement’s Status<a class="headerlink" href="#get-an-agreements-status" title="Permalink to this headline">¶</a></h2>
+<h2>Get an Agreement’s Status<a class="headerlink" href="#get-an-agreements-status" title="Permalink to this heading">¶</a></h2>
 <p>This sample client demonstrates how to to get status of all agreements of an account and display their agreement ID, name and status.</p>
 <p><strong>IMPORTANT:</strong></p>
 <ol class="arabic simple">
@@ -1057,7 +1057,7 @@ public class DownloadDocumentsOfAgreement {
 </div>
 </div>
 <div class="section" id="get-an-agreements-signing-url">
-<h2>Get an Agreement’s Signing URL<a class="headerlink" href="#get-an-agreements-signing-url" title="Permalink to this headline">¶</a></h2>
+<h2>Get an Agreement’s Signing URL<a class="headerlink" href="#get-an-agreements-signing-url" title="Permalink to this heading">¶</a></h2>
 <p>This sample client demonstrates how to to get the signing URL for an agreement.</p>
 <p><strong>IMPORTANT:</strong></p>
 <ol class="arabic simple">
@@ -1133,7 +1133,7 @@ public class DownloadDocumentsOfAgreement {
 </div>
 </div>
 <div class="section" id="send-reminders-to-participants">
-<h2>Send Reminders to Participants<a class="headerlink" href="#send-reminders-to-participants" title="Permalink to this headline">¶</a></h2>
+<h2>Send Reminders to Participants<a class="headerlink" href="#send-reminders-to-participants" title="Permalink to this heading">¶</a></h2>
 <p>This sample client demonstrates how to send reminders to active participants (those who are next in line in the signing process) of various agreements. It retrieves all agreements of the current API user and checks to see which agreements are out for signature, and if any of them has a participant that has not signed for longer than a specified amount of time. If the time limit has been crossed, all active articipants of that agreement are sent a reminder email.</p>
 <p><strong>IMPORTANT:</strong></p>
 <ol class="arabic simple">
@@ -1273,7 +1273,7 @@ public class DownloadDocumentsOfAgreement {
 </div>
 </div>
 <div class="section" id="send-an-agreement-using-a-library-document">
-<h2>Send an Agreement Using a Library Document<a class="headerlink" href="#send-an-agreement-using-a-library-document" title="Permalink to this headline">¶</a></h2>
+<h2>Send an Agreement Using a Library Document<a class="headerlink" href="#send-an-agreement-using-a-library-document" title="Permalink to this heading">¶</a></h2>
 <p>This sample client demonstrates how to send an agreement using a library document ID.</p>
 <p><strong>IMPORTANT:</strong></p>
 <ol class="arabic simple">
@@ -1351,7 +1351,7 @@ public class SendAgreementUsingLibraryDocument {
 </div>
 </div>
 <div class="section" id="send-an-agreement-using-a-transient-document">
-<h2>Send an Agreement Using a Transient Document<a class="headerlink" href="#send-an-agreement-using-a-transient-document" title="Permalink to this headline">¶</a></h2>
+<h2>Send an Agreement Using a Transient Document<a class="headerlink" href="#send-an-agreement-using-a-transient-document" title="Permalink to this heading">¶</a></h2>
 <p>This sample client demonstrates how to send an agreement using a transient document ID. See the postTransientDocument method in the file /util/RestApiAgreements.java for a definition of transient documents.</p>
 <p><strong>IMPORTANT:</strong></p>
 <ol class="arabic simple">
@@ -1441,7 +1441,7 @@ public class SendAgreementUsingLibraryDocument {
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 01, 2022. 
+        Last update: Aug 16, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

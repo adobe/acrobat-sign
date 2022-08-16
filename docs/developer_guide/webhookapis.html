@@ -20,7 +20,7 @@
     
   
   
-  <link rel="canonical" href="https://www.adobe.com/go/acrobatsigndevhome/webhookapis.html" />
+  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/developer_guide/webhookapis.html" />
   
 
   
@@ -121,7 +121,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Developer Guide TOC</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Developer Guide TOC</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Acrobat Sign Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gstarted.html">Create a Developer Account</a><ul>
@@ -527,7 +527,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v.6)</a></li>
@@ -535,7 +535,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://helpx.adobe.com/sign/using/integration-guides.html">Acrobat Sign integration guides</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SDKs and Samples</span></p>
+<p class="caption" role="heading"><span class="caption-text">SDKs and Samples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="../sdks/js.html#://">JS SDK</a></li>
 <li class="toctree-l1"><a class="reference external" href="../sdks/java.html#://">JAVA SDK</a></li>
@@ -556,11 +556,11 @@
         <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
         <div class="fixedbar">  
           <div class="wy-menu-items">
-            <a href="https://www.adobe.com/go/acrobatsigndevguide" class="topbarlink">Developer Guide</a>
-            <a href="https://www.adobe.com/go/acrobatsignapireference" class="topbarlink">API Reference</a>
-            <a href="https://www.adobe.com/go/acrobatsigntechblog" class="topbarlink">Tech Blog</a>
-            <a href="https://www.adobe.com/go/acrobatsigndevaccount" class="topbarlink">Get a Dev Account</a>
-            <a href="https://www.adobe.com/go/acrobatsigndevforum" class="topbarlink">Developer Forum</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer Guide</a>
+            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">API Reference</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
+            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Get a Dev Account</a>
+            <a href="" class="topbarlink">Developer Forum</a>
           </div>  
           <div class="sign-in">
             <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
@@ -638,11 +638,11 @@
            <div itemprop="articleBody">
             
   <div class="section" id="webhook-apis">
-<h1>Webhook APIs<a class="headerlink" href="#webhook-apis" title="Permalink to this headline">¶</a></h1>
+<h1>Webhook APIs<a class="headerlink" href="#webhook-apis" title="Permalink to this heading">¶</a></h1>
 <p>Webhook APIs are the means by which your integration communicates with the Acrobat Sign service about webhooks. Use the various API endpoints to create, delete, modify, and retrieve status information about your webhooks.</p>
 <p>Acrobat Sign APIs include the endpoints described below.</p>
 <div class="section" id="post-webhooks">
-<h2>POST /webhooks<a class="headerlink" href="#post-webhooks" title="Permalink to this headline">¶</a></h2>
+<h2>POST /webhooks<a class="headerlink" href="#post-webhooks" title="Permalink to this heading">¶</a></h2>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 20%" />
@@ -789,7 +789,7 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">HTTP</span> <span class="pre">Location</span></code> header field is returned in the response to provide information about the location of a newly created resource. Multiple webhooks can be created on a single resource. <em>Also, multiple webhooks can share the same URL.</em></p>
 </div>
 <div class="section" id="get-webhooks">
-<h2>GET /webhooks<a class="headerlink" href="#get-webhooks" title="Permalink to this headline">¶</a></h2>
+<h2>GET /webhooks<a class="headerlink" href="#get-webhooks" title="Permalink to this heading">¶</a></h2>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -900,7 +900,7 @@
 </table>
 </div>
 <div class="section" id="get-webhooks-webhookid">
-<h2>GET /webhooks/{webhookId}<a class="headerlink" href="#get-webhooks-webhookid" title="Permalink to this headline">¶</a></h2>
+<h2>GET /webhooks/{webhookId}<a class="headerlink" href="#get-webhooks-webhookid" title="Permalink to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -997,7 +997,7 @@
 </table>
 </div>
 <div class="section" id="put-webhooks-webhookid">
-<h2>PUT /webhooks/{webhookId}<a class="headerlink" href="#put-webhooks-webhookid" title="Permalink to this headline">¶</a></h2>
+<h2>PUT /webhooks/{webhookId}<a class="headerlink" href="#put-webhooks-webhookid" title="Permalink to this heading">¶</a></h2>
 <blockquote>
 <div><table class="colwidths-given docutils align-default">
 <colgroup>
@@ -1136,7 +1136,7 @@
 <p>Only events and conditional parameters can be modified. The webhook URL can’t be modified once the webhook is created. The modification can also be done in the INACTIVE state.</p>
 </div>
 <div class="section" id="put-webhooks-webhookid-state">
-<h2>PUT /webhooks/{webhookId}/state<a class="headerlink" href="#put-webhooks-webhookid-state" title="Permalink to this headline">¶</a></h2>
+<h2>PUT /webhooks/{webhookId}/state<a class="headerlink" href="#put-webhooks-webhookid-state" title="Permalink to this heading">¶</a></h2>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -1226,7 +1226,7 @@
 </table>
 </div>
 <div class="section" id="delete-webhooks-webhookid">
-<h2>DELETE /webhooks/{webhookId}<a class="headerlink" href="#delete-webhooks-webhookid" title="Permalink to this headline">¶</a></h2>
+<h2>DELETE /webhooks/{webhookId}<a class="headerlink" href="#delete-webhooks-webhookid" title="Permalink to this heading">¶</a></h2>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -1283,7 +1283,7 @@
 </table>
 </div>
 <div class="section" id="standard-api-request-error-codes">
-<h2>Standard API request error codes<a class="headerlink" href="#standard-api-request-error-codes" title="Permalink to this headline">¶</a></h2>
+<h2>Standard API request error codes<a class="headerlink" href="#standard-api-request-error-codes" title="Permalink to this heading">¶</a></h2>
 <p>Any API request may return any of these standard error codes:</p>
 <table class="docutils align-default">
 <colgroup>
@@ -1358,7 +1358,7 @@
 </table>
 </div>
 <div class="section" id="standard-api-request-headers">
-<h2>Standard API request headers<a class="headerlink" href="#standard-api-request-headers" title="Permalink to this headline">¶</a></h2>
+<h2>Standard API request headers<a class="headerlink" href="#standard-api-request-headers" title="Permalink to this heading">¶</a></h2>
 <p>Every API request will have the following standard headers. If Any API in the list above does not have one or more of the following headers, the API will explicitly document this fact.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -1384,10 +1384,10 @@
 </table>
 </div>
 <div class="section" id="using-aws-lambda-functions">
-<span id="aws"></span><h2>Using AWS Lambda Functions<a class="headerlink" href="#using-aws-lambda-functions" title="Permalink to this headline">¶</a></h2>
+<span id="aws"></span><h2>Using AWS Lambda Functions<a class="headerlink" href="#using-aws-lambda-functions" title="Permalink to this heading">¶</a></h2>
 <p>AWS Lambda Functions is a serverless computing service offered by Amazon Web Services. AWS Lambda Functions offer you a platform in which you can execute function code on demand over the internet without the need to manage your own web servers. This gives you a no-overhead solution for hosting functions in the cloud, such as webhooks for Acrobat Sign. AWS Lambda Functions support Node.js (JavaScript), Java, Python, C#, and Go.</p>
 <div class="section" id="create-an-aws-lambda-function">
-<h3>Create an AWS Lambda function<a class="headerlink" href="#create-an-aws-lambda-function" title="Permalink to this headline">¶</a></h3>
+<h3>Create an AWS Lambda function<a class="headerlink" href="#create-an-aws-lambda-function" title="Permalink to this heading">¶</a></h3>
 <p>To create an AWS Lambda function:</p>
 <ol class="arabic simple">
 <li><p>Login to your <a class="reference external" href="https://aws.amazon.com/console/">AWS Management Console</a> and select the AWS Lambda service from the services list.</p></li>
@@ -1406,7 +1406,7 @@
 </ol>
 </div>
 <div class="section" id="register-your-acrobat-sign-webhook">
-<h3>Register your Acrobat Sign webhook<a class="headerlink" href="#register-your-acrobat-sign-webhook" title="Permalink to this headline">¶</a></h3>
+<h3>Register your Acrobat Sign webhook<a class="headerlink" href="#register-your-acrobat-sign-webhook" title="Permalink to this heading">¶</a></h3>
 <p>Before registering a webhook, Acrobat Sign verifies that the webhook URL that is provided in the registration request really intends to receive notifications; see <a class="reference internal" href="webhooks.html#verifyintent"><span class="std std-ref">Verification of intent of the webhook URL</span></a>. For this purpose, when a new webhook registration request is received by Acrobat Sign, it first makes an HTTPS GET verification request to the webhook URL with a custom HTTP header, <code class="docutils literal notranslate"><span class="pre">X-AdobeSign-ClientId</span></code>. The value in this header is set to the client ID of the application that is requesting to create and register the webhook. The webhook URL must respond to this verification request with a <strong>2XX response code</strong>, and it must send back the same client ID value in one of the following two ways: Also note the same behaviour for clientID is expected when the Webhook URL receives POST notifications.</p>
 <p><strong>Case 1: Pass the client ID as X-AdobeSign-ClientId in the response header</strong></p>
 <p>This is the same header which was passed in the request, and it must be echoed back in the response.</p>
@@ -1462,7 +1462,7 @@
 <p>Save the function. The Lambda function is created, and you are almost ready to use it in a real-time webhook.</p>
 </div>
 <div class="section" id="configure-the-aws-api-gateway">
-<h3>Configure the AWS API Gateway<a class="headerlink" href="#configure-the-aws-api-gateway" title="Permalink to this headline">¶</a></h3>
+<h3>Configure the AWS API Gateway<a class="headerlink" href="#configure-the-aws-api-gateway" title="Permalink to this heading">¶</a></h3>
 <p>To make this Lambda function publicly accessible through a HTTP method, you need to configure the AWS API Gateway using your function as the backend for the API.</p>
 <ol class="arabic">
 <li><p>In the AWS Management Console, select <strong>API Gateway</strong> from the AWS Services list.</p>
@@ -1486,7 +1486,7 @@
 <img alt="_images/sign_webhooks_aws_4.png" src="_images/sign_webhooks_aws_4.png" />
 </div>
 <div class="section" id="deploy-the-api">
-<h3>Deploy the API<a class="headerlink" href="#deploy-the-api" title="Permalink to this headline">¶</a></h3>
+<h3>Deploy the API<a class="headerlink" href="#deploy-the-api" title="Permalink to this heading">¶</a></h3>
 <p>The next step is deploying this API so it becomes ready to use:</p>
 <ol class="arabic simple">
 <li><p>In the Actions drop-down, select <strong>Deploy API.</strong> The Deploy API dialog appears.</p></li>
@@ -1498,16 +1498,16 @@
 <p>Take note of this URL as you’ll need to enter it as your real-time webhook URL.</p>
 </div>
 <div class="section" id="ready-to-use">
-<h3>Ready to Use<a class="headerlink" href="#ready-to-use" title="Permalink to this headline">¶</a></h3>
+<h3>Ready to Use<a class="headerlink" href="#ready-to-use" title="Permalink to this heading">¶</a></h3>
 <p>It’s done. Use the above URL with “/{nodeJSfunctionName}” appended as the webhook URL in your <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/webhooks</span></code> API request. Once you have verified the behavior, the webhook URL is functional as per Acrobat Sign standards. You can further update your new webhook and add custom logic as needed for your application.</p>
 </div>
 </div>
 <div class="section" id="using-azure-functions">
-<span id="azure"></span><h2>Using Azure Functions<a class="headerlink" href="#using-azure-functions" title="Permalink to this headline">¶</a></h2>
+<span id="azure"></span><h2>Using Azure Functions<a class="headerlink" href="#using-azure-functions" title="Permalink to this heading">¶</a></h2>
 <p>Azure Functions is Microsoft’s serverless computing cloud platform. Using Azure Functions, you can write functional code and host it in the Azure cloud, ready to execute on demand. This always-on functionality, combined with the ease of management offered by cloud-based serverless architecture, makes Azure Functions a viable alternative for hosting your Acrobat Sign webhooks.</p>
 <p>Azure Functions executes individual serverless functions within a function app. Function apps can host many different functions, and you can have many function apps on Azure; so the infrastructure enables you to organize related functions into apps.</p>
 <div class="section" id="prerequisites">
-<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">¶</a></h3>
 <p>To create and host a webhook in Azure Functions, you need:</p>
 <ol class="arabic simple">
 <li><p>A Microsoft account with license to create Azure Functions applications.</p></li>
@@ -1516,9 +1516,9 @@
 </ol>
 </div>
 <div class="section" id="creating-an-azure-functions-trigger-webhook">
-<h3>Creating an Azure Functions Trigger-Webhook<a class="headerlink" href="#creating-an-azure-functions-trigger-webhook" title="Permalink to this headline">¶</a></h3>
+<h3>Creating an Azure Functions Trigger-Webhook<a class="headerlink" href="#creating-an-azure-functions-trigger-webhook" title="Permalink to this heading">¶</a></h3>
 <div class="section" id="create-a-js-httptrigger-function">
-<h4>Create a JS HttpTrigger function<a class="headerlink" href="#create-a-js-httptrigger-function" title="Permalink to this headline">¶</a></h4>
+<h4>Create a JS HttpTrigger function<a class="headerlink" href="#create-a-js-httptrigger-function" title="Permalink to this heading">¶</a></h4>
 <ol class="arabic simple">
 <li><p>Login with your Microsoft account at <a class="reference external" href="https://portal.azure.com/">https://portal.azure.com/</a></p></li>
 <li><p>Select Function Apps from your account dashboard menu. This will open your list of Azure Function apps.</p></li>
@@ -1535,7 +1535,7 @@
 <p>This will create a new function that has the capability of handling incoming API requests.</p>
 </div>
 <div class="section" id="register-the-webhook">
-<h4>Register the webhook<a class="headerlink" href="#register-the-webhook" title="Permalink to this headline">¶</a></h4>
+<h4>Register the webhook<a class="headerlink" href="#register-the-webhook" title="Permalink to this heading">¶</a></h4>
 <p>Before registering a webhook successfully, Acrobat Sign verifies that the webhook URL that is provided in the registration request really intends to receive notifications; see <a class="reference internal" href="webhooks.html#verifyintent"><span class="std std-ref">Verification of intent of the webhook URL</span></a>. For this purpose, when a new webhook registration request is received by Acrobat Sign, it first makes an HTTPS GET verification request to the webhook URL with a custom HTTP header, <code class="docutils literal notranslate"><span class="pre">X-AdobeSign-ClientId</span></code>. The value in this header is set to the client ID of the application that is requesting to create and register the webhook. The webhook URL must respond to this verification request with a <strong>2XX response code</strong>, and it must send back the same client ID value in one of the following two ways:</p>
 <p><strong>Case 1: Pass the client ID as ``X-AdobeSign-ClientId`` in the response header</strong></p>
 <p>This is the same header which was passed in the request, and it must be echoed back in the response.</p>
@@ -1616,7 +1616,7 @@
 <p>Once you have verified the behavior, the webhook URL is functional as per Acrobat Sign standards. You can further update your new webhook and add custom logic as needed for your application.</p>
 </div>
 <div class="section" id="get-the-function-s-url">
-<h4>Get the function’s URL<a class="headerlink" href="#get-the-function-s-url" title="Permalink to this headline">¶</a></h4>
+<h4>Get the function’s URL<a class="headerlink" href="#get-the-function-s-url" title="Permalink to this heading">¶</a></h4>
 <ol class="arabic">
 <li><div class="line-block">
 <div class="line">Select <strong>Get function URL:</strong></div>
@@ -1646,7 +1646,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 01, 2022. 
+        Last update: Aug 16, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

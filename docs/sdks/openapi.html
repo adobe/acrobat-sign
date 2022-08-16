@@ -121,7 +121,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Available SDKs</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Available SDKs</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Acrobat Sign SDK Downloads</a></li>
 <li class="toctree-l1"><a class="reference internal" href="js.html">Acrobat Sign JavaScript SDK</a><ul>
@@ -157,6 +157,8 @@
 <li class="toctree-l2"><a class="reference internal" href="csharp.html#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="csharp.html#packaging">Packaging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="csharp.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csharp.html#notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csharp.html#recommendation">Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="csharp.html#c-sdk-docs-and-downloads">C# SDK Docs and downloads</a></li>
 <li class="toctree-l2"><a class="reference internal" href="csharp.html#reporting-issues">Reporting issues</a></li>
 </ul>
@@ -187,7 +189,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="../developer_guide/index.html#://">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v.6)</a></li>
@@ -209,11 +211,11 @@
         <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
         <div class="fixedbar">  
           <div class="wy-menu-items">
-            <a href="https://www.adobe.com/go/acrobatsigndevguide" class="topbarlink">Developer Guide</a>
-            <a href="https://www.adobe.com/go/acrobatsignapireference" class="topbarlink">API Reference</a>
-            <a href="https://www.adobe.com/go/acrobatsigntechblog" class="topbarlink">Tech Blog</a>
-            <a href="https://www.adobe.com/go/acrobatsigndevaccount" class="topbarlink">Get a Dev Account</a>
-            <a href="https://www.adobe.com/go/acrobatsigndevforum" class="topbarlink">Developer Forum</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer Guide</a>
+            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">API Reference</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
+            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Get a Dev Account</a>
+            <a href="" class="topbarlink">Developer Forum</a>
           </div>  
           <div class="sign-in">
             <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
@@ -291,10 +293,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="acrobat-sign-openapi-sdk">
-<h1>Acrobat Sign OpenAPI SDK<a class="headerlink" href="#acrobat-sign-openapi-sdk" title="Permalink to this headline">¶</a></h1>
+<h1>Acrobat Sign OpenAPI SDK<a class="headerlink" href="#acrobat-sign-openapi-sdk" title="Permalink to this heading">¶</a></h1>
 <p>The Acrobat Sign SDK supports integrating the Acrobat Sign RESTful web service into client applications via easy-to-consume client side objects wrapping the REST API functionality. This repository contains JSON files and instructions you can use to generate Acrobat Sign’s SDK for V6 REST APIs in various languages.</p>
 <div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">¶</a></h2>
 <p>For the generation of Acrobat Sign SDK, the client machine should have the following software installed:</p>
 <ul class="simple">
 <li><p>OS: Windows/Mac/Linux</p></li>
@@ -304,7 +306,7 @@
 </ul>
 </div>
 <div class="section" id="getting-started">
-<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">¶</a></h2>
 <p>The Acrobat Sign clients need to follow the below steps in order to get started with it:</p>
 <ol class="arabic simple">
 <li><p>In order to use the SDK, you need to have an account with Acrobat Sign. Please register for a developer account <a class="reference external" href="https://www.adobe.com/go/esign-dev-create">here</a></p></li>
@@ -314,7 +316,7 @@
 </ol>
 </div>
 <div class="section" id="downloading-and-building-the-sdk">
-<h2>Downloading and Building the SDK<a class="headerlink" href="#downloading-and-building-the-sdk" title="Permalink to this headline">¶</a></h2>
+<h2>Downloading and Building the SDK<a class="headerlink" href="#downloading-and-building-the-sdk" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Download the <a class="reference external" href="https://github.com/swagger-api/swagger-codegen/releases/tag/v2.3.1">Swagger Codegen</a> and unzip the archive to a folder of your choosing. You can also sync the git repo on your local machine. <cite>swagger-codegen-2.3.1</cite> will be referred as the root directory</p></li>
 <li><p>After cloning the project, you can build it from source with this command in root folder:</p></li>
@@ -327,7 +329,7 @@
 </ol>
 </div>
 <div class="section" id="java-sdk">
-<h2>Java SDK<a class="headerlink" href="#java-sdk" title="Permalink to this headline">¶</a></h2>
+<h2>Java SDK<a class="headerlink" href="#java-sdk" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>To generate SDK classes for Agreement Resource at output folder (/var/tmp/AdobeSignJavaSdk) using agreements.json, run following command in root directory :</p></li>
 </ol>
@@ -357,7 +359,7 @@
 </div>
 </div>
 <div class="section" id="apis">
-<h2>APIs<a class="headerlink" href="#apis" title="Permalink to this headline">¶</a></h2>
+<h2>APIs<a class="headerlink" href="#apis" title="Permalink to this heading">¶</a></h2>
 <p>The <cite>AdobeSignJavaSdk/src/main/java/io/swagger/client</cite> folder contains all the Acrobat Sign APIs.</p>
 <p>Packages containing APIs are laid out as follows:</p>
 <p><strong>io.swagger.client.api</strong></p>
@@ -367,15 +369,15 @@
 The classes are not resource specific and can be found under this folders for all the resources.</p>
 </div>
 <div class="section" id="openapi-sdk-docs-and-downloads">
-<h2>OPENApi SDK docs and downloads<a class="headerlink" href="#openapi-sdk-docs-and-downloads" title="Permalink to this headline">¶</a></h2>
+<h2>OPENApi SDK docs and downloads<a class="headerlink" href="#openapi-sdk-docs-and-downloads" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/adobe/acrobat-sign/tree/main/sdks/AcrobatSign_OpenAPI_SDK">Github docs</a></p></li>
 <li><p><a class="reference external" href="https://github.com/adobe/acrobat-sign/tree/main">Github repo and download</a></p></li>
 </ul>
 </div>
 <div class="section" id="reporting-issues">
-<h2>Reporting issues<a class="headerlink" href="#reporting-issues" title="Permalink to this headline">¶</a></h2>
-<p>Please report issues on the <a href="#id1"><span class="problematic" id="id2">`Acrobat Sign Developer Forum &lt;https://www.adobe.com/go/acrobatsigndevforum`_</span></a>.</p>
+<h2>Reporting issues<a class="headerlink" href="#reporting-issues" title="Permalink to this heading">¶</a></h2>
+<p>Please report issues on the <a class="reference external" href="https://www.adobe.com/go/acrobatsigndevforum">Acrobat Sign Developer Forum</a>.</p>
 </div>
 </div>
 
@@ -391,7 +393,7 @@ The classes are not resource specific and can be found under this folders for al
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 04, 2022. 
+        Last update: Aug 16, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
