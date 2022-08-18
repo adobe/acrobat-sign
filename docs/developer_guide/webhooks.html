@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
   
-  <title>Webhooks in Acrobat Sign v6 &mdash; Acrobat Sign Developer Guide</title>
+  <title>Webhooks in Acrobat Sign &mdash; Acrobat Sign Developer Guide</title>
   
 
   
@@ -205,7 +205,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Webhooks in Acrobat Sign v6</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Webhooks in Acrobat Sign</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-webhooks-work">How do webhooks work?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#creating-a-webhook">Creating a webhook</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
@@ -527,13 +527,10 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v.6)</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/esign-dev-cert#://">Application Certification Form</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://helpx.adobe.com/sign/using/integration-guides.html">Acrobat Sign integration guides</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
+<li class="toctree-l1"><a class="reference external" href="../release_notes/index.html#://">Developer release notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://helpx.adobe.com/sign/release-notes/adobe-sign.html#://">Product UI release notes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">SDKs and Samples</span></p>
 <ul>
@@ -542,6 +539,15 @@
 <li class="toctree-l1"><a class="reference external" href="../sdks/openapi.html#://">OpenAPI SDK</a></li>
 <li class="toctree-l1"><a class="reference external" href="../sdks/csharp.html#://">CSharp SDK</a></li>
 <li class="toctree-l1"><a class="reference external" href="../sdks/rest.html#://">REST Samples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v.6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/esign-dev-cert#://">Application certification form</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://helpx.adobe.com/sign/using/integration-guides.html">Acrobat Sign integration guides</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/trust/resources.html#://">Security and compliance</a></li>
 </ul>
 
             
@@ -611,7 +617,7 @@
     
       <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Webhooks in Acrobat Sign v6</li>
+      <li>Webhooks in Acrobat Sign</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -637,13 +643,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="webhooks-in-acrobat-sign-v6">
-<span id="webhooks"></span><h1>Webhooks in Acrobat Sign v6<a class="headerlink" href="#webhooks-in-acrobat-sign-v6" title="Permalink to this heading">¶</a></h1>
+  <div class="section" id="webhooks-in-acrobat-sign">
+<span id="webhooks"></span><h1>Webhooks in Acrobat Sign<a class="headerlink" href="#webhooks-in-acrobat-sign" title="Permalink to this heading">¶</a></h1>
 <p>Webhooks are HTTPS callbacks that receive real-time notification messages for events. When the event occurs, the service makes an HTTPS POST request to the webhook’s HTTPS URL. In simple words, a webhook is a <strong>web service that accepts HTTPS POST requests</strong> (rather, listens to requests) from a source. As a developer, you can create webhooks in Acrobat Sign to listen to events happening for your agreements and other resources. The webhooks can be created using REST APIs as well as the Acrobat Sign web application.</p>
 <div class="section" id="how-do-webhooks-work">
 <h2>How do webhooks work?<a class="headerlink" href="#how-do-webhooks-work" title="Permalink to this heading">¶</a></h2>
 <p>Webhooks are a useful tool for apps that want to receive and process real-time data updates happening in Acrobat Sign; for example, after an agreement is signed, update the status of that agreement in an on-premises Content Management System like SharePoint.</p>
-<p>Instead of requiring your application to make an API call every X number of minutes to check for a specific event in Sign (also known as polling), you can now register webhooks in Acrobat Sign, which will push HTTPS POST notifications to your webhook’s URL telling your application that the event has occurred. This push-based model requires fewer API requests overall and provides you with real-time updates, allowing you to build more robust apps and update your application instantly.</p>
+<p>Instead of requiring your application to make an API call every X number of minutes to check for a specific event in Sign (also known as polling), you can register webhooks and push HTTPS POST notifications to your webhook’s URL, thereby telling your application that the event has occurred. This push-based model requires fewer API requests overall,  provides you with real-time updates, and allowsyou to build more robust apps while updating your application instantly.</p>
 <p>Acrobat Sign webhooks notifications are generated by changes to the agreement as it progresses from creation to sending to completed or aborted state. In the webhook notification, we provide updated information about the status of these agreements, optionally including the detailed agreement information, information about the documents, participants information and finally, the signed document.</p>
 <p><strong>A simple workflow for webhooks:</strong></p>
 <ol class="arabic simple">
@@ -834,7 +840,7 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
 </div>
 <div class="section" id="managing-webhooks-and-subscriptions">
 <h2>Managing webhooks and subscriptions<a class="headerlink" href="#managing-webhooks-and-subscriptions" title="Permalink to this heading">¶</a></h2>
-<p>The Acrobat Sign webhook APIs are essential, as you use the <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/webhooks</span></code> API to create your webhook, and use the other API endpoints to retrieve information about your webhooks and their status, as well as to modify or delete webhooks. See <a class="reference internal" href="#webhooks"><span class="std std-ref">Webhooks in Acrobat Sign v6</span></a> for standard headers, error codes, and endpoint details:</p>
+<p>The Acrobat Sign webhook APIs are essential, as you use the <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/webhooks</span></code> API to create your webhook, and use the other API endpoints to retrieve information about your webhooks and their status, as well as to modify or delete webhooks. See <a class="reference internal" href="#webhooks"><span class="std std-ref">Webhooks in Acrobat Sign</span></a> for standard headers, error codes, and endpoint details:</p>
 <ul class="simple">
 <li><p>POST /webhooks  Creates a new webhook.</p></li>
 <li><p>GET /webhooks  Retrieves webhooks for a user.</p></li>
@@ -901,7 +907,7 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 16, 2022. 
+        Last update: Aug 18, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
