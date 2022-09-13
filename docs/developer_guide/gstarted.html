@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
   
-  <title>Create a Developer Account &mdash; Acrobat Sign Developer Guide</title>
+  <title>Acrobat Sign Quickstart &mdash; Acrobat Sign Developer Guide</title>
   
 
   
@@ -38,8 +38,8 @@
    
   
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Hello World App" href="helloworld.html" />
-    <link rel="prev" title="Acrobat Sign Overview" href="index.html" /> 
+    <link rel="next" title="Managing OAuth Tokens" href="oauth.html" />
+    <link rel="prev" title="Acrobat Sign API Overview" href="index.html" /> 
   
 <script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
 <script src="https://www.adobe.com/marketingtech/main.min.js"></script>
@@ -123,30 +123,28 @@
             
               <p class="caption" role="heading"><span class="caption-text">Developer Guide TOC</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="index.html">Acrobat Sign Overview</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Create a Developer Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#next-steps">Next steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Acrobat Sign API Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#get-a-free-developer-account">Get a free developer account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#create-an-app">Create an app</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="helloworld.html">Hello World App</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="helloworld.html#create-an-app">Create an app</a></li>
-<li class="toctree-l2"><a class="reference internal" href="helloworld.html#get-the-app-id-and-secret">Get the app ID and secret</a></li>
-<li class="toctree-l2"><a class="reference internal" href="helloworld.html#configure-oauth">Configure OAuth</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="helloworld.html#configure-the-redirect-uri">Configure the redirect URI</a></li>
-<li class="toctree-l3"><a class="reference internal" href="helloworld.html#configure-scopes">Configure scopes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="helloworld.html#add-an-authorization-request-link">Add an Authorization Request link</a></li>
-<li class="toctree-l3"><a class="reference internal" href="helloworld.html#success-vs-failure">Success vs failure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="helloworld.html#the-customer-experience">The customer experience</a></li>
-<li class="toctree-l3"><a class="reference internal" href="helloworld.html#getting-the-access-token">Getting the Access Token</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Acrobat Sign Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#create-an-app">Create an app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-the-app-id-and-secret">Get the app ID and secret</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-oauth">Configure OAuth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-the-redirect-uri">Configure the redirect URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-scopes">Configure scopes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-an-authorization-request-link">Add an Authorization Request link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#success-vs-failure">Success vs failure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-customer-experience">The customer experience</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-the-access-token">Getting the access token</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="helloworld.html#using-oauth-tokens">Using OAuth tokens</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="helloworld.html#authorization-request">Authorization request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="helloworld.html#access-token-request">Access token request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="helloworld.html#refresh-token-request">Refresh token request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="helloworld.html#revoking-a-token">Revoking a token</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="oauth.html">Managing OAuth Tokens</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="oauth.html#authorization-request">Authorization request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oauth.html#access-token-request">Access token request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oauth.html#refresh-token-request">Refresh token request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oauth.html#revoking-a-token">Revoking a token</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="scenarios.html">Example Scenarios</a><ul>
@@ -169,38 +167,6 @@
 <li class="toctree-l2"><a class="reference internal" href="apiusage.html#api-throttling">API Throttling</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apiusage.html#rest-api-response">REST API Response</a></li>
 <li class="toctree-l3"><a class="reference internal" href="apiusage.html#steps-to-take-when-throttled">Steps to take when throttled</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="apiusage.html#acrobat-sign-v6-rest-api-enhancements">Acrobat Sign v6 REST API Enhancements</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="apiusage.html#enhancements">Enhancements</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apiusage.html#pagination-support">Pagination Support</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apiusage.html#constant-ids">Constant IDs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apiusage.html#etag-support">ETag support</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apiusage.html#get-put-post-consistency">GET, PUT, POST consistency</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apiusage.html#performance-improvements">Performance improvements</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apiusage.html#asynchronous-apis"><strong>Asynchronous API’s</strong></a></li>
-<li class="toctree-l4"><a class="reference internal" href="apiusage.html#authorization-header">Authorization header</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="apiusage.html#features">Features</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apiusage.html#agreement-sharing">Agreement sharing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apiusage.html#authoring-apis">Authoring APIs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apiusage.html#document-visibility">Document visibility</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apiusage.html#draft">Draft</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apiusage.html#notes-management">Notes management</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apiusage.html#reminders">Reminders</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apiusage.html#resource-views">Resource views</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apiusage.html#resource-visibility">Resource visibility</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apiusage.html#suppress-email">Suppress email</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apiusage.html#webhooks">Webhooks</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="apiusage.html#api-change-log">API Change Log</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="apiusage.html#new-apis">New APIs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="apiusage.html#updated-apis">Updated APIs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="apiusage.html#removed-apis">Removed APIs</a></li>
 </ul>
 </li>
 </ul>
@@ -617,7 +583,7 @@
     
       <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Create a Developer Account</li>
+      <li>Acrobat Sign Quickstart</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -631,10 +597,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="helloworld.html" class="btn btn-neutral float-right" title="Hello World App" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="oauth.html" class="btn btn-neutral float-right" title="Managing OAuth Tokens" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Acrobat Sign Overview" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Acrobat Sign API Overview" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
       
   </div>
   
@@ -643,42 +609,335 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="create-a-developer-account">
-<span id="gettingstarted"></span><h1>Create a Developer Account<a class="headerlink" href="#create-a-developer-account" title="Permalink to this heading">¶</a></h1>
-<p>Getting access to the Developer Edition is equivalent to creating a developer account. The Developer Edition is simply a dev account which supports creating and testing workflows via the web.</p>
-<img alt="_images/signup.png" src="_images/signup.png" />
-<p>Ramping up only takes minutes:</p>
+  <div class="section" id="acrobat-sign-quickstart">
+<span id="gettingstarted"></span><h1>Acrobat Sign Quickstart<a class="headerlink" href="#acrobat-sign-quickstart" title="Permalink to this heading">¶</a></h1>
+<div class="section" id="create-an-app">
+<span id="createapp"></span><h2>Create an app<a class="headerlink" href="#create-an-app" title="Permalink to this heading">¶</a></h2>
+<p>To use Acrobat Sign APIs, create an application.</p>
 <ol class="arabic simple">
-<li><p>Create an Adobe ID if you don’t already have one.</p></li>
+<li><p><a class="reference external" href="https://secure.adobesign.com/public/login">Log in to Acrobat Sign</a>.</p></li>
+<li><p>Select <strong>API</strong> from the top menu.  If you are already an enterprise customer, you may not see the API link. In that case, choose <strong>Account</strong>.</p></li>
+<li><p>Select <strong>API Applications.</strong></p></li>
+</ol>
+<img alt="_images/sign_gstarted_1.png" src="_images/sign_gstarted_1.png" />
+<ol class="arabic simple" start="4">
+<li><p>Select the <strong>Create</strong> (+) icon and provide details about your app.</p></li>
+<li><p>Choose a domain based on the intended use:</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>CUSTOMER</strong>: Apps for internal use and testing.</p></li>
+<li><p><strong>PARTNER</strong>: Select this type if you’re developing an application for other users and your app needs access to other authorized Acrobat Sign accounts.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>PARTNER applications <a class="reference external" href="https://www.adobe.com/go/esign-dev-cert">must be certified</a> to have full access to other accounts.</p>
+</div>
+<img alt="_images/sign_gstarted_3.png" src="_images/sign_gstarted_3.png" />
+</div>
+<div class="section" id="get-the-app-id-and-secret">
+<h2>Get the app ID and secret<a class="headerlink" href="#get-the-app-id-and-secret" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Select <strong>API Applications</strong> to view your app list.</p></li>
+<li><p>Select your app to view its action menu.</p></li>
+</ol>
+<img alt="_images/apiapps.png" src="_images/apiapps.png" />
+<ol class="arabic simple" start="3">
+<li><p>Select <strong>View/Edit</strong> to get the application ID and secret.</p></li>
+<li><p>Save the app’s application ID and secret. You’ll use this information to issue access tokens in the Acrobat Sign API.</p></li>
+</ol>
+<img alt="_images/appsecret.png" src="_images/appsecret.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your new partner application is <em>uncertified</em> until you complete the partner certification process. You will be able to test the process of getting Acrobat Sign accounts connected to it by changing certain settings in the test/customer account (described below).</p>
+</div>
+<iframe allowfullscreen width="640" height="360" src="https://video.tv.adobe.com/v/38178/?mute=true"></iframe></div>
+<div class="section" id="configure-oauth">
+<span id="oauth"></span><h2>Configure OAuth<a class="headerlink" href="#configure-oauth" title="Permalink to this heading">¶</a></h2>
+<p>OAuth is widely used by developers to authorize API access. Acrobat Sign’s implementation complies with the <a class="reference external" href="https://tools.ietf.org/html/rfc6749">OAuth 2.0 specification</a>. Acrobat Sign uses the OAuth authentication protocol to authorize requests for any Sign API endpoint. Get the Application ID and Application Secret from the web UI of Acrobat Sign.</p>
+<p>At a high level, the OAuth process requires the client application to request permissions from the end user before performing any actions on their behalf. Users redirect to the Acrobat Sign application where they authenticate and grant the requested permissions. The app then redirects users back to the client web application.</p>
+<p>The OAuth process returns Access Tokens which can be used to make <a class="reference external" href="https://www.adobe.com/go/acrobatsignapireference">REST API calls</a>. Once you have created your application, click on the “Configure OAuth” link to configure your OAuth integration. This page contains the following information:</p>
+<ul class="simple">
+<li><p>Your “Client Id” and “Client Secret” needed during the token exchange.</p></li>
+<li><p>The “Redirect URI” specifying where to redirect users (your website) after the OAuth flow.</p></li>
+<li><p>The application’s scopes.</p></li>
+</ul>
+</div>
+<div class="section" id="configure-the-redirect-uri">
+<h2>Configure the redirect URI<a class="headerlink" href="#configure-the-redirect-uri" title="Permalink to this heading">¶</a></h2>
+<p>Next, create a public redirect URI on your servers that captures the account details and code sent from your app’s authorization request so that the workflow connects to the customer’s Acrobat Sign account. This request URL that links to your customer’s app instance to the Acrobat Sign account contains the parameters for the permissions and level (self, group, or account) that your API integration needs to enable the required actions.</p>
+<img alt="_images/redirecturi.png" src="_images/redirecturi.png" />
+<p>The redirect Uri specified in your OAuth requests must belong to this list of URIs. You can mention multiple URIs as comma separated list.</p>
+<ol class="arabic simple">
+<li><p>Select <strong>Configure OAuth for Application</strong>.</p></li>
+<li><p>Enter your URL.</p></li>
+<li><p>Before continuing, set the scopes as described below.</p></li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If you’ll eventually use your enterprise ID in a production environment, you may want to create a separate Adobe ID for development and testing.</p>
+<p>If you’re building a partner app and would like to learn more about using redirects, see <a class="reference external" href="https://www.evernote.com/shard/s517/client/snv?noteGuid=4dcab9ae-99ea-4ad4-ae98-ffb86f95ebf9&amp;noteKey=5f43b16e95b2329d&amp;sn=https%3A%2F%2Fwww.evernote.com%2Fshard%2Fs517%2Fsh%2F4dcab9ae-99ea-4ad4-ae98-ffb86f95ebf9%2F5f43b16e95b2329d&amp;title=What%25E2%2580%2599s%2Bneeded%2Bon%2Bthe%2B%25E2%2580%259Credirect%2BURI%25E2%2580%259D%2Bpage%253F">What’s needed on the “redirect URI” page?</a></p>
 </div>
-<ol class="arabic simple" start="2">
-<li><p>Log in to your Adobe account.</p></li>
-<li><p><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevedition">Sign up for a developer account</a>.</p></li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>There may be a short wait while account provisioning is set up.  Once completed, you’ll be able to create signing workflows. Test documents are watermarked and appear with the text “DEMO USE ONLY”.</p>
 </div>
-<img alt="_images/devedition.png" src="_images/devedition.png" />
-<div class="section" id="next-steps">
-<h2>Next steps<a class="headerlink" href="#next-steps" title="Permalink to this heading">¶</a></h2>
-<ul class="simple">
-<li><p>For real-world examples with additional details, see <a class="reference internal" href="scenarios.html#scenarios"><span class="std std-ref">Example Scenarios</span></a>.</p></li>
-<li><p>Browse through the <a class="reference external" href="https://www.adobe.com/go/acrobatsignapireference">API reference</a> to learn more about the request types and formats</p></li>
-<li><p>Create a <a class="reference internal" href="helloworld.html#createapp"><span class="std std-ref">Hello World App</span></a>: the simple workflow allows you to monitor the signing process from beginning to end:</p>
-<ol class="arabic simple">
-<li><p><a class="reference internal" href="apiusage.html#sendforsigning"><span class="std std-ref">Send for Signing (Create an Agreement)</span></a></p></li>
-<li><p><a class="reference internal" href="apiusage.html#checkstatus"><span class="std std-ref">Check the Document Signing Status</span></a></p></li>
-<li><p>If the agreement remains unsigned, <a class="reference internal" href="apiusage.html#sendreminder"><span class="std std-ref">Send Reminders</span></a>.</p></li>
-<li><p>If all the signers have signed, <a class="reference internal" href="apiusage.html#download"><span class="std std-ref">Download the Agreement</span></a>.</p></li>
-</ol>
-</li>
+<div class="section" id="configure-scopes">
+<h2>Configure scopes<a class="headerlink" href="#configure-scopes" title="Permalink to this heading">¶</a></h2>
+<p>You now need to add the permissions and “scopes” needed by your app when it interacts with the Sign APIs. Scopes describe what resources and actions your application will access. As a developer, you will need to enable at least the minimum appropriate scopes for your application on the admin page. If you apply for Certification, Adobe will review the enabled scopes to confirm that they match the intended application use.</p>
+<p>Your application’s OAuth authorization requests include a scope parameter which indicates what requested permissions. Note the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The requested scopes must be a subset of the scopes that are enabled for the application.</p></li>
+<li><p>The requested scopes must be appropriate for the action the user is attempting to perform.</p></li>
+<li><p>The user will be asked to authorize the requested permissions for your application.</p></li>
 </ul>
-<img alt="_images/sign_overview_2.png" src="_images/sign_overview_2.png" />
+</div></blockquote>
+<p>Assuming the OAuth tokens were successfully received, your application will make further API calls using the Access Token. The calls that your application makes must be permitted by the scopes associated with the Access Token. For example, to call GET /agreements, the <code class="docutils literal notranslate"><span class="pre">agreement_read</span></code> scope must have been requested and authorized.</p>
+<p>While this screen sets the max allowable scopes, every token does not exercise them all. You can create different tokens for various users in specific scenarios may use one or more of the scopes. Limit the scopes to those that you intend to request through OAuth. The scope denotes the extent of permission that your users will have on your account. For example, <code class="docutils literal notranslate"><span class="pre">agreement_send:account</span> <span class="pre">user_login:self</span></code> would allow the application to send on behalf of any user in the account and also login on behalf of the user that authorized the request.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Note that only Group Admins can approve OAuth requests that use the “:group” scope modifier, and only Account Admins can approve OAuth requests that use the “:account” scope modifier. While you probably don’t need all the possible permissions available on this configuration, it may be easier to enable everything during development and testing since it is relatively easy to come back later and adjust.</p>
+</div>
+<p>To set the scopes:</p>
+<ol class="arabic simple">
+<li><p>Check the <strong>Enabled</strong> checkbox for each needed scope.</p></li>
+<li><p>Set the modifier.</p></li>
+<li><p>Choose <strong>Save</strong>.</p></li>
+</ol>
+<img alt="_images/scopes.png" src="_images/scopes.png" />
+<p>The following modifiers are available:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Modifier</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>self</p></td>
+<td><p>Perform the specified action on behalf of the authorizing user. This is the default: for example, <code class="docutils literal notranslate"><span class="pre">agreement_send:self</span></code> is the same scope as <code class="docutils literal notranslate"><span class="pre">agreement_send</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>group</p></td>
+<td><p>Perform the specified action on behalf of any user in the same group as the authorizing user. The authorizing user must be a group admin in order to grant this scope, and must have the Business or Enterprise edition of Acrobat Sign.</p></td>
+</tr>
+<tr class="row-even"><td><p>account</p></td>
+<td><p>Perform the specified action on behalf of any user in the same account as the authorizing user. The authorizing user must be an account admin in order to grant this scope, and must have the Business or Enterprise edition of Acrobat Sign.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="add-an-authorization-request-link">
+<span id="token"></span><h2>Add an Authorization Request link<a class="headerlink" href="#add-an-authorization-request-link" title="Permalink to this heading">¶</a></h2>
+<p>Your app must include a link your customers use to initiate the OAuth request process. The OAuth process starts with the client directing the user’s browser to make a request to the /public/oauth/v2 endpoint, with the requisite query string parameters. You are simply invoking the Acrobat Sign APIs here. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://secure.echosign.com/public/oauth?
+   redirect_uri=https://your-oAuthInteraction-Server/your-oAuth-Page.html&amp;
+   response_type=code&amp;
+   client_id=CBJCHBCAABAAAbjw-szq8_Pg2Ljg7_b_vuaYiCAK1i4q&amp;
+   state=uhuhygtf576534&amp;
+   scope=user_read:account+user_write:account+user_login:account+agreement_read:account+agreement_write:account+agreement_send:account+widget_read:account+widget_write:account+library_read:account+library_write:account+workflow_read:account+workflow_write:account
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 30%" />
+<col style="width: 5%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Required?</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Base URI</p></td>
+<td><p>The Acrobat Sign endpoint</p></td>
+<td><p>yes</p></td>
+<td><p>The Acrobat Sign endpoint. <strong>For partner apps this should NOT contain the “shard” of an account (i.e.: na1, na2, eu1, jp1, etc.)</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>response_type</p></td>
+<td><p>code</p></td>
+<td><p>yes</p></td>
+<td><p>The value must always be <em>code</em>. Tells the process you’re looking for the OAuth code on the redirect URI once your customer logs in and accepts the auth permissions.</p></td>
+</tr>
+<tr class="row-even"><td><p>client_id</p></td>
+<td><p>Your ID obtained from the OAuth configuration page.</p></td>
+<td><p>yes</p></td>
+<td><p>Identifies to Acrobat Sign what application your customer is requesting a token for (the one for your app/platform)</p></td>
+</tr>
+<tr class="row-odd"><td><p>redirect_uri</p></td>
+<td><p>Your custom, secure, and absolute URI; for e.g. <a class="reference external" href="https://your-oAuthInteraction-Server/your-oAuth-Page.html">https://your-oAuthInteraction-Server/your-oAuth-Page.html</a>.</p></td>
+<td><p>yes</p></td>
+<td><p>Redirects users here at the end of the authorization process. The value must belong to the set of values specified on the OAuth Configuration page.</p></td>
+</tr>
+<tr class="row-even"><td><p>scope</p></td>
+<td><p>A space delimited set of permissions specified during the OAuth configuration setup on the Configure OAuth page. In other words, these control your app’s capabilities with respect to the Acrobat Sign API.</p></td>
+<td><p>yes</p></td>
+<td><p>The permissions that the user will be asked to approve</p></td>
+</tr>
+<tr class="row-odd"><td><p>state</p></td>
+<td><p>Any string</p></td>
+<td><p>no</p></td>
+<td><p>This value returns to the client as a parameter at the end of the authorization process. While not required, use of the <code class="docutils literal notranslate"><span class="pre">state</span></code> parameter is <em>highly recommended</em> to protect against CSRF <a class="reference external" href="https://tools.ietf.org/html/rfc6749#section-10.12">as described in the RFC</a>. You can use it to pass a unique ID that will be “passed through” to the redirect URI so your system knows which client/instance requested the token and where to save it inside your platform.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="success-vs-failure">
+<h2>Success vs failure<a class="headerlink" href="#success-vs-failure" title="Permalink to this heading">¶</a></h2>
+<p>When your customer initiates the OAuth process by clicking your app’s Sign link, their browser redirects to the <code class="docutils literal notranslate"><span class="pre">redirect_uri</span></code> specified in the initial request. Query string parameters are added to indicate whether the request succeed or failed.</p>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">Success</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>code</p></td>
+<td><p>The authorization code which the client must use when requesting access tokens.</p></td>
+</tr>
+<tr class="row-odd"><td><p>state</p></td>
+<td><p>The value of state initially passed in, if any.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-text">Failure</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>error</p></td>
+<td><p>One of:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>INVALID_REQUEST: the request is not well formed due to missing or invalid parameters</p></li>
+<li><p>UNAUTHORIZED_CLIENT: OAuth is not enabled for this application or the application isn’t active</p></li>
+<li><p>INVALID_SCOPE: the requested scopes are not syntactically valid</p></li>
+<li><p>ACCESS_DENIED: the user declined to grant access or wasn’t able to (for example, they weren’t an admin)</p></li>
+<li><p>SERVER_ERROR: an internal error occurred while processing the request</p></li>
+</ul>
+</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><p>state</p></td>
+<td><p>The value of state initially passed in, if any.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="the-customer-experience">
+<h2>The customer experience<a class="headerlink" href="#the-customer-experience" title="Permalink to this heading">¶</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Try out the <a class="reference external" href="https://secure.na1.adobesign.com/public/oauthDemo">live demo</a>.</p>
+</div>
+<ol class="arabic simple">
+<li><p>Customers are routed to Acrobat Sign’s main log in page if they are not already logged in.</p></li>
+<li><p>After signing in, a confirmation screen appears.</p></li>
+<li><p>When the user selects <strong>Allow Access</strong>, the page redirects to the URL defined on your server (see above). The process adds the query string parameters the app needs to retrieve the refresh and access tokens for making API calls.</p></li>
+</ol>
+<img alt="_images/allowaccess.png" src="_images/allowaccess.png" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://your-oauthinteraction-server/your-oAuth-Page.html?
+code=CBNCKBAAHBCAABAApvoU1TLVOj_GuGynhtExjJbQNOmst9KP&amp;
+api_access_point=https%3A%2F%2Fapi.na1.echosign.com%2F&amp;
+state=uhuhygtf576534&amp;
+web_access_point=https%3A%2F%2Fsecure.na1.echosign.com%2F
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>code</p></td>
+<td><p>In this example, CBNCKBAAHBCAABAApvoU1TLVOj_GuGynhtExjJbQNOmst9KP is the code your system  uses to make the actual API call to get  tokens. <strong>It is valid for only 5 minutes.</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>api_access_point</p></td>
+<td><p>The encoded URL which is the base URL for the account where you will need to start your REST calls for uploading docs, creating templates, getting agreement “views”, sending agreements, etc. The <code class="docutils literal notranslate"><span class="pre">.na1.</span></code> part tells your system which “shard” the customer’s application resides. Adobe uses AWS and AZURE to host the product, and customer’s accounts may be on one af many shards in various geo-locations. Once you have tokens you need to make all your REST calls to the shard where their account lives.</p></td>
+</tr>
+<tr class="row-even"><td><p>state</p></td>
+<td><p>The string your system provided which identifies the instance of your application/platform making this request. <code class="docutils literal notranslate"><span class="pre">state</span></code> provides a way for you to return your customer “back” to the app as well as know which app instance you need to store the tokens for.</p></td>
+</tr>
+<tr class="row-odd"><td><p>web_access_point</p></td>
+<td><p>The URL where your customer logs in.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="getting-the-access-token">
+<span id="gettoken"></span><h2>Getting the access token<a class="headerlink" href="#getting-the-access-token" title="Permalink to this heading">¶</a></h2>
+<p>If the previous steps succeeded, request an access token by sending the authorization code along with the client ID and client secret to the Sign service. The client makes an HTTP POST to the /oauth/v2/token endpoint (using <a class="reference external" href="https://api.na1.adobesign.com">https://api.na1.adobesign.com</a>) with the following parameters in the post body (not through query parameters):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">oauth</span><span class="o">/</span><span class="n">token</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">na1</span><span class="o">.</span><span class="n">adobesign</span><span class="o">.</span><span class="n">com</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">www</span><span class="o">-</span><span class="n">form</span><span class="o">-</span><span class="n">urlencoded</span>
+<span class="n">Cache</span><span class="o">-</span><span class="n">Control</span><span class="p">:</span> <span class="n">no</span><span class="o">-</span><span class="n">cache</span>
+
+  <span class="n">grant_type</span><span class="o">=</span><span class="n">authorization_code</span><span class="o">&amp;</span>
+  <span class="n">code</span><span class="o">=</span><span class="n">CBNCKBAThIsIsNoTaReAlcs_sL4K32wCzs4N</span><span class="o">&amp;</span>
+  <span class="n">client_id</span><span class="o">=</span><span class="n">CBAThIsIsNoTaReAlmPBvPF</span><span class="o">&amp;</span>
+  <span class="n">client_secret</span><span class="o">=</span><span class="mi">319</span><span class="n">UThIsIsNoTaReAl2</span><span class="o">-</span><span class="mi">4</span><span class="n">OxkVo9ycU</span><span class="o">&amp;</span>
+  <span class="n">redirect_uri</span><span class="o">=</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">myserver</span><span class="o">.</span><span class="n">com</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+</pre></div>
+</div>
+<p>The response returns the following JSON body containing the access token and the refresh token:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">&quot;access_token&quot;</span><span class="p">:</span><span class="s2">&quot;3AAABLblThIsIsNoTaReAlToKeNPr6Cv8KcZ9p7E93k2Tf&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;refresh_token&quot;</span><span class="p">:</span><span class="s2">&quot;3AAABLblThIsIsNoTaReAlToKeNWsLa2ZBVpD0uc*&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;token_type&quot;</span><span class="p">:</span><span class="s2">&quot;Bearer&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;expires_in&quot;</span><span class="p">:</span><span class="mi">3600</span><span class="p">,</span>
+   <span class="s2">&quot;api_access_point &quot;</span><span class="p">:</span><span class="s2">&quot;https://api.na1.adobesign.com/&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;web_access_point&quot;</span><span class="p">:</span><span class="s2">&quot; https://secure.na1.adobesign.com/&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>access_token</p></td>
+<td><p>Use this token to access any Acrobat Sign API endpoint.</p></td>
+</tr>
+<tr class="row-odd"><td><p>refresh_token</p></td>
+<td><p>If your access token expires, use the refresh token to request a new access token. Keep your client ID and secret handy to request a new access token from a refresh token.</p></td>
+</tr>
+<tr class="row-even"><td><p>token_type</p></td>
+<td><p>Always “Bearer”</p></td>
+</tr>
+<tr class="row-odd"><td><p>expires_in</p></td>
+<td><p>The number of milliseconds in which the access token expires.</p></td>
+</tr>
+<tr class="row-even"><td><p>api_access_point</p></td>
+<td><p>Use this endpoint for Sign API access; it the base URI to be used for subsequent calls (/oauth/v2/refresh and /oauth/v2/revoke)</p></td>
+</tr>
+<tr class="row-odd"><td><p>web_access_point</p></td>
+<td><p>Use this endpoint to open Sign Web, e.g. web_access_point + “/public/login” OR web_access_point + “/public/logout” .</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -694,7 +953,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 18, 2022. 
+        Last update: Aug 30, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

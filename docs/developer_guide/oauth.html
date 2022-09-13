@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
   
-  <title>Acrobat Sign API Overview &mdash; Acrobat Sign Developer Guide</title>
+  <title>Managing OAuth Tokens &mdash; Acrobat Sign Developer Guide</title>
   
 
   
@@ -20,7 +20,7 @@
     
   
   
-  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" />
+  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/developer_guide/oauth.html" />
   
 
   
@@ -38,8 +38,8 @@
    
   
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Acrobat Sign Quickstart" href="gstarted.html" />
-    <link rel="prev" title="Table of Contents" href="toc.html" /> 
+    <link rel="next" title="Example Scenarios" href="scenarios.html" />
+    <link rel="prev" title="Acrobat Sign Quickstart" href="gstarted.html" /> 
   
 <script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
 <script src="https://www.adobe.com/marketingtech/main.min.js"></script>
@@ -123,9 +123,9 @@
             
               <p class="caption" role="heading"><span class="caption-text">Developer Guide TOC</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Acrobat Sign API Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#get-a-free-developer-account">Get a free developer account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#create-an-app">Create an app</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Acrobat Sign API Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#get-a-free-developer-account">Get a free developer account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#create-an-app">Create an app</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gstarted.html">Acrobat Sign Quickstart</a><ul>
@@ -140,11 +140,11 @@
 <li class="toctree-l2"><a class="reference internal" href="gstarted.html#getting-the-access-token">Getting the access token</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="oauth.html">Managing OAuth Tokens</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="oauth.html#authorization-request">Authorization request</a></li>
-<li class="toctree-l2"><a class="reference internal" href="oauth.html#access-token-request">Access token request</a></li>
-<li class="toctree-l2"><a class="reference internal" href="oauth.html#refresh-token-request">Refresh token request</a></li>
-<li class="toctree-l2"><a class="reference internal" href="oauth.html#revoking-a-token">Revoking a token</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Managing OAuth Tokens</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#authorization-request">Authorization request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#access-token-request">Access token request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#refresh-token-request">Refresh token request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#revoking-a-token">Revoking a token</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="scenarios.html">Example Scenarios</a><ul>
@@ -583,7 +583,7 @@
     
       <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Acrobat Sign API Overview</li>
+      <li>Managing OAuth Tokens</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -597,10 +597,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="gstarted.html" class="btn btn-neutral float-right" title="Acrobat Sign Quickstart" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="scenarios.html" class="btn btn-neutral float-right" title="Example Scenarios" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
       
       
-        <a href="toc.html" class="btn btn-neutral float-left" title="Table of Contents" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gstarted.html" class="btn btn-neutral float-left" title="Acrobat Sign Quickstart" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
       
   </div>
   
@@ -609,63 +609,131 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="acrobat-sign-api-overview">
-<h1>Acrobat Sign API Overview<a class="headerlink" href="#acrobat-sign-api-overview" title="Permalink to this heading">¶</a></h1>
-<p>Welcome to the Acrobat Sign developer documentation. The details here help you create and manage signing workflows for your organization and customers. It provides essential tools to help you leverage Adobe’s broad developer and product ecosystem, including PDF, Acrobat, and other products across mobile devices, the desktop and the web.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>If you’re ready to create a developer account and start crafting your first app, jump to <a class="reference internal" href="gstarted.html#gettingstarted"><span class="std std-ref">Acrobat Sign Quickstart</span></a>.</p>
+  <div class="section" id="managing-oauth-tokens">
+<h1>Managing OAuth Tokens<a class="headerlink" href="#managing-oauth-tokens" title="Permalink to this heading">¶</a></h1>
+<div class="section" id="authorization-request">
+<h2>Authorization request<a class="headerlink" href="#authorization-request" title="Permalink to this heading">¶</a></h2>
+<p>See <a class="reference internal" href="gstarted.html#token"><span class="std std-ref">Add an Authorization Request link</span></a></p>
 </div>
-<p>Acrobat Sign’s APIs allow you to create apps and embed the Acrobat Sign UI and functionality into your applications. Those apps can receive status updates in real time as well as retrieve and store copies of the signed agreements. You can also build a variety of integrations with Acrobat Sign using just the APIs; for example, with Salesforce. These integrations allow you to start the Acrobat Sign experience entirely from within your external application.</p>
-<p>Use the Acrobat Sign APIs to:</p>
-<ul class="simple">
-<li><p>Create and manage agreements</p></li>
-<li><p>Retrieve signed documents</p></li>
-<li><p>Embed a signing UI in your app</p></li>
-<li><p>Send reminders</p></li>
-<li><p>Create widgets, library documents, and send in bulk</p></li>
-<li><p>Download audit trails</p></li>
-<li><p>Archive signed documents</p></li>
-<li><p>Leverage enterprise workflows in Acrobat across any device</p></li>
-<li><p>And more!</p></li>
-</ul>
-<img alt="_images/home1.png" src="_images/home1.png" />
-<div class="section" id="get-a-free-developer-account">
-<h2>Get a free developer account<a class="headerlink" href="#get-a-free-developer-account" title="Permalink to this heading">¶</a></h2>
-<p>Adobe provides a free developer account via the Acrobat Sign Developer Edition . The Developer Edition supports:</p>
-<ul class="simple">
-<li><p>Access to the Acrobat Sign API</p></li>
-<li><p>Testing for document exchange and execution</p></li>
-<li><p>Testing for emailing copies of signed agreements</p></li>
-</ul>
-<img alt="_images/signup.png" src="_images/signup.png" />
-<p>Get started in minutes:</p>
-<ol class="arabic simple">
-<li><p>Create an Adobe ID if you don’t already have one.</p></li>
-<li><p>Log in to your Adobe account.</p></li>
-<li><p><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevedition">Sign up</a>. Once completed, you’ll be able to create signing workflows. Test documents appear with a “test” label.</p></li>
-</ol>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>If you’ll eventually use your enterprise ID in a production environment, you may want to create a separate Adobe ID for development and testing.</p>
+<div class="section" id="access-token-request">
+<h2>Access token request<a class="headerlink" href="#access-token-request" title="Permalink to this heading">¶</a></h2>
+<p>See <a class="reference internal" href="gstarted.html#gettoken"><span class="std std-ref">Getting the access token</span></a></p>
 </div>
-</div>
-<div class="section" id="create-an-app">
-<h2>Create an app<a class="headerlink" href="#create-an-app" title="Permalink to this heading">¶</a></h2>
-<p><a class="reference internal" href="gstarted.html#createapp"><span class="std std-ref">Create an app</span></a> to learn about the APIs and quickly ramp to production.</p>
+<div class="section" id="refresh-token-request">
+<h2>Refresh token request<a class="headerlink" href="#refresh-token-request" title="Permalink to this heading">¶</a></h2>
+<p>You can find a customer’s instance using the state ID and store the tokens.</p>
+<p>Since an access token expires in one hour (<code class="docutils literal notranslate"><span class="pre">expires_in</span></code>: 3600), use the refresh token to request new access tokens. You’ll call same access point (e.g. <code class="docutils literal notranslate"><span class="pre">$api_access_point</span> <span class="pre">=</span> <span class="pre">https://api.na1.echosign.com</span></code>), but you’ll POST to <code class="docutils literal notranslate"><span class="pre">https://api.na1.echosign.com/oauth/refresh</span></code>. Note the following:</p>
 <ul class="simple">
-<li><p>For real-world examples with additional details, see <a class="reference internal" href="scenarios.html#scenarios"><span class="std std-ref">Example Scenarios</span></a>.</p></li>
-<li><p>Browse through the <a class="reference external" href="https://www.adobe.com/go/acrobatsignapireference">REST API reference</a> to learn more about the request types, events, and so on.</p></li>
-<li><p>Review your app’s features. A common workflow monitors the signing process from beginning to end:</p>
-<ol class="arabic simple">
-<li><p><a class="reference internal" href="apiusage.html#sendforsigning"><span class="std std-ref">Send for Signing (Create an Agreement)</span></a></p></li>
-<li><p><a class="reference internal" href="apiusage.html#checkstatus"><span class="std std-ref">Check the Document Signing Status</span></a></p></li>
-<li><p>If the agreement remains unsigned, <a class="reference internal" href="apiusage.html#sendreminder"><span class="std std-ref">Send Reminders</span></a>.</p></li>
-<li><p>If all the signers have signed, <a class="reference internal" href="apiusage.html#download"><span class="std std-ref">Download the Agreement</span></a>.</p></li>
-</ol>
-</li>
+<li><p>The refresh token expires after 60 days of inactivity.</p></li>
+<li><p>A client can continue to use a refresh token indefinitely as long as it is being used at least once every 60 days.</p></li>
+<li><p>Every time you use the refresh token to get a new access token, reset the expiration on the refresh token to 60 days from the current time.</p></li>
+<li><p>If you are concerned about slow or no activity causing the refresh token to expire, set up a job that refreshes the access token every 1-N days (e.g. 50)</p></li>
 </ul>
-<img alt="_images/sign_overview_2.png" src="_images/sign_overview_2.png" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">oauth</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">refresh</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">na1</span><span class="o">.</span><span class="n">adobesign</span><span class="o">.</span><span class="n">com</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">www</span><span class="o">-</span><span class="n">form</span><span class="o">-</span><span class="n">urlencoded</span>
+
+  <span class="n">refresh_token</span><span class="o">=</span><span class="mi">2</span><span class="n">AAABLKmtbUAK7FeMV0hAiLf_W5x38LM67PXHapM</span><span class="o">&amp;</span>
+  <span class="n">client_id</span><span class="o">=</span><span class="n">d4HQNPFIXFD255H</span><span class="o">&amp;</span>
+  <span class="n">client_secret</span><span class="o">=</span><span class="mi">1</span><span class="n">a98b7cb92407cbd8961cd8db778de53</span><span class="o">&amp;</span>
+  <span class="n">grant_type</span><span class="o">=</span><span class="n">refresh_token</span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 50%" />
+<col style="width: 5%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Required?</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>grant_type</p></td>
+<td><p>refresh_token</p></td>
+<td><p>yes</p></td>
+<td><p>The value must always be <code class="docutils literal notranslate"><span class="pre">refresh_token</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>client_id</p></td>
+<td><p>The ID obtained from the OAuth configuration page.</p></td>
+<td><p>yes</p></td>
+<td><p>Identifies the application.</p></td>
+</tr>
+<tr class="row-even"><td><p>client_secret</p></td>
+<td><p>The ID obtained from the OAuth configuration page.</p></td>
+<td><p>yes</p></td>
+<td><p>Authenticates the application</p></td>
+</tr>
+<tr class="row-odd"><td><p>refresh_token</p></td>
+<td><p>The refresh Token received during the previous step</p></td>
+<td><p>yes</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="revoking-a-token">
+<h2>Revoking a token<a class="headerlink" href="#revoking-a-token" title="Permalink to this heading">¶</a></h2>
+<p>You can revoke both access tokens and refresh tokens. If an access token is revoked and it has a corresponding refresh token, the refresh token is also revoked. When a refresh token is revoked, all the access tokens issued from that refresh token are also revoked. Revoke tokens via a POST call to the /oauth/v2/revoke endpoint (using the <code class="docutils literal notranslate"><span class="pre">api_access_point</span></code> retrieved in the Access Token Request step) with the following:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 70%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Required?</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>token</p></td>
+<td><p>OAuth access or refresh token</p></td>
+<td><p>yes</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">oauth</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">revoke</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">na1</span><span class="o">.</span><span class="n">adobesign</span><span class="o">.</span><span class="n">com</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">www</span><span class="o">-</span><span class="n">form</span><span class="o">-</span><span class="n">urlencoded</span>
+
+<span class="n">token</span><span class="o">=</span><span class="mi">2</span><span class="n">AAABLKmtbUAK7FeMV0hAiLf_W5x38LM67PXHapM</span><span class="o">*&amp;</span>
+</pre></div>
+</div>
+<p>If request succeeds, an HTTP success code 200 returns without any body. If the request fails, the following error codes are returned in JSON format:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 20%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Http status code</p></th>
+<th class="head"><p>Error code</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>INVALID_REQUEST</p></td>
+<td><p>Empty or missing token</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p>EXPIRED_TOKEN</p></td>
+<td><p>The token is expired or already revoked</p></td>
+</tr>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>INVALID_TOKEN</p></td>
+<td><p>This is not a valid OAuth access or refresh token</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
