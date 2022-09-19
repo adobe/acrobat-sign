@@ -178,13 +178,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#output-path">Output Path</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#versions">Versions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#v6">v6</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#v5">v5</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#v4">v4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#v3">v3</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#downloads">Downloads</a></li>
 </ul>
 </li>
 </ul>
@@ -309,10 +303,10 @@
 <h2>Using the Samples<a class="headerlink" href="#using-the-samples" title="Permalink to this heading">¶</a></h2>
 <p>Each sample client has a set of instructions (provided as class comments) that needs to be followed. In particular, look for “TODO” comments in the client code and in the JSON input files for values that needs to be updated before the client can work properly. Once the clients and support files are updated with appropriate values, they can be compiled and run.</p>
 <p>The following steps outline one way this can be done using the command line on Windows.</p>
-<p>Note that on Linux and Mac OS, the path separator for the  -cp and -sourcepath options is “:” (colon) instead of “;” (semicolon).</p>
+<p>Note that on Linux and Mac OS, the path separator for the  <code class="docutils literal notranslate"><span class="pre">-cp</span></code> and <code class="docutils literal notranslate"><span class="pre">-sourcepath</span></code> options is “:” (colon) instead of “;” (semicolon).</p>
 <ul class="simple">
 <li><p>Navigate to the top-most folder i.e., version of the interested Acrobat Sign REST API, say v6, (the one containing “adobesign” and “lib”) so that it becomes the current directory.</p></li>
-<li><p>Compile the sources using the following command</p></li>
+<li><p>Compile the sources using the following command:</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">javac</span> <span class="o">-</span><span class="n">sourcepath</span> <span class="o">.</span><span class="p">;</span><span class="n">adobesign</span> <span class="o">-</span><span class="n">cp</span> <span class="n">lib</span><span class="o">/</span><span class="n">json_simple</span><span class="o">-</span><span class="mf">1.1</span><span class="o">.</span><span class="n">jar</span> <span class="n">adobesign</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">sample</span><span class="o">/*.</span><span class="n">java</span>
 </pre></div>
@@ -333,28 +327,13 @@
 <p>The default output path used in the sample clients is the user temp directory. If needed, this can be changed by updating the method <code class="docutils literal notranslate"><span class="pre">adobesign.api.rest.sample.util.FileUtils.getDefaultOutputPath()</span></code>.</p>
 </div>
 </div>
-<div class="section" id="versions">
-<h2>Versions<a class="headerlink" href="#versions" title="Permalink to this heading">¶</a></h2>
-<p>This distribution contains sample clients built on different versions of AdobeSign REST API. Please refer the change log below to learn about the changes in subsequent versions in the section below.</p>
-<div class="section" id="v6">
-<h3>v6<a class="headerlink" href="#v6" title="Permalink to this heading">¶</a></h3>
-<p>The latest version of Acrobat Sign REST API which introduces many advanced features, including Draft, Reminder API’s, Pagination, ETag, Suppress Email among others.</p>
-</div>
-<div class="section" id="v5">
-<h3>v5<a class="headerlink" href="#v5" title="Permalink to this heading">¶</a></h3>
-<p>These samples demonstrate the usage of signer set in the APIs while sending the agreement and fetching the agreement details. Using signer set feature, you can assign same signing step to multiple signers and whoever signs first out of them will be become the actual signer of the signing step.</p>
-</div>
-<div class="section" id="v4">
-<h3>v4<a class="headerlink" href="#v4" title="Permalink to this heading">¶</a></h3>
-<p>These samples demonstrate the usage of signer set in the APIs while sending the agreement and fetching the agreement details. Using signer set feature, you can assign same signing step to multiple signers and whoever signs first out of them will be become the actual signer of the signing step.</p>
-</div>
-<div class="section" id="v3">
-<h3>v3<a class="headerlink" href="#v3" title="Permalink to this heading">¶</a></h3>
-<ol class="arabic simple">
-<li><p>The latest version of REST API samples encourages the use of OAuth access tokens instead of access tokens obtained by directly supplying user credentials or API keys. Steps to generate OAuth access and refresh tokens can be found in comments within the sample code and in the API documentation referenced above.</p></li>
-<li><p>The use of “base URLs” is demonstrated. Base URLs are now needed to access the REST API properly.</p></li>
-<li><p>The latest version also contains samples to use new REST APIs which are /views and /search.</p></li>
-</ol>
+<div class="section" id="downloads">
+<h2>Downloads<a class="headerlink" href="#downloads" title="Permalink to this heading">¶</a></h2>
+<p><strong>Download</strong>: <a class="reference external" href="https://github.com/adobe/acrobat-sign/tree/main/sdks/AcrobatSign_REST_Samples/v6">https://github.com/adobe/acrobat-sign/tree/main/sdks/AcrobatSign_REST_Samples/v6</a></p>
+<p>V6 Acrobat Sign REST API (2016) introduces many advanced features, including Draft, Reminder API’s, Pagination, ETag, Suppress Email among others.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The deprecated versions 3, 4, and 5 are available but should not be used in production.</p>
 </div>
 </div>
 </div>
@@ -371,7 +350,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 16, 2022. 
+        Last update: Sep 19, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
