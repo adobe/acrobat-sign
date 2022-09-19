@@ -71,11 +71,22 @@ a.topbarlink {
    font-weight: normal; 
 }
 
-td,
-td > p { font-size: 16px; }
-th > p { padding-bottom:0; margin-bottom:0; }
+td {vertical-align:top;}
 
-.pre {font-size: 120%;}
+
+td > p {
+   font-size: 90%;
+   padding-bottom: 1em;
+   vertical-align:top;
+
+}
+
+th > p {
+   padding-bottom: 0;
+   margin-bottom: 0;
+}
+
+pre {font-size: 120%;}
 
 body {
    background: #fff;
@@ -163,7 +174,7 @@ img {
    border: 1px solid #EAEAEA;
 }
 
-/* Acrobat Sign In */
+/* Adobe Sign In */
 .wy-top-menu-wrapper {
    background: #fff;
    font-size: 14px;
@@ -219,18 +230,8 @@ img {
 
 .fixedbar .sign-in a { color: #2c2c2c; font-size: 14px; }
 
-td > p {
-   font-size: 90%;
-}
 
-th > p {
-   padding-bottom: 0;
-   margin-bottom: 0;
-}
 
-.pre {
-   font-size: 120%;
-}
 
 .topleft {
    background: #fff;
@@ -827,10 +828,12 @@ td > img {
 
 /* removed from layout and added here */
 
+td {font-size:130%}
 
-  td {font-size:130%}
-
-
+/*
+ul.simple > li { list-style-type: circle;
+ }
+*/
 
 /* *************************************
  * MEDIA QUERIES - TOP BAR / GRAY MENU
