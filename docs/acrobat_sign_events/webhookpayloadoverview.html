@@ -1,0 +1,767 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
+  
+  <title>Webhook Event Payload Overview &mdash; Acrobat Sign Webhook Event Dictionary</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />  
+  <link href="../_static/copybutton.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+    
+  
+  
+  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/developer_guide/webhookpayloadoverview.html" />
+  
+
+  
+  
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/jquery.js"></script>
+  <script type="text/javascript" src="../_static/underscore.js"></script>
+  <script type="text/javascript" src="../_static/doctools.js"></script>
+  <script type="text/javascript" src="../_static/language_data.js"></script>
+  <script type="text/javascript" src="../_static/searchtools.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+   
+  
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Webhook Agreement Events" href="webhookeventsagreements.html" />
+    <link rel="prev" title="Webhooks in Acrobat Sign" href="webhooks.html" /> 
+  
+<script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
+<script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+
+	<script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+          $('.fixedbar, .wy-nav-side').addClass('scroll');
+          $('.wy-top-menu-wrapper').fadeOut();
+        } else {
+          $('.fixedbar, .wy-nav-side').removeClass('scroll');
+          $('.wy-top-menu-wrapper').fadeIn();
+        }
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn();
+        } else {
+          $('#scroll').fadeOut();
+        }
+      });
+      $('#scroll').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+      });
+    });
+  </script>
+
+<style>
+  .wy-nav-content {max-width:90%}
+  </style>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+	  
+	  	  
+<!-- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -
+        <div class="wy-logo-wrapper">
+          <a href="https://www.adobe.com/go/dc_developer">
+            <img src="../_static/acrobaticon.png" class="logo"/> 
+          Acrobat, Adobe Sign, PDFL Developer
+          </a>
+        </div> 
+  @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+ 
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="toc.html" class="icon icon-home"> Acrobat Sign Webhook Event Dictionary
+          
+
+          
+          </a>
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../developer_guide/index.html#://">Developer Overview</a></li>
+<li class="toctree-l1"><a class="reference external" href="../developer_guide/gstarted.html#://">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference external" href="../developer_guide/oauth.html#://">Managing OAuth Tokens</a></li>
+<li class="toctree-l1"><a class="reference external" href="../developer_guide/scenarios.html#://">Example Scenarios</a></li>
+<li class="toctree-l1"><a class="reference external" href="../developer_guide/apiusage.html#://">API Usage</a></li>
+<li class="toctree-l1"><a class="reference external" href="../developer_guide/webhookapis.html#://">Webhook APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="../developer_guide/samples.html#://">REST API Samples</a></li>
+<li class="toctree-l1"><a class="reference external" href="../developer_guide/events.html#://">Web Message Events</a></li>
+<li class="toctree-l1"><a class="reference external" href="../developer_guide/migrating.html#://">Migrating from SOAP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Webhook Event Dictionary</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="webhooks.html">Webhooks in Acrobat Sign</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html#acrobat-sign-s-event-dictionary">Acrobat Sign’s Event Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html#how-do-webhooks-work">How do webhooks work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html#creating-a-webhook">Creating a webhook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#configure-a-webhook-and-subscribe-to-events">Configure a webhook and subscribe to events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#verification-of-intent-of-the-webhook-url">Verification of intent of the webhook URL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#how-to-respond-to-a-webhook-notification">How to respond to a webhook notification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#hosting-your-webhook-in-the-cloud">Hosting your webhook in the cloud</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html#webhook-properties">Webhook properties</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#webhook-url">Webhook URL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#webhook-status">Webhook status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#webhook-scopes">Webhook scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#webhook-conditional-parameters">Webhook conditional parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html#managing-webhooks-and-subscriptions">Managing webhooks and subscriptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#securing-webhooks">Securing webhooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#best-practices">Best practices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#receiving-a-webhook-notification">Receiving a webhook notification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#reliable-notification-delivery">Reliable notification delivery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#webhook-uniqueness">Webhook uniqueness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhooks.html#superset-events">SuperSet events</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Webhook Event Payload Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#payload-info">Payload info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#payload-size-and-truncation">Payload size and truncation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-webhook-payload">Basic webhook payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#applicable-users">Applicable users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#webhook-url">Webhook URL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhookeventsagreements.html">Webhook Agreement Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreements-minimum-payload">Agreements: Minimum payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-completed">AGREEMENT_ACTION_COMPLETED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#event-specific-payload-attributes">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#payload-attributes-inherited-from-agreement">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#payload-template">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-delegated">AGREEMENT_ACTION_DELEGATED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id1">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id2">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id3">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-replaced-signer">AGREEMENT_ACTION_REPLACED_SIGNER</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id4">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id5">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id6">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-requested">AGREEMENT_ACTION_REQUESTED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id7">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id8">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id9">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-auto-cancelled-conversion-problem">AGREEMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id10">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id11">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id12">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-created">AGREEMENT_CREATED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id13">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id14">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id15">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-documents-deleted">AGREEMENT_DOCUMENTS_DELETED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id16">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id17">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id18">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-bounced">AGREEMENT_EMAIL_BOUNCED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id19">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id20">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id21">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-viewed">AGREEMENT_EMAIL_VIEWED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id22">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id23">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id24">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expired">AGREEMENT_EXPIRED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id25">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id26">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id27">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-kba-authenticated">AGREEMENT_KBA_AUTHENTICATED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id28">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id29">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id30">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-modified">AGREEMENT_MODIFIED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id31">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id32">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id33">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-offline-sync">AGREEMENT_OFFLINE_SYNC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id34">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id35">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id36">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-recalled">AGREEMENT_RECALLED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id37">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id38">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id39">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-rejected">AGREEMENT_REJECTED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id40">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id41">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id42">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-shared">AGREEMENT_SHARED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id43">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id44">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id45">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-uploaded-by-sender">AGREEMENT_UPLOADED_BY_SENDER</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id46">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id47">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id48">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-user-ack-agreement-modified">AGREEMENT_USER_ACK_AGREEMENT_MODIFIED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id49">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id50">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id51">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-vaulted">AGREEMENT_VAULTED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id52">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id53">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id54">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-web-identity-authenticated">AGREEMENT_WEB_IDENTITY_AUTHENTICATED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id55">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id56">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id57">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-workflow-completed">AGREEMENT_WORKFLOW_COMPLETED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id58">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id59">Payload attributes inherited from agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id60">Payload template</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhookeventslibrary.html">Webhook Library Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-minimum-payload">Library: Minimum payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-auto-cancelled-conversion-problem">LIBRARY_DOCUMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#event-specific-payload-attributes">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#inherited-from-library-document">Inherited from Library Document:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#payload-template">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-created">LIBRARY_DOCUMENT_CREATED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id1">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id2">Inherited from Library Document:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id3">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-modified">LIBRARY_DOCUMENT_MODIFIED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id4">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id5">Inherited from Library Document:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id6">Payload template</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhookeventsmegasign.html">Webhook Bulk Signing Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#bulk-signing-minimum-payload">Bulk signing: Minimum payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-created">MEGASIGN_CREATED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#event-specific-payload-attributes">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#inherted-from-megasign">Inherted from MegaSign</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#payload-template">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-recalled">MEGASIGN_RECALLED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id1">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id2">Inherted from MegaSign:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id3">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-shared">MEGASIGN_SHARED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id4">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id5">Inherted from MegaSign:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id6">Payload template</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhookeventswidget.html">Webhook Widget Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-minimum-payload">Widget: Minimum payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-created">WIDGET_CREATED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#event-specific-payload-attributes">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#inherited-from-widget">Inherited from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#payload-template">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-disabled">WIDGET_DISABLED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id1">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id2">Inherited from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id3">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-enabled">WIDGET_ENABLED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id4">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id5">Inherited from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id6">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-modified">WIDGET_MODIFIED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id7">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id8">Inherited from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id9">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-shared">WIDGET_SHARED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id10">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id11">Inherited from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id12">Payload template</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../releasenotes/index.html#://">Developer release notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://helpx.adobe.com/sign/release-notes/adobe-sign.html#://">Product UI release notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SDKs and Samples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../sdks/js.html#://">JS SDK</a></li>
+<li class="toctree-l1"><a class="reference external" href="../sdks/java.html#://">JAVA SDK</a></li>
+<li class="toctree-l1"><a class="reference external" href="../sdks/openapi.html#://">OpenAPI SDK</a></li>
+<li class="toctree-l1"><a class="reference external" href="../sdks/csharp.html#://">CSharp SDK</a></li>
+<li class="toctree-l1"><a class="reference external" href="../sdks/rest.html#://">REST Samples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../developer_guide/glossary.html#://">glossary</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v.6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/esign-dev-cert#://">Application certification form</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://helpx.adobe.com/sign/using/integration-guides.html">Acrobat Sign integration guides</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/trust/resources.html#://">Security and compliance</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+        <div class="fixedbar">  
+          <div class="wy-menu-items">
+            <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer Guide</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook Events</a>
+            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
+            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Get a Dev Account</a>
+            <a href="" class="topbarlink">Developer Forum</a>
+          </div>  
+          <div class="sign-in">
+            <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+           <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
+          </div>
+        </div>
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+
+
+
+
+   
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="toc.html">Acrobat Sign Webhook Event Dictionary</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+      <a href="#" id="scroll" style="display:inline;"><span></span></a>
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Webhook Event Payload Overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="webhookeventsagreements.html" class="btn btn-neutral float-right" title="Webhook Agreement Events" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="webhooks.html" class="btn btn-neutral float-left" title="Webhooks in Acrobat Sign" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="webhook-event-payload-overview">
+<span id="webhookpayload"></span><h1>Webhook Event Payload Overview<a class="headerlink" href="#webhook-event-payload-overview" title="Permalink to this heading">¶</a></h1>
+<div class="section" id="payload-info">
+<h2>Payload info<a class="headerlink" href="#payload-info" title="Permalink to this heading">¶</a></h2>
+<p>Webhook notification payloads are delivered using the application/json content type. The payload object contains all the relevant information about what just happened, including the type of event and the data associated with that event. Acrobat Sign then sends the payload object, via an HTTP POST request, to any endpoint URLs that you have defined as webhook URLs.</p>
+</div>
+<div class="section" id="payload-size-and-truncation">
+<h2>Payload size and truncation<a class="headerlink" href="#payload-size-and-truncation" title="Permalink to this heading">¶</a></h2>
+<p>The payload size is restricted to 10 MB. If an event generates a larger payload, a webhook will triggered but the conditional parameters attributes, if they’re in the request, will be removed to reduce the size of the payload. Also a <strong>conditionalParametersTrimmed</strong> array object will be included in the response for this case to tell the client which conditionalParameters info is removed. The truncation occurs in the following order:</p>
+<ul class="simple">
+<li><p><strong>includeSignedDocuments</strong></p></li>
+<li><p><strong>includeParticipantsInfo</strong></p></li>
+<li><p><strong>includeDocumentsInfo</strong></p></li>
+<li><p><strong>includeDetailedInfo</strong></p></li>
+</ul>
+<p>The truncation order is as follows:</p>
+<ul class="simple">
+<li><p>Signed documents in a base 64 encoded format</p></li>
+<li><p>Participant info</p></li>
+<li><p>Document info</p></li>
+<li><p>Detailed info</p></li>
+</ul>
+<p>Truncation may happen, for example, on an agreement completion event if it includes a signed document in a base 64 encoded format as well or for an agreement with multiple form fields.</p>
+</div>
+<div class="section" id="basic-webhook-payload">
+<h2>Basic webhook payload<a class="headerlink" href="#basic-webhook-payload" title="Permalink to this heading">¶</a></h2>
+<p>All events include the following common payload attributes. Additional parameters returned along with specific event payload objects for particular keys are defined in the payload specifications for each event.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Parameter name</p></td>
+<td><p>Type</p></td>
+<td><p>Description</p></td>
+<td><p>Possible values</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">webhookId</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Webhook identifier of the webhook for which the notification sent</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">webhookname</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Name of the webhook which was provided while creating a webhook</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">webhookNotificationId</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The unique identifier of the webhook notification. This will be helpful in identifying duplicate notifications, if any.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">webhookNotificationApplicableUsers</span></code></p></td>
+<td><p>Object</p></td>
+<td><p>An array of the details of the users for which this notification is delivered. For example: Say User A and User B are in a Group G1. Say User C is in Group G2, and both these groups and all 3 users are in Account A. Assume, group level “webhook W1” is registered on Group G1 and group level “webhook W2” is registered on Group G2. Now an agreement is sent by User A and to User B. And User B delegates the signing to User C. In the above case, the sign will generate only two notifications (corresponding to W1 and W2) for the delegation event. The current field for W1 notification will be an array of details of User A and User B. The current field for W2 notification will be an array of details of User C.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">webhookUrlInfo</span></code></p></td>
+<td><p>Object</p></td>
+<td><p>URL on which this HTTPS POST notification triggers.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">webhookScope</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Scope of the webhook</p></td>
+<td><p>ACCOUNT, GROUP, USER, RESOURCE</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">event</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Event for which the webhook notification triggers.</p></td>
+<td><p>AGREEMENT_CREATED</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">eventDate</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Event timestamp</p></td>
+<td><p>Example value: 2018-08-09T12:01:00Z</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">eventResourceParentType</span></code></p></td>
+<td><p>enum</p></td>
+<td><p>For agreements, it is possible that the agreement is created by signing a widget or while creating a megasign/bulk signing action. This field informs about such cases. <em>Only added for payloads of agreement type resources.</em></p></td>
+<td><p>WIDGET, MEGASIGN</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">eventResourceParentId</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Unique identifier of the widget or megasign action from which this agreement is created. <em>Only added for payloads of agreement type resources.</em></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">subEvent</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Sub-event for which the webhook notification triggers. <em>This field is event specific and returned with only a few events. See the individual event for details</em></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">eventResourceType</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The resource type on which the event triggers.</p></td>
+<td><p>AGREEMENT, WIDGET, MEGASIGN</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">participantRole</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Role assumed by all participants in the participant set to which the participant belongs (signer, approver etc.). This is the role of the <code class="docutils literal notranslate"><span class="pre">participantUser</span></code>. This key returns only for the following events: AGREEMENT_WORKFLOW_COMPLETED, AGREEMENT_ACTION_COMPLETED, AGREEMENT_ACTION_DELEGATED, AGREEMENT_ACTION_REQUESTED</p></td>
+<td><p>SIGNER, DELEGATE_TO_SIGNER, APPROVER, DELEGATE_TO_APPROVER, ACCEPTOR, DELEGATE_TO_ACCEPTOR, FORM_FILLER, DELEGATE_TO_FORM_FILLER, CERTIFIED_RECIPIENT, DELEGATE_TO_CERTIFIED_RECIPIENT or SHARE</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">actionType</span></code></p></td>
+<td><p>String</p></td>
+<td><p>This key is returned for only AGREEMENT_ACTION_COMPLETED.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserId</span></code></p></td>
+<td><p>String</p></td>
+<td><p><em>This field is Event-specific payload attributes; see the individual event for details</em></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserEmail</span></code></p></td>
+<td><p>String</p></td>
+<td><p><em>This field is Event-specific payload attributes; see the individual event for details</em></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserId</span></code></p></td>
+<td><p>String</p></td>
+<td><p><em>This field is Event-specific payload attributes; see the individual event for details</em></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserEmail</span></code></p></td>
+<td><p>String</p></td>
+<td><p><em>This field is Event-specific payload attributes; see the individual event for details</em></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserId</span></code></p></td>
+<td><p>String</p></td>
+<td><p><em>This field is Event-specific payload attributes; see the individual event for details</em></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code></p></td>
+<td><p>String</p></td>
+<td><p><em>This field is Event-specific payload attributes; see the individual event for details</em></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserIpAddress</span></code></p></td>
+<td><p>String</p></td>
+<td><p>IP address of user that triggered the event</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">agreement</span></code></p></td>
+<td><p>Agreement</p></td>
+<td><p>Information about the agreement on which the event occurred. This key returns only if the event is an agreement event.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></td>
+<td><p>Widget</p></td>
+<td><p>Information about the widget on which the event occurred. This key returns only if the event is a widget event.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">megasign</span></code></p></td>
+<td><p>MegaSign</p></td>
+<td><p>Information about the megaSign on which the event occurred. This key returns only if the event is a megaSign event.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="applicable-users">
+<h2>Applicable users<a class="headerlink" href="#applicable-users" title="Permalink to this heading">¶</a></h2>
+<p>Information in the <code class="docutils literal notranslate"><span class="pre">webhookNotificationApplicableUsers</span></code> array:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Parameter name</p></td>
+<td><p>Type</p></td>
+<td><p>Description</p></td>
+<td><p>Possible values</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The unique identifier of the user for which the notification is applicable.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">email</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Email address of the user for which the notification is applicable.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">role</span></code></p></td>
+<td><p>enum</p></td>
+<td><p>Role of the user in the workflow.</p></td>
+<td><p>SIGNER, DELEGATE_TO_SIGNER, APPROVER, DELEGATE_TO_APPROVER, ACCEPTOR, DELEGATE_TO_ACCEPTOR, FORM_FILLER, DELEGATE_TO_FORM_FILLER, CERTIFIED_RECIPIENT, DELEGATE_TO_CERTIFIED_RECIPIENT, or SHARE</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">payloadApplicable</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p>Indicates whether the payload attached to this notification is fetched in the context of this user or not. The boolean will be true for one and only one of the users in the <code class="docutils literal notranslate"><span class="pre">webhookNotificationApplicableUsers</span></code> array.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="webhook-url">
+<h2>Webhook URL<a class="headerlink" href="#webhook-url" title="Permalink to this heading">¶</a></h2>
+<p>Information in WebhookUrlInfo:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Parameter name</p></td>
+<td><p>Type</p></td>
+<td><p>Description</p></td>
+<td><p>Sample value</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Url</span></code></p></td>
+<td><p>String</p></td>
+<td><p>HTTPS URL of the webhook</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://example.com/callback?guid=test</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Adobe Inc..
+      <span class="lastupdated">
+        Last update: Sep 19, 2022. 
+        <img src="../_static/adobelogo.png" class="logo"/> 
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
