@@ -133,10 +133,10 @@
 <li class="toctree-l1"><a class="reference external" href="../developer_guide/events.html#://">Web Message Events</a></li>
 <li class="toctree-l1"><a class="reference external" href="../developer_guide/migrating.html#://">Migrating from SOAP</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Webhook Event Dictionary</span></p>
+<p class="caption" role="heading"><span class="caption-text">Webhook Guide</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Webhooks in Acrobat Sign</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#acrobat-sign-s-event-dictionary">Acrobat Sign’s Event Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#webhook-guide">Webhook Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-webhooks-work">How do webhooks work?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#creating-a-webhook">Creating a webhook</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
@@ -417,7 +417,7 @@
         <div class="fixedbar">  
           <div class="wy-menu-items">
             <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer Guide</a>
-            <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook Events</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook Guide</a>
             <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
             <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
             <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Get a Dev Account</a>
@@ -501,8 +501,8 @@
   <div class="section" id="webhooks-in-acrobat-sign">
 <span id="webhooks"></span><h1>Webhooks in Acrobat Sign<a class="headerlink" href="#webhooks-in-acrobat-sign" title="Permalink to this heading">¶</a></h1>
 <p>Webhooks are HTTPS callbacks that receive real-time notification messages for events. In other words, you app does not have to poll Acrobat Sign for status; webhooks notify your app when an event occurs. The service simply makes an HTTPS POST request to the webhook’s HTTPS URL. In simple words, a webhook is a <strong>web service that accepts HTTPS POST requests</strong> (rather, listens to requests) from a source. As a developer, you can create webhooks in Acrobat Sign to listen to events happening for your agreements and other resources. You can create webhooks can via the REST APIs as well as the Acrobat Sign web application.</p>
-<div class="section" id="acrobat-sign-s-event-dictionary">
-<h2>Acrobat Sign’s Event Dictionary<a class="headerlink" href="#acrobat-sign-s-event-dictionary" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="webhook-guide">
+<h2>Webhook Guide<a class="headerlink" href="#webhook-guide" title="Permalink to this heading">¶</a></h2>
 <p>Events are the reason for webhooks: webhooks are a way for your Acrobat Sign integration to listen for and respond to Acrobat Sign events. When configuring a webhook, you can choose which events for which you would like to receive payloads. Subscribing only to specific events is useful for limiting the number of HTTPS requests to the server. You can change the list of subscribed events through the API or UI anytime. Each event has a similar JSON schema based on the resource type, but a unique payload object that is determined by its event type. The payload returns in JSON format.</p>
 <p>This dictionary provides details about each event, including:</p>
 <ul class="simple">
