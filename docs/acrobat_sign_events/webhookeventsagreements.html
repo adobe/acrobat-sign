@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
   
-  <title>Webhook Agreement Events &mdash; Acrobat Sign Webhook Event Dictionary</title>
+  <title>Webhook Agreement Events &mdash; Acrobat Sign Webhook Guide</title>
   
 
   
@@ -20,7 +20,7 @@
     
   
   
-  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/developer_guide/webhookeventsagreements.html" />
+  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/webhookeventsagreements.html" />
   
 
   
@@ -95,7 +95,7 @@
           
 
           
-            <a href="toc.html" class="icon icon-home"> Acrobat Sign Webhook Event Dictionary
+            <a href="toc.html" class="icon icon-home"> Acrobat Sign Webhook Guide
           
 
           
@@ -136,30 +136,34 @@
 <p class="caption" role="heading"><span class="caption-text">Webhook Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Webhooks in Acrobat Sign</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="index.html#webhook-guide">Webhook Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#how-do-webhooks-work">How do webhooks work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#ui-vs-api-configuration">UI vs API configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#workflow-example">Workflow example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#creating-a-webhook">Creating a webhook</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="index.html#prerequisites">Prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="index.html#configure-a-webhook-and-subscribe-to-events">Configure a webhook and subscribe to events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="index.html#verification-of-intent-of-the-webhook-url">Verification of intent of the webhook URL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#verifying-webhook-url-intent">Verifying webhook URL intent</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="index.html#method-1-custom-response-header">Method 1: Custom response header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#method-2-json-response-body">Method 2: JSON response body</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="index.html#how-to-respond-to-a-webhook-notification">How to respond to a webhook notification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="index.html#hosting-your-webhook-in-the-cloud">Hosting your webhook in the cloud</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#webhook-properties">Webhook properties</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#webhook-name">Webhook name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#events">Events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="index.html#webhook-url">Webhook URL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="index.html#webhook-status">Webhook status</a></li>
 <li class="toctree-l3"><a class="reference internal" href="index.html#webhook-scopes">Webhook scopes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="index.html#webhook-conditional-parameters">Webhook conditional parameters</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#managing-webhooks-and-subscriptions">Managing webhooks and subscriptions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="index.html#securing-webhooks">Securing webhooks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="index.html#best-practices">Best practices</a></li>
-<li class="toctree-l3"><a class="reference internal" href="index.html#receiving-a-webhook-notification">Receiving a webhook notification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-webhooks-and-subscriptions">Managing webhooks and subscriptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#acrobat-sign-security-and-reliability">Acrobat Sign: security and reliability</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#webhook-security">Webhook security</a></li>
 <li class="toctree-l3"><a class="reference internal" href="index.html#reliable-notification-delivery">Reliable notification delivery</a></li>
-<li class="toctree-l3"><a class="reference internal" href="index.html#webhook-uniqueness">Webhook uniqueness</a></li>
-<li class="toctree-l3"><a class="reference internal" href="index.html#superset-events">SuperSet events</a></li>
 </ul>
 </li>
 </ul>
@@ -174,37 +178,42 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Webhook Agreement Events</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#agreements-minimum-payload">Agreements: Minimum payload</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#agreement-action-completed">AGREEMENT_ACTION_COMPLETED</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#agreement-all">AGREEMENT_ALL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#agreement-created">AGREEMENT_CREATED</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#event-specific-payload-attributes">Event-specific payload attributes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#payload-attributes-inherited-from-agreement">Payload attributes inherited from agreement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#payload-template">Payload template</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#agreement-action-delegated">AGREEMENT_ACTION_DELEGATED</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#agreement-sent">AGREEMENT_SENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#agreement-participant-completed">AGREEMENT_PARTICIPANT_COMPLETED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#agreement-action-completed">AGREEMENT_ACTION_COMPLETED</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Event-specific payload attributes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id2">Payload attributes inherited from agreement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">Payload template</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#agreement-action-replaced-signer">AGREEMENT_ACTION_REPLACED_SIGNER</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#agreement-participant-replaced">AGREEMENT_PARTICIPANT_REPLACED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#agreement-action-delegated">AGREEMENT_ACTION_DELEGATED</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id4">Event-specific payload attributes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id5">Payload attributes inherited from agreement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id6">Payload template</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#agreement-action-requested">AGREEMENT_ACTION_REQUESTED</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#agreement-delegated">AGREEMENT_DELEGATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#agreement-action-replaced-signer">AGREEMENT_ACTION_REPLACED_SIGNER</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id7">Event-specific payload attributes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id8">Payload attributes inherited from agreement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id9">Payload template</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#agreement-auto-cancelled-conversion-problem">AGREEMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#agreement-action-requested">AGREEMENT_ACTION_REQUESTED</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id10">Event-specific payload attributes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id11">Payload attributes inherited from agreement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id12">Payload template</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#agreement-created">AGREEMENT_CREATED</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#agreement-auto-cancelled-conversion-problem">AGREEMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id13">Event-specific payload attributes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id14">Payload attributes inherited from agreement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id15">Payload template</a></li>
@@ -234,6 +243,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#id27">Payload template</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#agreement-expiration-updated">AGREEMENT_EXPIRATION_UPDATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#agreement-deleted">AGREEMENT_DELETED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#agreement-canceled">AGREEMENT_CANCELED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#agreement-kba-authenticated">AGREEMENT_KBA_AUTHENTICATED</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id28">Event-specific payload attributes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id29">Payload attributes inherited from agreement</a></li>
@@ -304,21 +316,22 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="webhookeventslibrary.html">Webhook Library Events</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-minimum-payload">Library: Minimum payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-all">LIBRARY_ALL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-auto-cancelled-conversion-problem">LIBRARY_DOCUMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#event-specific-payload-attributes">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#inherited-from-library-document">Inherited from Library Document:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#inherited-from-library-document">Inherited from Library Document</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#payload-template">Payload template</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-created">LIBRARY_DOCUMENT_CREATED</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id1">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id2">Inherited from Library Document:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id2">Inherited from Library Document</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id3">Payload template</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-modified">LIBRARY_DOCUMENT_MODIFIED</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id4">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id5">Inherited from Library Document:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id5">Inherited from Library Document</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id6">Payload template</a></li>
 </ul>
 </li>
@@ -326,56 +339,70 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="webhookeventsmegasign.html">Webhook Bulk Signing Events</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#bulk-signing-minimum-payload">Bulk signing: Minimum payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-all">MEGASIGN_ALL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-created">MEGASIGN_CREATED</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#event-specific-payload-attributes">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#inherted-from-megasign">Inherted from MegaSign</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#inherited-from-megasign">Inherited from MegaSign</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#payload-template">Payload template</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-recalled">MEGASIGN_RECALLED</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id1">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id2">Inherted from MegaSign:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id2">Inherited from MegaSign</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id3">Payload template</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-shared">MEGASIGN_SHARED</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id4">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id5">Inherted from MegaSign:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id5">Inherited from MegaSign</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id6">Payload template</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#id7">MEGASIGN_SHARED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id8">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id9">Inherited from MegaSign</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id10">Payload template</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="webhookeventswidget.html">Webhook Widget Events</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-minimum-payload">Widget: Minimum payload</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhookeventswidget.html">Webhook Web Form Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#web-form-minimum-payload">Web form: Minimum payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-all">WIDGET_ALL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-created">WIDGET_CREATED</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#event-specific-payload-attributes">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#inherited-from-widget">Inherited from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#inherited-from-widget">Inherited from Widget</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#payload-template">Payload template</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-disabled">WIDGET_DISABLED</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-auto-cancelled-conversion-problem">WIDGET_AUTO_CANCELLED_CONVERSION_PROBLEM</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id1">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id2">Inherited from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id2">Inherited from Widget</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id3">Payload template</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-enabled">WIDGET_ENABLED</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-disabled">WIDGET_DISABLED</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id4">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id5">Inherited from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id5">Inherited from Widget</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id6">Payload template</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-modified">WIDGET_MODIFIED</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-enabled">WIDGET_ENABLED</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id7">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id8">Inherited from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id8">Inherited from Widget</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id9">Payload template</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-shared">WIDGET_SHARED</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-modified">WIDGET_MODIFIED</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id10">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id11">Inherited from Widget:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id11">Inherited from Widget</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id12">Payload template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-shared">WIDGET_SHARED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id13">Event-specific payload attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id14">Inherited from Widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id15">Payload template</a></li>
 </ul>
 </li>
 </ul>
@@ -438,7 +465,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="toc.html">Acrobat Sign Webhook Event Dictionary</a>
+          <a href="toc.html">Acrobat Sign Webhook Guide</a>
         
       </nav>
 
@@ -505,10 +532,10 @@
 <p>The following is the minimal info which returns for an agreement event if all the conditional parameters are set to false while creating webhooks.</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Parameter Name</p></td>
@@ -534,16 +561,339 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="agreement-action-completed">
-<h2>AGREEMENT_ACTION_COMPLETED<a class="headerlink" href="#agreement-action-completed" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="agreement-all">
+<h2>AGREEMENT_ALL<a class="headerlink" href="#agreement-all" title="Permalink to this heading">¶</a></h2>
+<p>If you want to subscribe to all agreement events, subscribe to AGREEMENT_ALL</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Event type</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>AGREEMENT_ALL</p></td>
+<td><p>All the supported agreement events. If new agreement events are added in future, those events are taken care automatically.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="agreement-created">
+<h2>AGREEMENT_CREATED<a class="headerlink" href="#agreement-created" title="Permalink to this heading">¶</a></h2>
 <div class="section" id="event-specific-payload-attributes">
 <h3>Event-specific payload attributes<a class="headerlink" href="#event-specific-payload-attributes" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserId</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user ID  of the sender or originator of the agreement. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserEmail</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user email  of the sender or originator of the agreement. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserId</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user ID   of the <em>sender or originator of the agreement</em>. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserEmail</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user email of the <em>sender or originator of the agreement</em>. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserId</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user ID of the <em>sharee of the originator of the agreement</em> who sent the agreement on behalf of the sender in the case of account sharing.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user email  of the <em>sharee of the originator of the agreement</em> who sent the agreement on behalf of the sender in the case of account sharing.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="payload-attributes-inherited-from-agreement">
+<h3>Payload attributes inherited from agreement<a class="headerlink" href="#payload-attributes-inherited-from-agreement" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Possible Enums</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The unique identifier of the agreement, which can be used to query status and download signed documents.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The name of the agreement that will be used to identify it, in emails and on the website.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">signatureType</span></code></p></td>
+<td><p>Enum</p></td>
+<td><p>Specifies the type of signature requested on the agreement—written or e-signature.</p></td>
+<td><p>ESIGN, WRITTEN</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></td>
+<td><p>Enum</p></td>
+<td><p>The current status of the agreement.</p></td>
+<td><p>OUT_FOR_SIGNATURE, OUT_FOR_DELIVERY, OUT_FOR_ACCEPTANCE, OUT_FOR_FORM_FILLING, OUT_FOR_APPROVAL, AUTHORING, CANCELLED, SIGNED, APPROVED, DELIVERED, ACCEPTED, FORM_FILLED, EXPIRED, ARCHIVED, PREFILL, WIDGET_WAITING_FOR_VERIFICATION, DRAFT, DOCUMENTS_NOT_YET_PROCESSED, WAITING_FOR_FAXING, WAITING_FOR_VERIFICATION</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ccs</span></code></p></td>
+<td><p>Array of Strings</p></td>
+<td><p>Email IDs of cc: participants of the agreement.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">deviceInfo</span></code></p></td>
+<td><p>Object</p></td>
+<td><p>Device info of the offline device. It will only be returned in the case of offline agreement creation.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">documentVisibilityEnabled</span></code></p></td>
+<td><p>Boolean</p></td>
+<td><p>Determines whether limited document visibility is enabled or not. Will never be returned in offline agreement creation.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">createdDate</span></code></p></td>
+<td><p>Date</p></td>
+<td><p>Agreement creation date.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">expirationTime</span></code></p></td>
+<td><p>Timestamp</p></td>
+<td><p>The date after which the agreement can no longer be signed, if an expiration date is configured. The value is nil if an expiration date is not set for the document.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">externalId</span></code></p></td>
+<td><p>Object</p></td>
+<td><p>A unique identifier provided by an external system search for your transaction through the API.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">postSignOption</span></code></p></td>
+<td><p>Object</p></td>
+<td><p>Determines the URL and associated properties for the success page the user will be taken to after completing the signing process. Will never be returned in offline agreement creation.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">firstReminderDelay</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p>Integer which specifies the delay in hours before sending the first reminder. The minimum value allowed is 1 hour and the maximum value can’t be more than the difference between the agreement creation time and the expiration time of the agreement in hours. If this is not specified while creating the agreement, but the reminder frequency is specified, then the first reminder will be sent based on frequency: in other words, if the reminder is created with frequency specified as daily, the firstReminderDelay will be 24 hours. Will never be returned in offline agreement creation.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">locale</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The locale associated with this agreement. Specifies the language for the signing page and emails: for example, en_US or fr_FR. If none specified, defaults to the language configured for the agreement sender.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The message associated with the agreement that the sender has provided.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reminderFrequency</span></code></p></td>
+<td><p>Enum</p></td>
+<td><p>Specifies how often reminders will be sent to the recipients.</p></td>
+<td><p>DAILY_UNTIL_SIGNED, WEEKLY_UNTIL_SIGNED</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">senderEmail</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Email of the sender.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">vaultingInfo</span></code></p></td>
+<td><p>Object</p></td>
+<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">workflowId</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Identifier of the custom workflow that defines the routing path of an agreement. Will not be returned in offline agreement creation.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">participantSetsInfo</span></code></p></td>
+<td><p>Object</p></td>
+<td><p>Returns a list of one or more participant sets. A participant set may have one or more participants. Returned only if the conditional parameter includeParticipantInfo is set to true and the payload size is less than the threshold.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">documentsInfo</span></code></p></td>
+<td><p>Object</p></td>
+<td><p>Returns the IDs of the documents of an agreement. Returned only if the conditional parameter includeDocumentsInfo is set to true and payload size is less than the threshold. In some cases when document processing takes a lot of time, you might not get documentsInfo even if the conditional parameter includeDocumentsInfo was set to true. In such a case try calling the v6 GET /agreements/{agreementId}/documents API to get the details of the documents of an agreement.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">supportingDocuments</span></code></p></td>
+<td><p>Object</p></td>
+<td><p>Returns the supporting documents of an agreement. Returned only if the conditional parameter includeDocumentsInfo is set to true and payload size is less than the threshold. In some cases when document processing takes a lot of time, you might not get documentsInfo even if the conditional parameter includeDocumentsInfo was set to true, In such a case try calling the v6 GET /agreements/{agreementId}/documents API to get the details of the supporting documents of an agreement.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">conditionalParametersTrimmed</span></code></p></td>
+<td><p>Array of Strings</p></td>
+<td><p>If event notification payload size exceeds the defined threshold, the conditional parameters will not be sent in the notification request, even if they are set to true by the webhook creator. The conditionalParametersTrimmed attribute will be set to the keys trimmed in this case. If no conditional parameters are specified by the webhook creator, or if they are specified, but no key is trimmed, this parameter will not be returned.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="payload-template">
+<h3>Payload template<a class="headerlink" href="#payload-template" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">&quot;webhookId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;webhookName&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;webhookNotificationId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;webhookUrlInfo&quot;</span><span class="p">:{</span>
+      <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+   <span class="p">},</span>
+   <span class="s2">&quot;webhookScope&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;payloadApplicable&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+   <span class="s2">&quot;event&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;subEvent&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;eventDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;eventResourceType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;eventResourceParentType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;eventResourceParentId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;participantUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;participantUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;actingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;actingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;actingUserIpAddress&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;initiatingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;initiatingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;agreement&quot;</span><span class="p">:{</span>
+      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;signatureType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;ccs&quot;</span><span class="p">:[</span>
+         <span class="p">{</span>
+            <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;visiblePages&quot;</span><span class="p">:[</span>
+               <span class="s2">&quot;&quot;</span>
+            <span class="p">]</span>
+         <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;deviceInfo&quot;</span><span class="p">:{</span>
+         <span class="s2">&quot;applicationDescription&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;deviceDescription&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;location&quot;</span><span class="p">:{</span>
+            <span class="s2">&quot;latitude&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;longitude&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+         <span class="p">},</span>
+         <span class="s2">&quot;deviceTime&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;documentVisibilityEnabled&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;createdDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;expirationTime&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;externalId&quot;</span><span class="p">:{</span>
+         <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;postSignOption&quot;</span><span class="p">:{</span>
+         <span class="s2">&quot;redirectDelay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;redirectUrl&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;firstReminderDelay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;locale&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;reminderFrequency&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;senderEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;vaultingInfo&quot;</span><span class="p">:{</span>
+         <span class="s2">&quot;enabled&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;workflowId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;participantSetsInfo&quot;</span><span class="p">:{</span>
+         <span class="s2">&quot;participantSets&quot;</span><span class="p">:[</span>
+            <span class="p">{</span>
+               <span class="s2">&quot;memberInfos&quot;</span><span class="p">:[</span>
+                  <span class="p">{</span>
+                     <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;company&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+                  <span class="p">}</span>
+               <span class="p">],</span>
+               <span class="s2">&quot;order&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+            <span class="p">}</span>
+         <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;documentsInfo&quot;</span><span class="p">:{</span>
+         <span class="s2">&quot;documents&quot;</span><span class="p">:[</span>
+            <span class="p">{</span>
+               <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;numPages&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;mimeType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+            <span class="p">}</span>
+         <span class="p">],</span>
+         <span class="s2">&quot;supportingDocuments&quot;</span><span class="p">:[</span>
+            <span class="p">{</span>
+               <span class="s2">&quot;displayLabel&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;fieldName&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;mimeType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;numPages&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+            <span class="p">}</span>
+         <span class="p">]</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="agreement-sent">
+<h2>AGREEMENT_SENT<a class="headerlink" href="#agreement-sent" title="Permalink to this heading">¶</a></h2>
+<p>Triggers when an agreement is sent to a participant.</p>
+<p>TBD</p>
+</div>
+<div class="section" id="agreement-participant-completed">
+<h2>AGREEMENT_PARTICIPANT_COMPLETED<a class="headerlink" href="#agreement-participant-completed" title="Permalink to this heading">¶</a></h2>
+<p>Triggers when a participant completes their action.</p>
+<p>TBD</p>
+</div>
+<div class="section" id="agreement-action-completed">
+<h2>AGREEMENT_ACTION_COMPLETED<a class="headerlink" href="#agreement-action-completed" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="id1">
+<h3>Event-specific payload attributes<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -591,14 +941,14 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="payload-attributes-inherited-from-agreement">
-<h3>Payload attributes inherited from agreement<a class="headerlink" href="#payload-attributes-inherited-from-agreement" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="id2">
+<h3>Payload attributes inherited from agreement<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -721,8 +1071,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="payload-template">
-<h3>Payload template<a class="headerlink" href="#payload-template" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="id3">
+<h3>Payload template<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
    <span class="s2">&quot;webhookId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
    <span class="s2">&quot;webhookName&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
@@ -844,16 +1194,21 @@
 </div>
 </div>
 </div>
+<div class="section" id="agreement-participant-replaced">
+<h2>AGREEMENT_PARTICIPANT_REPLACED<a class="headerlink" href="#agreement-participant-replaced" title="Permalink to this heading">¶</a></h2>
+<p>Triggers when an agreement’s participant is replaced.</p>
+<p>TBD</p>
+</div>
 <div class="section" id="agreement-action-delegated">
 <h2>AGREEMENT_ACTION_DELEGATED<a class="headerlink" href="#agreement-action-delegated" title="Permalink to this heading">¶</a></h2>
-<div class="section" id="id1">
-<h3>Event-specific payload attributes<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="id4">
+<h3>Event-specific payload attributes<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -901,14 +1256,14 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id2">
-<h3>Payload attributes inherited from agreement<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="id5">
+<h3>Payload attributes inherited from agreement<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -1036,8 +1391,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id3">
-<h3>Payload template<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="id6">
+<h3>Payload template<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
    <span class="s2">&quot;webhookId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
    <span class="s2">&quot;webhookName&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
@@ -1179,10 +1534,15 @@
 </div>
 </div>
 </div>
+<div class="section" id="agreement-delegated">
+<h2>AGREEMENT_DELEGATED<a class="headerlink" href="#agreement-delegated" title="Permalink to this heading">¶</a></h2>
+<p>Triggers when an agreement is delegated by a participant.</p>
+<p>TBD</p>
+</div>
 <div class="section" id="agreement-action-replaced-signer">
 <h2>AGREEMENT_ACTION_REPLACED_SIGNER<a class="headerlink" href="#agreement-action-replaced-signer" title="Permalink to this heading">¶</a></h2>
-<div class="section" id="id4">
-<h3>Event-specific payload attributes<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="id7">
+<h3>Event-specific payload attributes<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -1223,14 +1583,14 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id5">
-<h3>Payload attributes inherited from agreement<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="id8">
+<h3>Payload attributes inherited from agreement<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -1358,8 +1718,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id6">
-<h3>Payload template<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="id9">
+<h3>Payload template<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
    <span class="s2">&quot;webhookId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
    <span class="s2">&quot;webhookName&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
@@ -1500,8 +1860,8 @@
 </div>
 <div class="section" id="agreement-action-requested">
 <h2>AGREEMENT_ACTION_REQUESTED<a class="headerlink" href="#agreement-action-requested" title="Permalink to this heading">¶</a></h2>
-<div class="section" id="id7">
-<h3>Event-specific payload attributes<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="id10">
+<h3>Event-specific payload attributes<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -1542,14 +1902,14 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id8">
-<h3>Payload attributes inherited from agreement<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="id11">
+<h3>Payload attributes inherited from agreement<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -1677,8 +2037,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id9">
-<h3>Payload template<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="id12">
+<h3>Payload template<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;webhookId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
     <span class="s2">&quot;webhookName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
@@ -1822,8 +2182,8 @@
 </div>
 <div class="section" id="agreement-auto-cancelled-conversion-problem">
 <h2>AGREEMENT_AUTO_CANCELLED_CONVERSION_PROBLEM<a class="headerlink" href="#agreement-auto-cancelled-conversion-problem" title="Permalink to this heading">¶</a></h2>
-<div class="section" id="id10">
-<h3>Event-specific payload attributes<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="id13">
+<h3>Event-specific payload attributes<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -1864,14 +2224,14 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id11">
-<h3>Payload attributes inherited from agreement<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="id14">
+<h3>Payload attributes inherited from agreement<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -1999,281 +2359,6 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id12">
-<h3>Payload template<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-   <span class="s2">&quot;webhookId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookName&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookUrlInfo&quot;</span><span class="p">:{</span>
-      <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-   <span class="p">},</span>
-   <span class="s2">&quot;webhookScope&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:[</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;payloadApplicable&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">}</span>
-    <span class="p">],</span>
-   <span class="s2">&quot;event&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;subEvent&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventResourceType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventResourceParentType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventResourceParentId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserIpAddress&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;agreement&quot;</span><span class="p">:{</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;signatureType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;ccs&quot;</span><span class="p">:[</span>
-         <span class="p">{</span>
-            <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;visiblePages&quot;</span><span class="p">:[</span>
-               <span class="s2">&quot;&quot;</span>
-            <span class="p">]</span>
-         <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="s2">&quot;deviceInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;applicationDescription&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;deviceDescription&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;location&quot;</span><span class="p">:{</span>
-            <span class="s2">&quot;latitude&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;longitude&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-         <span class="p">},</span>
-         <span class="s2">&quot;deviceTime&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;documentVisibilityEnabled&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;createdDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;expirationTime&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;externalId&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;postSignOption&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;redirectDelay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;redirectUrl&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;firstReminderDelay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;locale&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;reminderFrequency&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;senderEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;vaultingInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;enabled&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;workflowId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;participantSetsInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;participantSets&quot;</span><span class="p">:[</span>
-            <span class="p">{</span>
-               <span class="s2">&quot;memberInfos&quot;</span><span class="p">:[</span>
-                  <span class="p">{</span>
-                     <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;company&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-                  <span class="p">}</span>
-               <span class="p">],</span>
-               <span class="s2">&quot;order&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-            <span class="p">}</span>
-         <span class="p">]</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="agreement-created">
-<h2>AGREEMENT_CREATED<a class="headerlink" href="#agreement-created" title="Permalink to this heading">¶</a></h2>
-<div class="section" id="id13">
-<h3>Event-specific payload attributes<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 80%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserId</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user ID  of the sender or originator of the agreement. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget</em>.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user email  of the sender or originator of the agreement. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget</em>.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserId</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user ID   of the <em>sender or originator of the agreement</em>. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget</em>.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user email of the <em>sender or originator of the agreement</em>. When this agreement is created  by signing a widget, then this will be details of the <em>creator of the widget</em>.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserId</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user ID of the <em>sharee of the originator of the agreement</em> who sent the agreement on behalf of the sender in the case of account sharing.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user email  of the <em>sharee of the originator of the agreement</em> who sent the agreement on behalf of the sender in the case of account sharing.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id14">
-<h3>Payload attributes inherited from agreement<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Possible Enums</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The unique identifier of the agreement, which can be used to query status and download signed documents.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The name of the agreement that will be used to identify it, in emails and on the website.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">signatureType</span></code></p></td>
-<td><p>Enum</p></td>
-<td><p>Specifies the type of signature requested on the agreement—written or e-signature.</p></td>
-<td><p>ESIGN, WRITTEN</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></td>
-<td><p>Enum</p></td>
-<td><p>The current status of the agreement.</p></td>
-<td><p>OUT_FOR_SIGNATURE, OUT_FOR_DELIVERY, OUT_FOR_ACCEPTANCE, OUT_FOR_FORM_FILLING, OUT_FOR_APPROVAL, AUTHORING, CANCELLED, SIGNED, APPROVED, DELIVERED, ACCEPTED, FORM_FILLED, EXPIRED, ARCHIVED, PREFILL, WIDGET_WAITING_FOR_VERIFICATION, DRAFT, DOCUMENTS_NOT_YET_PROCESSED, WAITING_FOR_FAXING, WAITING_FOR_VERIFICATION</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ccs</span></code></p></td>
-<td><p>Array of Strings</p></td>
-<td><p>Email IDs of cc: participants of the agreement.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">deviceInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Device info of the offline device. It will only be returned in the case of offline agreement creation.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">documentVisibilityEnabled</span></code></p></td>
-<td><p>Boolean</p></td>
-<td><p>Determines whether limited document visibility is enabled or not. Will never be returned in offline agreement creation.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">createdDate</span></code></p></td>
-<td><p>Date</p></td>
-<td><p>Agreement creation date.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">expirationTime</span></code></p></td>
-<td><p>Timestamp</p></td>
-<td><p>The date after which the agreement can no longer be signed, if an expiration date is configured. The value is nil if an expiration date is not set for the document.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">externalId</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>A unique identifier provided by an external system search for your transaction through the API.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">postSignOption</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Determines the URL and associated properties for the success page the user will be taken to after completing the signing process. Will never be returned in offline agreement creation.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">firstReminderDelay</span></code></p></td>
-<td><p>Integer</p></td>
-<td><p>Integer which specifies the delay in hours before sending the first reminder. The minimum value allowed is 1 hour and the maximum value can’t be more than the difference between the agreement creation time and the expiration time of the agreement in hours. If this is not specified while creating the agreement, but the reminder frequency is specified, then the first reminder will be sent based on frequency: in other words, if the reminder is created with frequency specified as daily, the firstReminderDelay will be 24 hours. Will never be returned in offline agreement creation.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">locale</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The locale associated with this agreement. Specifies the language for the signing page and emails: for example, en_US or fr_FR. If none specified, defaults to the language configured for the agreement sender.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The message associated with the agreement that the sender has provided.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reminderFrequency</span></code></p></td>
-<td><p>Enum</p></td>
-<td><p>Specifies how often reminders will be sent to the recipients.</p></td>
-<td><p>DAILY_UNTIL_SIGNED, WEEKLY_UNTIL_SIGNED</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">senderEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>Email of the sender.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">vaultingInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">workflowId</span></code></p></td>
-<td><p>String</p></td>
-<td><p>Identifier of the custom workflow that defines the routing path of an agreement. Will not be returned in offline agreement creation.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">participantSetsInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Returns a list of one or more participant sets. A participant set may have one or more participants. Returned only if the conditional parameter includeParticipantInfo is set to true and the payload size is less than the threshold.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">documentsInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Returns the IDs of the documents of an agreement. Returned only if the conditional parameter includeDocumentsInfo is set to true and payload size is less than the threshold. In some cases when document processing takes a lot of time, you might not get documentsInfo even if the conditional parameter includeDocumentsInfo was set to true. In such a case try calling the v6 GET /agreements/{agreementId}/documents API to get the details of the documents of an agreement.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">supportingDocuments</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Returns the supporting documents of an agreement. Returned only if the conditional parameter includeDocumentsInfo is set to true and payload size is less than the threshold. In some cases when document processing takes a lot of time, you might not get documentsInfo even if the conditional parameter includeDocumentsInfo was set to true, In such a case try calling the v6 GET /agreements/{agreementId}/documents API to get the details of the supporting documents of an agreement.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">conditionalParametersTrimmed</span></code></p></td>
-<td><p>Array of Strings</p></td>
-<td><p>If event notification payload size exceeds the defined threshold, the conditional parameters will not be sent in the notification request, even if they are set to true by the webhook creator. The conditionalParametersTrimmed attribute will be set to the keys trimmed in this case. If no conditional parameters are specified by the webhook creator, or if they are specified, but no key is trimmed, this parameter will not be returned.</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
 <div class="section" id="id15">
 <h3>Payload template<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -2368,26 +2453,6 @@
                <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
             <span class="p">}</span>
          <span class="p">]</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;documentsInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;documents&quot;</span><span class="p">:[</span>
-            <span class="p">{</span>
-               <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;numPages&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;mimeType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-            <span class="p">}</span>
-         <span class="p">],</span>
-         <span class="s2">&quot;supportingDocuments&quot;</span><span class="p">:[</span>
-            <span class="p">{</span>
-               <span class="s2">&quot;displayLabel&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;fieldName&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;mimeType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;numPages&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-            <span class="p">}</span>
-         <span class="p">]</span>
       <span class="p">}</span>
    <span class="p">}</span>
 <span class="p">}</span>
@@ -2444,9 +2509,9 @@
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -2709,9 +2774,9 @@
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -3029,9 +3094,9 @@
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -3307,9 +3372,9 @@
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -3362,9 +3427,9 @@
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -3608,6 +3673,21 @@
 </div>
 </div>
 </div>
+<div class="section" id="agreement-expiration-updated">
+<h2>AGREEMENT_EXPIRATION_UPDATED<a class="headerlink" href="#agreement-expiration-updated" title="Permalink to this heading">¶</a></h2>
+<p>Triggers when an agreement’s expiration date is updated.</p>
+<p>TBD</p>
+</div>
+<div class="section" id="agreement-deleted">
+<h2>AGREEMENT_DELETED<a class="headerlink" href="#agreement-deleted" title="Permalink to this heading">¶</a></h2>
+<p>Triggers when agreement documents are deleted.</p>
+<p>TBD</p>
+</div>
+<div class="section" id="agreement-canceled">
+<h2>AGREEMENT_CANCELED<a class="headerlink" href="#agreement-canceled" title="Permalink to this heading">¶</a></h2>
+<p>Triggers when an agreement is canceled.</p>
+<p>TBD</p>
+</div>
 <div class="section" id="agreement-kba-authenticated">
 <h2>AGREEMENT_KBA_AUTHENTICATED<a class="headerlink" href="#agreement-kba-authenticated" title="Permalink to this heading">¶</a></h2>
 <div class="section" id="id28">
@@ -3657,9 +3737,9 @@
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -3977,9 +4057,9 @@
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -4297,9 +4377,9 @@
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -4575,9 +4655,9 @@
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -4630,9 +4710,9 @@
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -4925,9 +5005,9 @@
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -5220,9 +5300,9 @@
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -5540,9 +5620,9 @@
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -5860,9 +5940,9 @@
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -6180,9 +6260,9 @@
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -6475,9 +6555,9 @@
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -6795,9 +6875,9 @@
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
@@ -7064,7 +7144,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Sep 19, 2022. 
+        Last update: Sep 23, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
