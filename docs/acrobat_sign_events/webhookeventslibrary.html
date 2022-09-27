@@ -177,234 +177,83 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="webhookeventsagreements.html">Webhook Agreement Events</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreements-minimum-payload">Agreements: Minimum payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#common-payload-elements">Common payload elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#minimum-payload-for-agreements">Minimum payload for agreements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#payload-attributes-inherited-from-agreement">Payload attributes inherited from Agreement</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-all">AGREEMENT_ALL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-created">AGREEMENT_CREATED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#event-specific-payload-attributes">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#payload-attributes-inherited-from-agreement">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#payload-template">Payload template</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-created">AGREEMENT_CREATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-creation-failed">AGREEMENT_CREATION_FAILED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-restarted">AGREEMENT_RESTARTED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-sent">AGREEMENT_SENT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-participant-completed">AGREEMENT_PARTICIPANT_COMPLETED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-completed">AGREEMENT_ACTION_COMPLETED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id1">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id2">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id3">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-participant-replaced">AGREEMENT_PARTICIPANT_REPLACED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-delegated">AGREEMENT_ACTION_DELEGATED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id4">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id5">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id6">Payload template</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-delegated">AGREEMENT_DELEGATED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-replaced-signer">AGREEMENT_ACTION_REPLACED_SIGNER</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id7">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id8">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id9">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-requested">AGREEMENT_ACTION_REQUESTED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id10">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id11">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id12">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-auto-cancelled-conversion-problem">AGREEMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id13">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id14">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id15">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-documents-deleted">AGREEMENT_DOCUMENTS_DELETED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id16">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id17">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id18">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-bounced">AGREEMENT_EMAIL_BOUNCED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id19">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id20">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id21">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-viewed">AGREEMENT_EMAIL_VIEWED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id22">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id23">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id24">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expired">AGREEMENT_EXPIRED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id25">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id26">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id27">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expiration-updated">AGREEMENT_EXPIRATION_UPDATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-shared">AGREEMENT_SHARED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-modified">AGREEMENT_MODIFIED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-participant-completed">AGREEMENT_PARTICIPANT_COMPLETED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-participant-replaced">AGREEMENT_PARTICIPANT_REPLACED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-replaced-signer">AGREEMENT_ACTION_REPLACED_SIGNER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-delegated">AGREEMENT_ACTION_DELEGATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-requested">AGREEMENT_ACTION_REQUESTED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-completed">AGREEMENT_ACTION_COMPLETED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-auto-cancelled-conversion-problem">AGREEMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-documents-deleted">AGREEMENT_DOCUMENTS_DELETED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-bounced">AGREEMENT_EMAIL_BOUNCED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-viewed">AGREEMENT_EMAIL_VIEWED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-offline-sync">AGREEMENT_OFFLINE_SYNC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-web-identity-authenticated">AGREEMENT_WEB_IDENTITY_AUTHENTICATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-kba-authenticated">AGREEMENT_KBA_AUTHENTICATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-ready-to-notarize">AGREEMENT_READY_TO_NOTARIZE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-uploaded-by-sender">AGREEMENT_UPLOADED_BY_SENDER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-user-ack-agreement-modified">AGREEMENT_USER_ACK_AGREEMENT_MODIFIED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-ready-to-vault">AGREEMENT_READY_TO_VAULT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-vaulted">AGREEMENT_VAULTED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-signer-name-changed-by-signer">AGREEMENT_SIGNER_NAME_CHANGED_BY_SIGNER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-workflow-completed">AGREEMENT_WORKFLOW_COMPLETED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-deleted">AGREEMENT_DELETED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-canceled">AGREEMENT_CANCELED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-kba-authenticated">AGREEMENT_KBA_AUTHENTICATED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id28">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id29">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id30">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-modified">AGREEMENT_MODIFIED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id31">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id32">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id33">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-offline-sync">AGREEMENT_OFFLINE_SYNC</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id34">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id35">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id36">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-recalled">AGREEMENT_RECALLED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id37">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id38">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id39">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-rejected">AGREEMENT_REJECTED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id40">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id41">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id42">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-shared">AGREEMENT_SHARED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id43">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id44">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id45">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-uploaded-by-sender">AGREEMENT_UPLOADED_BY_SENDER</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id46">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id47">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id48">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-user-ack-agreement-modified">AGREEMENT_USER_ACK_AGREEMENT_MODIFIED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id49">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id50">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id51">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-vaulted">AGREEMENT_VAULTED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id52">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id53">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id54">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-web-identity-authenticated">AGREEMENT_WEB_IDENTITY_AUTHENTICATED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id55">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id56">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id57">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-workflow-completed">AGREEMENT_WORKFLOW_COMPLETED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id58">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id59">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id60">Payload template</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-recalled">AGREEMENT_RECALLED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-rejected">AGREEMENT_REJECTED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expired">AGREEMENT_EXPIRED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expiration-updated">AGREEMENT_EXPIRATION_UPDATED</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Webhook Library Events</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#library-minimum-payload">Library: Minimum payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-payload-elements">Common payload elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#minimum-payload-for-agreements">Minimum payload for agreements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#payload-attributes-inherited-from-library">Payload attributes inherited from Library</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#library-all">LIBRARY_ALL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#library-document-auto-cancelled-conversion-problem">LIBRARY_DOCUMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#event-specific-payload-attributes">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#inherited-from-library-document">Inherited from Library Document</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#payload-template">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#library-document-created">LIBRARY_DOCUMENT_CREATED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Inherited from Library Document</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#library-document-modified">LIBRARY_DOCUMENT_MODIFIED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">Inherited from Library Document</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">Payload template</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#library-document-auto-cancelled-conversion-problem">LIBRARY_DOCUMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#library-document-created">LIBRARY_DOCUMENT_CREATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#library-document-modified">LIBRARY_DOCUMENT_MODIFIED</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="webhookeventsmegasign.html">Webhook Bulk Signing Events</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#bulk-signing-minimum-payload">Bulk signing: Minimum payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#common-payload-elements">Common payload elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#minimum-payload-for-bulk-signing">Minimum payload for bulk signing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#payload-attributes-inherited-from-megasign">Payload attributes inherited from MegaSign</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-all">MEGASIGN_ALL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-created">MEGASIGN_CREATED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#event-specific-payload-attributes">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#inherited-from-megasign">Inherited from MegaSign</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#payload-template">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-recalled">MEGASIGN_RECALLED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id1">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id2">Inherited from MegaSign</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id3">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-shared">MEGASIGN_SHARED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id4">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id5">Inherited from MegaSign</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id6">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#id7">MEGASIGN_SHARED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id8">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id9">Inherited from MegaSign</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id10">Payload template</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-created">MEGASIGN_CREATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-recalled">MEGASIGN_RECALLED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-shared">MEGASIGN_SHARED</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="webhookeventswidget.html">Webhook Web Form Events</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#web-form-minimum-payload">Web form: Minimum payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#common-payload-elements">Common payload elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#minimum-payload-for-web-forms">Minimum payload for web forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#payload-attributes-inherited-from-widget">Payload attributes inherited from Widget</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-all">WIDGET_ALL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-created">WIDGET_CREATED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#event-specific-payload-attributes">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#inherited-from-widget">Inherited from Widget</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#payload-template">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-auto-cancelled-conversion-problem">WIDGET_AUTO_CANCELLED_CONVERSION_PROBLEM</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id1">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id2">Inherited from Widget</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id3">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-disabled">WIDGET_DISABLED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id4">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id5">Inherited from Widget</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id6">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-enabled">WIDGET_ENABLED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id7">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id8">Inherited from Widget</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id9">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-modified">WIDGET_MODIFIED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id10">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id11">Inherited from Widget</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id12">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-shared">WIDGET_SHARED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id13">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id14">Inherited from Widget</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id15">Payload template</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-created">WIDGET_CREATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-auto-cancelled-conversion-problem">WIDGET_AUTO_CANCELLED_CONVERSION_PROBLEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-disabled">WIDGET_DISABLED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-enabled">WIDGET_ENABLED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-modified">WIDGET_MODIFIED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-shared">WIDGET_SHARED</a></li>
 </ul>
 </li>
 </ul>
@@ -527,9 +376,11 @@
             
   <div class="section" id="webhook-library-events">
 <span id="webhookeventslibrary"></span><h1>Webhook Library Events<a class="headerlink" href="#webhook-library-events" title="Permalink to this heading">¶</a></h1>
-<div class="section" id="library-minimum-payload">
-<h2>Library: Minimum payload<a class="headerlink" href="#library-minimum-payload" title="Permalink to this heading">¶</a></h2>
-<p>The following is the minimal info which returns for a Library Document event if all the conditional parameters are set to false while creating webhooks.</p>
+<div class="section" id="common-payload-elements">
+<h2>Common payload elements<a class="headerlink" href="#common-payload-elements" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="minimum-payload-for-agreements">
+<h3>Minimum payload for agreements<a class="headerlink" href="#minimum-payload-for-agreements" title="Permalink to this heading">¶</a></h3>
+<p>The following returns for a library event if all the conditional parameters are set to false while creating webhooks:</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -561,70 +412,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="library-all">
-<h2>LIBRARY_ALL<a class="headerlink" href="#library-all" title="Permalink to this heading">¶</a></h2>
-<p>If you want to subscribe for all library events, subscribe to LIBRARY_ALL.</p>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>Event type</p></td>
-<td><p>Description</p></td>
-</tr>
-<tr class="row-even"><td><p>LIBRARY_ALL</p></td>
-<td><p>For all the supported library document events. If new library document events are added in future that are supported for webhooks, those events are taken care of automatically.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="library-document-auto-cancelled-conversion-problem">
-<h2>LIBRARY_DOCUMENT_AUTO_CANCELLED_CONVERSION_PROBLEM<a class="headerlink" href="#library-document-auto-cancelled-conversion-problem" title="Permalink to this heading">¶</a></h2>
-<div class="section" id="event-specific-payload-attributes">
-<h3>Event-specific payload attributes<a class="headerlink" href="#event-specific-payload-attributes" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 80%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserId</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user ID  of the creator of the library document.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user email  of the creator of the library document.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserId</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user ID   of the creator of the library document.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user email  of the creator of the library document.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserId</span></code></p></td>
-<td><p>String</p></td>
-<td><p>Never part of the payload.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>Never part of the payload.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="inherited-from-library-document">
-<h3>Inherited from Library Document<a class="headerlink" href="#inherited-from-library-document" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="payload-attributes-inherited-from-library">
+<span id="inheritedlib"></span><h3>Payload attributes inherited from Library<a class="headerlink" href="#payload-attributes-inherited-from-library" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -678,48 +467,104 @@
 <td><p>If the event notification payload size exceeds the defined threshold, the conditional parameters will not be sent in the notification request, even if they are set to true by the webhook creator. The <code class="docutils literal notranslate"><span class="pre">conditionalParametersTrimmed</span></code> parameter will be set to the keys trimmed in this case. If no conditional parameters are specified by the webhook creator, or if they are specified, but no key is trimmed, this parameter will not be returned.</p></td>
 <td></td>
 </tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">documentsInfo</span></code></p></td>
+<td><p>Object</p></td>
+<td><p>Returns the IDs of the documents of a library document. Returned only if the conditional parameter <code class="docutils literal notranslate"><span class="pre">includeDocumentsInfo</span></code> is set to true and the payload size is less than the threshold. In some cases when document processing takes a lot of time, you might not get documentsInfo even if the conditional parameter <code class="docutils literal notranslate"><span class="pre">includeDocumentsInfo</span></code> was set to true, In such a case, try calling the v6 <a class="reference external" href="https://secure.echosign.com/public/docs/restapi/v6#!/libraryDocuments/getLibraryDocumentInfo">GET /libraryDocuments/{libraryDocumentId}/documents</a> API to get the details of the documents of a library document.</p></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="payload-template">
-<h3>Payload template<a class="headerlink" href="#payload-template" title="Permalink to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;webhookId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;webhookName&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;webhookNotificationId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;webhookUrlInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
-       <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+</div>
+<div class="section" id="library-all">
+<h2>LIBRARY_ALL<a class="headerlink" href="#library-all" title="Permalink to this heading">¶</a></h2>
+<p>If you want to subscribe to all library events, subscribe to LIBRARY_ALL.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>LIBRARY_ALL retrieves all agreement events, including events added in the future.</p>
+</div>
+</div>
+<div class="section" id="library-document-auto-cancelled-conversion-problem">
+<h2>LIBRARY_DOCUMENT_AUTO_CANCELLED_CONVERSION_PROBLEM<a class="headerlink" href="#library-document-auto-cancelled-conversion-problem" title="Permalink to this heading">¶</a></h2>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">The payload may include these event-specific payload as well as the <a class="reference internal" href="#inheritedlib"><span class="std std-ref">Payload attributes inherited from Library</span></a>.</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserId</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user ID  of the creator of the library document.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserEmail</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user email  of the creator of the library document.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserId</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user ID   of the creator of the library document.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserEmail</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user email  of the creator of the library document.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserId</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Never part of the payload.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Never part of the payload.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Payload template</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;webhookId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookUrlInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="s2">&quot;webhookScope&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:[</span>
+    <span class="nt">&quot;webhookScope&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;payloadApplicable&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;payloadApplicable&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
         <span class="p">}</span>
-    <span class="p">]</span> <span class="p">,</span>
-    <span class="s2">&quot;event&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;subEvent&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;eventDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;eventResourceType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;eventResourceParentType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;eventResourceParentId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;participantUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;participantUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;actingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;actingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;actingUserIpAddress&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;initiatingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;initiatingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;libraryDocument&quot;</span> <span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;creatorEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;createdDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;sharingMode&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;templateTypes&quot;</span><span class="p">:[</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subEvent&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventResourceType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventResourceParentType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventResourceParentId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;libraryDocument&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;creatorEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;createdDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;sharingMode&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;templateTypes&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="s2">&quot;&quot;</span>
         <span class="p">]</span>
     <span class="p">}</span>
@@ -730,9 +575,8 @@
 </div>
 <div class="section" id="library-document-created">
 <h2>LIBRARY_DOCUMENT_CREATED<a class="headerlink" href="#library-document-created" title="Permalink to this heading">¶</a></h2>
-<div class="section" id="id1">
-<h3>Event-specific payload attributes<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
+<table class="colwidths-given docutils align-default" id="id3">
+<caption><span class="caption-text">The payload may include these event-specific payload as well as the <a class="reference internal" href="#inheritedlib"><span class="std std-ref">Payload attributes inherited from Library</span></a>.</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 10%" />
@@ -771,122 +615,58 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="id2">
-<h3>Inherited from Library Document<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>Parameter name</p></td>
-<td><p>Type</p></td>
-<td><p>Description</p></td>
-<td><p>Possible enums</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The unique identifier that is used to refer to the library template.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The name of the library template that will be used to identify it, in emails and on the website.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">creatorEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>Email of the creator of the library document.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">createdDate</span></code></p></td>
-<td><p>Date</p></td>
-<td><p>Library document creation date.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></td>
-<td><p>Enum</p></td>
-<td><p>The current status of the library document.</p></td>
-<td><p>AUTHORING, ACTIVE, or REMOVED</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sharingMode</span></code></p></td>
-<td><p>String</p></td>
-<td><p>Specifies who should have access to this library document.</p></td>
-<td><p>USER, GROUP, ACCOUNT, or GLOBAL</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">templateTypes</span></code></p></td>
-<td><p>String</p></td>
-<td><p>A list of one or more library template types.</p></td>
-<td><p>DOCUMENT or FORM_FIELD_LAYER</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">documentsInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Returns the IDs of the documents of a library document. Returned only if the conditional parameter <code class="docutils literal notranslate"><span class="pre">includeDocumentsInfo</span></code> is set to true and the payload size is less than the threshold. In some cases when document processing takes a lot of time, you might not get documentsInfo even if the conditional parameter <code class="docutils literal notranslate"><span class="pre">includeDocumentsInfo</span></code> was set to true, In such a case, try calling the v6 <a class="reference external" href="https://secure.echosign.com/public/docs/restapi/v6#!/libraryDocuments/getLibraryDocumentInfo">GET /libraryDocuments/{libraryDocumentId}/documents</a> API to get the details of the documents of a library document.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">conditionalParametersTrimmed</span></code></p></td>
-<td><p>String[]</p></td>
-<td><p>If the event notification payload size exceeds the defined threshold, the conditional parameters will not be sent in the notification request, even if they are set to true by the webhook creator. The <code class="docutils literal notranslate"><span class="pre">conditionalParametersTrimmed</span></code> parameter will be set to the keys trimmed in this case. If no conditional parameters are specified by the webhook creator, or if they are specified, but no key is trimmed, this parameter will not be returned.</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id3">
-<h3>Payload template<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;webhookId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;webhookName&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;webhookNotificationId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;webhookUrlInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
-       <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Payload template</span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;webhookId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookUrlInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="s2">&quot;webhookScope&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:[</span>
+    <span class="nt">&quot;webhookScope&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;payloadApplicable&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;payloadApplicable&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
         <span class="p">}</span>
-    <span class="p">]</span> <span class="p">,</span>
-    <span class="s2">&quot;event&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;subEvent&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;eventDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;eventResourceType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;eventResourceParentType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;eventResourceParentId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;participantUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;participantUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;actingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;actingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;actingUserIpAddress&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;initiatingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;initiatingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;libraryDocument&quot;</span> <span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;creatorEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;createdDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;sharingMode&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;templateTypes&quot;</span><span class="p">:[</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subEvent&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventResourceType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventResourceParentType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventResourceParentId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;libraryDocument&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;creatorEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;createdDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;sharingMode&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;templateTypes&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="s2">&quot;&quot;</span>
         <span class="p">],</span>
-       <span class="s2">&quot;documentsInfo&quot;</span><span class="p">:{</span>
-          <span class="s2">&quot;documents&quot;</span><span class="p">:[</span>
-             <span class="p">{</span>
-                <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;numPages&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;mimeType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-             <span class="p">}</span>
-          <span class="p">]</span>
-       <span class="p">}</span>
+        <span class="nt">&quot;documentsInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;documents&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;numPages&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;mimeType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -895,9 +675,8 @@
 </div>
 <div class="section" id="library-document-modified">
 <h2>LIBRARY_DOCUMENT_MODIFIED<a class="headerlink" href="#library-document-modified" title="Permalink to this heading">¶</a></h2>
-<div class="section" id="id4">
-<h3>Event-specific payload attributes<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
+<table class="colwidths-given docutils align-default" id="id5">
+<caption><span class="caption-text">The payload may include these event-specific payload as well as the <a class="reference internal" href="#inheritedlib"><span class="std std-ref">Payload attributes inherited from Library</span></a>.</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 10%" />
@@ -936,122 +715,58 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="id5">
-<h3>Inherited from Library Document<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>Parameter name</p></td>
-<td><p>Type</p></td>
-<td><p>Description</p></td>
-<td><p>Possible enums</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The unique identifier that is used to refer to the library template.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The name of the library template that will be used to identify it, in emails and on the website.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">creatorEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>Email of the creator of the library document.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">createdDate</span></code></p></td>
-<td><p>Date</p></td>
-<td><p>Library document creation date.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></td>
-<td><p>Enum</p></td>
-<td><p>The current status of the library document.</p></td>
-<td><p>AUTHORING, ACTIVE, or REMOVED</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sharingMode</span></code></p></td>
-<td><p>String</p></td>
-<td><p>Specifies who should have access to this library document.</p></td>
-<td><p>USER, GROUP, ACCOUNT, or GLOBAL</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">templateTypes</span></code></p></td>
-<td><p>String</p></td>
-<td><p>A list of one or more library template types.</p></td>
-<td><p>DOCUMENT or FORM_FIELD_LAYER</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">documentsInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Returns the IDs of the documents of a library document. Returned only if the conditional parameter <code class="docutils literal notranslate"><span class="pre">includeDocumentsInfo</span></code> is set to true and the payload size is less than the threshold. In some cases when document processing takes a lot of time, you might not get documentsInfo even if the conditional parameter <code class="docutils literal notranslate"><span class="pre">includeDocumentsInfo</span></code> was set to true, In such a case, try calling the v6 <a class="reference external" href="https://secure.echosign.com/public/docs/restapi/v6#!/libraryDocuments/getLibraryDocumentInfo">GET /libraryDocuments/{libraryDocumentId}/documents</a> API to get the details of the documents of a library document.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">conditionalParametersTrimmed</span></code></p></td>
-<td><p>String[]</p></td>
-<td><p>If the event notification payload size exceeds the defined threshold, the conditional parameters will not be sent in the notification request, even if they are set to true by the webhook creator. The <code class="docutils literal notranslate"><span class="pre">conditionalParametersTrimmed</span></code> parameter will be set to the keys trimmed in this case. If no conditional parameters are specified by the webhook creator, or if they are specified, but no key is trimmed, this parameter will not be returned.</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id6">
-<h3>Payload template<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;webhookId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;webhookName&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;webhookNotificationId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;webhookUrlInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
-       <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Payload template</span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;webhookId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookUrlInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="s2">&quot;webhookScope&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:[</span>
+    <span class="nt">&quot;webhookScope&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;payloadApplicable&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;payloadApplicable&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
         <span class="p">}</span>
-    <span class="p">]</span> <span class="p">,</span>
-    <span class="s2">&quot;event&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;subEvent&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;eventDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;eventResourceType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;eventResourceParentType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;eventResourceParentId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;participantUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;participantUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;actingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;actingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;actingUserIpAddress&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;initiatingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;initiatingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;libraryDocument&quot;</span> <span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;creatorEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;createdDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;sharingMode&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;templateTypes&quot;</span><span class="p">:[</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subEvent&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventResourceType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventResourceParentType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventResourceParentId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;libraryDocument&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;creatorEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;createdDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;sharingMode&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;templateTypes&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="s2">&quot;&quot;</span>
         <span class="p">],</span>
-       <span class="s2">&quot;documentsInfo&quot;</span><span class="p">:{</span>
-          <span class="s2">&quot;documents&quot;</span><span class="p">:[</span>
-             <span class="p">{</span>
-                <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;numPages&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;mimeType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-             <span class="p">}</span>
-          <span class="p">]</span>
-       <span class="p">}</span>
+        <span class="nt">&quot;documentsInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;documents&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;numPages&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;mimeType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -1072,7 +787,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Sep 23, 2022. 
+        Last update: Sep 27, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

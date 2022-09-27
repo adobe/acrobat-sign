@@ -176,234 +176,83 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="webhookeventsagreements.html">Webhook Agreement Events</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreements-minimum-payload">Agreements: Minimum payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#common-payload-elements">Common payload elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#minimum-payload-for-agreements">Minimum payload for agreements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#payload-attributes-inherited-from-agreement">Payload attributes inherited from Agreement</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-all">AGREEMENT_ALL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-created">AGREEMENT_CREATED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#event-specific-payload-attributes">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#payload-attributes-inherited-from-agreement">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#payload-template">Payload template</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-created">AGREEMENT_CREATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-creation-failed">AGREEMENT_CREATION_FAILED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-restarted">AGREEMENT_RESTARTED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-sent">AGREEMENT_SENT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-participant-completed">AGREEMENT_PARTICIPANT_COMPLETED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-completed">AGREEMENT_ACTION_COMPLETED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id1">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id2">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id3">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-participant-replaced">AGREEMENT_PARTICIPANT_REPLACED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-delegated">AGREEMENT_ACTION_DELEGATED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id4">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id5">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id6">Payload template</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-delegated">AGREEMENT_DELEGATED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-replaced-signer">AGREEMENT_ACTION_REPLACED_SIGNER</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id7">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id8">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id9">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-requested">AGREEMENT_ACTION_REQUESTED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id10">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id11">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id12">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-auto-cancelled-conversion-problem">AGREEMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id13">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id14">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id15">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-documents-deleted">AGREEMENT_DOCUMENTS_DELETED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id16">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id17">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id18">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-bounced">AGREEMENT_EMAIL_BOUNCED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id19">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id20">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id21">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-viewed">AGREEMENT_EMAIL_VIEWED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id22">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id23">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id24">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expired">AGREEMENT_EXPIRED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id25">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id26">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id27">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expiration-updated">AGREEMENT_EXPIRATION_UPDATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-shared">AGREEMENT_SHARED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-modified">AGREEMENT_MODIFIED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-participant-completed">AGREEMENT_PARTICIPANT_COMPLETED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-participant-replaced">AGREEMENT_PARTICIPANT_REPLACED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-replaced-signer">AGREEMENT_ACTION_REPLACED_SIGNER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-delegated">AGREEMENT_ACTION_DELEGATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-requested">AGREEMENT_ACTION_REQUESTED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-completed">AGREEMENT_ACTION_COMPLETED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-auto-cancelled-conversion-problem">AGREEMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-documents-deleted">AGREEMENT_DOCUMENTS_DELETED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-bounced">AGREEMENT_EMAIL_BOUNCED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-viewed">AGREEMENT_EMAIL_VIEWED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-offline-sync">AGREEMENT_OFFLINE_SYNC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-web-identity-authenticated">AGREEMENT_WEB_IDENTITY_AUTHENTICATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-kba-authenticated">AGREEMENT_KBA_AUTHENTICATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-ready-to-notarize">AGREEMENT_READY_TO_NOTARIZE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-uploaded-by-sender">AGREEMENT_UPLOADED_BY_SENDER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-user-ack-agreement-modified">AGREEMENT_USER_ACK_AGREEMENT_MODIFIED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-ready-to-vault">AGREEMENT_READY_TO_VAULT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-vaulted">AGREEMENT_VAULTED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-signer-name-changed-by-signer">AGREEMENT_SIGNER_NAME_CHANGED_BY_SIGNER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-workflow-completed">AGREEMENT_WORKFLOW_COMPLETED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-deleted">AGREEMENT_DELETED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-canceled">AGREEMENT_CANCELED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-kba-authenticated">AGREEMENT_KBA_AUTHENTICATED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id28">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id29">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id30">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-modified">AGREEMENT_MODIFIED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id31">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id32">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id33">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-offline-sync">AGREEMENT_OFFLINE_SYNC</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id34">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id35">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id36">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-recalled">AGREEMENT_RECALLED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id37">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id38">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id39">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-rejected">AGREEMENT_REJECTED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id40">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id41">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id42">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-shared">AGREEMENT_SHARED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id43">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id44">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id45">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-uploaded-by-sender">AGREEMENT_UPLOADED_BY_SENDER</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id46">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id47">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id48">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-user-ack-agreement-modified">AGREEMENT_USER_ACK_AGREEMENT_MODIFIED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id49">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id50">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id51">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-vaulted">AGREEMENT_VAULTED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id52">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id53">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id54">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-web-identity-authenticated">AGREEMENT_WEB_IDENTITY_AUTHENTICATED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id55">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id56">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id57">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-workflow-completed">AGREEMENT_WORKFLOW_COMPLETED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id58">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id59">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id60">Payload template</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-recalled">AGREEMENT_RECALLED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-rejected">AGREEMENT_REJECTED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expired">AGREEMENT_EXPIRED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expiration-updated">AGREEMENT_EXPIRATION_UPDATED</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="webhookeventslibrary.html">Webhook Library Events</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-minimum-payload">Library: Minimum payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#common-payload-elements">Common payload elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#minimum-payload-for-agreements">Minimum payload for agreements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#payload-attributes-inherited-from-library">Payload attributes inherited from Library</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-all">LIBRARY_ALL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-auto-cancelled-conversion-problem">LIBRARY_DOCUMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#event-specific-payload-attributes">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#inherited-from-library-document">Inherited from Library Document</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#payload-template">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-created">LIBRARY_DOCUMENT_CREATED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id1">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id2">Inherited from Library Document</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id3">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-modified">LIBRARY_DOCUMENT_MODIFIED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id4">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id5">Inherited from Library Document</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id6">Payload template</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-auto-cancelled-conversion-problem">LIBRARY_DOCUMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-created">LIBRARY_DOCUMENT_CREATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-modified">LIBRARY_DOCUMENT_MODIFIED</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="webhookeventsmegasign.html">Webhook Bulk Signing Events</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#bulk-signing-minimum-payload">Bulk signing: Minimum payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#common-payload-elements">Common payload elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#minimum-payload-for-bulk-signing">Minimum payload for bulk signing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#payload-attributes-inherited-from-megasign">Payload attributes inherited from MegaSign</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-all">MEGASIGN_ALL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-created">MEGASIGN_CREATED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#event-specific-payload-attributes">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#inherited-from-megasign">Inherited from MegaSign</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#payload-template">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-recalled">MEGASIGN_RECALLED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id1">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id2">Inherited from MegaSign</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id3">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-shared">MEGASIGN_SHARED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id4">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id5">Inherited from MegaSign</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id6">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#id7">MEGASIGN_SHARED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id8">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id9">Inherited from MegaSign</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#id10">Payload template</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-created">MEGASIGN_CREATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-recalled">MEGASIGN_RECALLED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-shared">MEGASIGN_SHARED</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Webhook Web Form Events</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#web-form-minimum-payload">Web form: Minimum payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-payload-elements">Common payload elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#minimum-payload-for-web-forms">Minimum payload for web forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#payload-attributes-inherited-from-widget">Payload attributes inherited from Widget</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#widget-all">WIDGET_ALL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#widget-created">WIDGET_CREATED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#event-specific-payload-attributes">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#inherited-from-widget">Inherited from Widget</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#payload-template">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#widget-auto-cancelled-conversion-problem">WIDGET_AUTO_CANCELLED_CONVERSION_PROBLEM</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Inherited from Widget</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#widget-disabled">WIDGET_DISABLED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">Inherited from Widget</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#widget-enabled">WIDGET_ENABLED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id7">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id8">Inherited from Widget</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id9">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#widget-modified">WIDGET_MODIFIED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id10">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id11">Inherited from Widget</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id12">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#widget-shared">WIDGET_SHARED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id13">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id14">Inherited from Widget</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id15">Payload template</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#widget-created">WIDGET_CREATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#widget-auto-cancelled-conversion-problem">WIDGET_AUTO_CANCELLED_CONVERSION_PROBLEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#widget-disabled">WIDGET_DISABLED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#widget-enabled">WIDGET_ENABLED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#widget-modified">WIDGET_MODIFIED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#widget-shared">WIDGET_SHARED</a></li>
 </ul>
 </li>
 </ul>
@@ -524,10 +373,15 @@
             
   <div class="section" id="webhook-web-form-events">
 <span id="webhookeventswidget"></span><h1>Webhook Web Form Events<a class="headerlink" href="#webhook-web-form-events" title="Permalink to this heading">¶</a></h1>
-<p>“Widgets” has been renamed to “web form” in many docs. Event names have not changed. Web form events pertain only to the creation of the web form template. The resultant child agreements are tracked as Agreement events.</p>
-<div class="section" id="web-form-minimum-payload">
-<h2>Web form: Minimum payload<a class="headerlink" href="#web-form-minimum-payload" title="Permalink to this heading">¶</a></h2>
-<p>The following is the minimal info which returns for a widget event if all the conditional parameters are set to false while creating webhooks.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>“Widgets” has been renamed to “web form” in many docs. Event names have not changed. Web form events pertain only to the creation of a web form template. The resultant child agreements are tracked as agreement events.</p>
+</div>
+<div class="section" id="common-payload-elements">
+<h2>Common payload elements<a class="headerlink" href="#common-payload-elements" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="minimum-payload-for-web-forms">
+<h3>Minimum payload for web forms<a class="headerlink" href="#minimum-payload-for-web-forms" title="Permalink to this heading">¶</a></h3>
+<p>The following returns for an web form event if all the conditional parameters are set to false while creating webhooks:</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -559,76 +413,15 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="widget-all">
-<h2>WIDGET_ALL<a class="headerlink" href="#widget-all" title="Permalink to this heading">¶</a></h2>
-<p>If you want to subscribe for all web form events, subscribe to WIDGET_ALL.</p>
-<table class="colwidths-given docutils align-default">
+<div class="section" id="payload-attributes-inherited-from-widget">
+<span id="inheritedweb"></span><h3>Payload attributes inherited from Widget<a class="headerlink" href="#payload-attributes-inherited-from-widget" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">Inherited payload attributes</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>Event type</p></td>
-<td><p>Description</p></td>
-</tr>
-<tr class="row-even"><td><p>WIDGET_ALL</p></td>
-<td><p>All the supported widget events. If new widget events are added in future, those events are taken care automatically.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="widget-created">
-<h2>WIDGET_CREATED<a class="headerlink" href="#widget-created" title="Permalink to this heading">¶</a></h2>
-<div class="section" id="event-specific-payload-attributes">
-<h3>Event-specific payload attributes<a class="headerlink" href="#event-specific-payload-attributes" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 80%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserId</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user ID of the widget creator.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user email of the widget creator.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserId</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user ID of the widget creator.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user email of the widget creator.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserId</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user ID  of the sharee of the creator of the widget who created the widget on behalf of the creator in the case of account sharing.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user email of the sharee of the creator of the widget who created the widget on behalf of the creator in the case of account sharing.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="inherited-from-widget">
-<h3>Inherited from Widget<a class="headerlink" href="#inherited-from-widget" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 65%" />
+<col style="width: 25%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter name</p></th>
@@ -711,106 +504,157 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="payload-template">
-<h3>Payload template<a class="headerlink" href="#payload-template" title="Permalink to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-   <span class="s2">&quot;webhookId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookName&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookUrlInfo&quot;</span><span class="p">:{</span>
-      <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-   <span class="p">},</span>
-   <span class="s2">&quot;webhookScope&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationApplicableUsers&quot;</span> <span class="p">:[</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;payloadApplicable&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-     <span class="p">}</span>
-   <span class="p">],</span>
-   <span class="s2">&quot;event&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;subEvent&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventResourceType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserIpAddress&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;widget&quot;</span><span class="p">:{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;authFailureInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;deframe&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;delay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;ccs&quot;</span><span class="p">:[</span>
-         <span class="p">{</span>
-            <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-         <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="s2">&quot;completionInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;deframe&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;delay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;creatorEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;createdDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;locale&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;vaultingInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;enabled&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;participantSetsInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;additionalParticipantSets&quot;</span><span class="p">:[</span>
+</div>
+<div class="section" id="widget-all">
+<h2>WIDGET_ALL<a class="headerlink" href="#widget-all" title="Permalink to this heading">¶</a></h2>
+<p>If you want to subscribe to all widget events, subscribe to WIDGET_ALL.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>WIDGET_ALL retrieves all agreement events, including events added in the future.</p>
+</div>
+</div>
+<div class="section" id="widget-created">
+<h2>WIDGET_CREATED<a class="headerlink" href="#widget-created" title="Permalink to this heading">¶</a></h2>
+<table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-text">The payload may include these event-specific payload as well as the <a class="reference internal" href="#inheritedweb"><span class="std std-ref">Payload attributes inherited from Widget</span></a>.</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserId</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user ID of the widget creator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserEmail</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user email of the widget creator.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserId</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user ID of the widget creator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserEmail</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user email of the widget creator.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserId</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user ID  of the sharee of the creator of the widget who created the widget on behalf of the creator in the case of account sharing.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user email of the sharee of the creator of the widget who created the widget on behalf of the creator in the case of account sharing.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Payload template</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;webhookId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookUrlInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;webhookScope&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;payloadApplicable&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subEvent&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventResourceType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;widget&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authFailureInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;deframe&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;delay&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;ccs&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
-               <span class="s2">&quot;memberInfos&quot;</span><span class="p">:[</span>
-                  <span class="p">{</span>
-                     <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;company&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-                  <span class="p">}</span>
-               <span class="p">],</span>
-               <span class="s2">&quot;order&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+                <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
             <span class="p">}</span>
-         <span class="p">],</span>
-         <span class="s2">&quot;widgetParticipantSet&quot;</span><span class="p">:{</span>
-            <span class="s2">&quot;memberInfos&quot;</span><span class="p">:[</span>
-               <span class="p">{</span>
-                  <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;company&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-               <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;completionInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;deframe&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;delay&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;creatorEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;createdDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;locale&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vaultingInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;participantSetsInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;additionalParticipantSets&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">],</span>
+                    <span class="nt">&quot;order&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                <span class="p">}</span>
             <span class="p">],</span>
-            <span class="s2">&quot;order&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-         <span class="p">}</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;documentsInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;documents&quot;</span><span class="p">:[</span>
-            <span class="p">{</span>
-               <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;numPages&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;mimeType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+            <span class="nt">&quot;widgetParticipantSet&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;order&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
             <span class="p">}</span>
-         <span class="p">]</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;documentsInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;documents&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;numPages&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;mimeType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -818,10 +662,9 @@
 </div>
 <div class="section" id="widget-auto-cancelled-conversion-problem">
 <h2>WIDGET_AUTO_CANCELLED_CONVERSION_PROBLEM<a class="headerlink" href="#widget-auto-cancelled-conversion-problem" title="Permalink to this heading">¶</a></h2>
-<p>as can’t process certain PDFs, eg. LiveCycle docs.</p>
-<div class="section" id="id1">
-<h3>Event-specific payload attributes<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
+<p>Triggers when Acrobat Sign  can’t process certain PDFs; for example, LiveCycle documents.</p>
+<table class="colwidths-given docutils align-default" id="id4">
+<caption><span class="caption-text">The payload may include these event-specific payload as well as the <a class="reference internal" href="#inheritedweb"><span class="std std-ref">Payload attributes inherited from Widget</span></a>.</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 10%" />
@@ -860,197 +703,95 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="id2">
-<h3>Inherited from Widget<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Possible Enums</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The unique identifier of widget, which can be used to retrieve the data entered by the signers.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The name of the widget that will be used to identify it, in emails, website, and other places.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></td>
-<td><p>Enum</p></td>
-<td><p>The current status of the widget.</p></td>
-<td><p>DRAFT, AUTHORING, ACTIVE, DOCUMENTS_NOT_YET_PROCESSED, DISABLED, DISCARDED</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ccs</span></code></p></td>
-<td><p>Array of Strings</p></td>
-<td><p>Email IDs of cc: participants of the widget.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">authFailureInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>URL and associated properties for the error page to which the widget signer will be taken after failing to authenticate.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">completionInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>URL and associated properties for the success page to which the widget signer will be taken after performing the desired action on the widget.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">creatorEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>Email of of the widget creator.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">createdDate</span></code></p></td>
-<td><p>Date</p></td>
-<td><p>Widget creation date.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">locale</span></code></p></td>
-<td><p>String</p></td>
-<td><p>Locale associated with this widget: specifies the language for the signing page and emails; for example en_US or fr_FR. If none is specified, this defaults to the language configured for the widget creator.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">vaultingInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">participantSetsInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>List of all the participants in the widget except the widget signer. Returned only if the conditional parameter includeParticipantInfo is set to true and the payload size is less than the threshold.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">widgetParticipantSet</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Represents widget participant info for whom email was not provided.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">documentsInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Retrieves the IDs of the documents associated with widget. Returned only if the conditional parameter includeDocumentsInfo is set to true and payload size is less than the threshold</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">conditionalParametersTrimmed</span></code></p></td>
-<td><p>Array of Strings</p></td>
-<td><p>If event notification payload size exceeds the defined threshold, the conditional parameters will not be sent in the notification request, even if they are set to true by the webhook creator. The conditionalParametersTrimmed attribute will be set to the keys trimmed in this case. If no conditional parameters are specified by the webhook creator, or if they are specified, but no key is trimmed, this parameter will not be returned.</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id3">
-<h3>Payload template<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-   <span class="s2">&quot;webhookId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookName&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookUrlInfo&quot;</span><span class="p">:{</span>
-      <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-   <span class="p">},</span>
-   <span class="s2">&quot;webhookScope&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationApplicableUsers&quot;</span> <span class="p">:[</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;payloadApplicable&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-     <span class="p">}</span>
-   <span class="p">],</span>
-   <span class="s2">&quot;event&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;subEvent&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventResourceType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserIpAddress&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;widget&quot;</span><span class="p">:{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;authFailureInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;deframe&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;delay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;ccs&quot;</span><span class="p">:[</span>
-         <span class="p">{</span>
-            <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-         <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="s2">&quot;completionInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;deframe&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;delay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;creatorEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;createdDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;locale&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;vaultingInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;enabled&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;participantSetsInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;additionalParticipantSets&quot;</span><span class="p">:[</span>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Payload template</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;webhookId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookUrlInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;webhookScope&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;payloadApplicable&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subEvent&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventResourceType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;widget&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authFailureInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;deframe&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;delay&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;ccs&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
-               <span class="s2">&quot;memberInfos&quot;</span><span class="p">:[</span>
-                  <span class="p">{</span>
-                     <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;company&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-                  <span class="p">}</span>
-               <span class="p">],</span>
-               <span class="s2">&quot;order&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+                <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
             <span class="p">}</span>
-         <span class="p">],</span>
-         <span class="s2">&quot;widgetParticipantSet&quot;</span><span class="p">:{</span>
-            <span class="s2">&quot;memberInfos&quot;</span><span class="p">:[</span>
-               <span class="p">{</span>
-                  <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;company&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-               <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;completionInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;deframe&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;delay&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;creatorEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;createdDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;locale&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vaultingInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;participantSetsInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;additionalParticipantSets&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">],</span>
+                    <span class="nt">&quot;order&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                <span class="p">}</span>
             <span class="p">],</span>
-            <span class="s2">&quot;order&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-         <span class="p">}</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;documentsInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;documents&quot;</span><span class="p">:[</span>
-            <span class="p">{</span>
-               <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;numPages&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;mimeType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+            <span class="nt">&quot;widgetParticipantSet&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;order&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
             <span class="p">}</span>
-         <span class="p">]</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1058,9 +799,8 @@
 </div>
 <div class="section" id="widget-disabled">
 <h2>WIDGET_DISABLED<a class="headerlink" href="#widget-disabled" title="Permalink to this heading">¶</a></h2>
-<div class="section" id="id4">
-<h3>Event-specific payload attributes<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
+<table class="colwidths-given docutils align-default" id="id6">
+<caption><span class="caption-text">The payload may include these event-specific payload as well as the <a class="reference internal" href="#inheritedweb"><span class="std std-ref">Payload attributes inherited from Widget</span></a>.</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 10%" />
@@ -1099,206 +839,106 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="id5">
-<h3>Inherited from Widget<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Possible Enums</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The unique identifier of widget, which can be used to retrieve the data entered by the signers.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The name of the widget that will be used to identify it, in emails, website, and other places.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></td>
-<td><p>Enum</p></td>
-<td><p>The current status of the widget.</p></td>
-<td><p>DRAFT, AUTHORING, ACTIVE, DOCUMENTS_NOT_YET_PROCESSED, DISABLED, DISCARDED</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ccs</span></code></p></td>
-<td><p>Array of Strings</p></td>
-<td><p>Email IDs of cc: participants of the widget.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">authFailureInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>URL and associated properties for the error page to which the widget signer will be taken after failing to authenticate.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">completionInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>URL and associated properties for the success page to which the widget signer will be taken after performing the desired action on the widget.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">disabledWidgetOptions</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Specifies the custom message that will be displayed to the user or the URL to which the user will be redirected when the widget is accessed in a disabled state.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">creatorEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>Email of of the widget creator.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">createdDate</span></code></p></td>
-<td><p>Date</p></td>
-<td><p>Widget creation date.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">locale</span></code></p></td>
-<td><p>String</p></td>
-<td><p>Locale associated with this widget: specifies the language for the signing page and emails; for example en_US or fr_FR. If none is specified, this defaults to the language configured for the widget creator.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">vaultingInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">participantSetsInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>List of all the participants in the widget except the widget signer. Returned only if the conditional parameter includeParticipantInfo is set to true and the payload size is less than the threshold.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">widgetParticipantSet</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Represents widget participant info for whom email was not provided.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">documentsInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Retrieves the IDs of the documents associated with widget. Returned only if the conditional parameter includeDocumentsInfo is set to true and payload size is less than the threshold</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">conditionalParametersTrimmed</span></code></p></td>
-<td><p>Array of Strings</p></td>
-<td><p>If event notification payload size exceeds the defined threshold, the conditional parameters will not be sent in the notification request, even if they are set to true by the webhook creator. The conditionalParametersTrimmed attribute will be set to the keys trimmed in this case. If no conditional parameters are specified by the webhook creator, or if they are specified, but no key is trimmed, this parameter will not be returned.</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id6">
-<h3>Payload template<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-   <span class="s2">&quot;webhookId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookName&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookUrlInfo&quot;</span><span class="p">:{</span>
-      <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-   <span class="p">},</span>
-   <span class="s2">&quot;webhookScope&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationApplicableUsers&quot;</span> <span class="p">:[</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;payloadApplicable&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-     <span class="p">}</span>
-   <span class="p">],</span>
-   <span class="s2">&quot;event&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;subEvent&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventResourceType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserIpAddress&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;widget&quot;</span><span class="p">:{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;authFailureInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;deframe&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;delay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;ccs&quot;</span><span class="p">:[</span>
-         <span class="p">{</span>
-            <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-         <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="s2">&quot;completionInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;deframe&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;delay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;disabledWidgetOptions&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;redirectUrl&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;creatorEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;createdDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;locale&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;vaultingInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;enabled&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;participantSetsInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;additionalParticipantSets&quot;</span><span class="p">:[</span>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Payload template</span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;webhookId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookUrlInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;webhookScope&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;payloadApplicable&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subEvent&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventResourceType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;widget&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authFailureInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;deframe&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;delay&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;ccs&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
-               <span class="s2">&quot;memberInfos&quot;</span><span class="p">:[</span>
-                  <span class="p">{</span>
-                     <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;company&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-                  <span class="p">}</span>
-               <span class="p">],</span>
-               <span class="s2">&quot;order&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+                <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
             <span class="p">}</span>
-         <span class="p">],</span>
-         <span class="s2">&quot;widgetParticipantSet&quot;</span><span class="p">:{</span>
-            <span class="s2">&quot;memberInfos&quot;</span><span class="p">:[</span>
-               <span class="p">{</span>
-                  <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;company&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-               <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;completionInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;deframe&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;delay&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;creatorEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;createdDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;locale&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vaultingInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;participantSetsInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;additionalParticipantSets&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">],</span>
+                    <span class="nt">&quot;order&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                <span class="p">}</span>
             <span class="p">],</span>
-            <span class="s2">&quot;order&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-         <span class="p">}</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;documentsInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;documents&quot;</span><span class="p">:[</span>
-            <span class="p">{</span>
-               <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;numPages&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;mimeType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+            <span class="nt">&quot;widgetParticipantSet&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;order&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
             <span class="p">}</span>
-         <span class="p">]</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;documentsInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;documents&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;numPages&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;mimeType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1306,9 +946,8 @@
 </div>
 <div class="section" id="widget-enabled">
 <h2>WIDGET_ENABLED<a class="headerlink" href="#widget-enabled" title="Permalink to this heading">¶</a></h2>
-<div class="section" id="id7">
-<h3>Event-specific payload attributes<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
+<table class="colwidths-given docutils align-default" id="id8">
+<caption><span class="caption-text">The payload may include these event-specific payload as well as the <a class="reference internal" href="#inheritedweb"><span class="std std-ref">Payload attributes inherited from Widget</span></a>.</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 10%" />
@@ -1347,197 +986,106 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="id8">
-<h3>Inherited from Widget<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Possible Enums</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The unique identifier of widget, which can be used to retrieve the data entered by the signers.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The name of the widget that will be used to identify it, in emails, website, and other places.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></td>
-<td><p>Enum</p></td>
-<td><p>The current status of the widget.</p></td>
-<td><p>DRAFT, AUTHORING, ACTIVE, DOCUMENTS_NOT_YET_PROCESSED, DISABLED, DISCARDED</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ccs</span></code></p></td>
-<td><p>Array of Strings</p></td>
-<td><p>Email IDs of cc: participants of the widget.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">authFailureInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>URL and associated properties for the error page to which the widget signer will be taken after failing to authenticate.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">completionInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>URL and associated properties for the success page to which the widget signer will be taken after performing the desired action on the widget.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">creatorEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>Email of of the widget creator.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">createdDate</span></code></p></td>
-<td><p>Date</p></td>
-<td><p>Widget creation date.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">locale</span></code></p></td>
-<td><p>String</p></td>
-<td><p>Locale associated with this widget: specifies the language for the signing page and emails; for example en_US or fr_FR. If none is specified, this defaults to the language configured for the widget creator.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">vaultingInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">participantSetsInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>List of all the participants in the widget except the widget signer. Returned only if the conditional parameter includeParticipantInfo is set to true and the payload size is less than the threshold.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">widgetParticipantSet</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Represents widget participant info for whom email was not provided.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">documentsInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Retrieves the IDs of the documents associated with widget. Returned only if the conditional parameter includeDocumentsInfo is set to true and payload size is less than the threshold</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">conditionalParametersTrimmed</span></code></p></td>
-<td><p>Array of Strings</p></td>
-<td><p>If event notification payload size exceeds the defined threshold, the conditional parameters will not be sent in the notification request, even if they are set to true by the webhook creator. The conditionalParametersTrimmed attribute will be set to the keys trimmed in this case. If no conditional parameters are specified by the webhook creator, or if they are specified, but no key is trimmed, this parameter will not be returned.</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id9">
-<h3>Payload template<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-   <span class="s2">&quot;webhookId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookName&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookUrlInfo&quot;</span><span class="p">:{</span>
-      <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-   <span class="p">},</span>
-   <span class="s2">&quot;webhookScope&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationApplicableUsers&quot;</span> <span class="p">:[</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;payloadApplicable&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-     <span class="p">}</span>
-   <span class="p">],</span>
-   <span class="s2">&quot;event&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;subEvent&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventResourceType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserIpAddress&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;widget&quot;</span><span class="p">:{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;authFailureInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;deframe&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;delay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;ccs&quot;</span><span class="p">:[</span>
-         <span class="p">{</span>
-            <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-         <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="s2">&quot;completionInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;deframe&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;delay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;creatorEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;createdDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;locale&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;vaultingInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;enabled&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;participantSetsInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;additionalParticipantSets&quot;</span><span class="p">:[</span>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Payload template</span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;webhookId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookUrlInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;webhookScope&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;payloadApplicable&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subEvent&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventResourceType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;widget&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authFailureInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;deframe&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;delay&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;ccs&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
-               <span class="s2">&quot;memberInfos&quot;</span><span class="p">:[</span>
-                  <span class="p">{</span>
-                     <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;company&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-                  <span class="p">}</span>
-               <span class="p">],</span>
-               <span class="s2">&quot;order&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+                <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
             <span class="p">}</span>
-         <span class="p">],</span>
-         <span class="s2">&quot;widgetParticipantSet&quot;</span><span class="p">:{</span>
-            <span class="s2">&quot;memberInfos&quot;</span><span class="p">:[</span>
-               <span class="p">{</span>
-                  <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;company&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-               <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;completionInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;deframe&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;delay&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;creatorEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;createdDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;locale&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vaultingInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;participantSetsInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;additionalParticipantSets&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">],</span>
+                    <span class="nt">&quot;order&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                <span class="p">}</span>
             <span class="p">],</span>
-            <span class="s2">&quot;order&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-         <span class="p">}</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;documentsInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;documents&quot;</span><span class="p">:[</span>
-            <span class="p">{</span>
-               <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;numPages&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;mimeType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+            <span class="nt">&quot;widgetParticipantSet&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;order&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
             <span class="p">}</span>
-         <span class="p">]</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;documentsInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;documents&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;numPages&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;mimeType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1545,9 +1093,8 @@
 </div>
 <div class="section" id="widget-modified">
 <h2>WIDGET_MODIFIED<a class="headerlink" href="#widget-modified" title="Permalink to this heading">¶</a></h2>
-<div class="section" id="id10">
-<h3>Event-specific payload attributes<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
+<table class="colwidths-given docutils align-default" id="id10">
+<caption><span class="caption-text">The payload may include these event-specific payload as well as the <a class="reference internal" href="#inheritedweb"><span class="std std-ref">Payload attributes inherited from Widget</span></a>.</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 10%" />
@@ -1586,206 +1133,106 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="id11">
-<h3>Inherited from Widget<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Possible Enums</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The unique identifier of widget, which can be used to retrieve the data entered by the signers.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The name of the widget that will be used to identify it, in emails, website, and other places.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></td>
-<td><p>Enum</p></td>
-<td><p>The current status of the widget.</p></td>
-<td><p>DRAFT, AUTHORING, ACTIVE, DOCUMENTS_NOT_YET_PROCESSED, DISABLED, DISCARDED</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ccs</span></code></p></td>
-<td><p>Array of Strings</p></td>
-<td><p>Email IDs of cc: participants of the widget.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">authFailureInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>URL and associated properties for the error page to which the widget signer will be taken after failing to authenticate.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">completionInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>URL and associated properties for the success page to which the widget signer will be taken after performing the desired action on the widget.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">disabledWidgetOptions</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Specifies the custom message that will be displayed to the user or the URL to which the user will be redirected when the widget is accessed in a disabled state.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">creatorEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>Email of of the widget creator.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">createdDate</span></code></p></td>
-<td><p>Date</p></td>
-<td><p>Widget creation date.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">locale</span></code></p></td>
-<td><p>String</p></td>
-<td><p>Locale associated with this widget: specifies the language for the signing page and emails; for example en_US or fr_FR. If none is specified, this defaults to the language configured for the widget creator.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">vaultingInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">participantSetsInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>List of all the participants in the widget except the widget signer. Returned only if the conditional parameter includeParticipantInfo is set to true and the payload size is less than the threshold.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">widgetParticipantSet</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Represents widget participant info for whom email was not provided.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">documentsInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Retrieves the IDs of the documents associated with widget. Returned only if the conditional parameter includeDocumentsInfo is set to true and payload size is less than the threshold</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">conditionalParametersTrimmed</span></code></p></td>
-<td><p>Array of Strings</p></td>
-<td><p>If event notification payload size exceeds the defined threshold, the conditional parameters will not be sent in the notification request, even if they are set to true by the webhook creator. The conditionalParametersTrimmed attribute will be set to the keys trimmed in this case. If no conditional parameters are specified by the webhook creator, or if they are specified, but no key is trimmed, this parameter will not be returned.</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id12">
-<h3>Payload template<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-   <span class="s2">&quot;webhookId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookName&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookUrlInfo&quot;</span><span class="p">:{</span>
-      <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-   <span class="p">},</span>
-   <span class="s2">&quot;webhookScope&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationApplicableUsers&quot;</span> <span class="p">:[</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;payloadApplicable&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-     <span class="p">}</span>
-   <span class="p">],</span>
-   <span class="s2">&quot;event&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;subEvent&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventResourceType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserIpAddress&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;widget&quot;</span><span class="p">:{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;authFailureInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;deframe&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;delay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;ccs&quot;</span><span class="p">:[</span>
-         <span class="p">{</span>
-            <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-         <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="s2">&quot;completionInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;deframe&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;delay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;disabledWidgetOptions&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;redirectUrl&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;creatorEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;createdDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;locale&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;vaultingInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;enabled&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;participantSetsInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;additionalParticipantSets&quot;</span><span class="p">:[</span>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Payload template</span><a class="headerlink" href="#id11" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;webhookId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookUrlInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;webhookScope&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;payloadApplicable&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subEvent&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventResourceType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;widget&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authFailureInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;deframe&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;delay&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;ccs&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
-               <span class="s2">&quot;memberInfos&quot;</span><span class="p">:[</span>
-                  <span class="p">{</span>
-                     <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;company&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-                  <span class="p">}</span>
-               <span class="p">],</span>
-               <span class="s2">&quot;order&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+                <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
             <span class="p">}</span>
-         <span class="p">],</span>
-         <span class="s2">&quot;widgetParticipantSet&quot;</span><span class="p">:{</span>
-            <span class="s2">&quot;memberInfos&quot;</span><span class="p">:[</span>
-               <span class="p">{</span>
-                  <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;company&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-               <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;completionInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;deframe&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;delay&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;creatorEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;createdDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;locale&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vaultingInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;participantSetsInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;additionalParticipantSets&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">],</span>
+                    <span class="nt">&quot;order&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                <span class="p">}</span>
             <span class="p">],</span>
-            <span class="s2">&quot;order&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-         <span class="p">}</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;documentsInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;documents&quot;</span><span class="p">:[</span>
-            <span class="p">{</span>
-               <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;numPages&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;mimeType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+            <span class="nt">&quot;widgetParticipantSet&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;order&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
             <span class="p">}</span>
-         <span class="p">]</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;documentsInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;documents&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;numPages&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;mimeType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1793,9 +1240,8 @@
 </div>
 <div class="section" id="widget-shared">
 <h2>WIDGET_SHARED<a class="headerlink" href="#widget-shared" title="Permalink to this heading">¶</a></h2>
-<div class="section" id="id13">
-<h3>Event-specific payload attributes<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
+<table class="colwidths-given docutils align-default" id="id12">
+<caption><span class="caption-text">The payload may include these event-specific payload as well as the <a class="reference internal" href="#inheritedweb"><span class="std std-ref">Payload attributes inherited from Widget</span></a>.</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 10%" />
@@ -1834,206 +1280,69 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="id14">
-<h3>Inherited from Widget<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Possible enums</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The unique identifier of widget, which can be used to retrieve the data entered by the signers.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The name of the widget that will be used to identify it, in emails, website, and other places.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></td>
-<td><p>Enum</p></td>
-<td><p>The current status of the widget.</p></td>
-<td><p>DRAFT, AUTHORING, ACTIVE, DOCUMENTS_NOT_YET_PROCESSED, DISABLED, DISCARDED</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ccs</span></code></p></td>
-<td><p>Array of Strings</p></td>
-<td><p>Email IDs of cc: participants of the widget.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">authFailureInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>URL and associated properties for the error page to which the widget signer will be taken after failing to authenticate.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">completionInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>URL and associated properties for the success page to which the widget signer will be taken after performing the desired action on the widget.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">disabledWidgetOptions</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Specifies the custom message that will be displayed to the user or the URL to which the user will be redirected when the widget is accessed in a disabled state.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">creatorEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>Email of of the widget creator.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">createdDate</span></code></p></td>
-<td><p>Date</p></td>
-<td><p>Widget creation date.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">locale</span></code></p></td>
-<td><p>String</p></td>
-<td><p>Locale associated with this widget: specifies the language for the signing page and emails; for example en_US or fr_FR. If none is specified, this defaults to the language configured for the widget creator.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">vaultingInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">participantSetsInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>List of all the participants in the widget except the widget signer. Returned only if the conditional parameter includeParticipantInfo is set to true and the payload size is less than the threshold.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">widgetParticipantSet</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Represents widget participant info for whom email was not provided.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">documentsInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Retrieves the IDs of the documents associated with widget. Returned only if the conditional parameter includeDocumentsInfo is set to true and payload size is less than the threshold</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">conditionalParametersTrimmed</span></code></p></td>
-<td><p>Array of Strings</p></td>
-<td><p>If event notification payload size exceeds the defined threshold, the conditional parameters will not be sent in the notification request, even if they are set to true by the webhook creator. The conditionalParametersTrimmed attribute will be set to the keys trimmed in this case. If no conditional parameters are specified by the webhook creator, or if they are specified, but no key is trimmed, this parameter will not be returned.</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id15">
-<h3>Payload template<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-   <span class="s2">&quot;webhookId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookName&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookUrlInfo&quot;</span><span class="p">:{</span>
-      <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-   <span class="p">},</span>
-   <span class="s2">&quot;webhookScope&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationApplicableUsers&quot;</span> <span class="p">:[</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;payloadApplicable&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-     <span class="p">}</span>
-   <span class="p">],</span>
-   <span class="s2">&quot;event&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;subEvent&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventResourceType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserIpAddress&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;widget&quot;</span><span class="p">:{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;authFailureInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;deframe&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;delay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;ccs&quot;</span><span class="p">:[</span>
-         <span class="p">{</span>
-            <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-         <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="s2">&quot;completionInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;deframe&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;delay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;disabledWidgetOptions&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;redirectUrl&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;creatorEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;createdDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;locale&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;vaultingInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;enabled&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;participantSetsInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;additionalParticipantSets&quot;</span><span class="p">:[</span>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Payload template</span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;webhookId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookUrlInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;webhookScope&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;payloadApplicable&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subEvent&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventResourceType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;megaSign&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ccs&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
-               <span class="s2">&quot;memberInfos&quot;</span><span class="p">:[</span>
-                  <span class="p">{</span>
-                     <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;company&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-                  <span class="p">}</span>
-               <span class="p">],</span>
-               <span class="s2">&quot;order&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+                <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
             <span class="p">}</span>
-         <span class="p">],</span>
-         <span class="s2">&quot;widgetParticipantSet&quot;</span><span class="p">:{</span>
-            <span class="s2">&quot;memberInfos&quot;</span><span class="p">:[</span>
-               <span class="p">{</span>
-                  <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;company&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-               <span class="p">}</span>
-            <span class="p">],</span>
-            <span class="s2">&quot;order&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-         <span class="p">}</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;documentsInfo&quot;</span><span class="p">:{</span>
-         <span class="s2">&quot;documents&quot;</span><span class="p">:[</span>
-            <span class="p">{</span>
-               <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;numPages&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;mimeType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;childAgreementsInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;fileInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;fileType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;childAgreementsInfoFileId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
             <span class="p">}</span>
-         <span class="p">]</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;createdDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;expirationTime&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;externalId&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;firstReminderDelay&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;locale&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;postSignOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;redirectDelay&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;redirectUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;reminderFrequency&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;senderEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;signatureType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vaultingInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -2053,7 +1362,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Sep 23, 2022. 
+        Last update: Sep 27, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

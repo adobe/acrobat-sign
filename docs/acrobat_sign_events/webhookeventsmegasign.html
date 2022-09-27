@@ -177,234 +177,83 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="webhookeventsagreements.html">Webhook Agreement Events</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreements-minimum-payload">Agreements: Minimum payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#common-payload-elements">Common payload elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#minimum-payload-for-agreements">Minimum payload for agreements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#payload-attributes-inherited-from-agreement">Payload attributes inherited from Agreement</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-all">AGREEMENT_ALL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-created">AGREEMENT_CREATED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#event-specific-payload-attributes">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#payload-attributes-inherited-from-agreement">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#payload-template">Payload template</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-created">AGREEMENT_CREATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-creation-failed">AGREEMENT_CREATION_FAILED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-restarted">AGREEMENT_RESTARTED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-sent">AGREEMENT_SENT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-participant-completed">AGREEMENT_PARTICIPANT_COMPLETED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-completed">AGREEMENT_ACTION_COMPLETED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id1">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id2">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id3">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-participant-replaced">AGREEMENT_PARTICIPANT_REPLACED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-delegated">AGREEMENT_ACTION_DELEGATED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id4">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id5">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id6">Payload template</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-delegated">AGREEMENT_DELEGATED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-replaced-signer">AGREEMENT_ACTION_REPLACED_SIGNER</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id7">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id8">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id9">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-requested">AGREEMENT_ACTION_REQUESTED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id10">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id11">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id12">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-auto-cancelled-conversion-problem">AGREEMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id13">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id14">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id15">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-documents-deleted">AGREEMENT_DOCUMENTS_DELETED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id16">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id17">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id18">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-bounced">AGREEMENT_EMAIL_BOUNCED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id19">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id20">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id21">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-viewed">AGREEMENT_EMAIL_VIEWED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id22">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id23">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id24">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expired">AGREEMENT_EXPIRED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id25">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id26">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id27">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expiration-updated">AGREEMENT_EXPIRATION_UPDATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-shared">AGREEMENT_SHARED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-modified">AGREEMENT_MODIFIED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-participant-completed">AGREEMENT_PARTICIPANT_COMPLETED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-participant-replaced">AGREEMENT_PARTICIPANT_REPLACED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-replaced-signer">AGREEMENT_ACTION_REPLACED_SIGNER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-delegated">AGREEMENT_ACTION_DELEGATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-requested">AGREEMENT_ACTION_REQUESTED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-completed">AGREEMENT_ACTION_COMPLETED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-auto-cancelled-conversion-problem">AGREEMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-documents-deleted">AGREEMENT_DOCUMENTS_DELETED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-bounced">AGREEMENT_EMAIL_BOUNCED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-viewed">AGREEMENT_EMAIL_VIEWED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-offline-sync">AGREEMENT_OFFLINE_SYNC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-web-identity-authenticated">AGREEMENT_WEB_IDENTITY_AUTHENTICATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-kba-authenticated">AGREEMENT_KBA_AUTHENTICATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-ready-to-notarize">AGREEMENT_READY_TO_NOTARIZE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-uploaded-by-sender">AGREEMENT_UPLOADED_BY_SENDER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-user-ack-agreement-modified">AGREEMENT_USER_ACK_AGREEMENT_MODIFIED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-ready-to-vault">AGREEMENT_READY_TO_VAULT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-vaulted">AGREEMENT_VAULTED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-signer-name-changed-by-signer">AGREEMENT_SIGNER_NAME_CHANGED_BY_SIGNER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-workflow-completed">AGREEMENT_WORKFLOW_COMPLETED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-deleted">AGREEMENT_DELETED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-canceled">AGREEMENT_CANCELED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-kba-authenticated">AGREEMENT_KBA_AUTHENTICATED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id28">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id29">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id30">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-modified">AGREEMENT_MODIFIED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id31">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id32">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id33">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-offline-sync">AGREEMENT_OFFLINE_SYNC</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id34">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id35">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id36">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-recalled">AGREEMENT_RECALLED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id37">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id38">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id39">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-rejected">AGREEMENT_REJECTED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id40">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id41">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id42">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-shared">AGREEMENT_SHARED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id43">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id44">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id45">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-uploaded-by-sender">AGREEMENT_UPLOADED_BY_SENDER</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id46">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id47">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id48">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-user-ack-agreement-modified">AGREEMENT_USER_ACK_AGREEMENT_MODIFIED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id49">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id50">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id51">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-vaulted">AGREEMENT_VAULTED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id52">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id53">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id54">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-web-identity-authenticated">AGREEMENT_WEB_IDENTITY_AUTHENTICATED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id55">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id56">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id57">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-workflow-completed">AGREEMENT_WORKFLOW_COMPLETED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id58">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id59">Payload attributes inherited from agreement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#id60">Payload template</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-recalled">AGREEMENT_RECALLED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-rejected">AGREEMENT_REJECTED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expired">AGREEMENT_EXPIRED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expiration-updated">AGREEMENT_EXPIRATION_UPDATED</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="webhookeventslibrary.html">Webhook Library Events</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-minimum-payload">Library: Minimum payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#common-payload-elements">Common payload elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#minimum-payload-for-agreements">Minimum payload for agreements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#payload-attributes-inherited-from-library">Payload attributes inherited from Library</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-all">LIBRARY_ALL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-auto-cancelled-conversion-problem">LIBRARY_DOCUMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#event-specific-payload-attributes">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#inherited-from-library-document">Inherited from Library Document</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#payload-template">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-created">LIBRARY_DOCUMENT_CREATED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id1">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id2">Inherited from Library Document</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id3">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-modified">LIBRARY_DOCUMENT_MODIFIED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id4">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id5">Inherited from Library Document</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#id6">Payload template</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-auto-cancelled-conversion-problem">LIBRARY_DOCUMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-created">LIBRARY_DOCUMENT_CREATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-modified">LIBRARY_DOCUMENT_MODIFIED</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Webhook Bulk Signing Events</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#bulk-signing-minimum-payload">Bulk signing: Minimum payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-payload-elements">Common payload elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#minimum-payload-for-bulk-signing">Minimum payload for bulk signing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#payload-attributes-inherited-from-megasign">Payload attributes inherited from MegaSign</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#megasign-all">MEGASIGN_ALL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#megasign-created">MEGASIGN_CREATED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#event-specific-payload-attributes">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#inherited-from-megasign">Inherited from MegaSign</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#payload-template">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#megasign-recalled">MEGASIGN_RECALLED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Inherited from MegaSign</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#megasign-shared">MEGASIGN_SHARED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">Inherited from MegaSign</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">MEGASIGN_SHARED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id8">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id9">Inherited from MegaSign</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id10">Payload template</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#megasign-created">MEGASIGN_CREATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#megasign-recalled">MEGASIGN_RECALLED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#megasign-shared">MEGASIGN_SHARED</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="webhookeventswidget.html">Webhook Web Form Events</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#web-form-minimum-payload">Web form: Minimum payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#common-payload-elements">Common payload elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#minimum-payload-for-web-forms">Minimum payload for web forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#payload-attributes-inherited-from-widget">Payload attributes inherited from Widget</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-all">WIDGET_ALL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-created">WIDGET_CREATED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#event-specific-payload-attributes">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#inherited-from-widget">Inherited from Widget</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#payload-template">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-auto-cancelled-conversion-problem">WIDGET_AUTO_CANCELLED_CONVERSION_PROBLEM</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id1">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id2">Inherited from Widget</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id3">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-disabled">WIDGET_DISABLED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id4">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id5">Inherited from Widget</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id6">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-enabled">WIDGET_ENABLED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id7">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id8">Inherited from Widget</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id9">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-modified">WIDGET_MODIFIED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id10">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id11">Inherited from Widget</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id12">Payload template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-shared">WIDGET_SHARED</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id13">Event-specific payload attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id14">Inherited from Widget</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#id15">Payload template</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-created">WIDGET_CREATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-auto-cancelled-conversion-problem">WIDGET_AUTO_CANCELLED_CONVERSION_PROBLEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-disabled">WIDGET_DISABLED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-enabled">WIDGET_ENABLED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-modified">WIDGET_MODIFIED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-shared">WIDGET_SHARED</a></li>
 </ul>
 </li>
 </ul>
@@ -529,11 +378,13 @@
 <span id="webhookeventsmegasign"></span><h1>Webhook Bulk Signing Events<a class="headerlink" href="#webhook-bulk-signing-events" title="Permalink to this heading">¶</a></h1>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The Sign in Bulk feature was previously named “Megasign”. Hence the use of “megasign” in code samples, event nanmes, and the REST APIs.</p>
+<p>The Sign in Bulk feature was previously named “Megasign”. Hence the use of “megasign” in code samples, event names, and the REST APIs.</p>
 </div>
-<div class="section" id="bulk-signing-minimum-payload">
-<h2>Bulk signing: Minimum payload<a class="headerlink" href="#bulk-signing-minimum-payload" title="Permalink to this heading">¶</a></h2>
-<p>The following is the minimal info which returns for a MegaSign event if all the conditional parameters are set to false while creating webhooks.</p>
+<div class="section" id="common-payload-elements">
+<h2>Common payload elements<a class="headerlink" href="#common-payload-elements" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="minimum-payload-for-bulk-signing">
+<h3>Minimum payload for bulk signing<a class="headerlink" href="#minimum-payload-for-bulk-signing" title="Permalink to this heading">¶</a></h3>
+<p>The following returns for a bulk signing event if all the conditional parameters are set to false while creating webhooks:</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -564,78 +415,15 @@
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">payloadApplicable</span></code></p></td>
 <td><p>boolean</p></td>
-<td><p>Indicates whether the payload attached to this notification is fetched in the context of this user or not. The boolean will be true for one and only one of the users in the webhookNotificationApplicableUsers array.</p></td>
+<td><p>Indicates whether the payload attached to this notification is fetched in the context of this user or not. The boolean will be true for one and only one of the users in the <code class="docutils literal notranslate"><span class="pre">webhookNotificationApplicableUsers</span></code> array.</p></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<p>For different MegaSign events, the detailed agreement info, participant info, document info, and the signed document returns based on the conditional parameters specified during webhook creation.</p>
+<p>For different Send in Bulk events, the detailed agreement info, participant info, document info, and the signed document returns based on the conditional parameters specified during webhook creation.</p>
 </div>
-<div class="section" id="megasign-all">
-<h2>MEGASIGN_ALL<a class="headerlink" href="#megasign-all" title="Permalink to this heading">¶</a></h2>
-<p>If you want to subscribe for all bulk signing events, subscribe to WIDGET_ALL.</p>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>Event type</p></td>
-<td><p>Description</p></td>
-</tr>
-<tr class="row-even"><td><p>MEGASIGN_ALL</p></td>
-<td><p>All the supported megasign events.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="megasign-created">
-<h2>MEGASIGN_CREATED<a class="headerlink" href="#megasign-created" title="Permalink to this heading">¶</a></h2>
-<p>A bulk signing event has been created.</p>
-<div class="section" id="event-specific-payload-attributes">
-<h3>Event-specific payload attributes<a class="headerlink" href="#event-specific-payload-attributes" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 80%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserId</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user ID   of the creator of the MegaSign.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user email  of the creator of the MegaSign.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserId</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user ID  of the creator of the MegaSign.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user email  of the creator of the MegaSign.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserId</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user ID  of the sharee of the creator of the megasign who created the MegaSign on behalf of the creator in the case of account sharing.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user email  of the sharee of the creator of the megasign who created the MegaSign on behalf of the creator in the case of account sharing.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="inherited-from-megasign">
-<h3>Inherited from MegaSign<a class="headerlink" href="#inherited-from-megasign" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="payload-attributes-inherited-from-megasign">
+<h3>Payload attributes inherited from MegaSign<a class="headerlink" href="#payload-attributes-inherited-from-megasign" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -729,63 +517,115 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="payload-template">
-<h3>Payload template<a class="headerlink" href="#payload-template" title="Permalink to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-   <span class="s2">&quot;webhookId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookName&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookUrlInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-   <span class="p">},</span>
-   <span class="s2">&quot;webhookScope&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:[</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;payloadApplicable&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-     <span class="p">}</span>
-   <span class="p">],</span>
-   <span class="s2">&quot;event&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;subEvent&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventResourceType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserIpAddress&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;megaSign&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;ccs&quot;</span><span class="p">:</span> <span class="p">[</span>
-         <span class="p">{</span>
-            <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-         <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="s2">&quot;createdDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;expirationTime&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;externalId&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;firstReminderDelay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;locale&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;postSignOption&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="s2">&quot;redirectDelay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;redirectUrl&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;reminderFrequency&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;senderEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;signatureType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;vaultingInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="s2">&quot;enabled&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
+</div>
+<div class="section" id="megasign-all">
+<h2>MEGASIGN_ALL<a class="headerlink" href="#megasign-all" title="Permalink to this heading">¶</a></h2>
+<p>If you want to subscribe to all library events, subscribe to MEGASIGN_ALL.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>MEGASIGN_ALL retrieves all agreement events, including events added in the future.</p>
+</div>
+</div>
+<div class="section" id="megasign-created">
+<h2>MEGASIGN_CREATED<a class="headerlink" href="#megasign-created" title="Permalink to this heading">¶</a></h2>
+<p>A bulk signing event has been created.</p>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">Event-specific payload attributes</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserId</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user ID   of the creator of the MegaSign.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserEmail</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user email  of the creator of the MegaSign.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserId</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user ID  of the creator of the MegaSign.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserEmail</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user email  of the creator of the MegaSign.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserId</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user ID  of the sharee of the creator of the megasign who created the MegaSign on behalf of the creator in the case of account sharing.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The user email  of the sharee of the creator of the megasign who created the MegaSign on behalf of the creator in the case of account sharing.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Payload template</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;webhookId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookUrlInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;webhookScope&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;payloadApplicable&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subEvent&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventResourceType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;megaSign&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ccs&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;createdDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;expirationTime&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;externalId&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;firstReminderDelay&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;locale&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;postSignOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;redirectDelay&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;redirectUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;reminderFrequency&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;senderEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;signatureType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vaultingInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -794,9 +634,8 @@
 <div class="section" id="megasign-recalled">
 <h2>MEGASIGN_RECALLED<a class="headerlink" href="#megasign-recalled" title="Permalink to this heading">¶</a></h2>
 <p>Triggers when a send in bulk action is recalled.</p>
-<div class="section" id="id1">
-<h3>Event-specific payload attributes<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
+<table class="colwidths-given docutils align-default" id="id3">
+<caption><span class="caption-text">Event-specific payload attributes</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 10%" />
@@ -835,170 +674,69 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="id2">
-<h3>Inherited from MegaSign<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 50%" />
-<col style="width: 30%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Possible Enums</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The unique identifier of the MegaSign parent agreement.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The name of the agreement that will be used to identify it in emails, on the website, and elsewhere.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></td>
-<td><p>Enum</p></td>
-<td><p>State of the MegaSign.</p></td>
-<td><p>IN_PROCESS</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ccs</span></code></p></td>
-<td><p>Array of Strings</p></td>
-<td><p>Email IDs of cc: participants of the MegaSign</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">childAgreementsInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Info corresponding to each child agreement of the MegaSign</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">createdDate</span></code></p></td>
-<td><p>Date</p></td>
-<td><p>Date when the MegaSign was created, in the format yyyy-MM-dd’T’HH:mm:ssZ</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">expirationTime</span></code></p></td>
-<td><p>Timestamp</p></td>
-<td><p>The date after which the agreement can no longer be signed, if an expiration date is configured. The value is nil if an expiration date is not set for the document.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">externalId</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>A unique identifier provided by an external system search for your transaction through API.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">firstReminderDelay</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>Integer which specifies the delay in hours before sending the first reminder. The minimum value allowed is 1 hour and the maximum value can’t be more than the difference between the agreement creation time and the expiration time of the agreement in hours. If this is not specified while creating the agreement, but the reminder frequency is specified, then the first reminder will be sent based on frequency: in other words, if the reminder is created with frequency specified as daily, the firstReminderDelay will be 24 hours. Will never be returned in offline agreement creation.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">locale</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The locale associated with this agreement. Specifies the language for the signing page and emails: for example, en_US or fr_FR. If none specified, defaults to the language configured for the agreement sender.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The message associated with the agreement that the sender has provided, describing what is being sent or why their signature is required.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">postSignOption</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Determines the URL and associated properties for the success page to which the user will be taken after completing the signing process.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reminderFrequency</span></code></p></td>
-<td><p>Enum</p></td>
-<td><p>Specifies how often reminders will be sent to the recipients.</p></td>
-<td><p>DAILY_UNTIL_SIGNED or WEEKLY_UNTIL_SIGNED</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">senderEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>Email of the sender.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">signatureType</span></code></p></td>
-<td><p>Enum</p></td>
-<td><p>Specifies the type of signature requested on the agreement—written or e-signature.</p></td>
-<td><p>‘ESIGN’ or ‘WRITTEN’</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">vaultingInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id3">
-<h3>Payload template<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-   <span class="s2">&quot;webhookId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookName&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookUrlInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-   <span class="p">},</span>
-   <span class="s2">&quot;webhookScope&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:[</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;payloadApplicable&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-     <span class="p">}</span>
-   <span class="p">],</span>
-   <span class="s2">&quot;event&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;subEvent&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventResourceType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserIpAddress&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;megaSign&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;ccs&quot;</span><span class="p">:</span> <span class="p">[</span>
-         <span class="p">{</span>
-            <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-         <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="s2">&quot;childAgreementsInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="s2">&quot;fileInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;fileType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;childAgreementsInfoFileId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-         <span class="p">}</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;createdDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;expirationTime&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;externalId&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;firstReminderDelay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;locale&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;postSignOption&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="s2">&quot;redirectDelay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;redirectUrl&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;reminderFrequency&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;senderEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;signatureType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;vaultingInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="s2">&quot;enabled&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Payload template</span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;webhookId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookUrlInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;webhookScope&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;payloadApplicable&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subEvent&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventResourceType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;megaSign&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ccs&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;childAgreementsInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;fileInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;fileType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;childAgreementsInfoFileId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;createdDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;expirationTime&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;externalId&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;firstReminderDelay&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;locale&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;postSignOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;redirectDelay&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;redirectUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;reminderFrequency&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;senderEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;signatureType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vaultingInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1006,223 +744,9 @@
 </div>
 <div class="section" id="megasign-shared">
 <h2>MEGASIGN_SHARED<a class="headerlink" href="#megasign-shared" title="Permalink to this heading">¶</a></h2>
-<p>Triggers when a send in bulk event is shared.</p>
-<div class="section" id="id4">
-<h3>Event-specific payload attributes<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 80%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserId</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user ID  of the user to whom the MegaSign is shared.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user email  of the user to whom the MegaSign is shared.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserId</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user ID  of the user by whom the MegaSign is shared. This will be creator of the MegaSign.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user email  of the user by whom the MegaSign is shared. This will be creator of the MegaSign.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserId</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user ID  of the sharee of the user on whose behalf this MegaSign is shared in the case of account sharing.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The user email  of the sharee of the user on whose behalf this MegaSign is shared in the case of account sharing.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id5">
-<h3>Inherited from MegaSign<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 50%" />
-<col style="width: 30%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Possible Enums</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The unique identifier of the MegaSign parent agreement.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The name of the agreement that will be used to identify it in emails, on the website, and elsewhere.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></td>
-<td><p>Enum</p></td>
-<td><p>State of the MegaSign.</p></td>
-<td><p>IN_PROCESS</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ccs</span></code></p></td>
-<td><p>Array of Strings</p></td>
-<td><p>Email IDs of cc: participants of the MegaSign</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">childAgreementsInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Info corresponding to each child agreement of the MegaSign</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">createdDate</span></code></p></td>
-<td><p>Date</p></td>
-<td><p>Date when the MegaSign was created, in the format yyyy-MM-dd’T’HH:mm:ssZ</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">expirationTime</span></code></p></td>
-<td><p>Timestamp</p></td>
-<td><p>The date after which the agreement can no longer be signed, if an expiration date is configured. The value is nil if an expiration date is not set for the document.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">externalId</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>A unique identifier provided by an external system search for your transaction through API.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">firstReminderDelay</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>Integer which specifies the delay in hours before sending the first reminder. The minimum value allowed is 1 hour and the maximum value can’t be more than the difference between the agreement creation time and the expiration time of the agreement in hours. If this is not specified while creating the agreement, but the reminder frequency is specified, then the first reminder will be sent based on frequency: in other words, if the reminder is created with frequency specified as daily, the firstReminderDelay will be 24 hours. Will never be returned in offline agreement creation.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">locale</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The locale associated with this agreement. Specifies the language for the signing page and emails: for example, en_US or fr_FR. If none specified, defaults to the language configured for the agreement sender.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The message associated with the agreement that the sender has provided, describing what is being sent or why their signature is required.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">postSignOption</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Determines the URL and associated properties for the success page to which the user will be taken after completing the signing process.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reminderFrequency</span></code></p></td>
-<td><p>Enum</p></td>
-<td><p>Specifies how often reminders will be sent to the recipients.</p></td>
-<td><p>DAILY_UNTIL_SIGNED or WEEKLY_UNTIL_SIGNED</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">senderEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>Email of the sender.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">signatureType</span></code></p></td>
-<td><p>Enum</p></td>
-<td><p>Specifies the type of signature requested on the agreement—written or e-signature.</p></td>
-<td><p>‘ESIGN’ or ‘WRITTEN’</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">vaultingInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id6">
-<h3>Payload template<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-   <span class="s2">&quot;webhookId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookName&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookUrlInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-   <span class="p">},</span>
-   <span class="s2">&quot;webhookScope&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:[</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;payloadApplicable&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-     <span class="p">}</span>
-   <span class="p">],</span>
-   <span class="s2">&quot;event&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;subEvent&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventResourceType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserIpAddress&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;megaSign&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;ccs&quot;</span><span class="p">:</span> <span class="p">[</span>
-         <span class="p">{</span>
-            <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-         <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="s2">&quot;childAgreementsInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="s2">&quot;fileInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;fileType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;childAgreementsInfoFileId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-         <span class="p">}</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;createdDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;expirationTime&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;externalId&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;firstReminderDelay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;locale&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;postSignOption&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="s2">&quot;redirectDelay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;redirectUrl&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;reminderFrequency&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;senderEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;signatureType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;vaultingInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="s2">&quot;enabled&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="id7">
-<h2>MEGASIGN_SHARED<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h2>
 <p>Triggers when a send in bulk reminder is sent to recipients.</p>
-<div class="section" id="id8">
-<h3>Event-specific payload attributes<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
+<table class="colwidths-given docutils align-default" id="id5">
+<caption><span class="caption-text">Event-specific payload attributes</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 10%" />
@@ -1261,170 +785,69 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="id9">
-<h3>Inherited from MegaSign<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 50%" />
-<col style="width: 30%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Possible Enums</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The unique identifier of the MegaSign parent agreement.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The name of the agreement that will be used to identify it in emails, on the website, and elsewhere.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></td>
-<td><p>Enum</p></td>
-<td><p>State of the MegaSign.</p></td>
-<td><p>IN_PROCESS</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ccs</span></code></p></td>
-<td><p>Array of Strings</p></td>
-<td><p>Email IDs of cc: participants of the MegaSign</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">childAgreementsInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Info corresponding to each child agreement of the MegaSign</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">createdDate</span></code></p></td>
-<td><p>Date</p></td>
-<td><p>Date when the MegaSign was created, in the format yyyy-MM-dd’T’HH:mm:ssZ</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">expirationTime</span></code></p></td>
-<td><p>Timestamp</p></td>
-<td><p>The date after which the agreement can no longer be signed, if an expiration date is configured. The value is nil if an expiration date is not set for the document.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">externalId</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>A unique identifier provided by an external system search for your transaction through API.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">firstReminderDelay</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>Integer which specifies the delay in hours before sending the first reminder. The minimum value allowed is 1 hour and the maximum value can’t be more than the difference between the agreement creation time and the expiration time of the agreement in hours. If this is not specified while creating the agreement, but the reminder frequency is specified, then the first reminder will be sent based on frequency: in other words, if the reminder is created with frequency specified as daily, the firstReminderDelay will be 24 hours. Will never be returned in offline agreement creation.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">locale</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The locale associated with this agreement. Specifies the language for the signing page and emails: for example, en_US or fr_FR. If none specified, defaults to the language configured for the agreement sender.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></td>
-<td><p>String</p></td>
-<td><p>The message associated with the agreement that the sender has provided, describing what is being sent or why their signature is required.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">postSignOption</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Determines the URL and associated properties for the success page to which the user will be taken after completing the signing process.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reminderFrequency</span></code></p></td>
-<td><p>Enum</p></td>
-<td><p>Specifies how often reminders will be sent to the recipients.</p></td>
-<td><p>DAILY_UNTIL_SIGNED or WEEKLY_UNTIL_SIGNED</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">senderEmail</span></code></p></td>
-<td><p>String</p></td>
-<td><p>Email of the sender.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">signatureType</span></code></p></td>
-<td><p>Enum</p></td>
-<td><p>Specifies the type of signature requested on the agreement—written or e-signature.</p></td>
-<td><p>‘ESIGN’ or ‘WRITTEN’</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">vaultingInfo</span></code></p></td>
-<td><p>Object</p></td>
-<td><p>Specifies the vaulting properties that allow Acrobat Sign to securely store documents with a vault provider.</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id10">
-<h3>Payload template<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-   <span class="s2">&quot;webhookId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookName&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookUrlInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-   <span class="p">},</span>
-   <span class="s2">&quot;webhookScope&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:[</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;payloadApplicable&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-     <span class="p">}</span>
-   <span class="p">],</span>
-   <span class="s2">&quot;event&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;subEvent&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;eventResourceType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;participantUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;actingUserIpAddress&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;initiatingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;megaSign&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;ccs&quot;</span><span class="p">:</span> <span class="p">[</span>
-         <span class="p">{</span>
-            <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-         <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="s2">&quot;childAgreementsInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="s2">&quot;fileInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;fileType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;childAgreementsInfoFileId&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-         <span class="p">}</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;createdDate&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;expirationTime&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;externalId&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;firstReminderDelay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;locale&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;postSignOption&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="s2">&quot;redirectDelay&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;redirectUrl&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;reminderFrequency&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;senderEmail&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;signatureType&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;vaultingInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="s2">&quot;enabled&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Payload template</span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;webhookId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookUrlInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;webhookScope&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;payloadApplicable&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;subEvent&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;eventResourceType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;participantUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actingUserIpAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiatingUserEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;megaSign&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ccs&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;childAgreementsInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;fileInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;fileType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;childAgreementsInfoFileId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;createdDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;expirationTime&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;externalId&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;firstReminderDelay&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;locale&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;postSignOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;redirectDelay&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;redirectUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;reminderFrequency&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;senderEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;signatureType&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vaultingInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1444,7 +867,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Sep 23, 2022. 
+        Last update: Sep 27, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
