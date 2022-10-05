@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
   
-  <title>Webhook Bulk Signing Events &mdash; Acrobat Sign Webhook Guide</title>
+  <title>Bulk Signing Events &mdash; Acrobat Sign Webhook Guide</title>
   
 
   
@@ -38,8 +38,8 @@
    
   
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Webhook Web Form Events" href="webhookeventswidget.html" />
-    <link rel="prev" title="Webhook Library Events" href="webhookeventslibrary.html" /> 
+    <link rel="next" title="Web Form Events" href="webhookeventswidget.html" />
+    <link rel="prev" title="Library Events" href="webhookeventslibrary.html" /> 
   
 <script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
 <script src="https://www.adobe.com/marketingtech/main.min.js"></script>
@@ -137,7 +137,12 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Webhooks in Acrobat Sign</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="index.html#best-practices">Best Practices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#ui-vs-api-configuration">UI vs API configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#ui-vs-api-configuration">UI vs. API configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#the-api-best-practice">The API “best practice”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#polling-as-a-backup-update-method">Polling as a “backup” update method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#update-agreement-status-manual-option">Update Agreement Status “manual” option</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#workflow-example">Workflow example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#creating-a-webhook">Creating a webhook</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="index.html#prerequisites">Prerequisites</a></li>
@@ -176,7 +181,7 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookpayloadoverview.html#webhook-url">Webhook URL</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="webhookeventsagreements.html">Webhook Agreement Events</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="webhookeventsagreements.html">Agreement Events</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#common-payload-elements">Common payload elements</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#minimum-payload-for-agreements">Minimum payload for agreements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#payload-attributes-inherited-from-agreement">Payload attributes inherited from Agreement</a></li>
@@ -184,10 +189,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-all">AGREEMENT_ALL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-created">AGREEMENT_CREATED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-creation-failed">AGREEMENT_CREATION_FAILED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-restarted">AGREEMENT_RESTARTED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-sent">AGREEMENT_SENT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-delegated">AGREEMENT_DELEGATED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-shared">AGREEMENT_SHARED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-modified">AGREEMENT_MODIFIED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-participant-completed">AGREEMENT_PARTICIPANT_COMPLETED</a></li>
@@ -217,9 +219,9 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expiration-updated">AGREEMENT_EXPIRATION_UPDATED</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="webhookeventslibrary.html">Webhook Library Events</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="webhookeventslibrary.html">Library Events</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#common-payload-elements">Common payload elements</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#minimum-payload-for-agreements">Minimum payload for agreements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#minimum-payload-for-library-events">Minimum payload for library events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#payload-attributes-inherited-from-library">Payload attributes inherited from Library</a></li>
 </ul>
 </li>
@@ -229,9 +231,9 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-modified">LIBRARY_DOCUMENT_MODIFIED</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Webhook Bulk Signing Events</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Bulk Signing Events</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#common-payload-elements">Common payload elements</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#minimum-payload-for-bulk-signing">Minimum payload for bulk signing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minimum-payload-for-bulk-signing-events">Minimum payload for bulk signing events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#payload-attributes-inherited-from-megasign">Payload attributes inherited from MegaSign</a></li>
 </ul>
 </li>
@@ -241,9 +243,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#megasign-shared">MEGASIGN_SHARED</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="webhookeventswidget.html">Webhook Web Form Events</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="webhookeventswidget.html">Web Form Events</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#common-payload-elements">Common payload elements</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#minimum-payload-for-web-forms">Minimum payload for web forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#minimum-payload-for-web-form-events">Minimum payload for web form events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#payload-attributes-inherited-from-widget">Payload attributes inherited from Widget</a></li>
 </ul>
 </li>
@@ -348,7 +350,7 @@
     
       <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Webhook Bulk Signing Events</li>
+      <li>Bulk Signing Events</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -362,10 +364,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="webhookeventswidget.html" class="btn btn-neutral float-right" title="Webhook Web Form Events" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="webhookeventswidget.html" class="btn btn-neutral float-right" title="Web Form Events" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
       
       
-        <a href="webhookeventslibrary.html" class="btn btn-neutral float-left" title="Webhook Library Events" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="webhookeventslibrary.html" class="btn btn-neutral float-left" title="Library Events" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
       
   </div>
   
@@ -374,16 +376,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="webhook-bulk-signing-events">
-<span id="webhookeventsmegasign"></span><h1>Webhook Bulk Signing Events<a class="headerlink" href="#webhook-bulk-signing-events" title="Permalink to this heading">¶</a></h1>
+  <div class="section" id="bulk-signing-events">
+<span id="webhookeventsmegasign"></span><h1>Bulk Signing Events<a class="headerlink" href="#bulk-signing-events" title="Permalink to this heading">¶</a></h1>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The Sign in Bulk feature was previously named “Megasign”. Hence the use of “megasign” in code samples, event names, and the REST APIs.</p>
 </div>
 <div class="section" id="common-payload-elements">
 <h2>Common payload elements<a class="headerlink" href="#common-payload-elements" title="Permalink to this heading">¶</a></h2>
-<div class="section" id="minimum-payload-for-bulk-signing">
-<h3>Minimum payload for bulk signing<a class="headerlink" href="#minimum-payload-for-bulk-signing" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="minimum-payload-for-bulk-signing-events">
+<h3>Minimum payload for bulk signing events<a class="headerlink" href="#minimum-payload-for-bulk-signing-events" title="Permalink to this heading">¶</a></h3>
 <p>The following returns for a bulk signing event if all the conditional parameters are set to false while creating webhooks:</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
@@ -441,7 +443,7 @@
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
 <td><p>String</p></td>
-<td><p>The unique identifier of the MegaSign parent agreement.</p></td>
+<td><p>The unique identifier of the bulk signing  parent agreement.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
@@ -451,17 +453,17 @@
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></td>
 <td><p>Enum</p></td>
-<td><p>State of the MegaSign.</p></td>
+<td><p>State of the bulk signing event.</p></td>
 <td><p>IN_PROCESS</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ccs</span></code></p></td>
 <td><p>Array of Strings</p></td>
-<td><p>Email IDs of cc: participants of the MegaSign</p></td>
+<td><p>Email IDs of cc: participants of the bulk signing event</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">createdDate</span></code></p></td>
 <td><p>Date</p></td>
-<td><p>Date when the MegaSign was created, in the format yyyy-MM-dd’T’HH:mm:ssZ</p></td>
+<td><p>Date when the bulk signing event was created, in the format yyyy-MM-dd’T’HH:mm:ssZ</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">expirationTime</span></code></p></td>
@@ -528,7 +530,8 @@
 </div>
 <div class="section" id="megasign-created">
 <h2>MEGASIGN_CREATED<a class="headerlink" href="#megasign-created" title="Permalink to this heading">¶</a></h2>
-<p>A bulk signing event has been created.</p>
+<p>Web app name: Send in Bulk created</p>
+<p>Triggers when a bulk signing event is created.</p>
 <table class="colwidths-given docutils align-default" id="id1">
 <caption><span class="caption-text">Event-specific payload attributes</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -545,27 +548,27 @@
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserId</span></code></p></td>
 <td><p>String</p></td>
-<td><p>The user ID   of the creator of the MegaSign.</p></td>
+<td><p>The user ID   of the creator of the bulk signing event.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserEmail</span></code></p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the creator of the MegaSign.</p></td>
+<td><p>The user email  of the creator of the bulk signing event.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserId</span></code></p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the creator of the MegaSign.</p></td>
+<td><p>The user ID  of the creator of the bulk signing event.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserEmail</span></code></p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the creator of the MegaSign.</p></td>
+<td><p>The user email  of the creator of the bulk signing event.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserId</span></code></p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the sharee of the creator of the megasign who created the MegaSign on behalf of the creator in the case of account sharing.</p></td>
+<td><p>The user ID  of the sharee of the creator of the megasign who created the bulk signing event on behalf of the creator in the case of account sharing.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code></p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the sharee of the creator of the megasign who created the MegaSign on behalf of the creator in the case of account sharing.</p></td>
+<td><p>The user email  of the sharee of the creator of the megasign who created the bulk signing event on behalf of the creator in the case of account sharing.</p></td>
 </tr>
 </tbody>
 </table>
@@ -633,6 +636,7 @@
 </div>
 <div class="section" id="megasign-recalled">
 <h2>MEGASIGN_RECALLED<a class="headerlink" href="#megasign-recalled" title="Permalink to this heading">¶</a></h2>
+<p>Web app name: Send in Bulk recalled</p>
 <p>Triggers when a send in bulk action is recalled.</p>
 <table class="colwidths-given docutils align-default" id="id3">
 <caption><span class="caption-text">Event-specific payload attributes</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
@@ -650,27 +654,27 @@
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserId</span></code></p></td>
 <td><p>String</p></td>
-<td><p>The user ID of the creator of the MegaSign.</p></td>
+<td><p>The user ID of the creator of the bulk signing event.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserEmail</span></code></p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the creator of the MegaSign.</p></td>
+<td><p>The user email  of the creator of the bulk signing event.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserId</span></code></p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the creator of the MegaSign.</p></td>
+<td><p>The user ID  of the creator of the bulk signing event.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserEmail</span></code></p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the creator of the MegaSign.</p></td>
+<td><p>The user email  of the creator of the bulk signing event.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserId</span></code></p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the sharee of the creator of the MegaSign who recalled the MegaSign on behalf of the creator in the case of account sharing.</p></td>
+<td><p>The user ID  of the sharee of the creator of the bulk signing event who recalled the bulk signing event on behalf of the creator in the case of account sharing.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code></p></td>
 <td><p>String</p></td>
-<td><p>The user email of the sharee of the creator of the MegaSign who recalled the MegaSign on behalf of the creator in the case of account sharing.</p></td>
+<td><p>The user email of the sharee of the creator of the bulk signing event who recalled the bulk signing event on behalf of the creator in the case of account sharing.</p></td>
 </tr>
 </tbody>
 </table>
@@ -744,6 +748,7 @@
 </div>
 <div class="section" id="megasign-shared">
 <h2>MEGASIGN_SHARED<a class="headerlink" href="#megasign-shared" title="Permalink to this heading">¶</a></h2>
+<p>Web app name: Send in Bulk shared</p>
 <p>Triggers when a send in bulk reminder is sent to recipients.</p>
 <table class="colwidths-given docutils align-default" id="id5">
 <caption><span class="caption-text">Event-specific payload attributes</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
@@ -761,27 +766,27 @@
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserId</span></code></p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the user to whom the MegaSign is shared.</p></td>
+<td><p>The user ID  of the user to whom the bulk signing event is shared.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">participantUserEmail</span></code></p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the user to whom the MegaSign is shared.</p></td>
+<td><p>The user email  of the user to whom the bulk signing event is shared.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserId</span></code></p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the user by whom the MegaSign is shared. This will be creator of the MegaSign.</p></td>
+<td><p>The user ID  of the user by whom the bulk signing event is shared. This will be creator of the bulk signing event.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">actingUserEmail</span></code></p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the user by whom the MegaSign is shared. This will be creator of the MegaSign.</p></td>
+<td><p>The user email  of the user by whom the bulk signing event is shared. This will be creator of the bulk signing event.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserId</span></code></p></td>
 <td><p>String</p></td>
-<td><p>The user ID  of the sharee of the user on whose behalf this MegaSign is shared in the case of account sharing.</p></td>
+<td><p>The user ID  of the sharee of the user on whose behalf this bulk signing event is shared in the case of account sharing.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code></p></td>
 <td><p>String</p></td>
-<td><p>The user email  of the sharee of the user on whose behalf this MegaSign is shared in the case of account sharing.</p></td>
+<td><p>The user email  of the sharee of the user on whose behalf this bulk signing event is shared in the case of account sharing.</p></td>
 </tr>
 </tbody>
 </table>

@@ -38,7 +38,7 @@
    
   
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Webhook Agreement Events" href="webhookeventsagreements.html" />
+    <link rel="next" title="Agreement Events" href="webhookeventsagreements.html" />
     <link rel="prev" title="Webhooks in Acrobat Sign" href="index.html" /> 
   
 <script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
@@ -137,7 +137,12 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Webhooks in Acrobat Sign</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="index.html#best-practices">Best Practices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#ui-vs-api-configuration">UI vs API configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#ui-vs-api-configuration">UI vs. API configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#the-api-best-practice">The API “best practice”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#polling-as-a-backup-update-method">Polling as a “backup” update method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#update-agreement-status-manual-option">Update Agreement Status “manual” option</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#workflow-example">Workflow example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#creating-a-webhook">Creating a webhook</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="index.html#prerequisites">Prerequisites</a></li>
@@ -176,7 +181,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#webhook-url">Webhook URL</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="webhookeventsagreements.html">Webhook Agreement Events</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="webhookeventsagreements.html">Agreement Events</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#common-payload-elements">Common payload elements</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#minimum-payload-for-agreements">Minimum payload for agreements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#payload-attributes-inherited-from-agreement">Payload attributes inherited from Agreement</a></li>
@@ -184,10 +189,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-all">AGREEMENT_ALL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-created">AGREEMENT_CREATED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-creation-failed">AGREEMENT_CREATION_FAILED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-restarted">AGREEMENT_RESTARTED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-sent">AGREEMENT_SENT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-delegated">AGREEMENT_DELEGATED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-shared">AGREEMENT_SHARED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-modified">AGREEMENT_MODIFIED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-participant-completed">AGREEMENT_PARTICIPANT_COMPLETED</a></li>
@@ -217,9 +219,9 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expiration-updated">AGREEMENT_EXPIRATION_UPDATED</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="webhookeventslibrary.html">Webhook Library Events</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="webhookeventslibrary.html">Library Events</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#common-payload-elements">Common payload elements</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#minimum-payload-for-agreements">Minimum payload for agreements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#minimum-payload-for-library-events">Minimum payload for library events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#payload-attributes-inherited-from-library">Payload attributes inherited from Library</a></li>
 </ul>
 </li>
@@ -229,9 +231,9 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-modified">LIBRARY_DOCUMENT_MODIFIED</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="webhookeventsmegasign.html">Webhook Bulk Signing Events</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="webhookeventsmegasign.html">Bulk Signing Events</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#common-payload-elements">Common payload elements</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#minimum-payload-for-bulk-signing">Minimum payload for bulk signing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#minimum-payload-for-bulk-signing-events">Minimum payload for bulk signing events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#payload-attributes-inherited-from-megasign">Payload attributes inherited from MegaSign</a></li>
 </ul>
 </li>
@@ -241,9 +243,9 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-shared">MEGASIGN_SHARED</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="webhookeventswidget.html">Webhook Web Form Events</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="webhookeventswidget.html">Web Form Events</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#common-payload-elements">Common payload elements</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#minimum-payload-for-web-forms">Minimum payload for web forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#minimum-payload-for-web-form-events">Minimum payload for web form events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#payload-attributes-inherited-from-widget">Payload attributes inherited from Widget</a></li>
 </ul>
 </li>
@@ -362,7 +364,7 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="webhookeventsagreements.html" class="btn btn-neutral float-right" title="Webhook Agreement Events" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="webhookeventsagreements.html" class="btn btn-neutral float-right" title="Agreement Events" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="Webhooks in Acrobat Sign" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>

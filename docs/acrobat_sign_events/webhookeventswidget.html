@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
   
-  <title>Webhook Web Form Events &mdash; Acrobat Sign Webhook Guide</title>
+  <title>Web Form Events &mdash; Acrobat Sign Webhook Guide</title>
   
 
   
@@ -38,7 +38,7 @@
    
   
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Webhook Bulk Signing Events" href="webhookeventsmegasign.html" /> 
+    <link rel="prev" title="Bulk Signing Events" href="webhookeventsmegasign.html" /> 
   
 <script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
 <script src="https://www.adobe.com/marketingtech/main.min.js"></script>
@@ -136,7 +136,12 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Webhooks in Acrobat Sign</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="index.html#best-practices">Best Practices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#ui-vs-api-configuration">UI vs API configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#ui-vs-api-configuration">UI vs. API configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#the-api-best-practice">The API “best practice”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#polling-as-a-backup-update-method">Polling as a “backup” update method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#update-agreement-status-manual-option">Update Agreement Status “manual” option</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#workflow-example">Workflow example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#creating-a-webhook">Creating a webhook</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="index.html#prerequisites">Prerequisites</a></li>
@@ -175,7 +180,7 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookpayloadoverview.html#webhook-url">Webhook URL</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="webhookeventsagreements.html">Webhook Agreement Events</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="webhookeventsagreements.html">Agreement Events</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#common-payload-elements">Common payload elements</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#minimum-payload-for-agreements">Minimum payload for agreements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#payload-attributes-inherited-from-agreement">Payload attributes inherited from Agreement</a></li>
@@ -183,10 +188,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-all">AGREEMENT_ALL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-created">AGREEMENT_CREATED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-creation-failed">AGREEMENT_CREATION_FAILED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-restarted">AGREEMENT_RESTARTED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-sent">AGREEMENT_SENT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-delegated">AGREEMENT_DELEGATED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-shared">AGREEMENT_SHARED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-modified">AGREEMENT_MODIFIED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-participant-completed">AGREEMENT_PARTICIPANT_COMPLETED</a></li>
@@ -216,9 +218,9 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expiration-updated">AGREEMENT_EXPIRATION_UPDATED</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="webhookeventslibrary.html">Webhook Library Events</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="webhookeventslibrary.html">Library Events</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#common-payload-elements">Common payload elements</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#minimum-payload-for-agreements">Minimum payload for agreements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#minimum-payload-for-library-events">Minimum payload for library events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#payload-attributes-inherited-from-library">Payload attributes inherited from Library</a></li>
 </ul>
 </li>
@@ -228,9 +230,9 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-modified">LIBRARY_DOCUMENT_MODIFIED</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="webhookeventsmegasign.html">Webhook Bulk Signing Events</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="webhookeventsmegasign.html">Bulk Signing Events</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#common-payload-elements">Common payload elements</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#minimum-payload-for-bulk-signing">Minimum payload for bulk signing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#minimum-payload-for-bulk-signing-events">Minimum payload for bulk signing events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#payload-attributes-inherited-from-megasign">Payload attributes inherited from MegaSign</a></li>
 </ul>
 </li>
@@ -240,9 +242,9 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-shared">MEGASIGN_SHARED</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Webhook Web Form Events</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Web Form Events</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#common-payload-elements">Common payload elements</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#minimum-payload-for-web-forms">Minimum payload for web forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minimum-payload-for-web-form-events">Minimum payload for web form events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#payload-attributes-inherited-from-widget">Payload attributes inherited from Widget</a></li>
 </ul>
 </li>
@@ -347,7 +349,7 @@
     
       <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Webhook Web Form Events</li>
+      <li>Web Form Events</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -362,7 +364,7 @@
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
       
-        <a href="webhookeventsmegasign.html" class="btn btn-neutral float-left" title="Webhook Bulk Signing Events" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="webhookeventsmegasign.html" class="btn btn-neutral float-left" title="Bulk Signing Events" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
       
   </div>
   
@@ -371,16 +373,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="webhook-web-form-events">
-<span id="webhookeventswidget"></span><h1>Webhook Web Form Events<a class="headerlink" href="#webhook-web-form-events" title="Permalink to this heading">¶</a></h1>
+  <div class="section" id="web-form-events">
+<span id="webhookeventswidget"></span><h1>Web Form Events<a class="headerlink" href="#web-form-events" title="Permalink to this heading">¶</a></h1>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>“Widgets” has been renamed to “web form” in many docs. Event names have not changed. Web form events pertain only to the creation of a web form template. The resultant child agreements are tracked as agreement events.</p>
 </div>
 <div class="section" id="common-payload-elements">
 <h2>Common payload elements<a class="headerlink" href="#common-payload-elements" title="Permalink to this heading">¶</a></h2>
-<div class="section" id="minimum-payload-for-web-forms">
-<h3>Minimum payload for web forms<a class="headerlink" href="#minimum-payload-for-web-forms" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="minimum-payload-for-web-form-events">
+<h3>Minimum payload for web form events<a class="headerlink" href="#minimum-payload-for-web-form-events" title="Permalink to this heading">¶</a></h3>
 <p>The following returns for an web form event if all the conditional parameters are set to false while creating webhooks:</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
@@ -508,6 +510,7 @@
 <div class="section" id="widget-all">
 <h2>WIDGET_ALL<a class="headerlink" href="#widget-all" title="Permalink to this heading">¶</a></h2>
 <p>If you want to subscribe to all widget events, subscribe to WIDGET_ALL.</p>
+<p>Web app name: Web Form all events</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>WIDGET_ALL retrieves all agreement events, including events added in the future.</p>
@@ -515,6 +518,8 @@
 </div>
 <div class="section" id="widget-created">
 <h2>WIDGET_CREATED<a class="headerlink" href="#widget-created" title="Permalink to this heading">¶</a></h2>
+<p>Web app name: Web Form created</p>
+<p>Triggers when a web form is created.</p>
 <table class="colwidths-given docutils align-default" id="id2">
 <caption><span class="caption-text">The payload may include these event-specific payload as well as the <a class="reference internal" href="#inheritedweb"><span class="std std-ref">Payload attributes inherited from Widget</span></a>.</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -662,6 +667,7 @@
 </div>
 <div class="section" id="widget-auto-cancelled-conversion-problem">
 <h2>WIDGET_AUTO_CANCELLED_CONVERSION_PROBLEM<a class="headerlink" href="#widget-auto-cancelled-conversion-problem" title="Permalink to this heading">¶</a></h2>
+<p>Web app name: Web Form creation failed</p>
 <p>Triggers when Acrobat Sign  can’t process certain PDFs; for example, LiveCycle documents.</p>
 <table class="colwidths-given docutils align-default" id="id4">
 <caption><span class="caption-text">The payload may include these event-specific payload as well as the <a class="reference internal" href="#inheritedweb"><span class="std std-ref">Payload attributes inherited from Widget</span></a>.</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
@@ -799,6 +805,8 @@
 </div>
 <div class="section" id="widget-disabled">
 <h2>WIDGET_DISABLED<a class="headerlink" href="#widget-disabled" title="Permalink to this heading">¶</a></h2>
+<p>Web app name: Web Form disabled</p>
+<p>Triggers when a web form is disabled.</p>
 <table class="colwidths-given docutils align-default" id="id6">
 <caption><span class="caption-text">The payload may include these event-specific payload as well as the <a class="reference internal" href="#inheritedweb"><span class="std std-ref">Payload attributes inherited from Widget</span></a>.</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -946,6 +954,8 @@
 </div>
 <div class="section" id="widget-enabled">
 <h2>WIDGET_ENABLED<a class="headerlink" href="#widget-enabled" title="Permalink to this heading">¶</a></h2>
+<p>Web app name: Web form enabled.</p>
+<p>Triggers when a web form is enabled.</p>
 <table class="colwidths-given docutils align-default" id="id8">
 <caption><span class="caption-text">The payload may include these event-specific payload as well as the <a class="reference internal" href="#inheritedweb"><span class="std std-ref">Payload attributes inherited from Widget</span></a>.</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -1093,6 +1103,8 @@
 </div>
 <div class="section" id="widget-modified">
 <h2>WIDGET_MODIFIED<a class="headerlink" href="#widget-modified" title="Permalink to this heading">¶</a></h2>
+<p>Web app name: Web form modified</p>
+<p>Triggers when a web form is modified.</p>
 <table class="colwidths-given docutils align-default" id="id10">
 <caption><span class="caption-text">The payload may include these event-specific payload as well as the <a class="reference internal" href="#inheritedweb"><span class="std std-ref">Payload attributes inherited from Widget</span></a>.</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -1240,6 +1252,8 @@
 </div>
 <div class="section" id="widget-shared">
 <h2>WIDGET_SHARED<a class="headerlink" href="#widget-shared" title="Permalink to this heading">¶</a></h2>
+<p>Web app name: Web form shared</p>
+<p>Triggers when a web form is shared.</p>
 <table class="colwidths-given docutils align-default" id="id12">
 <caption><span class="caption-text">The payload may include these event-specific payload as well as the <a class="reference internal" href="#inheritedweb"><span class="std std-ref">Payload attributes inherited from Widget</span></a>.</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
 <colgroup>
