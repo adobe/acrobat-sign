@@ -163,7 +163,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#managing-webhooks-and-subscriptions">Managing webhooks and subscriptions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#acrobat-sign-security-and-reliability">Acrobat Sign: security and reliability</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#webhook-security">Webhook security</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#reliable-notification-delivery">Reliable notification delivery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reliable-notifications-retry-policy">Reliable notifications: Retry policy</a></li>
 </ul>
 </li>
 </ul>
@@ -558,10 +558,10 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
 </div>
 <div class="section" id="webhook-url">
 <h3>Webhook URL<a class="headerlink" href="#webhook-url" title="Permalink to this heading">¶</a></h3>
-<p>The webhook URL is The target URL Acrobat Sign pushes the JSON payload to. After you configure a webhook to listen on a given URL, note that URL for registering with Acrobat Sign. You need this URL to subscribe your webhook to the events.</p>
+<p>The webhook URL is The target URL where Acrobat Sign pushes the JSON payload. After you configure a webhook to listen on a given URL, register that URL with Acrobat Sign and use it to subscribe your webhook to the events.</p>
 <ul class="simple">
-<li><p>The client must include an HTTPS URL to which Acrobat Sign can send a POST request. This URL must be available on the public internet. For example, 127.0.0.1 and localhost URIs will not work, since the Acrobat Sign Service will not be able to contact your local computer.</p></li>
-<li><p>The URL endpoint must be listening on port 443 or 8443 (decide when defining the URL).</p></li>
+<li><p>The client must include a public HTTPS URL to which Acrobat Sign can send a POST request. For example, 127.0.0.1 and localhost URIs will not work since the Acrobat Sign Service will not be able to contact your local computer.</p></li>
+<li><p>The URL endpoint must be listening on port 443 or 8443 (selected when defining the URL).</p></li>
 <li><p>Make sure your webhook supports POST requests for incoming notifications and GET requests for the verification of intent request.</p></li>
 <li><p>Your webhook URL must not be blocked by a firewall.</p></li>
 </ul>
@@ -661,16 +661,28 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
 <li><p><strong>Avoid sending sensitive information:</strong> Acrobat Sign does not send any sensitive information such as passwords or signing URLs in the payload.</p></li>
 </ul>
 </div>
-<div class="section" id="reliable-notification-delivery">
-<h3>Reliable notification delivery<a class="headerlink" href="#reliable-notification-delivery" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="reliable-notifications-retry-policy">
+<h3>Reliable notifications: Retry policy<a class="headerlink" href="#reliable-notifications-retry-policy" title="Permalink to this heading">¶</a></h3>
 <p>Acrobat Sign incorporates an advanced, reliable strategy for delivery of webhook notifications.</p>
-<ul class="simple">
-<li><p>If there is an outage on the receiving end (suppose, for instance, the customer’s server is down), Acrobat Sign will retry the notification at a later time: minutes or hours later.</p></li>
-<li><p>Undelivered events are persisted in a retry queue and a best effort is made over the next 72 hours to deliver the notifications in the order they occurred to the client-provided endpoints.</p></li>
-<li><p>The strategy for retrying delivery of notifications is a doubling of time between attempts, starting with a one-minute interval and doubling the interval with each attempt, up to a maximum interval of 12 hours, resulting in 15 retries in the space of 72 hours.</p></li>
-<li><p>If the webhook fails to respond and either the maximum retry time or the maximum retry interval is exceeded, the webhook is disabled.</p></li>
+<ul>
+<li><p>If there is an outage on the receiving end (suppose, for instance, the customer’s server is down), Acrobat Sign will retry the notification. The strategy for retrying delivery of notifications is a doubling of time between attempts, starting with a one-minute interval and doubling the interval with each attempt, up to a maximum interval of 12 hours, resulting in 15 retries in the space of 72 hours. For example:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Retry #1 in 30 seconds</p></li>
+<li><p>#2 in one min</p></li>
+<li><p>#3 in 2 minutes</p></li>
+<li><p>#4 in 4 mins</p></li>
+<li><p>Continue until the total time since the 1st failure is equal to or greater than 72 hours.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>If the webhook fails to respond after exceeding either the maximum retry time or interval, the webhook is disabled.</p></li>
 <li><p>No notifications are sent to the webhook URL until the webhook is activated again; all the notifications between the time the webhook is disabled and enabled again are lost.</p></li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can check whether a webhook is enabled or disabled via the <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/webhooks/{webhook</span> <span class="pre">ID}</span></code> API call. Note that the API does not tell you if the webhook is failing but has not yet been disabled.</p>
+</div>
 </div>
 </div>
 </div>
@@ -687,7 +699,7 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Sep 27, 2022. 
+        Last update: Oct 05, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
