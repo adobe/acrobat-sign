@@ -159,8 +159,10 @@
 <li class="toctree-l3"><a class="reference internal" href="v6releasenotes.html#agreement-sharing">Agreement sharing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v6releasenotes.html#authoring-apis">Authoring APIs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v6releasenotes.html#document-visibility">Document visibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v6releasenotes.html#draft">Draft</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v6releasenotes.html#notes-management">Notes management</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v6releasenotes.html#reminders">Reminders</a></li>
+<li class="toctree-l3"><a class="reference internal" href="v6releasenotes.html#resource-views">Resource views</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v6releasenotes.html#resource-visibility">Resource visibility</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v6releasenotes.html#suppress-email">Suppress email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v6releasenotes.html#webhooks">Webhooks</a></li>
@@ -175,15 +177,16 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<p class="caption" role="heading"><span class="caption-text">Developer Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="../developer_guide/index.html#://">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../acrobat_sign_events/index.html#://">Webhook Event Guide</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v.6)</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/sign/developer-form.html#://">Free Developer Account Sign-Up</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/esign-dev-cert#://">Application Certification Form</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://helpx.adobe.com/sign/using/integration-guides.html">Acrobat Sign integration guides</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
-<li class="toctree-l1"><a class="reference external" href="../index.html#://">SDK downloads</a></li>
+<li class="toctree-l1"><a class="reference external" href="../sdks/index.html#://">SDK downloads</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/trust/resources.html#://">Security and compliance</a></li>
 </ul>
 
@@ -200,7 +203,8 @@
         <div class="fixedbar">  
           <div class="wy-menu-items">
             <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer Guide</a>
-            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">API Reference</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook Guide</a>
+            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
             <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
             <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Get a Dev Account</a>
             <a href="" class="topbarlink">Developer Forum</a>
@@ -304,34 +308,53 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Sept. 13, 2022</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/agreements/{agreementId}/</span></code> endpoint now supports an optional redirect URL to control the post-sending landing page. By default, the sender is redirect to an Acrobat Sign page. Developers can use this new feature for apps and integrations so that the sender redirects to a workflow-specific page. This option not only allows the sender to remain in the integration (e.g. branded workflow), but also provides an opportunity for the developer to create a page where the sender can be notified about the sent status or modify the agreement (reminders, deadlines, etc.)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;postSendOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+<td><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/agreements/{agreementId}/</span></code> endpoint now supports an optional redirect URL to control the post-sending landing page. By default, the sender is redirect to an Acrobat Sign page. Developers can use this new feature for apps and integrations so that the sender redirects to a workflow-specific page. This option not only allows the sender to remain in the integration (e.g. branded workflow), but also provides an opportunity for the developer to create a page where the sender can be notified about the sent status or modify the agreement (reminders, deadlines, etc.)</p></td>
+</tr>
+</tbody>
+</table>
+<p>The postSendOption.redirectUrl allows an API Application to request a custom landing page after an agreement is sent, excluding Fill &amp; Sign flows.  By default, the sender is redirected to a the default Acrobat Sign post-send page. The new <code class="docutils literal notranslate"><span class="pre">redirectUrl</span></code> allows   developers to specify a custom location to which Sign will redirect the browser after sending the agreement instead of its standard post-send page.</p>
+<p>Doing so returns control to the API application so that it can display its own branded post-send page with agreement status, follow-up actions, or other custom details.  Note a Sign Setting needs to be made to allow these URLs to avoid open redirect security issues.  The description of this Setting is similar to: “the authorized URLs the application can redirect to after completing a workflow”.</p>
+<blockquote>
+<div><blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;postSendOption&quot;</span><span class="p">:</span> <span class="p">{</span>
   <span class="s2">&quot;redirectUrl&quot;</span><span class="p">:</span>
   <span class="p">}</span>
 </pre></div>
 </div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>July, 2022</p></td>
-<td><p>None</p></td>
-</tr>
-<tr class="row-even"><td><p>June, 2022</p></td>
-<td><p>AGREEMENT_EXPIRATION_UPDATED (API only): A new webhook event provides notification updates for an agreement’s expiration time. It can only be subscribed to via the <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/webhooks</span></code> API call.</p></td>
-</tr>
-<tr class="row-odd"><td><p>June, 2022</p></td>
-<td><p>AGREEMENT_SIGNER_NAME_CHANGED_BY_SIGNER: This new event triggers when a recipient changes the pre-populated name value when signing an agreement. Name values can be pre-populated through the API or through the <em>require recipient name when sending</em> option.</p></td>
-</tr>
-<tr class="row-even"><td><p>May, 2022</p></td>
-<td><p>None</p></td>
-</tr>
-<tr class="row-odd"><td><p>April, 2022</p></td>
-<td><p>REMINDER_SENT: A new webhook event executes on REMINDER_SENT events either by explicitly subscribing to the AGREEMENT_REMINDER_SENT event or subscribing to AGREEMENT_ALL.</p></td>
-</tr>
-<tr class="row-even"><td><p>January, 2022</p></td>
-<td><p>None</p></td>
-</tr>
-</tbody>
-</table>
+</div></blockquote>
+<ul class="simple">
+<li><ul>
+<li><p>July, 2022</p></li>
+<li><p>None</p></li>
+</ul>
+</li>
+<li><ul>
+<li><p>June, 2022</p></li>
+<li><p>AGREEMENT_EXPIRATION_UPDATED (API only): A new webhook event provides notification updates for an agreement’s expiration time. It can only be subscribed to via the <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/webhooks</span></code> API call.</p></li>
+</ul>
+</li>
+<li><ul>
+<li><p>June, 2022</p></li>
+<li><p>AGREEMENT_SIGNER_NAME_CHANGED_BY_SIGNER: This new event triggers when a recipient changes the pre-populated name value when signing an agreement. Name values can be pre-populated through the API or through the <em>require recipient name when sending</em> option.</p></li>
+</ul>
+</li>
+<li><ul>
+<li><p>May, 2022</p></li>
+<li><p>None</p></li>
+</ul>
+</li>
+<li><ul>
+<li><p>April, 2022</p></li>
+<li><p>REMINDER_SENT: A new webhook event executes on REMINDER_SENT events either by explicitly subscribing to the AGREEMENT_REMINDER_SENT event or subscribing to AGREEMENT_ALL.</p></li>
+</ul>
+</li>
+<li><ul>
+<li><p>January, 2022</p></li>
+<li><p>None</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
 </div>
 <div class="section" id="rest-api-changes">
 <h2>REST API changes<a class="headerlink" href="#rest-api-changes" title="Permalink to this heading">¶</a></h2>
@@ -418,7 +441,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Sep 13, 2022. 
+        Last update: Oct 06, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

@@ -158,8 +158,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#agreement-sharing">Agreement sharing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#authoring-apis">Authoring APIs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#document-visibility">Document visibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#draft">Draft</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#notes-management">Notes management</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#reminders">Reminders</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resource-views">Resource views</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#resource-visibility">Resource visibility</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#suppress-email">Suppress email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#webhooks">Webhooks</a></li>
@@ -174,15 +176,16 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<p class="caption" role="heading"><span class="caption-text">Developer Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="../developer_guide/index.html#://">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../acrobat_sign_events/index.html#://">Webhook Event Guide</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v.6)</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/sign/developer-form.html#://">Free Developer Account Sign-Up</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/esign-dev-cert#://">Application Certification Form</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://helpx.adobe.com/sign/using/integration-guides.html">Acrobat Sign integration guides</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
-<li class="toctree-l1"><a class="reference external" href="../index.html#://">SDK downloads</a></li>
+<li class="toctree-l1"><a class="reference external" href="../sdks/index.html#://">SDK downloads</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/trust/resources.html#://">Security and compliance</a></li>
 </ul>
 
@@ -199,7 +202,8 @@
         <div class="fixedbar">  
           <div class="wy-menu-items">
             <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer Guide</a>
-            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">API Reference</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook Guide</a>
+            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
             <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
             <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Get a Dev Account</a>
             <a href="" class="topbarlink">Developer Forum</a>
@@ -766,6 +770,9 @@
 <span class="p">}</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="draft">
+<h3>Draft<a class="headerlink" href="#draft" title="Permalink to this heading">¶</a></h3>
 <p>The v6 APIs provides the capability for an incremental creation of a resource by introducing the concept of “DRAFT”. The incremental creation of any resource is really helpful, especially when it is constituted of many complex components. Draft is a temporary or primitive stage of the final intended resource that can be updated in steps to create the final resource.</p>
 <p>This example illustrates a stepwise creation of an agreement:</p>
 <p><strong>Step 1: POST /agreements to create an initial draft</strong></p>
@@ -864,6 +871,9 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="resource-views">
+<h3>Resource views<a class="headerlink" href="#resource-views" title="Permalink to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">There are a number of <em>views</em> associated with a resource. For example, an agreement may have an authoring view, agreement documents view, signing page view, or a manage page view with the agreement selected. The availaibility of all these views depends on both the state of the resource and also the relationship of the user with the resource. To access and customize these resource views, the v6 Acrobat Sign API includes this endpoint to list all such views in their desired configuration:</div>
 <div class="line"><a class="reference external" href="https://secure.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementView">POST /resource/{resourceId}/views</a></div>
@@ -1228,7 +1238,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Sep 13, 2022. 
+        Last update: Oct 06, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
