@@ -302,59 +302,37 @@
 <col style="width: 90%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Sept, 2022</p></th>
-<th class="head"><p>Support for webhook endpoints to communicate on port 8443 (in addition to 443) in order to support mTLS.</p></th>
+<tr class="row-odd"><th class="head"><p>Date</p></th>
+<th class="head"><p>Change</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Sept. 13, 2022</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/agreements/{agreementId}/</span></code> endpoint now supports an optional redirect URL to control the post-sending landing page. By default, the sender is redirect to an Acrobat Sign page. Developers can use this new feature for apps and integrations so that the sender redirects to a workflow-specific page. This option not only allows the sender to remain in the integration (e.g. branded workflow), but also provides an opportunity for the developer to create a page where the sender can be notified about the sent status or modify the agreement (reminders, deadlines, etc.)</p></td>
+<tr class="row-even"><td><p>Sept, 2022</p></td>
+<td><p>Support for webhook endpoints to communicate on port 8443 (in addition to 443) in order to support mTLS.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sept. 13, 2022</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/agreements/{agreementId}/</span></code> endpoint now supports an optional redirect URL which sends users to control a custom post-sending landing page instead of the default Acrobat Sign page. Developers can use the new  <code class="docutils literal notranslate"><span class="pre">postSendOption.redirectUrl</span></code> for apps and integrations so that the sender redirects to a workflow-specific page, thereby both allowing the sender to remain in the integration (e.g. branded workflow), and providing a way for the developer to create a page where the sender can be notified about the sent status or modify the agreement (reminders, deadlines, etc.) Note a Sign setting needs to be made to allow these URLs to avoid open redirect security issues.  The description of this setting is similar to: “the authorized URLs the application can redirect to after completing a workflow”. This option does not apply to Fill &amp; Sign flows.</p></td>
+</tr>
+<tr class="row-even"><td><p>July, 2022</p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p>June, 2022</p></td>
+<td><p>AGREEMENT_EXPIRATION_UPDATED (API only): A new webhook event provides notification updates for an agreement’s expiration time. It can only be subscribed to via the <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/webhooks</span></code> API call.</p></td>
+</tr>
+<tr class="row-even"><td><p>June, 2022</p></td>
+<td><p>AGREEMENT_SIGNER_NAME_CHANGED_BY_SIGNER: This new event triggers when a recipient changes the pre-populated name value when signing an agreement. Name values can be pre-populated through the API or through the <em>require recipient name when sending</em> option.</p></td>
+</tr>
+<tr class="row-odd"><td><p>May, 2022</p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-even"><td><p>April, 2022</p></td>
+<td><p>REMINDER_SENT: A new webhook event executes on REMINDER_SENT events either by explicitly subscribing to the AGREEMENT_REMINDER_SENT event or subscribing to AGREEMENT_ALL.</p></td>
+</tr>
+<tr class="row-odd"><td><p>January, 2022</p></td>
+<td><p>None</p></td>
 </tr>
 </tbody>
 </table>
-<p>The postSendOption.redirectUrl allows an API Application to request a custom landing page after an agreement is sent, excluding Fill &amp; Sign flows.  By default, the sender is redirected to a the default Acrobat Sign post-send page. The new <code class="docutils literal notranslate"><span class="pre">redirectUrl</span></code> allows   developers to specify a custom location to which Sign will redirect the browser after sending the agreement instead of its standard post-send page.</p>
-<p>Doing so returns control to the API application so that it can display its own branded post-send page with agreement status, follow-up actions, or other custom details.  Note a Sign Setting needs to be made to allow these URLs to avoid open redirect security issues.  The description of this Setting is similar to: “the authorized URLs the application can redirect to after completing a workflow”.</p>
-<blockquote>
-<div><blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;postSendOption&quot;</span><span class="p">:</span> <span class="p">{</span>
-  <span class="s2">&quot;redirectUrl&quot;</span><span class="p">:</span>
-  <span class="p">}</span>
-</pre></div>
-</div>
-</div></blockquote>
-<ul class="simple">
-<li><ul>
-<li><p>July, 2022</p></li>
-<li><p>None</p></li>
-</ul>
-</li>
-<li><ul>
-<li><p>June, 2022</p></li>
-<li><p>AGREEMENT_EXPIRATION_UPDATED (API only): A new webhook event provides notification updates for an agreement’s expiration time. It can only be subscribed to via the <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/webhooks</span></code> API call.</p></li>
-</ul>
-</li>
-<li><ul>
-<li><p>June, 2022</p></li>
-<li><p>AGREEMENT_SIGNER_NAME_CHANGED_BY_SIGNER: This new event triggers when a recipient changes the pre-populated name value when signing an agreement. Name values can be pre-populated through the API or through the <em>require recipient name when sending</em> option.</p></li>
-</ul>
-</li>
-<li><ul>
-<li><p>May, 2022</p></li>
-<li><p>None</p></li>
-</ul>
-</li>
-<li><ul>
-<li><p>April, 2022</p></li>
-<li><p>REMINDER_SENT: A new webhook event executes on REMINDER_SENT events either by explicitly subscribing to the AGREEMENT_REMINDER_SENT event or subscribing to AGREEMENT_ALL.</p></li>
-</ul>
-</li>
-<li><ul>
-<li><p>January, 2022</p></li>
-<li><p>None</p></li>
-</ul>
-</li>
-</ul>
-</div></blockquote>
 </div>
 <div class="section" id="rest-api-changes">
 <h2>REST API changes<a class="headerlink" href="#rest-api-changes" title="Permalink to this heading">¶</a></h2>
