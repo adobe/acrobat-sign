@@ -1,0 +1,116 @@
+{
+    "originatorAccountId": "",
+    "actingUserEmail": "",
+    "actingUserId": "",
+    "actingUserIpAddress": "",
+    "agreement": {
+        "ccs": [
+            {
+                "email": "",
+                "label": "",
+                "visiblePages": [
+                    ""
+                ]
+            }
+        ],
+        "createdDate": "",
+        "deviceInfo": {
+            "applicationDescription": "",
+            "deviceDescription": "",
+            "deviceTime": "",
+            "location": {
+                "latitude": "",
+                "longitude": ""
+            }
+        },
+        "documentVisibilityEnabled": "",
+        "documentsInfo": {
+            "documents": [
+                {
+                    "id": "",
+                    "label": "",
+                    "mimeType": "",
+                    "name": "",
+                    "numPages": ""
+                }
+            ],
+            "supportingDocuments": [
+                {
+                    "displayLabel": "",
+                    "fieldName": "",
+                    "id": "",
+                    "mimeType": "",
+                    "numPages": ""
+                }
+            ]
+        },
+        "expirationTime": "",
+        "externalId": {
+            "id": ""
+        },
+        "firstReminderDelay": "",
+        "id": "",
+        "locale": "",
+        "message": "",
+        "name": "",
+        "participantSetsInfo": {
+            "participantSets": [
+                {
+                    "id": "",
+                    "memberInfos": [
+                        {
+                            "company": "",
+                            "email": "",
+                            "id": "",
+                            "name": "",
+                            "privateMessage": "",
+                            "status": ""
+                        }
+                    ],
+                    "name": "",
+                    "order": "",
+                    "privateMessage": "",
+                    "role": "",
+                    "status": ""
+                }
+            ]
+        },
+        "postSignOption": {
+            "redirectDelay": "",
+            "redirectUrl": ""
+        },
+        "reminderFrequency": "",
+        "senderEmail": "",
+        "signatureType": "",
+        "status": "",
+        "vaultingInfo": {
+            "enabled": ""
+        },
+        "workflowId": ""
+    },
+    "event": "",
+    "eventDate": "",
+    "eventResourceParentId": "",
+    "eventResourceParentType": "",
+    "eventResourceType": "",
+    "initiatingUserEmail": "",
+    "initiatingUserId": "",
+    "participantUserEmail": "",
+    "participantUserId": "",
+    "subEvent": "",
+    "webhookId": "",
+    "webhookName": "",
+    "webhookNotificationApplicableUsers": [
+        {
+            "email": "",
+            "id": "",
+            "payloadApplicable": "",
+            "role": ""
+        }
+    ],
+    "webhookNotificationId": "",
+    "webhookScope": "",
+    "webhookUrlInfo": {
+        "url": ""
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "webhookId": "",
+    "webhookName": "",
+    "webhookNotificationId": "",
+    "webhookUrlInfo": {
+        "url": ""
+    },
+    "webhookScope": "",
+    "webhookNotificationApplicableUsers": [
+        {
+            "id": "",
+            "email": "",
+            "role": "",
+            "payloadApplicable": ""
+        }
+    ],
+    "event": "",
+    "subEvent": "",
+    "eventDate": "",
+    "eventResourceType": "",
+    "eventResourceParentType": "",
+    "eventResourceParentId": "",
+    "participantUserId": "",
+    "participantUserEmail": "",
+    "actingUserId": "",
+    "actingUserEmail": "",
+    "actingUserIpAddress": "",
+    "initiatingUserId": "",
+    "initiatingUserEmail": "",
+    "libraryDocument": {
+        "id": "",
+        "name": "",
+        "creatorEmail": "",
+        "createdDate": "",
+        "status": "",
+        "sharingMode": "",
+        "templateTypes": [
+            ""
+        ]
+    }
+}

@@ -1,0 +1,88 @@
+{
+    "webhookId": "",
+    "webhookName": "",
+    "webhookNotificationId": "",
+    "webhookUrlInfo": {
+        "url": ""
+    },
+    "webhookScope": "",
+    "webhookNotificationApplicableUsers": [
+        {
+            "id": "",
+            "email": "",
+            "role": "",
+            "payloadApplicable": ""
+        }
+    ],
+    "event": "",
+    "subEvent": "",
+    "eventDate": "",
+    "eventResourceType": "",
+    "participantUserId": "",
+    "participantUserEmail": "",
+    "actingUserId": "",
+    "actingUserEmail": "",
+    "actingUserIpAddress": "",
+    "initiatingUserId": "",
+    "initiatingUserEmail": "",
+    "widget": {
+        "name": "",
+        "status": "",
+        "id": "",
+        "authFailureInfo": {
+            "url": "",
+            "deframe": "",
+            "delay": ""
+        },
+        "ccs": [
+            {
+                "email": ""
+            }
+        ],
+        "completionInfo": {
+            "url": "",
+            "deframe": "",
+            "delay": ""
+        },
+        "creatorEmail": "",
+        "createdDate": "",
+        "locale": "",
+        "vaultingInfo": {
+            "enabled": ""
+        },
+        "participantSetsInfo": {
+            "additionalParticipantSets": [
+                {
+                    "memberInfos": [
+                        {
+                            "id": "",
+                            "email": "",
+                            "company": "",
+                            "name": "",
+                            "privateMessage": "",
+                            "status": ""
+                        }
+                    ],
+                    "order": "",
+                    "role": "",
+                    "id": ""
+                }
+            ],
+            "widgetParticipantSet": {
+                "memberInfos": [
+                    {
+                        "id": "",
+                        "email": "",
+                        "company": "",
+                        "name": "",
+                        "privateMessage": "",
+                        "status": ""
+                    }
+                ],
+                "order": "",
+                "role": "",
+                "id": ""
+            }
+        }
+    }
+}

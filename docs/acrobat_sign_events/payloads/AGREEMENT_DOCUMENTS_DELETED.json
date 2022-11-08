@@ -1,0 +1,95 @@
+{
+    "webhookId": "",
+    "webhookName": "",
+    "webhookNotificationId": "",
+    "webhookUrlInfo": {
+        "url": ""
+    },
+    "webhookScope": "",
+    "webhookNotificationApplicableUsers": [
+        {
+            "id": "",
+            "email": "",
+            "role": "",
+            "payloadApplicable": ""
+        }
+    ],
+    "event": "",
+    "subEvent": "",
+    "eventDate": "",
+    "eventResourceType": "",
+    "eventResourceParentType": "",
+    "eventResourceParentId": "",
+    "participantUserId": "",
+    "participantUserEmail": "",
+    "actingUserId": "",
+    "actingUserEmail": "",
+    "actingUserIpAddress": "",
+    "initiatingUserId": "",
+    "initiatingUserEmail": "",
+    "agreement": {
+        "id": "",
+        "name": "",
+        "signatureType": "",
+        "status": "",
+        "ccs": [
+            {
+                "email": "",
+                "label": "",
+                "visiblePages": [
+                    ""
+                ]
+            }
+        ],
+        "deviceInfo": {
+            "applicationDescription": "",
+            "deviceDescription": "",
+            "location": {
+                "latitude": "",
+                "longitude": ""
+            },
+            "deviceTime": ""
+        },
+        "documentVisibilityEnabled": "",
+        "createdDate": "",
+        "expirationTime": "",
+        "externalId": {
+            "id": ""
+        },
+        "postSignOption": {
+            "redirectDelay": "",
+            "redirectUrl": ""
+        },
+        "firstReminderDelay": "",
+        "locale": "",
+        "message": "",
+        "reminderFrequency": "",
+        "senderEmail": "",
+        "vaultingInfo": {
+            "enabled": ""
+        },
+        "workflowId": "",
+        "participantSetsInfo": {
+            "participantSets": [
+                {
+                    "memberInfos": [
+                        {
+                            "id": "",
+                            "email": "",
+                            "company": "",
+                            "name": "",
+                            "privateMessage": "",
+                            "status": ""
+                        }
+                    ],
+                    "order": "",
+                    "role": "",
+                    "status": "",
+                    "id": "",
+                    "name": "",
+                    "privateMessage": ""
+                }
+            ]
+        }
+    }
+}

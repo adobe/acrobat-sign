@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
   
-  <title>2022 REST Release Notes &mdash; Acrobat Sign API Release Notes</title>
+  <title>2022 Release Notes &mdash; Acrobat Sign API Release Notes</title>
   
 
   
@@ -124,7 +124,7 @@
               <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Acrobat Sign API Release Notes</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2022 REST Release Notes</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2022 Release Notes</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#system-requirement-changes">System Requirement Changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#webhook-changes">Webhook changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rest-api-changes">REST API changes</a></li>
@@ -258,7 +258,7 @@
     
       <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>2022 REST Release Notes</li>
+      <li>2022 Release Notes</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -284,8 +284,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="rest-release-notes">
-<h1>2022 REST Release Notes<a class="headerlink" href="#rest-release-notes" title="Permalink to this heading">¶</a></h1>
+  <div class="section" id="release-notes">
+<h1>2022 Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this heading">¶</a></h1>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>For product feature and UI changes, refer to <a class="reference external" href="https://helpx.adobe.com/sign/release-notes/adobe-sign.html">https://helpx.adobe.com/sign/release-notes/adobe-sign.html</a></p>
@@ -307,10 +307,38 @@
 </tr>
 </thead>
 <tbody>
+<tr class="row-even"><td><p>Nov. 8</p></td>
+<td><p>Webhook conversion to a microservice (“webhooks 2.0”) with the following benefits:</p>
+<ul class="simple">
+<li><p>Independent release cycles from the core code thereby supporting frequent and rapid updates, feature enhancements, and bug fixes, etc.</p></li>
+<li><p>An independent and new UI with features that streamline webhook visibility and management.</p></li>
+<li><p>Enhanced performance.</p></li>
+</ul>
+<p>Webhooks 2.0 supports all the features of classic webhooks with one caveat: If a webhook was configured for the user, their group, or their account, classic webhooks delivered notifications to all agreement participants. In webhooks 2.0, ONLY webhooks configured for the sender, sender’s group, or the sender’s account will receive notifications.  Current customers can try webhooks 2.0 on a Trial, Developer, or Sandbox account via Adobe’s Insider Access program.</p>
+<p>Effective dates:</p>
+<ul class="simple">
+<li><p>November 8th, 2022: All new customers will be onboarded to webhooks 2.0.</p></li>
+<li><p>March 14th, 2023: All customers will be automatically migrated.</p></li>
+<li><p>July 18th, 2023: Adobe sunsets the legacy webhooks infrastructure.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Note</strong>: Customers with strict network security policies must configure new IP addresses in accordance with <a class="reference external" href="https://helpx.adobe.com/sign/system-requirements.html">https://helpx.adobe.com/sign/system-requirements.html</a>.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Nov. 8</p></td>
+<td><p>New webhooks:</p>
+<ul class="simple">
+<li><p>AGREEMENT_REMINDER_INITIATED fires when an agreement reminder is triggered and reminder emails are suppressed.</p></li>
+<li><p>MEGASIGN_REMINDER_SENT webhook fires when a Send in Bulk reminder is triggered and reminder emails are enabled (default).</p></li>
+<li><p>MEGASIGN_REMINDER_INITIATED fires when a Send in Bulk reminder is triggered and reminder emails are suppressed (the default) ( Unlike MEGASIGN_REMINDER_SENT webhook fires when reminder emails are enabled). Only one MEGASIGN_REMINDER_INITIATED (or MEGASIGN_REMINDER_SENT) webhook is delivered for the parent Send in Bulk container. Individual child agreements do not each fire a MEGASIGN_REMINDER_INITIATED webhook.</p></li>
+</ul>
+</td>
+</tr>
 <tr class="row-even"><td><p>Sept. 13</p></td>
 <td><p>Support for webhook endpoints to communicate on port 8443 (in addition to 443) in order to support mTLS.</p></td>
 </tr>
-<tr class="row-odd"><td></td>
+<tr class="row-odd"><td><p>Sept. 13</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/agreements/{agreementId}/</span></code> endpoint now supports an optional redirect URL which sends users to control a custom post-sending landing page instead of the default Acrobat Sign page. Developers can use the new  <code class="docutils literal notranslate"><span class="pre">postSendOption.redirectUrl</span></code> for apps and integrations so that the sender redirects to a workflow-specific page, thereby both allowing the sender to remain in the integration (e.g. branded workflow), and providing a way for the developer to create a page where the sender can be notified about the sent status or modify the agreement (reminders, deadlines, etc.) Note a Sign setting needs to be made to allow these URLs to avoid open redirect security issues.  The description of this setting is similar to: “the authorized URLs the application can redirect to after completing a workflow”. This option does not apply to Fill &amp; Sign flows.</p></td>
 </tr>
 <tr class="row-even"><td><p>July</p></td>
@@ -342,24 +370,44 @@
 <col style="width: 90%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Sept</p></th>
-<th class="head"><p>The description of the BYON_NOTARY notaryType was updated to reflect the “bring your own” aspect of a customer-provided notary.</p></th>
+<tr class="row-odd"><th class="head"><p>Date</p></th>
+<th class="head"><p>Change</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>July</p></td>
+<tr class="row-even"><td><p>Nov. 8</p></td>
+<td><p>New endpoints</p>
+<ul class="simple">
+<li><p>DELETE /agreements/{agreementId} - A new endpoint that supports the “soft delete” function by moving an agreement and all related data(including database records and physical files) to the Deleted folder where it will be fully destroyed 14 days later (unless restored first).</p></li>
+<li><p>GET /users/{userId}/settings - A new endpoint to obtain the authoring settings for a user.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Nov. 8</p></td>
+<td><p>Updated endpoints</p>
+<ul class="simple">
+<li><p>GET /libraryDocument/{libraryDocumentId}/combinedDocument - An update to the existing endpoint to add a value (skipDocumentSealing) that returns a non-certified PDF.</p></li>
+<li><p>POST /libraryDocuments - An update to an existing endpoint that creates a library document from an agreement.</p></li>
+<li><p>GET /groups - This endpoint has been expanded to support the new Shared Users queue by listing the account shares within a group.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Sept</p></td>
+<td><p>The description of the BYON_NOTARY notaryType was updated to reflect the “bring your own” aspect of a customer-provided notary.</p></td>
+</tr>
+<tr class="row-odd"><td><p>July</p></td>
 <td><p>Devs can <a class="reference external" href="https://helpx.adobe.com/sign/release-notes/adobe-sign.html">improve the delegation process</a> by updating the delegation API to use the v6 REST endpoint <code class="docutils literal notranslate"><span class="pre">delegatedParticipantSets</span></code>. Customers should see no impact beyond enforcing the required name values configuration during delegation.</p></td>
 </tr>
-<tr class="row-odd"><td><p>June</p></td>
+<tr class="row-even"><td><p>June</p></td>
 <td><p>None</p></td>
 </tr>
-<tr class="row-even"><td><p>May</p></td>
+<tr class="row-odd"><td><p>May</p></td>
 <td><p>None</p></td>
 </tr>
-<tr class="row-odd"><td><p>April</p></td>
+<tr class="row-even"><td><p>April</p></td>
 <td><p>None</p></td>
 </tr>
-<tr class="row-even"><td><p>January</p></td>
+<tr class="row-odd"><td><p>January</p></td>
 <td><p>None</p></td>
 </tr>
 </tbody>
@@ -419,7 +467,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Oct 07, 2022. 
+        Last update: Nov 08, 2022. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
