@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Learn now to automate and monitor signing workflows with the Acrobat Sign APIs. Create apps that integrate with and leverage features across Adobe's enterprise-class product lineup."
+  <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
   
   <title>Provisioning Acrobat Sign &mdash; Acrobat Sign Tech Blog</title>
   
@@ -13,7 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link href="../_static/jquery-ui.css" rel="stylesheet" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />  
+  <link href="../_static/copybutton.css" rel="stylesheet" />
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
 
     
@@ -25,17 +26,20 @@
   
   
   
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
   <script type="text/javascript" src="../_static/jquery.js"></script>
   <script type="text/javascript" src="../_static/underscore.js"></script>
   <script type="text/javascript" src="../_static/doctools.js"></script>
   <script type="text/javascript" src="../_static/language_data.js"></script>
   <script type="text/javascript" src="../_static/searchtools.js"></script>
-  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
   <script type="text/javascript" src="../_static/js/theme.js"></script>
    
   
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Welcome!" href="aaron1.html" /> 
+    <link rel="next" title="Agreement Status Updates and Webhooks" href="faq.html" />
+    <link rel="prev" title="About me" href="aaron1.html" /> 
   
 <script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
 <script src="https://www.adobe.com/marketingtech/main.min.js"></script>
@@ -76,16 +80,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-	  
-	  	  
-<!-- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -
-        <div class="wy-logo-wrapper">
-          <a href="https://www.adobe.com/go/dc_developer">
-            <img src="../_static/acrobaticon.png" class="logo"/> 
-          Acrobat, Acrobat Sign, PDFL Developer
-          </a>
-        </div> 
-  @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+	
  
         <div class="wy-side-nav-search" >
           
@@ -120,13 +115,17 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Acrobat Sign Tech Blog</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tips and Tricks by Aaron Smusz</span></p>
+<p class="caption" role="heading"><span class="caption-text">Tips and Tricks by Aaron Smusz</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="aaron1.html">Welcome!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aaron1.html">About me</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Provisioning Acrobat Sign</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#isv-reference-partners-vs-embedded-partners">ISV (reference) partners VS “embedded” partners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#implications-for-you-and-your-customers">Implications for you and your customers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#provisioning-and-soap">Provisioning and SOAP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Agreement Status Updates and Webhooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#polling-as-backup-update-method">Polling as “backup” update method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#update-agreement-status-manual-option">Update Agreement Status “manual” option</a></li>
 </ul>
 </li>
 </ul>
@@ -143,11 +142,12 @@
         <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
         <div class="fixedbar">  
           <div class="wy-menu-items">
-            <a href="https://www.adobe.com/go/acrobatsigndevguide" class="topbarlink">Developer Guide</a>
-            <a href="https://www.adobe.com/go/acrobatsignapireference" class="topbarlink">API Reference</a>
-            <a href="https://www.adobe.com/go/acrobatsigntechblog" class="topbarlink">Tech Blog</a>
-            <a href="https://www.adobe.com/go/acrobatsigndevaccount" class="topbarlink">Get a Dev Account</a>
-            <a href="https://www.adobe.com/go/acrobatsigndevforum" class="topbarlink">Developer Forum</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer Guide</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook Guide</a>
+            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
+            <a href="https://www.adobe.com/sign/developer-form.html" class="topbarlink">Get a Dev Account</a>
+            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Developer Forum</a>
           </div>  
           <div class="sign-in">
             <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
@@ -212,8 +212,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
+        <a href="faq.html" class="btn btn-neutral float-right" title="Agreement Status Updates and Webhooks" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
       
-        <a href="aaron1.html" class="btn btn-neutral float-left" title="Welcome!" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+        <a href="aaron1.html" class="btn btn-neutral float-left" title="About me" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
       
   </div>
   
@@ -222,33 +224,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="provisioning-adobe-sign">
-<h1>Provisioning Acrobat Sign<a class="headerlink" href="#provisioning-adobe-sign" title="Permalink to this headline">¶</a></h1>
-<img alt="_images/aaron.png" src="_images/aaron.png" />
+  <div class="section" id="provisioning-acrobat-sign">
+<h1>Provisioning Acrobat Sign<a class="headerlink" href="#provisioning-acrobat-sign" title="Permalink to this heading">¶</a></h1>
 <div class="section" id="isv-reference-partners-vs-embedded-partners">
-<h2>ISV (reference) partners VS “embedded” partners<a class="headerlink" href="#isv-reference-partners-vs-embedded-partners" title="Permalink to this headline">¶</a></h2>
-<p>When working with Adobe as a partner who needs an integration to Sign functionality there are a couple of typical paradigms. We refer to partners who just want to build an integration that their customers can use as “ISV” or “reference” type partners. However some partners want to “re-sell” Sign transactions and we refer to this type of contract as an “Embedded” partner.  In this latter case there are currently a couple of things to consider.</p>
+<h2>ISV (reference) partners VS “embedded” partners<a class="headerlink" href="#isv-reference-partners-vs-embedded-partners" title="Permalink to this heading">¶</a></h2>
+<p>When working with Adobe as a partner who needs an integration to Sign functionality there are a couple of typical paradigms. We refer to partners who just want to build an integration that their customers can use with their own existing Sign account as “ISV” or “reference” type partners. However some partners want to “re-sell” Sign transactions. These partners are providing Acrobat Sign as the main or only eSignature solution for their app/platform.  We refer to this type of contract as an “Embedded” partner.  In this latter case there are currently a couple of things to consider.</p>
 <ul class="simple">
-<li><p>The customer of yours as a partner may already have their own Adobe-Sign account using their current “corporate” email address</p></li>
-<li><p>Sign currently has a limitation that there can’t be 2 users in different Sign accounts with the same email address (on Sign, email address is a unique identifier on the system as a whole)</p></li>
+<li><p>Your customer may already have their own Adobe-Sign account using their current “corporate” email address</p></li>
+<li><p>Sign currently has a limitation that there can’t be 2 users in different Sign accounts with the same email address so with Sign, email address is a unique identifier on the system as a whole</p></li>
+<li><p>For reasons of info-security/privacy you don’t want your platform to agreements that were not sent from/by your platform’s workflows</p></li>
 </ul>
 </div>
 <div class="section" id="implications-for-you-and-your-customers">
-<h2>Implications for you and your customers<a class="headerlink" href="#implications-for-you-and-your-customers" title="Permalink to this headline">¶</a></h2>
-<p>This brings up a slightly different idea in that if you would like to be an “Embedded” partner, you are saying that you need to provide e-sign functionality from your platform only in the context of agreements initiated by your software, not a general account that can be used for any e-sign process.</p>
+<h2>Implications for you and your customers<a class="headerlink" href="#implications-for-you-and-your-customers" title="Permalink to this heading">¶</a></h2>
+<p>“Embedded” partners, need to provide e-sign functionality from their platform, but only in the context of agreements initiated by your software, not a general account that can be used for any e-sign process. Since you as the partner are paying for the transactions, you probably don’t want to pay for all transactions sent by you customer outside of the use-cases you allow in your platform’s workflows.</p>
 <p>This means you will need to provide this functionality in a different way.  Typically we recommend provisioning a new Sign account for each of your customers that is a “service-account”.  You will need to use your own email domain for the “senders”, or use another domain you create/control, and then create the users in this newly provisioned account as something like <a class="reference external" href="mailto:client-user-35231&#37;&#52;&#48;your-domain&#46;com">client-user-35231<span>&#64;</span>your-domain<span>&#46;</span>com</a> or <a class="reference external" href="mailto:client-user-35231&#37;&#52;&#48;yourdomain-esign&#46;com">client-user-35231<span>&#64;</span>yourdomain-esign<span>&#46;</span>com</a>.  This allows for a couple of different things to occur.</p>
 <ul class="simple">
-<li><p>You won’t conflict with an Adobe-Sign account your customer may already have</p></li>
+<li><p>You won’t conflict with an Adobe-Sign account your customer may already have.</p></li>
 <li><p>Your customers will only be able to use this/these sender/s and the associated account in the context of your platform workflows</p></li>
 <li><p>Your platform will NOT have access to this customer’s entire Adobe-Sign account including things NOT sent from your software/platform/integration</p></li>
 </ul>
-<p>You will still need to create a new Account containing one or more initiators for each of your customer’s platform instances that need to leverage the Sign integration and typically we recommend that you create individual users inside that account for each person with that customer on your platform who need to be Sign transaction initiators.</p>
+<p>You will still need to create a new Account containing one or more initiators for each of your customer’s platform instances that need to leverage the Sign integration.  As a best practice, we recommend that you create individual users inside that account for each person with that customer on your platform who need to be Sign transaction initiators (“senders”).</p>
 <p>This does incur more development debt which you’ll need to consider as part of the process but it ensures less conflict with possible existing e-sign accounts as well as separation of the access to agreements sent from your platform for data security and privacy (think HIPPA, FIRPA, GDPR, etc.).</p>
-</div>
-<div class="section" id="provisioning-and-soap">
-<h2>Provisioning and SOAP<a class="headerlink" href="#provisioning-and-soap" title="Permalink to this headline">¶</a></h2>
-<p>As of this writing (9-2021) we have a SOAP based API for Provisioning</p>
-<p>“Embedded” Partners currently need to use a SOAP(XML) based endpoint for the provisioning process. You will also require some setting changes (these can only be done by Adobe technical folks for you) on your “partner” oAuth application before you will be able to use it to provision these new accounts on your customer’s behalf.</p>
+<p>Something new.</p>
 </div>
 </div>
 
@@ -264,7 +262,7 @@
     <p>
         &#169; Copyright 2021, Adobe Inc..
       <span class="lastupdated">
-        Last update: Feb 03, 2022. 
+        Last update: Jan 03, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

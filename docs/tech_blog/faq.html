@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
+  
+  <title>Agreement Status Updates and Webhooks &mdash; Acrobat Sign Tech Blog</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />  
+  <link href="../_static/copybutton.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+    
+  
+  
+  <link rel="canonical" href="https://www.adobe.com/go/acrobatsigndevguidefaq.html" />
+  
+
+  
+  
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/jquery.js"></script>
+  <script type="text/javascript" src="../_static/underscore.js"></script>
+  <script type="text/javascript" src="../_static/doctools.js"></script>
+  <script type="text/javascript" src="../_static/language_data.js"></script>
+  <script type="text/javascript" src="../_static/searchtools.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+   
+  
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Provisioning Acrobat Sign" href="provisioning.html" /> 
+  
+<script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
+<script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+
+	<script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+          $('.fixedbar, .wy-nav-side').addClass('scroll');
+          $('.wy-top-menu-wrapper').fadeOut();
+        } else {
+          $('.fixedbar, .wy-nav-side').removeClass('scroll');
+          $('.wy-top-menu-wrapper').fadeIn();
+        }
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn();
+        } else {
+          $('#scroll').fadeOut();
+        }
+      });
+      $('#scroll').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+      });
+    });
+  </script>
+
+<style>
+  .wy-nav-content {max-width:90%}
+  </style>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+	
+ 
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Acrobat Sign Tech Blog
+          
+
+          
+          </a>
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Acrobat Sign Tech Blog</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tips and Tricks by Aaron Smusz</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aaron1.html">About me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="provisioning.html">Provisioning Acrobat Sign</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="provisioning.html#isv-reference-partners-vs-embedded-partners">ISV (reference) partners VS “embedded” partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provisioning.html#implications-for-you-and-your-customers">Implications for you and your customers</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Agreement Status Updates and Webhooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#polling-as-backup-update-method">Polling as “backup” update method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update-agreement-status-manual-option">Update Agreement Status “manual” option</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+        <div class="fixedbar">  
+          <div class="wy-menu-items">
+            <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer Guide</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook Guide</a>
+            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
+            <a href="https://www.adobe.com/sign/developer-form.html" class="topbarlink">Get a Dev Account</a>
+            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Developer Forum</a>
+          </div>  
+          <div class="sign-in">
+            <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+           <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
+          </div>
+        </div>
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+
+
+
+
+   
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Acrobat Sign Tech Blog</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+      <a href="#" id="scroll" style="display:inline;"><span></span></a>
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Agreement Status Updates and Webhooks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+      
+        <a href="provisioning.html" class="btn btn-neutral float-left" title="Provisioning Acrobat Sign" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="agreement-status-updates-and-webhooks">
+<h1>Agreement Status Updates and Webhooks<a class="headerlink" href="#agreement-status-updates-and-webhooks" title="Permalink to this heading">¶</a></h1>
+<p>While <em>we have webhooks that can be created by customers in the web UI “Front End”</em>, <strong>we do not recommend that partners use this method when setting up their platform integrations.</strong> We recommend partners set up webhooks via API as <strong>“resource” or per-agreement webhooks</strong>. There are a few reasons for this.</p>
+<ol class="arabic simple">
+<li><p><em>Webhooks set up in the UI will fire for ALL agreements</em> created by ANY means for that user, all users in the group or all agreements for ALL users in the entire account.  You would then have to determine a way to distinguish between the agreements created by your integrated platform or application and any other agreements going through that user’s account that were initiated elsewhere.</p></li>
+<li><p><em>With a single webhook, if there is an issue causing the webhook to fail, the entire webhook “train” stops until the failing instance of the webhook can go through.</em> The 72hour “retry” process starts but all the agreements created after that failure continue to “back up” behind that failed instance and that single 72 hour clock.  If using the “best practice” of creating pre-agreement webhooks, each agreement has it’s own 72hour clock which starts on the 1st failure. This means that if there is some issue that causes webhooks to start failing, there will be less data loss if the failure is long enough to cause a webhook to get disabled.</p></li>
+<li><p>If using this “per-agreement” process, your system will immediately detect that there is a webhook issue. You will not have to wait till customers start complaining about their agreements not updating.</p></li>
+</ol>
+<div class="section" id="polling-as-backup-update-method">
+<h2>Polling as “backup” update method<a class="headerlink" href="#polling-as-backup-update-method" title="Permalink to this heading">¶</a></h2>
+<p><em>It is also recommended to set up some sort of “polling” mechanism</em> and some way to re-create these “per-agreement” web-hooks if the creation step is has failed and the agreements are still in some “non-terminal” state.  It’s also recommended to configure some monitoring+alerting on your side to let you know if the webhook creation process is failing.  If you’re using the “per-agreement” process, your system will recognise that the issue has happened right away instead of needing to wait till customers complain about their agreement statuses not staying “current”.  It would also be a good idea to automatically start the “polling” process for those agreements when the webhook creation failure is detected.</p>
+</div>
+<div class="section" id="update-agreement-status-manual-option">
+<h2>Update Agreement Status “manual” option<a class="headerlink" href="#update-agreement-status-manual-option" title="Permalink to this heading">¶</a></h2>
+<p>An additional “best practice” is to add an “update agreement status” button or trigger in your interface which “polls” Adobe Sign for a single agreement so that if there is an issue happening, the user can manually update a particularly critical agreement to get their status and/or a copy of the completed agreement immediately. We do this in all the integrations that we (Adobe Sign) build.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Adobe Inc..
+      <span class="lastupdated">
+        Last update: Jan 03, 2023. 
+        <img src="../_static/adobelogo.png" class="logo"/> 
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

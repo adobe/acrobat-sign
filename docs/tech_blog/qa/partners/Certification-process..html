@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
+  
+  <title>&lt;no title&gt; &mdash; Acrobat Sign Tech Blog</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />  
+  <link href="../_static/copybutton.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../_static/theme_overrides.css" type="text/css" />
+
+    
+  
+  
+  <link rel="canonical" href="https://www.adobe.com/go/acrobatsigndevguideqa/partners/Certification-process..html" />
+  
+
+  
+  
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/jquery.js"></script>
+  <script type="text/javascript" src="../_static/underscore.js"></script>
+  <script type="text/javascript" src="../_static/doctools.js"></script>
+  <script type="text/javascript" src="../_static/language_data.js"></script>
+  <script type="text/javascript" src="../_static/searchtools.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+   
+  
+    <link rel="search" title="Search" href="../../search.html" /> 
+  
+<script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
+<script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+
+	<script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+          $('.fixedbar, .wy-nav-side').addClass('scroll');
+          $('.wy-top-menu-wrapper').fadeOut();
+        } else {
+          $('.fixedbar, .wy-nav-side').removeClass('scroll');
+          $('.wy-top-menu-wrapper').fadeIn();
+        }
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn();
+        } else {
+          $('#scroll').fadeOut();
+        }
+      });
+      $('#scroll').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+      });
+    });
+  </script>
+
+<style>
+  .wy-nav-content {max-width:90%}
+  </style>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+	
+ 
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Acrobat Sign Tech Blog
+          
+
+          
+          </a>
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Acrobat Sign Tech Blog</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tips and Tricks by Aaron Smusz</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../aaron1.html">About me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../provisioning.html">Provisioning Acrobat Sign</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../provisioning.html#isv-reference-partners-vs-embedded-partners">ISV (reference) partners VS “embedded” partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../provisioning.html#implications-for-you-and-your-customers">Implications for you and your customers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Agreement Status Updates and Webhooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../faq.html#polling-as-backup-update-method">Polling as “backup” update method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq.html#update-agreement-status-manual-option">Update Agreement Status “manual” option</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+        <div class="fixedbar">  
+          <div class="wy-menu-items">
+            <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer Guide</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook Guide</a>
+            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
+            <a href="https://www.adobe.com/sign/developer-form.html" class="topbarlink">Get a Dev Account</a>
+            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Developer Forum</a>
+          </div>  
+          <div class="sign-in">
+            <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+           <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
+          </div>
+        </div>
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+
+
+
+
+   
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Acrobat Sign Tech Blog</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+      <a href="#" id="scroll" style="display:inline;"><span></span></a>
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>## Partner Application “Certification”</p>
+<p>Before your integration is certified, you can still test it with other accounts representing what would typically be a customer’s account by changing a setting under Account &gt; Account Settings &gt; Security Settings &gt; “Allow Uncertified partner applications to access data from this account”.</p>
+<p>![B8jquX](./images/2bBmBo.png?raw=true)</p>
+<p>There are some things you should be aware of and follow through on as part of your dev process.</p>
+<p>Your platform will normally be required to allow instance users(typically an admin) to connect their own Adobe Sign accounts (whether provisioned for them by you as a partner or acquired by them direct from Adobe) to your platform through [oAuth](<a class="reference external" href="https://secure.echosign.com/public/static/oauthDoc.jsp">https://secure.echosign.com/public/static/oauthDoc.jsp</a>).  This is usually __required__ so you will need to have developed and set things up on your side to account for this.</p>
+<p>We need to make sure you are following the [OWASP top 10](<a class="reference external" href="https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project">https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project</a>) as well as making sure you’re __encrypting all the tokens as well as your partner “App Secret”__.</p>
+<p>You should be finished or nearly finished with your integration development and be able to allow our reviewers to log into an instance to do their testing.</p>
+<p>You can help speed up the process by providing any recent 3rd party security testing summary reports you may already have, related to the OWASP guidelines.</p>
+<p>During the security review and “Certification” process, we will do a few things.</p>
+<ul class="simple">
+<li><p>Meet to go over the process of connecting your application/platform to Adobe Sign and typical use of the functions related. (This meeting will typically include the partner manager from Adobe + someone from the security group + the Solution Consultant you’ve been working with) In this meeting we will want to see the oAuth process from your app plus basic instructions on sending, tracking and/or signing for your app’s typical eSign use case.  This is normally recorded so our security folks can refer back when doing their testing.</p></li>
+<li><p>Next, the security team will follow the instructions in an instance of your app/platform where you have given them access.  During this process they will connect the instance of your platform to Adobe Sign, Send and track or use other functions you’ve implemented for your integrations and do some light sniffing to make sure the integration is not exposing our mutual customers to any major security or data breach vulnerabilities.  They will __verify with you that you are storing all tokens for the integration in an encrypted format.__</p></li>
+<li><p>If there are any major issues, the group will get back to your development team with the discovered issue/s and ask you to address.</p></li>
+<li><p>Once all concerns have been addressed, your app will be certified and you will be able to make it available to your customers for general use.  If your integration functionality, or permissions realted to your app need to change in the future, the application will need to be re-certified.</p></li>
+</ul>
+<p>##### Post “certification”</p>
+<p>Once your integration is certified, you can work with our Partner Success Managers to collaborate on co-marketing. We can also list your integration on the Adobe Exchange - Document Cloud page.  Best practice on this would be to make sure we have collateral or pointers to documentation on the partner website for how the integration works, the range of functionality included and how it looked on the integrated app/platform.  The cerifiication will allow customers to use the integration without need to change their security settings to all “uncertified app data access”.</p>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Adobe Inc..
+      <span class="lastupdated">
+        Last update: Jan 03, 2023. 
+        <img src="../_static/adobelogo.png" class="logo"/> 
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

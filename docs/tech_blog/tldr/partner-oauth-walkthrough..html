@@ -1,0 +1,387 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
+  
+  <title>} &mdash; Acrobat Sign Tech Blog</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />  
+  <link href="../_static/copybutton.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+
+    
+  
+  
+  <link rel="canonical" href="https://www.adobe.com/go/acrobatsigndevguidetldr/partner-oauth-walkthrough..html" />
+  
+
+  
+  
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/jquery.js"></script>
+  <script type="text/javascript" src="../_static/underscore.js"></script>
+  <script type="text/javascript" src="../_static/doctools.js"></script>
+  <script type="text/javascript" src="../_static/language_data.js"></script>
+  <script type="text/javascript" src="../_static/searchtools.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+   
+  
+    <link rel="search" title="Search" href="../search.html" /> 
+  
+<script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
+<script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+
+	<script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+          $('.fixedbar, .wy-nav-side').addClass('scroll');
+          $('.wy-top-menu-wrapper').fadeOut();
+        } else {
+          $('.fixedbar, .wy-nav-side').removeClass('scroll');
+          $('.wy-top-menu-wrapper').fadeIn();
+        }
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn();
+        } else {
+          $('#scroll').fadeOut();
+        }
+      });
+      $('#scroll').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+      });
+    });
+  </script>
+
+<style>
+  .wy-nav-content {max-width:90%}
+  </style>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+	
+ 
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Acrobat Sign Tech Blog
+          
+
+          
+          </a>
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Acrobat Sign Tech Blog</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tips and Tricks by Aaron Smusz</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aaron1.html">About me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../provisioning.html">Provisioning Acrobat Sign</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../provisioning.html#isv-reference-partners-vs-embedded-partners">ISV (reference) partners VS “embedded” partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../provisioning.html#implications-for-you-and-your-customers">Implications for you and your customers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Agreement Status Updates and Webhooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#polling-as-backup-update-method">Polling as “backup” update method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#update-agreement-status-manual-option">Update Agreement Status “manual” option</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+        <div class="fixedbar">  
+          <div class="wy-menu-items">
+            <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer Guide</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook Guide</a>
+            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
+            <a href="https://www.adobe.com/sign/developer-form.html" class="topbarlink">Get a Dev Account</a>
+            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Developer Forum</a>
+          </div>  
+          <div class="sign-in">
+            <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+           <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
+          </div>
+        </div>
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+
+
+
+
+   
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Acrobat Sign Tech Blog</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+      <a href="#" id="scroll" style="display:inline;"><span></span></a>
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>}</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>### Setting up a partner oAuth application</p>
+<ol class="arabic simple">
+<li><p>Read the [Adobe Acrobat Sign oAuth doc](<a class="reference external" href="https://secure.echosign.com/public/static/oauthDoc">https://secure.echosign.com/public/static/oauthDoc</a>) Start here to get an “overview,” but don’t stress, as there are more details below to help walk you through it.</p></li>
+<li><p>Create a “partner” app in your dev account The necessary first action.[-&gt;](./partner-oauth-walkthrough.md#create-partner-app-in-your-dev-account)</p></li>
+<li><p>Configure oAuth for the new app - What permissions and access level do you need for your application API token?[-&gt;](./Partner%20oAuth%20Walkthrough.md#configure-oauth-for-the-new-app)</p></li>
+<li><p>Add a link to your platform for oAuth request This is how your customers will need to start the oAuth process.[-&gt;](./Partner%20oAuth%20Walkthrough.md#add-link-to-your-platform-for-oauth-request)</p></li>
+<li><p>What does this oAuth process look like for your customers? More detail on the end-user experience and some code/process discussion.[-&gt;](./Partner%20oAuth%20Walkthrough.md#what-does-this-oauth-process-look-like-for-your-customers)</p></li>
+<li><p>What’s needed on the “redirect URI” page? More “nuts and bolts” for the developers.[-&gt;](./Partner%20oAuth%20Walkthrough.md#whats-needed-on-the-redirect-uri-page)</p></li>
+</ol>
+<p>#### Create “partner” app in your dev account</p>
+<p>To start, you will need a [developers account on Adobe Acrobat Sign](<a class="reference external" href="https://acrobat.adobe.com/us/en/why-adobe/developer-form.html">https://acrobat.adobe.com/us/en/why-adobe/developer-form.html</a>).</p>
+<p>Once you have the account set up, you will need to log in and create a new partner application.</p>
+<p>Account &gt; Acrobat Sign API  &gt; API Applications &gt; +</p>
+<p>![](./images/ats-2022-11-17_09-12.png)</p>
+<p>Fill out as shown:</p>
+<p>![](<a class="reference external" href="https://tva1.sinaimg.cn/large/006tNbRwgy1gbmlhkur90j30gl0e3dgx.jpg">https://tva1.sinaimg.cn/large/006tNbRwgy1gbmlhkur90j30gl0e3dgx.jpg</a>)</p>
+<p>Your new partner application will be “uncertified” until you have gone through the [partner certification process. Still, you will be able to test the process of getting Adobe Sign accounts connected to it by changing some settings in the test/customer account. These details will be discussed in another note.</p>
+<p>Ok … now we can move on to Configuring oAuth for your new Adobe Sign app!</p>
+<p>#### Configure oAuth for the new app</p>
+<p>##### What permissions and access level do you need for your application?</p>
+<p>To configure oAuth setting for a partner app, you need to log into the developer account where you created the new partner app.</p>
+<p>Find the app, select and click “Configure oAuth for application.”</p>
+<p>Account &gt; Acrobat Sign API  &gt; API Applications &gt; AppName &gt; Configure oAuth for application</p>
+<p>![](<a class="reference external" href="https://tva1.sinaimg.cn/large/006tNbRwgy1gbmla232l4j30xh0mogrp.jpg">https://tva1.sinaimg.cn/large/006tNbRwgy1gbmla232l4j30xh0mogrp.jpg</a>)</p>
+<p>You now need to add the permissions and “scopes” that will be used by your application when it interacts with the Adobe Sign APIs, as well as the <strong>_redirect URI_</strong> that will be <strong>_a URL available publicly (internet) on your infrastructure that can capture the account details and code for from the request for oAuth process driven by the link that you will eventually add to your application or platform to get it connected to the customer’s Adobe Sign account._</strong></p>
+<p>The process of capturing this data and making the API call to get the “refresh” and “access” tokens for API use by your platform/application will need to be done [through code on your redirect URI page](./Partner%20oAuth%20Walkthrough.md#whats-needed-on-the-redirect-uri-page) housed on your servers.</p>
+<p>These “scopes” are not determining what the token will be, but are setting the “upper limit” or “scope” of <strong>_what can be requested._</strong></p>
+<p>The request URL you use to link your customer’s instance of your application to the Adobe Sign account will contain the parameters for the permissions and access level (self, group, or account) that your API integration will need for the Sign related functions you use in your integration.</p>
+<p>Note that only Group Admins can approve OAuth requests that use the “:group” scope modifier, and only Account Admins can approve OAuth requests that use the “:account” scope modifier.</p>
+<p>You may not (and probably don’t) need all the possible permissions available on this configuration. Still, during dev cycles, before you have decided how much API interaction with Adobe Sign your app may need, it may be best to enable everything since it is relatively easy to come back later and adjust.</p>
+<p>When you adjust later, please limit the scopes that you enable to the minimum set necessary for your integration, which is one of the requirements for Certification.</p>
+<p>![](<a class="reference external" href="https://tva1.sinaimg.cn/large/006tNbRwgy1gbmlb54rtjj30m50u2nat.jpg">https://tva1.sinaimg.cn/large/006tNbRwgy1gbmlb54rtjj30m50u2nat.jpg</a>)</p>
+<p>Once you have this set as you’d like it, click “Save,” and then we can talk about how to add a link in your app to start the oAuth process (getting oAuth tokens to link your customer’s app/platform instance to their Adobe Sign account).</p>
+<p>#### Add a link to your platform for an oAuth request</p>
+<p>In your app, you will need a URL link for your customers to start the oAuth request process.</p>
+<p>This link will give the parameters you’ll need to pass to the oAuth process.</p>
+<p>The link URL should look something like this:</p>
+<p>&gt;https://secure.echosign.com/public/oauth?redirect_uri=https://your-oAuthInteraction-Server/your-oAuth-Page.html&amp;response_type=code&amp;client_id=CBJCHBCAABAAAbjw-szq8_Pg2Ljg7_b_vuaYiCAK1i4q&amp;state=uhuhygtf576534&amp;scope=user_read:account+user_write:account+user_login:account+agreement_read:account+agreement_write:account+agreement_send:account+widget_read:account+widget_write:account+library_read:account+library_write:account+workflow_read:account+workflow_write:account</p>
+<p>##### How this breaks down:</p>
+<ol class="arabic simple">
+<li><p>Base URL to start process - May seem obvious but we had to say it.  <strong>_For partner apps this should NOT contain the “shard” of an account (na1, na2, eu1, jp1, etc.)_</strong></p></li>
+<li><p>Redirect URI “redirect_uri=”- This comes from your application (configured on the app in your Adobe Sign developers account) oAuth settings. <strong>_This must match the configured URI exactly. If not, you will get errors._</strong></p></li>
+<li><p>Response Type - “&amp;response_type=code” -  This just tells the process you’re looking for the oAuth code on the redirect URI once your customer logs in and accepts the auth permissions. Use this exactly as quoted (no replacement for your scenario)</p></li>
+<li><p>Client ID “&amp;client_id=***” - tells Sign what application your customer is requesting a token for. (The one for your app/platform)</p></li>
+<li><p>State “&amp;state=***” - This can be used to pass a unique ID that will be “passed through” to the redirect URI which is typically a unique identifier for the instance of your application so your system knows which client/instance requested the token and so where to save it inside your platform.</p></li>
+<li><p>Scopes and permissions “&amp;scope=***” - This is the “good stuff” that tells Adobe Sign what permissions are needed for the token your app will need for all the wonderful things your platform can do for them when interacting with the Sign API.</p></li>
+</ol>
+<p>OK … got all that?  Next, we look at what this process will look like for your customers.</p>
+<p>#### What does this oAuth process look like for your customers?</p>
+<p>When your customer goes through the oAuth process by clicking the link in your app, they will start by being taken to the main login page for Adobe Sign.</p>
+<p>They might already have that browser logged into their account, but if not, they need to log in:</p>
+<p>![](<a class="reference external" href="https://tva1.sinaimg.cn/large/006tNbRwgy1gbmlcsmaa9j30cy0fcgm5.jpg">https://tva1.sinaimg.cn/large/006tNbRwgy1gbmlcsmaa9j30cy0fcgm5.jpg</a>)</p>
+<p>Next, they’ll be presented with the permissions needed for your app as defined by the URL parameters in your starting link:</p>
+<p>![](<a class="reference external" href="https://tva1.sinaimg.cn/large/006tNbRwgy1gbmldzad4lj30h30dt76c.jpg">https://tva1.sinaimg.cn/large/006tNbRwgy1gbmldzad4lj30h30dt76c.jpg</a>)</p>
+<p>And next, they’ll be “redirected” to …… wait for it …… Yes!!     The redirect URI defined in your app/oAuth and configured on your platform/server.  😉</p>
+<p>In the URL will be several things your system will need to get the refresh and access tokens that your app/platform has to have for making calls against the API.</p>
+<p>The URL with those extra bits will look something like this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">https://your-oauthinteraction-server/your-oAuth-Page.html?code=CBNCKBAAHBCAABAApvoU1TLVOj_GuGynhtExjJbQNOmst9KP&amp;api_access_point=https%3A%2F%2Fapi.na1.echosign.com%2F&amp;state=uhuhygtf576534&amp;web_access_point=https%3A%2F%2Fsecure.na1.echosign.com%2F</span>
+<span class="pre">`</span></code></p>
+<p>What are all those extra bits about?</p>
+<p>code=CBNCKBAAHBCAABAApvoU1TLVOj_GuGynhtExjJbQNOmst9KP — This is the code your system will use to make the actual API call to get those tokens. You need to use this fairly immediately as it’s only valid for 5 minutes.</p>
+<p>api_access_point=https%3A%2F%2Fapi.***na1***.echosign.com%2F — This is the encoded URL which is the base URL for the account where you will need to start all your REST calls for uploading docs, creating templates, getting agreement “views”, sending agreements and all the other cool stuff.  This critical thing here is the “.***na1***.” part which tells your system which “shard” the customer’s application is on.  We use AWS and AZURE  to host Sign, and customer’s accounts may be on one af many shards in various geo-locations.  Once you have tokens you need to make all your REST calls to the shard where their account lives.</p>
+<p>&amp;state=uhuhygtf576534 — This is that “state” string your system gave us so you could know which instance of your application/platform made this request.  You need this so you know where to take your customer “back” to and so you know which instance of your app you need to store the tokens for.</p>
+<p>&amp;web_access_point=https%3A%2F%2Fsecure.na1.echosign.com%2F  — This is the “web access” URL (where your customer can log in)</p>
+<p>Great!! you may say but I still don’t have a token?</p>
+<p>True… please go to the next section to see a discussion of what the redirect URI page on your server needs to do.</p>
+<p>####  What’s needed on the “redirect URI” page?</p>
+<p>Ok …. whew … that was a lot and we still don’t have a token once we’ve been re-directed to that darn redirect URI page.</p>
+<p>Yup, you still have some work.</p>
+<p>As mentioned the params have all been passed to your page though on the URL so we can start with grabbing them.</p>
+<p>in our example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">https://your-oauthinteraction-server/your-oAuth-Page.html?code=CBNCKBAAHBCAABAApvoU1TLVOj_GuGynhtExjJbQNOmst9KP&amp;api_access_point=https%3A%2F%2Fapi.na1.echosign.com%2F&amp;state=uhuhygtf576534&amp;web_access_point=https%3A%2F%2Fsecure.na1.echosign.com%2F</span>
+<span class="pre">`</span></code></p>
+<p>We have:</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>`
+code = CBNCKBAAHBCAABAApvoU1TLVOj_GuGynhtExjJbQNOmst9KP</p>
+<p>api_access_point = <a class="reference external" href="https://api.na1.echosign.com/">https://api.na1.echosign.com/</a></p>
+<p>state = uhuhygtf576534
+<a href="#id3"><span class="problematic" id="id4">``</span></a><a href="#id5"><span class="problematic" id="id6">`</span></a></p>
+<p>In addition to these you will need the Client/Application ID and “secret” from the partner app oAuth config page in your developer account:</p>
+<p>![](<a class="reference external" href="https://tva1.sinaimg.cn/large/006tNbRwgy1gbmljhlvmoj30l808ogol.jpg">https://tva1.sinaimg.cn/large/006tNbRwgy1gbmljhlvmoj30l808ogol.jpg</a>)</p>
+<p>Remember when we saw that while doing the oAuth configuration?</p>
+<p>The POST call needs to hit that:
+<cite>$api_access_point/oauth/token end point</cite></p>
+<p>So in this case (where the customer’s account is on na1) we need to hit:</p>
+<p><a class="reference external" href="https://secure.na1.echosign.com/oauth/token">https://secure.na1.echosign.com/oauth/token</a></p>
+<p>This REST call has one header param:  Content-Type: application/x-www-form-urlencoded</p>
+<p>In the body are a bunch of other params which you can construct from the data you now have from the URL plus your client ID and “secret”.</p>
+<p>In POSTMAN (A great tool I highly recommend) this call would look something like this:</p>
+<p>![](<a class="reference external" href="https://tva1.sinaimg.cn/large/006tNbRwgy1gbmletjo3pj30z00gq0wd.jpg">https://tva1.sinaimg.cn/large/006tNbRwgy1gbmletjo3pj30z00gq0wd.jpg</a>)</p>
+<p>The “raw” call looks like:</p>
+<p><a href="#id7"><span class="problematic" id="id8">``</span></a>`
+POST /oauth/token HTTP/1.1
+Host: secure.na1.echosign.com
+Content-Type: application/x-www-form-urlencoded
+Cache-Control: no-cache</p>
+<p>code=CBNCKBAAHBCAABAAOhqFxpG1VorkQqCpTcsWQZrdlPAe6p4v&amp;client_id=CBJCHBCAABAA-bAGKL5EGoAVa0uQnFR_k–pCMoA589W&amp;client_secret=HCLtG15GhovoBD2HBlPJ7su5FJ7tMkHd&amp;redirect_uri=https%3A%2F%2Faaronsmusz.com%2Foauth%2FoauthSuccess_app222.php&amp;grant_type=authorization_code
+<a href="#id9"><span class="problematic" id="id10">``</span></a><a href="#id11"><span class="problematic" id="id12">`</span></a></p>
+<p>The JSON response to this call will look something like this:</p>
+<p><a href="#id13"><span class="problematic" id="id14">``</span></a><a href="#id15"><span class="problematic" id="id16">`</span></a>JSON
+{</p>
+<blockquote>
+<div><p>“access_token”: “3AAABLblqZhDuw8mHJD5axQYRFV36l4U1A3csEcBxYcf9tr6OGtXghh8mGFNbEm9zulVHavW99-yDijJONs3syC49qiAtX-FA”,
+“refresh_token”: “3AAABLblqZhCxjXUfsx_pz44l8opXqFPXVUUPjr72JJ-uoBMvpo-xMgwiX_j6AUIfbskIaYyC34M*”,
+“token_type”: “Bearer”,
+“expires_in”: 3600</p>
+</div></blockquote>
+<div class="section" id="id17">
+<h1>}<a class="headerlink" href="#id17" title="Permalink to this heading">¶</a></h1>
+<p>Ok !!! We finally have a token ! Woooooooot !!</p>
+<p>Now we can find this Customer’s instance using the state ID and store the tokens.</p>
+<p>The “refresh” token is used to get new “access” tokens, but “Why?” you mays ask?</p>
+<p>The access token only lives for one hour(expires_in: 3600) so at least once an hour you need to make another call using the refresh token to get a new access token.</p>
+<p>Again we need to hit that:
+$api_access_point = <a class="reference external" href="https://api.na1.echosign.com">https://api.na1.echosign.com</a>
+But now we need to POST to:</p>
+<p><a class="reference external" href="https://api.na1.echosign.com/oauth/refresh">https://api.na1.echosign.com/oauth/refresh</a></p>
+<p>This call looks like this:</p>
+<p><a href="#id18"><span class="problematic" id="id19">``</span></a>`
+POST /oauth/refresh HTTP/1.1
+Host: api.na1.echosign.com
+Content-Type: application/x-www-form-urlencoded
+Cache-Control: no-cache</p>
+<p>refresh_token=3AAABLblqZhCxjXUfsx_pz44l8opXqFPXVUUPjr72JJ-uoBMvpo-xMgwiX_j6AUIfbskIaYyC34M*&amp;client_id=CBJCHBCAABAA-</p>
+<p>bAGfU0EGoAVa0uQnFR_k–pCMoA589W&amp;client_secret=HCLtG15GhovoBD2HBlKF4su5FJ7tMkHd&amp;grant_type=refresh_token
+<a href="#id20"><span class="problematic" id="id21">``</span></a><a href="#id22"><span class="problematic" id="id23">`</span></a></p>
+<p>Ok ….FYI …. The “refresh” token will also expire but it works a bit differently.
+This token expires after 60 days, but every time you use the “refresh” token to get a new “access” token, you reset the expiration on the “refresh” token to 60 days from that point.  Cool?</p>
+<p>If you are concerned about slow/no activity causing the “refresh” token to expire, you can set up a job that just refreshes the access token every 50 days or so if the date is getting “stale”.</p>
+<p>Once you have the tokens, and you know how to get new access tokens using the refresh token you can redirect the customer back to their instance of your app and ask them if they want to take a break for coffee ヽ(•‿•)ノ.</p>
+<p>This concludes our crash course on oAuth and Adobe Sign!
+Hope you’re having a great day!</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Adobe Inc..
+      <span class="lastupdated">
+        Last update: Jan 03, 2023. 
+        <img src="../_static/adobelogo.png" class="logo"/> 
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

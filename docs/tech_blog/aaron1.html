@@ -5,15 +5,16 @@
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Learn now to automate and monitor signing workflows with the Acrobat Sign APIs. Create apps that integrate with and leverage features across Adobe's enterprise-class product lineup."
+  <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
   
-  <title>Welcome! &mdash; Acrobat Sign Tech Blog</title>
+  <title>About me &mdash; Acrobat Sign Tech Blog</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link href="../_static/jquery-ui.css" rel="stylesheet" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />  
+  <link href="../_static/copybutton.css" rel="stylesheet" />
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
 
     
@@ -25,12 +26,14 @@
   
   
   
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
   <script type="text/javascript" src="../_static/jquery.js"></script>
   <script type="text/javascript" src="../_static/underscore.js"></script>
   <script type="text/javascript" src="../_static/doctools.js"></script>
   <script type="text/javascript" src="../_static/language_data.js"></script>
   <script type="text/javascript" src="../_static/searchtools.js"></script>
-  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
   <script type="text/javascript" src="../_static/js/theme.js"></script>
    
   
@@ -77,16 +80,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-	  
-	  	  
-<!-- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -
-        <div class="wy-logo-wrapper">
-          <a href="https://www.adobe.com/go/dc_developer">
-            <img src="../_static/acrobaticon.png" class="logo"/> 
-          Acrobat, Acrobat Sign, PDFL Developer
-          </a>
-        </div> 
-  @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+	
  
         <div class="wy-side-nav-search" >
           
@@ -121,13 +115,17 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Acrobat Sign Tech Blog</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tips and Tricks by Aaron Smusz</span></p>
+<p class="caption" role="heading"><span class="caption-text">Tips and Tricks by Aaron Smusz</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Welcome!</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">About me</a></li>
 <li class="toctree-l1"><a class="reference internal" href="provisioning.html">Provisioning Acrobat Sign</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="provisioning.html#isv-reference-partners-vs-embedded-partners">ISV (reference) partners VS “embedded” partners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="provisioning.html#implications-for-you-and-your-customers">Implications for you and your customers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="provisioning.html#provisioning-and-soap">Provisioning and SOAP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Agreement Status Updates and Webhooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#polling-as-backup-update-method">Polling as “backup” update method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#update-agreement-status-manual-option">Update Agreement Status “manual” option</a></li>
 </ul>
 </li>
 </ul>
@@ -144,11 +142,12 @@
         <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
         <div class="fixedbar">  
           <div class="wy-menu-items">
-            <a href="https://www.adobe.com/go/acrobatsigndevguide" class="topbarlink">Developer Guide</a>
-            <a href="https://www.adobe.com/go/acrobatsignapireference" class="topbarlink">API Reference</a>
-            <a href="https://www.adobe.com/go/acrobatsigntechblog" class="topbarlink">Tech Blog</a>
-            <a href="https://www.adobe.com/go/acrobatsigndevaccount" class="topbarlink">Get a Dev Account</a>
-            <a href="https://www.adobe.com/go/acrobatsigndevforum" class="topbarlink">Developer Forum</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer Guide</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook Guide</a>
+            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
+            <a href="https://www.adobe.com/sign/developer-form.html" class="topbarlink">Get a Dev Account</a>
+            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Developer Forum</a>
           </div>  
           <div class="sign-in">
             <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
@@ -199,7 +198,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Welcome!</li>
+      <li>About me</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -225,88 +224,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcome">
-<span id="tipstricks"></span><h1>Welcome!<a class="headerlink" href="#welcome" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="about-me">
+<span id="tipstricks"></span><h1>About me<a class="headerlink" href="#about-me" title="Permalink to this heading">¶</a></h1>
 <img alt="_images/aaron.png" src="_images/aaron.png" />
-<p>My name is Aaron Smusz and I have been working with Acrobat Sign since 2012.</p>
-<p>I’m a “Customer Enablement Engineer”, which is a buzz-word for someone who helps people figure out how to use this technology in their business workflows, and works with our engineering and product management teams to bring the customer’s perspective into clearer focus while we make decisions about how to improve all things e-Signature.</p>
-<p>During most of my time working with Acrobat Sign, I have been helping customers install, configure and adopt many of the “Out of Box” integrations available for Acrobat Sign.  Some are developed by Adobe, some by our partners. I have also helped many who are interested in building an integration for Acrobat Sign, develop and implement those new integrations.  This may be a partner who needs to provide “eSignature” functionality to their customers as part of their platform “workflows” or, in other cases, a customer who needs this same type of functionality included in their own “homegrown” app, or some other “off-the-shelf” app/process they use which does not already have a pre-built integration.</p>
-<p>Have fun!</p>
-<!--
-
-.. _exampleanchorlink:
-
-Heading 1
-==================================
-
-Heading 2
------------------------------------
-
-The OAuth process starts with the client directing the user's browser to make a request to the /public/oauth/v2 endpoint, with the following query string parameters:
-
-**bold**
-
-*italic*
-
-Heading 3
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. list-table:: Exmaple table
-  :widths: 10 20 5 65
-  :header-rows: 1
-
-  * - Parameter
-    - Value
-    - Required?
-    - Description
-  * - response_type
-    - code
-    - yes
-    - The value must always be *code*
-  * - client_id
-    - Your ID obtained from OAuth configuration page.
-    - yes
-    - Identifies the application
-
-To invoke the Sign APIs, your application must first get an OAuth access token on behalf of an Acrobat Sign user. This process uses HTTP requests to obtain the token. Your url will look like the following (with your client ID, etc.):
-
-::
-
-  https://secure.adobesign.com/public/oauth/v2?
-      example code
-
-
-* bullet 1
-* bullet 1
-* bullet 1
-
-  * bullet 2
-  * bullet 2
-
-
-Once you select Allow Access, the page gets redirected to the following URL:
-
-::
-
-  code code
-      code
-
-.. note:: I am a note
-
-.. tip:: I am a tip
-
-.. caution: I am a caution.
-
-
-#. numbering
-#. numbering
-#. numbering
-
-some text
-
-  some indented text
-
- --></div>
+<p>My name is Aaron Smusz and I have been working at Adobe since just after the acquisition in 2012, of what was originally <a class="reference external" href="https://en.wikipedia.org/wiki/Adobe_Sign">EchoSign</a> and later  Acrobat Sign.</p>
+<p>Most recently we have re-branded again and this product is now called <a class="reference external" href="https://www.adobe.com/sign.html">Acrobat Sign</a>.</p>
+<p>I’m a “Customer Enablement Engineer”, which is an industry buzz-word for someone who helps people figure out how to use this technology in their business workflows. I work with our developers and product management teams to bring the customer’s perspective into clearer focus while we make decisions about how to improve the Acrobat Sign product.</p>
+<p>During most of my time working with Acrobat Sign, I have been helping customers install, configure and adopt many of the “Out of Box” integrations that Adobe and our partners have created. I have also helped many who are interested in taking on the challenge, to develop and implement new integrations.  This may be a partner who needs to provide “eSignature” functionality to their customers as part of their platform “workflows” or, in other cases a customer who needs this same type of functionality included in their own “homegrown” app, or some other “off-the-shelf” app/process they use which does not already have something shrink-wrapped.</p>
+</div>
 
 
            </div>
@@ -320,7 +245,7 @@ some text
     <p>
         &#169; Copyright 2021, Adobe Inc..
       <span class="lastupdated">
-        Last update: Feb 03, 2022. 
+        Last update: Jan 03, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

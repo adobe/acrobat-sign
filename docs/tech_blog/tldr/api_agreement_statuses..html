@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
+  
+  <title>&lt;no title&gt; &mdash; Acrobat Sign Tech Blog</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />  
+  <link href="../_static/copybutton.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+
+    
+  
+  
+  <link rel="canonical" href="https://www.adobe.com/go/acrobatsigndevguidetldr/api_agreement_statuses..html" />
+  
+
+  
+  
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/jquery.js"></script>
+  <script type="text/javascript" src="../_static/underscore.js"></script>
+  <script type="text/javascript" src="../_static/doctools.js"></script>
+  <script type="text/javascript" src="../_static/language_data.js"></script>
+  <script type="text/javascript" src="../_static/searchtools.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+   
+  
+    <link rel="search" title="Search" href="../search.html" /> 
+  
+<script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
+<script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+
+	<script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+          $('.fixedbar, .wy-nav-side').addClass('scroll');
+          $('.wy-top-menu-wrapper').fadeOut();
+        } else {
+          $('.fixedbar, .wy-nav-side').removeClass('scroll');
+          $('.wy-top-menu-wrapper').fadeIn();
+        }
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn();
+        } else {
+          $('#scroll').fadeOut();
+        }
+      });
+      $('#scroll').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+      });
+    });
+  </script>
+
+<style>
+  .wy-nav-content {max-width:90%}
+  </style>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+	
+ 
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Acrobat Sign Tech Blog
+          
+
+          
+          </a>
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Acrobat Sign Tech Blog</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tips and Tricks by Aaron Smusz</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aaron1.html">About me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../provisioning.html">Provisioning Acrobat Sign</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../provisioning.html#isv-reference-partners-vs-embedded-partners">ISV (reference) partners VS “embedded” partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../provisioning.html#implications-for-you-and-your-customers">Implications for you and your customers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Agreement Status Updates and Webhooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#polling-as-backup-update-method">Polling as “backup” update method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#update-agreement-status-manual-option">Update Agreement Status “manual” option</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+        <div class="fixedbar">  
+          <div class="wy-menu-items">
+            <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer Guide</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook Guide</a>
+            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
+            <a href="https://www.adobe.com/sign/developer-form.html" class="topbarlink">Get a Dev Account</a>
+            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Developer Forum</a>
+          </div>  
+          <div class="sign-in">
+            <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+           <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
+          </div>
+        </div>
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+
+
+
+
+   
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Acrobat Sign Tech Blog</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+      <a href="#" id="scroll" style="display:inline;"><span></span></a>
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>## API Related agreement “Statuses”, [Recipient Statuses](./api_agreement_statuses.md#status-related-to-recipients), [Agreement Events](./api_agreement_statuses.md#agreement-events) and [Webhook Events](./api_agreement_statuses.md#webhook-events)</p>
+<p>Most states relate to specific Adobe Sign [“roles”](<a class="reference external" href="https://helpx.adobe.com/sign/using/set-up-signer-approver-roles.html">https://helpx.adobe.com/sign/using/set-up-signer-approver-roles.html</a>)
+PDF can be found [here](<a class="reference external" href="https://documentcloud.adobe.com/link/track?uri=urn%3Aaaid%3Ascds%3AUS%3A4eec32fd-527e-4133-9666-08fb35286d7e">https://documentcloud.adobe.com/link/track?uri=urn%3Aaaid%3Ascds%3AUS%3A4eec32fd-527e-4133-9666-08fb35286d7e</a>).</p>
+<p>## STATUSES</p>
+<div class="line-block">
+<div class="line">Status                            | Status meaning/description                                   |</div>
+<div class="line">:——————————– | :———————————————————– |</div>
+<div class="line">‘OUT_FOR_SIGNATURE’               | Waiting for Signature by one or more Signers                 |</div>
+<div class="line">‘OUT_FOR_DELIVERY’                | Waiting for acceptance by “Certified Recipient” (non-signer) |</div>
+<div class="line">‘OUT_FOR_ACCEPTANCE’              | waiting for acceptance by “Acceptor” (non-signer)            |</div>
+<div class="line">‘OUT_FOR_FORM_FILLING’            | Waiting for “form filler” recipient to fill out data in fields (non-signer) |</div>
+<div class="line">‘OUT_FOR_APPROVAL’                | Waiting for “Approver” to approve (non-signer)               |</div>
+<div class="line">‘AUTHORING’                       | Agreement not yet finished with “authoring” so not yet sent to 1st recipient |</div>
+<div class="line">‘ABORTED’                         | Cancelled(by sender) OR rejected(by recipient) __- Terminal <a href="#id1"><span class="problematic" id="id2">State__</span></a> |</div>
+<div class="line">‘CANCELLED’                       | Cancelled(by sender) OR rejected(by recipient) – Legacy status, now = ABORTED __- Terminal <a href="#id1"><span class="problematic" id="id3">State__</span></a> |</div>
+<div class="line">‘SIGNED’                          | Completed “signed” __- Terminal <a href="#id1"><span class="problematic" id="id4">State__</span></a>                      |</div>
+<div class="line">‘APPROVED’                        | Completed “approved” __- Terminal <a href="#id1"><span class="problematic" id="id5">State__</span></a>                    |</div>
+<div class="line">‘DELIVERED’                       | Completed by “Certified Recipient” __- Terminal <a href="#id1"><span class="problematic" id="id6">State__</span></a>      |</div>
+<div class="line">‘ACCEPTED’                        | Completed by “Acceptor” __- Terminal <a href="#id1"><span class="problematic" id="id7">State__</span></a>                 |</div>
+<div class="line">‘FORM_FILLED’                     | Filled out by “Form filler”                                  |</div>
+<div class="line">‘EXPIRED’                         | Agreement has passed “Expiration Date/Time” __- Terminal <a href="#id1"><span class="problematic" id="id8">State__</span></a> |</div>
+<div class="line">‘ARCHIVED’                        | Applies only to files “archived” to Adobe Sign for secure storage __- Terminal <a href="#id1"><span class="problematic" id="id9">State__</span></a> |</div>
+<div class="line">‘PREFILL’                         | Waiting to be pre-filled by sender                           |</div>
+<div class="line">‘WIDGET_WAITING_FOR_VERIFICATION’ | If email verification is on, signed web-forms(widgets) must have signer verify email address provided during signing before agreement is “complete”/fully executed |</div>
+<div class="line">‘DRAFT’                           | From an API perspective think of this as a “stub record” state where no doc conversion has taken place so there is not yet an “authoring” or signing experience but you can change any related data before starting the steps to create an agreement. There is an agreement ID (stubbed) and associated data but nothing else has happened.  Agreements in this state can be deleted without incurring a transaction. |</div>
+<div class="line">‘DOCUMENTS_NOT_YET_PROCESSED’     | Request has been made to create an agreement but Adobe Sign is still working on processing the docs for the agreement. |</div>
+<div class="line">‘WAITING_FOR_FAXIN’               | When agreement has been sent and forced WRITTEN. This status references legacy “Faxin” feature now deprecated but is still used for “written”(print, wet-sign, scan and upload) transactions |</div>
+<div class="line">‘WAITING_FOR_VERIFICATION’        | OLD status same as WIDGET_WAITING_FOR_VERIFICATION           |</div>
+</div>
+<p>## Status related to recipients</p>
+<div class="line-block">
+<div class="line">Status                           | Status meaning/description                                   |</div>
+<div class="line">:——————————- | :———————————————————– |</div>
+<div class="line">‘COMPLETED’                      | Your required action is complete                             |</div>
+<div class="line">‘CANCELLED’                      | You (or someone before you in the recipient order) has cancelled the agreement |</div>
+<div class="line">‘EXPIRED’                        | The agreement expired whie waiting for you to take the required action |</div>
+<div class="line">‘NOT_YET_VISIBLE’                | Recipients before you have not finished their required action/s |</div>
+<div class="line">‘WAITING_FOR_OTHERS’             | Recipients after you still need to take their required actions |</div>
+<div class="line">‘WAITING_FOR_MY_APPROVAL’        | You are the current recipient (APPROVER) and need to approve |</div>
+<div class="line">‘WAITING_FOR_AUTHORING’          | You are the current sender and need to finish the authoring step and set the agreement to ‘IN_PROCESS’ |</div>
+<div class="line">‘WAITING_FOR_MY_ACKNOWLEDGEMENT’ | You are the current recipient (CERTIFIED_RECIPIENT) and need to Acknowledge your reciept |</div>
+<div class="line">‘WAITING_FOR_MY_ACCEPTANCE’      | You are the current recipient (ACCEPTOR) and need to Accept  |</div>
+<div class="line">‘WAITING_FOR_MY_FORM_FILLING’    | You are the current recipient (FORM_FILLER) and need to fill out the fields |</div>
+<div class="line">‘WAITING_FOR_MY_DELEGATION’      | You are the current recipient ([DELEGATOR](<a class="reference external" href="https://helpx.adobe.com/sign/how-to/use-the-delegator-role.html">https://helpx.adobe.com/sign/how-to/use-the-delegator-role.html</a>)) and need to delegate the agreement to someone |</div>
+<div class="line">‘WAITING_FOR_MY_SIGNATURE’       | You are the current recipient (SIGNER) and need to sign      |</div>
+<div class="line">‘WAITING_FOR_MY_VERIFICATION’    | You have signed a web form (widget) but have not completed the post signing email verification step |</div>
+<div class="line">‘WAITING_FOR_PREFILL’            | You are the 1st recipient where the sender has marked fields to be pre-filled (by her/him) but has not finished prefilling and sending |</div>
+</div>
+<p>## AGREEMENT EVENTS:</p>
+<div class="line-block">
+<div class="line">Event Name                          | Description of Event                                         | Status Change                                                |</div>
+<div class="line">:———————————- | :———————————————————– | :———————————————————– |</div>
+<div class="line">‘CREATED’                           | When an agreement or Draft is created                        | A new resource with DRAFT status or AUTHORING or with one of the <a href="#id10"><span class="problematic" id="id11">OUT_FOR_</span></a> status depending on the participants roles. |</div>
+<div class="line">‘AGREEMENT_MODIFIED’                | Agreement modified by sender modify document in flight       | No change in the status.                                     |</div>
+<div class="line">‘USER_ACK_AGREEMENT_MODIFIED’       | When signer acknowledge modification before signing          | No change in the status.                                     |</div>
+<div class="line">‘SIGNED’                            | Agreement is fax signed                                      | Either change in status based on the next participants role if there are more recipients or the status changes to SIGNED. |</div>
+<div class="line">‘ESIGNED’                           | When agreement is signed                                     | Either change in status based on the next participants role if there are more recipients or the status changes to SIGNED. |</div>
+<div class="line">‘SIGNED’                            | When agreement is written (scanned+uploaded) signed          | Either change in status based on the next participants role if there are more recipients or the status changes to SIGNED. |</div>
+<div class="line">‘DIGSIGNED’                         | When agreement is digitally signed                           | Either change in status based on the next participants role if there are more recipients or the status changes to SIGNED. |</div>
+<div class="line">‘APPROVED’                          | When agreement is approved                                   | Either change in status based on the next participants role if there are more recipients or the status changes to one of SIGNED or APPROVED. |</div>
+<div class="line">‘ACCEPTED’                          | When agreement is accepted                                   | Either no change in status if there are more recipients or the status changes to one of SIGNED, APPROVED or ACCEPTED. |</div>
+<div class="line">‘DELIVERED’                         | When agreement is delivered                                  | Either no change in status if there are more recipients or the status changes to one of SIGNED, APPROVED, ACCEPTED, FORM_FILLED or DELIVERED. |</div>
+<div class="line">‘FORM_FILLED’                       | When agreement is filled                                     | Either no change in status if there are more recipients or the status changes to one of SIGNED, APPROVED, ACCEPTED or FORM_FILLED. |</div>
+<div class="line">‘OFFLINE_SYNC’                      | When agreement is signed offline using mobile device         | Either no change in status if there are more recipients or the status changes to SIGNED. |</div>
+<div class="line">‘UPLOADED_BY_SENDER’                | When signed agreement is uploaded by sender in esign workflow | Agreement status is computed based on next participant’s role if there are more recipients or changes to SIGNED |</div>
+<div class="line">‘FAXED_BY_SENDER’                   | When signed agreement is uploaded by sender in fax workflow  | Agreement status is computed based on next participant’s role if there are more recipients or changes to SIGNED This feature - (Fax in workflow) has been deprecated |</div>
+<div class="line">‘SIGNATURE_REQUESTED’               | When agreement is sent to signer for signature               | Agreement status OUT_FOR_SIGNATURE                           |</div>
+<div class="line">‘APPROVAL_REQUESTED’                | When agreement is sent to signer for approval                | Agreement status OUT_FOR_APPROVAL                            |</div>
+<div class="line">‘ACKNOWLEDGEMENT_REQUESTED’         | When agreement is sent to signer for acknowledgement         | Agreement status OUT_FOR_DELIVERY                            |</div>
+<div class="line">‘FORM_FILLING_REQUESTED’            | When agreement is sent to signer for filling                 | Agreement status OUT_FOR_FORM_FILLING                        |</div>
+<div class="line">‘ACCEPTANCE_REQUESTED’              | When agreement is sent to signer for acceptance              | Agreement status OUT_FOR_ACCEPTANCE                          |</div>
+<div class="line">‘RECALLED’                          | When agreement is cancelled by sender                        | Status changes to ABORTED                                    |</div>
+<div class="line">‘REJECTED’                          | When agreement is rejected by signer                         | Status changes to ABORTED                                    |</div>
+<div class="line">‘EXPIRED’                           | When some custom expiry is set by sender and agreement reached that date | Status changes to EXPIRED                                    |</div>
+<div class="line">‘EXPIRED_AUTOMATICALLY’             | When agreement is expired automatically                      | Status changes to EXPIRED                                    |</div>
+<div class="line">‘SHARED’                            | When agreement has been shared by a participant              | No change in status                                          |</div>
+<div class="line">‘EMAIL_VIEWED’                      | When signer view’s the esign mail                            | No change in status                                          |</div>
+<div class="line">‘EMAIL_BOUNCED’                     | When email not delivered to signer                           | No change in status                                          |</div>
+<div class="line">‘AUTO_CANCELLED_CONVERSION_PROBLEM’ | When agreement conversion failed due to which agreement is auto cancelled | Status changes to CANCELLED                                  |</div>
+<div class="line">‘PASSWORD_AUTHENTICATION_FAILED’    | As name suggests                                             | No change in status                                          |</div>
+<div class="line">‘KBA_AUTHENTICATION_FAILED’         | As name suggests                                             | No change in status                                          |</div>
+<div class="line">‘KBA_AUTHENTICATED’                 | As name suggests                                             | No change in status                                          |</div>
+<div class="line">‘WEB_IDENTITY_AUTHENTICATED’        | As name suggests                                             | No change in status                                          |</div>
+<div class="line">‘WEB_IDENTITY_SPECIFIED’            | As name suggests                                             | No change in status                                          |</div>
+<div class="line">‘WIDGET_ENABLED’                    | When widget is marked enabled from disabled                  | Status of widget is changed to ENABLED                       |</div>
+<div class="line">‘WIDGET_DISABLED’                   | When widget is marked disabled from enabled                  | Status of widget is changed to DISABLED                      |</div>
+<div class="line">‘DELEGATED’                         | Agreement is delegated by signer                             | No change in status                                          |</div>
+<div class="line">‘AUTO_DELEGATED’                    | when auto delegation is on and agreement is delegated because of that | No change in status                                          |</div>
+<div class="line">‘REPLACED_SIGNER’                   | Sender replaced current signer                               | No change in status                                          |</div>
+<div class="line">‘VAULTED’                           | When agreement has vaulting enabled and a callback is sent to vault provided to perform vaulting | No change in status                                          |</div>
+<div class="line">‘DOCUMENTS_DELETED’                 | When document retention policy is enabled and documents of an agreement are deleted | Agreement changes to CANCELLED only if it is not in a terminating state |</div>
+<div class="line">‘DRAFT_MODIFIED’                    | Agreement Draft has been modified                            | No change in status                                          |</div>
+<div class="line">‘URL_REAUTHENTICATION_REQUESTED’    | A participant has requested a new download URL for the agreement because the one in the original “terminal state” email they were sent has expired. | No change in agreement status. See [this](<a class="reference external" href="https://helpx.adobe.com/sign/using/adobesign-document-link-expiration.html">https://helpx.adobe.com/sign/using/adobesign-document-link-expiration.html</a>) for details.  Additional note: As of the release in the link there is no webhook for this event. |</div>
+<div class="line">‘SIGNER_NAME_CHANGED_BY_SIGNER’     | If during agreement send a first, last, or full-name is defined for a participant and then during that participant actually signing, they change what was originally provided. | This is not a change to status but will fire after an agreement action completed (or around the same time).  This is only there to capture the change from the “provided” name to the “new” name given by the participant while signing/approving/etc. |</div>
+</div>
+<p>## Webhook Events</p>
+<div class="line-block">
+<div class="line">Event Name                                         | Fires When                                                   |</div>
+<div class="line">:————————————————- | :———————————————————– |</div>
+<div class="line">AGREEMENT_ACTION_COMPLETED                         | The recipient has completed their required action, including all roles.(Singer, Approver, Acceptor, Certified Recipient, Form Filler, Delegator) |</div>
+<div class="line">AGREEMENT_ACTION_DELEGATED                         | A delegation has occurred. ([sender](<a class="reference external" href="https://helpx.adobe.com/sign/how-to/adobe-delegate-signing.html">https://helpx.adobe.com/sign/how-to/adobe-delegate-signing.html</a>) or signer, internal or external) |</div>
+<div class="line">AGREEMENT_ACTION_REPLACED_SIGNER                   | A Signer was replaced by the sender.                         |</div>
+<div class="line">AGREEMENT_ACTION_REQUESTED                         | The agreement has moved from one recipient to the next which requests the next person to take action. (including all roles) |</div>
+<div class="line">AGREEMENT_ALL                                      | Will fire on ALL possible agreement events.                  |</div>
+<div class="line">AGREEMENT_AUTO_CANCELLED_CONVERSION_PROBLEM        | There can sometimes be issues converting the uploaded file that cause the agreement to fail. This is not always caught during the send action and can happen after agreement creation. |</div>
+<div class="line">AGREEMENT_CREATED                                  | Agreement is created.                                        |</div>
+<div class="line">AGREEMENT_DOCUMENTS_DELETED                        | The files in an agreement (documents) are deleted either via retention policy or via an API call to Adobe Sign to make that action. Audit info for the agreement is retained. |</div>
+<div class="line">AGREEMENT_EMAIL_BOUNCED                            | AN email to a recipient is “bounced” by the recieving server.  Usually due to a bad address. |</div>
+<div class="line">AGREEMENT_EMAIL_VIEWED                             | The email from Adobe Sign asing a recipient to take action is viewed in their email client. |</div>
+<div class="line">AGREEMENT_EXPIRED                                  | The expiration date/time has elapsed. This is a terminating event for the entire agreement. |</div>
+<div class="line">AGREEMENT_KBA_AUTHENTICATED                        | A signer using KBA has successfully authenticated.           |</div>
+<div class="line">AGREEMENT_MODIFIED                                 | The “document” in an “in-flight” un-signed agreement has been [replaced/changed](replaced/changed). |</div>
+<div class="line">AGREEMENT_OFFLINE_SYNC                             | An agreement sent to someone using the iOS app with off-line signing capabilities has “synced” the agreement to their Adobe Sign mobile app for later signing while off-line. |</div>
+<div class="line">AGREEMENT_RECALLED                                 | The agreement was cancelled by the sender or the senders designated admin.(advanced sharing) |</div>
+<div class="line">AGREEMENT_REJECTED                                 | The agreement was cancelled by a recipient.                  |</div>
+<div class="line">AGREEMENT_SHARED                                   | The agreement was shared by the sender OR by a signer who has access to a signed agreement. |</div>
+<div class="line">AGREEMENT_UPLOADED_BY_SENDER                       | A “wet signed”, scanned copy was sent to the sender (outside of Adobe Sign) and the sender uploaded it as the “signed copy” in the web UI. |</div>
+<div class="line">AGREEMENT_USER_ACK_AGREEMENT_MODIFIED              | After send, a signer may decide that there is somthing incorrect in the agreement document which needs to be changed.  If they don’t sign or reject, they can notify the sender and the sender can “replace” the document with a corrected copy. In this case there is a notification to the signer that the doc has been modified. |</div>
+<div class="line">AGREEMENT_VAULTED                                  | When an agreement is vaulted via the eOriginal integration.  |</div>
+<div class="line">AGREEMENT_WEB_IDENTITY_AUTHENTICATED               | When a signer authenticates for signing via social ID (google facebook etc.) |</div>
+<div class="line">AGREEMENT_WORKFLOW_COMPLETED                       | When an agreement reaches a terminal state.  This includes recall (sender action), rejection (signer action), and completion when all recpients have taken their required action/s |</div>
+<div class="line">LIBRARY_DOCUMENT_CREATED                           | A library doc is created (document or form field template)   |</div>
+<div class="line">LIBRARY_DOCUMENT_AUTO_CANCELLED_CONVERSION_PROBLEM | If via API “POST” or during save in the UI there is an issue with document conversion on a library doc/template add |</div>
+<div class="line">LIBRARY_DOCUMENT_MODIFIED                          | When a library doc or template is modified.                  |</div>
+<div class="line">LIBRARY_DOCUMENT_ALL                               | ALL possible doc library events.                             |</div>
+<div class="line">MEGASIGN_ALL                                       | ALL possible [Megasign](<a class="reference external" href="https://helpx.adobe.com/sign/using/mega-sign.html">https://helpx.adobe.com/sign/using/mega-sign.html</a>) Events. |</div>
+<div class="line">MEGASIGN_CREATED                                   | When a Megasign is created.                                  |</div>
+<div class="line">MEGASIGN_RECALLED                                  | When a Megasign is cancelled. (recalled by the sender)       |</div>
+<div class="line">MEGASIGN_SHARED                                    | When a Megasign is shared with another user in the account   |</div>
+<div class="line">WIDGET_ALL                                         | ALL possible widget (Web Form) events.                       |</div>
+<div class="line">WIDGET_AUTO_CANCELLED_CONVERSION_PROBLEM           | There can sometimes be issues converting the uploaded file that cause the Web Form (widget) to fail. This is not always caught during the send action and can happen after Web Form creation. |</div>
+<div class="line">WIDGET_CREATED                                     | When a Web Form is created.                                  |</div>
+<div class="line">WIDGET_DISABLED                                    | When a Web Form is disabled.                                 |</div>
+<div class="line">WIDGET_ENABLED                                     | When a Web Form is enabled.                                  |</div>
+<div class="line">WIDGET_MODIFIED                                    | When a Web Form is modified.                                 |</div>
+<div class="line">WIDGET_SHARED                                      | When a Web Form is shared.                                   |</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Adobe Inc..
+      <span class="lastupdated">
+        Last update: Jan 03, 2023. 
+        <img src="../_static/adobelogo.png" class="logo"/> 
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

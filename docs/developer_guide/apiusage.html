@@ -80,16 +80,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-	  
-	  	  
-<!-- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -
-        <div class="wy-logo-wrapper">
-          <a href="https://www.adobe.com/go/dc_developer">
-            <img src="../_static/acrobaticon.png" class="logo"/> 
-          Acrobat, Adobe Sign, PDFL Developer
-          </a>
-        </div> 
-  @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+	
  
         <div class="wy-side-nav-search" >
           
@@ -301,8 +292,8 @@
             <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook Guide</a>
             <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
             <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
-            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Get a Dev Account</a>
-            <a href="" class="topbarlink">Developer Forum</a>
+            <a href="https://www.adobe.com/sign/developer-form.html" class="topbarlink">Get a Dev Account</a>
+            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Developer Forum</a>
           </div>  
           <div class="sign-in">
             <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
@@ -382,19 +373,7 @@
   <div class="section" id="api-usage">
 <h1>API Usage<a class="headerlink" href="#api-usage" title="Permalink to this heading">¶</a></h1>
 <p>The Acrobat Sign API allows you to quickly build client-side applications that can utilize the signing functionalities offered by Acrobat Sign. This guide contains the most common scenarios in which you can use the API.</p>
-<p>Using the Acrobat Sign REST APIs, you can build elegant and scalable client-side applications in any scripting language that supports REST-based API calls. This section provides information on the API endpoint, request headers, request body, and the response.</p>
-<ul>
-<li><div class="line-block">
-<div class="line"><a class="reference external" href="https://www.adobe.com/go/acrobatsignapireference">Read the API Reference</a></div>
-<div class="line">Before you begin, browse through the API Reference and try a few endpoints.</div>
-</div>
-</li>
-<li><div class="line-block">
-<div class="line"><a class="reference external" href="https://secure.na1.echosign.com/redirect/latestRestApiSamples">REST samples</a></div>
-<div class="line">Download the REST samples for Acrobat Sign.</div>
-</div>
-</li>
-</ul>
+<p>Using the Acrobat Sign REST APIs, you can build elegant and scalable client-side applications in any scripting language that supports REST-based API calls. This section provides information on the API endpoint, request headers, request body, and the response.Before you begin, you can browse through the <a class="reference external" href="https://www.adobe.com/go/acrobatsignapireference">API Reference</a> and try a few endpoints.</p>
 <p>A 3-step basic signing workflow involves:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#send"><span class="std std-ref">Send the document</span></a></p></li>
@@ -406,10 +385,12 @@
 <p>Your CRM or document management system can send/upload documents for signing, either automatically or through user-initiated actions. When the document gets signed by all the parties, a PDF copy of the signed document(agreement) can be retrieved by your application.</p>
 <img alt="_images/sign_devguide_1.png" src="_images/sign_devguide_1.png" />
 <p>While getting the authorization code from the Acrobat Sign service, you also received the API access point as part of a query parameter (See <a class="reference internal" href="gstarted.html#token"><span class="std std-ref">Add an Authorization Request link</span></a>)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://myserver.com/?
-    code=CBNCKBAThIsIsNoTaReAlcs_sL4K32wCzs4N&amp;
-    api_access_point=https://api.na1.echosign.com/&amp;
-    web_access_point=https://secure.na1.echosign.com/
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://secure.echosign.com/public/oauth?
+   redirect_uri=https://your-oAuthInteraction-Server/your-oAuth-Page.html&amp;
+   response_type=code&amp;
+   client_id=CBJCHBCAABAAAbjw-szq8_Pg2Ljg7_b_vuaYiCAK1i4q&amp;
+   state=uhuhygtf576534&amp;
+   scope=user_read:account+user_write:account+user_login:account+agreement_read:account+agreement_write:account+agreement_send:account+widget_read:account+widget_write:account+library_read:account+library_write:account+workflow_read:account+workflow_write:account
 </pre></div>
 </div>
 <p>For all future service calls, Acrobat Sign sends the requests to this access point.</p>
@@ -685,7 +666,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Oct 06, 2022. 
+        Last update: Jan 03, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

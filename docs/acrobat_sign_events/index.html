@@ -80,16 +80,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-	  
-	  	  
-<!-- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -
-        <div class="wy-logo-wrapper">
-          <a href="https://www.adobe.com/go/dc_developer">
-            <img src="../_static/acrobaticon.png" class="logo"/> 
-          Acrobat, Adobe Sign, PDFL Developer
-          </a>
-        </div> 
-  @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+	
  
         <div class="wy-side-nav-search" >
           
@@ -303,8 +294,8 @@
             <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook Guide</a>
             <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
             <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
-            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Get a Dev Account</a>
-            <a href="" class="topbarlink">Developer Forum</a>
+            <a href="https://www.adobe.com/sign/developer-form.html" class="topbarlink">Get a Dev Account</a>
+            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Developer Forum</a>
           </div>  
           <div class="sign-in">
             <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
@@ -397,7 +388,7 @@
 <li><p>A list of available events</p></li>
 <li><p>Payload examples</p></li>
 <li><p>Notification details</p></li>
-<li><p>Error codes</p></li>
+<li><p>Error code</p></li>
 </ul>
 <div class="section" id="best-practices">
 <h2>Best Practices<a class="headerlink" href="#best-practices" title="Permalink to this heading">¶</a></h2>
@@ -486,10 +477,10 @@ I’t is also recommended to set up some sort of “polling” mechanism and som
 </div>
 <div class="section" id="verifying-webhook-url-intent">
 <span id="verifyintent"></span><h3>Verifying webhook URL intent<a class="headerlink" href="#verifying-webhook-url-intent" title="Permalink to this heading">¶</a></h3>
-<p>Before registering a webhook successfully, Acrobat Sign verifies that the webhook URL provided in the registration request really intends to receive notifications. For this purpose, receiving a new webhook registration request invokes a verification request to the webhook URL. This verification request is an HTTPS GET request sent to the webhook URL with a custom HTTP header, <code class="docutils literal notranslate"><span class="pre">xAdobeSignClientId</span></code>. The value in this header is set to the client ID (Application ID) of the API application that is requesting to register the webhook. To register a webhook successfully, the webhook URL must respond to this verification request with an HTTPS 2XX response code, and it also MUST send back the same client ID value in one of the following two ways.</p>
+<p>Before registering a webhook successfully, Acrobat Sign verifies that the webhook URL provided in the registration request really intends to receive notifications. For this purpose, receiving a new webhook registration request invokes a verification request to the webhook URL. This verification request is an HTTPS GET request sent to the webhook URL with a custom HTTP header, X-ADOBESIGN-CLIENTID. The value in this header is set to the client ID (Application ID) of the API application that is requesting to register the webhook. To register a webhook successfully, the webhook URL must respond to this verification request with an HTTPS 2XX response code, and it also MUST send back the same client ID value in one of the following two ways.</p>
 <div class="section" id="method-1-custom-response-header">
 <h4>Method 1: Custom response header<a class="headerlink" href="#method-1-custom-response-header" title="Permalink to this heading">¶</a></h4>
-<p>You can respond to the verification request in a custom response header, <code class="docutils literal notranslate"><span class="pre">xAdobeSignClientId</span></code>. This is the same header which was passed in the request, and can be echoed back in the response.</p>
+<p>You can respond to the verification request in a custom response header, X-ADOBESIGN-CLIENTID. This is the same header which was passed in the request, and can be echoed back in the response.</p>
 <p>Sample: JavaScript</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Fetch</span> <span class="n">client</span> <span class="nb">id</span>
 <span class="n">var</span> <span class="n">clientid</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;X-ADOBESIGN-CLIENTID&#39;</span><span class="p">];</span>
@@ -558,7 +549,7 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>The webhook is successfully registered only on a success response (2XX response code) and the validation of the client ID in either the header or response body.</strong> The purpose of this verification request is to demonstrate to Acrobat Sign that your webhook really does want to receive notifications at that URL. Had you accidentally entered the wrong URL, the webhook would fail to respond correctly to the verification-of-intent request, and Acrobat Sign would not send any notifications to that URL. Your app can also validate that it will receive notifications only through webhooks which are registered by a specific application. This can be done by validating the client ID of the application passed in the <code class="docutils literal notranslate"><span class="pre">xAdobeSignClientId</span></code> header. If the webhook does not recognize that client ID, it MUST NOT respond with the success response code and Acrobat Sign will take care that the URL is not registered as a webhook.</p>
+<p><strong>The webhook is successfully registered only on a success response (2XX response code) and the validation of the client ID in either the header or response body.</strong> The purpose of this verification request is to demonstrate to Acrobat Sign that your webhook really does want to receive notifications at that URL. Had you accidentally entered the wrong URL, the webhook would fail to respond correctly to the verification-of-intent request, and Acrobat Sign would not send any notifications to that URL. Your app can also validate that it will receive notifications only through webhooks which are registered by a specific application. This can be done by validating the client ID of the application passed in the X-ADOBESIGN-CLIENTID header. If the webhook does not recognize that client ID, it MUST NOT respond with the success response code and Acrobat Sign will take care that the URL is not registered as a webhook.</p>
 <p>The call to verify the webhook URL occurs in the following scenarios:</p>
 <ul class="simple">
 <li><p>Registering a webhook: If this verification of webhook URL call fails, the webhook will not be created.</p></li>
@@ -568,7 +559,7 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
 </div>
 <div class="section" id="how-to-respond-to-a-webhook-notification">
 <h3>How to respond to a webhook notification<a class="headerlink" href="#how-to-respond-to-a-webhook-notification" title="Permalink to this heading">¶</a></h3>
-<p>Acrobat Sign performs an implicit verification of intent in each webhook notification request that is sent to the webhook URL. Every webhook notification HTTPS request contains the customer HTTP header called <code class="docutils literal notranslate"><span class="pre">X-AdobeSign-ClientId``*</span> <span class="pre">The</span> <span class="pre">value</span> <span class="pre">of</span> <span class="pre">this</span> <span class="pre">header</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">client</span> <span class="pre">ID</span> <span class="pre">(Application</span> <span class="pre">ID)</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">application</span> <span class="pre">that</span> <span class="pre">created</span> <span class="pre">the</span> <span class="pre">webhook.</span> <span class="pre">We</span> <span class="pre">will</span> <span class="pre">consider</span> <span class="pre">the</span> <span class="pre">webhook</span> <span class="pre">notification</span> <span class="pre">successfully</span> <span class="pre">delivered,</span> <span class="pre">if</span> <span class="pre">and</span> <span class="pre">only</span> <span class="pre">if</span> <span class="pre">a</span> <span class="pre">success</span> <span class="pre">response</span> <span class="pre">**(2XX</span> <span class="pre">response</span> <span class="pre">code)**</span> <span class="pre">is</span> <span class="pre">returned</span> <span class="pre">and</span> <span class="pre">the</span> <span class="pre">the</span> <span class="pre">client</span> <span class="pre">ID</span> <span class="pre">is</span> <span class="pre">sent</span> <span class="pre">in</span> <span class="pre">either</span> <span class="pre">the</span> <span class="pre">HTTP</span> <span class="pre">header</span> <span class="pre">``(X-AdobeSign-ClientId)</span></code> or in a JSON response body with key as <code class="docutils literal notranslate"><span class="pre">xAdobeSignClientId</span></code> and value as the same client ID; otherwise, Acrobat Sign will retry to deliver the notification to the webhook URL until the retries are exhausted.</p>
+<p>Acrobat Sign performs an implicit verification of intent in each webhook notification request that is sent to the webhook URL. Every webhook notification HTTPS request contains the customer HTTP header called X-ADOBESIGN-CLIENTID* The value of this header is the client ID (Application ID) of the application that created the webhook. We will consider the webhook notification successfully delivered, if and only if a success response <strong>(2XX response code)</strong> is returned and the the client ID is sent in either the HTTP header (X-ADOBESIGN-CLIENTID) or in a JSON response body with key as <code class="docutils literal notranslate"><span class="pre">xAdobeSignClientId</span></code> and value as the same client ID; otherwise, Acrobat Sign will retry to deliver the notification to the webhook URL until the retries are exhausted.</p>
 </div>
 <div class="section" id="hosting-your-webhook-in-the-cloud">
 <h3>Hosting your webhook in the cloud<a class="headerlink" href="#hosting-your-webhook-in-the-cloud" title="Permalink to this heading">¶</a></h3>
@@ -677,7 +668,7 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
 <li><p><strong>Allowing only HTTPS URLs:</strong> Only HTTPS URLs are valid.</p></li>
 <li><p><strong>Validating webhooks subscription for authentication and authorization for webhooks created through the API:</strong> This is done using the existing API authentication and authorization validation in Sign. The first step for securing Acrobat Sign webhooks is to include the standard authentication mechanism (OAuth access token and authorization header). While setting up a webhook subscription, Sign validates that the token is valid and the API caller has permissions to create a webhook on the resource. We will also validate that the API caller has appropriate authorization to create account-level webhooks.</p></li>
 <li><p><strong>Two-way SSL authentication:</strong> Acrobat Sign supports a two-way SSL handshake when making callbacks to customer servers. Two-way SSL, often called Client-Side SSL, is a mode of SSL wherein both the server and the client (web browser) present certificates to identify themselves. We allow the account admins, via their account Security Settings page, to upload an identifying certificate, which the Adobe Sign webhooks systemuse to identify itself when making webhook calls to their servers. Acrobat Sign verifies SSL certificates when delivering payloads to HTTPS webhook addresses. Webhooks that fail the SSL certificate verification will not successfully deliver to their respective hosts. Please ensure your server is correctly configured to support HTTPS with a valid SSL certificate.</p></li>
-<li><p><strong>Keeping the webhook configuration immutable:</strong> If your webhook URL changes, there is a possibility that your application consumer key and consumer secret have been compromised. By requiring you to create a new webhook configuration, we also require you to resubscribe to your user’s events. This requires the use of access tokens that a malicious party is less likely to possess. Doing so reduces teh likelihood that another party will receive your user’s private information.</p></li>
+<li><p><strong>Keeping the webhook configuration immutable:</strong> If your webhook URL changes, there is a possibility that your application consumer key and consumer secret have been compromised. By requiring you to create a new webhook configuration, we also require you to resubscribe to your user’s events. This requires the use of access tokens that a malicious party is less likely to possess. Doing so reduces the likelihood that another party will receive your user’s private information.</p></li>
 <li><p><strong>Sending and receiving the client ID in the webhook notification request:</strong> You can whitelist the client/application IDs through which you want to receive the payload. Notifications from the remaining apps can be ignored.</p></li>
 <li><p><strong>Recommended server configurations:</strong> Acrobat sign only supports TLS 1.2 for webhooks. TLS 1.0 and 1.1 are not supported.</p></li>
 <li><p><strong>IP validation:</strong> To prevent setting an internal subnet (for example, a 10.x address), special IP address ranges such as the 169.254.169.254 range, and other invalid IP addresses as webhook URLs, Acrobat Sign validates the IP address at the time of webhook creation as well as while sending notifications. If the IP address is invalid, the webhook is not created. IP validation occurs as follows:</p>
@@ -735,7 +726,7 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Nov 08, 2022. 
+        Last update: Jan 03, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
