@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
+  
+  <title>GovCloud API Documentation &mdash; Acrobat Sign for Government: Developer</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />  
+  <link href="../_static/copybutton.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+    
+  
+  
+  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/toc.html" />
+  
+
+  
+  
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/jquery.js"></script>
+  <script type="text/javascript" src="../_static/underscore.js"></script>
+  <script type="text/javascript" src="../_static/doctools.js"></script>
+  <script type="text/javascript" src="../_static/language_data.js"></script>
+  <script type="text/javascript" src="../_static/searchtools.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+   
+  
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Sign for Government: Developer Overview" href="index.html" /> 
+  
+<script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
+<script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+
+	<script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+          $('.fixedbar, .wy-nav-side').addClass('scroll');
+          $('.wy-top-menu-wrapper').fadeOut();
+        } else {
+          $('.fixedbar, .wy-nav-side').removeClass('scroll');
+          $('.wy-top-menu-wrapper').fadeIn();
+        }
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn();
+        } else {
+          $('#scroll').fadeOut();
+        }
+      });
+      $('#scroll').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+      });
+    });
+  </script>
+
+<style>
+  .wy-nav-content {max-width:90%}
+  </style>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+	
+ 
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> Acrobat Sign for Government: Developer
+          
+
+          
+          </a>
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Sign for Government: Developer Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gstarted.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#recommended-first-steps">Recommended first steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#okta-tenant-setup">Okta tenant setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#okta-authentication">Okta authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#domain-claiming">Domain claiming</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gstarted.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gstarted.html#claim-domain-steps">Claim domain steps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#registering-an-api-application">Registering an API application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apps.html">APIs and Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apps.html#basic-details">Basic details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apps.html#send-api-call-to-the-right-place">Send API call to the right place</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html#impersonation">Impersonation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apps.html#how-to-use-impersonation">How to use impersonation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html#endpoint-summary">Endpoint summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html#oauth-and-impersonation-apis">OAuth and impersonation APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apps.html#authorize">Authorize</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#request">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#response">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#success-response">Success Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#error-response">Error response</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apps.html#token">Token</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#common-request-aspects">Common Request Aspects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#request-with-authorization-code">Request with Authorization Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#request-with-refresh-token">Request with Refresh Token</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#id2">Success Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#id3">Error response</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apps.html#validate-token">Validate Token</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#id4">Common Request Aspects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#id5">Success Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#id6">Error response</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apps.html#invalidate-token">Invalidate Token</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#id7">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#id8">Success Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#id9">Error Response</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apps.html#logout">Logout</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#id10">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#id11">Success Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#id12">Error response</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html#clickjacking-defense-for-sign-views">Clickjacking Defense for Sign Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html#signer-authentication-mechanisms">Signer authentication mechanisms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="diffs.html">Differences between Sign Gov and Commercial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#compliance">Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#account-setup">Account setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#domains">Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#oauth">OAuth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#endpoints">Endpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#signer-authentication">Signer authentication</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+        <div class="fixedbar">  
+          <div class="wy-menu-items">
+            <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer Guide</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook Guide</a>
+            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
+            <a href="https://www.adobe.com/sign/developer-form.html" class="topbarlink">Get a Dev Account</a>
+            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Developer Forum</a>
+          </div>  
+          <div class="sign-in">
+            <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+           <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
+          </div>
+        </div>
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+
+
+
+
+   
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Acrobat Sign for Government: Developer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+      <a href="#" id="scroll" style="display:inline;"><span></span></a>
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>GovCloud API Documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="index.html" class="btn btn-neutral float-right" title="Sign for Government: Developer Overview" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="govcloud-api-documentation">
+<h1>GovCloud API Documentation<a class="headerlink" href="#govcloud-api-documentation" title="Permalink to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Sign for Government: Developer Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gstarted.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#recommended-first-steps">Recommended first steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#okta-tenant-setup">Okta tenant setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#registering-an-api-application">Registering an API application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apps.html">APIs and Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apps.html#basic-details">Basic details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html#impersonation">Impersonation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html#endpoint-summary">Endpoint summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html#oauth-and-impersonation-apis">OAuth and impersonation APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html#clickjacking-defense-for-sign-views">Clickjacking Defense for Sign Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html#signer-authentication-mechanisms">Signer authentication mechanisms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="diffs.html">Differences between Sign Gov and Commercial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#compliance">Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#account-setup">Account setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#domains">Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#oauth">OAuth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#endpoints">Endpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#signer-authentication">Signer authentication</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2023, Adobe Inc..
+      <span class="lastupdated">
+        Last update: Feb 07, 2023. 
+        <img src="../_static/adobelogo.png" class="logo"/> 
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

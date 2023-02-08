@@ -1,0 +1,1360 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
+  
+  <title>APIs and Applications &mdash; Acrobat Sign for Government: Developer</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />  
+  <link href="../_static/copybutton.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+    
+  
+  
+  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/apps.html" />
+  
+
+  
+  
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/jquery.js"></script>
+  <script type="text/javascript" src="../_static/underscore.js"></script>
+  <script type="text/javascript" src="../_static/doctools.js"></script>
+  <script type="text/javascript" src="../_static/language_data.js"></script>
+  <script type="text/javascript" src="../_static/searchtools.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+   
+  
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Differences between Sign Gov and Commercial" href="diffs.html" />
+    <link rel="prev" title="Getting Started" href="gstarted.html" /> 
+  
+<script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
+<script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+
+	<script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+          $('.fixedbar, .wy-nav-side').addClass('scroll');
+          $('.wy-top-menu-wrapper').fadeOut();
+        } else {
+          $('.fixedbar, .wy-nav-side').removeClass('scroll');
+          $('.wy-top-menu-wrapper').fadeIn();
+        }
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn();
+        } else {
+          $('#scroll').fadeOut();
+        }
+      });
+      $('#scroll').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+      });
+    });
+  </script>
+
+<style>
+  .wy-nav-content {max-width:90%}
+  </style>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+	
+ 
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="toc.html" class="icon icon-home"> Acrobat Sign for Government: Developer
+          
+
+          
+          </a>
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Sign for Government: Developer Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gstarted.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#recommended-first-steps">Recommended first steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#okta-tenant-setup">Okta tenant setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#okta-authentication">Okta authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#domain-claiming">Domain claiming</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gstarted.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gstarted.html#claim-domain-steps">Claim domain steps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#registering-an-api-application">Registering an API application</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">APIs and Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-details">Basic details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#send-api-call-to-the-right-place">Send API call to the right place</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#impersonation">Impersonation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-use-impersonation">How to use impersonation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#endpoint-summary">Endpoint summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oauth-and-impersonation-apis">OAuth and impersonation APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#authorize">Authorize</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#request">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#response">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#success-response">Success Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#error-response">Error response</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#token">Token</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#common-request-aspects">Common Request Aspects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#request-with-authorization-code">Request with Authorization Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#request-with-refresh-token">Request with Refresh Token</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Success Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Error response</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#validate-token">Validate Token</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Common Request Aspects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Success Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Error response</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#invalidate-token">Invalidate Token</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Success Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Error Response</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#logout">Logout</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Success Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Error response</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#clickjacking-defense-for-sign-views">Clickjacking Defense for Sign Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#signer-authentication-mechanisms">Signer authentication mechanisms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="diffs.html">Differences between Sign Gov and Commercial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#compliance">Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#account-setup">Account setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#domains">Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#oauth">OAuth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#endpoints">Endpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#signer-authentication">Signer authentication</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+        <div class="fixedbar">  
+          <div class="wy-menu-items">
+            <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer Guide</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook Guide</a>
+            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
+            <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
+            <a href="https://www.adobe.com/sign/developer-form.html" class="topbarlink">Get a Dev Account</a>
+            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Developer Forum</a>
+          </div>  
+          <div class="sign-in">
+            <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+           <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
+          </div>
+        </div>
+        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+
+
+
+
+   
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="toc.html">Acrobat Sign for Government: Developer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+      <a href="#" id="scroll" style="display:inline;"><span></span></a>
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>APIs and Applications</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="diffs.html" class="btn btn-neutral float-right" title="Differences between Sign Gov and Commercial" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="gstarted.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="apis-and-applications">
+<h1>APIs and Applications<a class="headerlink" href="#apis-and-applications" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This beta document is under construction. Send feedback and requests to <a class="reference external" href="mailto:brogers&#37;&#52;&#48;adobe&#46;com">brogers<span>&#64;</span>adobe<span>&#46;</span>com</a>.</p>
+</div>
+<div class="section" id="basic-details">
+<h2>Basic details<a class="headerlink" href="#basic-details" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="send-api-call-to-the-right-place">
+<h3>Send API call to the right place<a class="headerlink" href="#send-api-call-to-the-right-place" title="Permalink to this heading">¶</a></h3>
+<p>Acrobat Sign Commercial and Acrobat Sign for Government services are on different top-level domains. Both the domain and extensions are different:</p>
+<ul class="simple">
+<li><p>Commercial Cloud, PCI and HIPAA compliant (note <strong>.com</strong>): <code class="docutils literal notranslate"><span class="pre">https://secure.adobesign.com</span></code></p></li>
+<li><p>US Government Cloud, FedRAMP Moderate compliant (note <strong>.us</strong>): <code class="docutils literal notranslate"><span class="pre">https://secure.na1.adobesign.us</span></code></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="impersonation">
+<span id="id1"></span><h2>Impersonation<a class="headerlink" href="#impersonation" title="Permalink to this heading">¶</a></h2>
+<p>Some workflows are more efficient (and even possible) when a holder of one token can act on behalf of other users; in other words, when a user or client can perform actions on behalf of other users or clients (impersonate them). Impersonation occurs when the subject of the authentication identified by the original credentials differs from the one that will perform a certain action. An application or API cannot determine from a token if the subject is the entity that was actually logged in, so it’s often advantageous to use anonymous tokens to get work done.</p>
+<p>For example, admins may want to perform actions on behalf of users without having to specify the user he/she is impersonating.
+Since it’s inefficient to have every user get an OAuth token, admins often want to be able to make a token available to all users. Doing so avoids having every user log in, get a unique token, and so on.</p>
+<p>TBD: Insert code samples (JSON request/response) for impersonating one user or many users</p>
+<p>Note that impersonation in Acrobat Sign for Government varies from the commercial instance as follows:</p>
+<ul>
+<li><p>Does not support the <code class="docutils literal notranslate"><span class="pre">x-api-user</span></code> header for impersonation due to security Okta restrictions.</p></li>
+<li><p>Supports OAuth only–not integration keys.</p></li>
+<li><p>Supports impersonation from account-admin scoped tokens, not Group-Admin tokens (yet).</p></li>
+<li><p>Both direct customers and partners have to ask Adobe to enable impersonation for an application.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Impersonation is enabled on an application via the <code class="docutils literal notranslate"><span class="pre">acc_imp</span></code> scope.</p></li>
+<li><p>Refresh tokens are enabled via <code class="docutils literal notranslate"><span class="pre">offline_access</span></code> scope.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both the commercial and government Acrobat Sign instances enable the use of <code class="docutils literal notranslate"><span class="pre">autoLogin:</span> <span class="pre">true</span></code> for Sign /view APIs by the <code class="docutils literal notranslate"><span class="pre">user_login</span></code> scope.</p>
+</div>
+<div class="section" id="how-to-use-impersonation">
+<h3>How to use impersonation<a class="headerlink" href="#how-to-use-impersonation" title="Permalink to this heading">¶</a></h3>
+<p>For impersonation, API applications need to exchange the Sign admin token for another user-impersonation token. Usage details:</p>
+<ul class="simple">
+<li><p>Only admins can generate an <code class="docutils literal notranslate"><span class="pre">admin_token</span></code> and associated <code class="docutils literal notranslate"><span class="pre">admin_refresh_token</span></code>.</p></li>
+<li><p>The admin uses the <code class="docutils literal notranslate"><span class="pre">admin_token</span></code> to generate an <code class="docutils literal notranslate"><span class="pre">impersonation_token</span></code>. An <code class="docutils literal notranslate"><span class="pre">admin_token</span></code> can only be used to generate the impersonation token for users in the same account as the account admin for which the admin token was generated.</p></li>
+<li><p>The lifespan of the admin_token is 5 min.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">admin_refresh_token</span></code> lifetime is unlimited but will expire if not used for more than 30 days.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">admin_refresh_token</span></code> should be persisted in a secure storage location (for headless/background processing).</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="endpoint-summary">
+<h2>Endpoint summary<a class="headerlink" href="#endpoint-summary" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>GET <a class="reference external" href="https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/authorize">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/authorize</a>: Start the authorization code flow to login and consent to application permissions</p></li>
+<li><p>POST <a class="reference external" href="https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/token">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/token</a>: Obtain an access_token and, except for impersonation, a refresh_token upon successful completion and redirect back from the authorization code flow</p></li>
+<li><p>POST <a class="reference external" href="https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/validate_token">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/validate_token</a>: Validate an existing token</p></li>
+<li><p>POST <a class="reference external" href="https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/invalidate_token">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/invalidate_token</a>: Invalidate/revoke a particular token</p></li>
+<li><p>GET <a class="reference external" href="https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/logout">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/logout</a>: Invalidate/revoke all tokens related to the user to which the token belongs</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These APIs follow an underscore naming convention, as opposed to camelCase, for parameters as they relate to OAuth, Adobe Identity, and OKTA APIs with this similar naming convention. Sign Gov OAuth endpoints must be used–not direct Okta OAuth APIs. However, you may find the OAuth docs helpful: <a class="reference external" href="https://developer.okta.com/docs/reference/api/oidc/#endpoints">https://developer.okta.com/docs/reference/api/oidc/#endpoints</a></p>
+</div>
+</div>
+<div class="section" id="debugging">
+<h2>Debugging<a class="headerlink" href="#debugging" title="Permalink to this heading">¶</a></h2>
+<p>It’s recommended to pass an <code class="docutils literal notranslate"><span class="pre">x-request-id</span></code> header with APIs as a way to track requests for debugging.</p>
+</div>
+<div class="section" id="oauth-and-impersonation-apis">
+<h2>OAuth and impersonation APIs<a class="headerlink" href="#oauth-and-impersonation-apis" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="authorize">
+<h3>Authorize<a class="headerlink" href="#authorize" title="Permalink to this heading">¶</a></h3>
+<p><strong>Summary:</strong> The request redirects the user agent to the specified (or default) identity provider for authentication. The actual UI that is displayed to the user depends on your client type in your respective identity provider.</p>
+<p>This is a starting point for browser-based OpenID Connect flows such as authorization code flow. This request authenticates the user and returns an authorization code to the client application as a part of the callback response (redirect uri).</p>
+<div class="section" id="request">
+<h4>Request<a class="headerlink" href="#request" title="Permalink to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><strong>Method</strong>: GET</p></li>
+<li><p><strong>Authorization required</strong>: No</p></li>
+<li><p><strong>Available versions</strong>: <code class="docutils literal notranslate"><span class="pre">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/authorize</span></code></p></li>
+</ul>
+<p><strong>Request QueryParameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 78%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Parameter</strong></p></th>
+<th class="head"><p><strong>Required</strong></p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p><strong>Default</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>client_id</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Identifies the application/client pre-registered with Authorization Server</p></td>
+</tr>
+<tr class="row-odd"><td><p>response_type</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td><p>code</p></td>
+<td><p>Expected as “code” for the authorization code flow to have authorization code to be returned as a part of response</p></td>
+</tr>
+<tr class="row-even"><td><p>redirect_uri</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>User will be redirected here at the end of the authorization process.
+The value must belong to the set of values specified on the OAuth Configuration page</p></td>
+</tr>
+<tr class="row-odd"><td><p>scope</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>The permissions (space separated, spaces becoming + or %20 when URL-encoded) that the user will be asked to approve. ex: &amp;scope=email,openid</p></td>
+</tr>
+<tr class="row-even"><td><p>state</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>A value to be returned as a query parameter. This will be used to implement CSRF protection on the client side.It can contain alphanumeric, comma, period, underscore, and hyphen characters.</p></td>
+</tr>
+<tr class="row-odd"><td><p>login_hint</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Email of user trying to login, to help identify tenant by email domain</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="response">
+<h4>Response<a class="headerlink" href="#response" title="Permalink to this heading">¶</a></h4>
+<p>Once the user is authenticated by the identity provider, determines whether authorization can be granted, then <strong>redirects the user agent to the URI that you have supplied or configured for your client’s start page.</strong> The redirect contains the authorization grant, in the form of the code or token appropriate to your grant type.</p>
+<p><strong>Note:</strong> When making requests to the <code class="docutils literal notranslate"><span class="pre">/authorize</span></code> endpoint, the browser (user agent) should be redirected to the endpoint . You can’t use AJAX with this endpoint but you can have a link or button directly or indirectly via JS navigates to the /authorize URL: <a class="reference external" href="https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/authorize?clientId=...&amp;response_type=...&amp;scope=...&amp;state=...&amp;login_hint=...&amp;redirectUri=">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/authorize?clientId=…&amp;response_type=…&amp;scope=…&amp;state=…&amp;login_hint=…&amp;redirectUri=</a>…</p>
+</div>
+<div class="section" id="success-response">
+<h4>Success Response<a class="headerlink" href="#success-response" title="Permalink to this heading">¶</a></h4>
+<p>The following will be returned as URL query parameters from the identity provider (Okta or Adobe IMS) as part of 302 redirect:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 92%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>code</p></td>
+<td><p>An opaque value that can be used to redeem tokens from the token endpoint. <code class="docutils literal notranslate"><span class="pre">code</span></code> is returned if the <code class="docutils literal notranslate"><span class="pre">response_type</span></code> includes <code class="docutils literal notranslate"><span class="pre">code</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>expires_in</p></td>
+<td><p>Number of seconds until the <code class="docutils literal notranslate"><span class="pre">access_token</span></code> expires. This is only returned if the response included an <code class="docutils literal notranslate"><span class="pre">access_token</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>state</p></td>
+<td><p>The unmodified <code class="docutils literal notranslate"><span class="pre">state</span></code> value from the request.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="error-response">
+<h4>Error response<a class="headerlink" href="#error-response" title="Permalink to this heading">¶</a></h4>
+<p>The API returns the following URL query parameters on error:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>error</p></td>
+<td><p>The error code, if something went wrong.</p></td>
+</tr>
+<tr class="row-odd"><td><p>error_description</p></td>
+<td><p>Additional error information (if any).</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Error Codes</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 79%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>error</strong></p></th>
+<th class="head"><p><strong>error_description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>invalid_client</p></td>
+<td><p>The specified client ID is invalid.</p></td>
+</tr>
+<tr class="row-odd"><td><p>invalid_request</p></td>
+<td><p>&lt;Parameter Name&gt; is missing or empty/invalid.</p></td>
+</tr>
+<tr class="row-even"><td><p>invalid_scope</p></td>
+<td><p>The scopes list contains an invalid or unsupported value.</p></td>
+</tr>
+<tr class="row-odd"><td><p>temporarily_unavailable</p></td>
+<td><p>The server is temporarily unavailable, but should be able to process the request at a later time.</p></td>
+</tr>
+<tr class="row-even"><td><p>unsupported_response_type</p></td>
+<td><p>The specified response type is invalid or unsupported.</p></td>
+</tr>
+<tr class="row-odd"><td><p>internal_server_error</p></td>
+<td><p>Service Error</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="token">
+<h3>Token<a class="headerlink" href="#token" title="Permalink to this heading">¶</a></h3>
+<p><strong>Summary:</strong> This endpoint returns access tokens, ID tokens, and refresh tokens, depending on the request parameters. Please refer specific grant_type flows for list of required parameters.</p>
+<div class="section" id="common-request-aspects">
+<h4>Common Request Aspects<a class="headerlink" href="#common-request-aspects" title="Permalink to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><strong>Method</strong>: POST</p></li>
+<li><p><strong>Authorization required</strong>:  No</p></li>
+<li><p><strong>Content-Type:</strong>: application/x-www-form-urlencoded</p></li>
+<li><p><strong>Available versions</strong>: <code class="docutils literal notranslate"><span class="pre">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/token</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="request-with-authorization-code">
+<h4>Request with Authorization Code<a class="headerlink" href="#request-with-authorization-code" title="Permalink to this heading">¶</a></h4>
+<p>For the authorization code flow, calling <code class="docutils literal notranslate"><span class="pre">/token</span></code> is the second step of the flow.</p>
+<p><strong>Request Body Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>client_id</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Your client ID, assigned on registration.</p></td>
+</tr>
+<tr class="row-odd"><td><p>client_assertion_type</p></td>
+<td><p>No</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>client_assertion_type specifies the type of value of client assertion. Refer to Okta docs <a class="reference external" href="https://developer.okta.com/docs/reference/api/oidc/">here</a>, e.g. <a class="reference external" href="urn:ietf:params:oauth:client-assertion-type:jwt-bearer.Must">urn:ietf:params:oauth:client-assertion-type:jwt-bearer.Must</a> be present if client_secret is not provided.</p></td>
+</tr>
+<tr class="row-even"><td><p>client_assertion</p></td>
+<td><p>No</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>client_assertion related to the client_assertion_type above. Must be present if client_secret is not provided.</p>
+<p>Audience used to generate this assertion must be ‘token_endpoint’ provided as a part of application onboarding.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>client_secret</p></td>
+<td><p>No</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>client_secret related to the client_assertion_type above. Must be present if both of client_assertion_type and client_assertion are not provided.</p></td>
+</tr>
+<tr class="row-even"><td><p>grant_type</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Determines the mechanism the identity provider uses to initiate the creation of the tokens. Use the string literal ‘authorization_code’.</p></td>
+</tr>
+<tr class="row-odd"><td><p>code</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>The authorization code that was returned from the /authorize endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p>redirect_uri</p></td>
+<td><p>Yes</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Specifies the callback location where the authorization was sent. This value must match the <code class="docutils literal notranslate"><span class="pre">redirect_uri</span></code> parameter that was passed to the /authorize endpoint.</p></td>
+</tr>
+</tbody>
+</table>
+<p>If you want the response to this request to include a refresh token, you must have the scope <code class="docutils literal notranslate"><span class="pre">'</span></code> <code class="docutils literal notranslate"><span class="pre">offline_access'</span></code> enabled. In the authorization code flow, this means that you need to include <code class="docutils literal notranslate"><span class="pre">'</span></code> <code class="docutils literal notranslate"><span class="pre">offline_access'</span></code> as part of <code class="docutils literal notranslate"><span class="pre">scope</span></code> in your GET request to /authorize.</p>
+</div>
+<div class="section" id="request-with-refresh-token">
+<h4>Request with Refresh Token<a class="headerlink" href="#request-with-refresh-token" title="Permalink to this heading">¶</a></h4>
+<p><strong>Request Body Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>client_id</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Your client ID, assigned on registration.</p></td>
+</tr>
+<tr class="row-odd"><td><p>client_assertion_type</p></td>
+<td><p>No</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>client_assertion_type specifies the type of value of client assertion. Refer to Okta docs <a class="reference external" href="https://developer.okta.com/docs/reference/api/oidc/">here</a>, e.g. <a class="reference external" href="urn:ietf:params:oauth:client-assertion-type:jwt-bearer.Must">urn:ietf:params:oauth:client-assertion-type:jwt-bearer.Must</a> be present if client_secret is not provided.</p></td>
+</tr>
+<tr class="row-even"><td><p>client_assertion</p></td>
+<td><p>No</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>client_assertion related to the client_assertion_type above. Must be present if client_secret is not provided.</p>
+<p>Audience used to generate this assertion must be ‘token_endpoint’ provided as a part of application onboarding.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>client_secret</p></td>
+<td><p>No</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>client_secret related to the client_assertion_type above. Must be present if client_assertion_type and client_assertion is not provided.</p></td>
+</tr>
+<tr class="row-even"><td><p>grant_type</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Should have the value as:<code class="docutils literal notranslate"><span class="pre">refresh_token</span></code>. Determines the mechanism identity provider uses to initiate the creation of the tokens.</p></td>
+</tr>
+<tr class="row-odd"><td><p>refresh_token</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>The value is a valid refresh token that was returned from this endpoint previously.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="requestimpersonation">
+<h5>RequestImpersonation<a class="headerlink" href="#requestimpersonation" title="Permalink to this heading">¶</a></h5>
+<p>Exchanges a previously acquired token for an account/group admin inside an organization and scope to one for a selected user inside the organization.The parameters are based on RFC 8693.</p>
+<p><strong>Request Body Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>client_id</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Your client ID, assigned on registration.</p></td>
+</tr>
+<tr class="row-odd"><td><p>client_assertion_type</p></td>
+<td><p>No</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>client_assertion_type specifies the type of value of client assertion. Refer to Okta docs <a class="reference external" href="https://developer.okta.com/docs/reference/api/oidc/">here</a>, e.g. <a class="reference external" href="urn:ietf:params:oauth:client-assertion-type:jwt-bearer.Must">urn:ietf:params:oauth:client-assertion-type:jwt-bearer.Must</a> be present if client_secret is not provided.</p></td>
+</tr>
+<tr class="row-even"><td><p>client_assertion</p></td>
+<td><p>No</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>client_assertion related to the client_assertion_type above. Must be present if client_secret is not provided.</p>
+<p>Audience used to generate this assertion must be ‘token_endpoint’ provided as a part of application onboarding.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>client_secret</p></td>
+<td><p>No</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>client_secret related to the client_assertion_type above. Must be present if client_assertion_type and client_assertion is not provided.</p></td>
+</tr>
+<tr class="row-even"><td><p>grant_type</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Should have the value as :<a class="reference external" href="urn:ietf:params:oauth:grant-type:token">urn:ietf:params:oauth:grant-type:token</a>- exchange</p></td>
+</tr>
+<tr class="row-odd"><td><p>scope</p></td>
+<td><p>Yes</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p>String</p></td>
+<td></td>
+<td><p>This is a list of scopes (space separated, spaces becoming + or %20 when URL-encoded) that the client wants to be included in the access token. Please note :</p>
+<ol class="arabic simple">
+<li><p>The scopes being requested must be subset of the actor_token scopes</p></li>
+<li><p>Impersonation scopes can’t be requested (acc_imp, group_imp), even though they will be granted to actor_token</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><p>actor_token_type</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Should have the value as :”access_token”. Though not specified to be passed in tables above the “access_token” is granted for 3.1 and 3.2 as well.</p></td>
+</tr>
+<tr class="row-odd"><td><p>subject_token_type</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Should have the value as : “jwt”</p></td>
+</tr>
+<tr class="row-even"><td><p>subject_token</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>For passing the subject user information for whichimpersonation is requested. Unsecured user info jwt_token as per RFC 7519.</p>
+<p>Sample Value for a subject with user id <a class="reference external" href="mailto:service-fedramp-dev&#37;&#52;&#48;adobesignintegrationsdemo&#46;com">service-fedramp-dev<span>&#64;</span>adobesignintegrationsdemo<span>&#46;</span>com</a>:</p>
+<p>eyJhbGciOiJub25lIn0=.eyJ1c2VyX2VtYWlsIjoic2VydmljZS1mZWRyYW1wLWRldkBhZG9iZXNpZ25pbnRlZ3JhdGlvbnNkZW1vLmNvbSJ9</p>
+<p>The above value is obtained by doing a base64 encode of {“alg”:”none”} and concatenating it with base64 encode of {“user_email”:”<a class="reference external" href="mailto:service-fedramp-dev&#37;&#52;&#48;adobesignintegrationsdemo&#46;com">service-fedramp-dev<span>&#64;</span>adobesignintegrationsdemo<span>&#46;</span>com</a>”} separated by a period (.)</p>
+<p>{“alg”:”none”}.{“user_email”:”<a class="reference external" href="mailto:service-fedramp-dev&#37;&#52;&#48;adobesignintegrationsdemo&#46;com">service-fedramp-dev<span>&#64;</span>adobesignintegrationsdemo<span>&#46;</span>com</a>”}</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>actor_token</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Theadmin tokenfor which impersonation is requested. Please note :</p>
+<ol class="arabic simple">
+<li><p>The passed admin token should have either of impersonation scopes : acc_imp, group_imp</p></li>
+</ol>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id2">
+<h4>Success Response<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h4>
+<p>The API returns the following JSON attributes on success:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>access_token</p></td>
+<td><p>Anaccess token.</p></td>
+</tr>
+<tr class="row-odd"><td><p>token_type</p></td>
+<td><p>The audience (Bearer) of the token.</p></td>
+</tr>
+<tr class="row-even"><td><p>expires_in</p></td>
+<td><p>The expiration time of the access token in seconds.</p></td>
+</tr>
+<tr class="row-odd"><td><p>scope</p></td>
+<td><p>The scopes (space separated) contained in the access token.</p></td>
+</tr>
+<tr class="row-even"><td><p>refresh_token</p></td>
+<td><p>Refresh Token, which can be used to get a fresh Access Token. This would not be returned from impersonation flow token generation.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h4>Error response<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h4>
+<p>The API returns the following JSON attributes on error:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>error</p></td>
+<td><p>The error code, if something went wrong.</p></td>
+</tr>
+<tr class="row-odd"><td><p>error_description</p></td>
+<td><p>Additional error information (if any).</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Error Codes</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 9%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>error</p></th>
+<th class="head"><p>error_code</p></th>
+<th class="head"><p>error_description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>invalid_client</p></td>
+<td><p>400</p></td>
+<td><p>The client credentials are invalid or expired.</p></td>
+</tr>
+<tr class="row-odd"><td><p>invalid_grant</p></td>
+<td><p>400</p></td>
+<td><p>The code or refresh_token or redirect_uri in combination with grant_type is invalid.</p></td>
+</tr>
+<tr class="row-even"><td><p>invalid_request</p></td>
+<td><p>400</p></td>
+<td><p>&lt;Parameter Name&gt; is missing or empty/invalid.</p></td>
+</tr>
+<tr class="row-odd"><td><p>invalid_scope</p></td>
+<td><p>400</p></td>
+<td><p>The scopes list contains an invalid or unsupported value.</p></td>
+</tr>
+<tr class="row-even"><td><p>invalid_authenticating_token</p></td>
+<td><p>401</p></td>
+<td><p>actor_token is missing or invalid.</p></td>
+</tr>
+<tr class="row-odd"><td><p>unsupported_grant_type</p></td>
+<td><p>400</p></td>
+<td><p>The grant_type isn’t authorization_code , refresh_token or token_exchange.</p></td>
+</tr>
+<tr class="row-even"><td><p>invalid_body</p></td>
+<td><p>400</p></td>
+<td><p>actor_token or user_id provided ineligible for issuing token.</p></td>
+</tr>
+<tr class="row-odd"><td><p>internal_server_error</p></td>
+<td><p>500</p></td>
+<td><p>Service Error</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="validate-token">
+<h3>Validate Token<a class="headerlink" href="#validate-token" title="Permalink to this heading">¶</a></h3>
+<p><strong>Summary:</strong> This endpoint takes an access, ID, or refresh token, and returns a boolean that indicates whether it is active or not. If the token is active, additional data about the token is also returned. If the token is invalid, expired, or revoked, it is considered inactive.</p>
+<div class="section" id="id4">
+<h4>Common Request Aspects<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><strong>Method</strong>:  POST</p></li>
+<li><p><strong>Authorization required</strong>:  No</p></li>
+<li><p><strong>Content-Type:</strong>: application/x-www-form-urlencoded</p></li>
+<li><p><strong>Available versions</strong>: <code class="docutils literal notranslate"><span class="pre">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/validate_token</span></code></p></li>
+</ul>
+<p><strong>Request Body Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>client_id</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Your client ID, assigned on registration.</p></td>
+</tr>
+<tr class="row-odd"><td><p>client_assertion_type</p></td>
+<td><p>No</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>client_assertion_type specifies the type of value of client assertion. Refer to Okta docs <a class="reference external" href="https://developer.okta.com/docs/reference/api/oidc/">here</a>, e.g. <a class="reference external" href="urn:ietf:params:oauth:client-assertion-type:jwt-bearer.Must">urn:ietf:params:oauth:client-assertion-type:jwt-bearer.Must</a> be present if client_secret is not provided.</p></td>
+</tr>
+<tr class="row-even"><td><p>client_assertion</p></td>
+<td><p>No</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>client_assertion related to the client_assertion_type above. Must be present if client_secret is not provided.</p>
+<p>Audience used to generate this assertion must be ‘validate_token_endpoint ‘ provided as a part of application onboarding.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>client_secret</p></td>
+<td><p>No</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>client_secret related to the client_assertion_type above. Must be present if client_assertion_type and client_assertion is not provided.</p></td>
+</tr>
+<tr class="row-even"><td><p>token</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Token that needs to be validate</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Type Of token being passed</p>
+<p>(Accepted Values :access_token, <code class="docutils literal notranslate"><span class="pre">id_token,</span></code> <code class="docutils literal notranslate"><span class="pre">authorization_code,</span></code> <code class="docutils literal notranslate"><span class="pre">refresh_token</span></code> .)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id5">
+<h4>Success Response<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h4>
+<p>The API returns the following JSON attributes on success:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>scope</p></td>
+<td><p>A space-delimited list of scopes</p></td>
+</tr>
+<tr class="row-odd"><td><p>valid</p></td>
+<td><p>boolean to determine, If the provided token is valid</p></td>
+</tr>
+<tr class="row-even"><td><p>fg</p></td>
+<td><p>Floodgate value as described in the <a class="reference external" href="https://wiki.corp.adobe.com/display/ims/Floodgate+in+IMS">here</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>audience</p></td>
+<td><p>The audience of the token</p></td>
+</tr>
+<tr class="row-even"><td><p>expires_in</p></td>
+<td><p>The duration in seconds for which the token is valid since the issued_at time.</p></td>
+</tr>
+<tr class="row-odd"><td><p>expires_at</p></td>
+<td><p>The expiration time of the token in seconds since January 1, 1970 UTC.</p></td>
+</tr>
+<tr class="row-even"><td><p>client_id</p></td>
+<td><p>The ID of the client associated with the token</p></td>
+</tr>
+<tr class="row-odd"><td><p>device_id</p></td>
+<td><p>The ID of the device associated with the token</p></td>
+</tr>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>The identifier of the token</p></td>
+</tr>
+<tr class="row-odd"><td><p>issuer</p></td>
+<td><p>The issuer of the token</p></td>
+</tr>
+<tr class="row-even"><td><p>issued_at</p></td>
+<td><p>The issuing time of the token in seconds since January 1, 1970 UTC.</p></td>
+</tr>
+<tr class="row-odd"><td><p>as</p></td>
+<td><p>The short name of the authorization server that issued the token.</p></td>
+</tr>
+<tr class="row-even"><td><p>subject</p></td>
+<td><p>The subject of the token</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>The type of token.</p></td>
+</tr>
+<tr class="row-even"><td><p>user_id</p></td>
+<td><p>The user ID. This parameter is returned only if the token is an access token and the subject is an end user.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id6">
+<h4>Error response<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h4>
+<p>The API returns the following JSON attributes on error:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 59%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>error</p></td>
+<td><p>Error Code</p></td>
+</tr>
+<tr class="row-odd"><td><p>error_description</p></td>
+<td><p>Error Reason</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Error Codes</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 9%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>error</p></th>
+<th class="head"><p>error_code</p></th>
+<th class="head"><p>error_description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>invalid_client</p></td>
+<td><p>400</p></td>
+<td><p>The client credentials are invalid.</p></td>
+</tr>
+<tr class="row-odd"><td><p>invalid_request</p></td>
+<td><p>400</p></td>
+<td><p>&lt;Parameter Name&gt; is missing or empty/invalid.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">token_type_mismatch</span></code></p></td>
+<td><p>400</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">type</span></code> field was specified in the request, but does not match the actual token type</p></td>
+</tr>
+<tr class="row-odd"><td><p>internal_server_error</p></td>
+<td><p>500</p></td>
+<td><p>Service Error</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="invalidate-token">
+<h3>Invalidate Token<a class="headerlink" href="#invalidate-token" title="Permalink to this heading">¶</a></h3>
+<p><strong>Summary:</strong> The API takes an access or refresh token and revokes it.</p>
+<div class="section" id="id7">
+<h4>Request<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><strong>Method</strong>: POST</p></li>
+<li><p><strong>Authorization required</strong>: No</p></li>
+<li><p><strong>Content-Type:</strong>: application/x-www-form-urlencoded</p></li>
+<li><p><strong>Available versions</strong>: <code class="docutils literal notranslate"><span class="pre">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/invalidate_token</span></code></p></li>
+</ul>
+<p><strong>Request Body Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>client_id</p></td>
+<td><p>No</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Your client ID, assigned on registration.</p></td>
+</tr>
+<tr class="row-odd"><td><p>client_assertion_type</p></td>
+<td><p>No</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>client_assertion_type specifies the type of value of client assertion. Refer to Okta docs <a class="reference external" href="https://developer.okta.com/docs/reference/api/oidc/">here</a>, e.g. <a class="reference external" href="urn:ietf:params:oauth:client-assertion-type:jwt-bearer.Must">urn:ietf:params:oauth:client-assertion-type:jwt-bearer.Must</a> be present if client_secret is not provided.</p></td>
+</tr>
+<tr class="row-even"><td><p>client_assertion</p></td>
+<td><p>No</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>client_assertion related to the client_assertion_type above. Must be present if client_secret is not provided.</p>
+<p>Audience used to generate this assertion must be ‘revoke_token_endpoint ‘ provided as a part of application onboarding.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>client_secret</p></td>
+<td><p>No</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>client_secret related to the client_assertion_type above. Must be present if client_assertion_type and client_assertion is not provided.</p></td>
+</tr>
+<tr class="row-even"><td><p>token</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Token that needs to be validated</p></td>
+</tr>
+<tr class="row-odd"><td><p>token_type</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Type Of token being passed</p>
+<p>(Accepted Values :access_token, <code class="docutils literal notranslate"><span class="pre">id_token,</span></code> <code class="docutils literal notranslate"><span class="pre">authorization_code,</span></code> <code class="docutils literal notranslate"><span class="pre">refresh_token</span></code> .)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id8">
+<h4>Success Response<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h4>
+<p>On success, the response has the HTTP <strong>200</strong> (OK) status code. This means only that the authorization was accepted, it does not indicate the success or failure of the operation. Validate token api can be used to confirm that the token was successfully invalidated.</p>
+</div>
+<div class="section" id="id9">
+<h4>Error Response<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h4>
+<p>The API returns the following JSON attributes on error:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>error</p></td>
+<td><p>Error Code</p></td>
+</tr>
+<tr class="row-odd"><td><p>error_description</p></td>
+<td><p>Error Reason</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Error Codes</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 9%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>error</p></th>
+<th class="head"><p>error_code</p></th>
+<th class="head"><p>error_description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>invalid_client</p></td>
+<td><p>400</p></td>
+<td><p>The client credentials are invalid.</p></td>
+</tr>
+<tr class="row-odd"><td><p>invalid_request</p></td>
+<td><p>400</p></td>
+<td><p>&lt;Parameter Name&gt; is missing or empty/invalid.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">token_type_mismatch</span></code></p></td>
+<td><p>400</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">type</span></code> field was specified in the request, but does not match the actual token type</p></td>
+</tr>
+<tr class="row-odd"><td><p>internal_server_error</p></td>
+<td><p>500</p></td>
+<td><p>Service Error</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="logout">
+<h3>Logout<a class="headerlink" href="#logout" title="Permalink to this heading">¶</a></h3>
+<p>This endpoint logs the web browser user out of the identity provider if the subject matches that in the current identity provider session. An optional <code class="docutils literal notranslate"><span class="pre">redirect_uri</span></code> may be specified to redirect the browser after the logout is performed. Otherwise, the browser is redirected to the identity provider sign-in page.</p>
+<p>Logout is meant to be used as a URL link navigation from an interactive web browser UI, whereas Invalidate Token is meant to be used as a service API call.</p>
+<div class="section" id="id10">
+<h4>Request<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><strong>Request method</strong>:  GET</p></li>
+<li><p><strong>Authorization required</strong>: No</p></li>
+<li><p><strong>Available versions</strong>: <code class="docutils literal notranslate"><span class="pre">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/logout</span></code></p></li>
+</ul>
+<p><strong>Request Query Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 9%" />
+<col style="width: 10%" />
+<col style="width: 8%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>client_id</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Your client ID, assigned on registration.</p></td>
+</tr>
+<tr class="row-odd"><td><p>access_token</p></td>
+<td><p>Yes</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>The revoked access_token.</p></td>
+</tr>
+<tr class="row-even"><td><p>redirect_uri</p></td>
+<td><p>No</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>User will be redirected here at the end of the logout process.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id11">
+<h4>Success Response<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h4>
+<p>After internal redirects, the identity provider redirects the user agent back to the supplied <code class="docutils literal notranslate"><span class="pre">redirect_uri</span></code> location (if provided).</p>
+</div>
+<div class="section" id="id12">
+<h4>Error response<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h4>
+<p>The API returns the following JSON attributes on error:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>error</p></td>
+<td><p>The error code, if something went wrong.</p></td>
+</tr>
+<tr class="row-odd"><td><p>error_description</p></td>
+<td><p>Additional error information (if any).</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Error Codes</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>error</strong></p></th>
+<th class="head"><p><strong>error_description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>invalid_client</p></td>
+<td><p>The specified client ID is invalid.</p></td>
+</tr>
+<tr class="row-odd"><td><p>invalid_request</p></td>
+<td><p>&lt;Parameter Name&gt; is missing or empty/invalid.</p></td>
+</tr>
+<tr class="row-even"><td><p>internal_server_error</p></td>
+<td><p>Service Error</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="clickjacking-defense-for-sign-views">
+<h2>Clickjacking Defense for Sign Views<a class="headerlink" href="#clickjacking-defense-for-sign-views" title="Permalink to this heading">¶</a></h2>
+<p>API Applications using Sign Views in iframes or WebViews must leverage the clickjacking defense for Sign APIs. To do so, use the <code class="docutils literal notranslate"><span class="pre">frameParent</span></code> property with Sign <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">.../agreements/.../views</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;frameParent&quot;:</span> <span class="pre">&lt;domain</span> <span class="pre">suffix</span> <span class="pre">(e.g.</span></code> <code class="docutils literal notranslate"><span class="pre">adobe.com</span></code> <code class="docutils literal notranslate"><span class="pre">)&gt;</span></code></p></li>
+<li><p>The domain suffix is the domain to at least the 2nd level; for example, “adobe.com” but NOT just the top level “com”.</p></li>
+<li><p>The domain suffix will also support a full origin such as <code class="docutils literal notranslate"><span class="pre">https://secure.adobesign.com</span></code>, but it will not support a wildcard (*) domain prefix.</p></li>
+<li><p>You can also use multiple domains as comma-separated values.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>See <a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createAgreementView">https://secure.na1.adobesign.com/public/docs/restapi/v6#!/agreements/createAgreementView</a>.</p>
+</div>
+</div>
+<div class="section" id="signer-authentication-mechanisms">
+<h2>Signer authentication mechanisms<a class="headerlink" href="#signer-authentication-mechanisms" title="Permalink to this heading">¶</a></h2>
+<p>The following signer authentication mechanisms are available:</p>
+<ul class="simple">
+<li><p>Email</p></li>
+<li><p>Password</p></li>
+<li><p>Phone</p></li>
+<li><p>Knowledge-Based Authentication (KBA)</p></li>
+<li><p>Acrobat Sign</p></li>
+<li><p>Government ID</p></li>
+<li><p>Digital Identity Gateway</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2023, Adobe Inc..
+      <span class="lastupdated">
+        Last update: Feb 07, 2023. 
+        <img src="../_static/adobelogo.png" class="logo"/> 
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
