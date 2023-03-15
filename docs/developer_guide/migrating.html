@@ -1,23 +1,23 @@
 
 <!DOCTYPE html>
 <html class="writer-html5" lang="en">
+
 <head>
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
-  
-  <title>Migrating From SOAP &mdash; Acrobat Sign Developer Guide</title>
+  <meta name="description"
+    content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
+     <title>Migrating and Updating Apps &mdash; Acrobat Sign Developer Guide</title>
+  <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link href="../_static/jquery-ui.css" rel="stylesheet" />  
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />
   <link href="../_static/copybutton.css" rel="stylesheet" />
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-
-    
   
   
   <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/developer_guide/migrating.html" />
@@ -26,7 +26,8 @@
   
   
   
-  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" id="documentation_options" data-url_root="../"
+    src="../_static/documentation_options.js"></script>
   <script type="text/javascript" src="../_static/jquery.js"></script>
   <script type="text/javascript" src="../_static/underscore.js"></script>
   <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -35,16 +36,16 @@
   <script type="text/javascript" src="../_static/clipboard.min.js"></script>
   <script type="text/javascript" src="../_static/copybutton.js"></script>
   <script type="text/javascript" src="../_static/js/theme.js"></script>
-   
   
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Glossary" href="glossary.html" />
-    <link rel="prev" title="Web Message Events" href="events.html" /> 
   
-<script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
-<script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="prev" title="Web Message Events" href="events.html" /> 
 
-	<script>
+  <script
+    type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
+  <script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+
+  <script>
     $(document).ready(function () {
       $(window).scroll(function () {
         if ($(this).scrollTop() >= 50) {
@@ -69,8 +70,10 @@
     });
   </script>
 
-<style>
-  .wy-nav-content {max-width:90%}
+  <style>
+    .wy-nav-content {
+      max-width: 90%
+    }
   </style>
 </head>
 
@@ -80,19 +83,19 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-	
- 
+
+
         <div class="wy-side-nav-search" >
           
 
           
-            <a href="toc.html" class="icon icon-home"> Acrobat Sign Developer Guide
-          
+            <a href="toc.html"> Acrobat Sign Developer Guide
+              
 
-          
-          </a>
+              
+            </a>
 
-          
+            
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -101,25 +104,25 @@
   </form>
 </div>
 
-          
+            
         </div>
 
         
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
-            
-            
-              
-            
-            
-              <p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+          
+          
+          
+          
+          
+          <p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Acrobat Sign API Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="index.html#get-a-free-developer-account">Get a free developer account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#create-an-app">Create an app</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="gstarted.html">Acrobat Sign Quickstart</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="gstarted.html">Create an Application Quickstart</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="gstarted.html#create-an-app">Create an app</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gstarted.html#get-the-app-id-and-secret">Get the app ID and secret</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gstarted.html#configure-oauth">Configure OAuth</a></li>
@@ -221,62 +224,32 @@
 <li class="toctree-l2"><a class="reference internal" href="events.html#using-events">Using events</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Migrating From SOAP</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#soap-to-rest-mapping">SOAP to REST mapping</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#general-purpose-methods">General-purpose Methods</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#document-methods">Document Methods</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#status-methods">Status Methods</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#user-methods">User Methods</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#web-form-methods">Web Form Methods</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#test-methods">Test Methods</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Migrating and Updating Apps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#updating-api-authentication-methods">Updating API authentication methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#migrating-from-soap">Migrating From SOAP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#soap-to-rest-mapping">SOAP to REST mapping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#general-purpose-methods">General-purpose Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#document-methods">Document Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#status-methods">Status Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user-methods">User Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#web-form-methods">Web Form Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#test-methods">Test Methods</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#deprecated-soap-methods">Deprecated SOAP Methods</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#access-methods">Access Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#deprecated-soap-methods">Deprecated SOAP Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#access-methods">Access Methods</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#doc-methods">Doc Methods</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Status Methods</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">User Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Status Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">User Methods</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Webhook Guide</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="../acrobat_sign_events/index.html#://">Webhook Overview</a></li>
-<li class="toctree-l1"><a class="reference external" href="../acrobat_sign_events/webhookpayloadoverview.html#://">Payload Overview</a></li>
-<li class="toctree-l1"><a class="reference external" href="../acrobat_sign_events/webhookeventsagreements.html#://">Agreement Events</a></li>
-<li class="toctree-l1"><a class="reference external" href="../acrobat_sign_events/webhookeventslibrary.html#://">Library Events</a></li>
-<li class="toctree-l1"><a class="reference external" href="../acrobat_sign_events/webhookeventsmegasign.html#://">Sign in Bulk (megasign) Events</a></li>
-<li class="toctree-l1"><a class="reference external" href="../acrobat_sign_events/webhookeventswidget.html#://">Widget Events</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="../releasenotes/index.html#://">Developer release notes</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://helpx.adobe.com/sign/release-notes/adobe-sign.html#://">Product UI release notes</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">SDKs and Samples</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/sdks/index.html">SDK Home</a></li>
-<li class="toctree-l1"><a class="reference external" href="../sdks/js.html#://">JS SDK</a></li>
-<li class="toctree-l1"><a class="reference external" href="../sdks/java.html#://">JAVA SDK</a></li>
-<li class="toctree-l1"><a class="reference external" href="../sdks/openapi.html#://">OpenAPI SDK</a></li>
-<li class="toctree-l1"><a class="reference external" href="../sdks/csharp.html#://">CSharp SDK</a></li>
-<li class="toctree-l1"><a class="reference external" href="../sdks/rest.html#://">REST Samples</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v.6)</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/esign-dev-cert#://">Application certification form</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://helpx.adobe.com/sign/using/integration-guides.html">Acrobat Sign integration guides</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/trust/resources.html#://">Security and compliance</a></li>
+</li>
 </ul>
 
-            
+          
           
         </div>
         
@@ -285,42 +258,44 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
-        <div class="fixedbar">  
-          <div class="wy-menu-items">
-            <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer Guide</a>
-            <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook Guide</a>
-            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
-            <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
-            <a href="https://www.adobe.com/sign/developer-form.html" class="topbarlink">Get a Dev Account</a>
-            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Developer Forum</a>
-          </div>  
-          <div class="sign-in">
-            <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
-           <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
-          </div>
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+      <div class="fixedbar">
+        <div class="wy-menu-items">
+          <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer
+            Guide</a>
+          <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook
+            Guide</a>
+          <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
+          <a href="https://www.adobe.com/sign/developer-form.html" class="topbarlink">Get a Dev Account</a>
+          <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all"
+            class="topbarlink">Forum</a>
         </div>
-        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+        <div class="sign-in">
+          <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+          <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
+        </div>
+      </div>
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
 
 
 
 
-   
+
       
       <nav class="wy-nav-top" aria-label="top navigation">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="toc.html">Acrobat Sign Developer Guide</a>
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="toc.html">Acrobat Sign Developer Guide</a>
         
       </nav>
 
 
       <div class="wy-nav-content">
-      <a href="#" id="scroll" style="display:inline;"><span></span></a>
+        <a href="#" id="scroll" style="display:inline;"><span></span></a>
         
-        <div class="rst-content">
-        
-          
+          <div class="rst-content">
+            
+            <!--
 
 
 
@@ -344,7 +319,7 @@
     
       <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Migrating From SOAP</li>
+      <li>Migrating and Updating Apps</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -358,33 +333,36 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="glossary.html" class="btn btn-neutral float-right" title="Glossary" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-      
       
         <a href="events.html" class="btn btn-neutral float-left" title="Web Message Events" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
       
   </div>
   
   <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  <div class="section" id="migrating-from-soap">
-<h1>Migrating From SOAP<a class="headerlink" href="#migrating-from-soap" title="Permalink to this heading">¶</a></h1>
-<p>Applications using the legacy Acrobat Sign SOAP APIs should migrate to the more functional and secure v6 REST APIs.</p>
-<p>Adobe is committed to providing a safe and secure product experience for our customers by adhering to the latest industry-standard security protocols. As a part of that process, on December 2021, Adobe Acrobat Sign ended support for older API authentication models that allowed sending username and password in the API call.</p>
+</div>-->
+            <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <div itemprop="articleBody">
+                
+  <div class="section" id="migrating-and-updating-apps">
+<h1>Migrating and Updating Apps<a class="headerlink" href="#migrating-and-updating-apps" title="Permalink to this heading">¶</a></h1>
+<div class="section" id="updating-api-authentication-methods">
+<h2>Updating API authentication methods<a class="headerlink" href="#updating-api-authentication-methods" title="Permalink to this heading">¶</a></h2>
+<p>Adobe is committed to providing a safe and secure product experience for our customers by adhering to the latest industry-standard security protocols. As a part of that process, on December 2021, Adobe Acrobat Sign ended support for older API authentication models that allowed sending a username and password in the API call.</p>
 <p>To move to a secure authentication model:</p>
 <ul class="simple">
 <li><p>Use REST APIs: Acrobat Sign APIs are now restricted to REST APIs. <a class="reference external" href="https://secure.echosign.com/public/docs/restapi/v6">You can try out the REST API here</a>.</p></li>
 <li><p>Use OAuth: To enable an end user to use your client app with Acrobat Sign, have the end-user authenticate with Adobe. The recommended way for authenticating end users with Acrobat Sign is the standard OAuth protocol.</p></li>
 </ul>
 <p>The general recommendation is that every user in the organization should directly authenticate with Adobe while using your client app to have their unique access tokens issued. SAML configuration with Acrobat Sign in your user’s organization provides an easy way to do so. However, there might be enterprise use-cases where only a single admin is required to authenticate with Adobe and other users in this organization can just use the client without an Adobe login. This is possible via Adobe’s OAUTH modifiers. Modifiers enable clients to call APIs with admins’ OAUTH token and actual regular user’s identity in “x-api-user” header.</p>
+</div>
+<div class="section" id="migrating-from-soap">
+<h2>Migrating From SOAP<a class="headerlink" href="#migrating-from-soap" title="Permalink to this heading">¶</a></h2>
+<p>Applications using the legacy Acrobat Sign SOAP APIs should migrate to the more functional and secure v6 REST APIs.</p>
 <div class="section" id="soap-to-rest-mapping">
-<h2>SOAP to REST mapping<a class="headerlink" href="#soap-to-rest-mapping" title="Permalink to this heading">¶</a></h2>
+<h3>SOAP to REST mapping<a class="headerlink" href="#soap-to-rest-mapping" title="Permalink to this heading">¶</a></h3>
 <p>The tables below maps SOAP endpoints to their REST equivalents. Both endpoints link directly to the full method description.</p>
 <div class="section" id="general-purpose-methods">
-<h3>General-purpose Methods<a class="headerlink" href="#general-purpose-methods" title="Permalink to this heading">¶</a></h3>
+<h4>General-purpose Methods<a class="headerlink" href="#general-purpose-methods" title="Permalink to this heading">¶</a></h4>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -405,7 +383,7 @@
 </div>
 </div>
 <div class="section" id="document-methods">
-<h3>Document Methods<a class="headerlink" href="#document-methods" title="Permalink to this heading">¶</a></h3>
+<h4>Document Methods<a class="headerlink" href="#document-methods" title="Permalink to this heading">¶</a></h4>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -585,7 +563,7 @@
 </table>
 </div>
 <div class="section" id="status-methods">
-<h3>Status Methods<a class="headerlink" href="#status-methods" title="Permalink to this heading">¶</a></h3>
+<h4>Status Methods<a class="headerlink" href="#status-methods" title="Permalink to this heading">¶</a></h4>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -751,7 +729,7 @@
 </table>
 </div>
 <div class="section" id="user-methods">
-<h3>User Methods<a class="headerlink" href="#user-methods" title="Permalink to this heading">¶</a></h3>
+<h4>User Methods<a class="headerlink" href="#user-methods" title="Permalink to this heading">¶</a></h4>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -1041,7 +1019,7 @@
 </table>
 </div>
 <div class="section" id="web-form-methods">
-<h3>Web Form Methods<a class="headerlink" href="#web-form-methods" title="Permalink to this heading">¶</a></h3>
+<h4>Web Form Methods<a class="headerlink" href="#web-form-methods" title="Permalink to this heading">¶</a></h4>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -1188,7 +1166,7 @@
 </table>
 </div>
 <div class="section" id="test-methods">
-<h3>Test Methods<a class="headerlink" href="#test-methods" title="Permalink to this heading">¶</a></h3>
+<h4>Test Methods<a class="headerlink" href="#test-methods" title="Permalink to this heading">¶</a></h4>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -1220,10 +1198,11 @@
 </div>
 </div>
 <div class="section" id="deprecated-soap-methods">
-<h2>Deprecated SOAP Methods<a class="headerlink" href="#deprecated-soap-methods" title="Permalink to this heading">¶</a></h2>
+<h3>Deprecated SOAP Methods<a class="headerlink" href="#deprecated-soap-methods" title="Permalink to this heading">¶</a></h3>
 <div class="section" id="access-methods">
-<h3>Access Methods<a class="headerlink" href="#access-methods" title="Permalink to this heading">¶</a></h3>
+<h4>Access Methods<a class="headerlink" href="#access-methods" title="Permalink to this heading">¶</a></h4>
 <p>issueAccessToken - <a class="reference external" href="https://www.adobe.io/apis/documentcloud/sign/docs.html#!adobedocs/adobe-sign/master/gstarted/configure_oauth.md">OAuth has replaced access tokens</a>.</p>
+</div>
 <div class="section" id="doc-methods">
 <h4>Doc Methods<a class="headerlink" href="#doc-methods" title="Permalink to this heading">¶</a></h4>
 <table class="colwidths-given docutils align-default">
@@ -1241,9 +1220,8 @@
 </tbody>
 </table>
 </div>
-</div>
 <div class="section" id="id1">
-<h3>Status Methods<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<h4>Status Methods<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h4>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -1330,7 +1308,7 @@
 </table>
 </div>
 <div class="section" id="id2">
-<h3>User Methods<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<h4>User Methods<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h4>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -1362,12 +1340,13 @@
 </div>
 </div>
 </div>
+</div>
 
 
-           </div>
-           
-          </div>
-          <footer>
+              </div>
+              
+            </div>
+            <footer>
 
   <hr/>
 
@@ -1375,7 +1354,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Jan 03, 2023. 
+        Last update: Mar 15, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
@@ -1383,8 +1362,8 @@
   </div> 
 
 </footer>
+          </div>
         </div>
-      </div>
 
     </section>
 
@@ -1392,10 +1371,11 @@
   
 
   <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+    });
   </script> 
 
 </body>
+
 </html>

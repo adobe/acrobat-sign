@@ -1,23 +1,23 @@
 
 <!DOCTYPE html>
 <html class="writer-html5" lang="en">
+
 <head>
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
-  
-  <title>Agreement Events &mdash; Acrobat Sign Webhook Guide</title>
+  <meta name="description"
+    content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
+     <title>Agreement Events &mdash; Acrobat Sign Webhook Guide</title>
+  <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link href="../_static/jquery-ui.css" rel="stylesheet" />  
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />
   <link href="../_static/copybutton.css" rel="stylesheet" />
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-
-    
   
   
   <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/webhookeventsagreements.html" />
@@ -26,7 +26,8 @@
   
   
   
-  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" id="documentation_options" data-url_root="../"
+    src="../_static/documentation_options.js"></script>
   <script type="text/javascript" src="../_static/jquery.js"></script>
   <script type="text/javascript" src="../_static/underscore.js"></script>
   <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -35,16 +36,17 @@
   <script type="text/javascript" src="../_static/clipboard.min.js"></script>
   <script type="text/javascript" src="../_static/copybutton.js"></script>
   <script type="text/javascript" src="../_static/js/theme.js"></script>
-   
   
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Library Events" href="webhookeventslibrary.html" />
-    <link rel="prev" title="Webhook Event Payload Overview" href="webhookpayloadoverview.html" /> 
   
-<script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
-<script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Library Events" href="webhookeventslibrary.html" />
+  <link rel="prev" title="Webhook Event Payload Overview" href="webhookpayloadoverview.html" /> 
 
-	<script>
+  <script
+    type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
+  <script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+
+  <script>
     $(document).ready(function () {
       $(window).scroll(function () {
         if ($(this).scrollTop() >= 50) {
@@ -69,8 +71,10 @@
     });
   </script>
 
-<style>
-  .wy-nav-content {max-width:90%}
+  <style>
+    .wy-nav-content {
+      max-width: 90%
+    }
   </style>
 </head>
 
@@ -80,19 +84,19 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-	
- 
+
+
         <div class="wy-side-nav-search" >
           
 
           
-            <a href="toc.html" class="icon icon-home"> Acrobat Sign Webhook Guide
-          
+            <a href="toc.html"> Acrobat Sign Webhook Guide
+              
 
-          
-          </a>
+              
+            </a>
 
-          
+            
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -101,30 +105,18 @@
   </form>
 </div>
 
-          
+            
         </div>
 
         
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
-            
-            
-              
-            
-            
-              <p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="../developer_guide/index.html#://">Developer Overview</a></li>
-<li class="toctree-l1"><a class="reference external" href="../developer_guide/gstarted.html#://">Quickstart</a></li>
-<li class="toctree-l1"><a class="reference external" href="../developer_guide/oauth.html#://">Managing OAuth Tokens</a></li>
-<li class="toctree-l1"><a class="reference external" href="../developer_guide/scenarios.html#://">Example Scenarios</a></li>
-<li class="toctree-l1"><a class="reference external" href="../developer_guide/apiusage.html#://">API Usage</a></li>
-<li class="toctree-l1"><a class="reference external" href="../developer_guide/webhookapis.html#://">Webhook APIs</a></li>
-<li class="toctree-l1"><a class="reference external" href="../developer_guide/samples.html#://">REST API Samples</a></li>
-<li class="toctree-l1"><a class="reference external" href="../developer_guide/events.html#://">Web Message Events</a></li>
-<li class="toctree-l1"><a class="reference external" href="../developer_guide/migrating.html#://">Migrating from SOAP</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Webhook Guide</span></p>
+          
+          
+          
+          
+          
+          <p class="caption" role="heading"><span class="caption-text">Webhook Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Webhooks in Acrobat Sign</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="index.html#best-practices">Best Practices</a></li>
@@ -254,31 +246,8 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="../releasenotes/index.html#://">Developer release notes</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://helpx.adobe.com/sign/release-notes/adobe-sign.html#://">Product UI release notes</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">SDKs and Samples</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/sdks/index.html">SDK Home</a></li>
-<li class="toctree-l1"><a class="reference external" href="../sdks/js.html#://">JS SDK</a></li>
-<li class="toctree-l1"><a class="reference external" href="../sdks/java.html#://">JAVA SDK</a></li>
-<li class="toctree-l1"><a class="reference external" href="../sdks/openapi.html#://">OpenAPI SDK</a></li>
-<li class="toctree-l1"><a class="reference external" href="../sdks/csharp.html#://">CSharp SDK</a></li>
-<li class="toctree-l1"><a class="reference external" href="../sdks/rest.html#://">REST Samples</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="../developer_guide/glossary.html#://">glossary</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v.6)</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/esign-dev-cert#://">Application certification form</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://helpx.adobe.com/sign/using/integration-guides.html">Acrobat Sign integration guides</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/trust/resources.html#://">Security and compliance</a></li>
-</ul>
 
-            
+          
           
         </div>
         
@@ -287,42 +256,44 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
-        <div class="fixedbar">  
-          <div class="wy-menu-items">
-            <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer Guide</a>
-            <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook Guide</a>
-            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
-            <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
-            <a href="https://www.adobe.com/sign/developer-form.html" class="topbarlink">Get a Dev Account</a>
-            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Developer Forum</a>
-          </div>  
-          <div class="sign-in">
-            <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
-           <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
-          </div>
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+      <div class="fixedbar">
+        <div class="wy-menu-items">
+          <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer
+            Guide</a>
+          <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook
+            Guide</a>
+          <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
+          <a href="https://www.adobe.com/sign/developer-form.html" class="topbarlink">Get a Dev Account</a>
+          <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all"
+            class="topbarlink">Forum</a>
         </div>
-        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+        <div class="sign-in">
+          <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+          <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
+        </div>
+      </div>
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
 
 
 
 
-   
+
       
       <nav class="wy-nav-top" aria-label="top navigation">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="toc.html">Acrobat Sign Webhook Guide</a>
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="toc.html">Acrobat Sign Webhook Guide</a>
         
       </nav>
 
 
       <div class="wy-nav-content">
-      <a href="#" id="scroll" style="display:inline;"><span></span></a>
+        <a href="#" id="scroll" style="display:inline;"><span></span></a>
         
-        <div class="rst-content">
-        
-          
+          <div class="rst-content">
+            
+            <!--
 
 
 
@@ -368,10 +339,10 @@
   </div>
   
   <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
+</div>-->
+            <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <div itemprop="articleBody">
+                
   <div class="section" id="agreement-events">
 <span id="webhookeventsagreements"></span><h1>Agreement Events<a class="headerlink" href="#agreement-events" title="Permalink to this heading">¶</a></h1>
 <div class="section" id="common-payload-elements">
@@ -5626,10 +5597,10 @@
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
+              </div>
+              
+            </div>
+            <footer>
 
   <hr/>
 
@@ -5637,7 +5608,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Jan 03, 2023. 
+        Last update: Mar 15, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
@@ -5645,8 +5616,8 @@
   </div> 
 
 </footer>
+          </div>
         </div>
-      </div>
 
     </section>
 
@@ -5654,10 +5625,11 @@
   
 
   <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+    });
   </script> 
 
 </body>
+
 </html>

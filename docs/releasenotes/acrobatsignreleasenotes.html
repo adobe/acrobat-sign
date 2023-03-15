@@ -1,23 +1,23 @@
 
 <!DOCTYPE html>
 <html class="writer-html5" lang="en">
+
 <head>
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
-  
-  <title>2022 Release Notes &mdash; Acrobat Sign API Release Notes</title>
+  <meta name="description"
+    content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
+     <title>Developer Release Notes &mdash; Acrobat Sign API Release Notes</title>
+  <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link href="../_static/jquery-ui.css" rel="stylesheet" />  
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />
   <link href="../_static/copybutton.css" rel="stylesheet" />
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-
-    
   
   
   <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/developer_guide/acrobatsignreleasenotes.html" />
@@ -26,7 +26,8 @@
   
   
   
-  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" id="documentation_options" data-url_root="../"
+    src="../_static/documentation_options.js"></script>
   <script type="text/javascript" src="../_static/jquery.js"></script>
   <script type="text/javascript" src="../_static/underscore.js"></script>
   <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -35,16 +36,17 @@
   <script type="text/javascript" src="../_static/clipboard.min.js"></script>
   <script type="text/javascript" src="../_static/copybutton.js"></script>
   <script type="text/javascript" src="../_static/js/theme.js"></script>
-   
   
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="2016 REST v6 Release Notes" href="v6releasenotes.html" />
-    <link rel="prev" title="Acrobat Sign API Release Notes" href="index.html" /> 
   
-<script type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
-<script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="2016 REST v6 Release Notes" href="v6releasenotes.html" />
+  <link rel="prev" title="Acrobat Sign API Release Notes" href="index.html" /> 
 
-	<script>
+  <script
+    type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
+  <script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+
+  <script>
     $(document).ready(function () {
       $(window).scroll(function () {
         if ($(this).scrollTop() >= 50) {
@@ -69,8 +71,10 @@
     });
   </script>
 
-<style>
-  .wy-nav-content {max-width:90%}
+  <style>
+    .wy-nav-content {
+      max-width: 90%
+    }
   </style>
 </head>
 
@@ -80,19 +84,19 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-	
- 
+
+
         <div class="wy-side-nav-search" >
           
 
           
-            <a href="toc.html" class="icon icon-home"> Acrobat Sign API Release Notes
-          
+            <a href="toc.html"> Acrobat Sign API Release Notes
+              
 
-          
-          </a>
+              
+            </a>
 
-          
+            
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -101,31 +105,33 @@
   </form>
 </div>
 
-          
+            
         </div>
 
         
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
-            
-            
-              
-            
-            
-              <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
+          
+          
+          
+          
+          
+          <p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Acrobat Sign API Release Notes</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2022 Release Notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#system-requirement-changes">System Requirement Changes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Developer Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#system-requirement-changes">System requirement changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-or-updated-developer-assets">New or updated developer assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#webhook-changes">Webhook changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rest-api-changes">REST API changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#bug-fixes">Bug fixes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#march-2023">March 2023</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#september">September</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#july">July</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#june">June</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#may">May</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#april">April</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#january">January</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#july-2022">July 2022</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#june-2022">June 2022</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#may-2022">May 2022</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#april-2022">April 2022</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#january-2022">January 2022</a></li>
 </ul>
 </li>
 </ul>
@@ -168,20 +174,8 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Developer Resources</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="../developer_guide/index.html#://">Developer Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="../acrobat_sign_events/index.html#://">Webhook Event Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v.6)</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/sign/developer-form.html#://">Free Developer Account Sign-Up</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/esign-dev-cert#://">Application Certification Form</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://helpx.adobe.com/sign/using/integration-guides.html">Acrobat Sign integration guides</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
-<li class="toctree-l1"><a class="reference external" href="../sdks/index.html#://">SDK downloads</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/trust/resources.html#://">Security and compliance</a></li>
-</ul>
 
-            
+          
           
         </div>
         
@@ -190,42 +184,44 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
-        <div class="fixedbar">  
-          <div class="wy-menu-items">
-            <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer Guide</a>
-            <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook Guide</a>
-            <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
-            <a href="https://opensource.adobe.com/acrobat-sign/tech_blog/" class="topbarlink">Tech Blog</a>
-            <a href="https://www.adobe.com/sign/developer-form.html" class="topbarlink">Get a Dev Account</a>
-            <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all" class="topbarlink">Developer Forum</a>
-          </div>  
-          <div class="sign-in">
-            <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
-           <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
-          </div>
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+      <div class="fixedbar">
+        <div class="wy-menu-items">
+          <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer
+            Guide</a>
+          <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook
+            Guide</a>
+          <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
+          <a href="https://www.adobe.com/sign/developer-form.html" class="topbarlink">Get a Dev Account</a>
+          <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all"
+            class="topbarlink">Forum</a>
         </div>
-        <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+        <div class="sign-in">
+          <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+          <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
+        </div>
+      </div>
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
 
 
 
 
-   
+
       
       <nav class="wy-nav-top" aria-label="top navigation">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="toc.html">Acrobat Sign API Release Notes</a>
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="toc.html">Acrobat Sign API Release Notes</a>
         
       </nav>
 
 
       <div class="wy-nav-content">
-      <a href="#" id="scroll" style="display:inline;"><span></span></a>
+        <a href="#" id="scroll" style="display:inline;"><span></span></a>
         
-        <div class="rst-content">
-        
-          
+          <div class="rst-content">
+            
+            <!--
 
 
 
@@ -249,7 +245,7 @@
     
       <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>2022 Release Notes</li>
+      <li>Developer Release Notes</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -271,19 +267,39 @@
   </div>
   
   <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  <div class="section" id="release-notes">
-<h1>2022 Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this heading">¶</a></h1>
+</div>-->
+            <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <div itemprop="articleBody">
+                
+  <div class="section" id="developer-release-notes">
+<h1>Developer Release Notes<a class="headerlink" href="#developer-release-notes" title="Permalink to this heading">¶</a></h1>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>For product feature and UI changes, refer to <a class="reference external" href="https://helpx.adobe.com/sign/release-notes/adobe-sign.html">https://helpx.adobe.com/sign/release-notes/adobe-sign.html</a></p>
 </div>
+<hr class="docutils" />
 <div class="section" id="system-requirement-changes">
-<h2>System Requirement Changes<a class="headerlink" href="#system-requirement-changes" title="Permalink to this heading">¶</a></h2>
+<h2>System requirement changes<a class="headerlink" href="#system-requirement-changes" title="Permalink to this heading">¶</a></h2>
 <p>For browser and product UI system requirements, see <a class="reference external" href="https://helpx.adobe.com/sign/system-requirements.html">https://helpx.adobe.com/sign/system-requirements.html</a>.</p>
+</div>
+<div class="section" id="new-or-updated-developer-assets">
+<h2>New or updated developer assets<a class="headerlink" href="#new-or-updated-developer-assets" title="Permalink to this heading">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Date</p></th>
+<th class="head"><p>Change</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>March 14, 2023</p></td>
+<td><p><a class="reference external" href="https://adobe.postman.co/workspace/Adobe-Acrobat-Sign~1faa30d0-1b34-493b-96b1-475cf3978a95/overview">New Acrobat Sign Workspace</a></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="webhook-changes">
 <h2>Webhook changes<a class="headerlink" href="#webhook-changes" title="Permalink to this heading">¶</a></h2>
@@ -298,14 +314,20 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Nov. 8</p></td>
+<tr class="row-even"><td><p>March 14, 2023</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserId</span></code> and <code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code>: Accounts on Webhooks 2.0 will populate the <code class="docutils literal notranslate"><span class="pre">initiatingUserId</span></code> and <code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code> fields in the notification payload. Accounts that remain on the classic webhooks experience after March 14, 2023 will see unpopulated fields present in the payload.</p></td>
+</tr>
+<tr class="row-odd"><td><p>March 14, 2023</p></td>
+<td><p>All accounts existing before November 8th, 2022, are migrated to webhooks 2.0. On July 18th, 2023, Adobe will sunset the legacy webhooks infrastructure (referred to as “classic webhooks”). <strong>See below</strong>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Nov. 8, 2022</p></td>
 <td><p>Webhook conversion to a microservice (“webhooks 2.0”) with the following benefits:</p>
 <ul class="simple">
-<li><p>Independent release cycles from the core code thereby supporting frequent and rapid updates, feature enhancements, and bug fixes, etc.</p></li>
+<li><p>Independent release cycles from the core code thereby supporting frequent and rapid updates, feature enhancements, bug fixes, etc.</p></li>
 <li><p>An independent and new UI with features that streamline webhook visibility and management.</p></li>
 <li><p>Enhanced performance.</p></li>
 </ul>
-<p>Webhooks 2.0 supports all the features of classic webhooks with one caveat: If a webhook was configured for the user, their group, or their account, classic webhooks delivered notifications to all agreement participants. In webhooks 2.0, ONLY webhooks configured for the sender, sender’s group, or the sender’s account will receive notifications.  Current customers can try webhooks 2.0 on a Trial, Developer, or Sandbox account via Adobe’s Insider Access program.</p>
+<p>Webhooks 2.0 supports all the features of classic webhooks with one caveat: If a webhook was configured for the user, their group, or their account, classic webhooks delivered notifications to all agreement participants. In webhooks 2.0, ONLY webhooks configured for the sender, the sender’s group, or the sender’s account will receive notifications.  Current customers can try webhooks 2.0 on a Trial, Developer, or Sandbox account via Adobe’s Insider Access program.</p>
 <p>Effective dates:</p>
 <ul class="simple">
 <li><p>November 8th, 2022: All new customers will be onboarded to webhooks 2.0.</p></li>
@@ -313,7 +335,7 @@
 <li><p>July 18th, 2023: Adobe sunsets the legacy webhooks infrastructure.</p></li>
 </ul>
 <blockquote>
-<div><p><strong>Note</strong>: Customers with strict network security policies must configure new IP addresses in accordance with <a class="reference external" href="https://helpx.adobe.com/sign/system-requirements.html">https://helpx.adobe.com/sign/system-requirements.html</a>.</p>
+<div><p><strong>Note</strong>: Customers with strict network security policies must configure new IP addresses per <a class="reference external" href="https://helpx.adobe.com/sign/system-requirements.html">https://helpx.adobe.com/sign/system-requirements.html</a>.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -327,10 +349,10 @@
 </td>
 </tr>
 <tr class="row-even"><td><p>Sept. 13</p></td>
-<td><p>Support for webhook endpoints to communicate on port 8443 (in addition to 443) in order to support mTLS.</p></td>
+<td><p>Support for webhook endpoints to communicate on port 8443 (in addition to 443) to support mTLS.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Sept. 13</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/agreements/{agreementId}/</span></code> endpoint now supports an optional redirect URL which sends users to control a custom post-sending landing page instead of the default Acrobat Sign page. Developers can use the new  <code class="docutils literal notranslate"><span class="pre">postSendOption.redirectUrl</span></code> for apps and integrations so that the sender redirects to a workflow-specific page, thereby both allowing the sender to remain in the integration (e.g. branded workflow), and providing a way for the developer to create a page where the sender can be notified about the sent status or modify the agreement (reminders, deadlines, etc.) Note a Sign setting needs to be made to allow these URLs to avoid open redirect security issues.  The description of this setting is similar to: “the authorized URLs the application can redirect to after completing a workflow”. This option does not apply to Fill &amp; Sign flows.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/agreements/{agreementId}/</span></code> endpoint now supports an optional redirect URL that sends users to control a custom post-sending landing page instead of the default Acrobat Sign page. Developers can use the new  <code class="docutils literal notranslate"><span class="pre">postSendOption.redirectUrl</span></code> for apps and integrations so that the sender redirects to a workflow-specific page, thereby both allowing the sender to remain in the integration (e.g. branded workflow), and providing a way for the developer to create a page where the sender can be notified about the sent status or modify the agreement (reminders, deadlines, etc.) You must configure a Sign setting to allow these URLs to avoid open redirect security issues.  The description of this setting is similar to: “the authorized URLs the application can redirect to after completing a workflow”. This option does not apply to Fill &amp; Sign flows.</p></td>
 </tr>
 <tr class="row-even"><td><p>July</p></td>
 <td><p>None</p></td>
@@ -406,28 +428,33 @@
 </div>
 <div class="section" id="bug-fixes">
 <h2>Bug fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="march-2023">
+<h3>March 2023<a class="headerlink" href="#march-2023" title="Permalink to this heading">¶</a></h3>
+<p>4383351: Copying a web form between environments (e.g., Sandbox to production) results in fields that do not display on the final agreement. Fix: The <code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/widgets/{widgetId}/formFields</span></code> API call has been improved to ensure the fields are properly placed.</p>
+<p>4399995: A bulk signing URL through the API needs to be composed with a vanity URL instead of the generic and secure URL to let the signer navigate to the Bulk Sign UI without an extra login experience if the signer has already been SAML authenticated. Fix: The code has been improved to allow the vanity URL when employing Send in Bulk API calls.</p>
+</div>
 <div class="section" id="september">
 <h3>September<a class="headerlink" href="#september" title="Permalink to this heading">¶</a></h3>
-<p>No developer-specific bug fixes.</p>
+<p>No API or webhook bug fixes. See <a class="reference external" href="https://helpx.adobe.com/sign/release-notes/adobe-sign/sign-release-schedule.html#Schedule">https://helpx.adobe.com/sign/release-notes/adobe-sign/sign-release-schedule.html#Schedule</a></p>
 </div>
-<div class="section" id="july">
-<h3>July<a class="headerlink" href="#july" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="july-2022">
+<h3>July 2022<a class="headerlink" href="#july-2022" title="Permalink to this heading">¶</a></h3>
 <p>For product UI changes, see <a class="reference external" href="https://helpx.adobe.com/sign/release-notes/adobe-sign.html">https://helpx.adobe.com/sign/release-notes/adobe-sign.html</a>.</p>
 <p>4355581: The reporting API for the new report system has been updated to better manage reports with null values. This enables account scoped report charts to list the reports showing their report ID.</p>
-<p>4331709: Bug: A A MISC_SERVER_ERROR is generated when replacing a recipient with a userID that is auto-delegating their agreements to a user that is not an active userID in the system. Fix: Code has been improved to successfully identify and create the auto-delegate userID as a single-use user for the purpose of the transaction.</p>
+<p>4331709: Bug: A MISC_SERVER_ERROR is generated when replacing a recipient with a userID that is auto-delegating their agreements to a user that is not an active userID in the system. Fix: Code has been improved to successfully identify and create the auto-delegate <code class="docutils literal notranslate"><span class="pre">userID</span></code> as a single-use user for the transaction.</p>
 </div>
-<div class="section" id="june">
-<h3>June<a class="headerlink" href="#june" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="june-2022">
+<h3>June 2022<a class="headerlink" href="#june-2022" title="Permalink to this heading">¶</a></h3>
 <p>4333689 Web form creators are unable to delegate countersignature for web forms from the modern manage page due to the API not providing a signable reply when the signature is attempted.</p>
 <p>4352684 The API call <code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/widgets/{widgetId}/formFields</span></code> is not working for the SIGNATURE field.</p>
 <p>4353564/4361472: The ability to create new accounts via POST/account was broken due to upstream settings updates.</p>
 </div>
-<div class="section" id="may">
-<h3>May<a class="headerlink" href="#may" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="may-2022">
+<h3>May 2022<a class="headerlink" href="#may-2022" title="Permalink to this heading">¶</a></h3>
 <p>None.</p>
 </div>
-<div class="section" id="april">
-<h3>April<a class="headerlink" href="#april" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="april-2022">
+<h3>April 2022<a class="headerlink" href="#april-2022" title="Permalink to this heading">¶</a></h3>
 <p>4328663 Customer accounts that have SAML set to Mandatory or SAML_ACTIVATE_PENDING_USERS = true can not inactivate users using the bulk edit feature in the Acrobat Sign system as the userIDs reactivate immediately after the update. Additional code has been added to ensure that only “Created” users can be immediately activated.</p>
 <p>4331146 REST v6 GET Agreements &gt; displayUserSetMemberInfos is blank for some drafts when workflows are designed with more potential recipients than are utilized due to email values being required.</p>
 <p>4333575: Identity Verification Methods defined in Workflow (PHONE and ADOBE_SIGN) are not returned in REST v5 or v6 GET /workflows/{workflowId}</p>
@@ -438,8 +465,8 @@
 <p>4341947 There is no retryAfter in the response body for some API calls when they trip the throttling threshold. The managing method has been updated to include the retryAfter response.</p>
 <p>4343205 Agreements sent with a custom email template and a link expiration set to 60 return a 500 error when the Send new Link button is used. The link expiration function in conjunction with custom email templates has been modified to eliminate the error.</p>
 </div>
-<div class="section" id="january">
-<h3>January<a class="headerlink" href="#january" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="january-2022">
+<h3>January 2022<a class="headerlink" href="#january-2022" title="Permalink to this heading">¶</a></h3>
 <p>4308773 Signing on the iOS mobile application could result in an  “AUTO_CANCELLED_CONVERSION_PROBLEM” after the recipient signature was completed due to offline sync events that cause queued requests to be sent multiple times. Server-side code has been added to evaluate if a successful conversion process has completed for the same participation ID when a conversion times out, allowing for graceful resolution of conflicts.</p>
 <p>4319974 The Locale selector on the signing page was still visible when the signingurl is retrieved using GET /signingurl v6 REST API due to the API call falling back to the application value instead of the session value. The API call has been updated to retrieve the setting value from the session (API user) instead of the application</p>
 </div>
@@ -447,10 +474,10 @@
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
+              </div>
+              
+            </div>
+            <footer>
 
   <hr/>
 
@@ -458,7 +485,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Jan 03, 2023. 
+        Last update: Mar 15, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
@@ -466,8 +493,8 @@
   </div> 
 
 </footer>
+          </div>
         </div>
-      </div>
 
     </section>
 
@@ -475,10 +502,11 @@
   
 
   <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+    });
   </script> 
 
 </body>
+
 </html>
