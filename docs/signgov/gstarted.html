@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download JAVA, JS, C#, REST, or OpenAPI SDKs, test with Postman, or use Acrobat Sign Embed and the Solutions for Government APIs"/>
+     <title>Getting Started &mdash; Acrobat Sign for Government: Developer</title>
+  <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />
+  <link href="../_static/copybutton.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+  
+  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/gstarted.html" />
+  
+
+  
+  
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../"
+    src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/jquery.js"></script>
+  <script type="text/javascript" src="../_static/underscore.js"></script>
+  <script type="text/javascript" src="../_static/doctools.js"></script>
+  <script type="text/javascript" src="../_static/language_data.js"></script>
+  <script type="text/javascript" src="../_static/searchtools.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+  
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="APIs and Applications" href="apps.html" />
+  <link rel="prev" title="Sign for Government: Developer Overview" href="index.html" /> 
+
+  <script
+    type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
+  <script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+          $('.fixedbar, .wy-nav-side').addClass('scroll');
+          $('.wy-top-menu-wrapper').fadeOut();
+        } else {
+          $('.fixedbar, .wy-nav-side').removeClass('scroll');
+          $('.wy-top-menu-wrapper').fadeIn();
+        }
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn();
+        } else {
+          $('#scroll').fadeOut();
+        }
+      });
+      $('#scroll').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+      });
+    });
+  </script>
+
+  <style>
+    .wy-nav-content {
+      max-width: 90%
+    }
+  </style>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+
+
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="toc.html"> Acrobat Sign for Government: Developer
+              
+
+              
+            </a>
+
+            
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+            
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+          
+          
+          
+          
+          
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Sign for Government: Developer Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#recommended-first-steps">Recommended first steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#account-provisioning">Account provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#okta-tenant-setup">Okta tenant setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#domain-claiming">Domain claiming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#provide-oauth-details-to-adobe">Provide OAuth details to Adobe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#register-the-api-application">Register the API application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#password">Password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deploy-and-build">Deploy and build</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apps.html">APIs and Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apps.html#basic-details">Basic details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apps.html#send-api-call-to-the-right-place">Send API call to the right place</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apps.html#endpoint-summary">Endpoint summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apps.html#debugging">Debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html#impersonation">Impersonation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apps.html#how-to-use-impersonation">How to use impersonation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html#apis">APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apps.html#authorize">Authorize</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#request">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#response">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#success-response">Success Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#error-response">Error response</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apps.html#token">Token</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#common-request-aspects">Common Request Aspects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#request-with-authorization-code">Request with Authorization Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#request-with-refresh-token">Request with Refresh Token</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#id2">Success Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#id3">Error response</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apps.html#validate-token">Validate Token</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#common-request-elements">Common request elements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#id4">Success Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#id5">Error response</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apps.html#invalidate-token">Invalidate Token</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#id6">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#id7">Success Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#id8">Error Response</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apps.html#logout">Logout</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#id9">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#id10">Success Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apps.html#id11">Error response</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html#clickjacking-defense-for-sign-views">Clickjacking defense for sign views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html#signer-authentication-mechanisms">Signer authentication mechanisms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="diffs.html">Sign Gov and Commercial Comparison</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#endpoints">Endpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#signer-authentication">Signer authentication</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://www.adobe.com/go/acrobatsigndevrnotes#://">API release notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v.6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevguide#://">v6 Core Dev Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/signgov#://">Solutions for Government</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/embedpartner://">Acrobat Sign Embed</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignsdks#://">SDK downloads</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignpostman#://">Postman workspace</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigntechblog#://">    FAQs and Tech Tips</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/esign-dev-cert#://">Application certification form</a></li>
+<li class="toctree-l1"><a class="reference external" href="        https://www.adobe.com/go/acrobatsignintegrations#://">Integration guides</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/trust/resources.html#://">Security and compliance</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevforum#://">Forum</a></li>
+</ul>
+
+          
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+      <div class="fixedbar">
+        <div class="wy-menu-items">
+          <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer
+            Guide</a>
+          <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook
+            Guide</a>
+          <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST Reference</a>
+          <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all"
+            class="topbarlink">Forum</a>
+        </div>
+        <div class="sign-in">
+          <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+        </div>
+      </div>
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="toc.html">Acrobat Sign for Government: Developer</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+
+        <span class="lastupdated" style="color:lightgrey">
+          Last update: Mar 23, 2023. 
+        </span>
+        
+          <div class="rst-content">
+            
+            <!--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Getting Started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="apps.html" class="btn btn-neutral float-right" title="APIs and Applications" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Sign for Government: Developer Overview" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>-->
+            <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <div itemprop="articleBody">
+                
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">¶</a></h1>
+<div class="section" id="recommended-first-steps">
+<h2>Recommended first steps<a class="headerlink" href="#recommended-first-steps" title="Permalink to this heading">¶</a></h2>
+<p>While optional, Adobe recommends:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://helpx.adobe.com/sign/fedramp/okta/okta-add-user-manually.html">Creating a backup admin manually</a>.</p></li>
+<li><p><a class="reference external" href="https://helpx.adobe.com/sign/system-requirements/sign-system-reqs-fedramp.html">Reviewing the system requirements</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="account-provisioning">
+<h2>Account provisioning<a class="headerlink" href="#account-provisioning" title="Permalink to this heading">¶</a></h2>
+<img alt="_images/process1.png" class="noshadow" src="_images/process1.png" />
+<p>Adobe provisions your account once the formal setup process kicks off. You can simultaneously gather the required information and configure your systems as needed.</p>
+</div>
+<div class="section" id="okta-tenant-setup">
+<h2>Okta tenant setup<a class="headerlink" href="#okta-tenant-setup" title="Permalink to this heading">¶</a></h2>
+<img alt="_images/process2.png" class="noshadow" src="_images/process2.png" />
+<p>Okta provides the authentication mechanism for Acrobat Sign, and you must have an Okta credential before gaining product access. Adobe provides customers with a unique Okta instance, and there are two options for configuring user access:</p>
+<ul class="simple">
+<li><p><strong>Use Okta directly as your identity provider</strong>. This workflow requires each user to authenticate individually. It typically results in one less login screen.</p></li>
+<li><p><strong>Integrate Okta with your organization’s existing identity provider and directory service</strong>. You can use a SAML 2.0-compliant identity provider to manage user identities in bulk. This workflow allows users to only see the Okta login page a single time if they choose “Remember Me” during login.</p></li>
+</ul>
+<p>After Adobe provisions the Okta account, the primary (tenant) administrator receives an email from Okta with a one-use activation link to the account’s Okta portal and the domain-claiming token needed to provision users on the Acrobat Sign system. Immediately do the following:</p>
+<ol class="arabic simple">
+<li><p>Use the one-time activation link to log in to the Okta system and set your password. It expires in 7 days.</p></li>
+<li><p>Bookmark the Okta portal when you authenticate. Your Okta portal URL is unique to your account.</p></li>
+<li><p>Record the DNS name, admin username, and admin password.</p></li>
+<li><p>If you are using a directory service, <a class="reference external" href="https://helpx.adobe.com/sign/fedramp/okta/okta-add-federation.html">connect it now as described HERE</a>.</p></li>
+<li><p>Claim domains (below).</p></li>
+</ol>
+</div>
+<div class="section" id="domain-claiming">
+<h2>Domain claiming<a class="headerlink" href="#domain-claiming" title="Permalink to this heading">¶</a></h2>
+<img alt="_images/process3.png" class="noshadow" src="_images/process3.png" />
+<p>When you receive the domain claiming token as described in the previous step, claim your domains. Acrobat Sign prevents creating users with email addresses whose domains are not explicitly claimed by the account. The DNS domain could be a subdomain of your second-level domains; for example, adobesigngov.example.org if example.org is your domain.</p>
+<p>Key actions:</p>
+<ul class="simple">
+<li><p>Have access to any inboxes for email addresses on the DNS domain under your control. These are likely inboxes directly related to your DNS domain. Alternatively, you could use email forwarding; for example, <a class="reference external" href="mailto:my&#46;user&#37;&#52;&#48;adobesigngov&#46;example&#46;org">my<span>&#46;</span>user<span>&#64;</span>adobesigngov<span>&#46;</span>example<span>&#46;</span>org</a> could forward to <a class="reference external" href="mailto:my&#46;user&#37;&#52;&#48;example&#46;org">my<span>&#46;</span>user<span>&#64;</span>example<span>&#46;</span>org</a>. You must be able to read invitation/activation emails for your users sent from your Okta instance to email addresses on your DNS domain.</p></li>
+<li><p>For multi-tenant partner integration accounts, it’s recommended to also have a separate DNS domain for customer testing. This allows you to test customer account usage of a partner integration that’s defined on your partner account.</p></li>
+</ul>
+<p>Add the token to DNS text records as follows:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Log in to your domain account.</p></li>
+<li><p>Find the page for updating the DNS record. This page may be called DNS Management, Name Server Management, or Advanced Settings.</p></li>
+<li><p>Find the TXT records for your domain.</p></li>
+<li><p>Add a TXT record with the full token value supplied by Adobe. For example: <code class="docutils literal notranslate"><span class="pre">adobe-sign-verification=f9ccbThisIsNotARealNumber832</span></code></p></li>
+<li><p>Save your changes.</p></li>
+</ol>
+</div></blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For more detail, see <a class="reference external" href="https://helpx.adobe.com/sign/fedramp/okta/okta-claim-domains.html">https://helpx.adobe.com/sign/fedramp/okta/okta-claim-domains.html</a>.</p>
+</div>
+</div>
+<div class="section" id="provide-oauth-details-to-adobe">
+<h2>Provide OAuth details to Adobe<a class="headerlink" href="#provide-oauth-details-to-adobe" title="Permalink to this heading">¶</a></h2>
+<img alt="_images/process4.png" class="noshadow" src="_images/process4.png" />
+<p>The Acrobat Sign team is responsible for enabling Solutions for Government API applications. The app registration process requires that you provide the following details:</p>
+<ul class="simple">
+<li><p>Whether you need a customer (single-tenant) or partner (multi-tenant) API app.</p></li>
+<li><p>A <a class="reference external" href="https://git.corp.adobe.com/pages/dc/acrobat-sign-sdk/developer_guide/gstarted.html#configure-the-redirect-uri">redirect URL</a> which links the app instance to the correct Acrobat Sign account.</p></li>
+<li><p>A <a class="reference external" href="https://git.corp.adobe.com/pages/dc/acrobat-sign-sdk/developer_guide/gstarted.html#configure-scopes">list of required scopes</a> that define what resources and actions are available to your app.</p></li>
+<li><p>An app name.</p></li>
+<li><p>Whether or not you require impersonation. Some clients provide a single impersonation token for all user actions while others prefer that users act on behalf of themselves. For example, a legal department may use a shared token while users in another organization will personally send and sign as individuals.</p></li>
+</ul>
+</div>
+<div class="section" id="register-the-api-application">
+<h2>Register the API application<a class="headerlink" href="#register-the-api-application" title="Permalink to this heading">¶</a></h2>
+<img alt="_images/process5.png" class="noshadow" src="_images/process5.png" />
+<p>The Acrobat Sign team registers the app based on your provided details. Once registered, you will receive an encrypted PDF with the <code class="docutils literal notranslate"><span class="pre">client_id</span></code> and <code class="docutils literal notranslate"><span class="pre">client_secret</span></code>.</p>
+</div>
+<div class="section" id="password">
+<h2>Password<a class="headerlink" href="#password" title="Permalink to this heading">¶</a></h2>
+<img alt="_images/process6.png" class="noshadow" src="_images/process6.png" />
+<p>A Professional Services team member calls with a password for the encrypted PDF.</p>
+</div>
+<div class="section" id="deploy-and-build">
+<h2>Deploy and build<a class="headerlink" href="#deploy-and-build" title="Permalink to this heading">¶</a></h2>
+<img alt="_images/process7.png" class="noshadow" src="_images/process7.png" />
+<p>Once this process is complete, you’re ready to build and deploy applications and signature workflows.</p>
+<p>For more information, refer to these resources:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.adobe.com/go/acrobatsignapireference">REST API Reference</a></p></li>
+<li><p><a class="reference external" href="https://www.adobe.com/go/acrobatsigndeveloper">Developer Guide</a></p></li>
+<li><p><a class="reference external" href="https://www.adobe.com/go/acrobatsignwebhook">Webhook Reference</a></p></li>
+<li><p><a class="reference external" href="https://www.adobe.com/go/acrobatsignpostman">Postman collections</a></p></li>
+</ul>
+</div>
+</div>
+
+
+              </div>
+              
+            </div>
+            <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2023, Adobe Inc..
+      <span class="lastupdated">
+        Last update: Mar 23, 2023. 
+        <img src="../_static/adobelogo.png" class="logo"/> 
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+          </div>
+        </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+    });
+  </script> 
+
+</body>
+
+</html>

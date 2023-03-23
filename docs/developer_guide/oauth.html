@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
+    content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download JAVA, JS, C#, REST, or OpenAPI SDKs, test with Postman, or use Acrobat Sign Embed and the Solutions for Government APIs"/>
      <title>Managing OAuth Tokens &mdash; Acrobat Sign Developer Guide</title>
   <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
   
@@ -124,12 +124,14 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gstarted.html">Create an Application Quickstart</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="gstarted.html#create-an-app">Create an app</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gstarted.html#get-the-app-id-and-secret">Get the app ID and secret</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gstarted.html#configure-oauth">Configure OAuth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gstarted.html#configure-the-redirect-uri">Configure the redirect URI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gstarted.html#configure-scopes">Configure scopes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gstarted.html#add-an-authorization-request-link">Add an Authorization Request link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#create-an-app-in-the-web-ui">Create an app in the web UI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#get-the-app-id-and-secret">Get the app ID and secret</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#configure-oauth">Configure OAuth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#configure-scopes">Configure scopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#create-an-authorization-request-link">Create an authorization request link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#configure-the-redirect-uri-on-your-server">Configure the redirect URI on your server</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gstarted.html#success-vs-failure">Success vs failure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gstarted.html#the-customer-experience">The customer experience</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gstarted.html#getting-the-access-token">Getting the access token</a></li>
@@ -248,6 +250,26 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://www.adobe.com/go/acrobatsigndevrnotes#://">API release notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v.6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevguide#://">v6 Core Dev Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/signgov#://">Solutions for Government</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/embedpartner://">Acrobat Sign Embed</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignsdks#://">SDK downloads</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignpostman#://">Postman workspace</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigntechblog#://">    FAQs and Tech Tips</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/esign-dev-cert#://">Application certification form</a></li>
+<li class="toctree-l1"><a class="reference external" href="        https://www.adobe.com/go/acrobatsignintegrations#://">Integration guides</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/trust/resources.html#://">Security and compliance</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevforum#://">Forum</a></li>
 </ul>
 
           
@@ -266,21 +288,15 @@
             Guide</a>
           <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook
             Guide</a>
-          <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
-          <a href="https://www.adobe.com/sign/developer-form.html" class="topbarlink">Get a Dev Account</a>
+          <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST Reference</a>
           <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all"
             class="topbarlink">Forum</a>
         </div>
         <div class="sign-in">
           <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
-          <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
         </div>
       </div>
       <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
-
-
-
-
 
       
       <nav class="wy-nav-top" aria-label="top navigation">
@@ -289,10 +305,11 @@
         <a href="toc.html">Acrobat Sign Developer Guide</a>
         
       </nav>
-
-
       <div class="wy-nav-content">
-        <a href="#" id="scroll" style="display:inline;"><span></span></a>
+
+        <span class="lastupdated" style="color:lightgrey">
+          Last update: Mar 23, 2023. 
+        </span>
         
           <div class="rst-content">
             
@@ -350,7 +367,7 @@
 <h1>Managing OAuth Tokens<a class="headerlink" href="#managing-oauth-tokens" title="Permalink to this heading">¶</a></h1>
 <div class="section" id="authorization-request">
 <h2>Authorization request<a class="headerlink" href="#authorization-request" title="Permalink to this heading">¶</a></h2>
-<p>See <a class="reference internal" href="gstarted.html#token"><span class="std std-ref">Add an Authorization Request link</span></a></p>
+<p>See <a class="reference internal" href="gstarted.html#token"><span class="std std-ref">Create an authorization request link</span></a></p>
 </div>
 <div class="section" id="access-token-request">
 <h2>Access token request<a class="headerlink" href="#access-token-request" title="Permalink to this heading">¶</a></h2>
@@ -486,7 +503,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Mar 15, 2023. 
+        Last update: Mar 23, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

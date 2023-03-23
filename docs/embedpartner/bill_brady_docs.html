@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download one of the JAVA, JS, C#, REST, or OpenAPI SDKs."
+     <title>Partner docs, faqs, etc. &mdash; Acrobat Sign Embed</title>
+  <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />
+  <link href="../_static/copybutton.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+  
+  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/bill_brady_docs.html" />
+  
+
+  
+  
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../"
+    src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/jquery.js"></script>
+  <script type="text/javascript" src="../_static/underscore.js"></script>
+  <script type="text/javascript" src="../_static/doctools.js"></script>
+  <script type="text/javascript" src="../_static/language_data.js"></script>
+  <script type="text/javascript" src="../_static/searchtools.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+  
+  <link rel="search" title="Search" href="search.html" /> 
+
+  <script
+    type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
+  <script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+          $('.fixedbar, .wy-nav-side').addClass('scroll');
+          $('.wy-top-menu-wrapper').fadeOut();
+        } else {
+          $('.fixedbar, .wy-nav-side').removeClass('scroll');
+          $('.wy-top-menu-wrapper').fadeIn();
+        }
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn();
+        } else {
+          $('#scroll').fadeOut();
+        }
+      });
+      $('#scroll').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+      });
+    });
+  </script>
+
+  <style>
+    .wy-nav-content {
+      max-width: 90%
+    }
+  </style>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+
+
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="toc.html"> Acrobat Sign Embed
+              
+
+              
+            </a>
+
+            
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+            
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+          
+          
+          
+          
+          
+          <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Developing with Acrobat Sign Embed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gstarted.html">Partner Application Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#create-an-app">Create an app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#get-the-app-id-and-secret">Get the app ID and secret</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#configure-oauth">Configure OAuth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#configure-the-redirect-uri">Configure the redirect URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#configure-scopes">Configure scopes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#add-an-authorization-request-link">Add an Authorization Request link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#success-vs-failure">Success vs failure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#the-customer-experience">The customer experience</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#getting-the-access-token">Getting the access token</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="partnercertification.html">Certifying Your Partner App</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="partnercertification.html#certification-best-practices">Certification best practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partnercertification.html#security-review">Security review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partnercertification.html#post-certification">Post “certification”</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="embedapi.html">Embed 2.0 API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="embedapi.html#adobesign-authservice-token-apis">AdobeSign AuthService:  Token APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embedapi.html#create-embed-user-token">Create Embed User token</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#request">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#response">Response</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi.html#validate-embed-user-token">Validate Embed User token</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#id1">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#id2">Response</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="embedapi.html#account-apis">Account APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embedapi.html#create-account">Create Account</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#request-object"><strong>Request Object</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#response-object">Response Object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#error-response-create-account-accountcreateerrorresponse">Error Response - Create Account AccountCreateErrorResponse</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi.html#update-account">1.2 Update Account</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#request-object-accountupdaterequest">Request Object AccountUpdateRequest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#error-response-update-account-accountupdateerrorresponse">Error Response - Update Account AccountUpdateErrorResponse</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi.html#get-account">1.3 Get Account</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#response-object-getaccountresponse">Response Object GetAccountResponse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#error-response-get-account-accountgeterrorresponse">Error Response - Get Account AccountGetErrorResponse</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="embedapi.html#user-apis">2. User APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embedapi.html#post-user">2.1 POST user</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#id3"><strong>Request Object</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#id4">Response Object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#error-response-create-user-usercreateerrorresponse">Error Response - Create User UserCreateErrorResponse</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi.html#put-user">2.2 PUT User</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#request-object-updateuserrequest"><strong>Request Object UpdateUserRequest</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#error-response-update-user-userupdateerrorresponse">Error Response - Update User UserUpdateErrorResponse</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi.html#get-user">2.3 GET User</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#id5"><strong>Response Object</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#error-response-get-user-usergeterrorresponse">Error Response - Get User UserGetErrorResponse</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="embedapi.html#common-attributes">Common Attributes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embedapi.html#partner-apis-common-headers-account-user-apis">Partner APIs Common Headers - Account &amp; User APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi.html#token-auth-apis-common-headers-auth-token-apis">Token Auth APIs common Headers - Auth Token APIs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+      <div class="fixedbar">
+        <div class="wy-menu-items">
+          <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer
+            Guide</a>
+          <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook
+            Guide</a>
+          <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST API Reference</a>
+          <a href="https://www.adobe.com/sign/developer-form.html" class="topbarlink">Get a Dev Account</a>
+          <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all"
+            class="topbarlink">Forum</a>
+        </div>
+        <div class="sign-in">
+          <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+          <!-- <a href="https://auth.services.adobe.com/en_US/index.html">Sign in</a>-->
+        </div>
+      </div>
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="toc.html">Acrobat Sign Embed</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+
+        <span class="lastupdated" style="color:lightgrey">
+          Last update: Mar 17, 2023. 
+        </span>
+        
+          <div class="rst-content">
+            
+            <!--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Partner docs, faqs, etc.</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>-->
+            <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <div itemprop="articleBody">
+                
+  <div class="section" id="partner-docs-faqs-etc">
+<h1>Partner docs, faqs, etc.<a class="headerlink" href="#partner-docs-faqs-etc" title="Permalink to this heading">¶</a></h1>
+<p>Initial home for Bill Brady’s docs.</p>
+</div>
+
+
+              </div>
+              
+            </div>
+            <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2023, Adobe Inc..
+      <span class="lastupdated">
+        Last update: Mar 17, 2023. 
+        <img src="../_static/adobelogo.png" class="logo"/> 
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+          </div>
+        </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+    });
+  </script> 
+
+</body>
+
+</html>
