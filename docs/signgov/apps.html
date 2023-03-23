@@ -303,7 +303,7 @@
 <h2>Basic details<a class="headerlink" href="#basic-details" title="Permalink to this heading">¶</a></h2>
 <div class="section" id="send-api-call-to-the-right-place">
 <h3>Send API call to the right place<a class="headerlink" href="#send-api-call-to-the-right-place" title="Permalink to this heading">¶</a></h3>
-<p>Acrobat Sign Commercial and Acrobat Sign for Government services reside on different top-level domains. Both the domain and extensions are different:</p>
+<p>Acrobat Sign Commercial and Acrobat Sign for Government services reside on different top-level domains. Both the domain and extension are different:</p>
 <ul class="simple">
 <li><p>Commercial Cloud, PCI and HIPAA compliant (note <strong>.com</strong>): <code class="docutils literal notranslate"><span class="pre">https://secure.adobesign.com</span></code></p></li>
 <li><p>US Government Cloud, FedRAMP Moderate compliant (note <strong>.us</strong>): <code class="docutils literal notranslate"><span class="pre">https://secure.na1.adobesign.us</span></code></p></li>
@@ -313,16 +313,16 @@
 <h3>Endpoint summary<a class="headerlink" href="#endpoint-summary" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>GET <a class="reference external" href="https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/authorize">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/authorize</a>: Start the authorization code flow to login and consent to application permissions</p></li>
-<li><p>POST <a class="reference external" href="https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/token">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/token</a>: Obtain an access_token and, except for impersonation, a <code class="docutils literal notranslate"><span class="pre">refresh_token</span></code> upon successful completion and redirect back from the authorization code flow</p></li>
-<li><p>POST <a class="reference external" href="https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/validate_token">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/validate_token</a>: Validate an existing token</p></li>
-<li><p>POST <a class="reference external" href="https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/invalidate_token">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/invalidate_token</a>: Invalidate/revoke a particular token</p></li>
-<li><p>GET <a class="reference external" href="https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/logout">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/logout</a>: Invalidate/revoke all tokens related to the user to which the token belongs</p></li>
+<li><p>GET <a class="reference external" href="https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize</a>: Start the authorization code flow to login and consent to application permissions</p></li>
+<li><p>POST <a class="reference external" href="https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/token">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/token</a>: Obtain an access_token and, except for impersonation, a <code class="docutils literal notranslate"><span class="pre">refresh_token</span></code> upon successful completion and redirect back from the authorization code flow</p></li>
+<li><p>POST <a class="reference external" href="https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/validate_token">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/validate_token</a>: Validate an existing token</p></li>
+<li><p>POST <a class="reference external" href="https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/invalidate_token">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/invalidate_token</a>: Invalidate/revoke a particular token</p></li>
+<li><p>GET <a class="reference external" href="https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/logout">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/logout</a>: Invalidate/revoke all tokens related to the user to which the token belongs</p></li>
 </ul>
 </div></blockquote>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>These APIs follow an underscore naming convention, as opposed to camelCase, for parameters as they relate to OAuth, Adobe Identity, and OKTA APIs with this similar naming convention. Sign Gov OAuth endpoints must be used–not direct Okta OAuth APIs. However, you may find the OAuth docs helpful: <a class="reference external" href="https://developer.okta.com/docs/reference/api/oidc/#endpoints">https://developer.okta.com/docs/reference/api/oidc/#endpoints</a></p>
+<p>These APIs follow an underscore naming convention, as opposed to camelCase, for parameters as they relate to OAuth, Adobe Identity, and Okta APIs with this similar naming convention. Sign Gov OAuth endpoints must be used–not direct Okta OAuth APIs. However, you may find the OAuth docs helpful: <a class="reference external" href="https://developer.okta.com/docs/reference/api/oidc/#endpoints">https://developer.okta.com/docs/reference/api/oidc/#endpoints</a></p>
 </div>
 </div>
 <div class="section" id="debugging">
@@ -375,7 +375,7 @@
 <ul class="simple">
 <li><p><strong>Method</strong>: GET</p></li>
 <li><p><strong>Authorization required</strong>: No</p></li>
-<li><p><strong>Available versions</strong>: <code class="docutils literal notranslate"><span class="pre">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/authorize</span></code></p></li>
+<li><p><strong>Available versions</strong>: <code class="docutils literal notranslate"><span class="pre">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize</span></code></p></li>
 </ul>
 <p><strong>Request QueryParameters</strong></p>
 <table class="colwidths-given docutils align-default">
@@ -438,7 +438,7 @@ The value must belong to the set of values specified on the OAuth configuration 
 <div class="section" id="response">
 <h4>Response<a class="headerlink" href="#response" title="Permalink to this heading">¶</a></h4>
 <p>Once the user is authenticated by the identity provider, determines whether authorization can be granted, then <strong>redirects the user agent to the URI that you have supplied or configured for your client’s start page.</strong> The redirect contains the authorization grant, in the form of the code or token appropriate to your grant type.</p>
-<p><strong>Note:</strong> When making requests to the <code class="docutils literal notranslate"><span class="pre">/authorize</span></code> endpoint, the browser (user agent) should be redirected to the endpoint. You can’t use AJAX with this endpoint but you can have a link or button directly or indirectly via JS navigates to the <code class="docutils literal notranslate"><span class="pre">/authorize</span></code> URL: <a class="reference external" href="https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/authorize?clientId=...&amp;response_type=...&amp;scope=...&amp;state=...&amp;login_hint=">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/authorize?clientId=…&amp;response_type=…&amp;scope=…&amp;state=…&amp;login_hint=</a>…&amp;redirectUri=&lt;insert url here&gt;</p>
+<p><strong>Note:</strong> When making requests to the <code class="docutils literal notranslate"><span class="pre">/authorize</span></code> endpoint, the browser (user agent) should be redirected to the endpoint. You can’t use AJAX with this endpoint but you can have a link or button directly or indirectly via JS navigates to the <code class="docutils literal notranslate"><span class="pre">/authorize</span></code> URL: <a class="reference external" href="https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize?clientId=...&amp;response_type=...&amp;scope=...&amp;state=...&amp;login_hint=">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/authorize?clientId=…&amp;response_type=…&amp;scope=…&amp;state=…&amp;login_hint=</a>…&amp;redirectUri=&lt;insert url here&gt;</p>
 </div>
 <div class="section" id="success-response">
 <h4>Success Response<a class="headerlink" href="#success-response" title="Permalink to this heading">¶</a></h4>
@@ -531,7 +531,7 @@ The value must belong to the set of values specified on the OAuth configuration 
 <li><p><strong>Method</strong>: POST</p></li>
 <li><p><strong>Authorization required</strong>:  No</p></li>
 <li><p><strong>Content-Type:</strong>: <code class="docutils literal notranslate"><span class="pre">application/x-www-form-urlencoded</span></code></p></li>
-<li><p><strong>Available versions</strong>: <code class="docutils literal notranslate"><span class="pre">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/token</span></code></p></li>
+<li><p><strong>Available versions</strong>: <code class="docutils literal notranslate"><span class="pre">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/token</span></code></p></li>
 </ul>
 </div>
 <div class="section" id="request-with-authorization-code">
@@ -842,7 +842,7 @@ The value must belong to the set of values specified on the OAuth configuration 
 <li><p><strong>Method</strong>:  POST</p></li>
 <li><p><strong>Authorization required</strong>:  No</p></li>
 <li><p><strong>Content-Type:</strong>: application/x-www-form-urlencoded</p></li>
-<li><p><strong>Available versions</strong>: <code class="docutils literal notranslate"><span class="pre">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/validate_token</span></code></p></li>
+<li><p><strong>Available versions</strong>: <code class="docutils literal notranslate"><span class="pre">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/validate_token</span></code></p></li>
 </ul>
 <p><strong>Request Body Parameters</strong></p>
 <table class="colwidths-given docutils align-default">
@@ -1022,7 +1022,7 @@ The value must belong to the set of values specified on the OAuth configuration 
 <li><p><strong>Method</strong>: POST</p></li>
 <li><p><strong>Authorization required</strong>: No</p></li>
 <li><p><strong>Content-Type:</strong>: application/x-www-form-urlencoded</p></li>
-<li><p><strong>Available versions</strong>: <code class="docutils literal notranslate"><span class="pre">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/invalidate_token</span></code></p></li>
+<li><p><strong>Available versions</strong>: <code class="docutils literal notranslate"><span class="pre">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/invalidate_token</span></code></p></li>
 </ul>
 <p><strong>Request Body Parameters</strong></p>
 <table class="colwidths-given docutils align-default">
@@ -1144,7 +1144,7 @@ The value must belong to the set of values specified on the OAuth configuration 
 <ul class="simple">
 <li><p><strong>Request method</strong>:  GET</p></li>
 <li><p><strong>Authorization required</strong>: No</p></li>
-<li><p><strong>Available versions</strong>: <code class="docutils literal notranslate"><span class="pre">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice//api/v1/logout</span></code></p></li>
+<li><p><strong>Available versions</strong>: <code class="docutils literal notranslate"><span class="pre">https://secure.na1.adobesign.us/api/gateway/adobesignauthservice/api/v1/logout</span></code></p></li>
 </ul>
 <p><strong>Request Query Parameters</strong></p>
 <table class="colwidths-given docutils align-default">
