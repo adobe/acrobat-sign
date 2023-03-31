@@ -1,0 +1,441 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download JAVA, JS, C#, REST, or OpenAPI SDKs, test with Postman, or use Acrobat Sign Embed and the Solutions for Government APIs"/>
+     <title>Provisioning Design and FAQ v.1.0 &mdash; Acrobat Sign Embed  (v 1.0)</title>
+  <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />
+  <link href="../_static/copybutton.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+  
+  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/provisioningfaq.html" />
+  
+
+  
+  
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../"
+    src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/jquery.js"></script>
+  <script type="text/javascript" src="../_static/underscore.js"></script>
+  <script type="text/javascript" src="../_static/doctools.js"></script>
+  <script type="text/javascript" src="../_static/language_data.js"></script>
+  <script type="text/javascript" src="../_static/searchtools.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+  
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Partner Application Quickstart v.1.0" href="gstarted.html" />
+  <link rel="prev" title="Developing with Acrobat Sign Embed" href="index.html" /> 
+
+  <script
+    type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
+  <script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+          $('.fixedbar, .wy-nav-side').addClass('scroll');
+          $('.wy-top-menu-wrapper').fadeOut();
+        } else {
+          $('.fixedbar, .wy-nav-side').removeClass('scroll');
+          $('.wy-top-menu-wrapper').fadeIn();
+        }
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn();
+        } else {
+          $('#scroll').fadeOut();
+        }
+      });
+      $('#scroll').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+      });
+    });
+  </script>
+
+  <style>
+    .wy-nav-content {
+      max-width: 90%
+    }
+  </style>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+
+
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="toc.html"> Acrobat Sign Embed  (v 1.0)
+              
+
+              
+            </a>
+
+            
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+            
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+          
+          
+          
+          
+          
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Developing with Acrobat Sign Embed</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Provisioning Design and FAQ v.1.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#provisioning-faqs">Provisioning FAQs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-account-provisioning-flow">New account provisioning flow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gstarted.html">Partner Application Quickstart v.1.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#create-an-app-in-the-web-ui">Create an app in the web UI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#get-the-app-id-and-secret">Get the app ID and secret</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#configure-oauth">Configure OAuth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#configure-scopes">Configure scopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#create-an-authorization-request-link">Create an authorization request link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#configure-the-redirect-uri-on-your-server">Configure the redirect URI on your server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#success-vs-failure">Success vs failure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#the-customer-experience">The customer experience</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#getting-the-access-token">Getting the access token</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="partnercertification.html">Certifying Your Partner App v.1.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="partnercertification.html#certification-best-practices">Certification best practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partnercertification.html#security-review">Security review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partnercertification.html#post-certification">Post “certification”</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="videos.html">How-to Video Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://www.adobe.com/go/acrobatsigndevrnotes#://">API release notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevguide#://">Developer Guide (core v6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignwebhook#://">    Webhook Reference (v6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/signgov#://">Solutions for Government</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/embedpartner#://">Acrobat Sign Embed</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignsdks#://">SDK downloads</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignpostman#://">Postman workspace</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevaccount#://">    Free developer account form</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigntechblog#://">    FAQs and tech tips</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/esign-dev-cert#://">Application certification form</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignintegrations#://">Integration guides</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/trust/resources.html#://">Security and compliance</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevforum#://">Forum</a></li>
+</ul>
+
+          
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+      <div class="fixedbar">
+        <div class="wy-menu-items">
+          <a href="https://opensource.adobe.com/acrobat-sign/developer_guide/index.html" class="topbarlink">Developer
+            Guide</a>
+          <a href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html" class="topbarlink">Webhook
+            Guide</a>
+          <a href="https://secure.na1.adobesign.com/public/docs/restapi/v6" class="topbarlink">REST Reference</a>
+          <a href="https://community.adobe.com/t5/acrobat-sign-developer/ct-p/ct-acrobat-sign-developer?page=1&sort=latest_replies&lang=all&tabid=all"
+            class="topbarlink">Forum</a>
+        </div>
+        <div class="sign-in">
+          <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+        </div>
+      </div>
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="toc.html">Acrobat Sign Embed  (v 1.0)</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+
+        <span class="lastupdated" style="color:lightgrey">
+          Last update: Mar 31, 2023. 
+        </span>
+        
+          <div class="rst-content">
+            
+            <!--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Provisioning Design and FAQ v.1.0</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="gstarted.html" class="btn btn-neutral float-right" title="Partner Application Quickstart v.1.0" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Developing with Acrobat Sign Embed" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>-->
+            <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <div itemprop="articleBody">
+                
+  <div class="section" id="provisioning-design-and-faq-v-1-0">
+<h1>Provisioning Design and FAQ v.1.0<a class="headerlink" href="#provisioning-design-and-faq-v-1-0" title="Permalink to this heading">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Your feedback is welcome and is a key driver as documentation evolves. Send suggestions to <a class="reference external" href="mailto:acrobatsignembed&#37;&#52;&#48;adobe&#46;com">acrobatsignembed<span>&#64;</span>adobe<span>&#46;</span>com</a>.</p>
+</div>
+<p>The following guidelines will help you understand how to use the Adobe Acrobat Sign account provisioning API to create new accounts for your customers.</p>
+<p><a class="reference external" href="223014.3-Adobe-Provisioning-Considerations-v2.pdf">Download the PDF</a>.</p>
+<div class="section" id="provisioning-faqs">
+<h2>Provisioning FAQs<a class="headerlink" href="#provisioning-faqs" title="Permalink to this heading">¶</a></h2>
+<p><strong>Managing OAuth tokens for your customer accounts</strong></p>
+<p>In addition to managing e-sign workflows on your customers’ behalf, your multi-tenant SaaS application can create and manage new accounts for your customers. This will involve storing and retrieving the OAuth tokens your partner app uses to access the accounts you create for your customers. These tokens must be encrypted at rest.</p>
+<p>As you design your app to manage token storage, retrieval, and refresh, keep in mind the following:</p>
+<ul class="simple">
+<li><p>Authorization Code expires in 5 minutes</p></li>
+<li><p>Access Token expires in 60 minutes</p></li>
+<li><p>Refresh Token expires in 60 days</p></li>
+</ul>
+<p><strong>What does provisioning mean?</strong></p>
+<p>In this context, “provisioning” means executing POST/accounts to create a new account for one of your customers. (We do not think of POST/users as part of provisioning because it doesn’t create a new Acrobat Sign account.)</p>
+<p><strong>What kind of account are we creating?</strong></p>
+<p>The account created by POST/accounts:</p>
+<ul class="simple">
+<li><p>Exists as an equal entity to your own account, with full rights and privileges</p></li>
+<li><p>Is not a subaccount. It is not subordinate to your partner account, nor is it a group that could be managed through the Acrobat Sign web UI.</p></li>
+<li><p>Once created, there is no relationship between the new admin account and the entity that ran POST/accounts.</p></li>
+<li><p>Accounts that you create for your customers are aggregated into a channel for billing purposes and to provide Adobe with the ability to make certain configuration changes, across all accounts in the channel.</p></li>
+<li><p>The account belongs to the new admin, and your partner app will not be able to access it until the new admin grants access to your app via the OAuth Authorization Request and Consent flow (via the embed link)</p></li>
+</ul>
+<p><strong>What is geo-sharding, and why is it important in this context?</strong></p>
+<p>Geo-sharding is the technique used to store data close to the customer, based on the customer’s country code.
+When you create a new account, Acrobat Sign will locate the account data in the geographic region associated with the countryCode specified in the JSON payload for POST/accounts. If a region has multiple shards associated with it, Acrobat Sign will use a round-robin approach to choose a shard from within that region. (For example: JP1 is the only shard associated with the Japan region, while NA1, NA2, NA3, and NA4 are used for countryCodes associated with the North America region.)</p>
+<p>All API calls must include the correct shard for the account. Using the incorrect shard will result in 403 Forbidden errors that may occur only intermittently and may be difficult to troubleshoot.
+The following endpoint returns the shard you should use for POST/account:</p>
+<ul class="simple">
+<li><p>GET/baseUris—Returns the shard inside of apiAccessPoint, based on the Bearer Token provided in the Authorization header</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+“apiAccessPoint”: “https://api.na4.adobesign.com/”, “webAccessPoint”: “https://joesBikeShop.na4.adobesign.com/”
+}
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The provisioning use case uses your provisioning integration key as the Bearer Token to return the appropriate shard for your calls to POST/accounts.</p></li>
+<li><p>The shard identified in apiAccessPoint above, is “na4” and would be used as follows: POST/<a class="reference external" href="https://api.na4.adobesign">https://api.na4.adobesign</a>. com/api/rest/v6/accounts.</p></li>
+</ul>
+<p>The following endpoint returns the shard you will use when making any other API calls on the new account. (You could also run GET/ baseUris using the OAuth access_token of the new account.)</p>
+<ul class="simple">
+<li><p>POST/token—Returns the shard within api_access_point, (“na3” in the case below) as well as the access_token and refresh_token that you will need to store for each customer that grants account access to your partner app</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+“access_token”: “3AAABLblqZhCRAx7kdeCpju3Vh94mmZ0LIYtggGIKgODF_ hH3MB3ocmzzB8T”,
+“refresh_token”: “3AAABLblqZhBXZeXJLc_kSjfNrgzlYiwi5CBFrsU kMWrt2oOWi8llaYaPc-kxdA*”,
+“api_access_point”: “https://api.na3.adobesign.com/”, “web_access_point”: “https://joesBikeShop.na3.adobesign.com/”, “token_type”: “Bearer”,
+“expires_in”: 3600
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="new-account-provisioning-flow">
+<h2>New account provisioning flow<a class="headerlink" href="#new-account-provisioning-flow" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>GET/ <a class="reference external" href="https://secure.adobesign.com/api/rest/v6/baseUris">https://secure.adobesign.com/api/rest/v6/baseUris</a>—Uses your provisioning integration key to return baseUris (aka {{apiAccessPoint}}) for POST/accounts</p></li>
+<li><p>POST/ {{apiAccessPoint}}/api/rest/v6/accounts:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>Uses shard returned by GET/baseUris</p></li>
+<li><p>Required JSON: customer-admin email address</p></li>
+<li><p>Highly recommended but optional: countryCode (used to determine correct geo-shard for new account)</p></li>
+<li><p>Uses IntegrationKey (with account_write scope enabled; PSM team must enable this)</p></li>
+<li><p>Returns accountId and userId for the new admin. You can use these as the unique keys to store information about the account’s shard, authentication tokens, admin info, and so on.</p></li>
+<li><p>Generates:</p>
+<ul>
+<li><p>Activation email to new admin to set password</p></li>
+<li><p>Activation email to new admin to agree to Terms of Use</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>New-account admin—Responds to Activation emails.</p></li>
+<li><p>Partner app—Initiates Authorization Request (aka URL that grants account access to your partner app, or embed link)</p></li>
+<li><p>New-account admin—Responds to Authorization Request</p>
+<ul class="simple">
+<li><p>Signs on with new credentials</p></li>
+<li><p>Provides consent for your partner app to access the new account</p></li>
+<li><p>Is redirected</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="6">
+<li><p>Partner app</p>
+<ul class="simple">
+<li><p>Redirects to the redirectUrl supplied when you created your partner app (aka clientId, appId) in the web admin console (aka WebUi). This code expires in 5 minutes.</p></li>
+<li><p>Captures Authorization Code from “code=” parameter returned to redirectUrl</p></li>
+<li><p>Uses this Authorization Code (along with the Partner app ClientId and ClientSecret) to initiate the OAuth flow:</p></li>
+</ul>
+</li>
+<li><p>POST/token</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">--</span><span class="n">location</span> <span class="o">--</span><span class="n">request</span> <span class="n">POST</span> <span class="s1">&#39;https://api.na4.adobesign. com//oauth/v2/token&#39;</span> \
+<span class="o">--</span><span class="n">header</span> <span class="s1">&#39;Content-Type: application/x-www-form- urlencoded&#39;</span> \
+<span class="o">--</span><span class="n">header</span> <span class="s1">&#39;Authorization: Bearer 3AAJl1pbkP0WPsYtnPMVee- haxGbcndSLQF&#39;</span> \
+<span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">urlencode</span> <span class="s1">&#39;code=CBNCKBAAHBCAABAAC3FJuIrvk- 1SxOFKHkCI2-OoCq2gTxHC&#39;</span> \
+<span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">urlencode</span> <span class="s1">&#39;client_id=CBJCHBCAABAA-- qqbqZEb2kNRvOrp41AzRs_vpXyxRkQ&#39;</span> \
+<span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">urlencode</span> <span class="s1">&#39;client_ secret=4MhTcaohhNofdwBEgnhHJIeBT3tEjoAM&#39;</span> \
+<span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">urlencode</span> <span class="s1">&#39;grant_type=authorization_code&#39;</span> \
+<span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">urlencode</span> <span class="s1">&#39;redirect_uri=https://oauth.pstmn.io/v1/ callback&#39;</span>
+</pre></div>
+</div>
+<p>Response:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+“access_token”: “3AAABLblqZhODF_hH3MB3ocmzzB8T- ppWKZTLvb-3WXsl0”,
+“refresh_token”: “3AAABLblqZhBXZeXJLc_ kSjfNrgzlYiwi5CBFaYaPc-kxdA*”,
+“api_access_point”: “https://api.na3.adobesign.com/”, “web_access_point”: “https://embedprovisiontest.na3. adobesign.com/”,
+“token_type”: “Bearer”, “expires_in”: 3600
+}
+</pre></div>
+</div>
+<p>The partner app stores token and api_access_point/shard information for the new account and refreshes tokens as needed.</p>
+<ol class="arabic simple" start="8">
+<li><p>POST/refresh</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">--</span><span class="n">location</span> <span class="o">--</span><span class="n">request</span> <span class="n">POST</span> <span class="s1">&#39;https://api.na4.adobesign.com// oauth/v2/refresh&#39;</span> \
+<span class="o">--</span><span class="n">header</span> <span class="s1">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> \
+<span class="o">--</span><span class="n">header</span> <span class="s1">&#39;Authorization: Bearer 3AAABLblqZhDnssmTBKy7_ JTp0BYiTZ3bcndSLQF&#39;</span> \
+<span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">urlencode</span> <span class="s1">&#39;client_id=CBJCHBCAABAA-- qqbqZEb2kNRvOrp41AzRs_vpXyxRkQ&#39;</span> \
+<span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">urlencode</span> <span class="s1">&#39;client_ secret=4MhTcaohhNofdwBEgnhHJIeBT3tEjoAM&#39;</span> \
+<span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">urlencode</span> <span class="s1">&#39;refresh_ token=3AAABLblqZhDxAN8bvDjgPoJy0FADXuI*&#39;</span> \
+<span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">urlencode</span> <span class="s1">&#39;grant_type=refresh_token&#39;</span>
+</pre></div>
+</div>
+<p>Response:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+“access_token”: “3AAABLblqZhDpbkeOfkTY7Jk8YLe- haxGbcndSLQF”,
+“token_type”: “Bearer”, “expires_in”: 3600
+}
+</pre></div>
+</div>
+<img alt="_images/provworkflow.png" src="_images/provworkflow.png" />
+</div>
+</div>
+
+
+              </div>
+              
+            </div>
+            <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2023, Adobe Inc..
+      <span class="lastupdated">
+        Last update: Mar 31, 2023. 
+        <img src="../_static/adobelogo.png" class="logo"/> 
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+          </div>
+        </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+    });
+  </script> 
+
+</body>
+
+</html>
