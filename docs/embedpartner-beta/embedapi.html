@@ -282,40 +282,46 @@
 <p class="admonition-title">Tip</p>
 <p>Your feedback is welcome and is a key driver as documentation evolves. Send suggestions to <a class="reference external" href="mailto:acrobatsignembed&#37;&#52;&#48;adobe&#46;com">acrobatsignembed<span>&#64;</span>adobe<span>&#46;</span>com</a>.</p>
 </div>
-<p>Adobe’s new Acrobat Sign Embed 2.0 frictionless model exposes new APIs for streamlining account management as well as creating and validating new user tokens. Embed 2.0 enables:</p>
+<p>Adobe’s new Acrobat Sign Embed 2.0 frictionless model exposes new APIs for streamlining account management as well as creating and validating new user tokens. Embed 2.0 provides the following benefits:</p>
 <ul class="simple">
-<li><p>Immediate and automated onboarding of new customers via API.</p></li>
-<li><p>Partner owns all aspects of their end-customer relationship. End customers are not known to Adobe.</p></li>
-<li><p>Partner becomes full Adobe Customer using full stack of Adobe Customer facing tools/console/portals.</p></li>
-<li><p>Open support tickets within Admin console</p></li>
-<li><p>Add/remove/manage customer’s end-users independently from Adobe.</p></li>
+<li><p>Immediate and automated onboarding of new customers via the API.</p></li>
+<li><p>Partner ownership of all aspects of their end-customer relationship. End customers are not known to Adobe.</p></li>
+<li><p>The partner-as-customer has access to Acrobat Sign’s and Adobe full stack of customer-facing tools, console, and portals.</p></li>
+<li><p>Support ticket access via the Admin Console</p></li>
+<li><p>The ability to add, remove, and fully manage end-users independently from Adobe.</p></li>
 <li><p>Eliminates provisioning conflicts</p></li>
 </ul>
-<p>Adobe will provision Embed 2.0 customers with access to Global and Admin Consoles.</p>
+<p>Adobe provisions Embed 2.0 customers with access to Global and Admin Consoles, so they can:</p>
 <ul class="simple">
-<li><p>Consoles for managing all licensed Adobe products.</p></li>
-<li><p>Create/assign roles for partner’s users (e.g. developers; not customers!).</p></li>
-<li><p>Setup Federated directory and define Identity Provider (IdP).</p></li>
-<li><p>Claim domain (e.g. ‘oempartner.com’) for use with all customers (e.g. <a class="reference external" href="mailto:bob&#46;smith_joesbikeshop&#37;&#52;&#48;oempartner&#46;com">bob<span>&#46;</span>smith_joesbikeshop<span>&#64;</span>oempartner<span>&#46;</span>com</a>)</p></li>
+<li><p>Use the consoles for managing all licensed Adobe products.</p></li>
+<li><p>Create and assign roles for partner’s users (e.g. developers; not customers!).</p></li>
+<li><p>Set up Federated directory and define Identity Provider (IdP).</p></li>
+<li><p>Claim domains (e.g. ‘oempartner.com’) for use with all customers (e.g. <a class="reference external" href="mailto:bob&#46;smith_joesbikeshop&#37;&#52;&#48;oempartner&#46;com">bob<span>&#46;</span>smith_joesbikeshop<span>&#64;</span>oempartner<span>&#46;</span>com</a>)</p></li>
 </ul>
-<p>Adobe will create and assign a Sign ‘channel’ for the exclusive use of the partner.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Adobe creates and assigns a Sign ‘channel’ for exclusive partner use. All customer accounts will inherit from this channel’s settings. You will collaborate with the Acrobat Sign partner team to define set of ‘global’ settings for all of your customers.</p>
+</div>
+<p>To get started, you will create a technical account within the  Adobe Developer Console:</p>
 <ul class="simple">
-<li><p>All customer accounts will inherit from this channel’s settings.</p></li>
-<li><p>Work with Adobe Adobe partner team to define set of ‘global’ settings for all of your customers.</p></li>
+<li><p>Create a token for creating a new customer organization within Acrobat Sign.</p></li>
+<li><p>Use your token for creating new users. This step can be repeated as necessary.</p></li>
+<li><p>The technical account token is used as the Bearer token in the Authorization header for the APIs below.</p></li>
 </ul>
-<p>Create Technical Account within Adobe developer console</p>
-<ul class="simple">
-<li><p>Create token for creating new Customer Orgs within Sign</p></li>
-<li><p>Use token for creating new Customers’ users. Can be repeated as necessary.</p></li>
-<li><p>The technical account token is used as the Bearer token in the Authorization header for these APIs .</p></li>
-</ul>
-<p>You create the technical account token in the Adobe Developer Portal (following these instructions xxx.) and generate a cURL to create an endpoint that looks like this:</p>
-<p>[<a class="reference external" href="https://ims-na1-stg1.adobelogin.com/ims/token/v2?grant_type=client_credentials&amp;client_id=162d89dd7a844fdfa3702b7e8d58fd69&amp;client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retention,openid,widget_write,workflow_read,agreement_send,agreement_sign,AdobeID,agreement_write,widget_read,sign_webhook_read,sign_user_write,agreement_read,agreement_retention,sign_user_read,sign_library_read,user_management_sdk,agreement_vault,sign_user_login,sign_webhook_write,sign_library_retention,sign_library_write,workflow_write](https://ims-na1-stg1.adobelogin.com/ims/token/v2">https://ims-na1-stg1.adobelogin.com/ims/token/v2?grant_type=client_credentials&amp;client_id=162d89dd7a844fdfa3702b7e8d58fd69&amp;client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retention,openid,widget_write,workflow_read,agreement_send,agreement_sign,AdobeID,agreement_write,widget_read,sign_webhook_read,sign_user_write,agreement_read,agreement_retention,sign_user_read,sign_library_read,user_management_sdk,agreement_vault,sign_user_login,sign_webhook_write,sign_library_retention,sign_library_write,workflow_write](https://ims-na1-stg1.adobelogin.com/ims/token/v2</a>?grant_type=client_credentials&amp;client_id=162d89dd7a844fdfa3702b7e8d58fd69&amp;client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retention,openid,widget_write,workflow_read,agreement_send,agreement_sign,AdobeID,agreement_write,widget_read,sign_webhook_read,sign_user_write,agreement_read,agreement_retention,sign_user_read,sign_library_read,user_management_sdk,agreement_vault,sign_user_login,sign_webhook_write,sign_library_retention,sign_library_write,workflow_write)</p>
-<p>New APIs include:</p>
+<p>You create the technical account token in the Adobe Developer Portal. and generate a cURL to create an endpoint that looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[https://ims-na1-stg1.adobelogin.com/ims/token/v2?grant_type=client_credentials&amp;
+client_id=162d89dd7a844fdfa3702b7e8d58fd69&amp;
+client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retention,openid,widget_write,workflow_read,agreement_send,agreement_sign,AdobeID,agreement_write,widget_read,sign_webhook_read,sign_user_write,agreement_read,agreement_retention,sign_user_read,sign_library_read,user_management_sdk,agreement_vault,sign_user_login,sign_webhook_write,sign_library_retention,sign_library_write,workflow_write]
+(https://ims-na1-stg1.adobelogin.com/ims/token/v2?grant_type=client_credentials&amp;client_id=162d89dd7a844fdfa3702b7e8d58fd69&amp;client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retention,openid,widget_write,workflow_read,agreement_send,agreement_sign,AdobeID,agreement_write,widget_read,sign_webhook_read,sign_user_write,agreement_read,agreement_retention,sign_user_read,sign_library_read,user_management_sdk,agreement_vault,sign_user_login,sign_webhook_write,sign_library_retention,sign_library_write,workflow_write)
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The rest of this document provides details about new Embed 2.0 APIs.</p>
+</div>
 <div class="section" id="account-and-user-management-apis">
 <h2>Account and User Management APIs<a class="headerlink" href="#account-and-user-management-apis" title="Permalink to this heading">¶</a></h2>
-<ul>
-<li><p>Embed Service: Call these APIs directly using a technical account token to create or update an account and users.</p>
+<p>Embed Service: Call these APIs directly using a technical account token to create or update an account and users.</p>
 <blockquote>
 <div><p><strong>Account management APIs</strong></p>
 <blockquote>
@@ -334,19 +340,16 @@
 </ul>
 </div></blockquote>
 </div></blockquote>
-</li>
-</ul>
 </div>
 <div class="section" id="authentication-token-apis">
 <h2>Authentication:  Token APIs<a class="headerlink" href="#authentication-token-apis" title="Permalink to this heading">¶</a></h2>
-<ul class="simple">
-<li><p>Auth Token APIs: Call these APIs via the AdobeSignAuthService for user token generation and validation:</p>
-<ul>
+<p>Auth Token APIs: Call these APIs via the AdobeSignAuthService for user token generation and validation:</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>POST /token: Exchange technical account token and other keys, for a Embed user token.</p></li>
 <li><p>POST /validate_token: Validate Embed User Token</p></li>
 </ul>
-</li>
-</ul>
+</div></blockquote>
 <div class="section" id="common-auth-token-api-attributes">
 <h3>Common auth token API attributes<a class="headerlink" href="#common-auth-token-api-attributes" title="Permalink to this heading">¶</a></h3>
 <table class="colwidths-given docutils align-default" id="id15">
