@@ -71,7 +71,6 @@
     });
   </script>
 
-
 </head>
 
 <body class="wy-body-for-nav">
@@ -103,6 +102,7 @@
           <p class="caption" role="heading"><span class="caption-text">Webhook Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Webhooks in Acrobat Sign</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#webhook-changes">Webhook changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#best-practices">Best Practices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#ui-vs-api-configuration">UI vs. API configuration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="index.html#the-api-best-practice">The API “best practice”</a></li>
@@ -186,6 +186,8 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-rejected">AGREEMENT_REJECTED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expired">AGREEMENT_EXPIRED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expiration-updated">AGREEMENT_EXPIRATION_UPDATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-documents-viewed">AGREEMENT_DOCUMENTS_VIEWED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-documents-viewed-password-protected">AGREEMENT_DOCUMENTS_VIEWED_PASSWORD_PROTECTED</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="webhookeventslibrary.html">Library Events</a><ul>
@@ -277,8 +279,9 @@
       
       
       <div class="wy-nav-content">
+        
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Apr 06, 2023. 
+          Last update: Jul 18, 2023. 
         </span>
         
           <div class="rst-content">
@@ -593,8 +596,11 @@
 </div>
 <div class="section" id="megasign-recalled">
 <h2>MEGASIGN_RECALLED<a class="headerlink" href="#megasign-recalled" title="Permalink to this heading">¶</a></h2>
-<p>Web app name: Send in Bulk recalled</p>
-<p>Triggers when a send in bulk action is recalled.</p>
+<ul class="simple">
+<li><p>Updated: July, 2023</p></li>
+<li><p>Web app name: Send in Bulk recalled</p></li>
+<li><p>Triggers when a send in bulk action is recalled</p></li>
+</ul>
 <table class="colwidths-given docutils align-default" id="id3">
 <caption><span class="caption-text">Event-specific payload attributes</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -632,6 +638,14 @@
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code></p></td>
 <td><p>String</p></td>
 <td><p>The user email of the sharee of the creator of the bulk signing event who recalled the bulk signing event on behalf of the creator in the case of account sharing.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">comment</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Any arbitrary comment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">notifyOthers</span></code></p></td>
+<td><p>Boolean</p></td>
+<td><p>True or false (default) depending on whether recipients should be notified that the transaction(s) have been cancelled. This field is set when an agreement is cancelled using the <code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/agreements/{agreementId}/state</span></code> API.</p></td>
 </tr>
 </tbody>
 </table>
@@ -697,6 +711,10 @@
         <span class="nt">&quot;vaultingInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
         <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;agreementCancellationInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;notifyOthers&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -976,7 +994,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Apr 06, 2023. 
+        Last update: Jul 18, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

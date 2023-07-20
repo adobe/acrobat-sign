@@ -71,7 +71,6 @@
     });
   </script>
 
-
 </head>
 
 <body class="wy-body-for-nav">
@@ -103,6 +102,7 @@
           <p class="caption" role="heading"><span class="caption-text">Webhook Guide</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Webhooks in Acrobat Sign</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#webhook-changes">Webhook changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#best-practices">Best Practices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ui-vs-api-configuration">UI vs. API configuration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#the-api-best-practice">The API “best practice”</a></li>
@@ -186,6 +186,8 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-rejected">AGREEMENT_REJECTED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expired">AGREEMENT_EXPIRED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expiration-updated">AGREEMENT_EXPIRATION_UPDATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-documents-viewed">AGREEMENT_DOCUMENTS_VIEWED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-documents-viewed-password-protected">AGREEMENT_DOCUMENTS_VIEWED_PASSWORD_PROTECTED</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="webhookeventslibrary.html">Library Events</a><ul>
@@ -277,8 +279,9 @@
       
       
       <div class="wy-nav-content">
+        
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Apr 06, 2023. 
+          Last update: Jul 18, 2023. 
         </span>
         
           <div class="rst-content">
@@ -335,13 +338,25 @@
                 
   <div class="section" id="webhooks-in-acrobat-sign">
 <span id="webhooks"></span><h1>Webhooks in Acrobat Sign<a class="headerlink" href="#webhooks-in-acrobat-sign" title="Permalink to this heading">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Announcement: All customers are migrating to webhooks 2.0 in 2023. For details, see    <a class="reference external" href="http://www.adobe.com/go/acrobatsigndevrnotes">http://www.adobe.com/go/acrobatsigndevrnotes</a>.</p>
+</div>
 <p>Webhooks are developer-defined HTTPS requests that trigger when a subscribed event occurs. They allow for real-time notification of workflow events such as “signed” or “created” without having to poll Acrobat Sign for status; your app is automatically notified when an event occurs. The service simply makes an HTTPS POST request to the webhook’s HTTPS URL. In simple words, a webhook is a <strong>web service that accepts data or a stream of data</strong> from a source using a PUSH communication model. You can create webhooks can via the REST APIs as well as the Acrobat Sign web application.</p>
+<p>While not explicitly stated, the webhook framework is the underlying mechanism used for multiple Acrobat Sign features; for example, any time a resource (agreement, webform, etc.)/user/group/account/application receives an event notification from Acrobat Sign, the “webhooks infrastructure” is in play.</p>
+<ul class="simple">
+<li><p>Webhooks (created via Sign UI/API)</p></li>
+<li><p>callbacks for agreements (especially v5 endpoints)</p></li>
+<li><p>3rd party applications (Salesforce, iCertis, Veeva, Microsoft Teams, etc.)</p></li>
+<li><p>Power Automate Sign connectors</p></li>
+<li><p>And so on… This list is not exhaustive</p></li>
+</ul>
 <p>Events are the reason for webhooks, and you control what events your Acrobat Sign integration listens for and how it responds.  When a subscribed event occurs, Acrobat Sign constructs an HTTPS POST with a JSON body payload and delivers it to the specified URL. You can change the list of subscribed events through the API or UI anytime. Each event has a similar JSON schema based on the resource type, but the event type determines its unique payload object.</p>
 <p>You can learn about and explore the JSON payloads by downloading the JSON files:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="./payloads/agreementpayloads.7z">Agreement event payloads</a></p></li>
-<li><p><a class="reference external" href="./payloads/bulksignpayloads.7z">Library event payloads</a></p></li>
-<li><p><a class="reference external" href="./payloads/librarypayloads.7z">Bulk signing event payloads</a></p></li>
+<li><p><a class="reference external" href="./payloads/librarypayloads.7z">Library event payloads</a></p></li>
+<li><p><a class="reference external" href="./payloads/bulksignpayloads.7z">Bulk signing event payloads</a></p></li>
 <li><p><a class="reference external" href="./payloads/formfillpayloads.7z">Form filling event payloads</a></p></li>
 </ul>
 <p>This guide provides details about each event, including:</p>
@@ -351,13 +366,14 @@
 <li><p>Notification details</p></li>
 <li><p>Error code</p></li>
 </ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Announcement: All customers are gradually being migrated to webhooks 2.0. For details, see     <a class="reference external" href="http://www.adobe.com/go/acrobatsigndevrnotes">http://www.adobe.com/go/acrobatsigndevrnotes</a>.</p>
+<div class="section" id="webhook-changes">
+<h2>Webhook changes<a class="headerlink" href="#webhook-changes" title="Permalink to this heading">¶</a></h2>
+<p>Webhooks regularly evolve with major releases. It’s a good idea to track updates by date from the <a class="reference external" href="http://www.adobe.com/go/acrobatsigndevrnotes">Developer Release Notes</a></p>
 </div>
 <div class="section" id="best-practices">
 <h2>Best Practices<a class="headerlink" href="#best-practices" title="Permalink to this heading">¶</a></h2>
 <ul>
+<li><p><strong>Required</strong>: Allow your network to communicate via the <a class="reference external" href="https://helpx.adobe.com/sign/system-requirements.html#ipranges">latest designated IP range list</a></p></li>
 <li><p>Subscribe to specific, needed events to limit the number of HTTPS requests to the server.</p></li>
 <li><p>Be duplicate resistant: If you have more than one app sharing the same webhook URL and the same user mapped to each app, the same event is sent to your webhook multiple times (once per app). In some cases, your webhook may receive duplicate events. Your webhook application should process event IDs to avoid unnecessary handling of duplicate events.</p></li>
 <li><p>Always respond to webhooks quickly: Your app only has 5 seconds to respond to webhook requests. For the verification request, this is rarely an issue, since your app doesn’t need to do any real work to respond. For notification requests, however, your app will usually do something that takes time in response to the request; for example, if you need to process and then store signed documents. To make sure you can always respond within 5 seconds, process work on a separate thread or asynchronously using a queue.</p>
@@ -699,7 +715,7 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Apr 06, 2023. 
+        Last update: Jul 18, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

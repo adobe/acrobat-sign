@@ -71,7 +71,6 @@
     });
   </script>
 
-
 </head>
 
 <body class="wy-body-for-nav">
@@ -109,6 +108,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#webhook-changes">Webhook changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rest-api-changes">REST API changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#bug-fixes">Bug fixes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#july-2023">July 2023</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#march-2023">March 2023</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#september">September</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#july-2022">July 2022</a></li>
@@ -205,8 +205,9 @@
       
       
       <div class="wy-nav-content">
+        
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Apr 06, 2023. 
+          Last update: Jul 20, 2023. 
         </span>
         
           <div class="rst-content">
@@ -265,9 +266,8 @@
 <h1>Latest API Release Notes<a class="headerlink" href="#latest-api-release-notes" title="Permalink to this heading">¶</a></h1>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>For product feature and UI changes, refer to <a class="reference external" href="https://helpx.adobe.com/sign/release-notes/adobe-sign.html">https://helpx.adobe.com/sign/release-notes/adobe-sign.html</a></p>
+<p>For non-developer product feature and UI changes, refer to <a class="reference external" href="https://helpx.adobe.com/sign/release-notes/adobe-sign.html">https://helpx.adobe.com/sign/release-notes/adobe-sign.html</a></p>
 </div>
-<hr class="docutils" />
 <div class="section" id="system-requirement-changes">
 <h2>System requirement changes<a class="headerlink" href="#system-requirement-changes" title="Permalink to this heading">¶</a></h2>
 <p>For browser and product UI system requirements, see <a class="reference external" href="https://helpx.adobe.com/sign/system-requirements.html">https://helpx.adobe.com/sign/system-requirements.html</a>.</p>
@@ -285,8 +285,17 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>March 14, 2023</p></td>
-<td><p><a class="reference external" href="https://adobe.postman.co/workspace/Adobe-Acrobat-Sign~1faa30d0-1b34-493b-96b1-475cf3978a95/overview">New Acrobat Sign Workspace</a></p></td>
+<tr class="row-even"><td><p>July, 2023</p></td>
+<td><p>Doc updates for all docs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>May, 2023</p></td>
+<td><p>OEM 1.0 onboarding, quickstart, FAQ. OEM 2.0 beta docs</p></td>
+</tr>
+<tr class="row-even"><td><p>April, 2023</p></td>
+<td><p>Solutions for Government: onboarding docs, Postman collection</p></td>
+</tr>
+<tr class="row-odd"><td><p>March 14, 2023</p></td>
+<td><p><a class="reference external" href="https://adobe.postman.co/workspace/Adobe-Acrobat-Sign~1faa30d0-1b34-493b-96b1-475cf3978a95/overview">New Acrobat Sign Workspace on Postman</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -304,6 +313,35 @@
 </tr>
 </thead>
 <tbody>
+<tr class="row-even"><td><p>July 18, 2023</p></td>
+<td><p>New Webhooks</p>
+<ul class="simple">
+<li><p>AGREEMENT_DOCUMENTS_VIEWED: Triggers when a user views an agreement.</p></li>
+<li><p>AGREEMENT_DOCUMENTS_VIEWED_PASSWORD_PROTECTED: Triggers when a user views an agreement that is password protected.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>July 18, 2023</p></td>
+<td><p>Updated Webhooks</p>
+<ul class="simple">
+<li><p>AGREEMENT_RECALLED: Additional payload values now include <code class="docutils literal notranslate"><span class="pre">comments</span></code> and <code class="docutils literal notranslate"><span class="pre">notifyOthers</span></code>.</p></li>
+<li><p>MEGASIGN_RECALLED: Additional payload values now include <code class="docutils literal notranslate"><span class="pre">comments</span></code> and <code class="docutils literal notranslate"><span class="pre">notifyOthers</span></code>.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>July 18, 2023</p></td>
+<td><p>Updated IP ranges for Webhooks: Webhooks require allow-listing to specific IP addresses. The <a class="reference external" href="https://helpx.adobe.com/sign/system-requirements.html#ipranges">IP range list has been updated</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>July 18, 2023</p></td>
+<td><p>All <code class="docutils literal notranslate"><span class="pre">/search</span></code> API calls are subject to volume throttling at the rate of:</p>
+<ul class="simple">
+<li><p>1000 calls per minute</p></li>
+<li><p>2500 calls per hour</p></li>
+<li><p>7200 calls per day</p></li>
+</ul>
+<p><strong>Note</strong>: Administrators may file a <a class="reference external" href="https://adobe.com/go/adobesign-support-center">support request</a> to elevate the volumes.</p>
+</td>
+</tr>
 <tr class="row-even"><td><p>March 14, 2023</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserId</span></code> and <code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code>: Accounts on Webhooks 2.0 will populate the <code class="docutils literal notranslate"><span class="pre">initiatingUserId</span></code> and <code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code> fields in the notification payload. Accounts that remain on the classic webhooks experience after March 14, 2023 will see unpopulated fields present in the payload.</p></td>
 </tr>
@@ -378,7 +416,10 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Nov. 8</p></td>
+<tr class="row-even"><td><p>July 18, 2023</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/combined</span></code> document returns merged field data; Merged (prefilled) data can be visually validated using the <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/</span> <span class="pre">agreements/{agreementId}combinedDocument</span></code> call and including the <code class="docutils literal notranslate"><span class="pre">includeMergedFieldData</span></code> parameter. The downloaded PDF includes the form field data that has already been merged via <code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/formfields/mergeInfo</span></code> call.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nov. 8</p></td>
 <td><p>New endpoints</p>
 <ul class="simple">
 <li><p>DELETE /agreements/{agreementId} - A new endpoint that supports the “soft delete” function by moving an agreement and all related data(including database records and physical files) to the Deleted folder where it will be fully destroyed 14 days later (unless restored first).</p></li>
@@ -386,7 +427,7 @@
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Nov. 8</p></td>
+<tr class="row-even"><td><p>Nov. 8</p></td>
 <td><p>Updated endpoints</p>
 <ul class="simple">
 <li><p>GET /libraryDocument/{libraryDocumentId}/combinedDocument - An update to the existing endpoint to add a value (skipDocumentSealing) that returns a non-certified PDF.</p></li>
@@ -395,22 +436,22 @@
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><p>Sept</p></td>
+<tr class="row-odd"><td><p>Sept</p></td>
 <td><p>The description of the BYON_NOTARY notaryType was updated to reflect the “bring your own” aspect of a customer-provided notary.</p></td>
 </tr>
-<tr class="row-odd"><td><p>July</p></td>
+<tr class="row-even"><td><p>July</p></td>
 <td><p>Devs can <a class="reference external" href="https://helpx.adobe.com/sign/release-notes/adobe-sign.html">improve the delegation process</a> by updating the delegation API to use the v6 REST endpoint <code class="docutils literal notranslate"><span class="pre">delegatedParticipantSets</span></code>. Customers should see no impact beyond enforcing the required name values configuration during delegation.</p></td>
 </tr>
-<tr class="row-even"><td><p>June</p></td>
+<tr class="row-odd"><td><p>June</p></td>
 <td><p>None</p></td>
 </tr>
-<tr class="row-odd"><td><p>May</p></td>
+<tr class="row-even"><td><p>May</p></td>
 <td><p>None</p></td>
 </tr>
-<tr class="row-even"><td><p>April</p></td>
+<tr class="row-odd"><td><p>April</p></td>
 <td><p>None</p></td>
 </tr>
-<tr class="row-odd"><td><p>January</p></td>
+<tr class="row-even"><td><p>January</p></td>
 <td><p>None</p></td>
 </tr>
 </tbody>
@@ -418,6 +459,10 @@
 </div>
 <div class="section" id="bug-fixes">
 <h2>Bug fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="july-2023">
+<h3>July 2023<a class="headerlink" href="#july-2023" title="Permalink to this heading">¶</a></h3>
+<p>Refer to the <a class="reference external" href="https://helpx.adobe.com/sign/release-notes/adobe-sign/sign-release-schedule.html#Schedule">Resolved issue list</a>.</p>
+</div>
 <div class="section" id="march-2023">
 <h3>March 2023<a class="headerlink" href="#march-2023" title="Permalink to this heading">¶</a></h3>
 <p>4383351: Copying a web form between environments (e.g., Sandbox to production) results in fields that do not display on the final agreement. Fix: The <code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/widgets/{widgetId}/formFields</span></code> API call has been improved to ensure the fields are properly placed.</p>
@@ -475,7 +520,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Apr 06, 2023. 
+        Last update: Jul 20, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

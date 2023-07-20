@@ -70,7 +70,6 @@
     });
   </script>
 
-
 </head>
 
 <body class="wy-body-for-nav">
@@ -108,6 +107,7 @@
 <li class="toctree-l2"><a class="reference internal" href="acrobatsignreleasenotes.html#webhook-changes">Webhook changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="acrobatsignreleasenotes.html#rest-api-changes">REST API changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="acrobatsignreleasenotes.html#bug-fixes">Bug fixes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="acrobatsignreleasenotes.html#july-2023">July 2023</a></li>
 <li class="toctree-l3"><a class="reference internal" href="acrobatsignreleasenotes.html#march-2023">March 2023</a></li>
 <li class="toctree-l3"><a class="reference internal" href="acrobatsignreleasenotes.html#september">September</a></li>
 <li class="toctree-l3"><a class="reference internal" href="acrobatsignreleasenotes.html#july-2022">July 2022</a></li>
@@ -204,8 +204,9 @@
       
       
       <div class="wy-nav-content">
+        
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Apr 06, 2023. 
+          Last update: Jul 20, 2023. 
         </span>
         
           <div class="rst-content">
@@ -483,77 +484,77 @@
 <h3>Hosted Signing<a class="headerlink" href="#hosted-signing" title="Permalink to this heading">¶</a></h3>
 <p>One of the common workflows used by Acrobat Sign clients is to create an agreement and get the corresponding signing url. Since, the agreement creation is asynchronous the clients needs to poll on <a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/getSigningUrl">GET /agreements/{agreementId}/signingUrls</a> for fetching signing url. The sample code below implements this use case.</p>
 <p><strong>Polling For Signing Url</strong></p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">APIConfig</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;apiBaseUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;base-uri-for-client&gt;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;accessToken&quot;</span><span class="o">:</span> <span class="s2">&quot;Bearer &lt;valid-access-token&gt;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;transientDocumentId&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;valid-transient-document-id&gt;&quot;</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">APIConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;apiBaseUrl&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;base-uri-for-client&gt;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;accessToken&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Bearer &lt;valid-access-token&gt;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;transientDocumentId&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;valid-transient-document-id&gt;&quot;</span>
 <span class="p">}</span>
 
-<span class="kd">function</span> <span class="nx">getSigningUrlForAsyncAgreementCreation</span><span class="p">()</span> <span class="p">{</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">getSigningUrlForAsyncAgreementCreation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 
-    <span class="kd">var</span> <span class="nx">getSigningUrl</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">agreementId</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">apiUrl</span> <span class="o">=</span> <span class="nx">APIConfig</span><span class="p">.</span><span class="nx">apiBaseUrl</span> <span class="o">+</span> <span class="s2">&quot;/api/rest/v6/agreements/&quot;</span> <span class="o">+</span> <span class="nx">agreementId</span> <span class="o">+</span> <span class="s2">&quot;/signingUrls&quot;</span><span class="p">;</span>
-        <span class="nx">jQuery</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-            <span class="nx">url</span><span class="o">:</span> <span class="nx">apiUrl</span><span class="p">,</span>
-            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
-            <span class="nx">beforeSend</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">xhr</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s1">&#39;Authorization&#39;</span><span class="p">,</span> <span class="nx">APIConfig</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">);</span>
-            <span class="p">},</span>
-            <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
-                <span class="c1">// API execution is successful, the signing url is present in result</span>
-            <span class="p">},</span>
-            <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
-                <span class="c1">// If error occurs with HTTP status 404 and error code is AGREEMENT_NOT_SIGNABLE the background processes in agreement creation has not completed.</span>
-                <span class="c1">// Re attempt API after polling time period.</span>
-                <span class="k">if</span><span class="p">(</span><span class="nx">status</span> <span class="o">===</span> <span class="mf">404</span> <span class="o">&amp;&amp;</span> <span class="nx">result</span><span class="p">.</span><span class="nx">code</span> <span class="o">==</span> <span class="s2">&quot;AGREEMENT_NOT_SIGNABLE&quot;</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="nb">window</span><span class="p">.</span><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-                        <span class="nx">getSigningUrl</span><span class="p">(</span><span class="nx">agreementId</span><span class="p">);</span>
-                    <span class="p">},</span> <span class="mf">500</span><span class="p">);</span>
-                <span class="p">}</span>
-                <span class="c1">// In all other cases, there is a genuine failure in retrieving signing url. Parse error code and message for more detail.</span>
-            <span class="p">}</span>
-        <span class="p">});</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">getSigningUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">agreementId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">apiUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">APIConfig</span><span class="p">.</span><span class="nx">apiBaseUrl</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;/api/rest/v6/agreements/&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">agreementId</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;/signingUrls&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">jQuery</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="nx">apiUrl</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">beforeSend</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">xhr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s1">&#39;Authorization&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">APIConfig</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">);</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">status</span><span class="p">,</span><span class="w"> </span><span class="nx">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// API execution is successful, the signing url is present in result</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">status</span><span class="p">,</span><span class="w"> </span><span class="nx">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// If error occurs with HTTP status 404 and error code is AGREEMENT_NOT_SIGNABLE the background processes in agreement creation has not completed.</span>
+<span class="w">                </span><span class="c1">// Re attempt API after polling time period.</span>
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">404</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">code</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;AGREEMENT_NOT_SIGNABLE&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nb">window</span><span class="p">.</span><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nx">getSigningUrl</span><span class="p">(</span><span class="nx">agreementId</span><span class="p">);</span>
+<span class="w">                    </span><span class="p">},</span><span class="w"> </span><span class="mf">500</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="c1">// In all other cases, there is a genuine failure in retrieving signing url. Parse error code and message for more detail.</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="kd">var</span> <span class="nx">createAgreementAsynchronously</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">createAgreementAsynchronously</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 
-        <span class="kd">var</span> <span class="nx">agreementCreationRequest</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">&quot;fileInfos&quot;</span><span class="o">:</span> <span class="p">[{</span>
-                <span class="s2">&quot;transientDocumentId&quot;</span><span class="o">:</span> <span class="nx">APIConfig</span><span class="p">.</span><span class="nx">transientDocumentId</span>
-            <span class="p">}],</span>
-            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Asynchronous Agreement&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;participantSetsInfo&quot;</span><span class="o">:</span> <span class="p">[{</span>
-                <span class="s2">&quot;memberInfos&quot;</span><span class="o">:</span> <span class="p">[{</span>
-                    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;signer-email&gt;&quot;</span>
-                <span class="p">}],</span>
-                <span class="s2">&quot;order&quot;</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span>
-                <span class="s2">&quot;role&quot;</span><span class="o">:</span> <span class="s2">&quot;SIGNER&quot;</span>
-            <span class="p">}],</span>
-            <span class="s2">&quot;signatureType&quot;</span><span class="o">:</span> <span class="s2">&quot;ESIGN&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;state&quot;</span><span class="o">:</span> <span class="s2">&quot;IN_PROCESS&quot;</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">agreementCreationRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;fileInfos&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">                </span><span class="s2">&quot;transientDocumentId&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">APIConfig</span><span class="p">.</span><span class="nx">transientDocumentId</span>
+<span class="w">            </span><span class="p">}],</span>
+<span class="w">            </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Asynchronous Agreement&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;participantSetsInfo&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">                </span><span class="s2">&quot;memberInfos&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">                    </span><span class="s2">&quot;email&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;signer-email&gt;&quot;</span>
+<span class="w">                </span><span class="p">}],</span>
+<span class="w">                </span><span class="s2">&quot;order&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;role&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;SIGNER&quot;</span>
+<span class="w">            </span><span class="p">}],</span>
+<span class="w">            </span><span class="s2">&quot;signatureType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ESIGN&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;state&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;IN_PROCESS&quot;</span>
+<span class="w">        </span><span class="p">}</span>
 
-        <span class="nx">agreementCreationRequest</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">agreementCreationRequest</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">agreementCreationRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">agreementCreationRequest</span><span class="p">);</span>
 
-        <span class="nx">jQuery</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-            <span class="nx">url</span><span class="o">:</span> <span class="nx">APIConfig</span><span class="p">.</span><span class="nx">apiBaseUrl</span> <span class="o">+</span> <span class="s2">&quot;/api/rest/v6/agreements&quot;</span><span class="p">,</span>
-            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
-            <span class="nx">beforeSend</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">xhr</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s1">&#39;Authorization&#39;</span><span class="p">,</span> <span class="nx">APIConfig</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">jQuery</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="nx">APIConfig</span><span class="p">.</span><span class="nx">apiBaseUrl</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;/api/rest/v6/agreements&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">beforeSend</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">xhr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s1">&#39;Authorization&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">APIConfig</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">);</span>
 
-            <span class="p">},</span>
-            <span class="nx">contentType</span><span class="o">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
-            <span class="nx">data</span><span class="o">:</span> <span class="nx">agreementCreationRequest</span><span class="p">,</span>
-            <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
-                <span class="c1">// Call GET /agreements/{agreementId}/signingUrls api after 500ms</span>
-                <span class="nb">window</span><span class="p">.</span><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-                    <span class="nx">getSigningUrl</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
-                <span class="p">},</span> <span class="mf">500</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">});</span>
-    <span class="p">}</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">contentType</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="nx">agreementCreationRequest</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">status</span><span class="p">,</span><span class="w"> </span><span class="nx">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// Call GET /agreements/{agreementId}/signingUrls api after 500ms</span>
+<span class="w">                </span><span class="nb">window</span><span class="p">.</span><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">getSigningUrl</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+<span class="w">                </span><span class="p">},</span><span class="w"> </span><span class="mf">500</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="nx">createAgreementAsynchronously</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">createAgreementAsynchronously</span><span class="p">();</span>
 <span class="p">}</span>
 
 <span class="nx">getSigningUrlForAsyncAgreementCreation</span><span class="p">();</span>
@@ -563,80 +564,80 @@
 <h4>Simple Agreement Creation<a class="headerlink" href="#simple-agreement-creation" title="Permalink to this heading">¶</a></h4>
 <p>Some operations on a newly created agreement like downloading agreement document are not allowed until all the background processes in creating agreement is completed. The <a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementInfo">GET /agreements/{agreementId}</a> API provides the status of the agreement on which the client can poll before performing such operations. Refer the sample code below for more details.</p>
 <p><strong>Polling For Signing URL</strong></p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">APIConfig</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;apiBaseUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;base-uri-for-client&gt;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;accessToken&quot;</span><span class="o">:</span> <span class="s2">&quot;Bearer &lt;valid-access-token&gt;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;transientDocumentId&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;valid-transient-document-id&gt;&quot;</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">APIConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;apiBaseUrl&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;base-uri-for-client&gt;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;accessToken&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Bearer &lt;valid-access-token&gt;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;transientDocumentId&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;valid-transient-document-id&gt;&quot;</span>
 <span class="p">}</span>
 
-<span class="kd">function</span> <span class="nx">getAgreementInfoForAsyncAgreementCreation</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">getAgreementInfo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">agreementId</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">apiUrl</span> <span class="o">=</span> <span class="nx">APIConfig</span><span class="p">.</span><span class="nx">apiBaseUrl</span> <span class="o">+</span> <span class="s2">&quot;/api/rest/v6/agreements/&quot;</span> <span class="o">+</span> <span class="nx">agreementId</span><span class="p">;</span>
-        <span class="nx">jQuery</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-            <span class="nx">url</span><span class="o">:</span> <span class="nx">apiUrl</span><span class="p">,</span>
-            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
-            <span class="nx">beforeSend</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">xhr</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s1">&#39;Authorization&#39;</span><span class="p">,</span> <span class="nx">APIConfig</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">);</span>
-            <span class="p">},</span>
-            <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
-                <span class="cm">/**</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">getAgreementInfoForAsyncAgreementCreation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">getAgreementInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">agreementId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">apiUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">APIConfig</span><span class="p">.</span><span class="nx">apiBaseUrl</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;/api/rest/v6/agreements/&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">agreementId</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">jQuery</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="nx">apiUrl</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">beforeSend</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">xhr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s1">&#39;Authorization&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">APIConfig</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">);</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">status</span><span class="p">,</span><span class="w"> </span><span class="nx">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="cm">/**</span>
 <span class="cm">                Parse API result for agreement status. If the agreement status is DOCUMENTS_NOT_YET_PROCESSED then, all the background processed in agreement creation is not complete yet.</span>
 <span class="cm">                */</span>
-                <span class="k">if</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">status</span> <span class="o">==</span> <span class="s2">&quot;DOCUMENTS_NOT_YET_PROCESSED&quot;</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="nb">window</span><span class="p">.</span><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-                        <span class="nx">getAgreementInfo</span><span class="p">(</span><span class="nx">agreementId</span><span class="p">);</span>
-                    <span class="p">},</span> <span class="mf">500</span><span class="p">);</span>
-                <span class="p">}</span>
-                <span class="k">else</span> <span class="p">{</span>
-                    <span class="c1">// All the background tasks in agreement creation is completed.</span>
-                <span class="p">}</span>
-            <span class="p">},</span>
-            <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-                <span class="c1">// API execution failed.</span>
-            <span class="p">}</span>
-        <span class="p">});</span>
-    <span class="p">}</span>
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;DOCUMENTS_NOT_YET_PROCESSED&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nb">window</span><span class="p">.</span><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nx">getAgreementInfo</span><span class="p">(</span><span class="nx">agreementId</span><span class="p">);</span>
+<span class="w">                    </span><span class="p">},</span><span class="w"> </span><span class="mf">500</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// All the background tasks in agreement creation is completed.</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// API execution failed.</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="kd">var</span> <span class="nx">createAgreementAsynchronously</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">agreementCreationRequest</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">&quot;fileInfos&quot;</span><span class="o">:</span> <span class="p">[{</span>
-                <span class="s2">&quot;transientDocumentId&quot;</span><span class="o">:</span> <span class="nx">APIConfig</span><span class="p">.</span><span class="nx">transientDocumentId</span>
-            <span class="p">}],</span>
-            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Asynchronous Agreement&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;participantSetsInfo&quot;</span><span class="o">:</span> <span class="p">[{</span>
-                <span class="s2">&quot;memberInfos&quot;</span><span class="o">:</span> <span class="p">[{</span>
-                    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;signer-email&gt;&quot;</span>
-                <span class="p">}],</span>
-                <span class="s2">&quot;order&quot;</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span>
-                <span class="s2">&quot;role&quot;</span><span class="o">:</span> <span class="s2">&quot;SIGNER&quot;</span>
-            <span class="p">}],</span>
-            <span class="s2">&quot;signatureType&quot;</span><span class="o">:</span> <span class="s2">&quot;ESIGN&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;state&quot;</span><span class="o">:</span> <span class="s2">&quot;IN_PROCESS&quot;</span>
-        <span class="p">}</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">createAgreementAsynchronously</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">agreementCreationRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;fileInfos&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">                </span><span class="s2">&quot;transientDocumentId&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">APIConfig</span><span class="p">.</span><span class="nx">transientDocumentId</span>
+<span class="w">            </span><span class="p">}],</span>
+<span class="w">            </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Asynchronous Agreement&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;participantSetsInfo&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">                </span><span class="s2">&quot;memberInfos&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">                    </span><span class="s2">&quot;email&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;signer-email&gt;&quot;</span>
+<span class="w">                </span><span class="p">}],</span>
+<span class="w">                </span><span class="s2">&quot;order&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;role&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;SIGNER&quot;</span>
+<span class="w">            </span><span class="p">}],</span>
+<span class="w">            </span><span class="s2">&quot;signatureType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ESIGN&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;state&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;IN_PROCESS&quot;</span>
+<span class="w">        </span><span class="p">}</span>
 
-        <span class="nx">agreementCreationRequest</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">agreementCreationRequest</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">agreementCreationRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">agreementCreationRequest</span><span class="p">);</span>
 
-        <span class="nx">jQuery</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-            <span class="nx">url</span><span class="o">:</span> <span class="nx">APIConfig</span><span class="p">.</span><span class="nx">apiBaseUrl</span> <span class="o">+</span> <span class="s2">&quot;/api/rest/v6/agreements&quot;</span><span class="p">,</span>
-            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
-            <span class="nx">beforeSend</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">xhr</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s1">&#39;Authorization&#39;</span><span class="p">,</span> <span class="nx">APIConfig</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">jQuery</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="nx">APIConfig</span><span class="p">.</span><span class="nx">apiBaseUrl</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;/api/rest/v6/agreements&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">beforeSend</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">xhr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s1">&#39;Authorization&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">APIConfig</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">);</span>
 
-            <span class="p">},</span>
-            <span class="nx">contentType</span><span class="o">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
-            <span class="nx">data</span><span class="o">:</span> <span class="nx">agreementCreationRequest</span><span class="p">,</span>
-            <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
-                <span class="c1">// Call GET /agreements/{agreementId} api after 500ms</span>
-                <span class="nb">window</span><span class="p">.</span><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-                    <span class="nx">getAgreementInfo</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
-                <span class="p">},</span> <span class="mf">500</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">});</span>
-    <span class="p">}</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">contentType</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="nx">agreementCreationRequest</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">status</span><span class="p">,</span><span class="w"> </span><span class="nx">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// Call GET /agreements/{agreementId} api after 500ms</span>
+<span class="w">                </span><span class="nb">window</span><span class="p">.</span><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">getAgreementInfo</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+<span class="w">                </span><span class="p">},</span><span class="w"> </span><span class="mf">500</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="nx">createAgreementAsynchronously</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">createAgreementAsynchronously</span><span class="p">();</span>
 <span class="p">}</span>
- <span class="nx">getAgreementInfoForAsyncAgreementCreation</span><span class="p">();</span>
+<span class="w"> </span><span class="nx">getAgreementInfoForAsyncAgreementCreation</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -858,12 +859,12 @@
 <p><strong>Sample request/response:</strong></p>
 <p><em>Request - POST /agreements/{agreementId}/views</em></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s">&quot;names&quot;</span><span class="p">:</span> <span class="s">&quot;DOCUMENT&quot;</span><span class="p">,</span>
-    <span class="s">&quot;commonViewConfiguration&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s">&quot;autoLoginUser&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-        <span class="s">&quot;noChrome&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="s">&quot;locale&quot;</span><span class="p">:</span> <span class="s">&quot;en&quot;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="s">&quot;names&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DOCUMENT&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;commonViewConfiguration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s">&quot;autoLoginUser&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;noChrome&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;locale&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;en&quot;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1215,7 +1216,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Apr 06, 2023. 
+        Last update: Jul 20, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
