@@ -102,11 +102,21 @@
           
           <ul>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Developing with Acrobat Sign Embed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="provisioningfaq.html">Provisioning 2.0 Design and FAQ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="provisioningfaq.html#tbd">TBD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onboarding.html">Embed Partner Onboarding v 2.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="onboarding.html#parent-organization-set-up">Parent organization set up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding.html#create-an-admin-account">Create an admin account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding.html#configure-your-organization">Configure your organization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding.html#create-and-link-directories">Create and link directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding.html#create-a-child-organization">Create a child organization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding.html#allocate-transactions">Allocate transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding.html#create-a-technical-developer-account">Create a technical/developer account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding.html#register-the-partner-via-the-api">Register the partner via the API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="onboarding.html#provide-account-info-to-adobe">Provide account info to Adobe</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="gstarted.html">Partner Application Quickstart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding.html#onboarding-your-customers">Onboarding your customers</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="partnercertification.html">Certifying Your Partner App</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="partnercertification.html#certification-best-practices">Certification best practices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="partnercertification.html#security-review">Security review</a></li>
@@ -114,10 +124,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="embedapi.html">Embed 2.0 API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="embedapi.html#account-and-user-management-apis">Account and User Management APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="embedapi.html#authentication-token-apis">Authentication:  Token APIs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="embedapi.html#common-auth-token-api-attributes">Common auth token API attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="embedapi.html#create-embed-user-token">Create Embed User token</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embedapi.html#create-an-embed-user-token">Create an Embed user token</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="embedapi.html#request">Request</a></li>
 <li class="toctree-l4"><a class="reference internal" href="embedapi.html#response">Response</a></li>
 </ul>
@@ -129,22 +138,31 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="embedapi.html#account-apis">Account APIs</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="embedapi.html#common-account-api-header-attributes">Common account API header attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="embedapi.html#create-account">Create Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="embedapi.html#register-apis">Register APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embedapi.html#create-partner">Create partner</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="embedapi.html#id3">Request</a></li>
 <li class="toctree-l4"><a class="reference internal" href="embedapi.html#id4">Response</a></li>
 <li class="toctree-l4"><a class="reference internal" href="embedapi.html#errors">Errors</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="embedapi.html#update-account">Update Account</a><ul>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="embedapi.html#account-apis">Account APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embedapi.html#common-account-api-header-attributes">Common account API header attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi.html#create-account">Create Account</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="embedapi.html#id5">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#account-creation-response-object">Account creation response object</a></li>
 <li class="toctree-l4"><a class="reference internal" href="embedapi.html#id6">Errors</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="embedapi.html#get-account">Get Account</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="embedapi.html#id7">Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi.html#update-account">Update Account</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#id7">Request</a></li>
 <li class="toctree-l4"><a class="reference internal" href="embedapi.html#id8">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi.html#get-account">Get Account</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#id9">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#id10">Errors</a></li>
 </ul>
 </li>
 </ul>
@@ -152,19 +170,19 @@
 <li class="toctree-l2"><a class="reference internal" href="embedapi.html#user-apis">User APIs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="embedapi.html#common-user-api-header-attributes">Common user API header attributes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="embedapi.html#post-user">POST user</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="embedapi.html#id9">Request</a></li>
-<li class="toctree-l4"><a class="reference internal" href="embedapi.html#id10">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#id11">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#id12">Response</a></li>
 <li class="toctree-l4"><a class="reference internal" href="embedapi.html#error">Error</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="embedapi.html#put-user">PUT User</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="embedapi.html#id11">Request</a></li>
-<li class="toctree-l4"><a class="reference internal" href="embedapi.html#id12">Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#id13">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#id14">Errors</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="embedapi.html#get-user">GET User</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="embedapi.html#id13"><strong>Response</strong></a></li>
-<li class="toctree-l4"><a class="reference internal" href="embedapi.html#id14">Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#id15">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi.html#id16">Errors</a></li>
 </ul>
 </li>
 </ul>
@@ -222,7 +240,7 @@
       <div class="wy-nav-content">
 
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Apr 06, 2023. 
+          Last update: Jul 31, 2023. 
         </span>
         
           <div class="rst-content">
@@ -290,7 +308,7 @@
     <p>
         &#169; Copyright 2023, Adobe Inc..
       <span class="lastupdated">
-        Last update: Apr 06, 2023. 
+        Last update: Jul 31, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
