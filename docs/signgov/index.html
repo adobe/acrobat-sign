@@ -71,7 +71,6 @@
     });
   </script>
 
-
 </head>
 
 <body class="wy-body-for-nav">
@@ -165,7 +164,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="diffs.html">Sign Gov and Commercial Comparison</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="diffs.html#endpoints">Endpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#impersonation-setup">Impersonation setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#authentication-endpoints">Authentication endpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diffs.html#web-app-user-interface">Web app user interface</a></li>
 </ul>
 </li>
 </ul>
@@ -216,8 +217,9 @@
       
       
       <div class="wy-nav-content">
+        
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Apr 06, 2023. 
+          Last update: Aug 04, 2023. 
         </span>
         
           <div class="rst-content">
@@ -275,13 +277,11 @@
   <div class="section" id="sign-for-government-developer-overview">
 <h1>Sign for Government: Developer Overview<a class="headerlink" href="#sign-for-government-developer-overview" title="Permalink to this heading">¶</a></h1>
 <p>The Acrobat Sign for Government (Sign Gov) is an Acrobat Sign instance engineered for FedRAMP Moderate compliance. Tailored for feature-rich and secure signature workflows, it has significant changes from commercial environments available to the non-government public. Adobe recommends that administrators and developers using this environment read this documentation even if familiar with previous Acrobat Sign trials or production accounts.</p>
-<p>This guide provides details for those developing applications with the Acrobat Sign for Government APIs. Possibilities include:</p>
-<ul class="simple">
-<li><p>Leveraging Sign Web: Apps work out-of-the-box for customers with an Okta or Acrobat Sign account.</p></li>
-<li><p>Using Pre-built partner API Applications for Sign APIs such as Microsoft 365 and Teams. Additional apps are coming in 2023, including those for ServiceNow, Workday, and Salesforce. These apps also work out-of-the-box for customers with an Okta or Acrobat Sign account.</p></li>
-<li><p>Custom customer API application using Acrobat Sign APIs: Requires Adobe to register the custom API application on the customer’s behalf.</p></li>
-<li><p>Custom partner API applications for Sign APIs: Requires Adobe to register the custom API application on the partner’s behalf.</p></li>
-</ul>
+<p>This guide provides details for those developing applications with the Acrobat Sign for Government APIs. Possibilities include:
+* Leveraging Sign Web: Apps work out-of-the-box for customers with an Okta or Acrobat Sign for Government account.
+* Using Pre-built partner API Applications for Sign APIs such as Microsoft 365 and Teams. Additional apps are coming in 2023, including those for ServiceNow, Workday, and Salesforce. These apps also work out-of-the-box for customers with an Okta or Acrobat Sign account.
+* Custom customer API application using Acrobat Sign APIs: Requires Adobe to register the custom API application on the customer’s behalf.
+* Custom partner API applications for Sign APIs: Requires Adobe to register the custom API application on the partner’s behalf.</p>
 <img alt="_images/home1.png" src="_images/home1.png" />
 <p>Note that provisioning an Acrobat Sign for Government (SignGov) account requires several actions that differ from the Acrobat Sign commercial platform. These steps are designed to support FedRAMP-compliance as well as existing government workflows.</p>
 <div class="admonition tip">
@@ -303,7 +303,7 @@
     <p>
         &#169; Copyright 2023, Adobe Inc..
       <span class="lastupdated">
-        Last update: Apr 06, 2023. 
+        Last update: Aug 04, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

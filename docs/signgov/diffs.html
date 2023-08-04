@@ -70,7 +70,6 @@
     });
   </script>
 
-
 </head>
 
 <body class="wy-body-for-nav">
@@ -164,7 +163,9 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Sign Gov and Commercial Comparison</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#endpoints">Endpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#impersonation-setup">Impersonation setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authentication-endpoints">Authentication endpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#web-app-user-interface">Web app user interface</a></li>
 </ul>
 </li>
 </ul>
@@ -215,8 +216,9 @@
       
       
       <div class="wy-nav-content">
+        
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Apr 06, 2023. 
+          Last update: Aug 04, 2023. 
         </span>
         
           <div class="rst-content">
@@ -292,23 +294,31 @@
 </tr>
 <tr class="row-odd"><td><p>API application creation</p></td>
 <td><p>By Adobe</p></td>
-<td><p>Self-service</p></td>
+<td><p>Self-service: Account Admin’s can create API applications from Account page <strong>Acrobat Sign API &gt; API Applications</strong>.</p></td>
 </tr>
 <tr class="row-even"><td><p>Top-level domain</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">https://secure.na1.adobesign.us</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">https://secure.adobesign.com</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>OAuth</p></td>
+<tr class="row-odd"><td><p>Authentication mechanisms</p></td>
+<td><p>OAuth only</p></td>
+<td><p>Commercial accounts can use the legacy API keys, integration keys, and OAuth.</p></td>
+</tr>
+<tr class="row-even"><td><p>OAuth</p></td>
 <td><p>Does not support <code class="docutils literal notranslate"><span class="pre">x-api-user</span></code></p></td>
 <td><p>Supports <code class="docutils literal notranslate"><span class="pre">x-api-user</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>OAuth APIs</p></td>
+<tr class="row-odd"><td><p>OAuth APIs</p></td>
 <td><p>Uses only the APIs described here.</p></td>
 <td><p>Uses <a class="reference external" href="https://secure.na1.adobesign.com/public/static/oauthDoc.jsp">commercial APIs</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>Impersonation</p></td>
+<tr class="row-even"><td><p>Impersonation</p></td>
 <td><p>Exchange admin token for a user-specific token since <code class="docutils literal notranslate"><span class="pre">x-api-user</span></code> is unsupported. See <a class="reference internal" href="apps.html#impersonation"><span class="std std-ref">Impersonation</span></a>.</p></td>
 <td><p>Use an admin token with an <code class="docutils literal notranslate"><span class="pre">x-api-user</span></code> header to impersonate users by their <code class="docutils literal notranslate"><span class="pre">userId</span></code> or <code class="docutils literal notranslate"><span class="pre">email</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Login hint parameter</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">login_hint</span></code> query parameter is optional.</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">login_hint</span></code> query parameter is required.</p></td>
 </tr>
 <tr class="row-even"><td><p>Endpoints</p></td>
 <td><p>See below.</p></td>
@@ -316,8 +326,39 @@
 </tr>
 </tbody>
 </table>
-<div class="section" id="endpoints">
-<h2>Endpoints<a class="headerlink" href="#endpoints" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="impersonation-setup">
+<h2>Impersonation setup<a class="headerlink" href="#impersonation-setup" title="Permalink to this heading">¶</a></h2>
+<p>Unlike Acrobat Sign’s commercial instance, Sign Gov does not support:</p>
+<ul class="simple">
+<li><p>Fine grained (scope-level) impersonation.</p></li>
+<li><p>Impersonating users by passing the user ID or email of the user in the <code class="docutils literal notranslate"><span class="pre">x-api-user</span></code> HTTP Header value as part of the REST API call.</p></li>
+</ul>
+<p>Instead, in the Sign Gov environment:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Impersonation applies to all the application scopes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x-api-user</span></code> is unsupported, and impersonation involves generating OAuth tokens via the <code class="docutils literal notranslate"><span class="pre">/authorize</span></code>  and <code class="docutils literal notranslate"><span class="pre">/token</span></code>  endpoints.</p></li>
+</ul>
+</div></blockquote>
+<p>The Sign Gov impersonation process is as follows:</p>
+<ol class="arabic simple">
+<li><p>Generate an <code class="docutils literal notranslate"><span class="pre">admin_token</span></code> and associated <code class="docutils literal notranslate"><span class="pre">admin_refresh_token</span></code>.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">admin_token</span></code> to generate an <code class="docutils literal notranslate"><span class="pre">impersonation_token</span></code>.</p></li>
+</ol>
+<p>Note the following:</p>
+<ul class="simple">
+<li><p>Only account admins can generate an <code class="docutils literal notranslate"><span class="pre">admin_token</span></code> and each token can only be used to generate an impersonation token for users in the same account as the account admin.</p></li>
+<li><p>The lifespan of the <code class="docutils literal notranslate"><span class="pre">admin_token</span></code> is 5 min.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">admin_refresh_token</span></code> lifetime is unlimited, but will expire if inactive (not used) for more than 30 days.</p></li>
+<li><p>You should persist the <code class="docutils literal notranslate"><span class="pre">admin_refresh_token</span></code> in a secure storage location (for headless partner integration).</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Check out the <a class="reference external" href="https://www.postman.com/adobe/workspace/adobe-acrobat-sign/folder/24728226-8eb1bfa8-4d5b-4099-b960-b55601d92103?ctx=documentation">Sign Gov Postman collection</a>.</p>
+</div>
+</div>
+<div class="section" id="authentication-endpoints">
+<h2>Authentication endpoints<a class="headerlink" href="#authentication-endpoints" title="Permalink to this heading">¶</a></h2>
 <p>Note both the domain and version differences below.</p>
 <p>Sign Commercial endpoints:</p>
 <blockquote>
@@ -336,6 +377,11 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">https://secure.adobesign.us/api/gateway/adobesignauthservice/api/v1/logout</span></code>: Log the web browser user out of identity provider if the subject matches that in the current identity provider session.</p></li>
 </ul>
 </div>
+<div class="section" id="web-app-user-interface">
+<h2>Web app user interface<a class="headerlink" href="#web-app-user-interface" title="Permalink to this heading">¶</a></h2>
+<p>Sign Gov customers will see minor web application differences between their view and the Commercial view. For example, not all account settings apply in the Sign Gov environment, and these are removed from the user interface.</p>
+<img alt="_images/webappui.png" src="_images/webappui.png" />
+</div>
 </div>
 
 
@@ -350,7 +396,7 @@
     <p>
         &#169; Copyright 2023, Adobe Inc..
       <span class="lastupdated">
-        Last update: Apr 06, 2023. 
+        Last update: Aug 04, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

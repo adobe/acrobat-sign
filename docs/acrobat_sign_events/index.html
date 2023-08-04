@@ -281,7 +281,7 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Jul 18, 2023. 
+          Last update: Aug 04, 2023. 
         </span>
         
           <div class="rst-content">
@@ -346,7 +346,7 @@
 <p>While not explicitly stated, the webhook framework is the underlying mechanism used for multiple Acrobat Sign features; for example, any time a resource (agreement, webform, etc.)/user/group/account/application receives an event notification from Acrobat Sign, the “webhooks infrastructure” is in play.</p>
 <ul class="simple">
 <li><p>Webhooks (created via Sign UI/API)</p></li>
-<li><p>callbacks for agreements (especially v5 endpoints)</p></li>
+<li><p>Callbacks for agreements (especially v5 endpoints)</p></li>
 <li><p>3rd party applications (Salesforce, iCertis, Veeva, Microsoft Teams, etc.)</p></li>
 <li><p>Power Automate Sign connectors</p></li>
 <li><p>And so on… This list is not exhaustive</p></li>
@@ -450,7 +450,7 @@ It is also recommended to set up some sort of “polling” mechanism and some w
 <p>Before you can create webhooks in Acrobat Sign, do the following:</p>
 <ol class="arabic simple">
 <li><p>Obtain a unique set of application credentials (an application ID and an application secret). Account administrators generate these credentials through the Acrobat Sign API page under “My Profile”.</p></li>
-<li><p>Webhook API calls require an <a class="reference external" href="https://secure.echosign.com/public/static/oauthDoc.jsp">OAuth Access Token</a>. Each operation on a resource requires specific OAuth scope(s), and your application will need to request all of the needed scopes during the OAuth authorization process.</p></li>
+<li><p>Webhook API calls require an OAuth access token. Each operation on a resource requires specific OAuth scope(s), and your application will need to request all of the needed scopes during the OAuth authorization process.</p></li>
 <li><p>Use the access token received from the OAuth authentication and authorization process in the following REST endpoints to perform operations on behalf of the user who authorized the API access.</p></li>
 <li><p><strong>OAuth scopes for webhooks</strong>: Enable webhook scopes for your application before calling webhook APIs. The scopes <code class="docutils literal notranslate"><span class="pre">webhook_read</span></code>, <code class="docutils literal notranslate"><span class="pre">webhook_write</span></code>, and <code class="docutils literal notranslate"><span class="pre">webhook_retention</span></code> are needed to call GET, POST/PUT and DELETE APIs respectively.</p></li>
 </ol>
@@ -715,7 +715,7 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Jul 18, 2023. 
+        Last update: Aug 04, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
