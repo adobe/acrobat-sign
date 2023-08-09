@@ -239,7 +239,7 @@
       <div class="wy-nav-content">
 
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Aug 03, 2023. 
+          Last update: Aug 08, 2023. 
         </span>
         
           <div class="rst-content">
@@ -272,7 +272,7 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Before using Sign Embed services in production, your application must undergo formal certification by Adobe. Once your development is complete, you will collaborate with your Product Success Manager to get your application certified.</p>
+<p>Before using Sign Embed services in production, your application must undergo formal certification by Adobe. Once your development is complete, you collaborate with your Product Success Manager to get your application certified.</p>
 </div>
 <div class="section" id="parent-organization-set-up">
 <h2>Parent organization set up<a class="headerlink" href="#parent-organization-set-up" title="Permalink to this headline">¶</a></h2>
@@ -453,53 +453,60 @@
 </div>
 <div class="section" id="create-a-technical-developer-account">
 <h2>Create a technical/developer account<a class="headerlink" href="#create-a-technical-developer-account" title="Permalink to this headline">¶</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>These steps require system admin privileges. The child organization may have users with developer role, but only admin users have access to add the requisite API SDKs.</p>
-<p>You will have received an email to access the admin console for the child org.</p>
-</div>
-<ol class="arabic simple">
+<p>To create a technical/developer account using the following steps, you must have system admin privileges. The child organization may have users with developer role, but only admin users have access to add the requisite API SDKs. You receive an email to access the admin console for the child org.</p>
+<ol class="arabic">
 <li><p>Open the email and select <strong>Get started</strong>.</p></li>
 <li><p>During login, join the team and select the child organization.</p></li>
 <li><p>Navigate to the <a class="reference external" href="https://developer.adobe.com/console/home">developer console</a> and login using your admin credentials.</p></li>
 <li><p>Verify that you are logged into the child organization. If not, select it from the navigation bar.</p></li>
-<li><p>From the upper-rigth corner, select the child organization you’re configuring from.</p></li>
+<li><p>From the upper-right corner, select the child organization you’re configuring from.</p>
+<blockquote>
+<div><img alt="_images/dev1.png" src="_images/dev1.png" />
+</div></blockquote>
+</li>
 </ol>
-<img alt="_images/dev1.png" src="_images/dev1.png" />
-<ol class="arabic simple" start="6">
+<ol class="arabic" start="6">
 <li><p>Select <strong>Create New Project</strong>.</p></li>
-<li><p>Select <strong>Add an API</strong></p></li>
-</ol>
-<div class="admonition tip">
+<li><p>Select <strong>Add an API</strong></p>
+<blockquote>
+<div><div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>You add two SDKs and repeat the process for the User Management API.</p>
+<p>You can add two SDKs and repeat the process for the User Management API.</p>
 </div>
-<ol class="arabic simple" start="8">
-<li><p>Select the Adobe Acrobat Sign Embed API SDK. It provides the partner with privileges to call the Sign Embed service APIs, create Acrobat Sign accounts, and add users.</p></li>
+</div></blockquote>
+</li>
+<li><p>Select <strong>Acrobat Sign Embed API</strong> SDK. It provides the partner with privileges to call the Sign Embed service APIs, create Acrobat Sign accounts, and add users.</p></li>
 <li><p>Select <strong>Next</strong>.</p></li>
-<li><p>Select <strong>OAuth Server-to-Server</strong>.</p></li>
+<li><p>Select <strong>OAuth Server-to-Server</strong>.</p>
+<blockquote>
+<div><img alt="_images/oauthtoserver.png" src="_images/oauthtoserver.png" />
+</div></blockquote>
+</li>
 </ol>
-<img alt="_images/oauthtoserver.png" src="_images/oauthtoserver.png" />
-<ol class="arabic simple" start="11">
+<ol class="arabic" start="11">
 <li><p>Select <strong>Save Configured API</strong>.</p></li>
-<li><p>Select <strong>Generate Access Token</strong>.</p></li>
+<li><p>Select <strong>Generate Access Token</strong>.</p>
+<blockquote>
+<div><img alt="_images/dev2.png" src="_images/dev2.png" />
+</div></blockquote>
+</li>
 </ol>
-<img alt="_images/dev2.png" src="_images/dev2.png" />
 <p>A screen appears with the requisite developer details.</p>
-<img alt="_images/dev3.png" src="_images/dev3.png" />
-<ol class="arabic simple" start="13">
-<li><p>Select <strong>Add to Project &gt; API</strong>.</p></li>
+<blockquote>
+<div><img alt="_images/dev3.png" src="_images/dev3.png" />
+</div></blockquote>
+<ol class="arabic" start="13">
+<li><p>Select <strong>Add to Project &gt; API</strong>.</p>
+<img alt="_images/addanotherapi.png" src="_images/addanotherapi.png" />
+</li>
 <li><p>Repeat the steps above for the User Management API. This SDK provides admin console access for user creation via the API.</p></li>
 <li><p>Select <strong>Next</strong> .</p></li>
 </ol>
-<img alt="_images/addanotherapi.png" src="_images/addanotherapi.png" />
 </div>
 <div class="section" id="register-the-partner-via-the-api">
 <h2>Register the partner via the API<a class="headerlink" href="#register-the-partner-via-the-api" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>You can now use your technical account token to register with Acrobat Sign via the <a class="reference external" href="embedapi.html#register-account-apis">register partner API</a>.
+<p>You can now use your technical account token to register with Acrobat Sign via the <a class="reference external" href="embedapi.html#register-account-apis">register partner API</a>.
 You must use the Register API to register your application in both production and sandbox.</p>
-</div></blockquote>
 <div class="section" id="provide-account-info-to-adobe">
 <h3>Provide account info to Adobe<a class="headerlink" href="#provide-account-info-to-adobe" title="Permalink to this headline">¶</a></h3>
 <p>Once the above steps are complete, provide the following information to your Product Success Manager:</p>
@@ -530,7 +537,7 @@ You must use the Register API to register your application in both production an
     <p>
         &#169; Copyright 2023, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 03, 2023. 
+        Last update: Aug 08, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
