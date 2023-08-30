@@ -623,7 +623,7 @@
 <p>Your app will need a URL link your customers can use to start the oAuth request process.</p>
 <p>This link will give the parameters you’ll need to pass to the oAuth process.</p>
 <p>The link URL should look something like this:</p>
-<p>&gt;https://secure.echosign.com/public/oauth?redirect_uri=https://your-oAuthInteraction-Server/your-oAuth-Page.html&amp;response_type=code&amp;client_id=CBJCHBCAABAAAbjw-szq8_Pg2Ljg7_b_vuaYiCAK1i4q&amp;state=uhuhygtf576534&amp;scope=user_read:account+user_write:account+user_login:account+agreement_read:account+agreement_write:account+agreement_send:account+widget_read:account+widget_write:account+library_read:account+library_write:account+workflow_read:account+workflow_write:account</p>
+<p>&gt;https://secure.echosign.com/public/oauth?redirect_uri=https://your-oAuthInteraction-Server/your-oAuth-Page.html&amp;response_type=code&amp;client_id=xxxxxxxxxx&amp;state=uhuhygtf576534&amp;scope=user_read:account+user_write:account+user_login:account+agreement_read:account+agreement_write:account+agreement_send:account+widget_read:account+widget_write:account+library_read:account+library_write:account+workflow_read:account+workflow_write:account</p>
 <p>##### How this breaks down:</p>
 <ol class="arabic simple">
 <li><p>The base URL to start the process – may seem obvious, but we had to say it.  <strong>_For partner apps, this should NOT contain the “shard” of an account (na1, na2, eu1, jp1, etc.)_</strong></p></li>
@@ -686,7 +686,7 @@ POST /oauth/token HTTP/1.1
 Host: secure.na1.echosign.com
 Content-Type: application/x-www-form-urlencoded
 Cache-Control: no-cache</p>
-<p>code=CBNCKBAAHBCAABAAOhqFxpG1VorkQqCpTcsWQZrdlPAe6p4v&amp;client_id=CBJCHBCAABAA-bAGKL5EGoAVa0uQnFR_k–pCMoA589W&amp;client_secret=HCLtG15GhovoBD2HBlPJ7su5FJ7tMkHd&amp;redirect_uri=https%3A%2F%2Faaronsmusz.com%2Foauth%2FoauthSuccess_app222.php&amp;grant_type=authorization_code
+<p>code=CBNCKBAAHBCAABAAOhqFxpG1VorkQqCpTcsWQZrdlPAe6p4v&amp;client_id=xxxxxxxxxx–pCMoA589W&amp;client_secret=xxxxxxxxxx&amp;redirect_uri=https%3A%2F%2Faaronsmusz.com%2Foauth%2FoauthSuccess_app222.php&amp;grant_type=authorization_code
 <a href="#id9"><span class="problematic" id="id10">``</span></a><a href="#id11"><span class="problematic" id="id12">`</span></a></p>
 <p>The JSON response to this call will look something like this:</p>
 <p><a href="#id13"><span class="problematic" id="id14">``</span></a><a href="#id15"><span class="problematic" id="id16">`</span></a>JSON
@@ -713,8 +713,8 @@ POST /oauth/refresh HTTP/1.1
 Host: api.na1.echosign.com
 Content-Type: application/x-www-form-urlencoded
 Cache-Control: no-cache</p>
-<p>refresh_token=3AAABLblqZhCxjXUfsx_pz44l8opXqFPXVUUPjr72JJ-uoBMvpo-xMgwiX_j6AUIfbskIaYyC34M*&amp;client_id=CBJCHBCAABAA-bAGfU0EGoAVa0uQnFR_k–
-pCMoA589W&amp;client_secret=HCLtG15GhovoBD2HBlKF4su5FJ7tMkHd&amp;grant_type=refresh_token
+<p>refresh_token=3AAABLblqZhCxjXUfsx_pz44l8opXqFPXVUUPjr72JJ-uoBMvpo-xMgwiX_j6AUIfbskIaYyC34M*&amp;client_id=xxxxxxxxxx–
+pCMoA589W&amp;client_secret=xxxxxxxxxx&amp;grant_type=refresh_token
 <a href="#id20"><span class="problematic" id="id21">``</span></a><a href="#id22"><span class="problematic" id="id23">`</span></a></p>
 <p>Ok ….FYI …. The “refresh” token will also expire but works differently.
 This token expires after 60 days, but every time you use the “refresh” token to get a new “access” token, you reset the expiration on the “refresh” token to 60 days from that point.  Cool?</p>

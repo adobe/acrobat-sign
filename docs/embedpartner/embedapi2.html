@@ -279,63 +279,28 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Aug 23, 2023. 
+          Last update: Aug 30, 2023. 
         </span>
         
           <div class="rst-content">
             
-            <!--
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+            <!--<div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>Embed 2.0 API</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
-        
       </li>
-    
-  </ul>
-
-  
-  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
-      
-        <a href="partnercertification2.html" class="btn btn-neutral float-right" title="Certifying Your Partner App 2.0" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-      
-      
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
         <a href="onboarding2.html" class="btn btn-neutral float-left" title="Embed Partner Onboarding v 2.0" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-      
+        <a href="partnercertification2.html" class="btn btn-neutral float-right" title="Certifying Your Partner App 2.0" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
-  
   <hr/>
 </div>-->
             <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
               <div itemprop="articleBody">
                 
   <div class="section" id="embed-2-0-api">
-<h1>Embed 2.0 API<a class="headerlink" href="#embed-2-0-api" title="Permalink to this heading">¶</a></h1>
+<h1>Embed 2.0 API<a class="headerlink" href="#embed-2-0-api" title="Permalink to this headline">¶</a></h1>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Your feedback is welcome and is a key driver as documentation evolves. Send suggestions to <a class="reference external" href="mailto:acrobatsignembed&#37;&#52;&#48;adobe&#46;com">acrobatsignembed<span>&#64;</span>adobe<span>&#46;</span>com</a>.</p>
@@ -367,9 +332,9 @@
 <li><p>Use the the technical account token in the Adobe Developer Portal, and generate a cURL to create an endpoint such as:</p></li>
 </ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[https://ims-na1-stg1.adobelogin.com/ims/token/v2?grant_type=client_credentials&amp;
-client_id=162d89dd7a844fdfa3702b7e8d58fd69&amp;
-client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retention,openid,widget_write,workflow_read,agreement_send,agreement_sign,AdobeID,agreement_write,widget_read,sign_webhook_read,sign_user_write,agreement_read,agreement_retention,sign_user_read,sign_library_read,user_management_sdk,agreement_vault,sign_user_login,sign_webhook_write,sign_library_retention,sign_library_write,workflow_write]
-(https://ims-na1-stg1.adobelogin.com/ims/token/v2?grant_type=client_credentials&amp;client_id=162d89dd7a844fdfa3702b7e8d58fd69&amp;client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retention,openid,widget_write,workflow_read,agreement_send,agreement_sign,AdobeID,agreement_write,widget_read,sign_webhook_read,sign_user_write,agreement_read,agreement_retention,sign_user_read,sign_library_read,user_management_sdk,agreement_vault,sign_user_login,sign_webhook_write,sign_library_retention,sign_library_write,workflow_write)
+client_id=xxxxxxxxxxxx&amp;
+client_secret=xxxxxxxxxx&amp;scope=sign_webhook_retention,openid,widget_write,workflow_read,agreement_send,agreement_sign,AdobeID,agreement_write,widget_read,sign_webhook_read,sign_user_write,agreement_read,agreement_retention,sign_user_read,sign_library_read,user_management_sdk,agreement_vault,sign_user_login,sign_webhook_write,sign_library_retention,sign_library_write,workflow_write]
+(https://ims-na1-stg1.adobelogin.com/ims/token/v2?grant_type=client_credentials&amp;client_id=xxxxxxxxxx&amp;client_secret=xxxxxxxxxx&amp;scope=sign_webhook_retention,openid,widget_write,workflow_read,agreement_send,agreement_sign,AdobeID,agreement_write,widget_read,sign_webhook_read,sign_user_write,agreement_read,agreement_retention,sign_user_read,sign_library_read,user_management_sdk,agreement_vault,sign_user_login,sign_webhook_write,sign_library_retention,sign_library_write,workflow_write)
 </pre></div>
 </div>
 <div class="admonition note">
@@ -377,14 +342,14 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 <p>The rest of this document provides details about new Embed 2.0 APIs.</p>
 </div>
 <div class="section" id="authentication-token-apis">
-<h2>Authentication:  Token APIs<a class="headerlink" href="#authentication-token-apis" title="Permalink to this heading">¶</a></h2>
+<h2>Authentication:  Token APIs<a class="headerlink" href="#authentication-token-apis" title="Permalink to this headline">¶</a></h2>
 <p>Call these APIs via the AdobeSignAuthService for user token generation and validation:</p>
 <ul class="simple">
 <li><p>POST /token: Exchange a technical account token and other keys for anEmbed user token.</p></li>
 <li><p>POST /validate_token: Validate an Embed User token.</p></li>
 </ul>
 <div class="section" id="common-auth-token-api-attributes">
-<h3>Common auth token API attributes<a class="headerlink" href="#common-auth-token-api-attributes" title="Permalink to this heading">¶</a></h3>
+<h3>Common auth token API attributes<a class="headerlink" href="#common-auth-token-api-attributes" title="Permalink to this headline">¶</a></h3>
 <table class="colwidths-given docutils align-default" id="id17">
 <caption><span class="caption-text">Common header attributes</span><a class="headerlink" href="#id17" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -411,7 +376,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </table>
 </div>
 <div class="section" id="create-an-embed-user-token">
-<h3>Create an Embed user token<a class="headerlink" href="#create-an-embed-user-token" title="Permalink to this heading">¶</a></h3>
+<h3>Create an Embed user token<a class="headerlink" href="#create-an-embed-user-token" title="Permalink to this headline">¶</a></h3>
 <table class="colwidths-given docutils align-default" id="id18">
 <caption><span class="caption-text">Overview</span><a class="headerlink" href="#id18" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -454,7 +419,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </tbody>
 </table>
 <div class="section" id="request">
-<h4>Request<a class="headerlink" href="#request" title="Permalink to this heading">¶</a></h4>
+<h4>Request<a class="headerlink" href="#request" title="Permalink to this headline">¶</a></h4>
 <table class="colwidths-given docutils align-default" id="id19">
 <caption><span class="caption-text">Request Parameters</span><a class="headerlink" href="#id19" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -524,10 +489,10 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </tbody>
 </table>
 <p><strong>Sample Request</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client_id</span><span class="p">:</span><span class="n">db59840ebac849fd92fab65d2c08dc31</span>
-<span class="n">client_secret</span><span class="p">:</span><span class="n">s8e</span><span class="o">-</span><span class="n">VtRJmViZljBwVy</span><span class="o">-</span><span class="n">ByZmznFlZzGEXZL7D</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client_id</span><span class="p">:</span><span class="n">xxxxxxxxxxxx</span>
+<span class="n">client_secret</span><span class="p">:</span><span class="n">xxxxxxxxxxxx</span>
 <span class="n">grant_type</span><span class="p">:</span><span class="n">urn</span><span class="p">:</span><span class="n">ietf</span><span class="p">:</span><span class="n">params</span><span class="p">:</span><span class="n">oauth</span><span class="p">:</span><span class="n">grant</span><span class="o">-</span><span class="nb">type</span><span class="p">:</span><span class="n">token</span><span class="o">-</span><span class="n">exchange</span>
-<span class="n">subject_token</span><span class="p">:</span><span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJhY2NvdW50SWQiOiIgQ0JKQ0hCQ0FBQkFBOTlTZExwMlpBWHVnV2FickpLekU1RGdkSVMzbFQ1SmkiLCJlbWFpbCI6Im9lbXNldHRpbmcxX3VzZXIxQGVjaG9zaWdubWFpbC5jb20ifQ</span><span class="o">.</span><span class="mi">4</span><span class="n">BRk9C2K3aJZ9cii4dBW5AFQuy0CFVq8RJaHJNmyPkE</span>
+<span class="n">subject_token</span><span class="p">:</span><span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJhY2NvdW50SWQiOiIgQ0JKQ0hCQ0FBQkFBOTlTZExwMlpBWHVnV2FickpLekU1RGdkSVMzbFQ1SmkiLCJlbWFpbCI6Im9lbXNldHRpbmcxX3VzZXIxQGVjaG9zaWdubWFpbC5jb20ifQ</span><span class="mf">.4</span><span class="n">BRk9C2K3aJZ9cii4dBW5AFQuy0CFVq8RJaHJNmyPkE</span>
 <span class="n">subject_token_type</span><span class="p">:</span><span class="n">jwt</span>
 <span class="n">actor_token_type</span><span class="p">:</span><span class="n">access_token</span>
 <span class="n">actor_token</span><span class="p">:</span><span class="n">eyJhbGciOiJSUzI1NiIsIng1dSI6Imltc19uYTEtc3RnMS1rZXktYXQtMS5jZXIiLCJraWQiOiJpbXNfbmExLXN0ZzEta2V5LWF0LTEiLCJpdHQiOiJhdCJ9</span><span class="o">.</span><span class="n">eyJpZCI6IjE2NzQxMDQzNDgwNzJfYjkyYjk4NGMtOTQ1Zi00ZjFmLWFiNDAtMDVlOGY5MDA3ZTVhX3VlMSIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJjbGllbnRfaWQiOiJkYjU5ODQwZWJhYzg0OWZkOTJmYWI2NWQyYzA4ZGMzMSIsInVzZXJfaWQiOiI0MUFDMjAwMDYzNDAwMjU0MEE0OTQwM0FAdGVjaGFjY3QuYWRvYmUuY29tIiwiYXMiOiJpbXMtbmExLXN0ZzEiLCJhYV9pZCI6IjQxQUMyMDAwNjM0MDAyNTQwQTQ5NDAzQUB0ZWNoYWNjdC5hZG9iZS5jb20iLCJjdHAiOjAsImZnIjoiWEQ3QVg2UjQ3UjZWQTRCQlpHM01BQ0lBTkk9PT09PT0iLCJtb2kiOiI4YTVhYjFiMyIsImV4cGlyZXNfaW4iOiI4NjQwMDAwMCIsInNjb3BlIjoic2lnbl93ZWJob29rX3JldGVudGlvbixvcGVuaWQsd2lkZ2V0X3dyaXRlLHdvcmtmbG93X3JlYWQsYWdyZWVtZW50X3NlbmQsYWdyZWVtZW50X3NpZ24sQWRvYmVJRCxhZ3JlZW1lbnRfd3JpdGUsd2lkZ2V0X3JlYWQsc2lnbl93ZWJob29rX3JlYWQsc2lnbl91c2VyX3dyaXRlLGFncmVlbWVudF9yZWFkLGFncmVlbWVudF9yZXRlbnRpb24sc2lnbl91c2VyX3JlYWQsc2lnbl9saWJyYXJ5X3JlYWQsdXNlcl9tYW5hZ2VtZW50X3NkayxhZ3JlZW1lbnRfdmF1bHQsc2lnbl91c2VyX2xvZ2luLHNpZ25fd2ViaG9va193cml0ZSxzaWduX2xpYnJhcnlfcmV0ZW50aW9uLHNpZ25fbGlicmFyeV93cml0ZSx3b3JrZmxvd193cml0ZSIsImNyZWF0ZWRfYXQiOiIxNjc0MTA0MzQ4MDcyIn0</span><span class="o">.</span><span class="n">Ou6_UucTrTN</span><span class="o">-</span><span class="n">fPr7FKOieTEl7k_yLaDut7qSGiORDheaEBo_J7vAQB1tuNEqYsfsGxe</span><span class="o">-</span><span class="n">QCqjjml1FuVIXfyOORAaIb_vUscA4aOnZaxoR6_4NFbE7yuS12ISQDJFsFPe9zG9xRRCZvzK0uBNp2XidXsWVRAUk3_cRLnZUDrFB</span><span class="o">-</span><span class="mi">0</span><span class="n">YtYsDJ8ZpllMafamPOUAhDu4HWqjmnN_32p01IPzGtiJg1dlfORODXGnhQLATZ5cJRccsnUaLXFvEg1eTC3JBEYftSd3Z0xrYrH0q91dwmKkUVrJMz0isaqi1SXbLKOYPISb2aiRNUtcWmwUycv2UshP98pTmgBY</span><span class="o">-</span><span class="n">p8t2v31Lpg</span>
@@ -536,7 +501,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </div>
 </div>
 <div class="section" id="response">
-<h4>Response<a class="headerlink" href="#response" title="Permalink to this heading">¶</a></h4>
+<h4>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h4>
 <table class="colwidths-given docutils align-default" id="id20">
 <caption><span class="caption-text">Response Parameters</span><a class="headerlink" href="#id20" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -581,7 +546,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </div>
 </div>
 <div class="section" id="validate-embed-user-token">
-<h3>Validate Embed User token<a class="headerlink" href="#validate-embed-user-token" title="Permalink to this heading">¶</a></h3>
+<h3>Validate Embed User token<a class="headerlink" href="#validate-embed-user-token" title="Permalink to this headline">¶</a></h3>
 <table class="colwidths-given docutils align-default" id="id21">
 <caption><span class="caption-text">Overview</span><a class="headerlink" href="#id21" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -624,7 +589,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </tbody>
 </table>
 <div class="section" id="id1">
-<h4>Request<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h4>
+<h4>Request<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <table class="colwidths-given docutils align-default" id="id22">
 <caption><span class="caption-text">Request Parameters</span><a class="headerlink" href="#id22" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -664,14 +629,14 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </tbody>
 </table>
 <p><strong>Sample Request</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client_id</span><span class="p">:</span><span class="mi">42</span><span class="n">d7a4bbf9754fbd8fceda457d3d6747</span>
-<span class="n">token</span><span class="p">:</span><span class="n">eyJhbGciOiJSUzI1NiJ9</span><span class="o">.</span><span class="n">eyJpZCI6ImQ1NTU1NGFhLWE2MzktNDE0Yi1hOTBkLTFmMjJjODY2OTg1YiIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJjbGllbnRfaWQiOiJkYjU5ODQwZWJhYzg0OWZkOTJmYWI2NWQyYzA4ZGMzMSIsImlzcyI6Im9lbS1kZXYiLCJzY29wZSI6Im9lbV9vZmZlcmluZyxzaWduX3dlYmhvb2tfcmV0ZW50aW9uLG9wZW5pZCx3aWRnZXRfd3JpdGUsd29ya2Zsb3dfcmVhZCxhZ3JlZW1lbnRfc2VuZCxhZ3JlZW1lbnRfc2lnbixBZG9iZUlELGFncmVlbWVudF93cml0ZSx3aWRnZXRfcmVhZCxzaWduX3dlYmhvb2tfcmVhZCxzaWduX3VzZXJfd3JpdGUsYWdyZWVtZW50X3JlYWQsYWdyZWVtZW50X3JldGVudGlvbixzaWduX3VzZXJfcmVhZCxzaWduX2xpYnJhcnlfcmVhZCxhZ3JlZW1lbnRfdmF1bHQsc2lnbl91c2VyX2xvZ2luLHNpZ25fd2ViaG9va193cml0ZSxzaWduX2xpYnJhcnlfcmV0ZW50aW9uLHNpZ25fbGlicmFyeV93cml0ZSx3b3JrZmxvd193cml0ZSIsImV4cGlyZXNfaW4iOjE2NzM5ODc3NDE5NTksImlhdCI6MTY3Mzk4NzQ0MSwiYXVkIjoiT0VNIFBBUlRORVJTIiwidXNlcl9pZCI6IkNCSkNIQkNBQUJBQTk5U2RMcDJaQVh1Z1dhYnJKS3pFNURnZElTM2xUNUppIn0</span><span class="o">.</span><span class="n">jYJNFD6</span><span class="o">-</span><span class="n">twKpaSKRb0FmT0bvOCGp11xLi8WPZHpu8kFWROgBPUKHTpy4eDcm3XeAIE3sKACrekiJ3D8kOWZxwU_80IK9uq0v3CCRho9RQcemJ9K_Nfe48NHLvjZeT0zBbrA</span><span class="o">-</span><span class="mi">9</span><span class="n">auTwLxa3d43fvex3rgYScazFTCP5srmm</span><span class="o">-</span><span class="mi">6</span><span class="n">Q1vV_FguNm7iDTipWDqKs9N49TmASAA1dXC0E2Z4HH72IQF0ShRfaYvk6984ig0mSgz0ezQ1PxlkyaL_hr5VfAadSrMHMMkfajbH6zu4iPvRZY6j</span><span class="o">-</span><span class="n">TsM4WWzlpxsWZ4Iqxty6WnM7DR6tFKKu485JYIV3abJ</span><span class="o">-</span><span class="n">qe6Z8w8xjVpib1cmjg</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client_id</span><span class="p">:</span><span class="n">xxxxxxxxxxxx</span>
+<span class="n">token</span><span class="p">:</span><span class="n">xxxxxxxxxxxx</span> <span class="n">eyJpZCI6ImQ1NTU1NGFhLWE2MzktNDE0Yi1hOTBkLTFmMjJjODY2OTg1YiIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJjbGllbnRfaWQiOiJkYjU5ODQwZWJhYzg0OWZkOTJmYWI2NWQyYzA4ZGMzMSIsImlzcyI6Im9lbS1kZXYiLCJzY29wZSI6Im9lbV9vZmZlcmluZyxzaWduX3dlYmhvb2tfcmV0ZW50aW9uLG9wZW5pZCx3aWRnZXRfd3JpdGUsd29ya2Zsb3dfcmVhZCxhZ3JlZW1lbnRfc2VuZCxhZ3JlZW1lbnRfc2lnbixBZG9iZUlELGFncmVlbWVudF93cml0ZSx3aWRnZXRfcmVhZCxzaWduX3dlYmhvb2tfcmVhZCxzaWduX3VzZXJfd3JpdGUsYWdyZWVtZW50X3JlYWQsYWdyZWVtZW50X3JldGVudGlvbixzaWduX3VzZXJfcmVhZCxzaWduX2xpYnJhcnlfcmVhZCxhZ3JlZW1lbnRfdmF1bHQsc2lnbl91c2VyX2xvZ2luLHNpZ25fd2ViaG9va193cml0ZSxzaWduX2xpYnJhcnlfcmV0ZW50aW9uLHNpZ25fbGlicmFyeV93cml0ZSx3b3JrZmxvd193cml0ZSIsImV4cGlyZXNfaW4iOjE2NzM5ODc3NDE5NTksImlhdCI6MTY3Mzk4NzQ0MSwiYXVkIjoiT0VNIFBBUlRORVJTIiwidXNlcl9pZCI6IkNCSkNIQkNBQUJBQTk5U2RMcDJaQVh1Z1dhYnJKS3pFNURnZElTM2xUNUppIn0</span><span class="o">.</span><span class="n">jYJNFD6</span><span class="o">-</span><span class="n">twKpaSKRb0FmT0bvOCGp11xLi8WPZHpu8kFWROgBPUKHTpy4eDcm3XeAIE3sKACrekiJ3D8kOWZxwU_80IK9uq0v3CCRho9RQcemJ9K_Nfe48NHLvjZeT0zBbrA</span><span class="o">-</span><span class="mi">9</span><span class="n">auTwLxa3d43fvex3rgYScazFTCP5srmm</span><span class="o">-</span><span class="mi">6</span><span class="n">Q1vV_FguNm7iDTipWDqKs9N49TmASAA1dXC0E2Z4HH72IQF0ShRfaYvk6984ig0mSgz0ezQ1PxlkyaL_hr5VfAadSrMHMMkfajbH6zu4iPvRZY6j</span><span class="o">-</span><span class="n">TsM4WWzlpxsWZ4Iqxty6WnM7DR6tFKKu485JYIV3abJ</span><span class="o">-</span><span class="n">qe6Z8w8xjVpib1cmjg</span>
 <span class="nb">type</span><span class="p">:</span><span class="n">access_token</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id2">
-<h4>Response<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h4>
+<h4>Response<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <table class="colwidths-given docutils align-default" id="id23">
 <caption><span class="caption-text">Response Parameters</span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -707,10 +672,10 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </div>
 </div>
 <div class="section" id="register-apis">
-<h2>Register APIs<a class="headerlink" href="#register-apis" title="Permalink to this heading">¶</a></h2>
+<h2>Register APIs<a class="headerlink" href="#register-apis" title="Permalink to this headline">¶</a></h2>
 <p>Register APIs allow you to register your partner application with Acrobat Sign as part of the on-boarding process. Call this API directly with your technical account token for each technical account. You must also do this in the sandbox environment as well.</p>
 <div class="section" id="create-partner">
-<h3>Create partner<a class="headerlink" href="#create-partner" title="Permalink to this heading">¶</a></h3>
+<h3>Create partner<a class="headerlink" href="#create-partner" title="Permalink to this headline">¶</a></h3>
 <table class="colwidths-given docutils align-default" id="id24">
 <caption><span class="caption-text">Overview</span><a class="headerlink" href="#id24" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -758,7 +723,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </tbody>
 </table>
 <div class="section" id="id3">
-<h4>Request<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h4>
+<h4>Request<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <table class="colwidths-given docutils align-default" id="id25">
 <caption><span class="caption-text">Register Partner request parameters</span><a class="headerlink" href="#id25" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -807,7 +772,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </div>
 </div>
 <div class="section" id="id4">
-<h4>Response<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h4>
+<h4>Response<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
 <table class="colwidths-given docutils align-default" id="id26">
 <caption><span class="caption-text">Register partner response parameters</span><a class="headerlink" href="#id26" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -896,7 +861,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </div>
 </div>
 <div class="section" id="errors">
-<h4>Errors<a class="headerlink" href="#errors" title="Permalink to this heading">¶</a></h4>
+<h4>Errors<a class="headerlink" href="#errors" title="Permalink to this headline">¶</a></h4>
 <table class="colwidths-given docutils align-default" id="id27">
 <caption><span class="caption-text">Error codes for register partner response</span><a class="headerlink" href="#id27" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -933,7 +898,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </div>
 </div>
 <div class="section" id="account-apis">
-<span id="accountatt"></span><h2>Account APIs<a class="headerlink" href="#account-apis" title="Permalink to this heading">¶</a></h2>
+<span id="accountatt"></span><h2>Account APIs<a class="headerlink" href="#account-apis" title="Permalink to this headline">¶</a></h2>
 <p>Call these APIs directly using a technical account token to create or update an account and users.</p>
 <blockquote>
 <div><ul class="simple">
@@ -943,7 +908,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </ul>
 </div></blockquote>
 <div class="section" id="common-account-api-header-attributes">
-<h3>Common account API header attributes<a class="headerlink" href="#common-account-api-header-attributes" title="Permalink to this heading">¶</a></h3>
+<h3>Common account API header attributes<a class="headerlink" href="#common-account-api-header-attributes" title="Permalink to this headline">¶</a></h3>
 <table class="colwidths-given docutils align-default" id="id28">
 <caption><span class="caption-text">Common header attributes</span><a class="headerlink" href="#id28" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -974,7 +939,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </table>
 </div>
 <div class="section" id="create-account">
-<h3>Create Account<a class="headerlink" href="#create-account" title="Permalink to this heading">¶</a></h3>
+<h3>Create Account<a class="headerlink" href="#create-account" title="Permalink to this headline">¶</a></h3>
 <table class="colwidths-given docutils align-default" id="id29">
 <caption><span class="caption-text">Overview</span><a class="headerlink" href="#id29" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -1021,7 +986,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </tbody>
 </table>
 <div class="section" id="id5">
-<h4>Request<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h4>
+<h4>Request<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
 <table class="colwidths-given docutils align-default" id="id30">
 <caption><span class="caption-text">Account create-update request parameters</span><a class="headerlink" href="#id30" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -1160,7 +1125,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </div>
 </div>
 <div class="section" id="account-creation-response-object">
-<h4>Account creation response object<a class="headerlink" href="#account-creation-response-object" title="Permalink to this heading">¶</a></h4>
+<h4>Account creation response object<a class="headerlink" href="#account-creation-response-object" title="Permalink to this headline">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 39%" />
@@ -1188,7 +1153,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </div>
 </div>
 <div class="section" id="id6">
-<h4>Errors<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h4>
+<h4>Errors<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
 <table class="colwidths-given docutils align-default" id="id32">
 <caption><span class="caption-text">Error codes for AccountCreateErrorResponse</span><a class="headerlink" href="#id32" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -1244,7 +1209,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </div>
 </div>
 <div class="section" id="update-account">
-<h3>Update Account<a class="headerlink" href="#update-account" title="Permalink to this heading">¶</a></h3>
+<h3>Update Account<a class="headerlink" href="#update-account" title="Permalink to this headline">¶</a></h3>
 <table class="colwidths-given docutils align-default" id="id33">
 <caption><span class="caption-text">Overview</span><a class="headerlink" href="#id33" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -1291,7 +1256,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </tbody>
 </table>
 <div class="section" id="id7">
-<h4>Request<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h4>
+<h4>Request<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
 <p>Account update request parameters</p>
 <p><strong>Sample Account Update Request</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -1323,7 +1288,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </div>
 </div>
 <div class="section" id="id8">
-<h4>Errors<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h4>
+<h4>Errors<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
 <table class="colwidths-given docutils align-default" id="id34">
 <caption><span class="caption-text">Error codes for AccountUpdateErrorResponse</span><a class="headerlink" href="#id34" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -1387,7 +1352,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </div>
 </div>
 <div class="section" id="get-account">
-<h3>Get Account<a class="headerlink" href="#get-account" title="Permalink to this heading">¶</a></h3>
+<h3>Get Account<a class="headerlink" href="#get-account" title="Permalink to this headline">¶</a></h3>
 <table class="colwidths-given docutils align-default" id="id35">
 <caption><span class="caption-text">Overview</span><a class="headerlink" href="#id35" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -1434,7 +1399,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </tbody>
 </table>
 <div class="section" id="id9">
-<h4>Response<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h4>
+<h4>Response<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
 <table class="colwidths-given docutils align-default" id="id36">
 <caption><span class="caption-text">Response Object GetAccountResponse</span><a class="headerlink" href="#id36" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -1496,7 +1461,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </div>
 </div>
 <div class="section" id="id10">
-<h4>Errors<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h4>
+<h4>Errors<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
 <table class="colwidths-given docutils align-default" id="id37">
 <caption><span class="caption-text">Error codes for AccountGetErrorResponse</span><a class="headerlink" href="#id37" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -1549,7 +1514,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </div>
 </div>
 <div class="section" id="user-apis">
-<h2>User APIs<a class="headerlink" href="#user-apis" title="Permalink to this heading">¶</a></h2>
+<h2>User APIs<a class="headerlink" href="#user-apis" title="Permalink to this headline">¶</a></h2>
 <p>Call these APIs directly using a technical account token to create or update an account and users.</p>
 <blockquote>
 <div><ul class="simple">
@@ -1559,11 +1524,11 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </ul>
 </div></blockquote>
 <div class="section" id="common-user-api-header-attributes">
-<h3>Common user API header attributes<a class="headerlink" href="#common-user-api-header-attributes" title="Permalink to this heading">¶</a></h3>
+<h3>Common user API header attributes<a class="headerlink" href="#common-user-api-header-attributes" title="Permalink to this headline">¶</a></h3>
 <p>Common user header attributes are identical to the <a class="reference internal" href="#accountatt"><span class="std std-ref">Account APIs</span></a>.</p>
 </div>
 <div class="section" id="post-user">
-<h3>POST user<a class="headerlink" href="#post-user" title="Permalink to this heading">¶</a></h3>
+<h3>POST user<a class="headerlink" href="#post-user" title="Permalink to this headline">¶</a></h3>
 <table class="colwidths-given docutils align-default" id="id38">
 <caption><span class="caption-text">Overview</span><a class="headerlink" href="#id38" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -1611,7 +1576,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </tbody>
 </table>
 <div class="section" id="id11">
-<h4>Request<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h4>
+<h4>Request<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
 <table class="colwidths-given docutils align-default" id="id39">
 <caption><span class="caption-text">Create-update user request parameters</span><a class="headerlink" href="#id39" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -1739,7 +1704,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </div>
 </div>
 <div class="section" id="id12">
-<h4>Response<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h4>
+<h4>Response<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
 <p><strong>Create User Response</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -1762,7 +1727,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </table>
 </div>
 <div class="section" id="error">
-<h4>Error<a class="headerlink" href="#error" title="Permalink to this heading">¶</a></h4>
+<h4>Error<a class="headerlink" href="#error" title="Permalink to this headline">¶</a></h4>
 <table class="colwidths-given docutils align-default" id="id40">
 <caption><span class="caption-text">Error codes for UserCreateErrorResponse</span><a class="headerlink" href="#id40" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -1822,7 +1787,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </div>
 </div>
 <div class="section" id="put-user">
-<h3>PUT User<a class="headerlink" href="#put-user" title="Permalink to this heading">¶</a></h3>
+<h3>PUT User<a class="headerlink" href="#put-user" title="Permalink to this headline">¶</a></h3>
 <table class="colwidths-given docutils align-default" id="id41">
 <caption><span class="caption-text">Overview</span><a class="headerlink" href="#id41" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -1870,7 +1835,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </tbody>
 </table>
 <div class="section" id="id13">
-<h4>Request<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h4>
+<h4>Request<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
 <p><strong>Sample update user request body</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;userId&quot;</span><span class="p">,</span>
@@ -1893,7 +1858,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </div>
 </div>
 <div class="section" id="id14">
-<h4>Errors<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h4>
+<h4>Errors<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
 <table class="colwidths-given docutils align-default" id="id42">
 <caption><span class="caption-text">Error codes for UserUpdateErrorResponse</span><a class="headerlink" href="#id42" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -1961,7 +1926,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </div>
 </div>
 <div class="section" id="get-user">
-<h3>GET User<a class="headerlink" href="#get-user" title="Permalink to this heading">¶</a></h3>
+<h3>GET User<a class="headerlink" href="#get-user" title="Permalink to this headline">¶</a></h3>
 <table class="colwidths-given docutils align-default" id="id43">
 <caption><span class="caption-text">Overview</span><a class="headerlink" href="#id43" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -2009,7 +1974,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </tbody>
 </table>
 <div class="section" id="id15">
-<h4>Response<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h4>
+<h4>Response<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
 <table class="colwidths-given docutils align-default" id="id44">
 <caption><span class="caption-text">Get  user response attributes</span><a class="headerlink" href="#id44" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -2099,7 +2064,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
 </div>
 </div>
 <div class="section" id="id16">
-<h4>Errors<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h4>
+<h4>Errors<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
 <table class="colwidths-given docutils align-default" id="id45">
 <caption><span class="caption-text">Error codes for UserGetErrorResponse</span><a class="headerlink" href="#id45" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -2173,7 +2138,7 @@ client_secret=s8e-gkty7tP8_LTrIYySvXALCobQKkMe8zOz&amp;scope=sign_webhook_retent
     <p>
         &#169; Copyright 2023, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 23, 2023. 
+        Last update: Aug 30, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

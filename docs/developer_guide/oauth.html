@@ -42,9 +42,7 @@
   <link rel="next" title="Example Scenarios" href="scenarios.html" />
   <link rel="prev" title="Create an Application Quickstart" href="gstarted.html" /> 
 
-  <script
-    type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
-  <script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+  <script>  window.marketingtech = { adobe: { launch: { url: 'https://assets.adobedtm.com/d4d114c60e50/a0e989131fd5/launch-5dd5dd2177e6.min.js', controlPageLoad: false, }, alloy: { edgeConfigId: '2cba807b-7430-41ae-9aac-db2b0da742d5', }, target: false, audienceManager: false, }, sophia: false, };</script><script src=https://www.adobe.com/marketingtech/main.standard.min.js></script>
 
   <script>
     $(document).ready(function () {
@@ -284,77 +282,42 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Aug 04, 2023. 
+          Last update: Aug 30, 2023. 
         </span>
         
           <div class="rst-content">
             
-            <!--
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+            <!--<div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>Managing OAuth Tokens</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
-        
       </li>
-    
-  </ul>
-
-  
-  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
-      
-        <a href="scenarios.html" class="btn btn-neutral float-right" title="Example Scenarios" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-      
-      
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
         <a href="gstarted.html" class="btn btn-neutral float-left" title="Create an Application Quickstart" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-      
+        <a href="scenarios.html" class="btn btn-neutral float-right" title="Example Scenarios" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
-  
   <hr/>
 </div>-->
             <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
               <div itemprop="articleBody">
                 
   <div class="section" id="managing-oauth-tokens">
-<h1>Managing OAuth Tokens<a class="headerlink" href="#managing-oauth-tokens" title="Permalink to this heading">¶</a></h1>
+<h1>Managing OAuth Tokens<a class="headerlink" href="#managing-oauth-tokens" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Sign Gov admins should note the minor differences from the content below. <cite>Described HERE</cite> &lt;<a class="reference external" href="https://opensource.adobe.com/acrobat-sign/signgov/diffs.html#endpoints">https://opensource.adobe.com/acrobat-sign/signgov/diffs.html#endpoints</a>&gt;`_.</p>
 </div>
 <div class="section" id="authorization-request">
-<h2>Authorization request<a class="headerlink" href="#authorization-request" title="Permalink to this heading">¶</a></h2>
+<h2>Authorization request<a class="headerlink" href="#authorization-request" title="Permalink to this headline">¶</a></h2>
 <p>See <a class="reference internal" href="gstarted.html#token"><span class="std std-ref">Create an authorization request link</span></a></p>
 </div>
 <div class="section" id="access-token-request">
-<h2>Access token request<a class="headerlink" href="#access-token-request" title="Permalink to this heading">¶</a></h2>
+<h2>Access token request<a class="headerlink" href="#access-token-request" title="Permalink to this headline">¶</a></h2>
 <p>See <a class="reference internal" href="gstarted.html#gettoken"><span class="std std-ref">Getting the access token</span></a></p>
 </div>
 <div class="section" id="refresh-token-request">
-<h2>Refresh token request<a class="headerlink" href="#refresh-token-request" title="Permalink to this heading">¶</a></h2>
+<h2>Refresh token request<a class="headerlink" href="#refresh-token-request" title="Permalink to this headline">¶</a></h2>
 <p>You can find a customer’s instance using the state ID and store the tokens.</p>
 <p>Since an access token expires in one hour (<code class="docutils literal notranslate"><span class="pre">expires_in</span></code>: 3600), use the refresh token to request new access tokens. You’ll call same access point (e.g. <code class="docutils literal notranslate"><span class="pre">$api_access_point</span> <span class="pre">=</span> <span class="pre">https://api.na1.echosign.com</span></code>), but you’ll POST to <code class="docutils literal notranslate"><span class="pre">https://api.na1.echosign.com/oauth/refresh</span></code>. Note the following:</p>
 <ul class="simple">
@@ -368,8 +331,8 @@
 <span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">www</span><span class="o">-</span><span class="n">form</span><span class="o">-</span><span class="n">urlencoded</span>
 
   <span class="n">refresh_token</span><span class="o">=</span><span class="mi">2</span><span class="n">AAABLKmtbUAK7FeMV0hAiLf_W5x38LM67PXHapM</span><span class="o">&amp;</span>
-  <span class="n">client_id</span><span class="o">=</span><span class="n">d4HQNPFIXFD255H</span><span class="o">&amp;</span>
-  <span class="n">client_secret</span><span class="o">=</span><span class="mi">1</span><span class="n">a98b7cb92407cbd8961cd8db778de53</span><span class="o">&amp;</span>
+  <span class="n">client_id</span><span class="o">=</span><span class="n">xxxxxxxxxx</span><span class="o">&amp;</span>
+  <span class="n">client_secret</span><span class="o">=</span><span class="n">xxxxxxxxxx</span><span class="o">&amp;</span>
   <span class="n">grant_type</span><span class="o">=</span><span class="n">refresh_token</span>
 </pre></div>
 </div>
@@ -412,7 +375,7 @@
 </table>
 </div>
 <div class="section" id="revoking-a-token">
-<h2>Revoking a token<a class="headerlink" href="#revoking-a-token" title="Permalink to this heading">¶</a></h2>
+<h2>Revoking a token<a class="headerlink" href="#revoking-a-token" title="Permalink to this headline">¶</a></h2>
 <p>You can revoke both access tokens and refresh tokens. If an access token is revoked and it has a corresponding refresh token, the refresh token is also revoked. When a refresh token is revoked, all the access tokens issued from that refresh token are also revoked. Revoke tokens via a POST call to the /oauth/v2/revoke endpoint (using the <code class="docutils literal notranslate"><span class="pre">api_access_point</span></code> retrieved in the Access Token Request step) with the following:</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
@@ -483,7 +446,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 04, 2023. 
+        Last update: Aug 30, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
