@@ -42,9 +42,7 @@
   <link rel="next" title="Agreement Events" href="webhookeventsagreements.html" />
   <link rel="prev" title="Webhooks in Acrobat Sign" href="index.html" /> 
 
-  <script
-    type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
-  <script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+  <script>  window.marketingtech = { adobe: { launch: { url: 'https://assets.adobedtm.com/d4d114c60e50/a0e989131fd5/launch-5dd5dd2177e6.min.js', controlPageLoad: false, }, alloy: { edgeConfigId: '2cba807b-7430-41ae-9aac-db2b0da742d5', }, target: false, audienceManager: false, }, sophia: false, };</script><script src=https://www.adobe.com/marketingtech/main.standard.min.js></script>
 
   <script>
     $(document).ready(function () {
@@ -175,7 +173,6 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-web-identity-authenticated">AGREEMENT_WEB_IDENTITY_AUTHENTICATED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-kba-authenticated">AGREEMENT_KBA_AUTHENTICATED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-ready-to-notarize">AGREEMENT_READY_TO_NOTARIZE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-uploaded-by-sender">AGREEMENT_UPLOADED_BY_SENDER</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-user-ack-agreement-modified">AGREEMENT_USER_ACK_AGREEMENT_MODIFIED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-ready-to-vault">AGREEMENT_READY_TO_VAULT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-vaulted">AGREEMENT_VAULTED</a></li>
@@ -281,56 +278,21 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Aug 04, 2023. 
+          Last update: Oct 04, 2023. 
         </span>
         
           <div class="rst-content">
             
-            <!--
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+            <!--<div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Webhook Event Payload Overview</li>
-    
-    
+      <li><a href="toc.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Webhook Event Payload Overview</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
-        
       </li>
-    
-  </ul>
-
-  
-  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
-      
-        <a href="webhookeventsagreements.html" class="btn btn-neutral float-right" title="Agreement Events" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-      
-      
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
         <a href="index.html" class="btn btn-neutral float-left" title="Webhooks in Acrobat Sign" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-      
+        <a href="webhookeventsagreements.html" class="btn btn-neutral float-right" title="Agreement Events" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
-  
   <hr/>
 </div>-->
             <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -439,7 +401,7 @@
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">participantRole</span></code></p></td>
 <td><p>String</p></td>
 <td><p>Role assumed by all participants in the participant set to which the participant belongs (signer, approver etc.). This is the role of the <code class="docutils literal notranslate"><span class="pre">participantUser</span></code>. This key returns only for the following events: AGREEMENT_WORKFLOW_COMPLETED, AGREEMENT_ACTION_COMPLETED, AGREEMENT_ACTION_DELEGATED, AGREEMENT_ACTION_REQUESTED</p></td>
-<td><p>SIGNER, DELEGATE_TO_SIGNER, APPROVER, DELEGATE_TO_APPROVER, ACCEPTOR, DELEGATE_TO_ACCEPTOR, FORM_FILLER, DELEGATE_TO_FORM_FILLER, CERTIFIED_RECIPIENT, DELEGATE_TO_CERTIFIED_RECIPIENT or SHARE</p></td>
+<td><p>SENDER, SIGNER, DELEGATE_TO_SIGNER, APPROVER, DELEGATE_TO_APPROVER, ACCEPTOR, DELEGATE_TO_ACCEPTOR, FORM_FILLER, DELEGATE_TO_FORM_FILLER, CERTIFIED_RECIPIENT, DELEGATE_TO_CERTIFIED_RECIPIENT or SHARE</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">actionType</span></code></p></td>
 <td><p>String</p></td>
@@ -531,7 +493,7 @@
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">role</span></code></p></td>
 <td><p>enum</p></td>
 <td><p>Role of the user in the workflow.</p></td>
-<td><p>SIGNER, DELEGATE_TO_SIGNER, APPROVER, DELEGATE_TO_APPROVER, ACCEPTOR, DELEGATE_TO_ACCEPTOR, FORM_FILLER, DELEGATE_TO_FORM_FILLER, CERTIFIED_RECIPIENT, DELEGATE_TO_CERTIFIED_RECIPIENT, or SHARE</p></td>
+<td><p>SENDER, SIGNER, DELEGATE_TO_SIGNER, APPROVER, DELEGATE_TO_APPROVER, ACCEPTOR, DELEGATE_TO_ACCEPTOR, FORM_FILLER, DELEGATE_TO_FORM_FILLER, CERTIFIED_RECIPIENT, DELEGATE_TO_CERTIFIED_RECIPIENT, or SHARE</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">payloadApplicable</span></code></p></td>
 <td><p>boolean</p></td>
@@ -579,7 +541,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 04, 2023. 
+        Last update: Oct 04, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
