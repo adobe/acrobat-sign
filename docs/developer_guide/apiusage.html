@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#download-the-agreement">Download the Agreement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#create-a-widget">Create a Widget</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#get-the-signing-url">Get the Signing URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-form-fields-to-agreements">Add form fields to agreements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#api-throttling">API Throttling</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#rest-api-response">REST API Response</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#steps-to-take-when-throttled">Steps to take when throttled</a></li>
@@ -282,15 +283,15 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Aug 30, 2023. 
+          Last update: Oct 11, 2023. 
         </span>
         
           <div class="rst-content">
             
             <!--<div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
-      <li>API Usage</li>
+      <li><a href="toc.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API Usage</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
@@ -303,7 +304,7 @@
               <div itemprop="articleBody">
                 
   <div class="section" id="api-usage">
-<h1>API Usage<a class="headerlink" href="#api-usage" title="Permalink to this headline">¶</a></h1>
+<h1>API Usage<a class="headerlink" href="#api-usage" title="Permalink to this heading">¶</a></h1>
 <p>The Acrobat Sign API allows you to quickly build client-side applications that can utilize the signing functionalities offered by Acrobat Sign. This guide contains the most common scenarios in which you can use the API.</p>
 <p>Using the Acrobat Sign REST APIs, you can build elegant and scalable client-side applications in any scripting language that supports REST-based API calls. This section provides information on the API endpoint, request headers, request body, and the response. Before you begin, you can browse through the <a class="reference external" href="https://www.adobe.com/go/acrobatsignapireference">API Reference</a> and try a few endpoints.</p>
 <p>A 3-step basic signing workflow involves:</p>
@@ -313,7 +314,7 @@
 <li><p><a class="reference internal" href="#download"><span class="std std-ref">Download the Agreement</span></a></p></li>
 </ul>
 <div class="section" id="send-for-signing-create-an-agreement">
-<span id="sendforsigning"></span><h2>Send for Signing (Create an Agreement)<a class="headerlink" href="#send-for-signing-create-an-agreement" title="Permalink to this headline">¶</a></h2>
+<span id="sendforsigning"></span><h2>Send for Signing (Create an Agreement)<a class="headerlink" href="#send-for-signing-create-an-agreement" title="Permalink to this heading">¶</a></h2>
 <p>Your CRM or document management system can send/upload documents for signing, either automatically or through user-initiated actions. When the document gets signed by all the parties, a PDF copy of the signed document(agreement) can be retrieved by your application.</p>
 <img alt="_images/sign_devguide_1.png" src="_images/sign_devguide_1.png" />
 <p>While getting the authorization code from the Acrobat Sign service, you also received the API access point as part of a query parameter (See <a class="reference internal" href="gstarted.html#token"><span class="std std-ref">Create an authorization request link</span></a>)</p>
@@ -327,7 +328,7 @@
 </div>
 <p>For all future service calls, Acrobat Sign sends the requests to this access point.</p>
 <div class="section" id="upload-a-document">
-<span id="upload"></span><h3>Upload a document<a class="headerlink" href="#upload-a-document" title="Permalink to this headline">¶</a></h3>
+<span id="upload"></span><h3>Upload a document<a class="headerlink" href="#upload-a-document" title="Permalink to this heading">¶</a></h3>
 <p>To upload a PDF document for signing, send a POST request to the <code class="docutils literal notranslate"><span class="pre">transientDocuments</span></code> endpoint. This is a multipart request consisting of filename, MIME type, and the file stream. You will get back an ID as a response that uniquely represents the document. Your application needs to specify the recipients and other sending options required for sending the document for signing. Your application can also specify a callback URL that will be used by Acrobat Sign to notify when the signature process is complete.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">v6</span><span class="o">/</span><span class="n">transientDocuments</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 <span class="n">Host</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">na1</span><span class="o">.</span><span class="n">echosign</span><span class="o">.</span><span class="n">com</span>
@@ -346,10 +347,10 @@
 </div>
 <p>The document uploaded through this call is termed as a <em>transient document</em> since it is available only for 7 days after the upload.</p>
 <p>You can only upload one file at a time through this request.</p>
-<p><a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/transientDocuments/createTransientDocument">TRY IT OUT</a></p>
+<p><a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/getMergeInfo">TRY IT OUT</a></p>
 </div>
 <div class="section" id="send-the-document">
-<span id="send"></span><h3>Send the document<a class="headerlink" href="#send-the-document" title="Permalink to this headline">¶</a></h3>
+<span id="send"></span><h3>Send the document<a class="headerlink" href="#send-the-document" title="Permalink to this heading">¶</a></h3>
 <p>Once you have uploaded the document, send the document to all the related parties for signing. For this to happen, you need to create an <em>agreement.</em></p>
 <p>For creating an agreement, send a POST request to the <code class="docutils literal notranslate"><span class="pre">/agreements</span></code> endpoint with the following JSON body:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">v6</span><span class="o">/</span><span class="n">agreements</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
@@ -420,7 +421,7 @@
 </div>
 </div>
 <div class="section" id="check-the-document-signing-status">
-<span id="checkstatus"></span><h2>Check the Document Signing Status<a class="headerlink" href="#check-the-document-signing-status" title="Permalink to this headline">¶</a></h2>
+<span id="checkstatus"></span><h2>Check the Document Signing Status<a class="headerlink" href="#check-the-document-signing-status" title="Permalink to this heading">¶</a></h2>
 <p>Acrobat Sign can return the current status of the agreement and a complete history of events that have happened on that particular agreement. The simplest mechanism is for your application to provide a webhook URL when sending the document for signature. Acrobat Sign will then ping your webhook with the appropriate event whenever the agreement status changes.</p>
 <img alt="_images/sign_devguide_2.png" src="_images/sign_devguide_2.png" />
 <p>You can also get the current status of an agreement by sending a GET request to <code class="docutils literal notranslate"><span class="pre">/agreements/{agreementid}</span></code>:</p>
@@ -459,7 +460,7 @@
 <p><a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/_0_1_2">TRY IT OUT</a></p>
 </div>
 <div class="section" id="send-reminders">
-<span id="sendreminder"></span><h2>Send Reminders<a class="headerlink" href="#send-reminders" title="Permalink to this headline">¶</a></h2>
+<span id="sendreminder"></span><h2>Send Reminders<a class="headerlink" href="#send-reminders" title="Permalink to this heading">¶</a></h2>
 <p>A signing reminder can be sent to all the signers if they have not signed the agreement. When you send a reminder, the signers will get the same notification email that was originally sent.</p>
 <img alt="_images/sign_devguide_3.png" src="_images/sign_devguide_3.png" />
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">v6</span><span class="o">/</span><span class="n">agreements</span><span class="o">/</span><span class="p">{</span><span class="n">agreementId</span><span class="p">}</span><span class="o">/</span><span class="n">reminders</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
@@ -484,7 +485,7 @@
 <p><a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/createReminderOnParticipant">TRY IT OUT</a></p>
 </div>
 <div class="section" id="download-the-agreement">
-<span id="download"></span><h2>Download the Agreement<a class="headerlink" href="#download-the-agreement" title="Permalink to this headline">¶</a></h2>
+<span id="download"></span><h2>Download the Agreement<a class="headerlink" href="#download-the-agreement" title="Permalink to this heading">¶</a></h2>
 <p>Once an agreement is signed, your application can retrieve the signed copy of the PDF and store that within your application.</p>
 <img alt="_images/sign_devguide_4.png" src="_images/sign_devguide_4.png" />
 <p>The signed agreement can also be retrieved by sending a GET request to <code class="docutils literal notranslate"><span class="pre">/agreements/{agreementId}/combinedDocument</span></code>. This will return a single combined PDF document for the documents associated with the agreement. To retrieve any supporting document, you can send a GET request to <code class="docutils literal notranslate"><span class="pre">/agreements/{agreementId}/documents</span></code>. This will return the IDs of all the main and supporting documents of an agreement.</p>
@@ -500,7 +501,7 @@
 <p><a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/_0_1_2_3_4_5_6">TRY IT OUT</a></p>
 </div>
 <div class="section" id="create-a-widget">
-<span id="widget"></span><h2>Create a Widget<a class="headerlink" href="#create-a-widget" title="Permalink to this headline">¶</a></h2>
+<span id="widget"></span><h2>Create a Widget<a class="headerlink" href="#create-a-widget" title="Permalink to this heading">¶</a></h2>
 <p>To create a widget through the API, you must first call /transientDocuments, then send a POST request to upload the document. This is a multipart request consisting of file name, MIME type, and the file stream. The returned <code class="docutils literal notranslate"><span class="pre">transientDocumentId</span></code> is to be used to refer to the document in the widget creation call (<code class="docutils literal notranslate"><span class="pre">/widgets</span></code>, POST). The API endpoint, in addition to the widget key, returns an embed-code, which can be used for embedding the widget within your application, as well as a URL at which the widget gets hosted. The URL can be posted within your application for users to navigate to for signing a document.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">v6</span><span class="o">/</span><span class="n">widgets</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 <span class="n">Host</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">na1</span><span class="o">.</span><span class="n">echosign</span><span class="o">.</span><span class="n">com</span>
@@ -535,7 +536,7 @@
 <p><a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/widgets/">TRY IT OUT</a></p>
 </div>
 <div class="section" id="get-the-signing-url">
-<span id="geturl"></span><h2>Get the Signing URL<a class="headerlink" href="#get-the-signing-url" title="Permalink to this headline">¶</a></h2>
+<span id="geturl"></span><h2>Get the Signing URL<a class="headerlink" href="#get-the-signing-url" title="Permalink to this heading">¶</a></h2>
 <p>When the agreement is ready for signing, invoke <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/agreements/{agreementId}/signingUrls</span></code> to get the signing URL:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">v6</span><span class="o">/</span><span class="n">agreements</span><span class="o">/</span><span class="mi">3</span><span class="n">AANotRealIDQN8_gg</span><span class="o">/</span><span class="n">signingUrls</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 <span class="n">Host</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">na1</span><span class="o">.</span><span class="n">echosign</span><span class="o">.</span><span class="n">com</span>
@@ -560,13 +561,147 @@
 <p>Getting the signing URL becomes useful for scenarios involving in-person signing. Load the signing URL in a browser window on a mobile device and get the agreement signed in person.</p>
 <p><a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/_0_1_2_3_4">TRY IT OUT</a></p>
 </div>
+<div class="section" id="add-form-fields-to-agreements">
+<span id="formfieldgenerator"></span><h2>Add form fields to agreements<a class="headerlink" href="#add-form-fields-to-agreements" title="Permalink to this heading">¶</a></h2>
+<p>Acrobat Sign APIs allow you to add form fields to a PDF document using anchored text within the PDF content. To create a new agreement, you define FormFieldGenerator via the POST/agreements REST API and provide AgreementInfo parameters, which include a FileInfo array.</p>
+<p>Each FormFieldGenerator specifies the form field description, participant set name, anchored text to search for, and where to place the form field.
+FormFieldGenerator specifications apply to all documents within an agreement. However, with the <code class="docutils literal notranslate"><span class="pre">AnchorTextInfo</span></code> JSON object’s new parameter <strong>fileInfoLabel</strong>, you can specify which document each FormFieldGenerator should target. For example, if an agreement contains multiple documents for different signers but shares the same anchored text, you can assign a FormFieldGenerator to a specific document.</p>
+<p><strong>To add form fields to all the documents in an agreement</strong>:</p>
+<ol class="arabic simple">
+<li><p>Send a POST request to the transientDocuments endpoint for all the documents you want to include in the agreement.</p></li>
+<li><p>Define FormFieldGenerator via the POST/agreements REST API and provide AgreementInfo parameters.</p></li>
+</ol>
+<p><strong>To add form fields to specific documents in an agreement</strong>:</p>
+<ol class="arabic">
+<li><p>Send a POST request to the transientDocuments endpoint for all the documents (Document A and Document B in the current example) you want to include in the agreement.</p>
+<blockquote>
+<div><p>You get each agreement’s unique ID as a response, which is required for associating a document to the FormFieldGenerator.</p>
+</div></blockquote>
+</li>
+<li><p>Use the agreement IDs and the ‘fileInfoLabel’ parameter to precisely position form fields for various recipients. To do so, send a POST request to the /agreements endpoint with the following JSON body:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;fileInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;DocumentA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;transientDocumentId&quot;</span><span class="p">:</span> <span class="s2">&quot;xxxxxxxxxx&quot;</span><span class="p">},</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;DocumentB&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;transientDocumentId&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyyyyyyyy&quot;</span><span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sample agreement: Anchor tags&quot;</span><span class="p">,</span>
+<span class="s2">&quot;participantSetsInfo&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;rosemary@email.com&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;signer_one&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;cjones@email.com&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;signer_two&quot;</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;signatureType&quot;</span><span class="p">:</span> <span class="s2">&quot;ESIGN&quot;</span><span class="p">,</span>
+<span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;IN_PROCESS&quot;</span><span class="p">,</span>
+<span class="s2">&quot;formFieldGenerators&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;formFieldNamePrefix&quot;</span><span class="p">:</span> <span class="s2">&quot;signature_one&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;anchorTextInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;fileInfoLabel&quot;</span><span class="p">:</span> <span class="s2">&quot;DocumentA&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;anchorText&quot;</span><span class="p">:</span> <span class="s2">&quot;2018 United States Holiday Calendar&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;anchoredFormFieldLocation&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;offsetX&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;offsetY&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+        <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="mi">12</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;formFieldDescription&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;backgroundColor&quot;</span><span class="p">:</span> <span class="s2">&quot;0xD9D1D1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;borderColor&quot;</span><span class="p">:</span> <span class="s2">&quot;0xFF0000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;borderWidth&quot;</span><span class="p">:</span> <span class="s2">&quot;0.5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;inputType&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNATURE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;contentType&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNATURE_BLOCK&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;participantSetName&quot;</span><span class="p">:</span> <span class="s2">&quot;signer_one&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;formFieldNamePrefix&quot;</span><span class="p">:</span> <span class="s2">&quot;signature_two&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;anchorTextInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;fileInfoLabel&quot;</span><span class="p">:</span> <span class="s2">&quot;DocumentA&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;anchorText&quot;</span><span class="p">:</span> <span class="s2">&quot;2018 United States Holiday Calendar&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;anchoredFormFieldLocation&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;offsetX&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;offsetY&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">70</span><span class="p">,</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="mi">8</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;formFieldDescription&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;backgroundColor&quot;</span><span class="p">:</span> <span class="s2">&quot;0xD1D9D1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;borderColor&quot;</span><span class="p">:</span> <span class="s2">&quot;0xFF0000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;borderWidth&quot;</span><span class="p">:</span> <span class="s2">&quot;0.5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;inputType&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNATURE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;contentType&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNATURE_BLOCK&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;participantSetName&quot;</span><span class="p">:</span> <span class="s2">&quot;signer_two&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;formFieldNamePrefix&quot;</span><span class="p">:</span> <span class="s2">&quot;signature_three&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;anchorTextInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;fileInfoLabel&quot;</span><span class="p">:</span> <span class="s2">&quot;DocumentB&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;anchorText&quot;</span><span class="p">:</span> <span class="s2">&quot;United States 2020 Holiday Schedule&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;anchoredFormFieldLocation&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;offsetX&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;offsetY&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">40</span><span class="p">,</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="mi">8</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;formFieldDescription&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;backgroundColor&quot;</span><span class="p">:</span> <span class="s2">&quot;0xD1D1D9&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;borderColor&quot;</span><span class="p">:</span> <span class="s2">&quot;0xFF0000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;borderWidth&quot;</span><span class="p">:</span> <span class="s2">&quot;0.5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;inputType&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNATURE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;contentType&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNATURE_BLOCK&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;participantSetName&quot;</span><span class="p">:</span> <span class="s2">&quot;signer_one&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/agreements/createAgreement">TRY IT OUT</a></p>
+<p>You’ll get the following response containing the <code class="docutils literal notranslate"><span class="pre">id</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;an-adobe-sign-generated-id&gt;&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Once the agreement id is generated, you can open the agreement to verify the placement of the signature fields, as shown below. The signers get the ‘After’ view of the agreement.</p>
+<img alt="_images/anchor-text-sample.png" src="_images/anchor-text-sample.png" />
+</div>
 <div class="section" id="api-throttling">
-<h2>API Throttling<a class="headerlink" href="#api-throttling" title="Permalink to this headline">¶</a></h2>
+<h2>API Throttling<a class="headerlink" href="#api-throttling" title="Permalink to this heading">¶</a></h2>
 <p>To prevent your API from being overwhelmed by too many requests, Adobe throttles requests to your API.</p>
 <p>When a request is throttled, the client will receive an <strong>HTTP 429 “Too Many Requests”</strong> response with an error message appropriate to the request. When a request gets back an HTTP 429 response, it means the user has consumed over the limit of allowed resources within a certain time frame. It could be a violation of the per-minute, -hour, or -day limit. The user will be allowed to make more requests in the next minute, hour, or day (depending on which threshold was crossed).</p>
 <p>Each request made to Acrobat Sign is evaluated based on the system resources it will consume. Different parameters passed to the same endpoint might contribute a different amount of resource consumption. Your service package (small business, business, enterprise) directly influences your transaction rate. Higher tiers of service have higher throttle thresholds.</p>
 <div class="section" id="rest-api-response">
-<h3>REST API Response<a class="headerlink" href="#rest-api-response" title="Permalink to this headline">¶</a></h3>
+<h3>REST API Response<a class="headerlink" href="#rest-api-response" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;THROTTLING_TOO_MANY_REQUESTS&quot;</span><span class="p">,</span>
 <span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;&lt;error_message_with_wait_time&gt; (apiActionId=&lt;api_action_id&gt;)&quot;</span>
@@ -581,7 +716,7 @@
 <p>is the minimum time in seconds the client must wait until it can make the next request. When the <em>retryAfter</em> timer expires, the client’s resource count is reset to 0 for the over-limit threshold. Therefore, the client can send the request again and it should go through without being blocked.</p>
 </div>
 <div class="section" id="steps-to-take-when-throttled">
-<h3>Steps to take when throttled<a class="headerlink" href="#steps-to-take-when-throttled" title="Permalink to this headline">¶</a></h3>
+<h3>Steps to take when throttled<a class="headerlink" href="#steps-to-take-when-throttled" title="Permalink to this heading">¶</a></h3>
 <p>It is recommended that developers design workflows that can handle the HTTP 429 exceptions gracefully and use the retry-time from either the response body or from the “Retry-After” header to recover from such errors.</p>
 </div>
 </div>
@@ -599,7 +734,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 30, 2023. 
+        Last update: Oct 11, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
