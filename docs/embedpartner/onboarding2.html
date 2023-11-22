@@ -142,40 +142,53 @@
 <p class="caption" role="heading"><span class="caption-text">Acrobat Sign Embed 2.0</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Embed Partner Onboarding v 2.0</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#parent-organization-set-up">Parent organization set up</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#create-an-admin-account">Create an admin account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#configure-your-organization">Configure your organization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#create-and-link-directories">Create and link directories</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#create-a-child-organization">Create a child organization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#allocate-transactions">Allocate transactions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#create-a-technical-developer-account">Create a technical/developer account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#register-the-partner-via-the-api">Register the partner via the API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#set-up-parent-organization">Set up Parent organization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-parent-organization">Create Parent organization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accept-invite-and-access-adobe-admin-console">Accept invite and access Adobe Admin Console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#claim-domain">Claim domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-directory-and-link-with-the-claimed-domain">Create a Directory and link with the claimed domain</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#create-and-configure-child-organization">Create and configure Child organization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-child-organization">Create a Child organization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#allocate-transactions-to-the-child-organization">Allocate transactions to the Child organization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-technical-account">Create a technical account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generate-technical-account-token-via-ui-or-via-curl-command">Generate Technical Account Token via UI or via curl command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#register-the-partner-on-acrobat-sign">Register the partner on Acrobat Sign</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#call-the-sign-get-baseuris-api">Call the Sign GET BaseUris API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#call-the-register-partner-api">Call the register Partner API</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#provide-account-info-to-adobe">Provide account info to Adobe</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#onboarding-your-customers">Onboarding your customers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onboard-your-customers">Onboard your customers</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="embedapi2.html">Embed 2.0 API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#authentication-token-apis">Authentication:  Token APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#base-endpoint-api">Base Endpoint API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#authentication-token-apis">Authentication: Token APIs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="embedapi2.html#common-auth-token-api-attributes">Common auth token API attributes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="embedapi2.html#create-an-embed-user-token">Create an Embed user token</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="embedapi2.html#request">Request</a></li>
 <li class="toctree-l4"><a class="reference internal" href="embedapi2.html#response">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#errors">Errors</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="embedapi2.html#validate-embed-user-token">Validate Embed User token</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id1">Request</a></li>
 <li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id2">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id3">Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#common-attributes">Common attributes</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="embedapi2.html#register-apis">Register APIs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="embedapi2.html#create-partner">Create partner</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id3">Request</a></li>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id4">Response</a></li>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#errors">Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id4">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id5">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id6">Errors</a></li>
 </ul>
 </li>
 </ul>
@@ -183,19 +196,19 @@
 <li class="toctree-l2"><a class="reference internal" href="embedapi2.html#account-apis">Account APIs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="embedapi2.html#common-account-api-header-attributes">Common account API header attributes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="embedapi2.html#create-account">Create Account</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id5">Request</a></li>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#account-creation-response-object">Account creation response object</a></li>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id6">Errors</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#update-account">Update Account</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id7">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#account-creation-response-object">Account creation response object</a></li>
 <li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id8">Errors</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#get-account">Get Account</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id9">Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#update-account">Update Account</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id9">Request</a></li>
 <li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id10">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#get-account">Get Account</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id11">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id12">Errors</a></li>
 </ul>
 </li>
 </ul>
@@ -203,19 +216,19 @@
 <li class="toctree-l2"><a class="reference internal" href="embedapi2.html#user-apis">User APIs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="embedapi2.html#common-user-api-header-attributes">Common user API header attributes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="embedapi2.html#post-user">POST user</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id11">Request</a></li>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id12">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id13">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id14">Response</a></li>
 <li class="toctree-l4"><a class="reference internal" href="embedapi2.html#error">Error</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="embedapi2.html#put-user">PUT User</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id13">Request</a></li>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id14">Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id15">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id16">Errors</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="embedapi2.html#get-user">GET User</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id15">Response</a></li>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id16">Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id17">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id18">Errors</a></li>
 </ul>
 </li>
 </ul>
@@ -279,56 +292,21 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Aug 23, 2023. 
+          Last update: Nov 21, 2023. 
         </span>
         
           <div class="rst-content">
             
-            <!--
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+            <!--<div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Embed Partner Onboarding v 2.0</li>
-    
-    
+      <li><a href="toc.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Embed Partner Onboarding v 2.0</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
-        
       </li>
-    
-  </ul>
-
-  
-  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
-      
-        <a href="embedapi2.html" class="btn btn-neutral float-right" title="Embed 2.0 API" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-      
-      
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
         <a href="videos.html" class="btn btn-neutral float-left" title="How-to Video Tutorials" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-      
+        <a href="embedapi2.html" class="btn btn-neutral float-right" title="Embed 2.0 API" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
-  
   <hr/>
 </div>-->
             <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -338,258 +316,348 @@
 <h1>Embed Partner Onboarding v 2.0<a class="headerlink" href="#embed-partner-onboarding-v-2-0" title="Permalink to this heading">¶</a></h1>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Your feedback is welcome and is a key driver as documentation evolves. Send suggestions to <a class="reference external" href="mailto:acrobatsignembed&#37;&#52;&#48;adobe&#46;com">acrobatsignembed<span>&#64;</span>adobe<span>&#46;</span>com</a>.</p>
+<p>Your feedback is valuable and is vital in improving our product and documentation. Send suggestions to <a class="reference external" href="mailto:acrobatsignembed&#37;&#52;&#48;adobe&#46;com">acrobatsignembed<span>&#64;</span>adobe<span>&#46;</span>com</a>.</p>
 </div>
-<p>Both the partner and the Acrobat Sign team can onboard to Acrobat Sign Embed 2.0 by implementing a one-time setup. Partners first onboard themselves in sandbox environment so they can learn how to create accounts in Sign, add users to these accounts, and use Sign via the REST v6 APIs. Once they are comfortable with the new Embed 2.0 APIs, partners can proceed with onboarding to the production environment. The steps for onboarding to the sandbox and production environment are similar.</p>
-<ul class="simple">
-<li><p>Sandbox: <a class="reference external" href="https://secure.adobesignsandbox.com/">https://secure.adobesignsandbox.com/</a></p></li>
-<li><p>Production: <a class="reference external" href="https://secure.adobesign.com/">https://secure.adobesign.com/</a></p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Before using Sign Embed services in production, your application must undergo formal certification by Adobe. Once your development is complete, you collaborate with your Product Success Manager to get your application certified.</p>
-</div>
-<div class="section" id="parent-organization-set-up">
-<h2>Parent organization set up<a class="headerlink" href="#parent-organization-set-up" title="Permalink to this heading">¶</a></h2>
+<p>To smoothly integrate and onboard to Acrobat Sign, partners must complete a one-time setup.</p>
+<p>If you have sandbox access, we recommend starting by onboarding to the sandbox environment. This allows you to practice and confirm your ability to create accounts in Acrobat Sign, add users to these accounts, and utilize Sign through the REST v6 APIs.</p>
+<p>Once you feel confident with the new Embed 2.0 APIs, you can then move forward with onboarding to the production environment. The steps for onboarding to the sandbox and production environments are similar.</p>
+<div class="section" id="set-up-parent-organization">
+<h2>Set up Parent organization<a class="headerlink" href="#set-up-parent-organization" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="create-parent-organization">
+<h3>Create Parent organization<a class="headerlink" href="#create-parent-organization" title="Permalink to this heading">¶</a></h3>
 <p>Adobe initiates the organization setup process as follows:</p>
 <ol class="arabic simple">
 <li><p>You provide the name and email address of up to two administrators to your Product Success Manager.</p></li>
 <li><p>Adobe creates your organization within the Admin Console, adds your admin contact information, and assigns global and system admin roles.</p></li>
 </ol>
+<p>When the process completes, your admin(s) receive 2 invitation emails: one each for the Admin and Global Consoles. If you don’t receive the emails you can access the admin consoles directly using the following URL’s:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://adminconsole.adobe.com/">https://adminconsole.adobe.com/</a></p></li>
+<li><p><a class="reference external" href="https://global-admin-console.adobe.com/">https://global-admin-console.adobe.com/</a></p></li>
+</ul>
+</div></blockquote>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>When the process completes, your admin(s) receive 2 email invitation emails: one each for the Admin and Global Consoles.</p>
+<p>You can login to complete the setup once the Adobe team has setup your account.</p>
 </div>
 </div>
-<div class="section" id="create-an-admin-account">
-<h2>Create an admin account<a class="headerlink" href="#create-an-admin-account" title="Permalink to this heading">¶</a></h2>
-<p>After Adobe creates your organization, create an admin account:</p>
-<ol class="arabic simple">
-<li><p>Open the invitation <strong>Admin Console</strong> email and accept the invitation.</p></li>
-<li><p>Create an account with your admin email. You’ll need to verify your identity.</p></li>
+<div class="section" id="accept-invite-and-access-adobe-admin-console">
+<h3>Accept invite and access Adobe Admin Console<a class="headerlink" href="#accept-invite-and-access-adobe-admin-console" title="Permalink to this heading">¶</a></h3>
+<p>After Adobe creates your organization, the admin(s) must create an account with Adobe:</p>
+<ol class="arabic">
+<li><p>Admin user receives two emails.</p>
+<blockquote>
+<div><img alt="_images/setup-1.png" src="_images/setup-1.png" />
+</div></blockquote>
+</li>
+</ol>
+<ol class="arabic" start="2">
+<li><p>Open the invitation with subject “You administrator rights for Adobe Admin Console” and then select <strong>Get started</strong>.</p>
+<blockquote>
+<div><img alt="_images/setup-2.png" src="_images/setup-2.png" />
+</div></blockquote>
+</li>
+<li><p>Verify your identity.</p>
+<blockquote>
+<div><img alt="_images/setup-3.png" src="_images/setup-3.png" />
+</div></blockquote>
+</li>
+<li><p>Complete the account creation by setting up your admin account.</p></li>
 </ol>
 </div>
-<div class="section" id="configure-your-organization">
-<h2>Configure your organization<a class="headerlink" href="#configure-your-organization" title="Permalink to this heading">¶</a></h2>
-<p>The admin must claim a domain and link it with a federated directory. It allows you to create users with the claimed domain and add them in Embed accounts.</p>
-<ol class="arabic simple">
-<li><p>Log in to the <a class="reference external" href="https://adminconsole.adobe.com">https://adminconsole.adobe.com</a> with the credential you created above.</p></li>
-<li><p>Go to <strong>Settings &gt; Identity Settings &gt; Domains</strong>.</p></li>
-<li><p>Choose <strong>Add Domain</strong>.</p></li>
+<div class="section" id="claim-domain">
+<h3>Claim domain<a class="headerlink" href="#claim-domain" title="Permalink to this heading">¶</a></h3>
+<p>The admin must claim a domain and link it with a <strong>federated</strong> directory. It allows you to create users with the claimed domain and add them in Embed accounts.</p>
+<ol class="arabic">
+<li><dl>
+<dt>After you complete the account setup steps above, you land on the Admin Console page, as shown below.</dt><dd><p>Alternatively, you can log in to the <a class="reference external" href="https://adminconsole.adobe.com">https://adminconsole.adobe.com</a> with the credential you created above.</p>
+<blockquote>
+<div><img alt="_images/claim-domain-5.png" src="_images/claim-domain-5.png" />
+</div></blockquote>
+</dd>
+</dl>
+</li>
+<li><p>Go to <strong>Settings</strong> &gt; <strong>Identity Settings</strong> &gt; <strong>Domains</strong>.</p></li>
+<li><p>Select <strong>Add Domain</strong>.</p>
+<blockquote>
+<div><img alt="_images/claim-domain-2.png" src="_images/claim-domain-2.png" />
+</div></blockquote>
+</li>
 </ol>
-<img alt="_images/adddomain.png" src="_images/adddomain.png" />
-<ol class="arabic simple" start="3">
-<li><p>Specify a domain.</p></li>
-<li><p>Choose <strong>Next</strong>.</p></li>
+<ol class="arabic" start="4">
+<li><p>Specify a domain.</p>
+<blockquote>
+<div><img alt="_images/claim-domain-1.png" src="_images/claim-domain-1.png" />
+</div></blockquote>
+</li>
+<li><p>Select <strong>Next</strong>.</p></li>
+<li><p>Select <strong>Add Domains</strong>.</p></li>
+<li><p>Select <strong>Validate</strong>.</p>
+<blockquote>
+<div><img alt="_images/claim-domain-4.png" src="_images/claim-domain-4.png" />
+</div></blockquote>
+</li>
 </ol>
-<img alt="_images/adddomain1.png" src="_images/adddomain1.png" />
-<ol class="arabic simple" start="5">
-<li><p>Choose <strong>Add Domain.</strong></p></li>
-<li><p>Choose <strong>Next</strong>.</p></li>
-<li><p>Choose <strong>Validate</strong>.</p></li>
+<ol class="arabic" start="8">
+<li><dl>
+<dt>Copy the key string.</dt><dd><p>Example key string: <code class="docutils literal notranslate"><span class="pre">&#64;</span> <span class="pre">3600</span> <span class="pre">IN</span> <span class="pre">TXT</span> <span class="pre">adobe-idp-site-verification=dde4f6d5eaf2089613c7acc16610593a74560d54a51c22b4d33bbb72</span></code></p>
+<blockquote>
+<div><img alt="_images/claim-domain-3.png" src="_images/claim-domain-3.png" />
+</div></blockquote>
+</dd>
+</dl>
+</li>
+<li><p>Validate your domain.</p></li>
 </ol>
-<img alt="_images/validatedomain.png" src="_images/validatedomain.png" />
-<ol class="arabic simple" start="8">
-<li><p>Copy the key string. For example: <code class="docutils literal notranslate"><span class="pre">&#64;</span> <span class="pre">3600</span> <span class="pre">IN</span> <span class="pre">TXT</span> <span class="pre">adobe-idp-site-verification=dde4f6d5eaf2089613c7acc16610593a74560d54a51c22b4d33bbb72</span></code></p></li>
-</ol>
-<img alt="_images/validatedomain2.png" src="_images/validatedomain2.png" />
-<ol class="arabic simple" start="9">
-<li><p><a class="reference external" href="https://helpx.adobe.com/enterprise/using/add-domains-directories.html#validate">Claim your domain</a>.</p></li>
-</ol>
+<blockquote>
+<div><a href="https://helpx.adobe.com/enterprise/using/add-domains-directories.html#validate" target="_blank">Learn how to validate your domain</a>.</div></blockquote>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It may take some time for the DNS change to propagate so that Adobe can validate the domain ownership (an hour is possible).  If you add the DNS settings but get an error, try again later as the DNS settings might not yet be updated on the web.</p>
+<p>It might take a while for the DNS change to fully go through, potentially up to an hour, before Adobe can confirm the ownership of the domain. If you get an error after adding the DNS settings, please wait and try again later. The web might not have updated the DNS settings yet.</p>
 </div>
 <ol class="arabic simple" start="10">
-<li><p>After the domain claiming process completes, choose <strong>Validate Now</strong>.</p></li>
+<li><p>After the domain claiming process completes, select <strong>Validate now</strong>.</p></li>
 </ol>
 </div>
-<div class="section" id="create-and-link-directories">
-<h2>Create and link directories<a class="headerlink" href="#create-and-link-directories" title="Permalink to this heading">¶</a></h2>
-<ol class="arabic simple">
-<li><p>If you are in a new session, re-login to the <a class="reference external" href="https://adminconsole.adobe.com">Admin Console</a>.</p></li>
-<li><p>Go to <strong>Settings &gt; Identity Settings &gt; Directories</strong>.</p></li>
-<li><p>Choose <strong>Create Directory</strong>.</p></li>
-<li><p>Enter a directory name.</p></li>
-<li><p>Select an ID type. There are two types of directory types available:</p></li>
-</ol>
+<div class="section" id="create-a-directory-and-link-with-the-claimed-domain">
+<h3>Create a Directory and link with the claimed domain<a class="headerlink" href="#create-a-directory-and-link-with-the-claimed-domain" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>If you are in a new session, you must re-login to the Admin Console.</p>
 <blockquote>
-<div><ul class="simple">
-<li><p><strong>Federated ID</strong>: Supports Single Sign-On (SSO) via an Identity Provider. The organization hosts and maintains the user accounts and their assets.</p></li>
-<li><p><strong>Enterprise ID</strong>: Allows the organization to maintain user accounts and assets, while Adobe takes care of the authentication. This option does not support SSO. For Adobe to authenticate and maintain user credentials, the users receive a password setup email through which they can setup their login password.</p></li>
-</ul>
+<div><a href="https://adminconsole.adobe.com" target="_blank">Go to Admin Console</a>.</div></blockquote>
+</li>
+</ol>
+<ol class="arabic" start="2">
+<li><p>Go to <strong>Settings</strong> &gt; <strong>Identity Settings</strong> &gt; <strong>Directories</strong>.</p></li>
+<li><p>Choose <strong>Create Directory</strong>.</p>
+<blockquote>
+<div><img alt="_images/create-directory-1.png" src="_images/create-directory-1.png" />
 </div></blockquote>
-<ol class="arabic simple" start="6">
+</li>
+</ol>
+<ol class="arabic" start="4">
+<li><p>Enter a directory name.</p>
+<blockquote>
+<div><img alt="_images/create-directory-2.png" src="_images/create-directory-2.png" />
+</div></blockquote>
+</li>
+<li><p>Select the Directory type as Federated ID</p>
+<blockquote>
+<div><img alt="_images/create-directory-3.png" src="_images/create-directory-3.png" />
+</div></blockquote>
+</li>
 <li><p>Select <strong>Next</strong>.</p></li>
-</ol>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You may need to setup an Identity Provider (IDP). It is not required if only customer users are created with the claimed domain. It is required where the partner admin adds users with the claimed domain in the parent organization and provides  them with entitlements to other Adobe products.</p>
-</div>
-<ol class="arabic simple" start="7">
-<li><p>To set up an IDP:</p></li>
-</ol>
+<li><p>As IDP setup is not required, select <strong>Cancel</strong> from the following screen. When you see the “Auto-account creation will be enabled” dialog, select <strong>Confirm</strong>.</p>
 <blockquote>
-<div><ul class="simple">
-<li><p>If you select one of the default IDPs, choose <strong>Next</strong> and complete the workflow.</p></li>
-<li><p>If you select one of the <strong>Other SAML providers</strong>,  choose <strong>Next</strong> and then choose <strong>Cancel</strong> from the following screen. When you see the “Auto-account creation will be enabled” dialog, choose <strong>Confirm</strong>.</p></li>
-</ul>
+<div><img alt="_images/create-directory-4.png" src="_images/create-directory-4.png" />
 </div></blockquote>
-<ol class="arabic simple" start="8">
-<li><p>Review your domain, and choose <strong>Link Directory</strong>.</p></li>
+</li>
+<li><p>Go to the Domains tab and then for your claimed domain, select <strong>Link Directory</strong>.</p></li>
+<li><p>On the ‘Link a Domain and a Directory’ page, from the dropdown menu, select the directory created above and then select <strong>Link</strong>.</p></li>
 </ol>
-<img alt="_images/linkdir.png" src="_images/linkdir.png" />
-<ol class="arabic simple" start="9">
-<li><p>Select a directory to link to your domain. If there aren’t any, choose <strong>New Directory</strong>.</p></li>
-<li><p>Choose <strong>Link</strong>.</p></li>
-</ol>
-<img alt="_images/linkdir2.png" src="_images/linkdir2.png" />
-<ol class="arabic simple" start="11">
-<li><p>In your domains list, select a domain.</p></li>
-<li><p>Choose <strong>Add domain</strong>.</p></li>
-</ol>
-<img alt="_images/linkdir2.png" src="_images/linkdir2.png" />
 </div>
+</div>
+<div class="section" id="create-and-configure-child-organization">
+<h2>Create and configure Child organization<a class="headerlink" href="#create-and-configure-child-organization" title="Permalink to this heading">¶</a></h2>
 <div class="section" id="create-a-child-organization">
-<h2>Create a child organization<a class="headerlink" href="#create-a-child-organization" title="Permalink to this heading">¶</a></h2>
-<p>The following steps occur in the Global Admin Console.</p>
-<p>The Global Admin Console facilitates managing users since you can create child organizations and segregate users,  domains, products, and so on. The child organization resides beneath the parent organization hierarchy.  The child org is where you will create your technical account and your customer.  This hierarchy keeps your customer accounts and users separate from your company’s users.</p>
-<ol class="arabic simple">
-<li><p>Go to <a class="reference external" href="https://global-admin-console.adobe.com/">https://global-admin-console.adobe.com/</a>. You can also click the Global Admin Console icon.</p></li>
-</ol>
-<img alt="_images/globaladminicon.png" src="_images/globaladminicon.png" />
-<ol class="arabic simple" start="2">
-<li><p>Log in if you you’re not already.</p></li>
-</ol>
-<img alt="_images/org1.png" src="_images/org1.png" />
-<ol class="arabic simple" start="3">
-<li><p>Choose Policies.</p></li>
-<li><p>If the parent organization is not selected by default, select it.</p></li>
-</ol>
-<img alt="_images/selectparentorg.png" src="_images/selectparentorg.png" />
-<ol class="arabic" start="5">
-<li><p>Enable the <strong>Inherit system admins from parent when child organization is created</strong> policy under Policies tab in the Parent Org.</p>
+<h3>Create a Child organization<a class="headerlink" href="#create-a-child-organization" title="Permalink to this heading">¶</a></h3>
+<p>You can use the Global Admin Console to establish your organization hierarchy, assign products to your organizations, and review or submit changes. The child organization resides beneath the parent organization hierarchy. The child org is where you will <a class="reference internal" href="#techaccount"><span class="std std-ref">Create a technical account</span></a> and all the users for your customers. This hierarchy keeps your customer accounts and users separate from your company’s users.</p>
+<ol class="arabic">
+<li><p>Select the Global Admin Console icon on the Admin Console or go to <a class="reference external" href="https://global-admin-console.adobe.com/">https://global-admin-console.adobe.com/</a> and log in with your admin credentials.</p>
 <blockquote>
-<div><p>This setting will add the parent org admin to the child organization(s) at the time of the organization’s creation as a system admin.</p>
+<div><img alt="_images/globaladminicon.png" src="_images/globaladminicon.png" />
 </div></blockquote>
 </li>
-<li><p>Click the plus icon.</p></li>
+<li><p>On the global admin console page that opens, select the parent organization if it isn’t selected by default. Then, select <strong>Policies</strong>.</p>
+<blockquote>
+<div><img alt="_images/create-child-org-1.png" src="_images/create-child-org-1.png" />
+</div></blockquote>
+</li>
+<li><p>From under the Policies tab, enable the <strong>Inherit system admins from parent when child organization is created</strong> option.</p>
+<blockquote>
+<div><p>Allowing this setting before creating the child org will automatically add the administrators of the parent org as administrators of the child org when the child org is created. Administrators will not be inherited from the parent org for any child org created before this setting is allowed.</p>
+<blockquote>
+<div><img alt="_images/create-child-org-3.png" src="_images/create-child-org-3.png" />
+</div></blockquote>
+</div></blockquote>
+</li>
+<li><p>From the upper-right corner, select <strong>Review pending changes</strong>. Wait for the Job Completed Status.</p></li>
+<li><p>From upper-right corner of the Job Execution and History page, select <strong>Submit changes</strong>.</p></li>
+<li><p>Select the Organizations tab and then select the plus icon to create a child organization.</p>
+<blockquote>
+<div><img alt="_images/createchildorg.png" src="_images/createchildorg.png" />
+</div></blockquote>
+</li>
+<li><p>Enter a child organization name, specify a country or region, and then select <strong>Save</strong>.</p>
+<blockquote>
+<div><p>The selected Country/Region determines the region for which the technical account is provisioned on Acrobat Sign.</p>
+<img alt="_images/create-child-org-2.png" src="_images/create-child-org-2.png" />
+</div></blockquote>
+</li>
+<li><p>Select <strong>Review pending changes</strong> and then select <strong>Submit changes</strong> to apply the changes.</p></li>
+<li><p>Select <strong>Organizations</strong> tab and then review the Admins and Domains section of the Child Org to ensure that the administrators and domains have been inherited as expected.</p></li>
 </ol>
-<img alt="_images/createchildorg.png" src="_images/createchildorg.png" />
-<ol class="arabic simple" start="7">
-<li><p>Enter a child organization name.</p></li>
-<li><p>Specify a country or region.</p></li>
-<li><p>Choose <strong>Save</strong>.</p></li>
-</ol>
-<img alt="_images/org3.png" src="_images/org3.png" />
-<ol class="arabic simple" start="10">
-<li><p>Choose <strong>Review pending changes</strong> in the upper right.</p></li>
-</ol>
-<img alt="_images/org2.png" src="_images/org2.png" />
-<ol class="arabic simple">
-<li><p>Choose <strong>Submit changes</strong> in the upper right.</p></li>
-</ol>
-<ol class="arabic simple" start="12">
-<li><p>Review your settings.</p></li>
-</ol>
-<img alt="_images/org4.png" src="_images/org4.png" />
 </div>
-<div class="section" id="allocate-transactions">
-<h2>Allocate transactions<a class="headerlink" href="#allocate-transactions" title="Permalink to this heading">¶</a></h2>
-<p>Product allocation to the child organization is required so that it has access to the Acrobat Sign Embed offer and the technical account is able to provision to Sign. The minimum transactions required for allocating a product is 1.</p>
+<div class="section" id="allocate-transactions-to-the-child-organization">
+<h3>Allocate transactions to the Child organization<a class="headerlink" href="#allocate-transactions-to-the-child-organization" title="Permalink to this heading">¶</a></h3>
+<p>After creating the child organization, you must assign the Acrobat Sign Embed product to it. This step is essential for enabling the child org and the upcoming technical account to access Acrobat Sign Embed features, including Sign Embed and Acrobat Sign APIs. When assigning the product, make sure to allocate at least one transaction to the child org.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The technical account for the child organization will be allowed to exceed the transactions allocated.</p>
+<p>The allocation count assigned to the child organization doesn’t limit the number of transactions permitted for the users within this organization.</p>
 </div>
-<ol class="arabic simple">
-<li><p>Choose <strong>Product Allocation</strong> in the top bar.</p></li>
-<li><p>Choose the plus icon under <strong>Grant</strong> for the child organization you just created.</p></li>
-<li><p>Allocate at least 1 transaction of the Acrobat Sign Embed product.</p></li>
+<ol class="arabic">
+<li><p>From the top bar, select <strong>Product allocation</strong>.</p></li>
+<li><p>From the drop-down menu, select <strong>Acrobat Sign Embed - TRNS</strong> and then select the <strong>Sign Transactions (transactions)</strong> tab.</p></li>
+<li><p>From under the ‘Grant’ column, select the plus icon for the child organization you just created.</p>
+<blockquote>
+<div><img alt="_images/allocate-transaction-1.png" src="_images/allocate-transaction-1.png" />
+</div></blockquote>
+</li>
 </ol>
-<img alt="_images/org5.png" src="_images/org5.png" />
-<ol class="arabic simple" start="4">
-<li><p>Choose <strong>Save</strong>.</p></li>
-<li><p>Choose <strong>Review pending changes</strong> in the upper right.</p></li>
-<li><p>Choose <strong>Submit changes</strong> in the upper right.</p></li>
+<ol class="arabic" start="4">
+<li><p>Allocate at least 1 transaction of the Acrobat Sign Embed product and then select <strong>Save</strong>.</p>
+<blockquote>
+<div><img alt="_images/allocate-transaction-2.png" src="_images/allocate-transaction-2.png" />
+</div></blockquote>
+</li>
+<li><p>From the upper-right corner, select <strong>Review pending changes</strong> and then select <strong>Submit changes</strong>.</p></li>
+<li><p>Select <strong>Organizations</strong> tab and review that Products have been allocated to the Child Org.</p>
+<blockquote>
+<div><img alt="_images/allocate-transaction-8.png" src="_images/allocate-transaction-8.png" />
+</div></blockquote>
+</li>
 </ol>
-<img alt="_images/org6.png" src="_images/org6.png" />
-<ol class="arabic simple" start="7">
-<li><p>Verify your configuration:</p>
-<ol class="arabic simple">
-<li><p>Go to the Admin Console.</p></li>
-<li><p>Select the organization drop-down list in the top bar.</p></li>
-<li><p>Choose the child organization you just configured.</p></li>
+<ol class="arabic" start="9">
+<li><p>Verify your configuration as follows:</p>
+<ol class="arabic">
+<li><p>Admin user receives a welcome email with subject “Your administrator rights for the Adobe Admin Console for the [your] Child Org”.</p>
+<blockquote>
+<div><img alt="_images/allocate-transaction-4.png" src="_images/allocate-transaction-4.png" />
+</div></blockquote>
+</li>
+<li><p>Select <strong>Get Started</strong>.</p></li>
+<li><p>On the dialog that opens, enter the password and then select <strong>Continue</strong>.</p>
+<blockquote>
+<div><img alt="_images/allocate-transaction-5.png" src="_images/allocate-transaction-5.png" />
+</div></blockquote>
+</li>
+<li><p>Select <strong>Join team</strong>.</p>
+<blockquote>
+<div><img alt="_images/allocate-transaction-6.png" src="_images/allocate-transaction-6.png" />
+</div></blockquote>
+</li>
+<li><p>Select the Child Org profile to sign in.</p>
+<blockquote>
+<div><img alt="_images/allocate-transaction-7.png" src="_images/allocate-transaction-7.png" />
+</div></blockquote>
+</li>
+<li><p>On the admin console with child Org profile, validate the profile and also the product and transactions allocated.</p>
+<blockquote>
+<div><img alt="_images/allocate-transaction-3.png" src="_images/allocate-transaction-3.png" />
+</div></blockquote>
+</li>
 </ol>
 </li>
 </ol>
-<img alt="_images/selectchild.png" src="_images/selectchild.png" />
-<ol class="arabic simple" start="8">
-<li><p>Verify your transaction allocation.</p></li>
-</ol>
-<img alt="_images/verifytransactioninadmin.png" src="_images/verifytransactioninadmin.png" />
 </div>
-<div class="section" id="create-a-technical-developer-account">
-<h2>Create a technical/developer account<a class="headerlink" href="#create-a-technical-developer-account" title="Permalink to this heading">¶</a></h2>
+</div>
+<div class="section" id="create-a-technical-account">
+<span id="techaccount"></span><h2>Create a technical account<a class="headerlink" href="#create-a-technical-account" title="Permalink to this heading">¶</a></h2>
+<p>As part of the Partner onboarding process, a Technical Account (developer console account) must be created. This specialized service account is essential for generating the technical account token, which serves as the Partner’s authentication credential for engaging with Acrobat Sign. The technical account token is utilized to initiate customer provisioning APIs at both the account and user levels, as well as to generate tokens for customer users.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>These steps require system admin privileges. The child organization may have users with developer role, but only admin users have access to add the requisite API SDKs.</p>
-<p>You will have received an email to access the admin console for the child org.</p>
+<p>The following steps require system admin privileges. The child organization may have users with developer role, but only admin users have access to add the requisite API SDKs.</p>
 </div>
-<ol class="arabic simple">
-<li><p>Open the email and select <strong>Get started</strong>.</p></li>
-<li><p>During login, join the team and select the child organization.</p></li>
-<li><p>Navigate to the <a class="reference external" href="https://developer.adobe.com/console/home">developer console</a> and login using your admin credentials.</p></li>
-<li><p>Verify that you are logged into the child organization. If not, select it from the navigation bar.</p></li>
-<li><p>From the upper-rigth corner, select the child organization you’re configuring from.</p></li>
-</ol>
-<img alt="_images/dev1.png" src="_images/dev1.png" />
-<ol class="arabic simple" start="6">
-<li><p>Select <strong>Create New Project</strong>.</p></li>
-<li><p>Select <strong>Add an API</strong></p></li>
-</ol>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You add two SDKs and repeat the process for the User Management API.</p>
-</div>
-<ol class="arabic simple" start="8">
-<li><p>Select the Adobe Acrobat Sign Embed API SDK. It provides the partner with privileges to call the Sign Embed service APIs, create Acrobat Sign accounts, and add users.</p></li>
+<ol class="arabic">
+<li><p>After you log into the admin console with the Child Org profile, select the <strong>Products</strong> tab.</p></li>
+<li><p>From next to the ‘Acrobat Sign Embed - TRNS’ listing, open the 3-dot icon menu and then select <strong>Go to Developer Console</strong>.</p>
+<blockquote>
+<div><p>It redirects you to profile selection page of the developer console.</p>
+<img alt="_images/create-tech-account-7.png" src="_images/create-tech-account-7.png" />
+</div></blockquote>
+</li>
+<li><p>Select the child Org profile you created above.
+It prompts you to accept the Adobe Developer Terms of Use.</p></li>
+<li><p>On the Developer console home page that opens, select <strong>Create New Project</strong>.</p>
+<blockquote>
+<div><img alt="_images/create-tech-account-2.png" src="_images/create-tech-account-2.png" />
+</div></blockquote>
+</li>
+<li><p>Select <strong>Add API</strong>.</p>
+<blockquote>
+<div><img alt="_images/create-tech-account-4.png" src="_images/create-tech-account-4.png" />
+</div></blockquote>
+</li>
+<li><dl>
+<dt>Select <strong>Acrobat Sign Embed API SDK</strong>.</dt><dd><p>It provides the partner with privileges to call the Sign Embed service APIs, create Acrobat Sign accounts, and add users.</p>
+<img alt="_images/create-tech-account-5.png" src="_images/create-tech-account-5.png" />
+</dd>
+</dl>
+</li>
 <li><p>Select <strong>Next</strong>.</p></li>
-<li><p>Select <strong>OAuth Server-to-Server</strong>.</p></li>
+<li><p>Select <strong>OAuth Server-to-Server</strong> and select <strong>Next</strong>.</p>
+<blockquote>
+<div><img alt="_images/oauthtoserver.png" src="_images/oauthtoserver.png" />
+</div></blockquote>
+</li>
 </ol>
-<img alt="_images/oauthtoserver.png" src="_images/oauthtoserver.png" />
+<ol class="arabic" start="9">
+<li><p>Select Product profiles and select <strong>Save Configured API</strong>.</p></li>
+<li><p>Select <strong>Add to Project</strong> &gt; <strong>API</strong>.</p>
+<blockquote>
+<div><img alt="_images/create-tech-account-6.png" src="_images/create-tech-account-6.png" />
+</div></blockquote>
+</li>
+</ol>
 <ol class="arabic simple" start="11">
-<li><p>Select <strong>Save Configured API</strong>.</p></li>
-<li><p>Select <strong>Generate Access Token</strong>.</p></li>
-</ol>
-<img alt="_images/dev2.png" src="_images/dev2.png" />
-<p>A screen appears with the requisite developer details.</p>
-<img alt="_images/dev3.png" src="_images/dev3.png" />
-<ol class="arabic simple" start="13">
-<li><p>Select <strong>Add to Project &gt; API</strong>.</p></li>
 <li><p>Repeat the steps above for the User Management API. This SDK provides admin console access for user creation via the API.</p></li>
-<li><p>Select <strong>Next</strong> .</p></li>
+<li><p>Verify that the Project contains both the above mentioned SDKs.</p></li>
 </ol>
-<img alt="_images/addanotherapi.png" src="_images/addanotherapi.png" />
 </div>
-<div class="section" id="register-the-partner-via-the-api">
-<h2>Register the partner via the API<a class="headerlink" href="#register-the-partner-via-the-api" title="Permalink to this heading">¶</a></h2>
-<p>You can now use your technical account token to register with Acrobat Sign via the <a class="reference external" href="embedapi2.html#register-account-apis">register partner API</a>.
+<div class="section" id="generate-technical-account-token-via-ui-or-via-curl-command">
+<h2>Generate Technical Account Token via UI or via curl command<a class="headerlink" href="#generate-technical-account-token-via-ui-or-via-curl-command" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic">
+<li><dl class="simple">
+<dt>From under the Credentials section in the left panel, select <strong>OAuth Server-to-Server</strong>.</dt><dd><p>From here, you can get all details of the technical account like client id, client secret, scope, and more.</p>
+</dd>
+</dl>
+</li>
+<li><p>Select <strong>Generate access token</strong> to create Technical Account token. A screen appears with the requisite developer details, as shown below.</p>
+<blockquote>
+<div><img alt="_images/dev3.png" src="_images/dev3.png" />
+</div></blockquote>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The technical account token generated has a default validity of 24 hours. You can also use the curl command to generate the token. To get the curl request, select <strong>View cURL command</strong>.</p>
+</div>
+</div>
+<div class="section" id="register-the-partner-on-acrobat-sign">
+<h2>Register the partner on Acrobat Sign<a class="headerlink" href="#register-the-partner-on-acrobat-sign" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="call-the-sign-get-baseuris-api">
+<h3>Call the Sign GET BaseUris API<a class="headerlink" href="#call-the-sign-get-baseuris-api" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="embedapi2.html#base-endpoint-api">Call the Sign GET BaseUris API</a> using the Technical Account token. Partners are required to use the value of the “apiAccessPoint” obtained from the API response as the base URL for all API calls.</p>
+</div>
+<div class="section" id="call-the-register-partner-api">
+<h3>Call the register Partner API<a class="headerlink" href="#call-the-register-partner-api" title="Permalink to this heading">¶</a></h3>
+<p>You can now use your technical account token to register with Acrobat Sign via the <a class="reference external" href="embedapi2.html#register-apis">register partner API</a>.
 You must use the Register API to register your application in both production and sandbox.</p>
+</div>
 <div class="section" id="provide-account-info-to-adobe">
 <h3>Provide account info to Adobe<a class="headerlink" href="#provide-account-info-to-adobe" title="Permalink to this heading">¶</a></h3>
-<p>Once the above steps are complete, provide the following information to your Product Success Manager:</p>
-<ul class="simple">
-<li><p>Client ID</p></li>
-<li><p>Technical Account ID</p></li>
-<li><p>Technical Account Email</p></li>
-<li><p>Organization ID</p></li>
-</ul>
-<p>Your Product Success Manager will set up a Channel and include your technical account in it. If you have sandbox access, they will also help activate your application in the sandbox environment, allowing you to utilize the Sign Embed services there. However, it’s important to remember that full access to the Sign Embed services in the production environment requires formal certification of your application by Adobe.</p>
+<p>Once the above steps are complete, provide the “Partner ID” to your Product Success Manager to complete the rest of the configurations.</p>
+<p>Your Product Success Manager will establish a Channel and incorporate your technical account into it. If you have sandbox access, they will assist in activating your application in the sandbox environment, enabling you to utilize Sign Embed services there. However, note that full access to the Acrobat Sign Embed services in the production environment requires formal certification of your application by Adobe.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before using Acrobat Sign Embed services in production, your application must undergo formal certification by Adobe. Once your development is complete, you collaborate with your Product Success Manager to get your application certified.</p>
 </div>
 </div>
-<div class="section" id="onboarding-your-customers">
-<h2>Onboarding your customers<a class="headerlink" href="#onboarding-your-customers" title="Permalink to this heading">¶</a></h2>
-<p>You can now use the <a class="reference external" href="embedapi2.html">new OEM 2.0 APIs</a> to create accounts and add users.</p>
+</div>
+<div class="section" id="onboard-your-customers">
+<h2>Onboard your customers<a class="headerlink" href="#onboard-your-customers" title="Permalink to this heading">¶</a></h2>
+<p>Once your Partner Application is certified, you can use the <a class="reference external" href="embedapi2.html">Acrobat Sign Embed APIs</a> to create customer accounts, add users, and generate user tokens.</p>
 </div>
 </div>
 
@@ -605,7 +673,7 @@ You must use the Register API to register your application in both production an
     <p>
         &#169; Copyright 2023, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 23, 2023. 
+        Last update: Nov 21, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
