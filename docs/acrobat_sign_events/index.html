@@ -42,9 +42,7 @@
   <link rel="next" title="Webhook Event Payload Overview" href="webhookpayloadoverview.html" />
   <link rel="prev" title="Webhook Reference" href="toc.html" /> 
 
-  <script
-    type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
-  <script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+  <script>  window.marketingtech = { adobe: { launch: { url: 'https://assets.adobedtm.com/d4d114c60e50/a0e989131fd5/launch-5dd5dd2177e6.min.js', controlPageLoad: false, }, alloy: { edgeConfigId: '2cba807b-7430-41ae-9aac-db2b0da742d5', }, target: false, audienceManager: false, }, sophia: false, };</script><script src=https://www.adobe.com/marketingtech/main.standard.min.js></script>
 
   <script>
     $(document).ready(function () {
@@ -175,7 +173,6 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-web-identity-authenticated">AGREEMENT_WEB_IDENTITY_AUTHENTICATED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-kba-authenticated">AGREEMENT_KBA_AUTHENTICATED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-ready-to-notarize">AGREEMENT_READY_TO_NOTARIZE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-uploaded-by-sender">AGREEMENT_UPLOADED_BY_SENDER</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-user-ack-agreement-modified">AGREEMENT_USER_ACK_AGREEMENT_MODIFIED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-ready-to-vault">AGREEMENT_READY_TO_VAULT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-vaulted">AGREEMENT_VAULTED</a></li>
@@ -281,56 +278,21 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Aug 04, 2023. 
+          Last update: Dec 13, 2023. 
         </span>
         
           <div class="rst-content">
             
-            <!--
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+            <!--<div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Webhooks in Acrobat Sign</li>
-    
-    
+      <li><a href="toc.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Webhooks in Acrobat Sign</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
-        
       </li>
-    
-  </ul>
-
-  
-  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
-      
-        <a href="webhookpayloadoverview.html" class="btn btn-neutral float-right" title="Webhook Event Payload Overview" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-      
-      
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
         <a href="toc.html" class="btn btn-neutral float-left" title="Webhook Reference" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-      
+        <a href="webhookpayloadoverview.html" class="btn btn-neutral float-right" title="Webhook Event Payload Overview" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
-  
   <hr/>
 </div>-->
             <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -659,7 +621,7 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
 <li><p><strong>Two-way SSL authentication:</strong> Acrobat Sign supports a two-way SSL handshake when making callbacks to customer servers. Two-way SSL, often called Client-Side SSL, is a mode of SSL wherein both the server and the client (web browser) present certificates to identify themselves. We allow the account admins, via their account Security Settings page, to upload an identifying certificate, which the Adobe Sign webhooks system uses to identify itself when making webhook calls to their servers. Acrobat Sign verifies SSL certificates when delivering payloads to HTTPS webhook addresses. Webhooks that fail the SSL certificate verification will not successfully deliver to their respective hosts. Please ensure your server is correctly configured to support HTTPS with a valid SSL certificate.</p></li>
 <li><p><strong>Keeping the webhook configuration immutable:</strong> If your webhook URL changes, there is a possibility that your application consumer key and consumer secret have been compromised. By requiring you to create a new webhook configuration, we also require you to resubscribe to your user’s events. This requires the use of access tokens that a malicious party is less likely to possess. Doing so reduces the likelihood that another party will receive your user’s private information.</p></li>
 <li><p><strong>Sending and receiving the client ID in the webhook notification request:</strong> You can whitelist the client/application IDs through which you want to receive the payload. Notifications from the remaining apps can be ignored.</p></li>
-<li><p><strong>Recommended server configurations:</strong> Acrobat sign only supports TLS 1.2 for webhooks. TLS 1.0 and 1.1 are not supported.</p></li>
+<li><p><strong>Recommended server configurations:</strong> Acrobat sign only supports TLS 1.2 for webhooks. TLS 1.0, 1.1, and 1.3 are not supported.</p></li>
 <li><p><strong>IP validation:</strong> To prevent setting an internal subnet (for example, a 10.x address), special IP address ranges such as the 169.254.169.254 range, and other invalid IP addresses as webhook URLs, Acrobat Sign validates the IP address at the time of webhook creation as well as while sending notifications. If the IP address is invalid, the webhook is not created. IP validation occurs as follows:</p>
 <ol class="arabic simple">
 <li><p>Resolve the host name via DNS lookup.</p></li>
@@ -715,7 +677,7 @@ if($clientid == &quot;BGBQIIE7H253K6&quot;) //Replace &#39;BGBQIIE7H253K6&#39; w
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 04, 2023. 
+        Last update: Dec 13, 2023. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
