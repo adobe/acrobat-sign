@@ -1,0 +1,947 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download JAVA, JS, C#, REST, or OpenAPI SDKs, test with Postman, or use Acrobat Sign Embed and the Solutions for Government APIs"/>
+     <title>WebhookEndpoint APIs &mdash; Acrobat Sign Developer Guide</title>
+  <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />
+  <link href="../_static/copybutton.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+  
+  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/developer_guide/webhook-endpoint-api.html" />
+  
+
+  
+  
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../"
+    src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/jquery.js"></script>
+  <script type="text/javascript" src="../_static/underscore.js"></script>
+  <script type="text/javascript" src="../_static/doctools.js"></script>
+  <script type="text/javascript" src="../_static/language_data.js"></script>
+  <script type="text/javascript" src="../_static/searchtools.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+  
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="REST API Samples" href="samples.html" />
+  <link rel="prev" title="Webhook APIs" href="webhookapis.html" /> 
+
+  <script>  window.marketingtech = { adobe: { launch: { url: 'https://assets.adobedtm.com/d4d114c60e50/a0e989131fd5/launch-5dd5dd2177e6.min.js', controlPageLoad: false, }, alloy: { edgeConfigId: '2cba807b-7430-41ae-9aac-db2b0da742d5', }, target: false, audienceManager: false, }, sophia: false, };</script><script src=https://www.adobe.com/marketingtech/main.standard.min.js></script>
+
+  <script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+          $('.fixedbar, .wy-nav-side').addClass('scroll');
+          $('.wy-top-menu-wrapper').fadeOut();
+        } else {
+          $('.fixedbar, .wy-nav-side').removeClass('scroll');
+          $('.wy-top-menu-wrapper').fadeIn();
+        }
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn();
+        } else {
+          $('#scroll').fadeOut();
+        }
+      });
+      $('#scroll').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+      });
+    });
+  </script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+    
+    <div class="fixedbarsearch"><img src="../_static/images/acrobatsignlogo.svg" class="searchlogo"/>
+      
+<div role="search" class="inlinediv">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </div>
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side"><!-- scrolling area -->
+      <div class="wy-side-scroll" >
+        
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+          
+          
+          
+          
+          
+          <p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Acrobat Sign API Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#get-a-free-developer-account">Get a free developer account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#create-an-app">Create an app</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gstarted.html">Create an Application Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#create-an-app-in-the-web-ui">Create an app in the web UI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#get-the-app-id-and-secret">Get the app ID and secret</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#configure-oauth">Configure OAuth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#configure-scopes">Configure scopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#create-an-authorization-request-link">Create an authorization request link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#configure-the-redirect-uri-on-your-server">Configure the redirect URI on your server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#success-vs-failure">Success vs failure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#the-customer-experience">The customer experience</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#getting-the-access-token">Getting the access token</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="oauth.html">Managing OAuth Tokens</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="oauth.html#authorization-request">Authorization request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oauth.html#access-token-request">Access token request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oauth.html#refresh-token-request">Refresh token request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oauth.html#revoking-a-token">Revoking a token</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scenarios.html">Example Scenarios</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scenarios.html#parental-consent">Parental Consent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scenarios.html#creating-a-widget">Creating a Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scenarios.html#photo-rights">Photo Rights</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apiusage.html">API Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#send-for-signing-create-an-agreement">Send for Signing (Create an Agreement)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#upload-a-document">Upload a document</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#send-the-document">Send the document</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#check-the-document-signing-status">Check the Document Signing Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#send-reminders">Send Reminders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#download-the-agreement">Download the Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#create-a-widget">Create a Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#get-the-signing-url">Get the Signing URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#add-form-fields-to-agreements">Add form fields to agreements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#generate-templates-from-in-progress-or-signed-agreements">Generate templates from in-progress or signed agreements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#add-redirect-information-to-agreements">Add redirect information to agreements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#send-private-messages-to-the-counter-signers">Send private messages to the counter signers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#api-throttling">API Throttling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#rest-api-response">REST API Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#steps-to-take-when-throttled">Steps to take when throttled</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhookapis.html">Webhook APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#post-webhooks">POST /webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#get-webhooks">GET /webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#get-webhooks-webhookid">GET /webhooks/{webhookId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#put-webhooks-webhookid">PUT /webhooks/{webhookId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#put-webhooks-webhookid-state">PUT /webhooks/{webhookId}/state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#delete-webhooks-webhookid">DELETE /webhooks/{webhookId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#standard-api-request-error-codes">Standard API request error codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#standard-api-request-headers">Standard API request headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#using-aws-lambda-functions">Using AWS Lambda Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#create-an-aws-lambda-function">Create an AWS Lambda function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#register-your-acrobat-sign-webhook">Register your Acrobat Sign webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#configure-the-aws-api-gateway">Configure the AWS API Gateway</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#deploy-the-api">Deploy the API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#ready-to-use">Ready to Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#using-azure-functions">Using Azure Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#creating-an-azure-functions-trigger-webhook">Creating an Azure Functions Trigger-Webhook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="webhookapis.html#create-a-js-httptrigger-function">Create a JS HttpTrigger function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="webhookapis.html#register-the-webhook">Register the webhook</a></li>
+<li class="toctree-l4"><a class="reference internal" href="webhookapis.html#get-the-function-s-url">Get the function’s URL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WebhookEndpoint APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#post-webhookendpoints">POST /webhookEndpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-webhookendpoints">GET /webhookEndpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-webhookendpoints-webhookendpointid">GET /webhookEndpoints/{webhookEndpointId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#put-webhookendpoints-webhookendpointid">PUT /webhookEndpoints/{webhookEndpointId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delete-webhookendpoints-webhookendpointid">DELETE /webhookEndpoints/{webhookEndpointId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#standard-api-request-headers">Standard API request headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#standard-api-request-error-codes">Standard API request error codes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="samples.html">REST API Samples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#the-package">The package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#using-the-samples">Using the Samples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="samples.html#output-path">Output Path</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#create-a-new-widget-with-countersigners">Create a New Widget with Countersigners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#download-an-agreements-audit-report">Download an Agreement’s Audit Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#download-the-combined-document-for-an-agreement">Download the Combined Document for an Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#download-documents-from-an-agreement">Download Documents from an Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#get-an-agreements-status">Get an Agreement’s Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#get-an-agreements-signing-url">Get an Agreement’s Signing URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#send-reminders-to-participants">Send Reminders to Participants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#send-an-agreement-using-a-library-document">Send an Agreement Using a Library Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#send-an-agreement-using-a-transient-document">Send an Agreement Using a Transient Document</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Web Message Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="events.html#system-requirements">System requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#supported-events">Supported events</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="events.html#workflow-events">Workflow events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="events.html#page-load-events">Page Load events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="events.html#session-events">Session events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="events.html#user-action-events">User action events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#using-events">Using events</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="migrating.html">Migrating and Updating Apps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migrating.html#updating-api-authentication-methods">Updating API authentication methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating.html#migrating-from-soap">Migrating From SOAP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html#soap-to-rest-mapping">SOAP to REST mapping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#general-purpose-methods">General-purpose Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#document-methods">Document Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#status-methods">Status Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#user-methods">User Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#web-form-methods">Web Form Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#test-methods">Test Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html#deprecated-soap-methods">Deprecated SOAP Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#access-methods">Access Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#doc-methods">Doc Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#id1">Status Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#id2">User Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://www.adobe.com/go/acrobatsigndevrnotes#://">API release notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevguide#://">Developer Guide (core v6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignwebhook#://">    Webhook Reference (v6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/signgov#://">Solutions for Government</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/embedpartner#://">Acrobat Sign Embed</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignsdks#://">SDK downloads</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignpostman#://">Postman workspace</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevaccount#://">    Free developer account form</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigntechblog#://">    FAQs and tech tips</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/esign-dev-cert#://">Application certification form</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignintegrations#://">Integration guides</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/trust/resources.html#://">Security and compliance</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevforum#://">Forum</a></li>
+</ul>
+
+          
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+      <div class="fixedbar">
+        <div class="wy-menu-items">
+          <a href="https://www.adobe.com/go/acrobatsigndevhome" class="topbarlink">Dev Home</a>
+          <a href="https://www.adobe.com/documentcloud/industries/government.html" class="topbarlink">Government</a>
+          <a href="https://www.adobe.com/documentcloud/integrations/isv-partner-program.html" class="topbarlink">Partner</a>
+          <a href="	https://www.adobe.com/go/acrobatsignforum"  class="topbarlink">Forum</a>
+        </div>
+        <div class="sign-in">
+          <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+        </div>
+      </div>
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+
+      
+      
+      <div class="wy-nav-content">
+        
+        <span class="lastupdated" style="color:lightgrey">
+          Last update: Jan 23, 2024. 
+        </span>
+        
+          <div class="rst-content">
+            
+            <!--<div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="toc.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">WebhookEndpoint APIs</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="webhookapis.html" class="btn btn-neutral float-left" title="Webhook APIs" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="samples.html" class="btn btn-neutral float-right" title="REST API Samples" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>-->
+            <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <div itemprop="articleBody">
+                
+  <div class="section" id="webhookendpoint-apis">
+<h1>WebhookEndpoint APIs<a class="headerlink" href="#webhookendpoint-apis" title="Permalink to this heading">¶</a></h1>
+<p>WebhookEndpoint APIs are the means by which your integration communicates with the Acrobat Sign service about webhookEndpoints to support OAuth2.0 in the Webhooks. Use the various API endpoints to create, delete, modify, and retrieve information about your webhookEndpoints. The account level setting, WEBHOOK_OAUTH20_ROLLOUT, needs to be set to use this feature.</p>
+<p>Acrobat Sign APIs include the endpoints described below.</p>
+<div class="section" id="post-webhookendpoints">
+<h2>POST /webhookEndpoints<a class="headerlink" href="#post-webhookendpoints" title="Permalink to this heading">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Entity</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Description</p></td>
+<td><p>Creates a webhookEndpoint</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint operation</p></td>
+<td><p>/webhookEndpoints</p></td>
+</tr>
+<tr class="row-even"><td><p>OAuth scopes</p></td>
+<td><p>webhook_write</p></td>
+</tr>
+<tr class="row-odd"><td><p>Request object</p></td>
+<td><p>WebhookEndpointInfo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;webhookEndpointUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;applicationIds&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;&quot;</span> <span class="p">],</span>
+  <span class="s2">&quot;oAuth20&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;authorizationServerUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;clientId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;clientSecret&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;customHeaders&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;headerName&quot;</span><span class="p">:</span> <span class="s2">&quot;header1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;headerValue&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Response header</p></td>
+<td><p>Location Header specifying the resource location of the webhook</p></td>
+</tr>
+<tr class="row-odd"><td><p>Response content type</p></td>
+<td><p>application/json</p></td>
+</tr>
+<tr class="row-even"><td><p>Response object</p></td>
+<td><p>WebhookEndpointResponse <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">&quot;id&quot;</span> <span class="pre">:</span> <span class="pre">&quot;&quot;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>HTTPS status code</p></td>
+<td><p>201</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Error codes</strong></p>
+<p>Be aware that APIs may return new errors or evolve existing error codes. Clients should be ready to handle errors they may not fully comprehend using default procedures.</p>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">Error codes</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Error code</p></th>
+<th class="head"><p>Message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>INVALID_JSON</p></td>
+<td><p>An invalid JSON was specified.</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p>INVALID_WEBHOOK_ENDPOINT_URL</p></td>
+<td><p>The webhook endpoint url specified is too long. (or) The webhook endpoint url specified is invalid. Please provide a well-formatted https based url.</p></td>
+</tr>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>INVALID_AUTHORIZATION_SERVER_URL</p></td>
+<td><p>The authorization server url specified is invalid: &lt;specific_error_message&gt;</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p>MISSING_REQUIRED_PARAM</p></td>
+<td><p>Valid name is missing.
+(or)
+Webhook Endpoint name must be 255 characters or less.
+(or)
+Valid applicationIds are missing.
+(or)
+Maximum of 25 applicationIds are allowed in the request
+(or)
+Request contains invalid applicationIds &lt;comma separated applicationIds&gt;
+(or)
+Webhook endpoint oauth configuration is missing.
+(or)
+Authorization server url is missing.
+(or)
+Client Id sent to the authorization url is missing.
+(or)
+Client secret sent to the authorization url is missing.</p></td>
+</tr>
+<tr class="row-even"><td><p>403</p></td>
+<td><p>WEBHOOK_OAUTH20_NOT_ENABLED</p></td>
+<td><p>This webhook oauth is not enabled for this account.</p></td>
+</tr>
+<tr class="row-odd"><td><p>409</p></td>
+<td><p>DUPLICATE_WEBHOOK_ENDPOINT_FOR_APPLICATION</p></td>
+<td><p>The webhook endpoint URL is already registered for the application.</p></td>
+</tr>
+</tbody>
+</table>
+<p>POST /webhookEndpoints is used to create a webhookEndpoint that supports OAuth2.0 for webhooks in Acrobat Sign.</p>
+<ul class="simple">
+<li><p>Only an Account Admin can create a webhookEndpoint</p></li>
+<li><p>The application creating the webhookEndpoint must have webhook_write scope.</p></li>
+<li><p>Only one webhookEdnpoint can be created for an application. But, multiple webhooks can be associated with a webhookEndpoint (see the changes to POST /webhooks).</p></li>
+<li><p>Group Admin and Account Admin can read the webhookEndpoints that belong to the same account.</p></li>
+</ul>
+<p>The HTTP Location header field is returned in the response to provide information about the location of a newly created resource.</p>
+</div>
+<div class="section" id="get-webhookendpoints">
+<h2>GET /webhookEndpoints<a class="headerlink" href="#get-webhookendpoints" title="Permalink to this heading">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Entity</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Description</p></td>
+<td><p>Get a list of all active webhookEndpoints from the account of the access token user.</p></td>
+</tr>
+<tr class="row-odd"><td><p>OAuth scopes</p></td>
+<td><p>webhook_read</p></td>
+</tr>
+<tr class="row-even"><td><p>Query parameters</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cursor</span></code>: A String used to navigate through the pages. If not provided, returns the first page.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pageSize</span></code>: Number of intended items in the response page. If not provided, it is limited to the first 100.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Response content type</p></td>
+<td><p>application/json</p></td>
+</tr>
+<tr class="row-even"><td><p>Response object</p></td>
+<td><p>WebhookEndpointInfo</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;page&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;nextCursor&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;webhookEndpointList&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;webhookEndpoint_12_01_2023_1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;webhookEndpoint_12_01_2023_1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;webhookEndpointId&quot;</span><span class="p">:</span> <span class="s2">&quot;9c5ce683-011a-4663-b275-4d6c14193e8c&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;webhookEndpointUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://*.your.domain.com/queryParameter?qp_1=*&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;applicationIds&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;CBJCHBCAABAAC7LB161JEvq9PcSXTbplkpw3XpvAvnGr&quot;</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;oAuth20&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;openid&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;authorizationServerUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://your.authorization.server/oAuth20&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;clientId&quot;</span><span class="p">:</span> <span class="s2">&quot;yourClinetId&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;customHeaders&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>HTTPS status code</p></td>
+<td><p>200</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Error codes</strong></p>
+<p>Be aware that APIs may return new errors or evolve existing error codes. Clients should be ready to handle errors they may not fully comprehend using default procedures.</p>
+<table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-text">Error codes</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>HTTPS status code</p></th>
+<th class="head"><p>Error code</p></th>
+<th class="head"><p>Message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>INVALID_CURSOR</p></td>
+<td><p>The page cursor provided is invalid.</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p>INVALID_PAGE_SIZE</p></td>
+<td><p>Page size is either invalid or not within the permissible range.</p></td>
+</tr>
+<tr class="row-even"><td><p>403</p></td>
+<td><p>WEBHOOK_OAUTH20_NOT_ENABLED</p></td>
+<td><p>This webhook oauth is not enabled for this account.</p></td>
+</tr>
+<tr class="row-odd"><td><p>403</p></td>
+<td><p>PERMISSION_DENIED</p></td>
+<td><p>The API caller does not have the permission to execute this operation.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-webhookendpoints-webhookendpointid">
+<h2>GET /webhookEndpoints/{webhookEndpointId}<a class="headerlink" href="#get-webhookendpoints-webhookendpointid" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Entity</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Description</p></td>
+<td><p>Get a list of all active webhookEndpoints from the account of the access token user.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint operation</p></td>
+<td><p>/webhookEndpoints/{webhookEndpointId}</p></td>
+</tr>
+<tr class="row-even"><td><p>OAuth scopes</p></td>
+<td><p>webhook_read</p></td>
+</tr>
+<tr class="row-odd"><td><p>Query parameters</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cursor</span></code>: A String used to navigate through the pages. If not provided, returns the first page.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pageSize</span></code>: Number of intended items in the response page. If not provided, it is limited to the first 100.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Response content type</p></td>
+<td><p>application/json</p></td>
+</tr>
+<tr class="row-odd"><td><p>Response object</p></td>
+<td><p>WebhookEndpointInfo</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;webhookEndpoint_12_01_2023_1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;webhookEndpoint_12_01_2023_1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;webhookEndpointId&quot;</span><span class="p">:</span> <span class="s2">&quot;9c5ce683-011a-4663-b275-4d6c14193e8c&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;webhookEndpointUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://*.your.domain.com/queryParameter?qp_1=*&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;applicationIds&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;CBJCHBCAABAAC7LB161JEvq9PcSXTbplkpw3XpvAvnGr&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;oAuth20&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;openid&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;authorizationServerUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://your.authorization.server/oAuth20&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;clientId&quot;</span><span class="p">:</span> <span class="s2">&quot;anyThing&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;customHeaders&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>HTTPS status code</p></td>
+<td><p>200</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Error codes</strong></p>
+<p>Be aware that APIs may return new errors or evolve existing error codes. Clients should be ready to handle errors they may not fully comprehend using default procedures.</p>
+<table class="colwidths-given docutils align-default" id="id3">
+<caption><span class="caption-text">Error codes</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Error code</p></th>
+<th class="head"><p>Message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>INVALID_CURSOR</p></td>
+<td><p>The page cursor provided is invalid.</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p>INVALID_PAGE_SIZE</p></td>
+<td><p>Page size is either invalid or not within the permissible range.</p></td>
+</tr>
+<tr class="row-even"><td><p>403</p></td>
+<td><p>WEBHOOK_OAUTH20_NOT_ENABLED</p></td>
+<td><p>This webhook oauth is not enabled for this account.</p></td>
+</tr>
+<tr class="row-odd"><td><p>403</p></td>
+<td><p>PERMISSION_DENIED</p></td>
+<td><p>The API caller does not have the permission to execute this operation.</p></td>
+</tr>
+<tr class="row-even"><td><p>404</p></td>
+<td><p>INVALID_WEBHOOK_ENDPOINT_ID</p></td>
+<td><p>The webhook endpoint id specified is invalid.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="put-webhookendpoints-webhookendpointid">
+<h2>PUT /webhookEndpoints/{webhookEndpointId}<a class="headerlink" href="#put-webhookendpoints-webhookendpointid" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Entity</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Description</p></td>
+<td><p>This endpoint is used to update the webhookEndpoint resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint operation</p></td>
+<td><p>/webhookEndpoints/{webhookEndpointId}</p></td>
+</tr>
+<tr class="row-even"><td><p>OAuth scopes</p></td>
+<td><p>webhook_write</p></td>
+</tr>
+<tr class="row-odd"><td><p>Request header</p></td>
+<td><p>Standard header.</p></td>
+</tr>
+<tr class="row-even"><td><p>Request body</p></td>
+<td><p>WebhookEndpointInfo</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;webhookEndpointUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;applicationIds&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;&quot;</span> <span class="p">],</span>
+    <span class="s2">&quot;oAuth20&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;authorizationServerUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;clientId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;clientSecret&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;customHeaders&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;headerName&quot;</span><span class="p">:</span> <span class="s2">&quot;header1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;headerValue&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+      <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Response content type</p></td>
+<td><p>application/json</p></td>
+</tr>
+<tr class="row-even"><td><p>Response object</p></td>
+<td><p>Empty response</p></td>
+</tr>
+<tr class="row-odd"><td><p>HTTPS status code</p></td>
+<td><p>204</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><strong>Error codes</strong></p>
+<p>Be aware that APIs may return new errors or evolve existing error codes. Clients should be ready to handle errors they may not fully comprehend using default procedures.</p>
+<table class="colwidths-given docutils align-default" id="id4">
+<caption><span class="caption-text">Error codes</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Error code</p></th>
+<th class="head"><p>Message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>400</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INVALID_JSON</span></code></p></td>
+<td><p>An invalid JSON was specified.</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INVALID_WEBHOOK_ENDPOINT_URL</span></code></p></td>
+<td><p>The webhook endpoint url specified is too long. (or) The webhook endpoint url specified is invalid. Please provide a well-formatted https based url.</p></td>
+</tr>
+<tr class="row-even"><td><p>400</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INVALID_AUTHORIZATION_SERVER_URL</span></code></p></td>
+<td><p>The authorization server url specified is invalid: &lt;specific_error_message&gt;</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MISSING_REQUIRED_PARAM</span></code></p></td>
+<td><p>Valid name is missing. (or) Webhook Endpoint name must be 255 characters or less. (or) Valid applicationIds are missing. (or) Maximum of 25 applicationIds are allowed in the request (or) Request contains invalid applicationIds &lt;comma separated applicationIds&gt; (or) Webhook endpoint oauth configuration is missing (or) Authorization server url is missing. (or) Client Id sent to the authorization url is missing. (or) Client secret sent to the authorization url is missing.</p></td>
+</tr>
+<tr class="row-even"><td><p>400</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">WEBHOOK_OAUTH20_NOT_ENABLED</span></code></p></td>
+<td><p>This webhook oauth is not enabled for this account.</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PERMISSION_DENIED</span></code></p></td>
+<td><p>The API caller does not have the permission to execute this operation.</p></td>
+</tr>
+<tr class="row-even"><td><p>400</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INVALID_WEBHOOK_ENDPOINT_ID</span></code></p></td>
+<td><p>The webhook endpoint id specified is invalid.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="delete-webhookendpoints-webhookendpointid">
+<h2>DELETE /webhookEndpoints/{webhookEndpointId}<a class="headerlink" href="#delete-webhookendpoints-webhookendpointid" title="Permalink to this heading">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Entity</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Description</p></td>
+<td><p>This endpoint is used to update the webhookEndpoint resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint operation</p></td>
+<td><p>/webhookEndpoints/{webhookEndpointId}</p></td>
+</tr>
+<tr class="row-even"><td><p>OAuth scopes</p></td>
+<td><p>webhook_retention</p></td>
+</tr>
+<tr class="row-odd"><td><p>Request header</p></td>
+<td><p>Standard header</p></td>
+</tr>
+<tr class="row-even"><td><p>Response content type</p></td>
+<td><p>application/json</p></td>
+</tr>
+<tr class="row-odd"><td><p>Response object</p></td>
+<td><p>Empty response</p></td>
+</tr>
+<tr class="row-even"><td><p>HTTPS status code</p></td>
+<td><p>204</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Error codes</strong></p>
+<p>Be aware that APIs may return new errors or evolve existing error codes. Clients should be ready to handle errors they may not fully comprehend using default procedures.</p>
+<table class="colwidths-given docutils align-default" id="id5">
+<caption><span class="caption-text">Error codes</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>HTTPS status code</p></th>
+<th class="head"><p>Error code</p></th>
+<th class="head"><p>Message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>403</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">WEBHOOK_OAUTH20_NOT_ENABLED</span></code></p></td>
+<td><p>This webhook oauth is not enabled for this account.</p></td>
+</tr>
+<tr class="row-odd"><td><p>403</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">WEBHOOK_ENDPOINT_LINKED_WITH_WEBHOOKS</span></code></p></td>
+<td><p>This webhook endpoint is associated with one or more webhooks and cannot be deleted. Please contact Adobe Sign support team if you need assistance with deleting webhook endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p>403</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PERMISSION_DENIED</span></code></p></td>
+<td><p>The API caller does not have the permission to execute this operation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>404</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INVALID_WEBHOOK_ENDPOINT_ID</span></code></p></td>
+<td><p>The webhook endpoint id specified is invalid.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="standard-api-request-headers">
+<h2>Standard API request headers<a class="headerlink" href="#standard-api-request-headers" title="Permalink to this heading">¶</a></h2>
+<p>Every API request will have the following standard headers. If Any API in the list above does not have one or more of the following headers, the API will explicitly document this fact.</p>
+<table class="colwidths-given docutils align-default" id="id6">
+<caption><span class="caption-text">Error codes</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Header Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AUTHORIZATION</p></td>
+<td><p>An access token with the correct scopes.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="standard-api-request-error-codes">
+<h2>Standard API request error codes<a class="headerlink" href="#standard-api-request-error-codes" title="Permalink to this heading">¶</a></h2>
+<p>Any API request may return any of these standard error codes:</p>
+<table class="colwidths-given docutils align-default" id="id7">
+<caption><span class="caption-text">Error codes</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>HTTPS status code</p></th>
+<th class="head"><p>Error code</p></th>
+<th class="head"><p>Message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>400</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">BAD_REQUEST</span></code></p></td>
+<td><p>The request provided is invalid.</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INVALID_JSON</span></code></p></td>
+<td><p>An invalid JSON was specified.</p></td>
+</tr>
+<tr class="row-even"><td><p>400</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MISC_ERROR</span></code></p></td>
+<td><p>Some miscellaneous error has occurred.</p></td>
+</tr>
+<tr class="row-odd"><td><p>401</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">UNVERIFIED_USER</span></code></p></td>
+<td><p>The user has registered but has not verified their email address. The user must use the Acrobat Sign web site to complete verification.</p></td>
+</tr>
+<tr class="row-even"><td><p>401</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NO_AUTHORIZATION_HEADER</span></code></p></td>
+<td><p>The authorization header was not provided.</p></td>
+</tr>
+<tr class="row-odd"><td><p>401</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INVALID_ACCESS_TOKEN</span></code></p></td>
+<td><p>The access token provided is invalid or has expired.</p></td>
+</tr>
+<tr class="row-even"><td><p>401</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INVALID_USER</span></code></p></td>
+<td><p>An invalid user ID or email was provided in the x-user header.</p></td>
+</tr>
+<tr class="row-odd"><td><p>401</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">API_TERMS_NOT_ACCEPTED</span></code></p></td>
+<td><p>Your account is locked because an administrator has not agreed to Acrobat Sign’s Terms of Use. Please contact your administrator to activate your account.</p></td>
+</tr>
+<tr class="row-even"><td><p>403</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PERMISSION_DENIED</span></code></p></td>
+<td><p>The API caller does not have the permission to execute this operation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>500</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MISC_SERVER_ERROR</span></code></p></td>
+<td><p>Some miscellaneous server error has occurred.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+              </div>
+              
+            </div>
+            <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Adobe Inc..
+      <span class="lastupdated">
+        Last update: Jan 23, 2024. 
+        <img src="../_static/adobelogo.png" class="logo"/> 
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+          </div>
+        </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+    });
+  </script> 
+
+</body>
+
+</html>

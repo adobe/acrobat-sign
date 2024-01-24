@@ -142,6 +142,10 @@
 <li class="toctree-l2"><a class="reference internal" href="apiusage.html#download-the-agreement">Download the Agreement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apiusage.html#create-a-widget">Create a Widget</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apiusage.html#get-the-signing-url">Get the Signing URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#add-form-fields-to-agreements">Add form fields to agreements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#generate-templates-from-in-progress-or-signed-agreements">Generate templates from in-progress or signed agreements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#add-redirect-information-to-agreements">Add redirect information to agreements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#send-private-messages-to-the-counter-signers">Send private messages to the counter signers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apiusage.html#api-throttling">API Throttling</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apiusage.html#rest-api-response">REST API Response</a></li>
 <li class="toctree-l3"><a class="reference internal" href="apiusage.html#steps-to-take-when-throttled">Steps to take when throttled</a></li>
@@ -176,6 +180,16 @@
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhook-endpoint-api.html">WebhookEndpoint APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#post-webhookendpoints">POST /webhookEndpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#get-webhookendpoints">GET /webhookEndpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#get-webhookendpoints-webhookendpointid">GET /webhookEndpoints/{webhookEndpointId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#put-webhookendpoints-webhookendpointid">PUT /webhookEndpoints/{webhookEndpointId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#delete-webhookendpoints-webhookendpointid">DELETE /webhookEndpoints/{webhookEndpointId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#standard-api-request-headers">Standard API request headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#standard-api-request-error-codes">Standard API request error codes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="samples.html">REST API Samples</a><ul>
@@ -282,15 +296,15 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Aug 30, 2023. 
+          Last update: Jan 23, 2024. 
         </span>
         
           <div class="rst-content">
             
             <!--<div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Create an Application Quickstart</li>
+      <li><a href="toc.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Create an Application Quickstart</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
@@ -303,9 +317,9 @@
               <div itemprop="articleBody">
                 
   <div class="section" id="create-an-application-quickstart">
-<span id="gettingstarted"></span><h1>Create an Application Quickstart<a class="headerlink" href="#create-an-application-quickstart" title="Permalink to this headline">¶</a></h1>
+<span id="gettingstarted"></span><h1>Create an Application Quickstart<a class="headerlink" href="#create-an-application-quickstart" title="Permalink to this heading">¶</a></h1>
 <div class="section" id="create-an-app-in-the-web-ui">
-<span id="createapp"></span><h2>Create an app in the web UI<a class="headerlink" href="#create-an-app-in-the-web-ui" title="Permalink to this headline">¶</a></h2>
+<span id="createapp"></span><h2>Create an app in the web UI<a class="headerlink" href="#create-an-app-in-the-web-ui" title="Permalink to this heading">¶</a></h2>
 <p>To use Acrobat Sign APIs, create an application.</p>
 <ol class="arabic simple">
 <li><p><a class="reference external" href="https://secure.adobesign.com/public/login">Log in to Acrobat Sign</a>.</p></li>
@@ -327,7 +341,7 @@
 </div>
 <img alt="_images/sign_gstarted_3.png" src="_images/sign_gstarted_3.png" />
 <div class="section" id="get-the-app-id-and-secret">
-<h3>Get the app ID and secret<a class="headerlink" href="#get-the-app-id-and-secret" title="Permalink to this headline">¶</a></h3>
+<h3>Get the app ID and secret<a class="headerlink" href="#get-the-app-id-and-secret" title="Permalink to this heading">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Select <strong>API Applications</strong> to view your app list.</p></li>
 <li><p>Select your app to view its action menu.</p></li>
@@ -343,7 +357,7 @@
 </div>
 <iframe allowfullscreen width="960" height="540" src="https://video.tv.adobe.com/v/38178/?mute=true"></iframe></div>
 <div class="section" id="configure-oauth">
-<span id="oauth"></span><h3>Configure OAuth<a class="headerlink" href="#configure-oauth" title="Permalink to this headline">¶</a></h3>
+<span id="oauth"></span><h3>Configure OAuth<a class="headerlink" href="#configure-oauth" title="Permalink to this heading">¶</a></h3>
 <p>The OAuth process requires that the client application request permissions from the end user before performing any actions on their behalf. The workflow redirects users to the Acrobat Sign application where they authenticate and grant the requested permissions. Acrobat Sign then redirects users back to the client application. Acrobat Sign uses the <a class="reference external" href="https://tools.ietf.org/html/rfc6749">OAuth 2.0 authentication protocol</a> to authorize requests for any Sign API endpoint.</p>
 <p>Once you have created your application, configure OAuth as follows:</p>
 <ol class="arabic simple">
@@ -352,7 +366,7 @@
 </ol>
 </div>
 <div class="section" id="configure-scopes">
-<h3>Configure scopes<a class="headerlink" href="#configure-scopes" title="Permalink to this headline">¶</a></h3>
+<h3>Configure scopes<a class="headerlink" href="#configure-scopes" title="Permalink to this heading">¶</a></h3>
 <p>You now need to add the permissions and scopes needed by your app when it interacts with the Sign APIs. Scopes describe what resources and actions your application will access. If you apply for Certification, Adobe will review the enabled scopes to confirm that they match the intended application use.</p>
 <p>Your application’s OAuth authorization requests include a scope parameter describing the permissions. Note the following:</p>
 <blockquote>
@@ -403,7 +417,7 @@
 </div>
 </div>
 <div class="section" id="create-an-authorization-request-link">
-<span id="token"></span><h2>Create an authorization request link<a class="headerlink" href="#create-an-authorization-request-link" title="Permalink to this headline">¶</a></h2>
+<span id="token"></span><h2>Create an authorization request link<a class="headerlink" href="#create-an-authorization-request-link" title="Permalink to this heading">¶</a></h2>
 <p>Your app must include a link your customers use to initiate the OAuth request process. The OAuth process starts with the client directing the user’s browser request to the /public/oauth/v2 endpoint with the requisite query string parameters. You are simply invoking the Acrobat Sign APIs here. For example:</p>
 <p>For partner apps the Base URI (Acrobat Sign endpoint)  should NOT contain the “shard” of an account (i.e.: na1, na2, eu1, jp1, etc.)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://secure.echosign.com/public/oauth?
@@ -458,7 +472,7 @@
 </table>
 </div>
 <div class="section" id="configure-the-redirect-uri-on-your-server">
-<span id="configuri"></span><h2>Configure the redirect URI on your server<a class="headerlink" href="#configure-the-redirect-uri-on-your-server" title="Permalink to this headline">¶</a></h2>
+<span id="configuri"></span><h2>Configure the redirect URI on your server<a class="headerlink" href="#configure-the-redirect-uri-on-your-server" title="Permalink to this heading">¶</a></h2>
 <p>Next, create a public redirect URI on your servers that captures the account details and code sent from your app’s authorization request so that the workflow connects to the customer’s Acrobat Sign account. The request URL that links your customer’s app instance to the Acrobat Sign account contains the permission parameters  and account level (self, group, or account) that your API integration needs to enable the specified actions.</p>
 <img alt="_images/redirecturi.png" src="_images/redirecturi.png" />
 <p>The redirect URI specified in your OAuth requests must belong to this list of URIs. You can mention multiple URIs as comma separated list.</p>
@@ -473,7 +487,7 @@
 </div>
 </div>
 <div class="section" id="success-vs-failure">
-<h2>Success vs failure<a class="headerlink" href="#success-vs-failure" title="Permalink to this headline">¶</a></h2>
+<h2>Success vs failure<a class="headerlink" href="#success-vs-failure" title="Permalink to this heading">¶</a></h2>
 <p>When your customer initiates the OAuth process by clicking your app’s Sign link, their browser redirects to the <code class="docutils literal notranslate"><span class="pre">redirect_uri</span></code> specified in the initial request. Query string parameters are added to indicate whether the request succeed or failed.</p>
 <table class="colwidths-given docutils align-default" id="id1">
 <caption><span class="caption-text">Success</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
@@ -527,7 +541,7 @@
 </table>
 </div>
 <div class="section" id="the-customer-experience">
-<h2>The customer experience<a class="headerlink" href="#the-customer-experience" title="Permalink to this headline">¶</a></h2>
+<h2>The customer experience<a class="headerlink" href="#the-customer-experience" title="Permalink to this heading">¶</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Try out the <a class="reference external" href="https://secure.na1.adobesign.com/public/oauthDemo">live demo</a>.</p>
@@ -572,7 +586,7 @@ web_access_point=https%3A%2F%2Fsecure.na1.echosign.com%2F
 </table>
 </div>
 <div class="section" id="getting-the-access-token">
-<span id="gettoken"></span><h2>Getting the access token<a class="headerlink" href="#getting-the-access-token" title="Permalink to this headline">¶</a></h2>
+<span id="gettoken"></span><h2>Getting the access token<a class="headerlink" href="#getting-the-access-token" title="Permalink to this heading">¶</a></h2>
 <p>If the previous steps succeeded, request an access token by sending the authorization code along with the client ID and client secret to the Sign service. The client makes an HTTP POST to the /oauth/v2/token endpoint (using <a class="reference external" href="https://api.na1.adobesign.com">https://api.na1.adobesign.com</a>) with the following parameters in the post body (not through query parameters):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">oauth</span><span class="o">/</span><span class="n">token</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 <span class="n">Host</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">na1</span><span class="o">.</span><span class="n">adobesign</span><span class="o">.</span><span class="n">com</span>
@@ -643,7 +657,7 @@ web_access_point=https%3A%2F%2Fsecure.na1.echosign.com%2F
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 30, 2023. 
+        Last update: Jan 23, 2024. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

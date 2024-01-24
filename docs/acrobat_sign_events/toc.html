@@ -41,9 +41,7 @@
   <link rel="search" title="Search" href="search.html" />
   <link rel="next" title="Webhooks in Acrobat Sign" href="index.html" /> 
 
-  <script
-    type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
-  <script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+  <script>  window.marketingtech = { adobe: { launch: { url: 'https://assets.adobedtm.com/d4d114c60e50/a0e989131fd5/launch-5dd5dd2177e6.min.js', controlPageLoad: false, }, alloy: { edgeConfigId: '2cba807b-7430-41ae-9aac-db2b0da742d5', }, target: false, audienceManager: false, }, sophia: false, };</script><script src=https://www.adobe.com/marketingtech/main.standard.min.js></script>
 
   <script>
     $(document).ready(function () {
@@ -157,6 +155,8 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-created">AGREEMENT_CREATED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-restarted">AGREEMENT_RESTARTED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-shared">AGREEMENT_SHARED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-unshared">AGREEMENT_UNSHARED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-unshared-auto">AGREEMENT_UNSHARED_AUTO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-modified">AGREEMENT_MODIFIED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-participant-completed">AGREEMENT_PARTICIPANT_COMPLETED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-participant-replaced">AGREEMENT_PARTICIPANT_REPLACED</a></li>
@@ -168,13 +168,14 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-documents-deleted">AGREEMENT_DOCUMENTS_DELETED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-bounced">AGREEMENT_EMAIL_BOUNCED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-viewed">AGREEMENT_EMAIL_VIEWED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-otp-authenticated">AGREEMENT_EMAIL_OTP_AUTHENTICATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-recalled-max-signing-email-otp-attempts">AGREEMENT_RECALLED_MAX_SIGNING_EMAIL_OTP_ATTEMPTS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-reminder-initiated">AGREEMENT_REMINDER_INITIATED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-reminder-sent">AGREEMENT_REMINDER_SENT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-offline-sync">AGREEMENT_OFFLINE_SYNC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-web-identity-authenticated">AGREEMENT_WEB_IDENTITY_AUTHENTICATED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-kba-authenticated">AGREEMENT_KBA_AUTHENTICATED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-ready-to-notarize">AGREEMENT_READY_TO_NOTARIZE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-uploaded-by-sender">AGREEMENT_UPLOADED_BY_SENDER</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-user-ack-agreement-modified">AGREEMENT_USER_ACK_AGREEMENT_MODIFIED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-ready-to-vault">AGREEMENT_READY_TO_VAULT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-vaulted">AGREEMENT_VAULTED</a></li>
@@ -230,6 +231,14 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-shared">WIDGET_SHARED</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="webhooks-oauth-2.0.html">Webhooks OAuth 2.0 User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhooks-oauth-2.0.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks-oauth-2.0.html#using-webhooks-oauth-2-0">Using Webhooks OAuth 2.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhooks-oauth-2.0.html#webhookendpointurl-details">webhookEndpointUrl details</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Core Documentation</span></p>
 <ul>
@@ -280,54 +289,20 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Aug 04, 2023. 
+          Last update: Jan 24, 2024. 
         </span>
         
           <div class="rst-content">
             
-            <!--
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+            <!--<div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Webhook Reference</li>
-    
-    
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Webhook Reference</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
-        
       </li>
-    
-  </ul>
-
-  
-  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
-      
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
         <a href="index.html" class="btn btn-neutral float-right" title="Webhooks in Acrobat Sign" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-      
-      
   </div>
-  
   <hr/>
 </div>-->
             <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -391,6 +366,8 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-created">AGREEMENT_CREATED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-restarted">AGREEMENT_RESTARTED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-shared">AGREEMENT_SHARED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-unshared">AGREEMENT_UNSHARED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-unshared-auto">AGREEMENT_UNSHARED_AUTO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-modified">AGREEMENT_MODIFIED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-participant-completed">AGREEMENT_PARTICIPANT_COMPLETED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-participant-replaced">AGREEMENT_PARTICIPANT_REPLACED</a></li>
@@ -402,13 +379,14 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-documents-deleted">AGREEMENT_DOCUMENTS_DELETED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-bounced">AGREEMENT_EMAIL_BOUNCED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-viewed">AGREEMENT_EMAIL_VIEWED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-otp-authenticated">AGREEMENT_EMAIL_OTP_AUTHENTICATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-recalled-max-signing-email-otp-attempts">AGREEMENT_RECALLED_MAX_SIGNING_EMAIL_OTP_ATTEMPTS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-reminder-initiated">AGREEMENT_REMINDER_INITIATED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-reminder-sent">AGREEMENT_REMINDER_SENT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-offline-sync">AGREEMENT_OFFLINE_SYNC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-web-identity-authenticated">AGREEMENT_WEB_IDENTITY_AUTHENTICATED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-kba-authenticated">AGREEMENT_KBA_AUTHENTICATED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-ready-to-notarize">AGREEMENT_READY_TO_NOTARIZE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-uploaded-by-sender">AGREEMENT_UPLOADED_BY_SENDER</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-user-ack-agreement-modified">AGREEMENT_USER_ACK_AGREEMENT_MODIFIED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-ready-to-vault">AGREEMENT_READY_TO_VAULT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-vaulted">AGREEMENT_VAULTED</a></li>
@@ -464,6 +442,14 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-shared">WIDGET_SHARED</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="webhooks-oauth-2.0.html">Webhooks OAuth 2.0 User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhooks-oauth-2.0.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks-oauth-2.0.html#using-webhooks-oauth-2-0">Using Webhooks OAuth 2.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhooks-oauth-2.0.html#webhookendpointurl-details">webhookEndpointUrl details</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -505,7 +491,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 04, 2023. 
+        Last update: Jan 24, 2024. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

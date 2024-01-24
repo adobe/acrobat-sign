@@ -1,0 +1,585 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download JAVA, JS, C#, REST, or OpenAPI SDKs, test with Postman, or use Acrobat Sign Embed and the Solutions for Government APIs"/>
+     <title>Webhooks OAuth 2.0 User Guide &mdash; Acrobat Sign Webhook Guide</title>
+  <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />
+  <link href="../_static/copybutton.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+  
+  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/webhooks-oauth-2.0.html" />
+  
+
+  
+  
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../"
+    src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/jquery.js"></script>
+  <script type="text/javascript" src="../_static/underscore.js"></script>
+  <script type="text/javascript" src="../_static/doctools.js"></script>
+  <script type="text/javascript" src="../_static/language_data.js"></script>
+  <script type="text/javascript" src="../_static/searchtools.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+  
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="prev" title="Web Form Events" href="webhookeventswidget.html" /> 
+
+  <script>  window.marketingtech = { adobe: { launch: { url: 'https://assets.adobedtm.com/d4d114c60e50/a0e989131fd5/launch-5dd5dd2177e6.min.js', controlPageLoad: false, }, alloy: { edgeConfigId: '2cba807b-7430-41ae-9aac-db2b0da742d5', }, target: false, audienceManager: false, }, sophia: false, };</script><script src=https://www.adobe.com/marketingtech/main.standard.min.js></script>
+
+  <script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+          $('.fixedbar, .wy-nav-side').addClass('scroll');
+          $('.wy-top-menu-wrapper').fadeOut();
+        } else {
+          $('.fixedbar, .wy-nav-side').removeClass('scroll');
+          $('.wy-top-menu-wrapper').fadeIn();
+        }
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn();
+        } else {
+          $('#scroll').fadeOut();
+        }
+      });
+      $('#scroll').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+      });
+    });
+  </script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+    
+    <div class="fixedbarsearch"><img src="../_static/images/acrobatsignlogo.svg" class="searchlogo"/>
+      
+<div role="search" class="inlinediv">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </div>
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side"><!-- scrolling area -->
+      <div class="wy-side-scroll" >
+        
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+          
+          
+          
+          
+          
+          <p class="caption" role="heading"><span class="caption-text">Webhook Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Webhooks in Acrobat Sign</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#webhook-changes">Webhook changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#ui-vs-api-configuration">UI vs. API configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#the-api-best-practice">The API “best practice”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#polling-as-a-backup-update-method">Polling as a “backup” update method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#update-agreement-status-manual-option">Update Agreement Status “manual” option</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#workflow-example">Workflow example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#creating-a-webhook">Creating a webhook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#configure-a-webhook-and-subscribe-to-events">Configure a webhook and subscribe to events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#verifying-webhook-url-intent">Verifying webhook URL intent</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="index.html#method-1-custom-response-header">Method 1: Custom response header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#method-2-json-response-body">Method 2: JSON response body</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#how-to-respond-to-a-webhook-notification">How to respond to a webhook notification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#hosting-your-webhook-in-the-cloud">Hosting your webhook in the cloud</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#webhook-properties">Webhook properties</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#webhook-name">Webhook name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#events">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#webhook-url">Webhook URL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#webhook-status">Webhook status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#webhook-scopes">Webhook scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#webhook-conditional-parameters">Webhook conditional parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-webhooks-and-subscriptions">Managing webhooks and subscriptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#acrobat-sign-security-and-reliability">Acrobat Sign: security and reliability</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#webhook-security">Webhook security</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#reliable-notifications-retry-policy">Reliable notifications: Retry policy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhookpayloadoverview.html">Webhook Event Payload Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhookpayloadoverview.html#payload-info">Payload info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookpayloadoverview.html#payload-size-and-truncation">Payload size and truncation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookpayloadoverview.html#basic-webhook-payload">Basic webhook payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookpayloadoverview.html#applicable-users">Applicable users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookpayloadoverview.html#webhook-url">Webhook URL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhookeventsagreements.html">Agreement Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#common-payload-elements">Common payload elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#minimum-payload-for-agreements">Minimum payload for agreements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsagreements.html#payload-attributes-inherited-from-agreement">Payload attributes inherited from Agreement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-all">AGREEMENT_ALL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-created">AGREEMENT_CREATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-restarted">AGREEMENT_RESTARTED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-shared">AGREEMENT_SHARED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-unshared">AGREEMENT_UNSHARED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-unshared-auto">AGREEMENT_UNSHARED_AUTO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-modified">AGREEMENT_MODIFIED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-participant-completed">AGREEMENT_PARTICIPANT_COMPLETED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-participant-replaced">AGREEMENT_PARTICIPANT_REPLACED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-replaced-signer">AGREEMENT_ACTION_REPLACED_SIGNER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-delegated">AGREEMENT_ACTION_DELEGATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-requested">AGREEMENT_ACTION_REQUESTED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-action-completed">AGREEMENT_ACTION_COMPLETED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-auto-cancelled-conversion-problem">AGREEMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-documents-deleted">AGREEMENT_DOCUMENTS_DELETED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-bounced">AGREEMENT_EMAIL_BOUNCED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-viewed">AGREEMENT_EMAIL_VIEWED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-email-otp-authenticated">AGREEMENT_EMAIL_OTP_AUTHENTICATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-recalled-max-signing-email-otp-attempts">AGREEMENT_RECALLED_MAX_SIGNING_EMAIL_OTP_ATTEMPTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-reminder-initiated">AGREEMENT_REMINDER_INITIATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-reminder-sent">AGREEMENT_REMINDER_SENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-offline-sync">AGREEMENT_OFFLINE_SYNC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-web-identity-authenticated">AGREEMENT_WEB_IDENTITY_AUTHENTICATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-kba-authenticated">AGREEMENT_KBA_AUTHENTICATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-ready-to-notarize">AGREEMENT_READY_TO_NOTARIZE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-user-ack-agreement-modified">AGREEMENT_USER_ACK_AGREEMENT_MODIFIED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-ready-to-vault">AGREEMENT_READY_TO_VAULT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-vaulted">AGREEMENT_VAULTED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-signer-name-changed-by-signer">AGREEMENT_SIGNER_NAME_CHANGED_BY_SIGNER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-workflow-completed">AGREEMENT_WORKFLOW_COMPLETED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-deleted">AGREEMENT_DELETED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-recalled">AGREEMENT_RECALLED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-rejected">AGREEMENT_REJECTED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expired">AGREEMENT_EXPIRED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-expiration-updated">AGREEMENT_EXPIRATION_UPDATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-documents-viewed">AGREEMENT_DOCUMENTS_VIEWED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsagreements.html#agreement-documents-viewed-password-protected">AGREEMENT_DOCUMENTS_VIEWED_PASSWORD_PROTECTED</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhookeventslibrary.html">Library Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#common-payload-elements">Common payload elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#minimum-payload-for-library-events">Minimum payload for library events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventslibrary.html#payload-attributes-inherited-from-library">Payload attributes inherited from Library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-all">LIBRARY_ALL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-auto-cancelled-conversion-problem">LIBRARY_DOCUMENT_AUTO_CANCELLED_CONVERSION_PROBLEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-created">LIBRARY_DOCUMENT_CREATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventslibrary.html#library-document-modified">LIBRARY_DOCUMENT_MODIFIED</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhookeventsmegasign.html">Bulk Signing Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#common-payload-elements">Common payload elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#minimum-payload-for-bulk-signing-events">Minimum payload for bulk signing events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventsmegasign.html#payload-attributes-inherited-from-megasign">Payload attributes inherited from MegaSign</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-all">MEGASIGN_ALL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-created">MEGASIGN_CREATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-recalled">MEGASIGN_RECALLED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-shared">MEGASIGN_SHARED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-reminder-initiated">MEGASIGN_REMINDER_INITIATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventsmegasign.html#megasign-reminder-sent">MEGASIGN_REMINDER_SENT</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhookeventswidget.html">Web Form Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#common-payload-elements">Common payload elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#minimum-payload-for-web-form-events">Minimum payload for web form events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookeventswidget.html#payload-attributes-inherited-from-widget">Payload attributes inherited from Widget</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-all">WIDGET_ALL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-created">WIDGET_CREATED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-auto-cancelled-conversion-problem">WIDGET_AUTO_CANCELLED_CONVERSION_PROBLEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-disabled">WIDGET_DISABLED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-enabled">WIDGET_ENABLED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-modified">WIDGET_MODIFIED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookeventswidget.html#widget-shared">WIDGET_SHARED</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Webhooks OAuth 2.0 User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-webhooks-oauth-2-0">Using Webhooks OAuth 2.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#webhookendpointurl-details">webhookEndpointUrl details</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://www.adobe.com/go/acrobatsigndevrnotes#://">API release notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevguide#://">Developer Guide (core v6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignwebhook#://">    Webhook Reference (v6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/signgov#://">Solutions for Government</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/embedpartner#://">Acrobat Sign Embed</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignsdks#://">SDK downloads</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignpostman#://">Postman workspace</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevaccount#://">    Free developer account form</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigntechblog#://">    FAQs and tech tips</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/esign-dev-cert#://">Application certification form</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignintegrations#://">Integration guides</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/trust/resources.html#://">Security and compliance</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevforum#://">Forum</a></li>
+</ul>
+
+          
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+      <div class="fixedbar">
+        <div class="wy-menu-items">
+          <a href="https://www.adobe.com/go/acrobatsigndevhome" class="topbarlink">Dev Home</a>
+          <a href="https://www.adobe.com/documentcloud/industries/government.html" class="topbarlink">Government</a>
+          <a href="https://www.adobe.com/documentcloud/integrations/isv-partner-program.html" class="topbarlink">Partner</a>
+          <a href="	https://www.adobe.com/go/acrobatsignforum"  class="topbarlink">Forum</a>
+        </div>
+        <div class="sign-in">
+          <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+        </div>
+      </div>
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+
+      
+      
+      <div class="wy-nav-content">
+        
+        <span class="lastupdated" style="color:lightgrey">
+          Last update: Jan 24, 2024. 
+        </span>
+        
+          <div class="rst-content">
+            
+            <!--<div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="toc.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Webhooks OAuth 2.0 User Guide</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="webhookeventswidget.html" class="btn btn-neutral float-left" title="Web Form Events" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+  </div>
+  <hr/>
+</div>-->
+            <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <div itemprop="articleBody">
+                
+  <div class="section" id="webhooks-oauth-2-0-user-guide">
+<h1>Webhooks OAuth 2.0 User Guide<a class="headerlink" href="#webhooks-oauth-2-0-user-guide" title="Permalink to this heading">¶</a></h1>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">¶</a></h2>
+<p>To use Webhook OAuth 2.0, the account level setting, WEBHOOK_OAUTH20_ROLLOUT needs to be set. You must reach out to Adobe customer support to get this enabled.</p>
+</div>
+<div class="section" id="using-webhooks-oauth-2-0">
+<h2>Using Webhooks OAuth 2.0<a class="headerlink" href="#using-webhooks-oauth-2-0" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Create a customer application.</p></li>
+</ol>
+<img alt="_images/webhooks-1.png" src="_images/webhooks-1.png" />
+<ol class="arabic" start="2">
+<li><p>Enable the following scopes for the application:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>webhook_read</p></li>
+<li><p>webhook_write</p></li>
+<li><p>webhook_retention</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<img alt="_images/webhooks-2.png" src="_images/webhooks-2.png" />
+<ol class="arabic simple" start="3">
+<li><p><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/developer_guide/gstarted.html#getting-the-access-token">Follow these steps</a> to generate access_token to authorize requests for a Acrobat Sign API endpoint.</p></li>
+<li><p>To create a WebhookEndpoint, send a <a class="reference external" href="https://opensource.adobe.com/acrobat-sign/developer_guide/webhook-endpoint-api.html">POST request</a> to the /api/rest/v6/accounts/{accountId}/webhookEndpoints with the following JSON body:</p></li>
+</ol>
+<p><strong>webhookEndpoints_POST_curl</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">--</span><span class="n">location</span> <span class="s1">&#39;https://api.na1.adobesignpreview.com/api/rest/v6/accounts/CBJCHBCAABAAHVF2SeYL6q68j8ttKbJ7stmVG59DtWJT/webhookEndpoints&#39;</span> \
+<span class="o">--</span><span class="n">header</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> \
+<span class="o">--</span><span class="n">header</span> <span class="s1">&#39;Authorization: Bearer 3AAABLKmtbUBUicE9oSp05&#39;</span> \
+<span class="o">--</span><span class="n">data</span> <span class="s1">&#39;{</span>
+    <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;preview_na1_12_19_2023_1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;preview_na_12_19_2023_1_description&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;webhookEndpointUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://*.domain.subdomain.com/somePath?someQueryParam=*&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;applicationIds&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;CBJCHBCAABAAhdTfTbSnTtEqZf_cLHgqnXwNqqucWvWa&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;oAuth20&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;authorizationServerUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://your.authorization-server.url&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;clientId&quot;</span><span class="p">:</span> <span class="s2">&quot;auth-server-client-id&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;clientSecret&quot;</span><span class="p">:</span> <span class="s2">&quot;auth-server-client-secret&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;optional-scope-for-auth-server&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;customHeaders&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;header&quot;</span><span class="p">:</span> <span class="s2">&quot;optional-header&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;optional-header-value&quot;</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<p><strong>webhookEndpoints_POST</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">v6</span><span class="o">/</span><span class="n">accounts</span><span class="o">/</span><span class="p">{</span><span class="n">accountId</span><span class="p">}</span><span class="o">/</span><span class="n">webhookEndpoints</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">na1</span><span class="o">.</span><span class="n">echosign</span><span class="o">.</span><span class="n">com</span>
+<span class="n">Authorization</span><span class="p">:</span> <span class="n">Bearer</span> <span class="mi">3</span><span class="n">AAABLKmtbUBUicE9oSp05</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;preview_na1_12_19_2023_1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;preview_na_12_19_2023_1_description&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;webhookEndpointUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://*.domain.subdomain.com/somePath?someQueryParam=*&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;applicationIds&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;CBJCHBCAABAAhdTfTbSnTtEqZf_cLHgqnXwNqqucWvWa&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;oAuth20&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;authorizationServerUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://your.authorization-server.url&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;clientId&quot;</span><span class="p">:</span> <span class="s2">&quot;auth-server-client-id&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;clientSecret&quot;</span><span class="p">:</span> <span class="s2">&quot;auth-server-client-secret&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;optional-scope-for-auth-server&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;customHeaders&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;header&quot;</span><span class="p">:</span> <span class="s2">&quot;optional-header&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;optional-header-value&quot;</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Replace the value for the following attributes with the correct values:</p></li>
+</ol>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">Attributes</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>name</p></td>
+<td><p>Name of the webhookEndpoint resource that you want to create. It’s length cannot be more than 255 characters.</p></td>
+</tr>
+<tr class="row-odd"><td><p>description</p></td>
+<td><p>Optionally, add a description for the webhookEndpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p>webhookEndpointUrl</p></td>
+<td><p>This is a webhookEndpoint URL pattern that you would like to be mapped to one or more webhook(s) that belong to the same account. See <a class="reference internal" href="#webhookendpointurl"><span class="std std-ref">webhookEndpointUrl details</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>applicationIds</p></td>
+<td><p>One or more Application IDs (for example Step.1) that needs to be associated. This would be alphanumeric.</p></td>
+</tr>
+<tr class="row-even"><td><p>authorizationServerUrl</p></td>
+<td><p>URL of the authorization server for getting the access token.</p></td>
+</tr>
+<tr class="row-odd"><td><p>clientId</p></td>
+<td><p>clientId for the authorization server.</p></td>
+</tr>
+<tr class="row-even"><td><p>clientSecret</p></td>
+<td><p>client secret for the authorization server.</p></td>
+</tr>
+<tr class="row-odd"><td><p>scope</p></td>
+<td><p>scope, if any, needed for the authorization server.</p></td>
+</tr>
+<tr class="row-even"><td><p>customHeaders</p></td>
+<td><p>A map of key-value pairs that you want in webhook notification request for increased personalization.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="webhookendpointurl-details">
+<span id="webhookendpointurl"></span><h3>webhookEndpointUrl details<a class="headerlink" href="#webhookendpointurl-details" title="Permalink to this heading">¶</a></h3>
+<p>For webhookEndpointUrl, you can provide a leading and a trailing wildcard that would be replaced with respective values (domainPrefix and urlSuffix) when the webhook(s) are created by providing the webhookEndpointId, in addition to that.</p>
+<p>Example webhookEndpointUrl: https: //yourDomain.com/webhook?agreementID=</p>
+<p>You can link this webhookEndpointUrl to any new webhooks you create by using the id from the response in webhookEndpointInfo. Include domainPrefix and urlSuffix if you’re using wildcards. After associating the webhookEndpoint resource using the webhookEndpointId, with domainPrefix as “dev-01” and urlSuffix as “agreement123,” the resulting webhookUrl for /api/rest/v6/webhooks will be as follows: https: //dev-01.yourDomain.com/webhook?agreementId=agreement123</p>
+<p>You will get the following response containing the id:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;e6a238bc-1c67-463c-992c-9edc9ba637a7&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The returned id is used to uniquely identify the webhookEndpoint.</p>
+<ol class="arabic simple" start="6">
+<li><p>To associate the above webhookEndpoint for a new webhook, send a POST request to /api/rest/v6/webhooks with the following JSON body:</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The webhookUrlInfo is not required when creating a webhook linked to a webhookEndpoint.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">v6</span><span class="o">/</span><span class="n">webhooks</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">na1</span><span class="o">.</span><span class="n">echosign</span><span class="o">.</span><span class="n">com</span>
+<span class="n">Authorization</span><span class="p">:</span> <span class="mi">3</span><span class="n">AAABLKmtbUBUicE9oSp05</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;preview_na1_webhook_12_19_2023_1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;USER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;webhookSubscriptionEvents&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;AGREEMENT_ACTION_COMPLETED&quot;</span>
+    <span class="p">],</span>
+  <span class="s2">&quot;webhookEndpointInfo&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;webhookEndpointId&quot;</span><span class="p">:</span> <span class="s2">&quot;e6a238bc-1c67-463c-992c-9edc9ba637a7&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;domainPrefix&quot;</span><span class="p">:</span> <span class="s2">&quot;callback-prod&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;urlSuffix&quot;</span><span class="p">:</span> <span class="s2">&quot;agreement_12_19_2023_1&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Replace the value for the following attributes with the correct values:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>name</p></td>
+<td><p>Name of the webhookEndpoint resource that you want to create. It’s length cannot be more than 255 characters.</p></td>
+</tr>
+<tr class="row-odd"><td><p>scope</p></td>
+<td><p>Scope of webhook. This attribute can’t be modified in PUT request. The possible values are ACCOUNT, GROUP, USER or RESOURCE.</p></td>
+</tr>
+<tr class="row-even"><td><p>state</p></td>
+<td><p>The state in which the webhook should be created. The possible values are ACTIVE, INACTIVE and DELETED.</p></td>
+</tr>
+<tr class="row-odd"><td><p>webhookSubscriptionEvents</p></td>
+<td><p>Any valid Event(s) that a webhook would need to be notified.</p></td>
+</tr>
+<tr class="row-even"><td><p>webhookEndpointId</p></td>
+<td><p>The webhookEndpointId that to be associated with this webhook.</p></td>
+</tr>
+<tr class="row-odd"><td><p>domainPrefix</p></td>
+<td><p>Optional URL subdomain value. This value will be used to replace the first wildcard (*).</p></td>
+</tr>
+<tr class="row-even"><td><p>urlSuffix</p></td>
+<td><p>Optional Url Suffix to append to the WebhookEndpointId. This value will be used to replace the wildcard (*) at the end.</p></td>
+</tr>
+</tbody>
+</table>
+<p>You will get the following response containing the id of the webhook created:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;fe4880d0-4e16-4964-b5ab-07b06d30a430&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Once the webhook is configured with OAuth 2.0 (webhookEndpointId), all future webhook notifications (associated with respective scope) will include the access_token provided by the authorization server, as shown below.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note the addition of a new value “authorization” under the requestHeaders. This will be included with the remaining headers from before.</p>
+</div>
+<p><strong>webhookNotificationPayload</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;/postWebhooksPublish?guid=preview_na1_webhook_12_20_2023_1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;requestBody&quot;</span><span class="p">:</span> <span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">webhookId</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">fe4880d0-4e16-4964-b5ab-07b06d30a430</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">webhookName</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">preview_na1_webhook_12_20_2023_1</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">webhookNotificationId</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">0364c683-4fbd-4f21-8c80-9a5aa9e2c9e0</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">webhookUrlInfo</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\&quot;</span><span class="s2">url</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">https://callback-prod.yourDomain.com/webhook?agreementId=agreement_12_19_2023_1</span><span class="se">\&quot;</span><span class="s2">},</span><span class="se">\&quot;</span><span class="s2">webhookScope</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">USER</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">webhookNotificationApplicableUsers</span><span class="se">\&quot;</span><span class="s2">:[{</span><span class="se">\&quot;</span><span class="s2">id</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">CBJCHBCAABAAR17L9fNP9kJcZHy759YawVx-pR-aqpf2</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">email</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">some-user@yourDomain.com</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">role</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">SENDER</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">payloadApplicable</span><span class="se">\&quot;</span><span class="s2">:true}],</span><span class="se">\&quot;</span><span class="s2">event</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">AGREEMENT_ACTION_COMPLETED</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">eventDate</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">2023-12-21T00:09:24Z</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">eventResourceType</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">agreement</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">participantRole</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">SIGNER</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">actionType</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">ESIGNED</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">participantUserId</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">CBJCHBCAABAAR17L9fNP9kJcZHy759YawVx-pR-aqpf2</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">participantUserEmail</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">some-user@yourDomain.com</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">actingUserId</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">CBJCHBCAABAAR17L9fNP9kJcZHy759YawVx-pR-aqpf2</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">actingUserEmail</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">some-user@yourDomain.com</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">initiatingUserId</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">CBJCHBCAABAAR17L9fNP9kJcZHy759YawVx-pR-aqpf2</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">initiatingUserEmail</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">some-user@yourDomain.com</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">agreement</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\&quot;</span><span class="s2">id</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">CBJCHBCAABAA6z_Rj994soFPUzj-COPTH62KP4d1Leh3</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">sample_1page_12_20_23_1</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">status</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">SIGNED</span><span class="se">\&quot;</span><span class="s2">}}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;clientId&quot;</span><span class="p">:</span> <span class="s2">&quot;CBJCHBCAABAAhdTfTbSnTtEqZf_cLHgqnXwNqqucWvWa&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="s2">&quot;Thu Dec 21 2023 00:09:57 GMT+0000 (Coordinated Universal Time)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;requestHeaders&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;callback-prod.yourDomain.com&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json,application/json&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;accept-charset&quot;</span><span class="p">:</span> <span class="s2">&quot;UTF-8&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;bearer HereIsYourSuperSecretAccessToken&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;x-adobesign-clientid&quot;</span><span class="p">:</span> <span class="s2">&quot;CBJCHBCAABAAhdTfTbSnTtEqZf_cLHgqnXwNqqucWvWa&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;user-agent&quot;</span><span class="p">:</span> <span class="s2">&quot;AdobeSign&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;content-type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;traceparent&quot;</span><span class="p">:</span> <span class="s2">&quot;00-aba78a6cf1c77cb59bf99c2d15168de8-d7d50a348ff58816-00&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;uber-trace-id&quot;</span><span class="p">:</span> <span class="s2">&quot;aba78a6cf1c77cb59bf99c2d15168de8:d7d50a348ff58816:0:0&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;content-length&quot;</span><span class="p">:</span> <span class="s2">&quot;1078&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;x-forwarded-for&quot;</span><span class="p">:</span> <span class="s2">&quot;35.168.147.202&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;x-forwarded-proto&quot;</span><span class="p">:</span> <span class="s2">&quot;https&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;x-envoy-external-address&quot;</span><span class="p">:</span> <span class="s2">&quot;35.168.147.202&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+            </div>
+            <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Adobe Inc..
+      <span class="lastupdated">
+        Last update: Jan 24, 2024. 
+        <img src="../_static/adobelogo.png" class="logo"/> 
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+          </div>
+        </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+    });
+  </script> 
+
+</body>
+
+</html>

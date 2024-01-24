@@ -42,9 +42,7 @@
     <script type="text/javascript" src="_static/searchtools.js"></script>
   <link rel="search" title="Search" href="#" /> 
 
-  <script
-    type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
-  <script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+  <script>  window.marketingtech = { adobe: { launch: { url: 'https://assets.adobedtm.com/d4d114c60e50/a0e989131fd5/launch-5dd5dd2177e6.min.js', controlPageLoad: false, }, alloy: { edgeConfigId: '2cba807b-7430-41ae-9aac-db2b0da742d5', }, target: false, audienceManager: false, }, sophia: false, };</script><script src=https://www.adobe.com/marketingtech/main.standard.min.js></script>
 
   <script>
     $(document).ready(function () {
@@ -144,6 +142,10 @@
 <li class="toctree-l2"><a class="reference internal" href="apiusage.html#download-the-agreement">Download the Agreement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apiusage.html#create-a-widget">Create a Widget</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apiusage.html#get-the-signing-url">Get the Signing URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#add-form-fields-to-agreements">Add form fields to agreements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#generate-templates-from-in-progress-or-signed-agreements">Generate templates from in-progress or signed agreements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#add-redirect-information-to-agreements">Add redirect information to agreements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#send-private-messages-to-the-counter-signers">Send private messages to the counter signers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apiusage.html#api-throttling">API Throttling</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apiusage.html#rest-api-response">REST API Response</a></li>
 <li class="toctree-l3"><a class="reference internal" href="apiusage.html#steps-to-take-when-throttled">Steps to take when throttled</a></li>
@@ -178,6 +180,16 @@
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhook-endpoint-api.html">WebhookEndpoint APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#post-webhookendpoints">POST /webhookEndpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#get-webhookendpoints">GET /webhookEndpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#get-webhookendpoints-webhookendpointid">GET /webhookEndpoints/{webhookEndpointId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#put-webhookendpoints-webhookendpointid">PUT /webhookEndpoints/{webhookEndpointId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#delete-webhookendpoints-webhookendpointid">DELETE /webhookEndpoints/{webhookEndpointId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#standard-api-request-headers">Standard API request headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#standard-api-request-error-codes">Standard API request error codes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="samples.html">REST API Samples</a><ul>
@@ -284,47 +296,18 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Aug 04, 2023. 
+          Last update: Jan 23, 2024. 
         </span>
         
           <div class="rst-content">
             
-            <!--
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+            <!--<div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Search</li>
-    
-    
+      <li><a href="toc.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Search</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>-->
             <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -354,7 +337,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 04, 2023. 
+        Last update: Jan 23, 2024. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

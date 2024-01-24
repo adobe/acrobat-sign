@@ -39,12 +39,10 @@
   
   
   <link rel="search" title="Search" href="search.html" />
-  <link rel="next" title="REST API Samples" href="samples.html" />
+  <link rel="next" title="WebhookEndpoint APIs" href="webhook-endpoint-api.html" />
   <link rel="prev" title="API Usage" href="apiusage.html" /> 
 
-  <script
-    type='text/javascript'> window.marketingtech = { adobe: { launch: { property: "global", environment: "production" } }, };</script>
-  <script src="https://www.adobe.com/marketingtech/main.min.js"></script>
+  <script>  window.marketingtech = { adobe: { launch: { url: 'https://assets.adobedtm.com/d4d114c60e50/a0e989131fd5/launch-5dd5dd2177e6.min.js', controlPageLoad: false, }, alloy: { edgeConfigId: '2cba807b-7430-41ae-9aac-db2b0da742d5', }, target: false, audienceManager: false, }, sophia: false, };</script><script src=https://www.adobe.com/marketingtech/main.standard.min.js></script>
 
   <script>
     $(document).ready(function () {
@@ -144,6 +142,10 @@
 <li class="toctree-l2"><a class="reference internal" href="apiusage.html#download-the-agreement">Download the Agreement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apiusage.html#create-a-widget">Create a Widget</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apiusage.html#get-the-signing-url">Get the Signing URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#add-form-fields-to-agreements">Add form fields to agreements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#generate-templates-from-in-progress-or-signed-agreements">Generate templates from in-progress or signed agreements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#add-redirect-information-to-agreements">Add redirect information to agreements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#send-private-messages-to-the-counter-signers">Send private messages to the counter signers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apiusage.html#api-throttling">API Throttling</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apiusage.html#rest-api-response">REST API Response</a></li>
 <li class="toctree-l3"><a class="reference internal" href="apiusage.html#steps-to-take-when-throttled">Steps to take when throttled</a></li>
@@ -178,6 +180,16 @@
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhook-endpoint-api.html">WebhookEndpoint APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#post-webhookendpoints">POST /webhookEndpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#get-webhookendpoints">GET /webhookEndpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#get-webhookendpoints-webhookendpointid">GET /webhookEndpoints/{webhookEndpointId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#put-webhookendpoints-webhookendpointid">PUT /webhookEndpoints/{webhookEndpointId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#delete-webhookendpoints-webhookendpointid">DELETE /webhookEndpoints/{webhookEndpointId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#standard-api-request-headers">Standard API request headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#standard-api-request-error-codes">Standard API request error codes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="samples.html">REST API Samples</a><ul>
@@ -284,56 +296,21 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Aug 04, 2023. 
+          Last update: Jan 23, 2024. 
         </span>
         
           <div class="rst-content">
             
-            <!--
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+            <!--<div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Webhook APIs</li>
-    
-    
+      <li><a href="toc.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Webhook APIs</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
-        
       </li>
-    
-  </ul>
-
-  
-  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
-      
-        <a href="samples.html" class="btn btn-neutral float-right" title="REST API Samples" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-      
-      
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
         <a href="apiusage.html" class="btn btn-neutral float-left" title="API Usage" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-      
+        <a href="webhook-endpoint-api.html" class="btn btn-neutral float-right" title="WebhookEndpoint APIs" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
-  
   <hr/>
 </div>-->
             <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -489,6 +466,67 @@
 <li><p>The user can customize the events for which the webhook is triggered in this call.</p></li>
 </ul>
 <p>The <code class="docutils literal notranslate"><span class="pre">HTTP</span> <span class="pre">Location</span></code> header field is returned in the response to provide information about the location of a newly created resource. Multiple webhooks can be created on a single resource. <em>Also, multiple webhooks can share the same URL.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Acrobat Sign now includes a new Object <code class="docutils literal notranslate"><span class="pre">webhookEndpointInfo</span></code> to associate a webhook to a webhookEndpoint. When using the webhookEndpointInfo, do not provide a webhookUrlInfo.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">webhookInfo</span> <span class="p">{</span>
+<span class="o">...</span>
+  <span class="n">webhookEndpointInfo</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="n">webhookEndpointId</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">domainPrefix</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">urlSuffix</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>webhookEndpointId</p></td>
+<td><p>The webhookEndpointId that to be associated with this webhook.</p></td>
+</tr>
+<tr class="row-odd"><td><p>domainPrefix</p></td>
+<td><p>Optional URL subdomain value. This value will be used to replace the first wildcard (*).</p></td>
+</tr>
+<tr class="row-even"><td><p>urlSuffix</p></td>
+<td><p>Optional Url Suffix to append to the WebhookEndpointId. This value will be used to replace the wildcard (*) at the end.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>webhookEndpointInfo Error codes</strong></p>
+<p>You should be prepared to handle new errors that may be returned from APIs or changes in existing error codes. It is important to note that error codes can evolve over time. You must be prepared to implement default error handling for unclear error events.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Error code</p></th>
+<th class="head"><p>Message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>INVALID_JSON</p></td>
+<td><p>An invalid JSON was specified.</p></td>
+</tr>
+<tr class="row-odd"><td><p>404</p></td>
+<td><p>INVALID_WEBHOOK_ENDPOINT_ID</p></td>
+<td><p>WebhookEndpointId is not found. Request id: &lt;hash&gt;</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="get-webhooks">
 <h2>GET /webhooks<a class="headerlink" href="#get-webhooks" title="Permalink to this heading">¶</a></h2>
@@ -543,7 +581,7 @@
           <span class="s2">&quot;applicationName&quot;</span><span class="p">:</span> <span class="s2">&quot;Application for REST Swagger Documentation&quot;</span><span class="p">,</span>
           <span class="s2">&quot;applicationDisplayName &quot;</span><span class="p">:</span> <span class="s2">&quot;REST Swagger&quot;</span><span class="p">,</span>
           <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;CBJCHBCAABAAtW5qb_gRDgssqn6tvLvCcav0VqYi0WTR&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;webhook linked to a webhookEndpoint&quot;</span><span class="p">,</span>
           <span class="s2">&quot;lastModified&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-02-06T22:52:27-08:00&quot;</span><span class="p">,</span>
           <span class="s2">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;RESOURCE&quot;</span><span class="p">,</span>
           <span class="s2">&quot;resourceType&quot;</span><span class="p">:</span> <span class="s2">&quot;AGREEMENT&quot;</span><span class="p">,</span>
@@ -551,10 +589,12 @@
           <span class="s2">&quot;webhookSubscriptionEvents&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="s2">&quot;AGREEMENT_RECALLED&quot;</span>
           <span class="p">],</span>
-          <span class="s2">&quot;webhookUrlInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://testResource&quot;</span>
-          <span class="p">},</span>
-          <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ACTIVE&quot;</span>
+          <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;webhookEndpointInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;webhookEndpointId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;domainPrefix&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;urlSuffix&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+          <span class="p">}</span>
       <span class="p">}</span>
     <span class="p">],</span>
     <span class="s2">&quot;page&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -697,6 +737,21 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can update a webhook that is linked to webhookEndpoint by providing the webhookEndpointInfo in the Request body.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;userWebhookList&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+          <span class="o">...</span>
+          <span class="s2">&quot;webhookEndpointInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="s2">&quot;webhookEndpointId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;domainPrefix&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;urlSuffix&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+          <span class="p">}</span>
+      <span class="p">},</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="put-webhooks-webhookid">
 <h2>PUT /webhooks/{webhookId}<a class="headerlink" href="#put-webhooks-webhookid" title="Permalink to this heading">¶</a></h2>
@@ -836,6 +891,20 @@
 </tbody>
 </table>
 <p>Only events and conditional parameters can be modified. The webhook URL can’t be modified once the webhook is created. The modification can also be done in the INACTIVE state.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can update a webhook that is linked to webhookEndpoint by providing the webhookEndpointInfo in the Request body.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">webhookInfo</span> <span class="p">{</span>
+<span class="o">...</span>
+  <span class="n">webhookEndpointInfo</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="n">webhookEndpointId</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">domainPrefix</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">urlSuffix</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="put-webhooks-webhookid-state">
 <h2>PUT /webhooks/{webhookId}/state<a class="headerlink" href="#put-webhooks-webhookid-state" title="Permalink to this heading">¶</a></h2>
@@ -1348,7 +1417,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 04, 2023. 
+        Last update: Jan 23, 2024. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

@@ -143,6 +143,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#create-a-widget">Create a Widget</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#get-the-signing-url">Get the Signing URL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#add-form-fields-to-agreements">Add form fields to agreements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generate-templates-from-in-progress-or-signed-agreements">Generate templates from in-progress or signed agreements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-redirect-information-to-agreements">Add redirect information to agreements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#send-private-messages-to-the-counter-signers">Send private messages to the counter signers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#api-throttling">API Throttling</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#rest-api-response">REST API Response</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#steps-to-take-when-throttled">Steps to take when throttled</a></li>
@@ -177,6 +180,16 @@
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhook-endpoint-api.html">WebhookEndpoint APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#post-webhookendpoints">POST /webhookEndpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#get-webhookendpoints">GET /webhookEndpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#get-webhookendpoints-webhookendpointid">GET /webhookEndpoints/{webhookEndpointId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#put-webhookendpoints-webhookendpointid">PUT /webhookEndpoints/{webhookEndpointId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#delete-webhookendpoints-webhookendpointid">DELETE /webhookEndpoints/{webhookEndpointId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#standard-api-request-headers">Standard API request headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#standard-api-request-error-codes">Standard API request error codes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="samples.html">REST API Samples</a><ul>
@@ -283,7 +296,7 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Oct 11, 2023. 
+          Last update: Jan 23, 2024. 
         </span>
         
           <div class="rst-content">
@@ -695,6 +708,267 @@ FormFieldGenerator specifications apply to all documents within an agreement. Ho
 <p>Once the agreement id is generated, you can open the agreement to verify the placement of the signature fields, as shown below. The signers get the ‘After’ view of the agreement.</p>
 <img alt="_images/anchor-text-sample.png" src="_images/anchor-text-sample.png" />
 </div>
+<div class="section" id="generate-templates-from-in-progress-or-signed-agreements">
+<h2>Generate templates from in-progress or signed agreements<a class="headerlink" href="#generate-templates-from-in-progress-or-signed-agreements" title="Permalink to this heading">¶</a></h2>
+<p>Acrobat Sign now allows you to generate Agreement templates from in-progress or completed agreements. To generate a template:</p>
+<ol class="arabic">
+<li><p>Get the id of the agreement by sending a GET request to /agreements/{agreementid}:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Go to <a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/agreements/createAgreement">Get/agreements</a></p></li>
+<li><p>Select <strong>OAuth Access-Token</strong> to fetch the required access token.</p></li>
+<li><p>Select <strong>Try it out!</strong>. The Response Body displays a list of agreements with different status.</p></li>
+<li><p>For any in-progress or Signed agreement, copy the ‘id’ string.</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>To generate the new template ID from the above copied id:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Go to <cite>Post/libraryDocuments &lt;https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/libraryDocuments/createLibraryDocument&gt;`_</cite></p></li>
+<li><p>Select <strong>OAuth Access-Token</strong> to fetch the required access token.</p></li>
+</ol>
+<img alt="_images/template-3.png" src="_images/template-3.png" />
+<ol class="arabic simple" start="3">
+<li><p>In the LibraryDocumentInfo field, enter the following JSON:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;fileInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;agreementId&quot;</span><span class="p">:</span> <span class="s2">&quot;CBJCHBCAABAAKrGqtTd7ODjEKDb4czMjRTXppG3H1RGV&quot;</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;template testing&quot;</span><span class="p">,</span>
+<span class="s2">&quot;sharingMode&quot;</span><span class="p">:</span> <span class="s2">&quot;USER&quot;</span><span class="p">,</span>
+<span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span>
+<span class="s2">&quot;templateTypes&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;DOCUMENT&quot;</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><dl class="simple">
+<dt>Select <strong>Try it out!</strong>.</dt><dd><p>You’ll get the following response containing the template id.</p>
+</dd>
+</dl>
+</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Request</span> <span class="n">URL</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">na1</span><span class="o">.</span><span class="n">echosignstage</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="mi">443</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">v6</span><span class="o">/</span><span class="n">libraryDocuments</span>
+<span class="n">Response</span> <span class="n">Body</span><span class="p">:</span>
+<span class="p">{</span>
+<span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;CBJCHBCAABAAncSuj1tFB_PyS-FMa7dL5oRJXOsEiILU&quot;</span>
+<span class="p">}</span>
+<span class="n">Response</span> <span class="n">Headers</span><span class="p">:</span>
+<span class="p">{</span>
+<span class="s2">&quot;Cache-Control&quot;</span><span class="p">:</span> <span class="s2">&quot;no-cache, no-store, must-revalidate&quot;</span><span class="p">,</span>
+<span class="s2">&quot;Content-Length&quot;</span><span class="p">:</span> <span class="s2">&quot;53&quot;</span><span class="p">,</span>
+<span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json;charset=UTF-8&quot;</span><span class="p">,</span>
+<span class="s2">&quot;Etag&quot;</span><span class="p">:</span> <span class="s2">&quot;D0CA32AB5F61126FA86F33034A7BE6.B89F308E6D0E27BA4E894BA77DD2DD&quot;</span><span class="p">,</span>
+<span class="s2">&quot;Expires&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="s2">&quot;Pragma&quot;</span><span class="p">:</span> <span class="s2">&quot;no-cache&quot;</span><span class="p">,</span>
+<span class="s2">&quot;X-Request-Id&quot;</span><span class="p">:</span> <span class="s2">&quot;c3b05346-728b-4167-80c5-ec00e3e10359&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Copy the document ID and save it for getting the template URL via the POST View endpoint for library documents.</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+<ol class="arabic" start="3">
+<li><p>Go to <a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/libraryDocuments/createLibraryDocumentView">Post/libraryDouments</a></p></li>
+<li><p>Select <strong>OAuth Access-Token</strong> to fetch the required access token.</p></li>
+<li><p>In the <em>LibraryDocumentID</em> field, paste the document ID that you copied above.</p></li>
+<li><p>In the <em>LibraryViewInfo</em> field, enter the following json:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="p">{</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="n">ALL</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<ol class="arabic" start="7">
+<li><p>Select <strong>Try it out!</strong></p>
+<blockquote>
+<div><img alt="_images/template-1.png" src="_images/template-1.png" />
+</div></blockquote>
+</li>
+<li><p>From the Response Body, copy the url for ‘Document’ and paste it in the browser. It opens the newly generated template, as shown below.</p>
+<blockquote>
+<div><img alt="_images/template-2.png" src="_images/template-2.png" />
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="add-redirect-information-to-agreements">
+<h2>Add redirect information to agreements<a class="headerlink" href="#add-redirect-information-to-agreements" title="Permalink to this heading">¶</a></h2>
+<p>You can optionally add redirect information to agreements signed or declined by the recipients. The POST /agreements and PUT /agreements APIs now include a new payload object called <code class="docutils literal notranslate"><span class="pre">redirectOptions</span></code>.
+You can use the <code class="docutils literal notranslate"><span class="pre">redirectOptions</span></code> in conjunction with <code class="docutils literal notranslate"><span class="pre">postSignOption</span></code> object to set redirect information at the agreement level:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+    ...
+    postSignOptions?: {
+        /**
+        * Optional.  The delay (in seconds) before the user is taken to the success page (on successful agreement
+        * completion).  If this value is greater than 0, the user will first see the standard Acrobat Sign success
+        * message, and then after a delay will be redirected to your success page.
+        */
+        redirectDelay?:integer,
+
+        /**
+        * Optional.  A publicly accessible url which the user will be redirected to (on successful agreement
+        * completion).
+        */
+        redirectUrl?:string,
+    },
+    /**
+    * Optional.  Enhanced redirect information for specific completion results/actions. Note that specifying
+    * redirectOptions is mutually exclusive with postSignOptions.
+    */
+    redirectOptions?: [
+        {
+            /**
+            * Required.  The specific action that this redirect applies to.
+            */
+            action: &quot;DECLINED&quot; | &quot;DELEGATED&quot; | ... others
+
+            /**
+            * Optional the delay duration before redirecting, in seconds.  If not 0, then the user will
+            * first see the standard Acrobat Sign success message, and then after the delay will be
+            * redirect to your own success page.
+            */
+            delay?:integer,
+
+            /**
+            * Required. The publicly accessible URL which the user will be redirected to.
+            */
+            url:string,
+        }
+    ]
+}
+</pre></div>
+</div>
+<p>You may continue using the <code class="docutils literal notranslate"><span class="pre">postSignOptions</span></code> object as earlier, which will by default be applied to a ‘signed’ event as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="o">...</span>
+    <span class="s2">&quot;postSignOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;redirectDelay&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;redirectUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;url1&quot;</span>
+    <span class="p">}</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To add redirect information to a declined agreement, you can use the new <code class="docutils literal notranslate"><span class="pre">redirectOptions</span></code> object as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="o">...</span>
+    <span class="s2">&quot;redirectOptions&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="o">//</span> <span class="n">Redirect</span> <span class="n">information</span> <span class="k">for</span> <span class="n">the</span> <span class="n">DECLINED</span> <span class="n">action</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;delay&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;url1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;DECLINED&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="send-private-messages-to-the-counter-signers">
+<h2>Send private messages to the counter signers<a class="headerlink" href="#send-private-messages-to-the-counter-signers" title="Permalink to this heading">¶</a></h2>
+<p>You can send private messages to the counter signers or adhoc participants of an agreement. To do so:</p>
+<ol class="arabic">
+<li><p>Create a transient document using the following steps:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Go to the <a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/transientDocuments/createTransientDocument">Post/transientDocuments</a> endpoint and request OAuth access token for widget_write:self.</p></li>
+</ol>
+<img alt="_images/private-message-1.png" src="_images/private-message-1.png" />
+<ol class="arabic simple" start="2">
+<li><p>For the <em>File parameter</em>, select <strong>Browse</strong> and then select the agreement to which you want to add a message.</p></li>
+<li><p>Select <strong>Try it out!</strong>.</p></li>
+<li><p>From the response body, copy the <code class="docutils literal notranslate"><span class="pre">transientDocumentID</span></code>.</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Create a Post widget using the following steps:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Go to the <a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/widgets/createWidget">POST /widgets</a> endpoint and in the <em>WidgetInfo</em> field, enter the following JSON, where you replace the <code class="docutils literal notranslate"><span class="pre">transientDocumentID</span></code> with the string copied in the previous step.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;additionalParticipantSetsInfo&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;tadipart.adobe@gmail.com&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;tadipart@adobe.com&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;adhoc group&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;Private Message for adhoc group&quot;</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;fileInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;transientDocumentId&quot;</span><span class="p">:</span> <span class="s2">&quot;xxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Demo Webform&quot;</span><span class="p">,</span>
+<span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span>
+<span class="s2">&quot;widgetParticipantSetInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Select <strong>Try it out!</strong></p></li>
+<li><p>Once the widget is created, copy the ID from the Response body.</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>To get the agreement URL:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Go to the <a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/widgets/getWidgetView">POST /widgets/{id}/views</a> and request OAuth access token for widget_read:self.</p></li>
+<li><p>In the <em>widgetID</em> field, paste the copied ID.</p></li>
+<li><p>In the <em>WidgetViewInfo</em> field, enter the following JSON and select <strong>Try it out!</strong>:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;DOCUMENT&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>From the Response Body, copy the document URL and paste it into a browser.</p></li>
+<li><p>Enter your login credentials when prompted.</p></li>
+<li><p>You can now edit the private message for the ad-hoc recipients, as shown below.</p></li>
+</ol>
+<img alt="_images/private-message-3.png" src="_images/private-message-3.png" />
+</div>
 <div class="section" id="api-throttling">
 <h2>API Throttling<a class="headerlink" href="#api-throttling" title="Permalink to this heading">¶</a></h2>
 <p>To prevent your API from being overwhelmed by too many requests, Adobe throttles requests to your API.</p>
@@ -734,7 +1008,7 @@ FormFieldGenerator specifications apply to all documents within an agreement. Ho
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Oct 11, 2023. 
+        Last update: Jan 23, 2024. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
