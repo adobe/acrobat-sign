@@ -132,19 +132,18 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#send-for-signing-create-an-agreement">Send for Signing (Create an Agreement)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#send-for-signing-create-an-agreement">Send for Signing (Create an agreement)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#upload-a-document">Upload a document</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#send-the-document">Send the document</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#check-the-document-signing-status">Check the Document Signing Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check-the-document-signing-status">Check the Document signing status</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#send-reminders">Send Reminders</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#download-the-agreement">Download the Agreement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#create-a-widget">Create a Widget</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#get-the-signing-url">Get the Signing URL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#add-form-fields-to-agreements">Add form fields to agreements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#generate-templates-from-in-progress-or-signed-agreements">Generate templates from in-progress or signed agreements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#add-redirect-information-to-agreements">Add redirect information to agreements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#send-private-messages-to-the-counter-signers">Send private messages to the counter signers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#api-throttling">API Throttling</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#rest-api-response">REST API Response</a></li>
@@ -296,7 +295,7 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Jan 23, 2024. 
+          Last update: Feb 06, 2024. 
         </span>
         
           <div class="rst-content">
@@ -323,11 +322,11 @@
 <p>A 3-step basic signing workflow involves:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#send"><span class="std std-ref">Send the document</span></a></p></li>
-<li><p><a class="reference internal" href="#checkstatus"><span class="std std-ref">Check the Document Signing Status</span></a></p></li>
+<li><p><a class="reference internal" href="#checkstatus"><span class="std std-ref">Check the Document signing status</span></a></p></li>
 <li><p><a class="reference internal" href="#download"><span class="std std-ref">Download the Agreement</span></a></p></li>
 </ul>
 <div class="section" id="send-for-signing-create-an-agreement">
-<span id="sendforsigning"></span><h2>Send for Signing (Create an Agreement)<a class="headerlink" href="#send-for-signing-create-an-agreement" title="Permalink to this heading">¶</a></h2>
+<span id="sendforsigning"></span><h2>Send for Signing (Create an agreement)<a class="headerlink" href="#send-for-signing-create-an-agreement" title="Permalink to this heading">¶</a></h2>
 <p>Your CRM or document management system can send/upload documents for signing, either automatically or through user-initiated actions. When the document gets signed by all the parties, a PDF copy of the signed document(agreement) can be retrieved by your application.</p>
 <img alt="_images/sign_devguide_1.png" src="_images/sign_devguide_1.png" />
 <p>While getting the authorization code from the Acrobat Sign service, you also received the API access point as part of a query parameter (See <a class="reference internal" href="gstarted.html#token"><span class="std std-ref">Create an authorization request link</span></a>)</p>
@@ -434,7 +433,7 @@
 </div>
 </div>
 <div class="section" id="check-the-document-signing-status">
-<span id="checkstatus"></span><h2>Check the Document Signing Status<a class="headerlink" href="#check-the-document-signing-status" title="Permalink to this heading">¶</a></h2>
+<span id="checkstatus"></span><h2>Check the Document signing status<a class="headerlink" href="#check-the-document-signing-status" title="Permalink to this heading">¶</a></h2>
 <p>Acrobat Sign can return the current status of the agreement and a complete history of events that have happened on that particular agreement. The simplest mechanism is for your application to provide a webhook URL when sending the document for signature. Acrobat Sign will then ping your webhook with the appropriate event whenever the agreement status changes.</p>
 <img alt="_images/sign_devguide_2.png" src="_images/sign_devguide_2.png" />
 <p>You can also get the current status of an agreement by sending a GET request to <code class="docutils literal notranslate"><span class="pre">/agreements/{agreementid}</span></code>:</p>
@@ -714,7 +713,7 @@ FormFieldGenerator specifications apply to all documents within an agreement. Ho
 <ol class="arabic">
 <li><p>Get the id of the agreement by sending a GET request to /agreements/{agreementid}:</p>
 <blockquote>
-<div><ol class="arabic simple">
+<div><ol class="loweralpha simple">
 <li><p>Go to <a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/agreements/createAgreement">Get/agreements</a></p></li>
 <li><p>Select <strong>OAuth Access-Token</strong> to fetch the required access token.</p></li>
 <li><p>Select <strong>Try it out!</strong>. The Response Body displays a list of agreements with different status.</p></li>
@@ -724,12 +723,12 @@ FormFieldGenerator specifications apply to all documents within an agreement. Ho
 </li>
 <li><p>To generate the new template ID from the above copied id:</p>
 <blockquote>
-<div><ol class="arabic simple">
-<li><p>Go to <cite>Post/libraryDocuments &lt;https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/libraryDocuments/createLibraryDocument&gt;`_</cite></p></li>
+<div><ol class="loweralpha simple">
+<li><p>Go to <a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/libraryDocuments/createLibraryDocument">Post/libraryDocuments</a></p></li>
 <li><p>Select <strong>OAuth Access-Token</strong> to fetch the required access token.</p></li>
 </ol>
 <img alt="_images/template-3.png" src="_images/template-3.png" />
-<ol class="arabic simple" start="3">
+<ol class="loweralpha simple" start="3">
 <li><p>In the LibraryDocumentInfo field, enter the following JSON:</p></li>
 </ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -747,11 +746,11 @@ FormFieldGenerator specifications apply to all documents within an agreement. Ho
 <span class="p">}</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="4">
-<li><dl class="simple">
-<dt>Select <strong>Try it out!</strong>.</dt><dd><p>You’ll get the following response containing the template id.</p>
-</dd>
-</dl>
+<ol class="loweralpha" start="4">
+<li><p>Select <strong>Try it out!</strong>.</p>
+<blockquote>
+<div><p>You’ll get the following response containing the template id.</p>
+</div></blockquote>
 </li>
 </ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Request</span> <span class="n">URL</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">na1</span><span class="o">.</span><span class="n">echosignstage</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="mi">443</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">v6</span><span class="o">/</span><span class="n">libraryDocuments</span>
@@ -771,7 +770,7 @@ FormFieldGenerator specifications apply to all documents within an agreement. Ho
 <span class="p">}</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="5">
+<ol class="loweralpha simple" start="5">
 <li><p>Copy the document ID and save it for getting the template URL via the POST View endpoint for library documents.</p></li>
 </ol>
 </div></blockquote>
@@ -804,91 +803,17 @@ FormFieldGenerator specifications apply to all documents within an agreement. Ho
 </li>
 </ol>
 </div>
-<div class="section" id="add-redirect-information-to-agreements">
-<h2>Add redirect information to agreements<a class="headerlink" href="#add-redirect-information-to-agreements" title="Permalink to this heading">¶</a></h2>
-<p>You can optionally add redirect information to agreements signed or declined by the recipients. The POST /agreements and PUT /agreements APIs now include a new payload object called <code class="docutils literal notranslate"><span class="pre">redirectOptions</span></code>.
-You can use the <code class="docutils literal notranslate"><span class="pre">redirectOptions</span></code> in conjunction with <code class="docutils literal notranslate"><span class="pre">postSignOption</span></code> object to set redirect information at the agreement level:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
-    ...
-    postSignOptions?: {
-        /**
-        * Optional.  The delay (in seconds) before the user is taken to the success page (on successful agreement
-        * completion).  If this value is greater than 0, the user will first see the standard Acrobat Sign success
-        * message, and then after a delay will be redirected to your success page.
-        */
-        redirectDelay?:integer,
-
-        /**
-        * Optional.  A publicly accessible url which the user will be redirected to (on successful agreement
-        * completion).
-        */
-        redirectUrl?:string,
-    },
-    /**
-    * Optional.  Enhanced redirect information for specific completion results/actions. Note that specifying
-    * redirectOptions is mutually exclusive with postSignOptions.
-    */
-    redirectOptions?: [
-        {
-            /**
-            * Required.  The specific action that this redirect applies to.
-            */
-            action: &quot;DECLINED&quot; | &quot;DELEGATED&quot; | ... others
-
-            /**
-            * Optional the delay duration before redirecting, in seconds.  If not 0, then the user will
-            * first see the standard Acrobat Sign success message, and then after the delay will be
-            * redirect to your own success page.
-            */
-            delay?:integer,
-
-            /**
-            * Required. The publicly accessible URL which the user will be redirected to.
-            */
-            url:string,
-        }
-    ]
-}
-</pre></div>
-</div>
-<p>You may continue using the <code class="docutils literal notranslate"><span class="pre">postSignOptions</span></code> object as earlier, which will by default be applied to a ‘signed’ event as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="o">...</span>
-    <span class="s2">&quot;postSignOption&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;redirectDelay&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;redirectUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;url1&quot;</span>
-    <span class="p">}</span>
-    <span class="o">...</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>To add redirect information to a declined agreement, you can use the new <code class="docutils literal notranslate"><span class="pre">redirectOptions</span></code> object as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="o">...</span>
-    <span class="s2">&quot;redirectOptions&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="o">//</span> <span class="n">Redirect</span> <span class="n">information</span> <span class="k">for</span> <span class="n">the</span> <span class="n">DECLINED</span> <span class="n">action</span>
-        <span class="p">{</span>
-            <span class="s2">&quot;delay&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;url1&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;DECLINED&quot;</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-    <span class="o">...</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
 <div class="section" id="send-private-messages-to-the-counter-signers">
 <h2>Send private messages to the counter signers<a class="headerlink" href="#send-private-messages-to-the-counter-signers" title="Permalink to this heading">¶</a></h2>
 <p>You can send private messages to the counter signers or adhoc participants of an agreement. To do so:</p>
 <ol class="arabic">
 <li><p>Create a transient document using the following steps:</p>
 <blockquote>
-<div><ol class="arabic simple">
+<div><ol class="loweralpha simple">
 <li><p>Go to the <a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/transientDocuments/createTransientDocument">Post/transientDocuments</a> endpoint and request OAuth access token for widget_write:self.</p></li>
 </ol>
 <img alt="_images/private-message-1.png" src="_images/private-message-1.png" />
-<ol class="arabic simple" start="2">
+<ol class="loweralpha simple" start="2">
 <li><p>For the <em>File parameter</em>, select <strong>Browse</strong> and then select the agreement to which you want to add a message.</p></li>
 <li><p>Select <strong>Try it out!</strong>.</p></li>
 <li><p>From the response body, copy the <code class="docutils literal notranslate"><span class="pre">transientDocumentID</span></code>.</p></li>
@@ -897,7 +822,7 @@ You can use the <code class="docutils literal notranslate"><span class="pre">red
 </li>
 <li><p>Create a Post widget using the following steps:</p>
 <blockquote>
-<div><ol class="arabic simple">
+<div><ol class="loweralpha simple">
 <li><p>Go to the <a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/widgets/createWidget">POST /widgets</a> endpoint and in the <em>WidgetInfo</em> field, enter the following JSON, where you replace the <code class="docutils literal notranslate"><span class="pre">transientDocumentID</span></code> with the string copied in the previous step.</p></li>
 </ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -908,13 +833,13 @@ You can use the <code class="docutils literal notranslate"><span class="pre">red
         <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
         <span class="p">},</span>
-        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;tadipart.adobe@gmail.com&quot;</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;cjones.adobe@email.com&quot;</span>
         <span class="p">},</span>
         <span class="p">{</span>
         <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
         <span class="p">},</span>
-        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;tadipart@adobe.com&quot;</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;cjones@adobe.com&quot;</span>
         <span class="p">}</span>
     <span class="p">],</span>
     <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -943,7 +868,7 @@ You can use the <code class="docutils literal notranslate"><span class="pre">red
 <span class="p">}</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="2">
+<ol class="loweralpha simple" start="2">
 <li><p>Select <strong>Try it out!</strong></p></li>
 <li><p>Once the widget is created, copy the ID from the Response body.</p></li>
 </ol>
@@ -951,7 +876,7 @@ You can use the <code class="docutils literal notranslate"><span class="pre">red
 </li>
 <li><p>To get the agreement URL:</p>
 <blockquote>
-<div><ol class="arabic simple">
+<div><ol class="loweralpha simple">
 <li><p>Go to the <a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/widgets/getWidgetView">POST /widgets/{id}/views</a> and request OAuth access token for widget_read:self.</p></li>
 <li><p>In the <em>widgetID</em> field, paste the copied ID.</p></li>
 <li><p>In the <em>WidgetViewInfo</em> field, enter the following JSON and select <strong>Try it out!</strong>:</p></li>
@@ -1008,7 +933,7 @@ You can use the <code class="docutils literal notranslate"><span class="pre">red
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Jan 23, 2024. 
+        Last update: Feb 06, 2024. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
