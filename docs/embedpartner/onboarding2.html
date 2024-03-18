@@ -142,6 +142,7 @@
 <p class="caption" role="heading"><span class="caption-text">Acrobat Sign Embed 2.0</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Embed Partner Onboarding v 2.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#set-up-parent-organization">Set up Parent organization</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#create-parent-organization">Create Parent organization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#accept-invite-and-access-adobe-admin-console">Accept invite and access Adobe Admin Console</a></li>
@@ -292,7 +293,7 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Jan 09, 2024. 
+          Last update: Feb 19, 2024. 
         </span>
         
           <div class="rst-content">
@@ -318,9 +319,38 @@
 <p class="admonition-title">Tip</p>
 <p>Your feedback is valuable and is vital in improving our product and documentation. Send suggestions to <a class="reference external" href="mailto:acrobatsignembed&#37;&#52;&#48;adobe&#46;com">acrobatsignembed<span>&#64;</span>adobe<span>&#46;</span>com</a>.</p>
 </div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
 <p>To smoothly integrate and onboard to Acrobat Sign, partners must complete a one-time setup.</p>
-<p>If you have sandbox access, we recommend starting by onboarding to the sandbox environment. This allows you to practice and confirm your ability to create accounts in Acrobat Sign, add users to these accounts, and utilize Sign through the REST v6 APIs.</p>
-<p>Once you feel confident with the new Embed 2.0 APIs, you can then move forward with onboarding to the production environment. The steps for onboarding to the sandbox and production environments are similar.</p>
+<p>The <a class="reference external" href="https://helpx.adobe.com/sign/developer/sandbox/overview.html">Adobe Acrobat Sign Sandbox</a> is an enterprise offering to test Acrobat Sign workflows, integrations, and APIs in a risk-free environment before pushing to production. This allows you to practice and confirm your ability to create accounts in Acrobat Sign, add users to these accounts, and utilize Sign through the REST v6 APIs.</p>
+<p>For non-embed customers, Acrobat Sign includes the following two offerings:</p>
+<ul class="simple">
+<li><p>For Sandbox environment: Adobe Acrobat Sign Sandbox</p></li>
+<li><p>For Production environment: Acrobat Sign Solutions for enterprise</p></li>
+</ul>
+<p>For the Embed 2.0 customers, Acrobat Sign now includes <code class="docutils literal notranslate"><span class="pre">Acrobat</span> <span class="pre">Sign</span> <span class="pre">Embed</span> <span class="pre">-</span> <span class="pre">TRNS</span></code>, a unique product offering that provides services for both Production and Sandbox.</p>
+<p>Admins can access the Sandbox environment using the “Acrobat Sign Embed - TRNS” offering. This Embed 2.0-specific offering has Sandbox bundled with it and automatically creates a Sandbox environment when a new contract is created between Adobe and the Partner. Once you create the Partner organization with the “Acrobat Sign Embed - TRNS” offering, the admins already have access to onboard to the Acrobat Sign Sandbox environment.</p>
+<p>With this new offering, the following UI interfaces remain the same for both Sandbox and Production environments:</p>
+<ul class="simple">
+<li><p>Admin console: <a class="reference external" href="https://adminconsole.adobe.com/">https://adminconsole.adobe.com/</a></p></li>
+<li><p>Global admin console: <a class="reference external" href="https://global-admin-console.adobe.com/">https://global-admin-console.adobe.com/</a></p></li>
+<li><p>Developer console: <a class="reference external" href="https://developer.adobe.com/console/home">https://developer.adobe.com/console/home</a></p></li>
+</ul>
+<p>Since the user interfaces (UIs) are identical for both sandbox and production environments, much of the onboarding process completed for the sandbox doesn’t need to be redone when onboarding to production.</p>
+<p>When onboarding to production, partners must call the baseURI API and then re-implement only the following steps:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><a class="reference internal" href="#registerpartner"><span class="std std-ref">Register the partner on Acrobat Sign</span></a></dt><dd><p>It creates a new entry for Acrobat Sign. Register Partner API calls are made to the Sandbox environment while in the testing phase and thus need to be repeated in case of onboarding to production.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="#onboard"><span class="std std-ref">Onboard your customers</span></a></dt><dd><p>You must associate the partner with a new embed channel and re-certify the Partner App on the new environment.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
 <div class="section" id="set-up-parent-organization">
 <h2>Set up Parent organization<a class="headerlink" href="#set-up-parent-organization" title="Permalink to this heading">¶</a></h2>
 <div class="section" id="create-parent-organization">
@@ -627,7 +657,7 @@ It prompts you to accept the Adobe Developer Terms of Use.</p></li>
 </div>
 </div>
 <div class="section" id="register-the-partner-on-acrobat-sign">
-<h2>Register the partner on Acrobat Sign<a class="headerlink" href="#register-the-partner-on-acrobat-sign" title="Permalink to this heading">¶</a></h2>
+<span id="registerpartner"></span><h2>Register the partner on Acrobat Sign<a class="headerlink" href="#register-the-partner-on-acrobat-sign" title="Permalink to this heading">¶</a></h2>
 <div class="section" id="call-the-sign-get-baseuris-api">
 <h3>Call the Sign GET BaseUris API<a class="headerlink" href="#call-the-sign-get-baseuris-api" title="Permalink to this heading">¶</a></h3>
 <p><a class="reference external" href="embedapi2.html#base-endpoint-api">Call the Sign GET BaseUris API</a> using the Technical Account token. Partners are required to use the value of the “apiAccessPoint” obtained from the API response as the base URL for all API calls.</p>
@@ -648,7 +678,7 @@ You must use the Register API to register your application in both production an
 </div>
 </div>
 <div class="section" id="onboard-your-customers">
-<h2>Onboard your customers<a class="headerlink" href="#onboard-your-customers" title="Permalink to this heading">¶</a></h2>
+<span id="onboard"></span><h2>Onboard your customers<a class="headerlink" href="#onboard-your-customers" title="Permalink to this heading">¶</a></h2>
 <p>Once your Partner Application is certified, you can use the <a class="reference external" href="embedapi2.html">Acrobat Sign Embed APIs</a> to create customer accounts, add users, and generate user tokens.</p>
 </div>
 </div>
@@ -665,7 +695,7 @@ You must use the Register API to register your application in both production an
     <p>
         &#169; Copyright 2023, Adobe Inc..
       <span class="lastupdated">
-        Last update: Jan 09, 2024. 
+        Last update: Feb 19, 2024. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
