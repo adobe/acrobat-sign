@@ -137,6 +137,7 @@
 <li class="toctree-l3"><a class="reference internal" href="apiusage.html#send-the-document">Send the document</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#resolve-request-signature-integration-error">Resolve Request Signature integration error</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apiusage.html#check-the-document-signing-status">Check the Document signing status</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apiusage.html#send-reminders">Send Reminders</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apiusage.html#download-the-agreement">Download the Agreement</a></li>
@@ -145,6 +146,8 @@
 <li class="toctree-l2"><a class="reference internal" href="apiusage.html#add-form-fields-to-agreements">Add form fields to agreements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apiusage.html#generate-templates-from-in-progress-or-signed-agreements">Generate templates from in-progress or signed agreements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apiusage.html#send-private-messages-to-the-counter-signers">Send private messages to the counter signers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#redirect-signers-to-a-specific-url">Redirect signers to a specific URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#add-agreement-redirect-options">Add Agreement Redirect Options</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apiusage.html#api-throttling">API Throttling</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apiusage.html#rest-api-response">REST API Response</a></li>
 <li class="toctree-l3"><a class="reference internal" href="apiusage.html#steps-to-take-when-throttled">Steps to take when throttled</a></li>
@@ -295,7 +298,7 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Feb 06, 2024. 
+          Last update: Mar 15, 2024. 
         </span>
         
           <div class="rst-content">
@@ -439,12 +442,28 @@ Client secret sent to the authorization url is missing.</p></td>
 </table>
 <p>POST /webhookEndpoints is used to create a webhookEndpoint that supports OAuth2.0 for webhooks in Acrobat Sign.</p>
 <ul class="simple">
-<li><p>Only an Account Admin can create a webhookEndpoint</p></li>
+<li><p>Only an Account Admin can create a webhookEndpoint.</p></li>
 <li><p>The application creating the webhookEndpoint must have webhook_write scope.</p></li>
 <li><p>Only one webhookEdnpoint can be created for an application. But, multiple webhooks can be associated with a webhookEndpoint (see the changes to POST /webhooks).</p></li>
 <li><p>Group Admin and Account Admin can read the webhookEndpoints that belong to the same account.</p></li>
 </ul>
 <p>The HTTP Location header field is returned in the response to provide information about the location of a newly created resource.</p>
+<p><strong>Usage of access token</strong></p>
+<p>Adobe Acrobat Sign uses the credentials provided in the OAuth2.0 to call the authorization server URL to get the access_token before a webhook notification. A standard response from the authorization server contains the following fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">access_token</span></code>: It is the only mandatory field.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">refresh_token</span></code>: It is an optional field.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token_type</span></code>: Bearer token type is supported.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expires_in</span></code>: It is measured in seconds.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;access_token&quot;</span><span class="p">:</span><span class="s2">&quot;HereIsYourSuperSecretAccessToken&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;refresh_token&quot;</span><span class="p">:</span><span class="s2">&quot;HereIsYourSuperSecretRefreshToken&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;token_type&quot;</span><span class="p">:</span><span class="s2">&quot;Bearer&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;expires_in&quot;</span><span class="p">:</span><span class="mi">3600</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="get-webhookendpoints">
 <h2>GET /webhookEndpoints<a class="headerlink" href="#get-webhookendpoints" title="Permalink to this heading">¶</a></h2>
@@ -919,7 +938,7 @@ Client secret sent to the authorization url is missing.</p></td>
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Feb 06, 2024. 
+        Last update: Mar 15, 2024. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

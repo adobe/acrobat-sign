@@ -289,7 +289,7 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Feb 06, 2024. 
+          Last update: Mar 21, 2024. 
         </span>
         
           <div class="rst-content">
@@ -359,6 +359,24 @@
     <span class="p">}</span>
 <span class="p">}</span><span class="s1">&#39;</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Adobe Acrobat Sign uses the credentials provided in the OAuth2.0 to call the authorization server URL to get the access_token before a webhook notification. A standard response from the authorization server contains the following fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">access_token</span></code>: It is the only mandatory field.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">refresh_token</span></code>: It is an optional field.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token_type</span></code>: Bearer token type is supported.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expires_in</span></code>: It is measured in seconds.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;access_token&quot;</span><span class="p">:</span><span class="s2">&quot;HereIsYourSuperSecretAccessToken&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;refresh_token&quot;</span><span class="p">:</span><span class="s2">&quot;HereIsYourSuperSecretRefreshToken&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;token_type&quot;</span><span class="p">:</span><span class="s2">&quot;Bearer&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;expires_in&quot;</span><span class="p">:</span><span class="mi">3600</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 <p><strong>webhookEndpoints_POST</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">v6</span><span class="o">/</span><span class="n">accounts</span><span class="o">/</span><span class="p">{</span><span class="n">accountId</span><span class="p">}</span><span class="o">/</span><span class="n">webhookEndpoints</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
@@ -558,7 +576,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Feb 06, 2024. 
+        Last update: Mar 21, 2024. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
