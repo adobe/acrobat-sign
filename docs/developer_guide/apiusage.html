@@ -137,6 +137,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#send-the-document">Send the document</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#resolve-request-signature-integration-error">Resolve Request Signature integration error</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#check-the-document-signing-status">Check the Document signing status</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#send-reminders">Send Reminders</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#download-the-agreement">Download the Agreement</a></li>
@@ -145,6 +146,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#add-form-fields-to-agreements">Add form fields to agreements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#generate-templates-from-in-progress-or-signed-agreements">Generate templates from in-progress or signed agreements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#send-private-messages-to-the-counter-signers">Send private messages to the counter signers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#redirect-signers-to-a-specific-url">Redirect signers to a specific URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-agreement-redirect-options">Add Agreement Redirect Options</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#api-throttling">API Throttling</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#rest-api-response">REST API Response</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#steps-to-take-when-throttled">Steps to take when throttled</a></li>
@@ -295,7 +298,7 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Feb 06, 2024. 
+          Last update: Mar 28, 2024. 
         </span>
         
           <div class="rst-content">
@@ -324,6 +327,7 @@
 <li><p><a class="reference internal" href="#send"><span class="std std-ref">Send the document</span></a></p></li>
 <li><p><a class="reference internal" href="#checkstatus"><span class="std std-ref">Check the Document signing status</span></a></p></li>
 <li><p><a class="reference internal" href="#download"><span class="std std-ref">Download the Agreement</span></a></p></li>
+<li><p><a class="reference internal" href="#resolvesignerror"><span class="std std-ref">Resolve Request Signature integration error</span></a></p></li>
 </ul>
 <div class="section" id="send-for-signing-create-an-agreement">
 <span id="sendforsigning"></span><h2>Send for Signing (Create an agreement)<a class="headerlink" href="#send-for-signing-create-an-agreement" title="Permalink to this heading">¶</a></h2>
@@ -430,6 +434,20 @@
 </div>
 <p>The returned <code class="docutils literal notranslate"><span class="pre">agreementId</span></code> must be used to refer to the agreement in all subsequent API calls. This ID must be used to retrieve up-to-date status of the agreement, either by polling or when Acrobat Sign notifies your application of any status change.</p>
 <p><a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/">TRY IT OUT</a></p>
+</div>
+</div>
+<div class="section" id="resolve-request-signature-integration-error">
+<span id="resolvesignerror"></span><h2>Resolve Request Signature integration error<a class="headerlink" href="#resolve-request-signature-integration-error" title="Permalink to this heading">¶</a></h2>
+<p>You may get an error when trying to create and send agreements for signature if your browser blocks third-party cookies. You can resolve this issue by enabling cookieless Request Signature workflow for your integration as follows:</p>
+<ol class="arabic simple">
+<li><p>Create a test API Application to validate the changes before enabling the cookieless workflow in your Production environment.</p></li>
+<li><p>Conduct required testing and implement necessary adjustments on your side.</p></li>
+<li><p>Have your OAuth API application ID ready.</p></li>
+<li><p>Contact Adobe Customer Support to enable the cookieless workflow for your Production API Application ID.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To contact Adobe Customer Support, go to the <a class="reference external" href="https://adminconsole.adobe.com/">Adobe Admin Console</a> and log in using your admin credentials. Next, select the <strong>Support</strong> tab and then select <strong>Create Case</strong>.</p>
 </div>
 </div>
 <div class="section" id="check-the-document-signing-status">
@@ -894,6 +912,636 @@ FormFieldGenerator specifications apply to all documents within an agreement. Ho
 </ol>
 <img alt="_images/private-message-3.png" src="_images/private-message-3.png" />
 </div>
+<div class="section" id="redirect-signers-to-a-specific-url">
+<h2>Redirect signers to a specific URL<a class="headerlink" href="#redirect-signers-to-a-specific-url" title="Permalink to this heading">¶</a></h2>
+<p>You can customize the agreement so that signers are automatically directed to a particular URL after signing (ESIGNED event), after a custom time gap. While creating an agreement, you must provide the redirect information (delay in seconds, URL) as part of the payload. Alternatively, Account Admins can set redirect information at the account and group levels using Acrobat Sign Account Setup page.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The redirect information provided as part of the payload (API level) overrides the values set at the account and group levels.</p>
+</div>
+<p><strong>Prerequisites</strong></p>
+<p>Account Admins must enable the POST_SIGN_REDIRECT_ENABLED feature using the following steps:</p>
+<ol class="arabic">
+<li><p>Go to <strong>Account Settings</strong> &gt; <strong>Account Setup</strong> and then take the following steps:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Under <em>Post Agreement Completion URL Redirect</em> select the checkboxes for <strong>Recipients should be redirected after completing agreement</strong> and <strong>Recipients should be redirected after declining agreement</strong>.</p></li>
+<li><p>In the field boxes, enter the url where you want to redirect the signers.</p></li>
+<li><p>Select <strong>Save</strong>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<p>Alternatively, go to <strong>Group Setup</strong> &gt; <strong>Post Agreement Completion URL</strong>.</p>
+<img alt="_images/agreement-signed-redirect-1.png" src="_images/agreement-signed-redirect-1.png" />
+<ol class="arabic simple" start="2">
+<li><p>Set <strong>POST_SIGN_REDIRECT_ENABLED</strong> = TRUE</p></li>
+</ol>
+<p><strong>To redirect signers to a specific URL, follow these steps</strong>:</p>
+<ol class="arabic simple">
+<li><p>Go to the <a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/transientDocuments/createTransientDocument">Post/transientDocuments</a> endpoint and request OAuth access token for agreement_read and workflow_read.</p></li>
+<li><p>Create an agreement using <a class="reference external" href="https://previewusers.na1.echosignawspreview.com/public/docs/restapi/v6#!/agreements/createAgreement">V6 POST /agreements</a> ` and enter the JSON payload with the <cite>redirectOptions</cite> object, including the <cite>redirectUrl</cite> and <cite>redirectDelay</cite> parameters set according to your requirements. The minimal postSignOption payload object allows for just the redirect URL to be specified. The default delay is zero seconds, that is, signers will be immediately redirected upon signing the agreement. As participants sign the agreement, they are automatically redirected to the specified URL after the set delay.</p></li>
+</ol>
+<p>JSON payload examples:</p>
+<ul>
+<li><p>Minimal postSignOption payload object, where you specify only redirect URL. The default delay is zero seconds, where signers are immediately redirected upon signing the agreement.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“postSignOption”: {</dt><dd><p>“redirectUrl”:”<a class="reference external" href="https://example.com">https://example.com</a>”</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+<li><p>Redirect with no delay after signing (immediate redirect):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“postSignOption”: {</dt><dd><p>“redirectUrl”:”<a class="reference external" href="https://example.com">https://example.com</a>”,
+“redirectDelay”: 0</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+<li><p>Redirect with a delay of 2 seconds after signing:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“postSignOption”: {</dt><dd><p>“redirectUrl”:”<a class="reference external" href="https://example.com">https://example.com</a>”,
+“redirectDelay”: 2</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+<li><p>Redirect with no delay after signing (null delay - immediate redirect):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“postSignOption”: {</dt><dd><p>“redirectUrl”:”<a class="reference external" href="https://example.com">https://example.com</a>”,
+“redirectDelay”: null</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+</ul>
+<p>As participants sign the agreement, they are automatically redirected to the specified URL after a specified delay.</p>
+<p>JSON payload to create an agreement with Post Sign Redirect Options that redirects each signer upon signing to “<a class="reference external" href="https://example.com">https://example.com</a>” after a delay of 5 seconds:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;ccs&quot;</span><span class="p">:</span> <span class="p">[],</span>
+<span class="s2">&quot;createdDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;deviceInfo&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;documentRetentionApplied&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+<span class="s2">&quot;documentVisibilityEnabled&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">&quot;emailOption&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;expirationTime&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">&quot;externalId&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;fileInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;transientDocumentId&quot;</span><span class="p">:</span> <span class="s2">&quot;CBSCTBABDUAAABACAABAAElUgc9mrHBK8FGaOKeTJ7s3zB68eYQiqCXkrTJJssW2FnXixXX60RZNQDkl5tfsMhs3govR0O2S2WvHKHwQpJn0BoGLuyRSIsTQN6JfJMniGXhK_29STm8QO8V9aAWjs7lW-dHe67ioF_oZT7Qx6nda3nBLYO24946bvqn0zkRo-9YmBk5_4gWzbMNIficPeT74kUKYEtz7QL1ZRdS1erQITNR7DYQFFSZgUX5lKZbDPFqX375c9QSMQ09oWI6mOJlj70qenVdXMA7pnpvQUX0fb0cNgfhmlW1x1IS7rbW8*&quot;</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;firstReminderDelay&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">&quot;formFieldLayerTemplates&quot;</span><span class="p">:</span> <span class="p">[],</span>
+<span class="s2">&quot;hasFormFieldData&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+<span class="s2">&quot;hasSignerIdentityReport&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+<span class="s2">&quot;isDocumentRetentionApplied&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+<span class="s2">&quot;locale&quot;</span><span class="p">:</span> <span class="s2">&quot;en_US&quot;</span><span class="p">,</span>
+<span class="s2">&quot;mergeFieldInfo&quot;</span><span class="p">:</span> <span class="p">[],</span>
+<span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Please review and complete this agreement&quot;</span><span class="p">,</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Post Sign Redirection Test&quot;</span><span class="p">,</span>
+<span class="s2">&quot;parentId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;participantSetsInfo&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;signer1@outlook.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;First Signer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;notaryAuthentication&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;signingOrder&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;visiblePages&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;signer2@outlook.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Second Signer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;notaryAuthentication&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;signingOrder&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;visiblePages&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;signer3@outlook.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Third Signer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;notaryAuthentication&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;signingOrder&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;visiblePages&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;postSignOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;redirectDelay&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;redirectUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://example.com&quot;</span>
+<span class="p">},</span>
+<span class="s2">&quot;reminderFrequency&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;senderEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;signatureType&quot;</span><span class="p">:</span> <span class="s2">&quot;ESIGN&quot;</span><span class="p">,</span>
+<span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;IN_PROCESS&quot;</span><span class="p">,</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;OUT_FOR_SIGNATURE&quot;</span><span class="p">,</span>
+<span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;AGREEMENT&quot;</span><span class="p">,</span>
+<span class="s2">&quot;vaultingInfo&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;notaryInfo&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;workflowId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">&quot;workflow&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;agreementNameInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;authoringInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ccsListInfo&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;defaultValues&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;minListCount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;maxListCount&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;displayName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;expirationInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;maxDays&quot;</span><span class="p">:</span> <span class="mi">180</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;fileInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;workflowLibraryDocumentSelectorList&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;localeInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;es_ES&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;availableLocales&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;en_US&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;en_US_Echosign&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;en_GB&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;de_DE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fr_FR&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;nl_NL&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;it_IT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fi_FI&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;da_DK&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sv_SE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;es_ES&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;nb_NO&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;nn_NO&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;no_NO&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pt_BR&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pt_PT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ru_RU&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;is_IS&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ja_JP&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;zh_CN&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;zh_TW&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ko_KR&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pl_PL&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;in_ID&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ms_MY&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;vi_VN&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;th_TH&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cs_CZ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;tr_TR&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ca_ES&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;eu_ES&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hr_HR&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hu_HU&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ro_RO&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sk_SK&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sl_SI&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;uk_UA&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;zz_ZZ&quot;</span>
+    <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;mergeFieldsInfo&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;messageInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;modified&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;passwordInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;recipientsListInfo&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;minListCount&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;maxListCount&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+        <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;allowfax&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;allowSender&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;scopeId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+<span class="p">},</span>
+<span class="s2">&quot;authoringRequested&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+<span class="s2">&quot;signatureFlow&quot;</span><span class="p">:</span> <span class="s2">&quot;HYBRID&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Once a signer signs the agreement, the recipients are redirected to the set URL after a specified delay.
+The redirect Url reflects the status of the agreement, as shown below.</p>
+<img alt="_images/agreement-signed-redirect-2.png" src="_images/agreement-signed-redirect-2.png" />
+</div>
+<div class="section" id="add-agreement-redirect-options">
+<h2>Add Agreement Redirect Options<a class="headerlink" href="#add-agreement-redirect-options" title="Permalink to this heading">¶</a></h2>
+<p>You can redirect signers to a specific URL with a custom delay when they decline an agreement. (DECLINED event) using the new payload object called redirectOptions.
+While creating an agreement, you must provide the redirect information (delay in seconds, URL) as part of the payload. Alternatively, Account Admins can set redirect information at the account and group levels using Acrobat Sign Account Setup page.
+Unlike Post Sign Options, Agreement Redirect Options allows you to also specify the action which is an alias for the agreement event upon which the signers will get redirected to the specified URL with a given delay. Currently, Acrobat Sign supports only DECLINED agreement events.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The redirect information provided as part of the payload (API level) overrides the values set at the account and group levels.</p>
+</div>
+<p><strong>Prerequisite</strong></p>
+<p>Account Admins must enable the POST_SIGN_REDIRECT_ENABLED feature using the following steps:</p>
+<ol class="arabic">
+<li><p>Go to <strong>Account Settings</strong> &gt; <strong>Account Setup</strong> and then take the following steps:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Under <em>Post Agreement Completion URL Redirect</em> select the checkboxes for <strong>Recipients should be redirected after completing agreement</strong> and <strong>Recipients should be redirected after declining agreement</strong>.</p></li>
+<li><p>In the field boxes, enter the url where you want to redirect the signers.</p></li>
+<li><p>Select <strong>Save</strong>.</p></li>
+</ol>
+<p>Alternatively, go to <strong>Group Setup</strong> &gt; <strong>Post Agreement Completion URL</strong>.</p>
+</div></blockquote>
+</li>
+</ol>
+<p><strong>To add agreement redirect options</strong>:</p>
+<ol class="arabic simple">
+<li><p>Go to the <a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/transientDocuments/createTransientDocument">Post/transientDocuments</a> endpoint and request OAuth access token.</p></li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p>Create an agreement using <a class="reference external" href="https://previewusers.na1.echosignawspreview.com/public/docs/restapi/v6#!/agreements/createAgreement">V6 POST /agreements</a> ` and enter the JSON payload with the <cite>redirectOptions`</cite> object, including the <cite>action</cite>, <cite>url</cite>, and <cite>delay</cite> parameters set according to your requirements.</p></li>
+</ol>
+<p>The minimal redirectOptions payload object allows for just the action and the redirect URL to be specified. The default delay is zero seconds, where the signer is immediately redirected upon declining the agreement.</p>
+<p>Here are examples of JSON payloads for different redirect scenarios:</p>
+<ul>
+<li><p>Redirect upon declining with no delay (immediate redirect):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“redirectOptions”: {</dt><dd><p>“action”:”DECLINED”,
+“url”:”<a class="reference external" href="https://example.com">https://example.com</a>”,
+“delay”: 0</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+<li><p>Redirect upon declining with no delay (null delay - immediate redirect):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“redirectOptions”: {</dt><dd><p>“action”:”DECLINED”,
+“url”:”<a class="reference external" href="https://example.com">https://example.com</a>”,
+“delay”: null</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+<li><p>Redirect upon declining with no delay (default delay is zero seconds - immediate redirect):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“redirectOptions”: {</dt><dd><p>“action”:”DECLINED”,
+“url”:”<a class="reference external" href="https://example.com">https://example.com</a>”</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+<li><p>Redirect upon declining with a delay of 1 second:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“redirectOptions”: {</dt><dd><p>“action”: “DECLINED”,
+“url”: “<a class="reference external" href="https://example.com">https://example.com</a>”,
+“delay”: 1</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+<li><p>Redirect upon declining with a delay of exactly 5 seconds:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“redirectOptions”: {</dt><dd><p>“action”: “DECLINED”,
+“url”:”<a class="reference external" href="https://example.com">https://example.com</a>”,
+“delay”: 5</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+</ul>
+<p>JSON payload to create an agreement with Redirect Options that redirects a signer that declines the agreement to “<a class="reference external" href="https://example.com">https://example.com</a>” after a delay of 5 seconds:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;ccs&quot;</span><span class="p">:</span> <span class="p">[],</span>
+<span class="s2">&quot;createdDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;deviceInfo&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;documentRetentionApplied&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+<span class="s2">&quot;documentVisibilityEnabled&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">&quot;emailOption&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;expirationTime&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">&quot;externalId&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;fileInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;transientDocumentId&quot;</span><span class="p">:</span> <span class="s2">&quot;CBSCTBABDUAAABACAABAAElUgc9mrHBK8FGaOKeTJ7s3zB68eYQiqCXkrTJJssW2FnXixXX60RZNQDkl5tfsMhs3govR0O2S2WvHKHwQpJn0BoGLuyRSIsTQN6JfJMniGXhK_29STm8QO8V9aAWjs7lW-dHe67ioF_oZT7Qx6nda3nBLYO24946bvqn0zkRo-9YmBk5_4gWzbMNIficPeT74kUKYEtz7QL1ZRdS1erQITNR7DYQFFSZgUX5lKZbDPFqX375c9QSMQ09oWI6mOJlj70qenVdXMA7pnpvQUX0fb0cNgfhmlW1x1IS7rbW8*&quot;</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;firstReminderDelay&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">&quot;formFieldLayerTemplates&quot;</span><span class="p">:</span> <span class="p">[],</span>
+<span class="s2">&quot;hasFormFieldData&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+<span class="s2">&quot;hasSignerIdentityReport&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+<span class="s2">&quot;isDocumentRetentionApplied&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+<span class="s2">&quot;locale&quot;</span><span class="p">:</span> <span class="s2">&quot;en_US&quot;</span><span class="p">,</span>
+<span class="s2">&quot;mergeFieldInfo&quot;</span><span class="p">:</span> <span class="p">[],</span>
+<span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Please review and complete this agreement&quot;</span><span class="p">,</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Agreement Redirect Options Test&quot;</span><span class="p">,</span>
+<span class="s2">&quot;parentId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;participantSetsInfo&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;signer1@outlook.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;First Signer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;notaryAuthentication&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;signingOrder&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;visiblePages&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;signer2@outlook.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Second Signer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;notaryAuthentication&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;signingOrder&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;visiblePages&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;signer3@outlook.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Third Signer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;notaryAuthentication&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;signingOrder&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;visiblePages&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;redirectOptions&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;DECLINED&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;delay&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://example.com&quot;</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;reminderFrequency&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;senderEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;signatureType&quot;</span><span class="p">:</span> <span class="s2">&quot;ESIGN&quot;</span><span class="p">,</span>
+<span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;IN_PROCESS&quot;</span><span class="p">,</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;OUT_FOR_SIGNATURE&quot;</span><span class="p">,</span>
+<span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;AGREEMENT&quot;</span><span class="p">,</span>
+<span class="s2">&quot;vaultingInfo&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;notaryInfo&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;workflowId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">&quot;workflow&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;agreementNameInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;authoringInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ccsListInfo&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;defaultValues&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;minListCount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;maxListCount&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;displayName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;expirationInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;maxDays&quot;</span><span class="p">:</span> <span class="mi">180</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;fileInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;workflowLibraryDocumentSelectorList&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;localeInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;es_ES&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;availableLocales&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;en_US&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;en_US_Echosign&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;en_GB&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;de_DE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fr_FR&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;nl_NL&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;it_IT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fi_FI&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;da_DK&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sv_SE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;es_ES&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;nb_NO&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;nn_NO&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;no_NO&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pt_BR&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pt_PT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ru_RU&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;is_IS&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ja_JP&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;zh_CN&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;zh_TW&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ko_KR&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pl_PL&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;in_ID&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ms_MY&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;vi_VN&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;th_TH&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cs_CZ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;tr_TR&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ca_ES&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;eu_ES&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hr_HR&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hu_HU&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ro_RO&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sk_SK&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sl_SI&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;uk_UA&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;zz_ZZ&quot;</span>
+    <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;mergeFieldsInfo&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;messageInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;modified&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;passwordInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;recipientsListInfo&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;minListCount&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;maxListCount&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+        <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;allowfax&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;allowSender&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;scopeId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+<span class="p">},</span>
+<span class="s2">&quot;authoringRequested&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+<span class="s2">&quot;signatureFlow&quot;</span><span class="p">:</span> <span class="s2">&quot;HYBRID&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If a signer declines an agreement, the recipients are redirected to the set URL after a specified delay.
+The redirect Url reflects the status of the agreement, as shown below.</p>
+<img alt="_images/agreement-signed-redirect-3.png" src="_images/agreement-signed-redirect-3.png" />
+</div>
 <div class="section" id="api-throttling">
 <h2>API Throttling<a class="headerlink" href="#api-throttling" title="Permalink to this heading">¶</a></h2>
 <p>To prevent your API from being overwhelmed by too many requests, Adobe throttles requests to your API.</p>
@@ -933,7 +1581,7 @@ FormFieldGenerator specifications apply to all documents within an agreement. Ho
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Feb 06, 2024. 
+        Last update: Mar 28, 2024. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
