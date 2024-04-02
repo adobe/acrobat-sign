@@ -298,7 +298,7 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Mar 28, 2024. 
+          Last update: Apr 02, 2024. 
         </span>
         
           <div class="rst-content">
@@ -947,7 +947,7 @@ FormFieldGenerator specifications apply to all documents within an agreement. Ho
 <li><p>Minimal postSignOption payload object, where you specify only redirect URL. The default delay is zero seconds, where signers are immediately redirected upon signing the agreement.</p>
 <blockquote>
 <div><dl class="simple">
-<dt>“postSignOption”: {</dt><dd><p>“redirectUrl”:”<a class="reference external" href="https://example.com">https://example.com</a>”</p>
+<dt>“postSignOption”: {</dt><dd><p>“redirectUrl”:”<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>”</p>
 </dd>
 </dl>
 <p>}</p>
@@ -956,7 +956,7 @@ FormFieldGenerator specifications apply to all documents within an agreement. Ho
 <li><p>Redirect with no delay after signing (immediate redirect):</p>
 <blockquote>
 <div><dl class="simple">
-<dt>“postSignOption”: {</dt><dd><p>“redirectUrl”:”<a class="reference external" href="https://example.com">https://example.com</a>”,
+<dt>“postSignOption”: {</dt><dd><p>“redirectUrl”:”<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>”,
 “redirectDelay”: 0</p>
 </dd>
 </dl>
@@ -966,7 +966,7 @@ FormFieldGenerator specifications apply to all documents within an agreement. Ho
 <li><p>Redirect with a delay of 2 seconds after signing:</p>
 <blockquote>
 <div><dl class="simple">
-<dt>“postSignOption”: {</dt><dd><p>“redirectUrl”:”<a class="reference external" href="https://example.com">https://example.com</a>”,
+<dt>“postSignOption”: {</dt><dd><p>“redirectUrl”:”<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>”,
 “redirectDelay”: 2</p>
 </dd>
 </dl>
@@ -976,7 +976,7 @@ FormFieldGenerator specifications apply to all documents within an agreement. Ho
 <li><p>Redirect with no delay after signing (null delay - immediate redirect):</p>
 <blockquote>
 <div><dl class="simple">
-<dt>“postSignOption”: {</dt><dd><p>“redirectUrl”:”<a class="reference external" href="https://example.com">https://example.com</a>”,
+<dt>“postSignOption”: {</dt><dd><p>“redirectUrl”:”<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>”,
 “redirectDelay”: null</p>
 </dd>
 </dl>
@@ -985,7 +985,7 @@ FormFieldGenerator specifications apply to all documents within an agreement. Ho
 </li>
 </ul>
 <p>As participants sign the agreement, they are automatically redirected to the specified URL after a specified delay.</p>
-<p>JSON payload to create an agreement with Post Sign Redirect Options that redirects each signer upon signing to “<a class="reference external" href="https://example.com">https://example.com</a>” after a delay of 5 seconds:</p>
+<p>JSON payload to create an agreement with Post Sign Redirect Options that redirects each signer upon signing to “<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>” after a delay of 5 seconds:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="s2">&quot;ccs&quot;</span><span class="p">:</span> <span class="p">[],</span>
 <span class="s2">&quot;createdDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
@@ -1071,7 +1071,7 @@ FormFieldGenerator specifications apply to all documents within an agreement. Ho
 <span class="p">],</span>
 <span class="s2">&quot;postSignOption&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">&quot;redirectDelay&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
-    <span class="s2">&quot;redirectUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://example.com&quot;</span>
+    <span class="s2">&quot;redirectUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.adobe.com&quot;</span>
 <span class="p">},</span>
 <span class="s2">&quot;reminderFrequency&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
 <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{},</span>
@@ -1255,7 +1255,7 @@ Unlike Post Sign Options, Agreement Redirect Options allows you to also specify 
 <blockquote>
 <div><dl class="simple">
 <dt>“redirectOptions”: {</dt><dd><p>“action”:”DECLINED”,
-“url”:”<a class="reference external" href="https://example.com">https://example.com</a>”,
+“url”:”<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>”,
 “delay”: 0</p>
 </dd>
 </dl>
@@ -1266,7 +1266,7 @@ Unlike Post Sign Options, Agreement Redirect Options allows you to also specify 
 <blockquote>
 <div><dl class="simple">
 <dt>“redirectOptions”: {</dt><dd><p>“action”:”DECLINED”,
-“url”:”<a class="reference external" href="https://example.com">https://example.com</a>”,
+“url”:”<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>”,
 “delay”: null</p>
 </dd>
 </dl>
@@ -1277,7 +1277,7 @@ Unlike Post Sign Options, Agreement Redirect Options allows you to also specify 
 <blockquote>
 <div><dl class="simple">
 <dt>“redirectOptions”: {</dt><dd><p>“action”:”DECLINED”,
-“url”:”<a class="reference external" href="https://example.com">https://example.com</a>”</p>
+“url”:”<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>”</p>
 </dd>
 </dl>
 <p>}</p>
@@ -1287,7 +1287,7 @@ Unlike Post Sign Options, Agreement Redirect Options allows you to also specify 
 <blockquote>
 <div><dl class="simple">
 <dt>“redirectOptions”: {</dt><dd><p>“action”: “DECLINED”,
-“url”: “<a class="reference external" href="https://example.com">https://example.com</a>”,
+“url”: “<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>”,
 “delay”: 1</p>
 </dd>
 </dl>
@@ -1298,7 +1298,7 @@ Unlike Post Sign Options, Agreement Redirect Options allows you to also specify 
 <blockquote>
 <div><dl class="simple">
 <dt>“redirectOptions”: {</dt><dd><p>“action”: “DECLINED”,
-“url”:”<a class="reference external" href="https://example.com">https://example.com</a>”,
+“url”:”<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>”,
 “delay”: 5</p>
 </dd>
 </dl>
@@ -1306,7 +1306,7 @@ Unlike Post Sign Options, Agreement Redirect Options allows you to also specify 
 </div></blockquote>
 </li>
 </ul>
-<p>JSON payload to create an agreement with Redirect Options that redirects a signer that declines the agreement to “<a class="reference external" href="https://example.com">https://example.com</a>” after a delay of 5 seconds:</p>
+<p>JSON payload to create an agreement with Redirect Options that redirects a signer that declines the agreement to “<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>” after a delay of 5 seconds:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="s2">&quot;ccs&quot;</span><span class="p">:</span> <span class="p">[],</span>
 <span class="s2">&quot;createdDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
@@ -1394,7 +1394,7 @@ Unlike Post Sign Options, Agreement Redirect Options allows you to also specify 
     <span class="p">{</span>
     <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;DECLINED&quot;</span><span class="p">,</span>
     <span class="s2">&quot;delay&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
-    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://example.com&quot;</span>
+    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.adobe.com&quot;</span>
     <span class="p">}</span>
 <span class="p">],</span>
 <span class="s2">&quot;reminderFrequency&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
@@ -1581,7 +1581,7 @@ The redirect Url reflects the status of the agreement, as shown below.</p>
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Mar 28, 2024. 
+        Last update: Apr 02, 2024. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
