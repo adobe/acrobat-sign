@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/sdks/AcrobatSign_CSharp_SDK/src/IO.Swagger/obj/Debug
+/sdks/AcrobatSign_CSharp_SDK/src/IO.Swagger.Test/obj/Debug
+/sdks/AcrobatSign_CSharp_SDK/.vs/IO.Swagger/FileContentIndex
+/sdks/AcrobatSign_CSharp_SDK/packages
+/sdks/AcrobatSign_CSharp_SDK/.vs/IO.Swagger/v17
+/sdks/AcrobatSign_CSharp_SDK/src/IO.Swagger/.vs
+/sdks/AcrobatSign_CSharp_SDK/src/IO.Swagger.Test/.vs
+/sdks/AcrobatSign_CSharp_SDK/src/IO.Swagger/bin/Debug
+/sdks/AcrobatSign_CSharp_SDK/src/IO.Swagger.Test/bin/Debug
