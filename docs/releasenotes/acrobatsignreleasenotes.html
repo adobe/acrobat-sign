@@ -205,7 +205,7 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Feb 06, 2024. 
+          Last update: Jun 13, 2024. 
         </span>
         
           <div class="rst-content">
@@ -248,19 +248,22 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>January, 2024</p></td>
+<tr class="row-even"><td><p>May, 2024</p></td>
+<td><p><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/webhooks-oauth-2.0.html">OAuth 2.0 support at account level</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>January, 2024</p></td>
 <td><p><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/webhooks-oauth-2.0.html">OAuth 2.0 support for customer applications</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>July, 2023</p></td>
+<tr class="row-even"><td><p>July, 2023</p></td>
 <td><p>Doc updates for all docs</p></td>
 </tr>
-<tr class="row-even"><td><p>May, 2023</p></td>
+<tr class="row-odd"><td><p>May, 2023</p></td>
 <td><p>OEM 1.0 onboarding, quickstart, FAQ. OEM 2.0 beta docs</p></td>
 </tr>
-<tr class="row-odd"><td><p>April, 2023</p></td>
+<tr class="row-even"><td><p>April, 2023</p></td>
 <td><p>Solutions for Government: onboarding docs, Postman collection</p></td>
 </tr>
-<tr class="row-even"><td><p>March 14, 2023</p></td>
+<tr class="row-odd"><td><p>March 14, 2023</p></td>
 <td><p><a class="reference external" href="https://adobe.postman.co/workspace/Adobe-Acrobat-Sign~1faa30d0-1b34-493b-96b1-475cf3978a95/overview">New Acrobat Sign Workspace on Postman</a></p></td>
 </tr>
 </tbody>
@@ -279,7 +282,14 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>January, 2024</p></td>
+<tr class="row-even"><td><p>June, 2024</p></td>
+<td><p>Webhook Event Payload update</p>
+<ul class="simple">
+<li><p>The webhookNotificationPayload now includes the following new fields for all AGREEMENT_* webhook subscription event types: userId, authenticationMethod, and createdGroupId.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>January, 2024</p></td>
 <td><p>New Webhooks</p>
 <ul class="simple">
 <li><p>AGREEMENT_EMAIL_OTP_AUTHENTICATED: Triggers when an agreement is authenticated with Email OTP.</p></li>
@@ -287,7 +297,7 @@
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p>November, 2023</p></td>
+<tr class="row-even"><td><p>November, 2023</p></td>
 <td><p>New Webhooks</p>
 <ul class="simple">
 <li><p>AGREEMENT_UNSHARED: Triggers when an agreement is unshared.</p></li>
@@ -295,7 +305,7 @@
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><p>July 18, 2023</p></td>
+<tr class="row-odd"><td><p>July 18, 2023</p></td>
 <td><p>New Webhooks</p>
 <ul class="simple">
 <li><p>AGREEMENT_DOCUMENTS_VIEWED: Triggers when a user views an agreement.</p></li>
@@ -303,7 +313,7 @@
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p>July 18, 2023</p></td>
+<tr class="row-even"><td><p>July 18, 2023</p></td>
 <td><p>Updated Webhooks</p>
 <ul class="simple">
 <li><p>AGREEMENT_RECALLED: Additional payload values now include <code class="docutils literal notranslate"><span class="pre">comments</span></code> and <code class="docutils literal notranslate"><span class="pre">notifyOthers</span></code>.</p></li>
@@ -311,10 +321,10 @@
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><p>July 18, 2023</p></td>
+<tr class="row-odd"><td><p>July 18, 2023</p></td>
 <td><p>Updated IP ranges for Webhooks: Webhooks require allow-listing to specific IP addresses. The <a class="reference external" href="https://helpx.adobe.com/sign/system-requirements.html#ipranges">IP range list has been updated</a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p>July 18, 2023</p></td>
+<tr class="row-even"><td><p>July 18, 2023</p></td>
 <td><p>All <code class="docutils literal notranslate"><span class="pre">/search</span></code> API calls are subject to volume throttling at the rate of:</p>
 <ul class="simple">
 <li><p>1000 calls per minute</p></li>
@@ -324,13 +334,13 @@
 <p><strong>Note</strong>: Administrators may file a <a class="reference external" href="https://adobe.com/go/adobesign-support-center">support request</a> to elevate the volumes.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p>March 14, 2023</p></td>
+<tr class="row-odd"><td><p>March 14, 2023</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserId</span></code> and <code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code>: Accounts on Webhooks 2.0 will populate the <code class="docutils literal notranslate"><span class="pre">initiatingUserId</span></code> and <code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code> fields in the notification payload. Accounts that remain on the classic webhooks experience after March 14, 2023 will see unpopulated fields present in the payload.</p></td>
 </tr>
-<tr class="row-odd"><td><p>March 14, 2023</p></td>
+<tr class="row-even"><td><p>March 14, 2023</p></td>
 <td><p>All accounts existing before November 8th, 2022, are migrated to webhooks 2.0. On July 18th, 2023, Adobe will sunset the legacy webhooks infrastructure (referred to as “classic webhooks”). <strong>See below</strong>.</p></td>
 </tr>
-<tr class="row-even"><td><p>Nov. 8, 2022</p></td>
+<tr class="row-odd"><td><p>Nov. 8, 2022</p></td>
 <td><p>Webhook conversion to a microservice (“webhooks 2.0”) with the following benefits:</p>
 <ul class="simple">
 <li><p>Independent release cycles from the core code thereby supporting frequent and rapid updates, feature enhancements, bug fixes, etc.</p></li>
@@ -349,7 +359,7 @@
 </div></blockquote>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Nov. 8</p></td>
+<tr class="row-even"><td><p>Nov. 8</p></td>
 <td><p>New webhooks:</p>
 <ul class="simple">
 <li><p>AGREEMENT_REMINDER_INITIATED fires when an agreement reminder is triggered and reminder emails are suppressed.</p></li>
@@ -358,28 +368,28 @@
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><p>Sept. 13</p></td>
+<tr class="row-odd"><td><p>Sept. 13</p></td>
 <td><p>Support for webhook endpoints to communicate on port 8443 (in addition to 443) to support mTLS.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Sept. 13</p></td>
+<tr class="row-even"><td><p>Sept. 13</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/agreements/{agreementId}/</span></code> endpoint now supports an optional redirect URL that sends users to control a custom post-sending landing page instead of the default Acrobat Sign page. Developers can use the new  <code class="docutils literal notranslate"><span class="pre">postSendOption.redirectUrl</span></code> for apps and integrations so that the sender redirects to a workflow-specific page, thereby both allowing the sender to remain in the integration (e.g. branded workflow), and providing a way for the developer to create a page where the sender can be notified about the sent status or modify the agreement (reminders, deadlines, etc.) You must configure a Sign setting to allow these URLs to avoid open redirect security issues.  The description of this setting is similar to: “the authorized URLs the application can redirect to after completing a workflow”. This option does not apply to Fill &amp; Sign flows.</p></td>
 </tr>
-<tr class="row-even"><td><p>July</p></td>
+<tr class="row-odd"><td><p>July</p></td>
 <td><p>None</p></td>
-</tr>
-<tr class="row-odd"><td><p>June</p></td>
-<td><p>AGREEMENT_EXPIRATION_UPDATED (API only): A new webhook event provides notification updates for an agreement’s expiration time. It can only be subscribed to via the <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/webhooks</span></code> API call.</p></td>
 </tr>
 <tr class="row-even"><td><p>June</p></td>
+<td><p>AGREEMENT_EXPIRATION_UPDATED (API only): A new webhook event provides notification updates for an agreement’s expiration time. It can only be subscribed to via the <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/webhooks</span></code> API call.</p></td>
+</tr>
+<tr class="row-odd"><td><p>June</p></td>
 <td><p>AGREEMENT_SIGNER_NAME_CHANGED_BY_SIGNER: This new event triggers when a recipient changes the pre-populated name value when signing an agreement. Name values can be pre-populated through the API or through the <em>require recipient name when sending</em> option.</p></td>
 </tr>
-<tr class="row-odd"><td><p>May</p></td>
+<tr class="row-even"><td><p>May</p></td>
 <td><p>None</p></td>
 </tr>
-<tr class="row-even"><td><p>April</p></td>
+<tr class="row-odd"><td><p>April</p></td>
 <td><p>REMINDER_SENT: A new webhook event executes on REMINDER_SENT events either by explicitly subscribing to the AGREEMENT_REMINDER_SENT event or subscribing to AGREEMENT_ALL.</p></td>
 </tr>
-<tr class="row-odd"><td><p>January</p></td>
+<tr class="row-even"><td><p>January</p></td>
 <td><p>None</p></td>
 </tr>
 </tbody>
@@ -398,10 +408,31 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>January, 2024</p></td>
+<tr class="row-even"><td><p>May, 2024</p></td>
+<td><dl>
+<dt>Endpoint update:</dt><dd><ul class="simple">
+<li><p>Enhanced webhookEndpoints API: The /webhookEndpoints API can now be configured at both the account level and the application level.</p></li>
+</ul>
+</dd>
+<dt>/webhooks API update:</dt><dd><ul>
+<li><p>MODIFYING_IMMUTABLE_FIELDS error code is returned in the following cases, in addition to the existing scenario:</p>
+<ul>
+<li><p>When the caller does not include the <cite>webhookUrl`</cite> or <cite>webhookEndpointInfo`</cite> field in a PUT /webhooks API request while updating an existing webhook.
+Previously, the webhook service did not throw an error if the webhookUrl field was not included; it simply skipped updating this field. With the introduction of the webhookEndpointInfo field, the caller must provide either <cite>webhookUrl`</cite> or <cite>webhookEndpointInfo</cite>. Failure to provide either field will result in an error.</p>
+<p><strong>Note</strong>: Once a webhook is migrated from using webhookUrl to webhookEndpointInfo, it cannot revert back to using webhookUrl. This migration is necessary to upgrade the webhook to use Oauth 2.0  authentication.</p>
+</li>
+<li><p>When the caller attempts to update any part of the <cite>webhookEndpointInfo`</cite> object. The <cite>webhookEndpointInfo`</cite> field is immutable and cannot be changed   once set.</p></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p>January, 2024</p></td>
 <td><p>New feature: <a class="reference external" href="https://opensource.adobe.com/acrobat-sign/developer_guide/webhook-endpoint-api.html">Support for WebhookEndpoint APIs</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>November, 2023</p></td>
+<tr class="row-even"><td><p>November, 2023</p></td>
 <td><dl class="simple">
 <dt>New features:</dt><dd><ul class="simple">
 <li><p><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/developer_guide/apiusage.html#generate-templates-from-in-progress-or-signed-agreements">Generate templates from in-progress or signed agreements</a></p></li>
@@ -411,13 +442,13 @@
 </dl>
 </td>
 </tr>
-<tr class="row-even"><td><p>August, 2023</p></td>
+<tr class="row-odd"><td><p>August, 2023</p></td>
 <td><p><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/developer_guide/apiusage.html#add-form-fields-to-agreements">Associate FormFieldGenerator with specific documents</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>July 18, 2023</p></td>
+<tr class="row-even"><td><p>July 18, 2023</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/combined</span></code> document returns merged field data; Merged (prefilled) data can be visually validated using the <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/</span> <span class="pre">agreements/{agreementId}combinedDocument</span></code> call and including the <code class="docutils literal notranslate"><span class="pre">includeMergedFieldData</span></code> parameter. The downloaded PDF includes the form field data that has already been merged via <code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/formfields/mergeInfo</span></code> call.</p></td>
 </tr>
-<tr class="row-even"><td><p>Nov. 8</p></td>
+<tr class="row-odd"><td><p>Nov. 8</p></td>
 <td><p>New endpoints</p>
 <ul class="simple">
 <li><p>DELETE /agreements/{agreementId} - A new endpoint that supports the “soft delete” function by moving an agreement and all related data(including database records and physical files) to the Deleted folder where it will be fully destroyed 14 days later (unless restored first).</p></li>
@@ -425,7 +456,7 @@
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Nov. 8</p></td>
+<tr class="row-even"><td><p>Nov. 8</p></td>
 <td><p>Updated endpoints</p>
 <ul class="simple">
 <li><p>GET /libraryDocument/{libraryDocumentId}/combinedDocument - An update to the existing endpoint to add a value (skipDocumentSealing) that returns a non-certified PDF.</p></li>
@@ -434,22 +465,22 @@
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><p>Sept</p></td>
+<tr class="row-odd"><td><p>Sept</p></td>
 <td><p>The description of the BYON_NOTARY notaryType was updated to reflect the “bring your own” aspect of a customer-provided notary.</p></td>
 </tr>
-<tr class="row-odd"><td><p>July</p></td>
+<tr class="row-even"><td><p>July</p></td>
 <td><p>Devs can <a class="reference external" href="https://helpx.adobe.com/sign/release-notes/adobe-sign.html">improve the delegation process</a> by updating the delegation API to use the v6 REST endpoint <code class="docutils literal notranslate"><span class="pre">delegatedParticipantSets</span></code>. Customers should see no impact beyond enforcing the required name values configuration during delegation.</p></td>
 </tr>
-<tr class="row-even"><td><p>June</p></td>
+<tr class="row-odd"><td><p>June</p></td>
 <td><p>None</p></td>
 </tr>
-<tr class="row-odd"><td><p>May</p></td>
+<tr class="row-even"><td><p>May</p></td>
 <td><p>None</p></td>
 </tr>
-<tr class="row-even"><td><p>April</p></td>
+<tr class="row-odd"><td><p>April</p></td>
 <td><p>None</p></td>
 </tr>
-<tr class="row-odd"><td><p>January</p></td>
+<tr class="row-even"><td><p>January</p></td>
 <td><p>None</p></td>
 </tr>
 </tbody>
@@ -518,7 +549,7 @@
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Feb 06, 2024. 
+        Last update: Jun 13, 2024. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

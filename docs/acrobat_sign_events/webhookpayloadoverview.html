@@ -144,6 +144,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#basic-webhook-payload">Basic webhook payload</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#applicable-users">Applicable users</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#webhook-url">Webhook URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#webhooknotificationpayload">webhookNotificationPayload</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="webhookeventsagreements.html">Agreement Events</a><ul>
@@ -234,10 +235,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="webhooks-oauth-2.0.html">Webhooks OAuth 2.0 User Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="webhooks-oauth-2.0.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webhooks-oauth-2.0.html#using-webhooks-oauth-2-0">Using Webhooks OAuth 2.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="webhooks-oauth-2.0.html#webhookendpointurl-details">webhookEndpointUrl details</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks-oauth-2.0.html#set-up-webhooks-oauth-2-0">Set up Webhooks OAuth 2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks-oauth-2.0.html#webhookendpointurl-details">webhookEndpointUrl details</a></li>
 </ul>
 </li>
 </ul>
@@ -290,7 +289,7 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Feb 06, 2024. 
+          Last update: Jun 07, 2024. 
         </span>
         
           <div class="rst-content">
@@ -539,6 +538,126 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="webhooknotificationpayload">
+<h2>webhookNotificationPayload<a class="headerlink" href="#webhooknotificationpayload" title="Permalink to this heading">¶</a></h2>
+<p>The webhookNotificationPayload now includes the following new fields for all AGREEMENT_* webhook subscription event types: userId, authenticationMethod, and createdGroupId.</p>
+<p>The following example shows a <strong>Webhook Payload for the AGREEMENT_CREATED</strong> event.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;webhookId&quot;</span><span class="p">:</span><span class="s2">&quot;9b7fc222-0c74-478b-9bde-8ac70a2dd163&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;webhookName&quot;</span><span class="p">:</span><span class="s2">&quot;cjones_preview_acct_05_23_2024_1&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;webhookNotificationId&quot;</span><span class="p">:</span><span class="s2">&quot;d20d758a-f8b2-41b7-8c20-016312de7978&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;webhookUrlInfo&quot;</span><span class="p">:{</span>
+    <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;https://callback-prod.ethos03-stage-va6.ethos.adobe.net/postWebhooksPublish?guid=cjones_preview_acct_05_23_2024_1&quot;</span>
+ <span class="p">},</span>
+ <span class="s2">&quot;webhookScope&quot;</span><span class="p">:</span><span class="s2">&quot;ACCOUNT&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;webhookNotificationApplicableUsers&quot;</span><span class="p">:[</span>
+    <span class="p">{</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;CBJCHBCAABAAR17L9fNP9kJcZHy759YawVx-pR-aqpf2&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;cjones@adobe.com&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;SENDER&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;payloadApplicable&quot;</span><span class="p">:</span><span class="n">true</span>
+    <span class="p">}</span>
+ <span class="p">],</span>
+ <span class="s2">&quot;event&quot;</span><span class="p">:</span><span class="s2">&quot;AGREEMENT_CREATED&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;eventDate&quot;</span><span class="p">:</span><span class="s2">&quot;2024-05-30T22:57:28Z&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;eventResourceType&quot;</span><span class="p">:</span><span class="s2">&quot;agreement&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;participantUserId&quot;</span><span class="p">:</span><span class="s2">&quot;CBJCHBCAABAAR17L9fNP9kJcZHy759YawVx-pR-aqpf2&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;participantUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;cjones@adobe.com&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;actingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;CBJCHBCAABAAR17L9fNP9kJcZHy759YawVx-pR-aqpf2&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;actingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;cjones@adobe.com&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;initiatingUserId&quot;</span><span class="p">:</span><span class="s2">&quot;CBJCHBCAABAAR17L9fNP9kJcZHy759YawVx-pR-aqpf2&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;initiatingUserEmail&quot;</span><span class="p">:</span><span class="s2">&quot;cjones@adobe.com&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;agreement&quot;</span><span class="p">:{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;CBJCHBCAABAA2XhaLGV0pKssKU03QXTcTXS4ebPyoSL_&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;sample_1page_user_guide_05_30_2024_1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;signatureType&quot;</span><span class="p">:</span><span class="s2">&quot;ESIGN&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;OUT_FOR_SIGNATURE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;documentVisibilityEnabled&quot;</span><span class="p">:</span><span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;createdDate&quot;</span><span class="p">:</span><span class="s2">&quot;2024-05-30T22:57:29Z&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;locale&quot;</span><span class="p">:</span><span class="s2">&quot;en_US&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;Please review and complete sample_1page_user_guide_05_30_2024_1.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;senderEmail&quot;</span><span class="p">:</span><span class="s2">&quot;cjones@adobe.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;participantSetsInfo&quot;</span><span class="p">:{</span>
+       <span class="s2">&quot;participantSets&quot;</span><span class="p">:[</span>
+          <span class="p">{</span>
+             <span class="s2">&quot;memberInfos&quot;</span><span class="p">:[</span>
+                <span class="p">{</span>
+                   <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;CBJCHBCAABAAUApjvujmE_gwjp5Hl9XhboO5oCjeIqsl&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;cjones@adobe.com&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;company&quot;</span><span class="p">:</span><span class="s2">&quot;Adobe&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Casey Jones&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;userId&quot;</span><span class="p">:</span><span class="s2">&quot;CBJCHBCAABAAR17L9fNP9kJcZHy759YawVx-pR-aqpf2&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;securityOption&quot;</span><span class="p">:{</span>
+                      <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span><span class="s2">&quot;NONE&quot;</span>
+                   <span class="p">}</span>
+                <span class="p">}</span>
+             <span class="p">],</span>
+             <span class="s2">&quot;order&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+             <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;WAITING_FOR_MY_SIGNATURE&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;CBJCHBCAABAAte-PIPyeug0KlgUmRIncdyFBh-UvRKV8&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+             <span class="s2">&quot;memberInfos&quot;</span><span class="p">:[</span>
+                <span class="p">{</span>
+                   <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;CBJCHBCAABAAPRXGX41GIgOTh0N95BvHV3inlUGP2fh9&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;cjones@gmail.com&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;company&quot;</span><span class="p">:</span><span class="s2">&quot;Adobe&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;cjones preview1&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;userId&quot;</span><span class="p">:</span><span class="s2">&quot;CBJCHBCAABAAcAz8uVqsV9JAQxwf1_oCQojJ1efWdyvL&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;securityOption&quot;</span><span class="p">:{</span>
+                      <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span><span class="s2">&quot;NONE&quot;</span>
+                   <span class="p">}</span>
+                <span class="p">}</span>
+             <span class="p">],</span>
+             <span class="s2">&quot;order&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+             <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;NOT_YET_VISIBLE&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;CBJCHBCAABAA85vUWoa0pSTcQCdz_j8XDv41dMT2Qlbp&quot;</span>
+          <span class="p">}</span>
+       <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;createdGroupId&quot;</span><span class="p">:</span><span class="s2">&quot;CBJCHBCAABAAH9R6_Qng4mKIkTbAc66fi-uxaApLLuAm&quot;</span>
+ <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">New fields in Webhook Payload</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Prerequisite (to get this in the payload)</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>userId</p></td>
+<td><p>The unique identifier of the participant</p></td>
+<td><p>Agreement Info needs to be checked</p></td>
+<td><p>“userId”: “CBJCHBCAABAAR17L9fNP9kJcZHy759YawVx-pR-aqpf2”,</p></td>
+</tr>
+<tr class="row-odd"><td><p>authenticationMethod</p></td>
+<td><p>The authentication method for the participants to have access to view and sign the document. possible values:[‘NONE’ or ‘PASSWORD’ or ‘PHONE’ or ‘KBA’ or ‘WEB_IDENTITY’ or ‘ADOBE_SIGN’ or ‘GOV_ID’ or ‘DIG_ID’ or ‘EMAIL_OTP’]</p></td>
+<td><p>Agreement Info needs to be checked.</p></td>
+<td><p>“securityOption”: { “authenticationMethod”: “ADOBE_SIGN” }</p></td>
+</tr>
+<tr class="row-even"><td><p>createdGroupId</p></td>
+<td><p>The group id of agreement at the time of creation.</p></td>
+<td><p>Agreement Participant Info needs to be checked.</p></td>
+<td><p>“createdGroupId”: “CBJCHBCAABAAR17L9fNP9kJcZHy759YawVx-pR-aqpf3”</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
 
@@ -551,9 +670,9 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2022, Adobe Inc..
+        &#169; Copyright 2024, Adobe Inc..
       <span class="lastupdated">
-        Last update: Feb 06, 2024. 
+        Last update: Jun 07, 2024. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

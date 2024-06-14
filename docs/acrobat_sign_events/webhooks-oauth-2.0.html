@@ -143,6 +143,7 @@
 <li class="toctree-l2"><a class="reference internal" href="webhookpayloadoverview.html#basic-webhook-payload">Basic webhook payload</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookpayloadoverview.html#applicable-users">Applicable users</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhookpayloadoverview.html#webhook-url">Webhook URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookpayloadoverview.html#webhooknotificationpayload">webhookNotificationPayload</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="webhookeventsagreements.html">Agreement Events</a><ul>
@@ -233,10 +234,8 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Webhooks OAuth 2.0 User Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-webhooks-oauth-2-0">Using Webhooks OAuth 2.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#webhookendpointurl-details">webhookEndpointUrl details</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#set-up-webhooks-oauth-2-0">Set up Webhooks OAuth 2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#webhookendpointurl-details">webhookEndpointUrl details</a></li>
 </ul>
 </li>
 </ul>
@@ -289,7 +288,7 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Mar 21, 2024. 
+          Last update: Jun 07, 2024. 
         </span>
         
           <div class="rst-content">
@@ -310,12 +309,16 @@
                 
   <div class="section" id="webhooks-oauth-2-0-user-guide">
 <h1>Webhooks OAuth 2.0 User Guide<a class="headerlink" href="#webhooks-oauth-2-0-user-guide" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Current release includes enhancement to the Webhooks OAuth 2.0. The /webhookEndpoints API can now be configured at both the account level and the application level. To enable webhookEndpoints/ API configuration at the account level, we made the <cite>applicationIDs</cite> field optional. This means that if you omit the applicationIDs in a POST /webhookEndpoint request, the webhookEndpoint is created at the account level instead of being linked to a specific application.</p>
+</div>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">¶</a></h2>
-<p>To use Webhook OAuth 2.0, the account level setting, WEBHOOK_OAUTH20_ROLLOUT needs to be set. You must reach out to Adobe customer support to get this enabled.</p>
+<p>To use Webhook OAuth 2.0, you need to enable the account-level setting WEBHOOK_OAUTH20_ROLLOUT. Please contact Adobe customer support to activate this setting.</p>
 </div>
-<div class="section" id="using-webhooks-oauth-2-0">
-<h2>Using Webhooks OAuth 2.0<a class="headerlink" href="#using-webhooks-oauth-2-0" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="set-up-webhooks-oauth-2-0">
+<h2>Set up Webhooks OAuth 2.0<a class="headerlink" href="#set-up-webhooks-oauth-2-0" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Create a customer application.</p></li>
 </ol>
@@ -404,6 +407,10 @@
 <span class="p">}</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To enable webhookEndpoints/ API configuration at the account level, omit the applicationIDs in the above POST /webhookEndpoint request.</p>
+</div>
 <ol class="arabic simple" start="5">
 <li><p>Replace the value for the following attributes with the correct values:</p></li>
 </ol>
@@ -429,7 +436,7 @@
 <td><p>This is a webhookEndpoint URL pattern that you would like to be mapped to one or more webhook(s) that belong to the same account. See <a class="reference internal" href="#webhookendpointurl"><span class="std std-ref">webhookEndpointUrl details</span></a>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>applicationIds</p></td>
-<td><p>One or more Application IDs (for example Step.1) that needs to be associated. This would be alphanumeric.</p></td>
+<td><p>(Optional) You can provide one or more Application IDs (alphanumeric) that needs to be associated. If you don’t inlcude applicationIDs attribute, the webhookEndpoints/ is configured at account level.</p></td>
 </tr>
 <tr class="row-even"><td><p>authorizationServerUrl</p></td>
 <td><p>URL of the authorization server for getting the access token.</p></td>
@@ -448,20 +455,8 @@
 </tr>
 </tbody>
 </table>
-<div class="section" id="webhookendpointurl-details">
-<span id="webhookendpointurl"></span><h3>webhookEndpointUrl details<a class="headerlink" href="#webhookendpointurl-details" title="Permalink to this heading">¶</a></h3>
-<p>For webhookEndpointUrl, you can provide a leading and a trailing wildcard that would be replaced with respective values (domainPrefix and urlSuffix) when the webhook(s) are created by providing the webhookEndpointId, in addition to that.</p>
-<p>Example webhookEndpointUrl: https: //yourDomain.com/webhook?agreementID=</p>
-<p>You can link this webhookEndpointUrl to any new webhooks you create by using the id from the response in webhookEndpointInfo. Include domainPrefix and urlSuffix if you’re using wildcards. After associating the webhookEndpoint resource using the webhookEndpointId, with domainPrefix as “dev-01” and urlSuffix as “agreement123,” the resulting webhookUrl for /api/rest/v6/webhooks will be as follows: https: //dev-01.yourDomain.com/webhook?agreementId=agreement123</p>
-<p>You will get the following response containing the id:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;e6a238bc-1c67-463c-992c-9edc9ba637a7&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>The returned id is used to uniquely identify the webhookEndpoint.</p>
 <ol class="arabic simple" start="6">
-<li><p>To associate the above webhookEndpoint for a new webhook, send a POST request to /api/rest/v6/webhooks with the following JSON body:</p></li>
+<li><p>To associate the <a class="reference internal" href="#webhookendpointurl"><span class="std std-ref">webhookEndpointUrl details</span></a> for a new webhook, send a POST request to /api/rest/v6/webhooks with the following JSON body:</p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -535,32 +530,19 @@
 <p class="admonition-title">Note</p>
 <p>Note the addition of a new value “authorization” under the requestHeaders. This will be included with the remaining headers from before.</p>
 </div>
-<p><strong>webhookNotificationPayload</strong></p>
+</div>
+<div class="section" id="webhookendpointurl-details">
+<span id="webhookendpointurl"></span><h2>webhookEndpointUrl details<a class="headerlink" href="#webhookendpointurl-details" title="Permalink to this heading">¶</a></h2>
+<p>For webhookEndpointUrl, you can provide a leading and a trailing wildcard that would be replaced with respective values (domainPrefix and urlSuffix) when the webhook(s) are created by providing the webhookEndpointId, in addition to that.</p>
+<p>Example webhookEndpointUrl: https: //yourDomain.com/webhook?agreementID=</p>
+<p>You can link this webhookEndpointUrl to any new webhooks you create by using the id from the response in webhookEndpointInfo. Include domainPrefix and urlSuffix if you’re using wildcards. After associating the webhookEndpoint resource using the webhookEndpointId, with domainPrefix as “dev-01” and urlSuffix as “agreement123,” the resulting webhookUrl for /api/rest/v6/webhooks will be as follows: https: //dev-01.yourDomain.com/webhook?agreementId=agreement123</p>
+<p>You will get the following response containing the id:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;/postWebhooksPublish?guid=preview_na1_webhook_12_20_2023_1&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;requestBody&quot;</span><span class="p">:</span> <span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">webhookId</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">fe4880d0-4e16-4964-b5ab-07b06d30a430</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">webhookName</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">preview_na1_webhook_12_20_2023_1</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">webhookNotificationId</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">0364c683-4fbd-4f21-8c80-9a5aa9e2c9e0</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">webhookUrlInfo</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\&quot;</span><span class="s2">url</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">https://callback-prod.yourDomain.com/webhook?agreementId=agreement_12_19_2023_1</span><span class="se">\&quot;</span><span class="s2">},</span><span class="se">\&quot;</span><span class="s2">webhookScope</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">USER</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">webhookNotificationApplicableUsers</span><span class="se">\&quot;</span><span class="s2">:[{</span><span class="se">\&quot;</span><span class="s2">id</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">CBJCHBCAABAAR17L9fNP9kJcZHy759YawVx-pR-aqpf2</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">email</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">some-user@yourDomain.com</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">role</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">SENDER</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">payloadApplicable</span><span class="se">\&quot;</span><span class="s2">:true}],</span><span class="se">\&quot;</span><span class="s2">event</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">AGREEMENT_ACTION_COMPLETED</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">eventDate</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">2023-12-21T00:09:24Z</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">eventResourceType</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">agreement</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">participantRole</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">SIGNER</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">actionType</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">ESIGNED</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">participantUserId</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">CBJCHBCAABAAR17L9fNP9kJcZHy759YawVx-pR-aqpf2</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">participantUserEmail</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">some-user@yourDomain.com</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">actingUserId</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">CBJCHBCAABAAR17L9fNP9kJcZHy759YawVx-pR-aqpf2</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">actingUserEmail</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">some-user@yourDomain.com</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">initiatingUserId</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">CBJCHBCAABAAR17L9fNP9kJcZHy759YawVx-pR-aqpf2</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">initiatingUserEmail</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">some-user@yourDomain.com</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">agreement</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\&quot;</span><span class="s2">id</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">CBJCHBCAABAA6z_Rj994soFPUzj-COPTH62KP4d1Leh3</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">sample_1page_12_20_23_1</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">status</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">SIGNED</span><span class="se">\&quot;</span><span class="s2">}}&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;clientId&quot;</span><span class="p">:</span> <span class="s2">&quot;CBJCHBCAABAAhdTfTbSnTtEqZf_cLHgqnXwNqqucWvWa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="s2">&quot;Thu Dec 21 2023 00:09:57 GMT+0000 (Coordinated Universal Time)&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;requestHeaders&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;callback-prod.yourDomain.com&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json,application/json&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;accept-charset&quot;</span><span class="p">:</span> <span class="s2">&quot;UTF-8&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;bearer HereIsYourSuperSecretAccessToken&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;x-adobesign-clientid&quot;</span><span class="p">:</span> <span class="s2">&quot;CBJCHBCAABAAhdTfTbSnTtEqZf_cLHgqnXwNqqucWvWa&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;user-agent&quot;</span><span class="p">:</span> <span class="s2">&quot;AdobeSign&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;content-type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;traceparent&quot;</span><span class="p">:</span> <span class="s2">&quot;00-aba78a6cf1c77cb59bf99c2d15168de8-d7d50a348ff58816-00&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;uber-trace-id&quot;</span><span class="p">:</span> <span class="s2">&quot;aba78a6cf1c77cb59bf99c2d15168de8:d7d50a348ff58816:0:0&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;content-length&quot;</span><span class="p">:</span> <span class="s2">&quot;1078&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;x-forwarded-for&quot;</span><span class="p">:</span> <span class="s2">&quot;35.168.147.202&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;x-forwarded-proto&quot;</span><span class="p">:</span> <span class="s2">&quot;https&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;x-envoy-external-address&quot;</span><span class="p">:</span> <span class="s2">&quot;35.168.147.202&quot;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;e6a238bc-1c67-463c-992c-9edc9ba637a7&quot;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-</div>
+<p>The returned id is used to uniquely identify the webhookEndpoint.</p>
 </div>
 </div>
 
@@ -574,9 +556,9 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2022, Adobe Inc..
+        &#169; Copyright 2024, Adobe Inc..
       <span class="lastupdated">
-        Last update: Mar 21, 2024. 
+        Last update: Jun 07, 2024. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
