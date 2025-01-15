@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
     content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download JAVA, JS, C#, REST, or OpenAPI SDKs, test with Postman, or use Acrobat Sign Embed and the Solutions for Government APIs"/>
-     <title>OEM/Embed Partner Documentation (v.1.0) &mdash; Acrobat Sign Embed  (v 1.0)</title>
+     <title>Consumables APIs &mdash; Acrobat Sign Embed  (v 1.0)</title>
   <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
   
 
@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
   
   
-  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/toc.html" />
+  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/reporting_apis.html" />
   
 
   
@@ -39,7 +39,8 @@
   
   
   <link rel="search" title="Search" href="search.html" />
-  <link rel="next" title="Developing with Acrobat Sign Embed" href="index.html" /> 
+  <link rel="next" title="How-to Video Tutorials 2.0" href="videos2.html" />
+  <link rel="prev" title="Certifying Your Partner App 2.0" href="partnercertification2.html" /> 
 
   <script>  window.marketingtech = { adobe: { launch: { url: 'https://assets.adobedtm.com/d4d114c60e50/a0e989131fd5/launch-5dd5dd2177e6.min.js', controlPageLoad: false, }, alloy: { edgeConfigId: '2cba807b-7430-41ae-9aac-db2b0da742d5', }, target: false, audienceManager: false, }, sophia: false, };</script><script src=https://www.adobe.com/marketingtech/main.standard.min.js></script>
 
@@ -139,7 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="videos.html">How-to Video Tutorials</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Acrobat Sign Embed 2.0</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="onboarding2.html">Embed Partner Onboarding v 2.0</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="onboarding2.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="onboarding2.html#set-up-parent-organization">Set up Parent organization</a><ul>
@@ -254,23 +255,23 @@
 <li class="toctree-l2"><a class="reference internal" href="partnercertification2.html#post-certification">Post “certification”</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="reporting_apis.html">Consumables APIs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="reporting_apis.html#consumables-summary-on-integration">Consumables summary on integration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="reporting_apis.html#filterrequestparams">FilterRequestParams</a></li>
-<li class="toctree-l3"><a class="reference internal" href="reporting_apis.html#consumablesummaryresponse">ConsumableSummaryResponse</a></li>
-<li class="toctree-l3"><a class="reference internal" href="reporting_apis.html#consumablesummary">ConsumableSummary</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Consumables APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#consumables-summary-on-integration">Consumables summary on integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#filterrequestparams">FilterRequestParams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#consumablesummaryresponse">ConsumableSummaryResponse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#consumablesummary">ConsumableSummary</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="reporting_apis.html#get-consumables-summary-on-account-level">Get consumables summary on account level</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reporting_apis.html#get-consumables-summary-details-on-account-level">Get consumables summary details on account level</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="reporting_apis.html#accountfilterqueryparams">AccountFilterQueryParams</a></li>
-<li class="toctree-l3"><a class="reference internal" href="reporting_apis.html#consumablesummarydetailsresponse">ConsumableSummaryDetailsResponse</a></li>
-<li class="toctree-l3"><a class="reference internal" href="reporting_apis.html#consumablesummarydetails">ConsumableSummaryDetails</a></li>
-<li class="toctree-l3"><a class="reference internal" href="reporting_apis.html#addondetails">AddonDetails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-consumables-summary-on-account-level">Get consumables summary on account level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-consumables-summary-details-on-account-level">Get consumables summary details on account level</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#accountfilterqueryparams">AccountFilterQueryParams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#consumablesummarydetailsresponse">ConsumableSummaryDetailsResponse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#consumablesummarydetails">ConsumableSummaryDetails</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#addondetails">AddonDetails</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="reporting_apis.html#commonerrorresponse">CommonErrorResponse</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reporting_apis.html#id3">Partner APIs Common Headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commonerrorresponse">CommonErrorResponse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Partner APIs Common Headers</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="videos2.html">How-to Video Tutorials 2.0</a></li>
@@ -351,9 +352,9 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>OEM/Embed Partner Documentation (v.1.0)</li>
+      <li>Consumables APIs</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -367,8 +368,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="index.html" class="btn btn-neutral float-right" title="Developing with Acrobat Sign Embed" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="videos2.html" class="btn btn-neutral float-right" title="How-to Video Tutorials 2.0" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
       
+      
+        <a href="partnercertification2.html" class="btn btn-neutral float-left" title="Certifying Your Partner App 2.0" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
       
   </div>
   
@@ -377,115 +380,495 @@
             <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
               <div itemprop="articleBody">
                 
-  <div class="section" id="oem-embed-partner-documentation-v-1-0">
-<h1>OEM/Embed Partner Documentation (v.1.0)<a class="headerlink" href="#oem-embed-partner-documentation-v-1-0" title="Permalink to this heading">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Acrobat Sign Embed Home</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="index.html">Developing with Acrobat Sign Embed</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="index.html#embed-1-0-vs-embed-2-0-updates">Embed 1.0 vs. Embed 2.0 updates:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#benefits-and-overview">Benefits and overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#build-and-deploy-in-four-easy-steps">Build and deploy in four easy steps</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="consumables-apis">
+<h1>Consumables APIs<a class="headerlink" href="#consumables-apis" title="Permalink to this heading">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Your feedback is valuable and is vital in improving our product and documentation. Send suggestions to <a class="reference external" href="mailto:acrobatsignembed&#37;&#52;&#48;adobe&#46;com">acrobatsignembed<span>&#64;</span>adobe<span>&#46;</span>com</a>.</p>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Acrobat Sign Embed 1.0</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="onboarding.html">Onboarding overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="onboarding.html#build-and-deploy-in-4-easy-steps">Build and deploy in 4 easy steps</a></li>
+<p>Adobe Acrobat Sign supports a variety of authentication methods to ensure the security and integrity of electronic signatures. These methods range from simple, single-factor authentication to more complex, multi-factor authentication options - ensuring that organizations can manage and budget their use according to their security needs and compliance requirements, while also providing flexibility to choose the appropriate level of authentication for different types of transactions.</p>
+<ul class="simple">
+<li><p>Phone Authentication: A six-digit code is sent to the recipient’s phone via SMS or voice call, which must be entered to view the agreement. For details, <a class="reference external" href="https://helpx.adobe.com/sign/config/send-settings/auth-methods/phone-auth.html">check Phone authentication</a>.</p></li>
+<li><p>Knowledge-Based Authentication (KBA): This high-level authentication method is used mainly in financial institutions. It involves answering personal questions derived from public databases and is only available for recipients in the US. For details, <a class="reference external" href="https://helpx.adobe.com/sign/config/send-settings/auth-methods/knowledge-based-auth.html">check Knowledge-based authentication</a> .</p></li>
+<li><p>Government ID Authentication: This method requires the recipient to provide an image of a government-issued ID and a selfie for verification. For details, <a class="reference external" href="https://helpx.adobe.com/sign/config/send-settings/auth-methods/government-id-auth.html">check Government ID</a> .</p></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="provisioningfaq.html">Provisioning Design and FAQ v.1.0</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="provisioningfaq.html#provisioning-faqs">Provisioning FAQs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="provisioningfaq.html#new-account-provisioning-flow">New account provisioning flow</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="gstarted.html">Partner Application Quickstart v.1.0</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="gstarted.html#create-an-app-in-the-web-ui">Create an app in the web UI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gstarted.html#create-an-authorization-request-link">Create an authorization request link</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gstarted.html#configure-the-redirect-uri-on-your-server">Configure the redirect URI on your server</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gstarted.html#success-vs-failure">Success vs failure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gstarted.html#the-customer-experience">The customer experience</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gstarted.html#getting-the-access-token">Getting the access token</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="partnercertification.html">Certifying Your Partner App v.1.0</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="partnercertification.html#certification-best-practices">Certification best practices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="partnercertification.html#security-review">Security review</a></li>
-<li class="toctree-l2"><a class="reference internal" href="partnercertification.html#post-certification">Post “certification”</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="videos.html">How-to Video Tutorials</a></li>
-</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Add-ons and transactions are referred to as “consumables” because they are resources that are used up or consumed as they are utilized. Each time a transaction is initiated, such as sending an electronic document for signature, it is considered consumed and is deducted from the user’s available transaction quota. Similarly, authentication services like Knowledge-Based Authentication or Phone Authentication are also treated as consumables, as they are used up on a per-recipient basis when employed in the signing process. This means that each time a recipient uses one of these methods, it counts against the total number of transactions available to the sender, which must be replenished as needed.</p>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Acrobat Sign Embed 2.0</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="onboarding2.html">Embed Partner Onboarding v 2.0</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#set-up-parent-organization">Set up Parent organization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#create-and-configure-child-organization">Create and configure Child organization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#create-a-technical-account">Create a technical account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#generate-technical-account-token-via-ui-or-via-curl-command">Generate Technical Account Token via UI or via curl command</a></li>
-<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#register-the-partner-on-acrobat-sign">Register the partner on Acrobat Sign</a></li>
-<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#onboard-your-customers">Onboard your customers</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="embedapi2.html">Embed 2.0 API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#base-endpoint-api">Base Endpoint API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#authentication-token-apis">Authentication: Token APIs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#register-apis">Register APIs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#account-apis">Account APIs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#user-apis">User APIs</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="channel_webhooks.html">Channel Webhooks User Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="channel_webhooks.html#configuring-channel-webhooks">Configuring Channel Webhooks</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="partnercertification2.html">Certifying Your Partner App 2.0</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="partnercertification2.html#certification-best-practices">Certification best practices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="partnercertification2.html#security-review">Security review</a></li>
-<li class="toctree-l2"><a class="reference internal" href="partnercertification2.html#post-certification">Post “certification”</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="reporting_apis.html">Consumables APIs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="reporting_apis.html#consumables-summary-on-integration">Consumables summary on integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reporting_apis.html#get-consumables-summary-on-account-level">Get consumables summary on account level</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reporting_apis.html#get-consumables-summary-details-on-account-level">Get consumables summary details on account level</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reporting_apis.html#commonerrorresponse">CommonErrorResponse</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reporting_apis.html#id3">Partner APIs Common Headers</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="videos2.html">How-to Video Tutorials 2.0</a></li>
-</ul>
+<div class="section" id="consumables-summary-on-integration">
+<h2>Consumables summary on integration<a class="headerlink" href="#consumables-summary-on-integration" title="Permalink to this heading">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HTTP Method</p></td>
+<td><p>GET</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint Operation</p></td>
+<td><p>/v1/partners/me/consumableSummary</p></td>
+</tr>
+<tr class="row-even"><td><p>Authentication/ Authorization</p></td>
+<td><p>Valid technical account token with ee.sign_group_oem</p></td>
+</tr>
+<tr class="row-odd"><td><p>Audience</p></td>
+<td><p>Partner will call this API to fetch count of consumables consumed within a given date range</p></td>
+</tr>
+<tr class="row-even"><td><p>Request Header</p></td>
+<td><p><a class="reference external" href="partner-common-header-anchor">Partner APIs Common Headers</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Query Params</p></td>
+<td><p>FilterQueryParams</p></td>
+</tr>
+<tr class="row-even"><td><p>Response Object</p></td>
+<td><p>ConsumableSummaryResponse</p></td>
+</tr>
+<tr class="row-odd"><td><p>HTTP Status Code</p></td>
+<td><p>200</p></td>
+</tr>
+<tr class="row-even"><td><p>Error Code</p></td>
+<td><p>CommonErrorResponse</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="filterrequestparams">
+<h3>FilterRequestParams<a class="headerlink" href="#filterrequestparams" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 10%" />
+<col style="width: 25%" />
+<col style="width: 10%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Value Range</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>startDate</p></td>
+<td><p>DateTime</p></td>
+<td><p>DateTime in ISO-8601 format with UTC timezone</p></td>
+<td><p>Yes</p></td>
+<td><p>startDate should not be earlier than 2025-01-01T00:00:00Z</p></td>
+</tr>
+<tr class="row-odd"><td><p>endDate</p></td>
+<td><p>DateTime</p></td>
+<td><p>DateTime in ISO-8601 format with UTC timezone</p></td>
+<td><p>Yes</p></td>
+<td><p>endDate should be greater than startDate but not more than 31 days from startDate. Ex: 2025-01-15T00:00:00Z</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Core Documentation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="http://www.adobe.com/go/acrobatsigndevrnotes#://">API release notes</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v6)</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevguide#://">Developer Guide (core v6)</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignwebhook#://">    Webhook Reference (v6)</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/signgov#://">Solutions for Government</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/embedpartner#://">Acrobat Sign Embed</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignsdks#://">SDK downloads</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignpostman#://">Postman workspace</a></li>
-</ul>
+<div class="section" id="consumablesummaryresponse">
+<h3>ConsumableSummaryResponse<a class="headerlink" href="#consumablesummaryresponse" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 40%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>List&lt;ConsumableSummary&gt;</p></td>
+<td><p>List of ConsumableSummary</p></td>
+<td><p>[]</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevaccount#://">    Free developer account form</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigntechblog#://">    FAQs and tech tips</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/esign-dev-cert#://">Application certification form</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignintegrations#://">Integration guides</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/trust/resources.html#://">Security and compliance</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevforum#://">Forum</a></li>
-</ul>
+<div class="section" id="consumablesummary">
+<h3>ConsumableSummary<a class="headerlink" href="#consumablesummary" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 40%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Sample Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>String</p></td>
+<td><p>Type of consumables</p></td>
+<td><p>Ex: TXN, PHONE_AUTH</p></td>
+</tr>
+<tr class="row-odd"><td><p>count</p></td>
+<td><p>Long</p></td>
+<td><p>Count of consumable consumed within given range</p></td>
+<td><p>Ex: 100</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>ConsumableSummaryResponse</strong></p>
+<div class="highlight-HTML notranslate"><div class="highlight"><pre><span></span>{
+  &quot;consumableSummary&quot;: [
+    {
+     &quot;type&quot;: &quot;KBA&quot;,
+     &quot;count&quot;: 1
+    },
+    {
+     &quot;type&quot;: &quot;PHONE_AUTH&quot;,
+     &quot;count&quot;: 2
+    }
+  ]
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="get-consumables-summary-on-account-level">
+<h2>Get consumables summary on account level<a class="headerlink" href="#get-consumables-summary-on-account-level" title="Permalink to this heading">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HTTP Method</p></td>
+<td><p>GET</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint Operation</p></td>
+<td><p>/v1/accounts/{account_id}/consumableSummary</p></td>
+</tr>
+<tr class="row-even"><td><p>Authentication/ Authorization</p></td>
+<td><p>Valid Technical Account Token</p>
+<p>Mandatory Scopes in token - sign_account_read, agreement_read</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Audience</p></td>
+<td><p>Partner will call this API to fetch details of consumables (agreements, add-ons) consumed within a given date range for a given account</p></td>
+</tr>
+<tr class="row-even"><td><p>Request Header</p></td>
+<td><p><a class="reference external" href="partner-common-header-anchor">Partner APIs Common Headers</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Query Params</p></td>
+<td><p>AccountFilterQueryParams</p></td>
+</tr>
+<tr class="row-even"><td><p>Response Object</p></td>
+<td><p>ConsumableSummaryDetailsResponse</p></td>
+</tr>
+<tr class="row-odd"><td><p>HTTP Status Code</p></td>
+<td><p>200</p></td>
+</tr>
+<tr class="row-even"><td><p>Error Code</p></td>
+<td><p>CommonErrorResponse</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>ConsumableSummaryResponse</strong></p>
+<div class="highlight-HTML notranslate"><div class="highlight"><pre><span></span>{
+  &quot;consumableSummary&quot;: [
+      {
+        &quot;type&quot;: &quot;KBA&quot;,
+        &quot;count&quot;: 1
+      },
+      {
+        &quot;type&quot;: &quot;PHONE_AUTH&quot;,
+        &quot;count&quot;: 2
+      }
+  ]
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-consumables-summary-details-on-account-level">
+<h2>Get consumables summary details on account level<a class="headerlink" href="#get-consumables-summary-details-on-account-level" title="Permalink to this heading">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HTTP Method</p></td>
+<td><p>GET</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint Operation</p></td>
+<td><p>/v1/accounts/{account_id}/consumableSummaryDetails</p></td>
+</tr>
+<tr class="row-even"><td><p>Authentication/ Authorization</p></td>
+<td><p>Valid Technical Account Token</p>
+<p>Mandatory Scopes in token - sign_account_read, agreement_read</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Audience</p></td>
+<td><p>Partner will call this API to fetch details of consumables (agreements, add-ons) consumed within a given date range for a given account</p></td>
+</tr>
+<tr class="row-even"><td><p>Request Header</p></td>
+<td><p><a class="reference external" href="partner-common-header-anchor">Partner APIs Common Headers</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Query Params</p></td>
+<td><p>AccountFilterQueryParams</p></td>
+</tr>
+<tr class="row-even"><td><p>Response Object</p></td>
+<td><p>ConsumableSummaryDetailsResponse</p></td>
+</tr>
+<tr class="row-odd"><td><p>HTTP Status Code</p></td>
+<td><p>200</p></td>
+</tr>
+<tr class="row-even"><td><p>Error Code</p></td>
+<td><p>CommonErrorResponse</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="accountfilterqueryparams">
+<h3>AccountFilterQueryParams<a class="headerlink" href="#accountfilterqueryparams" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 10%" />
+<col style="width: 35%" />
+<col style="width: 10%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Value Range</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>startDate</p></td>
+<td><p>DateTime</p></td>
+<td><p>DateTime in ISO-8601 format with UTC timezone</p></td>
+<td><p>Yes</p></td>
+<td><p>startDate should not be earlier than 2025-01-01T00:00:00Z</p></td>
+</tr>
+<tr class="row-odd"><td><p>endDate</p></td>
+<td><p>DateTime</p></td>
+<td><p>DateTime in ISO-8601 format with UTC timezone</p></td>
+<td><p>Yes</p></td>
+<td><p>endDate should be greater than startDate but not more than 31 days from startDate. Ex: 2025-01-15T00:00:00Z</p></td>
+</tr>
+<tr class="row-even"><td><p>pageSize</p></td>
+<td><p>Integer</p></td>
+<td><p>Count of records to be returned per specific call</p></td>
+<td><p>No</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>cursor</p></td>
+<td><p>String</p></td>
+<td><p>Reference to get next set of records with given pageSize.</p>
+<p>This is used to navigate through the pages. If not provided, returns the first page.</p>
+</td>
+<td><p>No</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="consumablesummarydetailsresponse">
+<h3>ConsumableSummaryDetailsResponse<a class="headerlink" href="#consumablesummarydetailsresponse" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 40%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>List&lt;ConsumableSummaryDetails&gt;</p></td>
+<td><p>List of ConsumableSummaryDetails</p></td>
+<td><p>[ ]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="consumablesummarydetails">
+<h3>ConsumableSummaryDetails<a class="headerlink" href="#consumablesummarydetails" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 40%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Sample Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>agreementId</p></td>
+<td><p>String</p></td>
+<td><p>Secure agreement identifier</p></td>
+<td><p>Ex: CBJCHBCAABAA-N0tAR3aLID-u4R5RO</p></td>
+</tr>
+<tr class="row-odd"><td><p>createdDate</p></td>
+<td><p>DateTime</p></td>
+<td><p>Agreement created time recorded in the system in UTC format</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>addonDetails</p></td>
+<td><p>List&lt;AddonDetails&gt;</p></td>
+<td><p>List of secondary consumables like add-ons with their count</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="addondetails">
+<h3>AddonDetails<a class="headerlink" href="#addondetails" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 40%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Sample Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>String</p></td>
+<td><p>Name of consumable</p></td>
+<td><p>Ex: PHONE_AUTH, KBA</p></td>
+</tr>
+<tr class="row-odd"><td><p>count</p></td>
+<td><p>Long</p></td>
+<td><p>Count of consumable consumed with an agreement</p></td>
+<td><p>Ex: 100</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><strong>ConsumptionResponseReportResponseItemDetail</strong></p>
+<div class="highlight-HTML notranslate"><div class="highlight"><pre><span></span>{
+  &quot;page&quot;: {
+    &quot;nextCursor&quot;: &quot;xyzjbjdbjb&quot;
+  },
+  &quot;agreements&quot;: [
+    {
+      &quot;id&quot;: &quot;CBJCHBCAABAA-N0tAR3aLID-u4R5RO&quot;,
+      &quot;createdDate&quot;: 2025-01-10T00:00:15Z,
+      &quot;addonDetails&quot;: [
+        {
+          &quot;type&quot;: &quot;KBA&quot;,
+          &quot;count&quot;: 1
+        },
+        {
+          &quot;type&quot;: &quot;PHONE_AUTH&quot;,
+          &quot;count&quot;: 2
+        }
+      ]
+    }
+  ]
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="commonerrorresponse">
+<h2>CommonErrorResponse<a class="headerlink" href="#commonerrorresponse" title="Permalink to this heading">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 30%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>HTTP Code</p></th>
+<th class="head"><p>Error Code</p></th>
+<th class="head"><p>Message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>BAD_REQUEST</p></td>
+<td><p>The request provided is invalid</p></td>
+</tr>
+<tr class="row-odd"><td><p>403</p></td>
+<td><p>PERMISSION_DENIED</p></td>
+<td><p>The API caller does not have the permission to execute this operation</p></td>
+</tr>
+<tr class="row-even"><td><p>429</p></td>
+<td><p>TOO_MANY_REQUESTS</p></td>
+<td><p>The request rate limit has reached</p></td>
+</tr>
+<tr class="row-odd"><td><p>500</p></td>
+<td><p>MISC_SERVER_ERROR</p></td>
+<td><p>Some miscellaneous error has occurred.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h2>Partner APIs Common Headers<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 30%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Header Name</p></th>
+<th class="head"><p>Values</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Authorization</p></td>
+<td><p>Bearer &lt;Technical Account Token&gt;</p></td>
+<td><p>Technical account token that is generated by the partner</p></td>
+</tr>
+<tr class="row-odd"><td><p>content-type</p></td>
+<td><p>application/json</p></td>
+<td><p>Media type of the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>x-request-id</p></td>
+<td><p>String</p></td>
+<td><p>A unique string value needed to track a given request</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
