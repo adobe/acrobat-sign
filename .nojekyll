@@ -1,0 +1,29 @@
+
+
+.. toctree:: 
+    :caption: Migrate from Embed 1.0 to Embed 2.0
+    :maxdepth: 2
+
+    migration_overview
+    migration_steps
+    migration_changes
+    migration_faq
+
+
+Doc 1 Overview - Need a date for the end of the push
+Adobe will upgrade OEM Partners from June 2024 through February 2025.
+
+Doc 2 - Stages
+Question about the number of child orgs we want to promote (one only or unlimited)
+
+
+Doc 3 - Changes
+I dunno - 
+Sender as signer can still sign the agreement by signing out and logging in via another email to which agreement has been sent. The Send page has been made cookie-less and can be enabled by the settings NEW_EMBEDDED_SEND_WORKFLOW_ENABLED. Once enabled selection of multiple identities won’t appear for signers in same browser
+
+Add-ons document to drag - not a gate to publish
+
+
+Doc 4 Notes and practices
+Publish this? - YES, publish on a page
+•	POST /v1/users/migrationStatus – This API is not publicly documented. Please see documentation at the bottom of this document
