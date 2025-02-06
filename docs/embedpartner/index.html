@@ -100,7 +100,7 @@
           <p class="caption" role="heading"><span class="caption-text">Acrobat Sign Embed Home</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Developing with Acrobat Sign Embed</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#embed-1-0-vs-embed-2-0-updates">Embed 1.0 vs. Embed 2.0 updates:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#embed-2-0-updates">Embed 2.0 updates:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#benefits-and-overview">Benefits and overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-and-deploy-in-four-easy-steps">Build and deploy in four easy steps</a></li>
 </ul>
@@ -352,7 +352,7 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Jan 30, 2025. 
+          Last update: Feb 06, 2025. 
         </span>
         
           <div class="rst-content">
@@ -414,13 +414,52 @@
 <p class="admonition-title">Tip</p>
 <p>Alternatively, independent software vendors (ISVs) (<a class="reference external" href="https://exchange.adobe.com/apps/browse/ec?product=SIGN&amp;sort=MOST_RECENT">integration-only partners</a>)  provide integrations between Acrobat Sign and another application or service for our shared customers. <a class="reference external" href="https://partners.adobe.com/exchangeprogram/documentcloud/prereg.html">Sign up!</a></p>
 </div>
-<div class="section" id="embed-1-0-vs-embed-2-0-updates">
-<h2>Embed 1.0 vs. Embed 2.0 updates:<a class="headerlink" href="#embed-1-0-vs-embed-2-0-updates" title="Permalink to this heading">¶</a></h2>
-<p><strong>February, 2025</strong></p>
+<div class="section" id="embed-2-0-updates">
+<h2>Embed 2.0 updates:<a class="headerlink" href="#embed-2-0-updates" title="Permalink to this heading">¶</a></h2>
+<p><strong>February 11, 2025</strong></p>
 <blockquote>
 <div><ul class="simple">
+<li><p>Updated swagger pages to indicate <strong>me</strong> as a shorthand for the accountId.</p></li>
 <li><p>A new <strong>accountId</strong> attribute added to all event notification payloads.</p></li>
 <li><p>Acrobat Sign Embed 2.0 partners can set up webhooks for their <strong>channel</strong> and accept asset notifications from each of their individual customer accounts.</p></li>
+<li><p><strong>New Settings APIs</strong></p>
+<ul>
+<li><p>POST /accounts/{accountId|me}/settings/search – Takes the identified account (accountId) and a list of setting names and returns the list of setting names with their values for the account specified. Only account-level values are returned.</p>
+<ul>
+<li><p>Available to non-admin users.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>PUT /accounts/{accountId|me}/settings  - Applies a provided list of setting names and their values to the identified account (accountId).</p></li>
+<li><p><strong>New Logo APIs</strong></p>
+<ul>
+<li><p>POST /accounts/{accountId|me}/logo - Uploads the CoBrandingLogo file.</p></li>
+<li><p>GET /accounts/{accountId|me}/logo - Returns the image data of the CoBrandingLogo image file in the same format that it was uploaded.</p>
+<ul>
+<li><p>Available to non-admin users</p></li>
+</ul>
+</li>
+<li><p>DELETE /accounts/{accountId|me}/logo – Clears the CoBrandingLogo image for the account.</p></li>
+</ul>
+</li>
+<li><p><strong>Signing Reason APIs</strong></p>
+<ul>
+<li><p>GET /accounts/{accountId|me}/signingReasons - Returns a list of signing reasons for the identified account (accountId).</p>
+<ul>
+<li><p>Available to non-admin users.</p></li>
+</ul>
+</li>
+<li><p>POST /accounts/{accountId|me}/signingReasons -  Creates a new signing reason for the identified account (accountId).</p></li>
+<li><p>GET /accounts/{accountId|me}/signingReasons/{signingReasonId} - Retrieves the text of the identified signing reason (signingReasonId) from the identified account (accountId). account’s identified signing reason.</p>
+<ul>
+<li><p>Available to non-admin users</p></li>
+</ul>
+</li>
+<li><p>PUT /accounts/{accountId|me}/signingReasons/{signingReasonId} - Updates the identified signing reason (signingReasonId) from the identified account (accountId).</p></li>
+<li><p>DELETE /accounts/{accountId|me}/signingReasons/{signingReasonId} - Removes the identified signing reason (signingReasonId) from the identified account (accountId).</p></li>
+</ul>
+</li>
 </ul>
 </div></blockquote>
 <p><strong>August, 2023</strong></p>
@@ -469,7 +508,7 @@
     <p>
         &#169; Copyright 2023, Adobe Inc..
       <span class="lastupdated">
-        Last update: Jan 30, 2025. 
+        Last update: Feb 06, 2025. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
