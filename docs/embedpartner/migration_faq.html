@@ -1,0 +1,872 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download JAVA, JS, C#, REST, or OpenAPI SDKs, test with Postman, or use Acrobat Sign Embed and the Solutions for Government APIs"/>
+     <title>Implementation Notes and Best Practice &mdash; Acrobat Sign Embed  (v 1.0)</title>
+  <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />
+  <link href="../_static/copybutton.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+  
+  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/migration_faq.html" />
+  
+
+  
+  
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../"
+    src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/jquery.js"></script>
+  <script type="text/javascript" src="../_static/underscore.js"></script>
+  <script type="text/javascript" src="../_static/doctools.js"></script>
+  <script type="text/javascript" src="../_static/language_data.js"></script>
+  <script type="text/javascript" src="../_static/searchtools.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+  
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Embed Partner Onboarding v 2.0" href="onboarding2.html" />
+  <link rel="prev" title="Changes in the Acrobat Sign product and APIs" href="migration_changes.html" /> 
+
+  <script>  window.marketingtech = { adobe: { launch: { url: 'https://assets.adobedtm.com/d4d114c60e50/a0e989131fd5/launch-5dd5dd2177e6.min.js', controlPageLoad: false, }, alloy: { edgeConfigId: '2cba807b-7430-41ae-9aac-db2b0da742d5', }, target: false, audienceManager: false, }, sophia: false, };</script><script src=https://www.adobe.com/marketingtech/main.standard.min.js></script>
+
+  <script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+          $('.fixedbar, .wy-nav-side').addClass('scroll');
+          $('.wy-top-menu-wrapper').fadeOut();
+        } else {
+          $('.fixedbar, .wy-nav-side').removeClass('scroll');
+          $('.wy-top-menu-wrapper').fadeIn();
+        }
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn();
+        } else {
+          $('#scroll').fadeOut();
+        }
+      });
+      $('#scroll').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+      });
+    });
+  </script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+    
+    <div class="fixedbarsearch"><img src="../_static/images/acrobatsignlogo.svg" class="searchlogo"/>
+      
+<div role="search" class="inlinediv">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </div>
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side"><!-- scrolling area -->
+      <div class="wy-side-scroll" >
+        
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+          
+          
+          
+          
+          
+          <p class="caption" role="heading"><span class="caption-text">Acrobat Sign Embed Home</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Developing with Acrobat Sign Embed</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#embed-1-0-vs-embed-2-0-updates">Embed 1.0 vs. Embed 2.0 updates:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#benefits-and-overview">Benefits and overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#build-and-deploy-in-four-easy-steps">Build and deploy in four easy steps</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Acrobat Sign Embed 1.0</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="onboarding.html">Onboarding overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="onboarding.html#build-and-deploy-in-4-easy-steps">Build and deploy in 4 easy steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="provisioningfaq.html">Provisioning Design and FAQ v.1.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="provisioningfaq.html#provisioning-faqs">Provisioning FAQs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provisioningfaq.html#new-account-provisioning-flow">New account provisioning flow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gstarted.html">Partner Application Quickstart v.1.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#create-an-app-in-the-web-ui">Create an app in the web UI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#get-the-app-id-and-secret">Get the app ID and secret</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#configure-oauth">Configure OAuth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#configure-scopes">Configure scopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#create-an-authorization-request-link">Create an authorization request link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#configure-the-redirect-uri-on-your-server">Configure the redirect URI on your server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#success-vs-failure">Success vs failure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#the-customer-experience">The customer experience</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#getting-the-access-token">Getting the access token</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="partnercertification.html">Certifying Your Partner App v.1.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="partnercertification.html#certification-best-practices">Certification best practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partnercertification.html#security-review">Security review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partnercertification.html#post-certification">Post “certification”</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="videos.html">How-to Video Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Migrate from Embed 1.0 to Embed 2.0</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="migration_overview.html">Upgrading to OEM Embed 2.0 - Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migration_overview.html#why-is-adobe-requiring-the-upgrade-to-the-oem-embed-2-0-platform">Why is Adobe requiring the upgrade to the OEM Embed 2.0 Platform?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_overview.html#what-are-the-benefits-of-the-oem-embed-2-0-platform">What are the benefits of the OEM Embed 2.0 Platform?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_overview.html#what-is-the-upgrade-timeline">What is the upgrade timeline?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="migration_steps.html">Phases of the upgrade</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migration_steps.html#phase-1-adobe-and-the-partner-discuss-the-oem-2-0-partner-platform-and-the-upgrade-process">Phase 1 - Adobe and the Partner discuss the OEM 2.0 Partner platform and the upgrade process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_steps.html#phase-2-partner-integrates-with-2-0-oem-partner-platform">Phase 2 - Partner integrates with 2.0 OEM Partner platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_steps.html#phase-3-cutover">Phase 3 - “Cutover”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_steps.html#phase-4-adobe-and-partner-review-the-status-after-cutover-partner-retires-their-legacy-processes">Phase 4 - Adobe and Partner review the status after cutover. Partner retires their legacy processes.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="migration_changes.html">Changes in the Acrobat Sign product and APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migration_changes.html#changes-in-the-acrobat-sign-product">Changes in the Acrobat Sign product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_changes.html#changes-in-the-acrobat-sign-api">Changes in the Acrobat Sign API</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Implementation Notes and Best Practice</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#changes">Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#embed-2-0-deprecates-the-following">Embed 2.0 deprecates the following:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#embed-2-0-adds-the-following">Embed 2.0 adds the following:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#access-token-storage-and-validation">Access token storage and validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pre-migration-planning">Pre-migration planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-migrations">Testing Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-environments">Testing Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#migration-status-of-a-user">Migration Status of a User</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#request-form-parameters">Request Form parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#response-object">Response Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error-response">Error Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#partner-migration-status-apis-headers">Partner Migration Status APIs Headers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Acrobat Sign Embed 2.0</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="onboarding2.html">Embed Partner Onboarding v 2.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#set-up-parent-organization">Set up Parent organization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#create-parent-organization">Create Parent organization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#accept-invite-and-access-adobe-admin-console">Accept invite and access Adobe Admin Console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#claim-domain">Claim domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#create-a-directory-and-link-with-the-claimed-domain">Create a Directory and link with the claimed domain</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#create-and-configure-child-organization">Create and configure Child organization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#create-a-child-organization">Create a Child organization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#allocate-transactions-to-the-child-organization">Allocate transactions to the Child organization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#create-a-technical-account">Create a technical account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#generate-technical-account-token-via-ui-or-via-curl-command">Generate Technical Account Token via UI or via curl command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#register-the-partner-on-acrobat-sign">Register the partner on Acrobat Sign</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#call-the-sign-get-baseuris-api">Call the Sign GET BaseUris API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#call-the-register-partner-api">Call the register Partner API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#provide-account-info-to-adobe">Provide account info to Adobe</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#onboard-your-customers">Onboard your customers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="embedapi2.html">Embed 2.0 API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#base-endpoint-api">Base Endpoint API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#authentication-token-apis">Authentication: Token APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#common-auth-token-api-attributes">Common auth token API attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#create-an-embed-user-token">Create an Embed user token</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#request">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#response">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#errors">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#validate-embed-user-token">Validate Embed User token</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id1">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id2">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id3">Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#common-attributes">Common attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#register-apis">Register APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#create-partner">Create partner</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id4">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id5">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id6">Errors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#account-apis">Account APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#common-account-api-header-attributes">Common account API header attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#create-account">Create Account</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id7">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#account-creation-response-object">Account creation response object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id8">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#update-account">Update Account</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id9">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id10">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#get-account">Get Account</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id11">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id12">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#get-all-accounts">Get All Accounts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id13">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#error">Error</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#user-apis">User APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#common-user-api-header-attributes">Common user API header attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#post-user">POST user</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id14">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id15">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id16">Error</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#put-user">PUT User</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id17">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id18">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#get-user">GET User</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id19">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id20">Errors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#consumables-apis">Consumables APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#consumables-summary-on-integration">Consumables summary on integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#get-consumables-summary-on-account-level">Get consumables summary on account level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#get-consumables-summary-details-on-account-level">Get consumables summary details on account level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#commonerrorresponse">CommonErrorResponse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#id23">Partner APIs Common Headers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="channel_webhooks.html">Channel Webhooks User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="channel_webhooks.html#configuring-channel-webhooks">Configuring Channel Webhooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="channel_webhooks.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="channel_webhooks.html#configure-a-webhook-and-subscribe-to-events">Configure a webhook and subscribe to events</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="partnercertification2.html">Certifying Your Partner App 2.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="partnercertification2.html#certification-best-practices">Certification best practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partnercertification2.html#security-review">Security review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partnercertification2.html#post-certification">Post “certification”</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="videos2.html">How-to Video Tutorials 2.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://www.adobe.com/go/acrobatsigndevrnotes#://">API release notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevguide#://">Developer Guide (core v6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignwebhook#://">    Webhook Reference (v6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/signgov#://">Solutions for Government</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/embedpartner#://">Acrobat Sign Embed</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignsdks#://">SDK downloads</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignpostman#://">Postman workspace</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevaccount#://">    Free developer account form</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigntechblog#://">    FAQs and tech tips</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/esign-dev-cert#://">Application certification form</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignintegrations#://">Integration guides</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/trust/resources.html#://">Security and compliance</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevforum#://">Forum</a></li>
+</ul>
+
+          
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+      <div class="fixedbar">
+        <div class="wy-menu-items">
+          <a href="https://www.adobe.com/go/acrobatsigndevhome" class="topbarlink">Dev Home</a>
+          <a href="https://www.adobe.com/documentcloud/industries/government.html" class="topbarlink">Government</a>
+          <a href="https://www.adobe.com/documentcloud/integrations/isv-partner-program.html" class="topbarlink">Partner</a>
+          <a href="	https://www.adobe.com/go/acrobatsignforum"  class="topbarlink">Forum</a>
+        </div>
+        <div class="sign-in">
+          <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+        </div>
+      </div>
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+
+      
+      
+      <div class="wy-nav-content">
+        
+        <span class="lastupdated" style="color:lightgrey">
+          Last update: Jan 30, 2025. 
+        </span>
+        
+          <div class="rst-content">
+            
+            <!--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Implementation Notes and Best Practice</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="onboarding2.html" class="btn btn-neutral float-right" title="Embed Partner Onboarding v 2.0" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="migration_changes.html" class="btn btn-neutral float-left" title="Changes in the Acrobat Sign product and APIs" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>-->
+            <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <div itemprop="articleBody">
+                
+  <div class="section" id="implementation-notes-and-best-practice">
+<h1>Implementation Notes and Best Practice<a class="headerlink" href="#implementation-notes-and-best-practice" title="Permalink to this heading">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Your feedback is valuable and is vital in improving our product and documentation. Send suggestions to <a class="reference external" href="mailto:acrobatsignembed&#37;&#52;&#48;adobe&#46;com">acrobatsignembed<span>&#64;</span>adobe<span>&#46;</span>com</a>.</p>
+</div>
+<p>This page identifies the major change areas, deprecated features, new features, and learnings from our conversations with Embed Partners.</p>
+<div class="section" id="changes">
+<h2>Changes<a class="headerlink" href="#changes" title="Permalink to this heading">¶</a></h2>
+<p>No Acrobat Sign asset IDs are changing as part of this process, and they are not being relocated. The major changes are:</p>
+<ul>
+<li><p><strong>Access token handling</strong> – OAuth consent flows are eliminated, as are onboarding emails and the ability to authenticate Acrobat Sign users with an Acrobat Sign username and password. The refresh token is deprecated. (see more on Access Token Handling, below)</p></li>
+<li><p><strong>Provisioning endpoints for accounts and users</strong> – The URLs for these endpoints change a bit and the payload has been enriched. These new provisioning endpoints include “v1” in the URL path.</p></li>
+<li><p><strong>Adobe Sign Web UI is no longer accessible for any migrated accounts</strong> – Post-migration, Adobe Sign Account Console (aka Web UI) is no longer available for use, and all Acrobat Sign access occurs via the API. However, you can still access these pages via embedded views.</p></li>
+<li><p><strong>Migration tool</strong> – The Embed 2.0 migration tool is robustly designed with fault-tolerance and rollback capabilities. You provide a spreadsheet mapping the old email addresses to the new, and our Migration Support team will upload them and monitor the job until successful completion.</p></li>
+<li><p><strong>Migration rollback</strong> – You can rollback a migration. This will rollback all the users/accounts migrated. Rollback will undo the entire migration not a specific account/user. For example:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Say a migration had 20 users across three accounts, doing rollback for this migration will undo all 20 users across 3 accounts to previous state.</p></li>
+<li><p>Rollback can be initiated through migration-support-executive.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Migration Status API</strong> – checks to see if an individual user has been migrated. See accompanying documentation at the end of this document.</p></li>
+</ul>
+</div>
+<div class="section" id="embed-2-0-deprecates-the-following">
+<h2>Embed 2.0 deprecates the following:<a class="headerlink" href="#embed-2-0-deprecates-the-following" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Onboarding emails</strong> – Invitation-to-set-password and agree-to-terms-of-use emails.</p></li>
+<li><p><strong>OAuth consent flows</strong> – Requirement for your customer-admin to navigate the OAuth consent flow to manually grant consent to your partner application to access their account.</p></li>
+<li><p><strong>x-api-user in REST header</strong> – Within the V6 REST headers. You’ll need to remove this or it will throw an error.</p></li>
+<li><p><a class="reference external" href="https://secure.na1.echosign.com/public/static/oauthDoc.jsp#refreshRequest">POST /oauth/v2/refresh</a> – Embed user tokens are not refreshed but must be replaced at the end of the five-minute lifespan.</p></li>
+</ul>
+</div>
+<div class="section" id="embed-2-0-adds-the-following">
+<h2>Embed 2.0 adds the following:<a class="headerlink" href="#embed-2-0-adds-the-following" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><p><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/embedpartner/embedapi2.html">Embed 2.0 Authentication and Provisioning APIs</a></p></li>
+<li><p><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/embedpartner/embedapi2.html#id7">POST /v1/accounts</a> (and PUT /V1/accounts) enables you to configure three “consumables”: SEATS, KBA, PHONE_AUTH:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>SEATS</strong>: This consumable represents the number of user seats available in an account. Each seat allows one user to access and use the services provided by the account. For example, if an account has a cap of 10 SEATS, it means up to 10 users can be assigned to use the account’s services at any given time. Recommendation: Set the SEATS “cap” to “0” or “-1” for an unlimited number of seats.</p></li>
+<li><p><a class="reference external" href="https://helpx.adobe.com/sign/config/send-settings/auth-methods/phone-auth.html">PHONE_AUTH</a>: This consumable is related to phone authentication, a method used to verify a user’s identity. It involves sending a verification code to the user’s phone via SMS or voice call, which the user must enter to access the service. Each PHONE_AUTH transaction is consumed per recipient, meaning if an agreement requires phone authentication for three recipients, it will consume three PHONE_AUTH transactions. Recommendation: Set PHONE_AUTH “cap” to “0” for unlimited or “-1” to disable.</p></li>
+<li><p><a class="reference external" href="https://helpx.adobe.com/sign/config/send-settings/auth-methods/knowledge-based-auth.html">KBA (Knowledge-Based Authentication)</a>: This is a premium authentication method that verifies a user’s identity by asking them to answer personal questions based on public records. Each KBA transaction is consumed per recipient (like PHONE_AUTH). For instance, if an agreement requires KBA for three recipients, it will consume three KBA transactions. KBA is typically used in scenarios requiring a high level of identity verification. Recommendation: Set KBA “cap” to “0” for unlimited or “-1” to disable.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/embedpartner/embedapi2.html#post-user">POST /v1/users</a> – the email addresses in the request must be sixty characters or less including the “&#64;domain.com.”” Create an admin user by assigning one or both roles: ACCOUNT_ADMIN, PRIVACY_ADMIN</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;firstName&quot;</span><span class="p">:</span> <span class="s2">&quot;Adrian&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lastName&quot;</span><span class="p">:</span> <span class="s2">&quot;Administrator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;123456789o123456789o123456789o123456789@oemtest2.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;emailAlias&quot;</span><span class="p">:</span> <span class="s2">&quot;drian_A@joesBikes.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;accountId&quot;</span><span class="p">:</span><span class="s2">&quot;{{accountId}}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;roles&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;ACCOUNT_ADMIN&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;PRIVACY_ADMIN&quot;</span>
+        <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>GET /v1/accounts – Returns Acrobat Sign accounts created using your technical account token.</p></li>
+<li><p>POST /v1/users/migrationStatus – The <a class="reference internal" href="#private-api-to-get-the-migration-status-of-a-user">private API to get the migration status of a user</a> is documented at the bottom of this page.</p></li>
+</ul>
+</div>
+<div class="section" id="access-token-storage-and-validation">
+<h2>Access token storage and validation<a class="headerlink" href="#access-token-storage-and-validation" title="Permalink to this heading">¶</a></h2>
+<p>Embed 2.0 replaces OAuth with the following elements:</p>
+<ul>
+<li><p><strong>clientId</strong> – is available via copy/paste from your Adobe Developer Console.</p></li>
+<li><p><strong>clientSecret</strong> – is available via copy/paste from your Adobe Developer Console.</p></li>
+<li><p><strong>technical account token</strong> –</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Is available via copy/paste from your Adobe Developer Console</p></li>
+<li><p>Via cURL – The developer console provides a cURL that you can import into Postman to quickly create the first call you will use to create a technical account token.</p></li>
+<li><p>The technical account token expires in 24 hours.</p></li>
+<li><p>Validated ‘offline’ using the logic described below.</p></li>
+<li><p>Validated using the /v1/validate_token endpoint.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>JWT encoding the user email</strong> –  The JWT base64 encodes the user email. In combination with the above, is exchanged for the embed user token used to make Acrobat Sign REST v6 calls.</p></li>
+<li><dl class="simple">
+<dt><strong>Embed-user token</strong> – is used to make Acrobat Sign REST v6 API calls in place of OAuth tokens.</dt><dd><ul class="simple">
+<li><p>The embed-user token expires in 300 seconds (5 minutes).</p></li>
+<li><p>Validated ‘offline’ using the logic described below.</p></li>
+<li><p>Validated using the /v1/validate_token endpoint.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Operation replacing /v2/refresh</strong> – Before any call to an Acrobat Sign REST v6 endpoint such as GET/agreements, validate the embed-user token using one of the following methods and if the token has expired or is about to, create a new embed user token</p>
+<blockquote>
+<div><ul>
+<li><p>Offline check – The response from POST/v1/token includes <strong>“expires_in”: 300</strong>. Add this to the <strong>iat</strong> timestamp of the token to determine if the token remains valid:</p>
+<blockquote>
+<div><img alt="_images/offlineCheck.png" src="_images/offlineCheck.png" />
+</div></blockquote>
+</li>
+<li><p>Note also that client_id of your Embed 2 app as well as the user_id of the token owner, are displayed when this JWT is decoded.</p></li>
+<li><p><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/embedpartner/embedapi2.html#validate-embed-user-token">/v1/validate_token</a> – A valid token will return something like this:</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;valid&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;expires_at&quot;</span><span class="p">:</span> <span class="mi">1727732199</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pre-migration-planning">
+<h2>Pre-migration planning<a class="headerlink" href="#pre-migration-planning" title="Permalink to this heading">¶</a></h2>
+<p><strong>Choosing a domain</strong> – Before you can, “claim a domain,” as described in the onboarding instructions, your organization must decide on the domain you want to use and work with your internal teams to set it up.</p>
+<ul class="simple">
+<li><p>Adobe recommends using a subdomain like: “esign.partner.com.”</p></li>
+<li><p>Consider setting up domains or subdomains for test environments. For example: esignTest.partner.com, esignQA.partner.com, etc.</p></li>
+<li><p>Any domains you plan to use must be “validated” within the Adobe Admin Console. This requires the involvement of someone from your team that can access the DNS console for these domains.</p></li>
+<li><p>If the Admin Console tells you that your desired domain has “already been claimed,” it means that another team at your company has already claimed that domain on behalf of other Adobe products.  If this is your situation, you will need to resolve this internally or choose a different domain or subdomain.</p></li>
+</ul>
+<p><strong>UsersToMigrate.csv</strong> — You’ll provide a CSV file that maps your current customer-account email addresses to new email addresses within the claimed domain. If you need assistance identifying the account-admin emails that will be the subject of the migration, we can request a database query on your behalf. This requires some lead time. The CSV looks like this:</p>
+<blockquote>
+<div><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 34%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>email</p></th>
+<th class="head"><p>newEmail</p></th>
+<th class="head"><p>emailAlias</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="mailto:joesRentals&#37;&#52;&#48;propcompany1&#46;com">joesRentals<span>&#64;</span>propcompany1<span>&#46;</span>com</a></p></td>
+<td><p><a class="reference external" href="mailto:joesRentals&#37;&#52;&#48;esign&#46;partner&#46;com">joesRentals<span>&#64;</span>esign<span>&#46;</span>partner<span>&#46;</span>com</a></p></td>
+<td><p><a class="reference external" href="mailto:joesRentals&#37;&#52;&#48;propcompany1&#46;com">joesRentals<span>&#64;</span>propcompany1<span>&#46;</span>com</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="mailto:johnRentals&#37;&#52;&#48;propcompany2&#46;com">johnRentals<span>&#64;</span>propcompany2<span>&#46;</span>com</a></p></td>
+<td><p><a class="reference external" href="mailto:johnsRentals&#37;&#52;&#48;esign&#46;partner&#46;com">johnsRentals<span>&#64;</span>esign<span>&#46;</span>partner<span>&#46;</span>com</a></p></td>
+<td><p><a class="reference external" href="mailto:johnRentals&#37;&#52;&#48;propcompany2&#46;com">johnRentals<span>&#64;</span>propcompany2<span>&#46;</span>com</a></p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<ul class="simple">
+<li><p>The maximum number of users in the csv should be no more than 5000.</p></li>
+<li><p>The maximum file size of the user csv should be no more than 1 MB.</p></li>
+<li><p>5000 users will take about 1.75 hours to process.</p></li>
+<li><p>You can migrate one account at a time, migrating smaller account first to gain confidence in the process.</p></li>
+<li><p><a class="reference external" href="https://static.echocdn.com/enterprisemigration/docs/sample-f2c56f2e6167836b105247e06e38f423.csv">Download a sample csv.</a></p></li>
+</ul>
+<p>It is preferable to do the migration during a maintenance widow so new Acrobat Sign transactions are not created during the migration.
+The maintenance window should be long enough to perform your post migration tests and any rollback should one be required.</p>
+</div>
+<div class="section" id="testing-migrations">
+<h2>Testing Migrations<a class="headerlink" href="#testing-migrations" title="Permalink to this heading">¶</a></h2>
+<p><strong>Setting up test-migrations</strong> – You will test migrations, by creating Acrobat Sign accounts on the PRODUCTION environment using your existing process, but with test-users.</p>
+<ul class="simple">
+<li><p>Create test-users with functioning email accounts to respond to password-set and terms-of-use onboarding emails.</p></li>
+<li><p>Email inboxes are not required if you are provisioning new accounts via SOAP.</p></li>
+<li><p>Gmail addresses are not supported but the following email conventions are: (EXAMPLE?)</p></li>
+<li><p>The PSM team can also assist in creating these Acrobat Sign test accounts.</p></li>
+</ul>
+<p>After migration, these accounts will not be able to access the Acrobat Sign Web UI:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="mailto:joesbike&#37;&#52;&#48;propcompany1&#46;com">joesbike<span>&#64;</span>propcompany1<span>&#46;</span>com</a></p></li>
+<li><p><a class="reference external" href="mailto:johnsbike&#37;&#52;&#48;propcompany2&#46;com">johnsbike<span>&#64;</span>propcompany2<span>&#46;</span>com</a></p></li>
+</ul>
+<p>These accounts will only be able to access Acrobat Sign assets via API, via your Certified App, or using an integration key which you can create from the ACCOUNT_SETTINGS view (POST/v6/users/ID/views):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="mailto:joesBikes&#37;&#52;&#48;esign&#46;partner&#46;com">joesBikes<span>&#64;</span>esign<span>&#46;</span>partner<span>&#46;</span>com</a></p></li>
+<li><p><a class="reference external" href="mailto:johnsBikes&#37;&#52;&#48;esign&#46;partner&#46;com">johnsBikes<span>&#64;</span>esign<span>&#46;</span>partner<span>&#46;</span>com</a></p></li>
+</ul>
+<p><strong>DO NOT USE THE ADMIN CONSOLE to add Acrobat Sign users to your accounts. Add Acrobat Sign administrators and users to your accounts via API only!</strong>
+There is no way to associate a user added via the Admin Console to an Acrobat Sign account. Add users to your new accounts VIA API ONLY!</p>
+<p><strong>Identify test cases</strong> – Which use cases do you plan to test? If your document flow sends all agreements through a service account (such as the admin account), set up a new account that mirrors this. Include webhooks if any. Create tests that simulate your most complex signing flows. For example, some users will sign before migration and plan for others to complete the signing after migration.
+The goal is to ensure that in-flight agreements look and behave as expected post-migration and that your application is responding correctly to any webhook posts initiated by your new clientId. For a time, your app will be receiving webhook posts from two clientIds. Be sure to include the new clientId in your allow-list, if you use one.
+Use your existing certified partner app to create new accounts and in-flight Acrobat Sign transactions that you will complete and introspect after the test migration is completed.
+Note that you can test a migration without a certified app, using Postman or Swagger to introspect your assets post migration.
+Embed-user tokens work with our Swagger page. Use the embed user token for authentication. Be sure to prepend “Bearer” to the token.</p>
+</div>
+<div class="section" id="testing-environments">
+<h2>Testing Environments<a class="headerlink" href="#testing-environments" title="Permalink to this heading">¶</a></h2>
+<p>Your test migration will take place in the Acrobat Sign Production environment. Your Sandbox environment is not involved in testing the migration itself.
+These guidelines will help you configure multiple pre-production environments on Sandbox should you have the need to do so. THIS IS NOT A REQUIREMENT.</p>
+<p><strong>Set up one technical account to use in sandbox, and different one to use in prod.</strong>
+Even though the technical account token created for your Embed 2.0 Sandbox can operate across all environments, you should (at a minimum) use one token for Sandbox and another for Production. If required, you could also set up different technical accounts for each environment (e.g. different ones for: Development, Test, QA, Production).</p>
+<p><strong>How do I set up my Development, Test, QA and Production environments using the Acrobat Sign Sandbox and Production environments that Adobe provides?</strong>
+For each environment, create a childOrg in the Admin console and map it to claimed domain or subdomain as follows:</p>
+<p>In Sandbox:</p>
+<ul class="simple">
+<li><p>dev.partner.com is linked to child_org_dev</p></li>
+<li><p>stage.partner.com is linked to child_org_stage</p></li>
+<li><p>preprod.partner.com is linked to child_org_preprod</p></li>
+</ul>
+<p>In Production:</p>
+<ul class="simple">
+<li><p>esign.partner.com is linked to child_org_prod</p></li>
+</ul>
+</div>
+<div class="section" id="migration-status-of-a-user">
+<span id="private-api-to-get-the-migration-status-of-a-user"></span><h2>Migration Status of a User<a class="headerlink" href="#migration-status-of-a-user" title="Permalink to this heading">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HTTP Method</p></td>
+<td><p>Post</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint Operation</p></td>
+<td><p>/v1/users/migrationStatus</p></td>
+</tr>
+<tr class="row-even"><td><p>Authentication/Authorization</p></td>
+<td><p>Valid Technical Account Token</p>
+<p>Mandatory Scopes in token - <strong>sign_user_read</strong></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Audience</p></td>
+<td><p>Partner will call this API to check the state of a user whether it is migrated or not.</p></td>
+</tr>
+<tr class="row-even"><td><p>Request Header</p></td>
+<td><p><a class="reference internal" href="#partner-migration-status-apis-headers">Partner Migration Status APIs Headers</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Response Object</p></td>
+<td><p><a class="reference internal" href="#migrationstatusreponse">MigrationStatusReponse</a></p></td>
+</tr>
+<tr class="row-even"><td><p>HTTP Status Code</p></td>
+<td><p>200</p></td>
+</tr>
+<tr class="row-odd"><td><p>Error Code</p></td>
+<td><p><a class="reference internal" href="#error-response-user-migration-status">Error Response - User Migration Status</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="request-form-parameters">
+<h3>Request Form parameters<a class="headerlink" href="#request-form-parameters" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 9%" />
+<col style="width: 36%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Optional/Required</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>email</p></td>
+<td><p>String</p></td>
+<td><p>email Id of the user</p></td>
+<td><p>Either a UserId or Email is required.</p></td>
+</tr>
+<tr class="row-odd"><td><p>userId</p></td>
+<td><p>String</p></td>
+<td><p>Acrobat Sign User Id of the user</p></td>
+<td><p>Either UserId or Email is required. User Id will get priority if both are present.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="response-object">
+<span id="migrationstatusreponse"></span><h3>Response Object<a class="headerlink" href="#response-object" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-text">Migration status Response</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 9%" />
+<col style="width: 36%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Value Range</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>state</p></td>
+<td><p>Enum</p></td>
+<td><p>Check if the user is migrated to Embed 2.0 on not.</p>
+<ul class="simple">
+<li><p>MIGRATED - The User has been Migrated Successfully</p></li>
+<li><p>NOT_MIGRATED - The User is not migrated and can continue to access Sign using the legacy Embed model.</p></li>
+</ul>
+</td>
+<td><p>MIGRATED/NOT_MIGRATED</p></td>
+</tr>
+<tr class="row-odd"><td><p>migrationStatus</p></td>
+<td><p>Enum</p></td>
+<td><p>Status of a user with respect to migration and identify the correct model of the user.</p>
+<ul class="simple">
+<li><p>MIGRATION_REQUIRED - Migration not started for this user.</p></li>
+<li><p>IN_PROGRESS - Migration is in progress.</p></li>
+<li><p>SUCCEEDED - Migration successful.</p></li>
+<li><p>FAILED - Migration Failed.</p></li>
+</ul>
+</td>
+<td><p>If the User State is MIGRATED, the Migration Status will be:</p>
+<ul class="simple">
+<li><p>SUCCEEDED</p></li>
+</ul>
+<p>If the User State is NOT_MIGRATED, the Migration Status can be:</p>
+<ul class="simple">
+<li><p>MIGRATION_REQUIRED</p></li>
+<li><p>IN_PROGRESS</p></li>
+<li><p>FAILED</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample Response</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;MIGRATED/ NOT_MIGRATED&quot;</span>
+    <span class="s2">&quot;migrationStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;IN_PROGRESS/SUCCEEDED/FAILED/MIGRATION_REQUIRED&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="error-response">
+<span id="error-response-user-migration-status"></span><h3>Error Response<a class="headerlink" href="#error-response" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default" id="id3">
+<caption><span class="caption-text">Error codes</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>HTTP Status Code</p></th>
+<th class="head"><p>ErrorCode</p></th>
+<th class="head"><p>Message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>BAD_REQUEST</p></td>
+<td><p>The request provided is invalid.</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p>INVALID_PARAMETER</p></td>
+<td><p>The &lt;param_name&gt; value specified is invalid.</p></td>
+</tr>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>MISSING_REQUIRED_PARAM</p></td>
+<td><p>Required parameter &lt;param name&gt; is missing.</p></td>
+</tr>
+<tr class="row-odd"><td><p>401</p></td>
+<td><p>INVALID_TOKEN</p></td>
+<td><p>Token provided is invalid or expired.</p></td>
+</tr>
+<tr class="row-even"><td><p>403</p></td>
+<td><p>AUTHENTICATION_FAILED</p></td>
+<td><p>Partner is not onboarded successfully.</p></td>
+</tr>
+<tr class="row-odd"><td><p>403</p></td>
+<td><p>MISSING_SCOPES</p></td>
+<td><p>The token does not contain the required scopes.</p></td>
+</tr>
+<tr class="row-even"><td><p>403</p></td>
+<td><p>PERMISSION_DENIED</p></td>
+<td><p>The API caller does not have the permission to execute this operation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>404</p></td>
+<td><p>USER_NOT_FOUND</p></td>
+<td><p>User not found.</p></td>
+</tr>
+<tr class="row-even"><td><p>500</p></td>
+<td><p>MISC_SERVER_ERROR</p></td>
+<td><p>Some miscellaneous error has occurred.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="partner-migration-status-apis-headers">
+<span id="id1"></span><h3>Partner Migration Status APIs Headers<a class="headerlink" href="#partner-migration-status-apis-headers" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Header Name</p></th>
+<th class="head"><p>Values</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Authorization</p></td>
+<td><p>Bearer &lt;Technical Account Token&gt;</p></td>
+<td><p>Technical account token that is generated by the partner.</p></td>
+</tr>
+<tr class="row-odd"><td><p>content-type</p></td>
+<td><p>application/x-www-form-urlencoded</p></td>
+<td><p>Media type of the resource.</p></td>
+</tr>
+<tr class="row-even"><td><p>x-request-id</p></td>
+<td><p>String</p></td>
+<td><p>A string value needed to track a given request</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+            </div>
+            <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2023, Adobe Inc..
+      <span class="lastupdated">
+        Last update: Jan 30, 2025. 
+        <img src="../_static/adobelogo.png" class="logo"/> 
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+          </div>
+        </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+    });
+  </script> 
+
+</body>
+
+</html>

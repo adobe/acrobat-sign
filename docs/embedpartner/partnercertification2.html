@@ -40,7 +40,7 @@
   
   <link rel="search" title="Search" href="search.html" />
   <link rel="next" title="How-to Video Tutorials 2.0" href="videos2.html" />
-  <link rel="prev" title="Embed 2.0 API" href="embedapi2.html" /> 
+  <link rel="prev" title="Channel Webhooks User Guide" href="channel_webhooks.html" /> 
 
   <script>  window.marketingtech = { adobe: { launch: { url: 'https://assets.adobedtm.com/d4d114c60e50/a0e989131fd5/launch-5dd5dd2177e6.min.js', controlPageLoad: false, }, alloy: { edgeConfigId: '2cba807b-7430-41ae-9aac-db2b0da742d5', }, target: false, audienceManager: false, }, sophia: false, };</script><script src=https://www.adobe.com/marketingtech/main.standard.min.js></script>
 
@@ -100,15 +100,15 @@
           <p class="caption" role="heading"><span class="caption-text">Acrobat Sign Embed Home</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Developing with Acrobat Sign Embed</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="index.html#embed-1-0-vs-embed-2-0">Embed 1.0 vs. Embed 2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#embed-1-0-vs-embed-2-0-updates">Embed 1.0 vs. Embed 2.0 updates:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#benefits-and-overview">Benefits and overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#build-and-deploy-in-4-easy-steps">Build and deploy in 4 easy steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#build-and-deploy-in-four-easy-steps">Build and deploy in four easy steps</a></li>
 </ul>
 </li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Acrobat Sign Embed 1.0</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="onboarding.html">Onboarding Overview</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="onboarding.html">Onboarding overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="onboarding.html#build-and-deploy-in-4-easy-steps">Build and deploy in 4 easy steps</a></li>
 </ul>
 </li>
@@ -139,43 +139,95 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="videos.html">How-to Video Tutorials</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Migrate from Embed 1.0 to Embed 2.0</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration_overview.html">Upgrading to OEM Embed 2.0 - Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migration_overview.html#why-is-adobe-requiring-the-upgrade-to-the-oem-embed-2-0-platform">Why is Adobe requiring the upgrade to the OEM Embed 2.0 Platform?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_overview.html#what-are-the-benefits-of-the-oem-embed-2-0-platform">What are the benefits of the OEM Embed 2.0 Platform?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_overview.html#what-is-the-upgrade-timeline">What is the upgrade timeline?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="migration_steps.html">Phases of the upgrade</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migration_steps.html#phase-1-adobe-and-the-partner-discuss-the-oem-2-0-partner-platform-and-the-upgrade-process">Phase 1 - Adobe and the Partner discuss the OEM 2.0 Partner platform and the upgrade process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_steps.html#phase-2-partner-integrates-with-2-0-oem-partner-platform">Phase 2 - Partner integrates with 2.0 OEM Partner platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_steps.html#phase-3-cutover">Phase 3 - “Cutover”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_steps.html#phase-4-adobe-and-partner-review-the-status-after-cutover-partner-retires-their-legacy-processes">Phase 4 - Adobe and Partner review the status after cutover. Partner retires their legacy processes.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="migration_changes.html">Changes in the Acrobat Sign product and APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migration_changes.html#changes-in-the-acrobat-sign-product">Changes in the Acrobat Sign product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_changes.html#changes-in-the-acrobat-sign-api">Changes in the Acrobat Sign API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="migration_faq.html">Implementation Notes and Best Practice</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#changes">Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#embed-2-0-deprecates-the-following">Embed 2.0 deprecates the following:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#embed-2-0-adds-the-following">Embed 2.0 adds the following:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#access-token-storage-and-validation">Access token storage and validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#pre-migration-planning">Pre-migration planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#testing-migrations">Testing Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#testing-environments">Testing Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#migration-status-of-a-user">Migration Status of a User</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="migration_faq.html#request-form-parameters">Request Form parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration_faq.html#response-object">Response Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration_faq.html#error-response">Error Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration_faq.html#partner-migration-status-apis-headers">Partner Migration Status APIs Headers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Acrobat Sign Embed 2.0</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="onboarding2.html">Embed Partner Onboarding v 2.0</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#parent-organization-set-up">Parent organization set up</a></li>
-<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#create-an-admin-account">Create an admin account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#configure-your-organization">Configure your organization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#create-and-link-directories">Create and link directories</a></li>
-<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#create-a-child-organization">Create a child organization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#allocate-transactions">Allocate transactions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#create-a-technical-developer-account">Create a technical/developer account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#register-the-partner-via-the-api">Register the partner via the API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#set-up-parent-organization">Set up Parent organization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#create-parent-organization">Create Parent organization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#accept-invite-and-access-adobe-admin-console">Accept invite and access Adobe Admin Console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#claim-domain">Claim domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#create-a-directory-and-link-with-the-claimed-domain">Create a Directory and link with the claimed domain</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#create-and-configure-child-organization">Create and configure Child organization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#create-a-child-organization">Create a Child organization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#allocate-transactions-to-the-child-organization">Allocate transactions to the Child organization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#create-a-technical-account">Create a technical account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#generate-technical-account-token-via-ui-or-via-curl-command">Generate Technical Account Token via UI or via curl command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#register-the-partner-on-acrobat-sign">Register the partner on Acrobat Sign</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#call-the-sign-get-baseuris-api">Call the Sign GET BaseUris API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#call-the-register-partner-api">Call the register Partner API</a></li>
 <li class="toctree-l3"><a class="reference internal" href="onboarding2.html#provide-account-info-to-adobe">Provide account info to Adobe</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#onboarding-your-customers">Onboarding your customers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#onboard-your-customers">Onboard your customers</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="embedapi2.html">Embed 2.0 API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#authentication-token-apis">Authentication:  Token APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#base-endpoint-api">Base Endpoint API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#authentication-token-apis">Authentication: Token APIs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="embedapi2.html#common-auth-token-api-attributes">Common auth token API attributes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="embedapi2.html#create-an-embed-user-token">Create an Embed user token</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="embedapi2.html#request">Request</a></li>
 <li class="toctree-l4"><a class="reference internal" href="embedapi2.html#response">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#errors">Errors</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="embedapi2.html#validate-embed-user-token">Validate Embed User token</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id1">Request</a></li>
 <li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id2">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id3">Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#common-attributes">Common attributes</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="embedapi2.html#register-apis">Register APIs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="embedapi2.html#create-partner">Create partner</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id3">Request</a></li>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id4">Response</a></li>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#errors">Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id4">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id5">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id6">Errors</a></li>
 </ul>
 </li>
 </ul>
@@ -183,19 +235,24 @@
 <li class="toctree-l2"><a class="reference internal" href="embedapi2.html#account-apis">Account APIs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="embedapi2.html#common-account-api-header-attributes">Common account API header attributes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="embedapi2.html#create-account">Create Account</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id5">Request</a></li>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#account-creation-response-object">Account creation response object</a></li>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id6">Errors</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#update-account">Update Account</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id7">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#account-creation-response-object">Account creation response object</a></li>
 <li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id8">Errors</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#get-account">Get Account</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id9">Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#update-account">Update Account</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id9">Request</a></li>
 <li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id10">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#get-account">Get Account</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id11">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id12">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#get-all-accounts">Get All Accounts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id13">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#error">Error</a></li>
 </ul>
 </li>
 </ul>
@@ -203,21 +260,37 @@
 <li class="toctree-l2"><a class="reference internal" href="embedapi2.html#user-apis">User APIs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="embedapi2.html#common-user-api-header-attributes">Common user API header attributes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="embedapi2.html#post-user">POST user</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id11">Request</a></li>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id12">Response</a></li>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#error">Error</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id14">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id15">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id16">Error</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="embedapi2.html#put-user">PUT User</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id13">Request</a></li>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id14">Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id17">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id18">Errors</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="embedapi2.html#get-user">GET User</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id15">Response</a></li>
-<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id16">Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id19">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id20">Errors</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#consumables-apis">Consumables APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#consumables-summary-on-integration">Consumables summary on integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#get-consumables-summary-on-account-level">Get consumables summary on account level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#get-consumables-summary-details-on-account-level">Get consumables summary details on account level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#commonerrorresponse">CommonErrorResponse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#id23">Partner APIs Common Headers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="channel_webhooks.html">Channel Webhooks User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="channel_webhooks.html#configuring-channel-webhooks">Configuring Channel Webhooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="channel_webhooks.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="channel_webhooks.html#configure-a-webhook-and-subscribe-to-events">Configure a webhook and subscribe to events</a></li>
 </ul>
 </li>
 </ul>
@@ -279,7 +352,7 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Aug 23, 2023. 
+          Last update: Jan 30, 2025. 
         </span>
         
           <div class="rst-content">
@@ -325,7 +398,7 @@
         <a href="videos2.html" class="btn btn-neutral float-right" title="How-to Video Tutorials 2.0" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
       
       
-        <a href="embedapi2.html" class="btn btn-neutral float-left" title="Embed 2.0 API" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="channel_webhooks.html" class="btn btn-neutral float-left" title="Channel Webhooks User Guide" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
       
   </div>
   
@@ -338,7 +411,7 @@
 <h1>Certifying Your Partner App 2.0<a class="headerlink" href="#certifying-your-partner-app-2-0" title="Permalink to this heading">¶</a></h1>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Your feedback is welcome and is a key driver as documentation evolves. Send suggestions to <a class="reference external" href="mailto:acrobatsignembed&#37;&#52;&#48;adobe&#46;com">acrobatsignembed<span>&#64;</span>adobe<span>&#46;</span>com</a>.</p>
+<p>Your feedback is valuable and is vital in improving our product and documentation. Send suggestions to <a class="reference external" href="mailto:acrobatsignembed&#37;&#52;&#48;adobe&#46;com">acrobatsignembed<span>&#64;</span>adobe<span>&#46;</span>com</a>.</p>
 </div>
 <p>Certification is an essential step in the partner app deployment process. It is required for applications that must access multiple Acrobat Sign accounts and provides several benefits:</p>
 <ul class="simple">
@@ -392,7 +465,7 @@
     <p>
         &#169; Copyright 2023, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 23, 2023. 
+        Last update: Jan 30, 2025. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

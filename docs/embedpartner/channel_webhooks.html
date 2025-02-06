@@ -139,6 +139,44 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="videos.html">How-to Video Tutorials</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Migrate from Embed 1.0 to Embed 2.0</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration_overview.html">Upgrading to OEM Embed 2.0 - Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migration_overview.html#why-is-adobe-requiring-the-upgrade-to-the-oem-embed-2-0-platform">Why is Adobe requiring the upgrade to the OEM Embed 2.0 Platform?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_overview.html#what-are-the-benefits-of-the-oem-embed-2-0-platform">What are the benefits of the OEM Embed 2.0 Platform?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_overview.html#what-is-the-upgrade-timeline">What is the upgrade timeline?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="migration_steps.html">Phases of the upgrade</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migration_steps.html#phase-1-adobe-and-the-partner-discuss-the-oem-2-0-partner-platform-and-the-upgrade-process">Phase 1 - Adobe and the Partner discuss the OEM 2.0 Partner platform and the upgrade process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_steps.html#phase-2-partner-integrates-with-2-0-oem-partner-platform">Phase 2 - Partner integrates with 2.0 OEM Partner platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_steps.html#phase-3-cutover">Phase 3 - “Cutover”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_steps.html#phase-4-adobe-and-partner-review-the-status-after-cutover-partner-retires-their-legacy-processes">Phase 4 - Adobe and Partner review the status after cutover. Partner retires their legacy processes.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="migration_changes.html">Changes in the Acrobat Sign product and APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migration_changes.html#changes-in-the-acrobat-sign-product">Changes in the Acrobat Sign product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_changes.html#changes-in-the-acrobat-sign-api">Changes in the Acrobat Sign API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="migration_faq.html">Implementation Notes and Best Practice</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#changes">Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#embed-2-0-deprecates-the-following">Embed 2.0 deprecates the following:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#embed-2-0-adds-the-following">Embed 2.0 adds the following:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#access-token-storage-and-validation">Access token storage and validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#pre-migration-planning">Pre-migration planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#testing-migrations">Testing Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#testing-environments">Testing Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#migration-status-of-a-user">Migration Status of a User</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="migration_faq.html#request-form-parameters">Request Form parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration_faq.html#response-object">Response Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration_faq.html#error-response">Error Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration_faq.html#partner-migration-status-apis-headers">Partner Migration Status APIs Headers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Acrobat Sign Embed 2.0</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="onboarding2.html">Embed Partner Onboarding v 2.0</a><ul>
@@ -239,6 +277,14 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#consumables-apis">Consumables APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#consumables-summary-on-integration">Consumables summary on integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#get-consumables-summary-on-account-level">Get consumables summary on account level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#get-consumables-summary-details-on-account-level">Get consumables summary details on account level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#commonerrorresponse">CommonErrorResponse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#id23">Partner APIs Common Headers</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Channel Webhooks User Guide</a><ul>
@@ -253,25 +299,6 @@
 <li class="toctree-l2"><a class="reference internal" href="partnercertification2.html#certification-best-practices">Certification best practices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="partnercertification2.html#security-review">Security review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="partnercertification2.html#post-certification">Post “certification”</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="reporting_apis.html">Consumables APIs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="reporting_apis.html#consumables-summary-on-integration">Consumables summary on integration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="reporting_apis.html#filterrequestparams">FilterRequestParams</a></li>
-<li class="toctree-l3"><a class="reference internal" href="reporting_apis.html#consumablesummaryresponse">ConsumableSummaryResponse</a></li>
-<li class="toctree-l3"><a class="reference internal" href="reporting_apis.html#consumablesummary">ConsumableSummary</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="reporting_apis.html#get-consumables-summary-on-account-level">Get consumables summary on account level</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reporting_apis.html#get-consumables-summary-details-on-account-level">Get consumables summary details on account level</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="reporting_apis.html#accountfilterqueryparams">AccountFilterQueryParams</a></li>
-<li class="toctree-l3"><a class="reference internal" href="reporting_apis.html#consumablesummarydetailsresponse">ConsumableSummaryDetailsResponse</a></li>
-<li class="toctree-l3"><a class="reference internal" href="reporting_apis.html#consumablesummarydetails">ConsumableSummaryDetails</a></li>
-<li class="toctree-l3"><a class="reference internal" href="reporting_apis.html#addondetails">AddonDetails</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="reporting_apis.html#commonerrorresponse">CommonErrorResponse</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reporting_apis.html#id3">Partner APIs Common Headers</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="videos2.html">How-to Video Tutorials 2.0</a></li>
@@ -325,7 +352,7 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Jan 15, 2025. 
+          Last update: Jan 30, 2025. 
         </span>
         
           <div class="rst-content">
@@ -497,7 +524,7 @@ Channel Webhooks created in the Partner’s home environment are replicated in a
     <p>
         &#169; Copyright 2023, Adobe Inc..
       <span class="lastupdated">
-        Last update: Jan 15, 2025. 
+        Last update: Jan 30, 2025. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
