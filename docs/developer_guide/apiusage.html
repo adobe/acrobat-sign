@@ -149,8 +149,16 @@
 <li class="toctree-l2"><a class="reference internal" href="#redirect-signers-to-a-specific-url">Redirect signers to a specific URL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#add-agreement-redirect-options">Add Agreement Redirect Options</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#api-throttling">API Throttling</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#rest-api-response">REST API Response</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#steps-to-take-when-throttled">Steps to take when throttled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rest-api">REST API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#handling-rate-limiting-http-429">Handling Rate Limiting (HTTP 429)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#agreement-document-processing">Agreement Document Processing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#megasign-send-in-bulk">MegaSign (Send in Bulk)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#webform-signing">Webform Signing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#webform-first-signer-participant">Webform First Signer/Participant</a></li>
 </ul>
 </li>
 </ul>
@@ -207,9 +215,18 @@
 <li class="toctree-l2"><a class="reference internal" href="samples.html#download-documents-from-an-agreement">Download Documents from an Agreement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="samples.html#get-an-agreements-status">Get an Agreement’s Status</a></li>
 <li class="toctree-l2"><a class="reference internal" href="samples.html#get-an-agreements-signing-url">Get an Agreement’s Signing URL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="samples.html#send-reminders-to-participants">Send Reminders to Participants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#send-reminders-to-participants">Send reminders to participants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="samples.html#send-an-agreement-using-a-library-document">Send an Agreement Using a Library Document</a></li>
 <li class="toctree-l2"><a class="reference internal" href="samples.html#send-an-agreement-using-a-transient-document">Send an Agreement Using a Transient Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#generate-view-url-or-access-code-for-an-agreement">Generate View URL or Access code for an agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#id1">POST /agreements/{agreementId}/deliverableAccess</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="samples.html#request-headers">Request headers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="samples.html#request-object-schema">Request object schema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="samples.html#path-parameter">Path Parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="samples.html#request-body">Request Body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="samples.html#response">Response</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="events.html">Web Message Events</a><ul>
@@ -298,21 +315,56 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Apr 02, 2024. 
+          Last update: Mar 10, 2025. 
         </span>
         
           <div class="rst-content">
             
-            <!--<div role="navigation" aria-label="Page navigation">
+            <!--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-      <li><a href="toc.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">API Usage</li>
+    
+      <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>API Usage</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
+        
+          
+        
       </li>
-  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="scenarios.html" class="btn btn-neutral float-left" title="Example Scenarios" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
         <a href="webhookapis.html" class="btn btn-neutral float-right" title="Webhook APIs" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="scenarios.html" class="btn btn-neutral float-left" title="Example Scenarios" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
   </div>
+  
   <hr/>
 </div>-->
             <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -320,14 +372,14 @@
                 
   <div class="section" id="api-usage">
 <h1>API Usage<a class="headerlink" href="#api-usage" title="Permalink to this heading">¶</a></h1>
-<p>The Acrobat Sign API allows you to quickly build client-side applications that can utilize the signing functionalities offered by Acrobat Sign. This guide contains the most common scenarios in which you can use the API.</p>
+<p>The Acrobat Sign API enables you to create client-side applications that leverage the signing features provided by Acrobat Sign. This guide covers common scenarios where you can use the API.</p>
 <p>Using the Acrobat Sign REST APIs, you can build elegant and scalable client-side applications in any scripting language that supports REST-based API calls. This section provides information on the API endpoint, request headers, request body, and the response. Before you begin, you can browse through the <a class="reference external" href="https://www.adobe.com/go/acrobatsignapireference">API Reference</a> and try a few endpoints.</p>
 <p>A 3-step basic signing workflow involves:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#send"><span class="std std-ref">Send the document</span></a></p></li>
-<li><p><a class="reference internal" href="#checkstatus"><span class="std std-ref">Check the Document signing status</span></a></p></li>
-<li><p><a class="reference internal" href="#download"><span class="std std-ref">Download the Agreement</span></a></p></li>
-<li><p><a class="reference internal" href="#resolvesignerror"><span class="std std-ref">Resolve Request Signature integration error</span></a></p></li>
+<li><p><a class="reference internal" href="apiusage%20-%20backup%20Copy.html#send"><span class="std std-ref">Send the document</span></a></p></li>
+<li><p><a class="reference internal" href="apiusage%20-%20backup%20Copy.html#checkstatus"><span class="std std-ref">Check the Document signing status</span></a></p></li>
+<li><p><a class="reference internal" href="apiusage%20-%20backup%20Copy.html#download"><span class="std std-ref">Download the Agreement</span></a></p></li>
+<li><p><a class="reference internal" href="apiusage%20-%20backup%20Copy.html#resolvesignerror"><span class="std std-ref">Resolve Request Signature integration error</span></a></p></li>
 </ul>
 <div class="section" id="send-for-signing-create-an-agreement">
 <span id="sendforsigning"></span><h2>Send for Signing (Create an agreement)<a class="headerlink" href="#send-for-signing-create-an-agreement" title="Permalink to this heading">¶</a></h2>
@@ -1544,27 +1596,138 @@ The redirect Url reflects the status of the agreement, as shown below.</p>
 </div>
 <div class="section" id="api-throttling">
 <h2>API Throttling<a class="headerlink" href="#api-throttling" title="Permalink to this heading">¶</a></h2>
-<p>To prevent your API from being overwhelmed by too many requests, Adobe throttles requests to your API.</p>
-<p>When a request is throttled, the client will receive an <strong>HTTP 429 “Too Many Requests”</strong> response with an error message appropriate to the request. When a request gets back an HTTP 429 response, it means the user has consumed over the limit of allowed resources within a certain time frame. It could be a violation of the per-minute, -hour, or -day limit. The user will be allowed to make more requests in the next minute, hour, or day (depending on which threshold was crossed).</p>
-<p>Each request made to Acrobat Sign is evaluated based on the system resources it will consume. Different parameters passed to the same endpoint might contribute a different amount of resource consumption. Your service package (small business, business, enterprise) directly influences your transaction rate. Higher tiers of service have higher throttle thresholds.</p>
-<div class="section" id="rest-api-response">
-<h3>REST API Response<a class="headerlink" href="#rest-api-response" title="Permalink to this heading">¶</a></h3>
+<p>All requests made to Acrobat Sign by a client are monitored to protect system resources and preserve Adobe’s ability to serve as many users as possible.
+Acrobat Sign APIs enforce limits on the number of API requests per endpoint at the minute, hour, and day levels to ensure optimal performance. These limits are applied per user, and if user information is unavailable, the system falls back to the request’s originating IP address (if available).
+Each API request is evaluated based on its resource consumption, which varies depending on the parameters used. Your service plan  determines your transaction rate, with higher-tier plans allowing more requests before reaching the limit.
+If a request exceeds the allowed limit, it’s rejected with an HTTP 429 “Too Many Requests” response with an error message. The error message will specify the issue, and the “Retry-After” header in the response indicates when you can attempt the subsequent request.
+There are three discrete throttling mechanisms, each throttling specific functions in the service:</p>
+<ul class="simple">
+<li><p>Rest APIs</p></li>
+<li><p>Agreement Document Processing</p></li>
+<li><p>Webform First Signer/Participant</p></li>
+</ul>
+<div class="section" id="rest-api">
+<h3>REST API<a class="headerlink" href="#rest-api" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;THROTTLING_TOO_MANY_REQUESTS&quot;</span><span class="p">,</span>
-<span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;&lt;error_message_with_wait_time&gt; (apiActionId=&lt;api_action_id&gt;)&quot;</span>
-<span class="s2">&quot;retryAfter&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">wait_time_in_seconds</span><span class="o">&gt;</span>
+ <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;THROTTLING_TOO_MANY_REQUESTS&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;&lt;error_message_with_wait_time&gt; (apiActionId=&lt;api_action_id&gt;)&quot;</span>
+ <span class="s2">&quot;retryAfter&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">wait_time_in_seconds</span><span class="o">&gt;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Also, a <em>Retry-After</em> HTTP header will be added into the response (<a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-7.1.3">see RFC-7231 Section 7.1.3</a>)</p>
+<p>The <strong>Retry-After</strong> HTTP header, as defined in <a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-7.1.3">RFC-7231 Section 7.1.3</a>, specifies the minimum time, given in seconds, the client must wait before retrying or making another request.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Retry</span><span class="o">-</span><span class="n">After</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">wait_time_in_seconds</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>is the minimum time in seconds the client must wait until it can make the next request. When the <em>retryAfter</em> timer expires, the client’s resource count is reset to 0 for the over-limit threshold. Therefore, the client can send the request again and it should go through without being blocked.</p>
+<p>Once the Retry-After timer expires, the client’s resource count resets to zero for the exceeded threshold, allowing the next request to proceed without being blocked.</p>
+<div class="section" id="handling-rate-limiting-http-429">
+<h4>Handling Rate Limiting (HTTP 429)<a class="headerlink" href="#handling-rate-limiting-http-429" title="Permalink to this heading">¶</a></h4>
+<p>To prevent disruptions, design your workflow to handle HTTP 429 (Too Many Requests) errors smoothly. Use the <em>Retry-After</em> header or the retry time in the response body to determine when to attempt the request again. Implement exponential backoff to avoid immediate retries and ensure efficient recovery.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p><strong>Avoid hardcoding retry intervals</strong> - Use the server-provided delay for the best retry results.</p></li>
+<li><p><strong>Avoid Polling Requests</strong> - Excessive polling can degrade Acrobat Sign API performance. If detected, Acrobat Sign may temporarily disable API access for the affected account. Instead of polling, use webhooks to receive real-time updates on agreement status changes.</p></li>
+<li><p><strong>Increase Document Processing Limits</strong> - Contact your Customer Success Manager (CSM) or Support with estimated usage volumes to request higher processing limits. Include expected values for total participants, file size, and number of pages.</p></li>
+</ul>
 </div>
-<div class="section" id="steps-to-take-when-throttled">
-<h3>Steps to take when throttled<a class="headerlink" href="#steps-to-take-when-throttled" title="Permalink to this heading">¶</a></h3>
-<p>It is recommended that developers design workflows that can handle the HTTP 429 exceptions gracefully and use the retry-time from either the response body or from the “Retry-After” header to recover from such errors.</p>
+</div>
+</div>
+<div class="section" id="agreement-document-processing">
+<h3>Agreement Document Processing<a class="headerlink" href="#agreement-document-processing" title="Permalink to this heading">¶</a></h3>
+<p>In Acrobat Sign, all documents—whether sent through the web UI or API—are processed asynchronously when creating the following object types:</p>
+<ul class="simple">
+<li><p>Agreement</p></li>
+<li><p>Webform</p></li>
+<li><p>MegaSign</p></li>
+<li><p>Library Template</p></li>
+<li><p>Archive</p></li>
+</ul>
+<p>To maintain performance, Acrobat Sign enforces request limits based on:</p>
+<ul class="simple">
+<li><p>Total number of participants</p></li>
+<li><p>Total file size (including all uploaded files)</p></li>
+<li><p>Total number of pages processed</p></li>
+</ul>
+<p>These limits apply at the minute, hour, and day levels on a per-user basis. Requests made through both the web UI and API count toward these limits.</p>
+<p>For the Create requests made through REST API, the request is rejected with 429 HTTP status code when the limits are breached and following error messages are returned.</p>
+<p><strong>Agreement</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;THROTTLING_TOO_MANY_REQUESTS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;You have reached the limit on the number of agreements you can send at this time. Please try again in &lt;wait_time&gt; seconds/minutes/hours.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;retryAfter&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">wait_time_in_seconds</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The “Retry-After” header is included in the response only for the Create Agreement API (POST /agreements). This header provides the recommended wait time before making another request.</p>
+<p><strong>Webform</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;THROTTLING_TOO_MANY_REQUESTS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;You have reached the limit on the number of web forms you can create at this time. Please try again in &lt;wait_time&gt; seconds/minutes/hours.&quot;</span>
+    <span class="s2">&quot;retryAfter&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">wait_time_in_seconds</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Library Template</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;THROTTLING_TOO_MANY_REQUESTS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;You have reached the limit on the number of templates you can create at this time. Please try again in &lt;wait_time&gt; seconds/minutes/hours.&quot;</span>
+    <span class="s2">&quot;retryAfter&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">wait_time_in_seconds</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Archive</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;THROTTLING_TOO_MANY_REQUESTS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;You have reached the limit on the number of documents you can archive at this time. Please try again in &lt;wait_time&gt; seconds/minutes/hours.&quot;</span>
+    <span class="s2">&quot;retryAfter&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">wait_time_in_seconds</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="megasign-send-in-bulk">
+<h4>MegaSign (Send in Bulk)<a class="headerlink" href="#megasign-send-in-bulk" title="Permalink to this heading">¶</a></h4>
+<p>When using MegaSign endpoints (<em>Send in Bulk</em> in the UI), a single API call or UI action generates multiple agreements and sends multiple signature requests. Throttling limits are enforced on the number of requests per the hour and day levels. Due to the <em>Send in Bulk</em> batch-processing behavior, Acrobat Sign does not enforce per-minute limits. However, per-hour and per-day limits still apply.</p>
+<p>Before processing a MegaSign request, Acrobat Sign pre-evaluates the workload:</p>
+<ul class="simple">
+<li><p>If the request does not exceed throttling limits, the MegaSign and all related child agreements will be processed.</p></li>
+<li><p>If the request would exceed the limits, it is declined upfront before creating any child agreements.</p></li>
+</ul>
+<p>For MegaSign Create request from the REST API, the following error response with HTTP status code 429 will be returned when the limits are breached.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;THROTTLING_TOO_MANY_REQUESTS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;You have reached the limit on the number of agreements you can send at this time. Please try again in &lt;wait_time&gt; seconds/minutes/hours.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;retryAfter&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">wait_time_in_seconds</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Contact your CSM or Support if you find that your throttling thresholds must be increased.</p>
+</div>
+<div class="section" id="webform-signing">
+<h4>Webform Signing<a class="headerlink" href="#webform-signing" title="Permalink to this heading">¶</a></h4>
+<p>When a Webform is signed, Acrobat Sign creates a new agreement, which undergoes asynchronous document processing. Standard throttling limits apply to the Webform creator in your account, not the signer.</p>
+<p>If the agreement processing exceeds throttling limits, the Webform signer will see the following error message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">This</span> <span class="n">web</span> <span class="n">form</span> <span class="ow">is</span> <span class="n">very</span> <span class="n">popular</span> <span class="n">right</span> <span class="n">now</span> <span class="ow">and</span> <span class="n">can</span><span class="s1">&#39;t be processed due to high demand. Please try again in </span><span class="si">{x}</span><span class="s1"> hours, </span><span class="si">{xx}</span><span class="s1"> minutes, and </span><span class="si">{xxx}</span><span class="s1"> seconds.</span>
+<span class="n">Contact</span> <span class="n">the</span> <span class="n">owner</span> <span class="n">of</span> <span class="n">this</span> <span class="n">web</span> <span class="n">form</span> <span class="k">for</span> <span class="n">further</span> <span class="n">information</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="webform-first-signer-participant">
+<h3>Webform First Signer/Participant<a class="headerlink" href="#webform-first-signer-participant" title="Permalink to this heading">¶</a></h3>
+<p>Acrobat Sign allows webform creators to <a class="reference external" href="https://helpx.adobe.com/sign/adv-user/web-form/save-in-progress.html">enable email verification for the first signer/participant</a>. When enabled, submission limits are enforced based on the first signer’s activity.
+Throttling limits are enforced on the number of requests per minute, hour, and day levels.</p>
+<ul class="simple">
+<li><p>Limits are evaluated when the first signer/participant submits the webform or adds additional participants.</p></li>
+<li><p>The submission count increases only after email verification is completed.</p></li>
+<li><p>If the signer exceeds the limit, they will see the following error message:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">You</span><span class="s1">&#39;ve reached the limit on the number of times that you may access this web form. Please try again after </span><span class="si">{x}</span><span class="s1"> hours, </span><span class="si">{xx}</span><span class="s1"> minutes, and </span><span class="si">{xxx}</span><span class="s1"> seconds.</span>
+<span class="n">Contact</span> <span class="n">the</span> <span class="n">owner</span> <span class="n">of</span> <span class="n">this</span> <span class="n">web</span> <span class="n">form</span> <span class="k">for</span> <span class="n">further</span> <span class="n">information</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>If email verification is not enabled, no submission limits apply to the first signer.
+Contact your CSM or Support if you find that your throttling thresholds must be increased.</p>
+<p><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/developer_guide/apiusage.html?highlight=webform#create-a-widget">More about Acrobat Sign webforms can be found here.</a></p>
 </div>
 </div>
 </div>
@@ -1581,7 +1744,7 @@ The redirect Url reflects the status of the agreement, as shown below.</p>
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Apr 02, 2024. 
+        Last update: Mar 10, 2025. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
