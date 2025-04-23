@@ -150,6 +150,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#add-agreement-redirect-options">Add Agreement Redirect Options</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#api-throttling">API Throttling</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#rest-api">REST API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#system-load-throttling">System Load Throttling</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#handling-rate-limiting-http-429">Handling Rate Limiting (HTTP 429)</a></li>
 </ul>
 </li>
@@ -315,7 +316,7 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Mar 10, 2025. 
+          Last update: Apr 22, 2025. 
         </span>
         
           <div class="rst-content">
@@ -376,10 +377,10 @@
 <p>Using the Acrobat Sign REST APIs, you can build elegant and scalable client-side applications in any scripting language that supports REST-based API calls. This section provides information on the API endpoint, request headers, request body, and the response. Before you begin, you can browse through the <a class="reference external" href="https://www.adobe.com/go/acrobatsignapireference">API Reference</a> and try a few endpoints.</p>
 <p>A 3-step basic signing workflow involves:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="apiusage%20-%20backup%20Copy.html#send"><span class="std std-ref">Send the document</span></a></p></li>
-<li><p><a class="reference internal" href="apiusage%20-%20backup%20Copy.html#checkstatus"><span class="std std-ref">Check the Document signing status</span></a></p></li>
-<li><p><a class="reference internal" href="apiusage%20-%20backup%20Copy.html#download"><span class="std std-ref">Download the Agreement</span></a></p></li>
-<li><p><a class="reference internal" href="apiusage%20-%20backup%20Copy.html#resolvesignerror"><span class="std std-ref">Resolve Request Signature integration error</span></a></p></li>
+<li><p><a class="reference internal" href="#send"><span class="std std-ref">Send the document</span></a></p></li>
+<li><p><a class="reference internal" href="#checkstatus"><span class="std std-ref">Check the Document signing status</span></a></p></li>
+<li><p><a class="reference internal" href="#download"><span class="std std-ref">Download the Agreement</span></a></p></li>
+<li><p><a class="reference internal" href="#resolvesignerror"><span class="std std-ref">Resolve Request Signature integration error</span></a></p></li>
 </ul>
 <div class="section" id="send-for-signing-create-an-agreement">
 <span id="sendforsigning"></span><h2>Send for Signing (Create an agreement)<a class="headerlink" href="#send-for-signing-create-an-agreement" title="Permalink to this heading">¶</a></h2>
@@ -1597,10 +1598,10 @@ The redirect Url reflects the status of the agreement, as shown below.</p>
 <div class="section" id="api-throttling">
 <h2>API Throttling<a class="headerlink" href="#api-throttling" title="Permalink to this heading">¶</a></h2>
 <p>All requests made to Acrobat Sign by a client are monitored to protect system resources and preserve Adobe’s ability to serve as many users as possible.
-Acrobat Sign APIs enforce limits on the number of API requests per endpoint at the minute, hour, and day levels to ensure optimal performance. These limits are applied per user, and if user information is unavailable, the system falls back to the request’s originating IP address (if available).
-Each API request is evaluated based on its resource consumption, which varies depending on the parameters used. Your service plan  determines your transaction rate, with higher-tier plans allowing more requests before reaching the limit.
-If a request exceeds the allowed limit, it’s rejected with an HTTP 429 “Too Many Requests” response with an error message. The error message will specify the issue, and the “Retry-After” header in the response indicates when you can attempt the subsequent request.
-There are three discrete throttling mechanisms, each throttling specific functions in the service:</p>
+Acrobat Sign APIs enforce limits on the number of API requests per endpoint at the minute, hour, and day levels to ensure optimal performance. These limits are applied per user, and if user information is unavailable, the system falls back to the request’s originating IP address (if available).</p>
+<p>Each API request is evaluated based on its resource consumption, which varies depending on the parameters used. Your service plan  determines your transaction rate, with higher-tier plans allowing more requests before reaching the limit.</p>
+<p>If a request exceeds the allowed limit, it’s rejected with an HTTP 429 “Too Many Requests” response with an error message. The error message will specify the issue, and the “Retry-After” header in the response indicates when you can attempt the subsequent request.</p>
+<p>There are three discrete throttling mechanisms, each throttling specific functions in the service:</p>
 <ul class="simple">
 <li><p>Rest APIs</p></li>
 <li><p>Agreement Document Processing</p></li>
@@ -1620,13 +1621,41 @@ There are three discrete throttling mechanisms, each throttling specific functio
 </pre></div>
 </div>
 <p>Once the Retry-After timer expires, the client’s resource count resets to zero for the exceeded threshold, allowing the next request to proceed without being blocked.</p>
+<div class="section" id="system-load-throttling">
+<h4>System Load Throttling<a class="headerlink" href="#system-load-throttling" title="Permalink to this heading">¶</a></h4>
+<p>Beginning with the May 2025 release, Acrobat Sign includess the following enhanced throttling rules:</p>
+<ul class="simple">
+<li><p>During periods of high overall system load, API requests may be throttled across the entire platform to maintain performance.</p></li>
+<li><p>If a specific customer is identified as contributing to system slowdowns, Acrobat Sign may throttle API requests from that customer individually.</p></li>
+</ul>
+<p>When an API request is throttled, it will be rejected with a 429 HTTP status code, along with the following:</p>
+<p><strong>Response Body</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;THROTTLING_HIGH_SYSTEM_LOAD&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;Acrobat Sign system is experiencing high overall load, due to which subset of the requests are being throttled. Please try again in &lt;wait_time_in_seconds&gt; seconds.&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;retryAfter&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">wait_time_in_seconds</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response Header</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="n">X</span><span class="o">-</span><span class="n">Throttling</span><span class="o">-</span><span class="n">Reason</span> <span class="p">:</span> <span class="s2">&quot;high-system-load&quot;</span>
+ <span class="n">Retry</span><span class="o">-</span><span class="n">After</span> <span class="p">:</span> <span class="o">&lt;</span><span class="n">wait_time_in_seconds</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Upon receiving the above response, you can use the Retry-After header or the retryAfter in the response body to determine when to attempt the request again.</p>
+<p><strong>Retry Penalty</strong></p>
+<p>For accounts created after the May 20, 2025, a penalty is applied if the account does not adhere to the specified retry time interval.
+If the same request is attempted again within this interval, the request is throttled again, and the retry time interval is reset.</p>
+</div>
 <div class="section" id="handling-rate-limiting-http-429">
 <h4>Handling Rate Limiting (HTTP 429)<a class="headerlink" href="#handling-rate-limiting-http-429" title="Permalink to this heading">¶</a></h4>
 <p>To prevent disruptions, design your workflow to handle HTTP 429 (Too Many Requests) errors smoothly. Use the <em>Retry-After</em> header or the retry time in the response body to determine when to attempt the request again. Implement exponential backoff to avoid immediate retries and ensure efficient recovery.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <ul class="simple">
-<li><p><strong>Avoid hardcoding retry intervals</strong> - Use the server-provided delay for the best retry results.</p></li>
+<li><p><strong>Avoid hardcoding retry intervals</strong> - Use the server-provided delay for the best retry results and to avoid the retry penalty.</p></li>
 <li><p><strong>Avoid Polling Requests</strong> - Excessive polling can degrade Acrobat Sign API performance. If detected, Acrobat Sign may temporarily disable API access for the affected account. Instead of polling, use webhooks to receive real-time updates on agreement status changes.</p></li>
 <li><p><strong>Increase Document Processing Limits</strong> - Contact your Customer Success Manager (CSM) or Support with estimated usage volumes to request higher processing limits. Include expected values for total participants, file size, and number of pages.</p></li>
 </ul>
@@ -1700,7 +1729,6 @@ There are three discrete throttling mechanisms, each throttling specific functio
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Contact your CSM or Support if you find that your throttling thresholds must be increased.</p>
 </div>
 <div class="section" id="webform-signing">
 <h4>Webform Signing<a class="headerlink" href="#webform-signing" title="Permalink to this heading">¶</a></h4>
@@ -1744,7 +1772,7 @@ Contact your CSM or Support if you find that your throttling thresholds must be 
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Mar 10, 2025. 
+        Last update: Apr 22, 2025. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
