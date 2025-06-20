@@ -205,21 +205,56 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Jun 21, 2024. 
+          Last update: Jun 20, 2025. 
         </span>
         
           <div class="rst-content">
             
-            <!--<div role="navigation" aria-label="Page navigation">
+            <!--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-      <li><a href="toc.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Latest API Release Notes</li>
+    
+      <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Latest API Release Notes</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
+        
+          
+        
       </li>
-  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="index.html" class="btn btn-neutral float-left" title="Acrobat Sign API Release Notes" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
         <a href="v6releasenotes.html" class="btn btn-neutral float-right" title="2016 REST v6 Release Notes" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Acrobat Sign API Release Notes" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
   </div>
+  
   <hr/>
 </div>-->
             <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -282,6 +317,35 @@
 </tr>
 </thead>
 <tbody>
+<tr class="row-even"><td><p>June, 2025</p></td>
+<td><p>The webhookNotificationApplicableUsers parameter is to be removed from the Webhook payload</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The Webhook 2.0 infrastructure has been rolled out to all customers, and with that completed, signer notifications have been deprecated. As a result, the webhookNotificationApplicableUsers parameter of the webhook payload no longer provides any useful data and will be removed from all webhook payloads.</p></li>
+</ul>
+</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><p>April, 2025</p></td>
+<td><p>New Webhook Field: eventDateTimezoneOffset</p>
+<blockquote>
+<div><ul>
+<li><p>Adobe Acrobat Sign introduces <strong>eventDateTimezoneOffset</strong>, a new field in the webhook payload for the AGREEMENT_ACTION_COMPLETED subscribed event.</p>
+<p>This field captures the recipient’s timezone offset when they update the agreement, providing better visibility into the local signing time.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>eventDateTimezoneOffset</strong> records the recipient’s timezone offset in minutes relative to UTC (e.g., eventDateTimezoneOffset : “UTC-300”)</p></li>
+<li><p>The existing <strong>eventDate</strong> field remains unchanged and continues to store the action’s UTC timestamp. The timezone offset does not modify the eventDate value.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<blockquote>
+<div><p>This update enhances the tracking of signing activities across different time zones.</p>
+</div></blockquote>
+</div></blockquote>
+</td>
+</tr>
 <tr class="row-even"><td><p>June, 2024</p></td>
 <td><p>Webhook Event Payload update</p>
 <ul class="simple">
@@ -412,7 +476,85 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>May, 2024</p></td>
+<tr class="row-even"><td><p>June, 2025</p></td>
+<td><p>OAuth 2.0 capabilities have been extended to group-level administrators</p>
+<ul class="simple">
+<li><p>Group-level admins now have the authority to use OAuth 2.0 tokens.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>May, 2025</p></td>
+<td><dl>
+<dt>Update to API throttling:</dt><dd><ul>
+<li><p>After the May 2025 release, <a class="reference external" href="https://opensource.adobe.com/acrobat-sign/developer_guide/apiusage.html#api-throttling">new API throttling rules will be applied:</a></p>
+<ul class="simple">
+<li><p>When high overall system load is detected, Acrobat Sign will throttle a subset of API requests across the entire system.</p></li>
+<li><p>When high-usage customers are identified as contributing to overall system slowness, Acrobat Sign will throttle a subset of API requests specifically for that customer.</p></li>
+<li><p>When an API request is throttled, it will be rejected with a 429 HTTP status code, along with the following:</p></li>
+</ul>
+<p><em>Response Body</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;THROTTLING_HIGH_SYSTEM_LOAD&quot;</span><span class="p">,</span>
+<span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;Acrobat Sign system is experiencing high overall load, due to which subset of the requests are being throttled. Please try again in &lt;wait_time_in_seconds&gt; seconds.&quot;</span><span class="p">,</span>
+<span class="s2">&quot;retryAfter&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">wait_time_in_seconds</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><em>Response Header</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">-</span><span class="n">Throttling</span><span class="o">-</span><span class="n">Reason</span> <span class="p">:</span> <span class="s2">&quot;high-system-load&quot;</span>
+<span class="n">Retry</span><span class="o">-</span><span class="n">After</span> <span class="p">:</span> <span class="o">&lt;</span><span class="n">wait_time_in_seconds</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Upon receiving the above response, you can use the Retry-After header or the retryAfter in the response body to determine when to attempt the request again.</p>
+<p><em>Retry Penalty</em></p>
+<p>For all new accounts created after the May 2025 release, a penalty will be applied if the account does not adhere to the specified retry time interval. If the same request is attempted again within this interval, the request will be throttled again, and the retry time interval will be reset.</p>
+</li>
+</ul>
+</dd>
+<dt>GET /agreements API Now Served from a Microservice:</dt><dd><ul class="simple">
+<li><p>The GET /agreements endpoint is migrating from the Acrobat Sign core application to a dedicated microservice. As part of this transition, search requests will retrieve data from the search service (secondary storage) instead of the primary database. This change enhances service stability and prevents atypical API calls from affecting the Acrobat Sign experience.</p>
+<ul>
+<li><p>The maximum page size for the GET /agreements call is now 500 agreements per request. Historically, the search service did not fetch more than 100 agreements per page. If more agreements are required, multiple queries with a narrower scope may be necessary.</p></li>
+<li><p>Since searches now occur in secondary storage, minor additional latency may be observed when calling the GET /agreements endpoint.</p></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td><p>April, 2025</p></td>
+<td><dl>
+<dt>GET /agreements/{agreement_id}</dt><dd><ul class="simple">
+<li><p>A <strong>status</strong> parameter has been added to the <strong>memberInfos</strong> object within <strong>participantSetsInfo</strong>:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">participantSetsInfo</span><span class="s2">&quot;: [</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;REPLACED&quot;</span>
+
+        <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+</pre></div>
+</div>
+</dd>
+<dt>GDPR Compliance - Delete User Info via API:</dt><dd><ul class="simple">
+<li><p>Partners can now use the API to delete user information when removing a user’s data in compliance with GDPR requirements. This enhancement streamlines data management and ensures regulatory compliance.</p></li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p>May, 2024</p></td>
 <td><dl>
 <dt>Endpoint update:</dt><dd><ul class="simple">
 <li><p>Enhanced webhookEndpoints API: The /webhookEndpoints API can now be configured at both the account level and the application level.</p></li>
@@ -431,6 +573,36 @@ Previously, the webhook service did not throw an error if the webhookUrl field w
 </ul>
 </dd>
 </dl>
+</td>
+</tr>
+<tr class="row-even"><td><p>February, 2025</p></td>
+<td><p>The Swagger pages have been updated to indicate <em>me</em> as a shorthand for the <em>accountId</em>.</p>
+<p>A new <strong>accountId</strong> attribute is being added to all event notification payloads.</p>
+<p>New Settings APIs:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>POST /accounts/{accountId|me}/settings/search</strong> - Takes the identified account (accountId) and a list of setting names and returns the list of setting names with their values for the account specified. Only account-level values are returned.</p></li>
+<li><p><strong>PUT /accounts/{accountId|me}/settings</strong> - Applies a provided list of setting names and their values to the identified account (accountId).</p></li>
+</ul>
+</div></blockquote>
+<p>New Logo APIs:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>POST /accounts/{accountId|me}/logo</strong> - Uploads the CoBrandingLogo file.</p></li>
+<li><p><strong>GET /accounts/{accountId|me}/logo</strong> - Returns the image data of the CoBrandingLogo image file in the same format that it was uploaded.</p></li>
+<li><p><strong>DELETE /accounts/{accountId|me}/logo</strong> – Clears the CoBrandingLogo image for the account.</p></li>
+</ul>
+</div></blockquote>
+<p>Signing Reason APIs:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>GET /accounts/{accountId|me}/signingReasons</strong> - Returns a list of signing reasons for the identified account (accountId).</p></li>
+<li><p><strong>POST /accounts/{accountId|me}/signingReasons</strong> -  Creates a new signing reason for the identified account (accountId).</p></li>
+<li><p><strong>GET /accounts/{accountId|me}/signingReasons/{signingReasonId}</strong> - Retrieves the text of the identified signing reason (signingReasonId) from the identified account (accountId). account’s identified signing reason.</p></li>
+<li><p><strong>PUT /accounts/{accountId|me}/signingReasons/{signingReasonId}</strong> - Updates the identified signing reason (signingReasonId) from the identified account (accountId).</p></li>
+<li><p><strong>DELETE /accounts/{accountId|me}/signingReasons/{signingReasonId}</strong> - Removes the identified signing reason (signingReasonId) from the identified account (accountId).</p></li>
+</ul>
+</div></blockquote>
 </td>
 </tr>
 <tr class="row-odd"><td><p>January, 2024</p></td>
@@ -553,7 +725,7 @@ Previously, the webhook service did not throw an error if the webhookUrl field w
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Jun 21, 2024. 
+        Last update: Jun 20, 2025. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
