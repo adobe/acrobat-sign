@@ -100,14 +100,6 @@
     "subEvent": "",
     "webhookId": "",
     "webhookName": "",
-    "webhookNotificationApplicableUsers": [
-        {
-            "email": "",
-            "id": "",
-            "payloadApplicable": "",
-            "role": ""
-        }
-    ],
     "webhookNotificationId": "",
     "webhookScope": "",
     "webhookUrlInfo": {
