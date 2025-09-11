@@ -19,7 +19,7 @@ using IO.Swagger.Client;
 using IO.Swagger.Api;
 using IO.Swagger.model.transientDocuments;
 
-namespace IO.Swagger.Test
+namespace IO.Swagger.Test.Api
 {
     /// <summary>
     ///  Class for testing TransientDocumentsApi
