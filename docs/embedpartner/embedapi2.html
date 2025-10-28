@@ -100,7 +100,7 @@
           <p class="caption" role="heading"><span class="caption-text">Acrobat Sign Embed Home</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Developing with Acrobat Sign Embed</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="index.html#embed-1-0-vs-embed-2-0-updates">Embed 1.0 vs. Embed 2.0 updates:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#embed-2-0-updates">Embed 2.0 updates:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#benefits-and-overview">Benefits and overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#build-and-deploy-in-four-easy-steps">Build and deploy in four easy steps</a></li>
 </ul>
@@ -285,6 +285,14 @@
 <li class="toctree-l3"><a class="reference internal" href="#id23">Partner APIs Common Headers</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#gdpr-delete-userinfo">GDPR Delete userInfo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#delete-userinfo-as-per-gdpr-compliance">Delete userInfo as per GDPR compliance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#queryparams">QueryParams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">Partner APIs Common Headers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#successresponse">SuccessResponse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#errorresponse">ErrorResponse</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="channel_webhooks.html">Channel Webhooks User Guide</a><ul>
@@ -352,7 +360,7 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Jan 30, 2025. 
+          Last update: Oct 27, 2025. 
         </span>
         
           <div class="rst-content">
@@ -453,8 +461,8 @@ client_secret=xxxxxxxxxx&amp;scope=sign_webhook_retention,openid,widget_write,wo
 <h2>Base Endpoint API<a class="headerlink" href="#base-endpoint-api" title="Permalink to this heading">¶</a></h2>
 <p><strong>Get Base_uri</strong></p>
 <p>Acrobat Sign APIs come with location awareness, so it’s important to use the correct geographic access point when calling resource-based APIs to ensure success. We highly recommend that clients store the base endpoint URL for each environment. This way, you can retrieve the appropriate geographic access points (<a class="reference external" href="https://api.na1.adobesign.com">https://api.na1.adobesign.com</a>, <a class="reference external" href="https://api.eu1.adobesign.com">https://api.eu1.adobesign.com</a>) for your resource-based API calls. Before making any API calls, make sure to include the valid access point returned as part of the base endpoint API in your request.</p>
-<table class="colwidths-given docutils align-default" id="id24">
-<caption><span class="caption-text">Base API Host</span><a class="headerlink" href="#id24" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id25">
+<caption><span class="caption-text">Base API Host</span><a class="headerlink" href="#id25" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 40%" />
 <col style="width: 60%" />
@@ -473,8 +481,8 @@ client_secret=xxxxxxxxxx&amp;scope=sign_webhook_retention,openid,widget_write,wo
 </tr>
 </tbody>
 </table>
-<table class="colwidths-given docutils align-default" id="id25">
-<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id25" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id26">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id26" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -498,21 +506,21 @@ client_secret=xxxxxxxxxx&amp;scope=sign_webhook_retention,openid,widget_write,wo
 <td><p>Valid user/technical account token</p></td>
 </tr>
 <tr class="row-even"><td><p>Request Header</p></td>
-<td><p><a class="reference internal" href="embedapi2%20-%20Backup.html#commonattributes"><span class="std std-ref">Auth API Headers</span></a></p></td>
+<td><p><a class="reference internal" href="#commonattributes"><span class="std std-ref">Auth API Headers</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Response Object</p></td>
-<td><p><a class="reference internal" href="embedapi2%20-%20Backup.html#baseuriresponse"><span class="std std-ref">BaseUri Response</span></a></p></td>
+<td><p><a class="reference internal" href="#baseuriresponse"><span class="std std-ref">BaseUri Response</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p>HTTP Status Code</p></td>
 <td><p>200</p></td>
 </tr>
 <tr class="row-odd"><td><p>Error Code</p></td>
-<td><p><a class="reference internal" href="embedapi2%20-%20Backup.html#baseurierror"><span class="std std-ref">BaseUri Error Codes</span></a></p></td>
+<td><p><a class="reference internal" href="#baseurierror"><span class="std std-ref">BaseUri Error Codes</span></a></p></td>
 </tr>
 </tbody>
 </table>
-<table class="colwidths-given docutils align-default" id="id26">
-<caption><span class="caption-text">Response Object</span><a class="headerlink" href="#id26" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id27">
+<caption><span class="caption-text">Response Object</span><a class="headerlink" href="#id27" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 15%" />
@@ -543,8 +551,8 @@ client_secret=xxxxxxxxxx&amp;scope=sign_webhook_retention,openid,widget_write,wo
 </pre></div>
 </div>
 <p id="baseurierror"><strong>BaseUri: Error Response</strong></p>
-<table class="colwidths-given docutils align-default" id="id27">
-<caption><span class="caption-text">Error codes</span><a class="headerlink" href="#id27" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id28">
+<caption><span class="caption-text">Error codes</span><a class="headerlink" href="#id28" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 15%" />
@@ -577,8 +585,8 @@ client_secret=xxxxxxxxxx&amp;scope=sign_webhook_retention,openid,widget_write,wo
 </ul>
 <div class="section" id="common-auth-token-api-attributes">
 <h3>Common auth token API attributes<a class="headerlink" href="#common-auth-token-api-attributes" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default" id="id28">
-<caption><span class="caption-text">Common header attributes</span><a class="headerlink" href="#id28" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id29">
+<caption><span class="caption-text">Common header attributes</span><a class="headerlink" href="#id29" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 20%" />
@@ -604,8 +612,8 @@ client_secret=xxxxxxxxxx&amp;scope=sign_webhook_retention,openid,widget_write,wo
 </div>
 <div class="section" id="create-an-embed-user-token">
 <h3>Create an Embed user token<a class="headerlink" href="#create-an-embed-user-token" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default" id="id29">
-<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id29" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id30">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id30" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -644,8 +652,8 @@ client_secret=xxxxxxxxxx&amp;scope=sign_webhook_retention,openid,widget_write,wo
 </table>
 <div class="section" id="request">
 <h4>Request<a class="headerlink" href="#request" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id30">
-<caption><span class="caption-text">Request Parameters</span><a class="headerlink" href="#id30" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id31">
+<caption><span class="caption-text">Request Parameters</span><a class="headerlink" href="#id31" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 5%" />
@@ -741,8 +749,8 @@ client_secret=xxxxxxxxxx&amp;scope=sign_webhook_retention,openid,widget_write,wo
 </div>
 <div class="section" id="response">
 <h4>Response<a class="headerlink" href="#response" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id31">
-<caption><span class="caption-text">Response Parameters</span><a class="headerlink" href="#id31" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id32">
+<caption><span class="caption-text">Response Parameters</span><a class="headerlink" href="#id32" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 10%" />
@@ -785,8 +793,8 @@ client_secret=xxxxxxxxxx&amp;scope=sign_webhook_retention,openid,widget_write,wo
 </div>
 <div class="section" id="errors">
 <h4>Errors<a class="headerlink" href="#errors" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id32">
-<caption><span class="caption-text">Error codes for create an embed user token</span><a class="headerlink" href="#id32" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id33">
+<caption><span class="caption-text">Error codes for create an embed user token</span><a class="headerlink" href="#id33" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 20%" />
@@ -829,8 +837,8 @@ client_secret=xxxxxxxxxx&amp;scope=sign_webhook_retention,openid,widget_write,wo
 </div>
 <div class="section" id="validate-embed-user-token">
 <h3>Validate Embed User token<a class="headerlink" href="#validate-embed-user-token" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default" id="id33">
-<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id33" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id34">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id34" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -869,8 +877,8 @@ client_secret=xxxxxxxxxx&amp;scope=sign_webhook_retention,openid,widget_write,wo
 </table>
 <div class="section" id="id1">
 <h4>Request<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id34">
-<caption><span class="caption-text">Request Parameters</span><a class="headerlink" href="#id34" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id35">
+<caption><span class="caption-text">Request Parameters</span><a class="headerlink" href="#id35" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 20%" />
@@ -916,8 +924,8 @@ client_secret=xxxxxxxxxx&amp;scope=sign_webhook_retention,openid,widget_write,wo
 </div>
 <div class="section" id="id2">
 <h4>Response<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id35">
-<caption><span class="caption-text">Response Parameters</span><a class="headerlink" href="#id35" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id36">
+<caption><span class="caption-text">Response Parameters</span><a class="headerlink" href="#id36" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 20%" />
@@ -950,8 +958,8 @@ client_secret=xxxxxxxxxx&amp;scope=sign_webhook_retention,openid,widget_write,wo
 </div>
 <div class="section" id="id3">
 <h4>Errors<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id36">
-<caption><span class="caption-text">Error codes for validate account</span><a class="headerlink" href="#id36" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id37">
+<caption><span class="caption-text">Error codes for validate account</span><a class="headerlink" href="#id37" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 20%" />
@@ -981,8 +989,8 @@ client_secret=xxxxxxxxxx&amp;scope=sign_webhook_retention,openid,widget_write,wo
 </div>
 <div class="section" id="common-attributes">
 <span id="commonattributes"></span><h4>Common attributes<a class="headerlink" href="#common-attributes" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id37">
-<caption><span class="caption-text">Account &amp; User APIs: Common headers for Partner APIs</span><a class="headerlink" href="#id37" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id38">
+<caption><span class="caption-text">Account &amp; User APIs: Common headers for Partner APIs</span><a class="headerlink" href="#id38" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 20%" />
@@ -1009,8 +1017,8 @@ client_secret=xxxxxxxxxx&amp;scope=sign_webhook_retention,openid,widget_write,wo
 </tr>
 </tbody>
 </table>
-<table class="colwidths-given docutils align-default" id="id38">
-<caption><span class="caption-text">Common headers for Auth token APIs</span><a class="headerlink" href="#id38" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id39">
+<caption><span class="caption-text">Common headers for Auth token APIs</span><a class="headerlink" href="#id39" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 20%" />
@@ -1045,8 +1053,8 @@ client_secret=xxxxxxxxxx&amp;scope=sign_webhook_retention,openid,widget_write,wo
 </ul>
 <div class="section" id="create-partner">
 <h3>Create partner<a class="headerlink" href="#create-partner" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default" id="id39">
-<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id39" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id40">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id40" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -1093,8 +1101,8 @@ client_secret=xxxxxxxxxx&amp;scope=sign_webhook_retention,openid,widget_write,wo
 </table>
 <div class="section" id="id4">
 <h4>Request<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id40">
-<caption><span class="caption-text">Register Partner request parameters</span><a class="headerlink" href="#id40" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id41">
+<caption><span class="caption-text">Register Partner request parameters</span><a class="headerlink" href="#id41" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 10%" />
@@ -1143,8 +1151,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </div>
 <div class="section" id="id5">
 <h4>Response<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id41">
-<caption><span class="caption-text">Register partner response parameters</span><a class="headerlink" href="#id41" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id42">
+<caption><span class="caption-text">Register partner response parameters</span><a class="headerlink" href="#id42" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 18%" />
 <col style="width: 14%" />
@@ -1232,8 +1240,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </div>
 <div class="section" id="id6">
 <h4>Errors<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id42">
-<caption><span class="caption-text">Error codes for register partner response</span><a class="headerlink" href="#id42" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id43">
+<caption><span class="caption-text">Error codes for register partner response</span><a class="headerlink" href="#id43" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 20%" />
@@ -1300,8 +1308,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </div></blockquote>
 <div class="section" id="common-account-api-header-attributes">
 <h3>Common account API header attributes<a class="headerlink" href="#common-account-api-header-attributes" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default" id="id43">
-<caption><span class="caption-text">Common header attributes</span><a class="headerlink" href="#id43" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id44">
+<caption><span class="caption-text">Common header attributes</span><a class="headerlink" href="#id44" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 20%" />
@@ -1331,8 +1339,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </div>
 <div class="section" id="create-account">
 <h3>Create Account<a class="headerlink" href="#create-account" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default" id="id44">
-<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id44" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id45">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id45" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -1378,8 +1386,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </table>
 <div class="section" id="id7">
 <h4>Request<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id45">
-<caption><span class="caption-text">Account create-update request parameters</span><a class="headerlink" href="#id45" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id46">
+<caption><span class="caption-text">Account create-update request parameters</span><a class="headerlink" href="#id46" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 10%" />
@@ -1435,8 +1443,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </tr>
 </tbody>
 </table>
-<table class="colwidths-given docutils align-default" id="id46">
-<caption><span class="caption-text">Consumable</span><a class="headerlink" href="#id46" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id47">
+<caption><span class="caption-text">Consumable</span><a class="headerlink" href="#id47" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 10%" />
@@ -1536,8 +1544,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </div>
 <div class="section" id="id8">
 <h4>Errors<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id47">
-<caption><span class="caption-text">Error codes for AccountCreateErrorResponse</span><a class="headerlink" href="#id47" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id48">
+<caption><span class="caption-text">Error codes for AccountCreateErrorResponse</span><a class="headerlink" href="#id48" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 20%" />
@@ -1592,8 +1600,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </div>
 <div class="section" id="update-account">
 <h3>Update Account<a class="headerlink" href="#update-account" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default" id="id48">
-<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id48" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id49">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id49" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -1671,8 +1679,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </div>
 <div class="section" id="id10">
 <h4>Errors<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id49">
-<caption><span class="caption-text">Error codes for AccountUpdateErrorResponse</span><a class="headerlink" href="#id49" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id50">
+<caption><span class="caption-text">Error codes for AccountUpdateErrorResponse</span><a class="headerlink" href="#id50" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 20%" />
@@ -1735,8 +1743,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </div>
 <div class="section" id="get-account">
 <h3>Get Account<a class="headerlink" href="#get-account" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default" id="id50">
-<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id50" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id51">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id51" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -1782,8 +1790,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </table>
 <div class="section" id="id11">
 <h4>Response<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id51">
-<caption><span class="caption-text">Response Object GetAccountResponse</span><a class="headerlink" href="#id51" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id52">
+<caption><span class="caption-text">Response Object GetAccountResponse</span><a class="headerlink" href="#id52" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 20%" />
@@ -1854,8 +1862,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </div>
 <div class="section" id="id12">
 <h4>Errors<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id52">
-<caption><span class="caption-text">Error codes for AccountGetErrorResponse</span><a class="headerlink" href="#id52" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id53">
+<caption><span class="caption-text">Error codes for AccountGetErrorResponse</span><a class="headerlink" href="#id53" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 20%" />
@@ -1902,8 +1910,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </div>
 <div class="section" id="get-all-accounts">
 <h3>Get All Accounts<a class="headerlink" href="#get-all-accounts" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default" id="id53">
-<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id53" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id54">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id54" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -1944,8 +1952,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </tr>
 </tbody>
 </table>
-<table class="colwidths-given docutils align-default" id="id54">
-<caption><span class="caption-text">Query Params</span><a class="headerlink" href="#id54" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id55">
+<caption><span class="caption-text">Query Params</span><a class="headerlink" href="#id55" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 10%" />
@@ -2003,8 +2011,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </table>
 <div class="section" id="id13">
 <h4>Response<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id55">
-<caption><span class="caption-text">Response Object GetAccountResponse</span><a class="headerlink" href="#id55" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id56">
+<caption><span class="caption-text">Response Object GetAccountResponse</span><a class="headerlink" href="#id56" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 20%" />
@@ -2023,8 +2031,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </tr>
 </tbody>
 </table>
-<table class="colwidths-given docutils align-default" id="id56">
-<caption><span class="caption-text">Account</span><a class="headerlink" href="#id56" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id57">
+<caption><span class="caption-text">Account</span><a class="headerlink" href="#id57" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 20%" />
@@ -2071,8 +2079,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </div>
 <div class="section" id="error">
 <h4>Error<a class="headerlink" href="#error" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id57">
-<caption><span class="caption-text">Error Response for Get Accounts</span><a class="headerlink" href="#id57" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id58">
+<caption><span class="caption-text">Error Response for Get Accounts</span><a class="headerlink" href="#id58" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 20%" />
@@ -2130,12 +2138,12 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </div></blockquote>
 <div class="section" id="common-user-api-header-attributes">
 <h3>Common user API header attributes<a class="headerlink" href="#common-user-api-header-attributes" title="Permalink to this heading">¶</a></h3>
-<p>Common user header attributes are identical to the <a class="reference internal" href="embedapi2%20-%20Backup.html#accountatt"><span class="std std-ref">Account APIs</span></a>.</p>
+<p>Common user header attributes are identical to the <a class="reference internal" href="#accountatt"><span class="std std-ref">Account APIs</span></a>.</p>
 </div>
 <div class="section" id="post-user">
 <h3>POST user<a class="headerlink" href="#post-user" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default" id="id58">
-<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id58" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id59">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id59" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -2181,8 +2189,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </table>
 <div class="section" id="id14">
 <h4>Request<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id59">
-<caption><span class="caption-text">Create-update user request parameters</span><a class="headerlink" href="#id59" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id60">
+<caption><span class="caption-text">Create-update user request parameters</span><a class="headerlink" href="#id60" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 10%" />
@@ -2332,8 +2340,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </div>
 <div class="section" id="id16">
 <h4>Error<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id60">
-<caption><span class="caption-text">Error codes for UserCreateErrorResponse</span><a class="headerlink" href="#id60" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id61">
+<caption><span class="caption-text">Error codes for UserCreateErrorResponse</span><a class="headerlink" href="#id61" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 20%" />
@@ -2396,8 +2404,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </div>
 <div class="section" id="put-user">
 <h3>PUT User<a class="headerlink" href="#put-user" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default" id="id61">
-<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id61" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id62">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id62" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -2466,8 +2474,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </div>
 <div class="section" id="id18">
 <h4>Errors<a class="headerlink" href="#id18" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id62">
-<caption><span class="caption-text">Error codes for UserUpdateErrorResponse</span><a class="headerlink" href="#id62" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id63">
+<caption><span class="caption-text">Error codes for UserUpdateErrorResponse</span><a class="headerlink" href="#id63" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 20%" />
@@ -2538,8 +2546,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </div>
 <div class="section" id="get-user">
 <h3>GET User<a class="headerlink" href="#get-user" title="Permalink to this heading">¶</a></h3>
-<table class="colwidths-given docutils align-default" id="id63">
-<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id63" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id64">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id64" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -2585,8 +2593,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </table>
 <div class="section" id="id19">
 <h4>Response<a class="headerlink" href="#id19" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id64">
-<caption><span class="caption-text">Get  user response attributes</span><a class="headerlink" href="#id64" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id65">
+<caption><span class="caption-text">Get  user response attributes</span><a class="headerlink" href="#id65" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 20%" />
@@ -2675,8 +2683,8 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </div>
 <div class="section" id="id20">
 <h4>Errors<a class="headerlink" href="#id20" title="Permalink to this heading">¶</a></h4>
-<table class="colwidths-given docutils align-default" id="id65">
-<caption><span class="caption-text">Error codes for UserGetErrorResponse</span><a class="headerlink" href="#id65" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id66">
+<caption><span class="caption-text">Error codes for UserGetErrorResponse</span><a class="headerlink" href="#id66" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 20%" />
@@ -3195,6 +3203,192 @@ Validated against the domains claimed/trusted by the partner org</p></td>
 </table>
 </div>
 </div>
+<div class="section" id="gdpr-delete-userinfo">
+<h2>GDPR Delete userInfo<a class="headerlink" href="#gdpr-delete-userinfo" title="Permalink to this heading">¶</a></h2>
+<p>The GDPR Delete User API enables partners to delete end users in compliance with GDPR “Right to be forgotten” requirements. This removes the user in a manner that cannot be reversed or retrieved, addressing privacy and compliance issues.</p>
+<p><strong>Pre-requisites:</strong></p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://helpx.adobe.com/sign/admin/users/technical-account.html">A technical account</a> with the scope sign_account_write_scope is required.</p></li>
+<li><p>Only users having both Account Admin and Privacy Admin roles can delete users in their account.</p></li>
+<li><p>The user that needs to be deleted must be marked as inactive.</p></li>
+</ol>
+<p><strong>Steps to delete a user:</strong></p>
+<ol class="arabic simple">
+<li><p>Generate a technical account token.</p></li>
+<li><p>Use this token to obtain a user embed token for the account admin who has both required roles.</p></li>
+<li><p>Update the user status you want to delete to “INACTIVE.”</p></li>
+<li><p>Call the GDPR Delete User API using the same embed token to permanently remove the user.</p></li>
+</ol>
+<div class="section" id="delete-userinfo-as-per-gdpr-compliance">
+<h3>Delete userInfo as per GDPR compliance<a class="headerlink" href="#delete-userinfo-as-per-gdpr-compliance" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HTTP Method</p></td>
+<td><p>DELETE</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint Operation</p></td>
+<td><p>/v1/users/{user_id}/userInfo</p></td>
+</tr>
+<tr class="row-even"><td><p>Authentication / Authorization</p></td>
+<td><p>Valid OEM 2.0 user token</p>
+<p>Token user must have account_admin &amp; privacy_admin role</p>
+<p>Token must have sign_user_write scope</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Audience</p></td>
+<td><p>Partner calls this API to delete their customers’ end users as per GDPR compliance</p></td>
+</tr>
+<tr class="row-even"><td><p>Request Header</p></td>
+<td><p>Partner APIs Common Headers</p></td>
+</tr>
+<tr class="row-odd"><td><p>Query Params</p></td>
+<td><p>QueryParams</p></td>
+</tr>
+<tr class="row-even"><td><p>Response Object</p></td>
+<td><p>ConsumableSummaryResponse</p></td>
+</tr>
+<tr class="row-odd"><td><p>HTTP Status Code</p></td>
+<td><p>202</p></td>
+</tr>
+<tr class="row-even"><td><p>Error Code</p></td>
+<td><p>ErrorResponse</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="queryparams">
+<h3>QueryParams<a class="headerlink" href="#queryparams" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 35%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Default Value</p></th>
+<th class="head"><p>Value Range</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>keepAgreements</p></td>
+<td><p>Boolean</p></td>
+<td><p>Flag whether user agreements be deleted or not</p></td>
+<td><p>NO</p></td>
+<td><p>True</p></td>
+<td><p>True/False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id24">
+<h3>Partner APIs Common Headers<a class="headerlink" href="#id24" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Header Name</p></th>
+<th class="head"><p>Values</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Authorization</p></td>
+<td><p>Bearer &lt;OEM user token&gt;</p></td>
+<td><p>OEM 2.0 user token exchanged through technical account token with valid scopes/roles.</p></td>
+</tr>
+<tr class="row-odd"><td><p>content-type</p></td>
+<td><p>application/json</p></td>
+<td><p>Media type of the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>x-request-id</p></td>
+<td><p>String</p></td>
+<td><p>A unique string value needed to track a given request</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="successresponse">
+<h3>SuccessResponse<a class="headerlink" href="#successresponse" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>HTTP Code</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>202 (Accepted)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="errorresponse">
+<h3>ErrorResponse<a class="headerlink" href="#errorresponse" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>HTTP Code</p></th>
+<th class="head"><p>Error Code</p></th>
+<th class="head"><p>Message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>INVALID_USER_ID</p></td>
+<td><p>The specified path param ‘userId’ is invalid</p></td>
+</tr>
+<tr class="row-odd"><td><p>401</p></td>
+<td><p>INVALID_TOKEN</p></td>
+<td><p>The token provided is invalid or expired.</p></td>
+</tr>
+<tr class="row-even"><td><p>403</p></td>
+<td><p>PERMISSION_DENIED</p></td>
+<td><p>The API caller does not have the permission to execute this operation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>403</p></td>
+<td><p>USER_STILL_ACTIVE</p></td>
+<td><p>The user is still active.</p></td>
+</tr>
+<tr class="row-even"><td><p>404</p></td>
+<td><p>USER_NOT_FOUND</p></td>
+<td><p>User does not exist.</p></td>
+</tr>
+<tr class="row-odd"><td><p>429</p></td>
+<td><p>TOO_MANY_REQUESTS</p></td>
+<td><p>The request rate limit has reached.</p></td>
+</tr>
+<tr class="row-even"><td><p>500</p></td>
+<td><p>USER_INFO_REMOVE_FAILED</p></td>
+<td><p>The system failed to remove user data.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 
 
@@ -3209,7 +3403,7 @@ Validated against the domains claimed/trusted by the partner org</p></td>
     <p>
         &#169; Copyright 2023, Adobe Inc..
       <span class="lastupdated">
-        Last update: Jan 30, 2025. 
+        Last update: Oct 27, 2025. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
