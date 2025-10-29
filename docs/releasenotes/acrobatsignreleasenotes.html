@@ -205,7 +205,7 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Aug 10, 2025. 
+          Last update: Oct 23, 2025. 
         </span>
         
           <div class="rst-content">
@@ -478,14 +478,22 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>June, 2025</p></td>
+<tr class="row-even"><td><p>October, 2025</p></td>
+<td><dl class="simple">
+<dt>All <strong>GET</strong> <a class="reference external" href="https://opensource.adobe.com/acrobat-sign/developer_guide/apiusage.html#api-throttling#get-endpoints">API endpoints for status retrieval or listing purposes are subject to a polling policy.</a></dt><dd><p>A limit will be applied to how often the effective user can make the same API call to the Acrobat Sign service.
+An error is returned if the same call is made within the minimum polling interval by the same effective user.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p>June, 2025</p></td>
 <td><p>OAuth 2.0 capabilities have been extended to group-level administrators</p>
 <ul class="simple">
 <li><p>Group-level admins now have the authority to use OAuth 2.0 tokens.</p></li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p>May, 2025</p></td>
+<tr class="row-even"><td><p>May, 2025</p></td>
 <td><dl>
 <dt>Update to API throttling:</dt><dd><ul>
 <li><p>After the May 2025 release, <a class="reference external" href="https://opensource.adobe.com/acrobat-sign/developer_guide/apiusage.html#api-throttling">new API throttling rules will be applied:</a></p>
@@ -525,7 +533,7 @@
 </dl>
 </td>
 </tr>
-<tr class="row-even"><td><p>April, 2025</p></td>
+<tr class="row-odd"><td><p>April, 2025</p></td>
 <td><dl>
 <dt>GET /agreements/{agreement_id}</dt><dd><ul class="simple">
 <li><p>A <strong>status</strong> parameter has been added to the <strong>memberInfos</strong> object within <strong>participantSetsInfo</strong>:</p></li>
@@ -556,7 +564,7 @@
 </dl>
 </td>
 </tr>
-<tr class="row-odd"><td><p>May, 2024</p></td>
+<tr class="row-even"><td><p>May, 2024</p></td>
 <td><dl>
 <dt>Endpoint update:</dt><dd><ul class="simple">
 <li><p>Enhanced webhookEndpoints API: The /webhookEndpoints API can now be configured at both the account level and the application level.</p></li>
@@ -577,7 +585,7 @@ Previously, the webhook service did not throw an error if the webhookUrl field w
 </dl>
 </td>
 </tr>
-<tr class="row-even"><td><p>February, 2025</p></td>
+<tr class="row-odd"><td><p>February, 2025</p></td>
 <td><p>The Swagger pages have been updated to indicate <em>me</em> as a shorthand for the <em>accountId</em>.</p>
 <p>A new <strong>accountId</strong> attribute is being added to all event notification payloads.</p>
 <p>New Settings APIs:</p>
@@ -607,10 +615,10 @@ Previously, the webhook service did not throw an error if the webhookUrl field w
 </div></blockquote>
 </td>
 </tr>
-<tr class="row-odd"><td><p>January, 2024</p></td>
+<tr class="row-even"><td><p>January, 2024</p></td>
 <td><p>New feature: <a class="reference external" href="https://opensource.adobe.com/acrobat-sign/developer_guide/webhook-endpoint-api.html">Support for WebhookEndpoint APIs</a></p></td>
 </tr>
-<tr class="row-even"><td><p>November, 2023</p></td>
+<tr class="row-odd"><td><p>November, 2023</p></td>
 <td><dl class="simple">
 <dt>New features:</dt><dd><ul class="simple">
 <li><p><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/developer_guide/apiusage.html#generate-templates-from-in-progress-or-signed-agreements">Generate templates from in-progress or signed agreements</a></p></li>
@@ -620,13 +628,13 @@ Previously, the webhook service did not throw an error if the webhookUrl field w
 </dl>
 </td>
 </tr>
-<tr class="row-odd"><td><p>August, 2023</p></td>
+<tr class="row-even"><td><p>August, 2023</p></td>
 <td><p><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/developer_guide/apiusage.html#add-form-fields-to-agreements">Associate FormFieldGenerator with specific documents</a></p></td>
 </tr>
-<tr class="row-even"><td><p>July 18, 2023</p></td>
+<tr class="row-odd"><td><p>July 18, 2023</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/combined</span></code> document returns merged field data; Merged (prefilled) data can be visually validated using the <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/</span> <span class="pre">agreements/{agreementId}combinedDocument</span></code> call and including the <code class="docutils literal notranslate"><span class="pre">includeMergedFieldData</span></code> parameter. The downloaded PDF includes the form field data that has already been merged via <code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/formfields/mergeInfo</span></code> call.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Nov. 8</p></td>
+<tr class="row-even"><td><p>Nov. 8</p></td>
 <td><p>New endpoints</p>
 <ul class="simple">
 <li><p>DELETE /agreements/{agreementId} - A new endpoint that supports the “soft delete” function by moving an agreement and all related data(including database records and physical files) to the Deleted folder where it will be fully destroyed 14 days later (unless restored first).</p></li>
@@ -634,7 +642,7 @@ Previously, the webhook service did not throw an error if the webhookUrl field w
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><p>Nov. 8</p></td>
+<tr class="row-odd"><td><p>Nov. 8</p></td>
 <td><p>Updated endpoints</p>
 <ul class="simple">
 <li><p>GET /libraryDocument/{libraryDocumentId}/combinedDocument - An update to the existing endpoint to add a value (skipDocumentSealing) that returns a non-certified PDF.</p></li>
@@ -643,22 +651,22 @@ Previously, the webhook service did not throw an error if the webhookUrl field w
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Sept</p></td>
+<tr class="row-even"><td><p>Sept</p></td>
 <td><p>The description of the BYON_NOTARY notaryType was updated to reflect the “bring your own” aspect of a customer-provided notary.</p></td>
 </tr>
-<tr class="row-even"><td><p>July</p></td>
+<tr class="row-odd"><td><p>July</p></td>
 <td><p>Devs can <a class="reference external" href="https://helpx.adobe.com/sign/release-notes/adobe-sign.html">improve the delegation process</a> by updating the delegation API to use the v6 REST endpoint <code class="docutils literal notranslate"><span class="pre">delegatedParticipantSets</span></code>. Customers should see no impact beyond enforcing the required name values configuration during delegation.</p></td>
 </tr>
-<tr class="row-odd"><td><p>June</p></td>
+<tr class="row-even"><td><p>June</p></td>
 <td><p>None</p></td>
 </tr>
-<tr class="row-even"><td><p>May</p></td>
+<tr class="row-odd"><td><p>May</p></td>
 <td><p>None</p></td>
 </tr>
-<tr class="row-odd"><td><p>April</p></td>
+<tr class="row-even"><td><p>April</p></td>
 <td><p>None</p></td>
 </tr>
-<tr class="row-even"><td><p>January</p></td>
+<tr class="row-odd"><td><p>January</p></td>
 <td><p>None</p></td>
 </tr>
 </tbody>
@@ -727,7 +735,7 @@ Previously, the webhook service did not throw an error if the webhookUrl field w
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Aug 10, 2025. 
+        Last update: Oct 23, 2025. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 

@@ -160,6 +160,11 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#webform-first-signer-participant">Webform First Signer/Participant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-endpoints">GET endpoints</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#api-polling-threshold">API polling threshold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recommended-implementation">Recommended Implementation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -316,7 +321,7 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Apr 22, 2025. 
+          Last update: Oct 27, 2025. 
         </span>
         
           <div class="rst-content">
@@ -1601,11 +1606,12 @@ The redirect Url reflects the status of the agreement, as shown below.</p>
 Acrobat Sign APIs enforce limits on the number of API requests per endpoint at the minute, hour, and day levels to ensure optimal performance. These limits are applied per user, and if user information is unavailable, the system falls back to the request’s originating IP address (if available).</p>
 <p>Each API request is evaluated based on its resource consumption, which varies depending on the parameters used. Your service plan  determines your transaction rate, with higher-tier plans allowing more requests before reaching the limit.</p>
 <p>If a request exceeds the allowed limit, it’s rejected with an HTTP 429 “Too Many Requests” response with an error message. The error message will specify the issue, and the “Retry-After” header in the response indicates when you can attempt the subsequent request.</p>
-<p>There are three discrete throttling mechanisms, each throttling specific functions in the service:</p>
+<p>There are four discrete throttling mechanisms, each throttling specific functions in the service:</p>
 <ul class="simple">
 <li><p>Rest APIs</p></li>
 <li><p>Agreement Document Processing</p></li>
 <li><p>Webform First Signer/Participant</p></li>
+<li><p>GET Endpoints</p></li>
 </ul>
 <div class="section" id="rest-api">
 <h3>REST API<a class="headerlink" href="#rest-api" title="Permalink to this heading">¶</a></h3>
@@ -1757,6 +1763,38 @@ Throttling limits are enforced on the number of requests per minute, hour, and d
 Contact your CSM or Support if you find that your throttling thresholds must be increased.</p>
 <p><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/developer_guide/apiusage.html?highlight=webform#create-a-widget">More about Acrobat Sign webforms can be found here.</a></p>
 </div>
+<div class="section" id="get-endpoints">
+<h3>GET endpoints<a class="headerlink" href="#get-endpoints" title="Permalink to this heading">¶</a></h3>
+<p>High-frequency polling can put unnecessary loads on systems which can lead to suboptimal response times for all users. To bolster reliable API usage, Acrobat Sign enforces a polling threshold rule that limits duplicate GET API requests from the same effective user.</p>
+<div class="section" id="api-polling-threshold">
+<h4>API polling threshold<a class="headerlink" href="#api-polling-threshold" title="Permalink to this heading">¶</a></h4>
+<p>The polling policy applies to all GET API endpoints. A Minimum Object Polling Interval (MOPI) will regulate how often clients can send the identical API request to the Acrobat Sign service. Your service plan determines your MOPI and the threshold for identical requests within the MOPI. Higher-tier plans allow shorter intervals and higher thresholds:</p>
+<dl class="simple">
+<dt>Minimum Object Polling Interval (MOPI) - The default MOPI varies depending on the tier of service:</dt><dd><ul class="simple">
+<li><p>Acrobat Sign Partners: 1-minute interval.</p></li>
+<li><p>Acrobat Sign Solutions for Enterprise: 1-minute interval.</p></li>
+<li><p>Developer accounts: 10-minute interval.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Identical GET requests mean the same path, parameters, and headers requested by the same effective user more than once within the MOPI. If an identical request over the threshold is made within the MOPI by the same user, the system will return:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>304 Not Modified status code (for HTTP conditional requests using an ETag).</p></li>
+<li><p>429 Too Many Requests (status code with a retry-after header for other requests).</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="recommended-implementation">
+<h4>Recommended Implementation<a class="headerlink" href="#recommended-implementation" title="Permalink to this heading">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Use ETags and cache repeated request responses</strong> - If the API supports the 304 status code, use the ETag returned from the first request. Include ETag values in the If-None-Match header for the subsequent requests. When a 304 response is received, use the cached data instead of making a new API call.</p></li>
+<li><p><strong>Increase call limits within MOPI</strong> - You cannot send more identical API calls than the threshold within the MOPI. Contact your Customer Success Manager (CSM) or Support with your calling pattern to request higher limits.</p></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
 </div>
 </div>
 
@@ -1772,7 +1810,7 @@ Contact your CSM or Support if you find that your throttling thresholds must be 
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Apr 22, 2025. 
+        Last update: Oct 27, 2025. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
