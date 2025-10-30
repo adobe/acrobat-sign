@@ -205,7 +205,7 @@
       <div class="wy-nav-content">
         
         <span class="lastupdated" style="color:lightgrey">
-          Last update: Oct 23, 2025. 
+          Last update: Oct 30, 2025. 
         </span>
         
           <div class="rst-content">
@@ -317,7 +317,10 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>June, 2025</p></td>
+<tr class="row-even"><td><p>November, 2025</p></td>
+<td><p>Webhook event for SMS delivery failures - A new webhook event for SMS delivery failures is available, providing a notification when a message can’t be delivered due to invalid numbers, carrier issues, or other problems. Notification is triggered after all retry attempts fail.</p></td>
+</tr>
+<tr class="row-odd"><td><p>June, 2025</p></td>
 <td><ul class="simple">
 <li><p>The webhookNotificationApplicableUsers parameter is to be removed from the Webhook payload</p>
 <ul>
@@ -328,7 +331,7 @@
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p>April, 2025</p></td>
+<tr class="row-even"><td><p>April, 2025</p></td>
 <td><p>New Webhook Field: eventDateTimezoneOffset</p>
 <blockquote>
 <div><ul>
@@ -348,7 +351,7 @@
 </div></blockquote>
 </td>
 </tr>
-<tr class="row-even"><td><p>June, 2024</p></td>
+<tr class="row-odd"><td><p>June, 2024</p></td>
 <td><p>Webhook Event Payload update</p>
 <ul class="simple">
 <li><p>The webhookNotificationPayload now includes the following new fields for all AGREEMENT_* webhook subscription event types: userId, authenticationMethod, and createdGroupId.</p></li>
@@ -359,7 +362,7 @@
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p>January, 2024</p></td>
+<tr class="row-even"><td><p>January, 2024</p></td>
 <td><p>New Webhooks</p>
 <ul class="simple">
 <li><p>AGREEMENT_EMAIL_OTP_AUTHENTICATED: Triggers when an agreement is authenticated with Email OTP.</p></li>
@@ -367,7 +370,7 @@
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><p>November, 2023</p></td>
+<tr class="row-odd"><td><p>November, 2023</p></td>
 <td><p>New Webhooks</p>
 <ul class="simple">
 <li><p>AGREEMENT_UNSHARED: Triggers when an agreement is unshared.</p></li>
@@ -375,7 +378,7 @@
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p>July 18, 2023</p></td>
+<tr class="row-even"><td><p>July 18, 2023</p></td>
 <td><p>New Webhooks</p>
 <ul class="simple">
 <li><p>AGREEMENT_DOCUMENTS_VIEWED: Triggers when a user views an agreement.</p></li>
@@ -383,7 +386,7 @@
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><p>July 18, 2023</p></td>
+<tr class="row-odd"><td><p>July 18, 2023</p></td>
 <td><p>Updated Webhooks</p>
 <ul class="simple">
 <li><p>AGREEMENT_RECALLED: Additional payload values now include <code class="docutils literal notranslate"><span class="pre">comments</span></code> and <code class="docutils literal notranslate"><span class="pre">notifyOthers</span></code>.</p></li>
@@ -391,10 +394,10 @@
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p>July 18, 2023</p></td>
+<tr class="row-even"><td><p>July 18, 2023</p></td>
 <td><p>Updated IP ranges for Webhooks: Webhooks require allow-listing to specific IP addresses. The <a class="reference external" href="https://helpx.adobe.com/sign/system-requirements.html#ipranges">IP range list has been updated</a>.</p></td>
 </tr>
-<tr class="row-even"><td><p>July 18, 2023</p></td>
+<tr class="row-odd"><td><p>July 18, 2023</p></td>
 <td><p>All <code class="docutils literal notranslate"><span class="pre">/search</span></code> API calls are subject to volume throttling at the rate of:</p>
 <ul class="simple">
 <li><p>1000 calls per minute</p></li>
@@ -404,13 +407,13 @@
 <p><strong>Note</strong>: Administrators may file a <a class="reference external" href="https://adobe.com/go/adobesign-support-center">support request</a> to elevate the volumes.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p>March 14, 2023</p></td>
+<tr class="row-even"><td><p>March 14, 2023</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">initiatingUserId</span></code> and <code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code>: Accounts on Webhooks 2.0 will populate the <code class="docutils literal notranslate"><span class="pre">initiatingUserId</span></code> and <code class="docutils literal notranslate"><span class="pre">initiatingUserEmail</span></code> fields in the notification payload. Accounts that remain on the classic webhooks experience after March 14, 2023 will see unpopulated fields present in the payload.</p></td>
 </tr>
-<tr class="row-even"><td><p>March 14, 2023</p></td>
+<tr class="row-odd"><td><p>March 14, 2023</p></td>
 <td><p>All accounts existing before November 8th, 2022, are migrated to webhooks 2.0. On July 18th, 2023, Adobe will sunset the legacy webhooks infrastructure (referred to as “classic webhooks”). <strong>See below</strong>.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Nov. 8, 2022</p></td>
+<tr class="row-even"><td><p>Nov. 8, 2022</p></td>
 <td><p>Webhook conversion to a microservice (“webhooks 2.0”) with the following benefits:</p>
 <ul class="simple">
 <li><p>Independent release cycles from the core code thereby supporting frequent and rapid updates, feature enhancements, bug fixes, etc.</p></li>
@@ -429,7 +432,7 @@
 </div></blockquote>
 </td>
 </tr>
-<tr class="row-even"><td><p>Nov. 8</p></td>
+<tr class="row-odd"><td><p>Nov. 8</p></td>
 <td><p>New webhooks:</p>
 <ul class="simple">
 <li><p>AGREEMENT_REMINDER_INITIATED fires when an agreement reminder is triggered and reminder emails are suppressed.</p></li>
@@ -438,28 +441,28 @@
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Sept. 13</p></td>
+<tr class="row-even"><td><p>Sept. 13</p></td>
 <td><p>Support for webhook endpoints to communicate on port 8443 (in addition to 443) to support mTLS.</p></td>
 </tr>
-<tr class="row-even"><td><p>Sept. 13</p></td>
+<tr class="row-odd"><td><p>Sept. 13</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/agreements/{agreementId}/</span></code> endpoint now supports an optional redirect URL that sends users to control a custom post-sending landing page instead of the default Acrobat Sign page. Developers can use the new  <code class="docutils literal notranslate"><span class="pre">postSendOption.redirectUrl</span></code> for apps and integrations so that the sender redirects to a workflow-specific page, thereby both allowing the sender to remain in the integration (e.g. branded workflow), and providing a way for the developer to create a page where the sender can be notified about the sent status or modify the agreement (reminders, deadlines, etc.) You must configure a Sign setting to allow these URLs to avoid open redirect security issues.  The description of this setting is similar to: “the authorized URLs the application can redirect to after completing a workflow”. This option does not apply to Fill &amp; Sign flows.</p></td>
 </tr>
-<tr class="row-odd"><td><p>July</p></td>
+<tr class="row-even"><td><p>July</p></td>
 <td><p>None</p></td>
-</tr>
-<tr class="row-even"><td><p>June</p></td>
-<td><p>AGREEMENT_EXPIRATION_UPDATED (API only): A new webhook event provides notification updates for an agreement’s expiration time. It can only be subscribed to via the <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/webhooks</span></code> API call.</p></td>
 </tr>
 <tr class="row-odd"><td><p>June</p></td>
+<td><p>AGREEMENT_EXPIRATION_UPDATED (API only): A new webhook event provides notification updates for an agreement’s expiration time. It can only be subscribed to via the <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/webhooks</span></code> API call.</p></td>
+</tr>
+<tr class="row-even"><td><p>June</p></td>
 <td><p>AGREEMENT_SIGNER_NAME_CHANGED_BY_SIGNER: This new event triggers when a recipient changes the pre-populated name value when signing an agreement. Name values can be pre-populated through the API or through the <em>require recipient name when sending</em> option.</p></td>
 </tr>
-<tr class="row-even"><td><p>May</p></td>
+<tr class="row-odd"><td><p>May</p></td>
 <td><p>None</p></td>
 </tr>
-<tr class="row-odd"><td><p>April</p></td>
+<tr class="row-even"><td><p>April</p></td>
 <td><p>REMINDER_SENT: A new webhook event executes on REMINDER_SENT events either by explicitly subscribing to the AGREEMENT_REMINDER_SENT event or subscribing to AGREEMENT_ALL.</p></td>
 </tr>
-<tr class="row-even"><td><p>January</p></td>
+<tr class="row-odd"><td><p>January</p></td>
 <td><p>None</p></td>
 </tr>
 </tbody>
@@ -480,7 +483,7 @@
 <tbody>
 <tr class="row-even"><td><p>October, 2025</p></td>
 <td><dl class="simple">
-<dt>All <strong>GET</strong> <a class="reference external" href="https://opensource.adobe.com/acrobat-sign/developer_guide/apiusage.html#api-throttling#get-endpoints">API endpoints for status retrieval or listing purposes are subject to a polling policy.</a></dt><dd><p>A limit will be applied to how often the effective user can make the same API call to the Acrobat Sign service.
+<dt>All <strong>GET</strong> <a class="reference external" href="https://opensource.adobe.com/acrobat-sign/developer_guide/apiusage.html#api-throttling#get-endpoints">API endpoints are subject to a polling policy.</a></dt><dd><p>A limit will be applied to how often the effective user can make the same API call to the Acrobat Sign service.
 An error is returned if the same call is made within the minimum polling interval by the same effective user.</p>
 </dd>
 </dl>
@@ -735,7 +738,7 @@ Previously, the webhook service did not throw an error if the webhookUrl field w
     <p>
         &#169; Copyright 2022, Adobe Inc..
       <span class="lastupdated">
-        Last update: Oct 23, 2025. 
+        Last update: Oct 30, 2025. 
         <img src="../_static/adobelogo.png" class="logo"/> 
       </span>
 
