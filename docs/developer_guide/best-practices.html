@@ -1,0 +1,1708 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download JAVA, JS, C#, REST, or OpenAPI SDKs, test with Postman, or use Acrobat Sign Embed and the Solutions for Government APIs"/>
+     <title>API Best Practices &mdash; Acrobat Sign Developer Guide</title>
+  <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />
+  <link href="../_static/copybutton.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+  
+  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/developer_guide/best-practices.html" />
+  
+
+  
+  
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../"
+    src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/jquery.js"></script>
+  <script type="text/javascript" src="../_static/underscore.js"></script>
+  <script type="text/javascript" src="../_static/doctools.js"></script>
+  <script type="text/javascript" src="../_static/language_data.js"></script>
+  <script type="text/javascript" src="../_static/searchtools.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+  
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Create an Application Quickstart" href="gstarted.html" />
+  <link rel="prev" title="Acrobat Sign API Overview" href="index.html" /> 
+
+  <script>  window.marketingtech = { adobe: { launch: { url: 'https://assets.adobedtm.com/d4d114c60e50/a0e989131fd5/launch-5dd5dd2177e6.min.js', controlPageLoad: false, }, alloy: { edgeConfigId: '2cba807b-7430-41ae-9aac-db2b0da742d5', }, target: false, audienceManager: false, }, sophia: false, };</script><script src=https://www.adobe.com/marketingtech/main.standard.min.js></script>
+
+  <script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+          $('.fixedbar, .wy-nav-side').addClass('scroll');
+          $('.wy-top-menu-wrapper').fadeOut();
+        } else {
+          $('.fixedbar, .wy-nav-side').removeClass('scroll');
+          $('.wy-top-menu-wrapper').fadeIn();
+        }
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn();
+        } else {
+          $('#scroll').fadeOut();
+        }
+      });
+      $('#scroll').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+      });
+    });
+  </script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+    
+    <div class="fixedbarsearch"><img src="../_static/images/acrobatsignlogo.svg" class="searchlogo"/>
+      
+<div role="search" class="inlinediv">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </div>
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side"><!-- scrolling area -->
+      <div class="wy-side-scroll" >
+        
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+          
+          
+          
+          
+          
+          <p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Acrobat Sign API Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#get-a-free-developer-account">Get a free developer account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#create-an-app">Create an app</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Best Practices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#base-uri">Base URI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#details">Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bad-practices-identified">Bad Practices Identified</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#best-practices">Best Practices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pseudo-code">Pseudo Code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#good-pattern">Good Pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bad-pattern">Bad Pattern</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#transient-document">Transient Document</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Bad Practices Identified</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Best Practices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Pseudo Code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Good Pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Bad Pattern</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#create-agreement">Create Agreement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Bad Practices Identified</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Best Practices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Pseudo Code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Good Pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Bad Pattern</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#agreement-state">Agreement State</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">Bad Practices Identified</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">Best Practices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">Pseudo Code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id17">Good Pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">Bad Pattern</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#signing-url">Signing URL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id19">Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">Bad Practices Identified</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">Best Practices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">Pseudo Code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id23">Good Pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id24">Bad Pattern</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tracking-progress-status-of-agreement">Tracking Progress / Status of Agreement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id25">Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id26">Bad Practices Identified</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id27">Best Practices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id28">Pseudo Code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id29">Good Pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id30">Bad Pattern</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#retrieving-list-of-agreements-and-details">Retrieving List of Agreements and Details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id31">Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id32">Bad Practices Identified</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id33">Best Practices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id34">Pseudo Code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id35">Good Pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id36">Bad Pattern</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#retrieving-list-of-agreements-of-a-widget">Retrieving List of Agreements of a Widget</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id37">Details</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#retrieving-list-of-users-and-details">Retrieving List of Users and Details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id38">Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id39">Bad Practices Identified</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id40">Best Practices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id41">Pseudo Code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id42">Good Pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id43">Bad Pattern</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#api-rate-limits-and-retry">API Rate Limits and Retry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id44">Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id45">Bad Practices Identified</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id46">Best Practices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id47">Pseudo Code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id48">Good Pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id49">Bad Pattern</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gstarted.html">Create an Application Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#create-an-app-in-the-web-ui">Create an app in the web UI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#get-the-app-id-and-secret">Get the app ID and secret</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#configure-oauth">Configure OAuth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#configure-scopes">Configure scopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#create-an-authorization-request-link">Create an authorization request link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#configure-the-redirect-uri-on-your-server">Configure the redirect URI on your server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#success-vs-failure">Success vs failure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#the-customer-experience">The customer experience</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#getting-the-access-token">Getting the access token</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="oauth.html">Managing OAuth Tokens</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="oauth.html#authorization-request">Authorization request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oauth.html#access-token-request">Access token request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oauth.html#refresh-token-request">Refresh token request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oauth.html#revoking-a-token">Revoking a token</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scenarios.html">Example Scenarios</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scenarios.html#parental-consent">Parental Consent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scenarios.html#creating-a-widget">Creating a Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scenarios.html#photo-rights">Photo Rights</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apiusage.html">API Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#send-for-signing-create-an-agreement">Send for Signing (Create an agreement)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#upload-a-document">Upload a document</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#send-the-document">Send the document</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#resolve-request-signature-integration-error">Resolve Request Signature integration error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#check-the-document-signing-status">Check the Document signing status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#send-reminders">Send Reminders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#download-the-agreement">Download the Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#create-a-widget">Create a Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#get-the-signing-url">Get the Signing URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#add-form-fields-to-agreements">Add form fields to agreements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#generate-templates-from-in-progress-or-signed-agreements">Generate templates from in-progress or signed agreements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#send-private-messages-to-the-counter-signers">Send private messages to the counter signers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#redirect-signers-to-a-specific-url">Redirect signers to a specific URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#add-agreement-redirect-options">Add Agreement Redirect Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiusage.html#api-throttling">API Throttling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#rest-api">REST API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#system-load-throttling">System Load Throttling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#handling-rate-limiting-http-429">Handling Rate Limiting (HTTP 429)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#agreement-document-processing">Agreement Document Processing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#megasign-send-in-bulk">MegaSign (Send in Bulk)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#webform-signing">Webform Signing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#webform-first-signer-participant">Webform First Signer/Participant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apiusage.html#get-endpoints">GET endpoints</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#api-polling-threshold">API polling threshold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apiusage.html#recommended-implementation">Recommended Implementation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhookapis.html">Webhook APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#post-webhooks">POST /webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#get-webhooks">GET /webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#get-webhooks-webhookid">GET /webhooks/{webhookId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#put-webhooks-webhookid">PUT /webhooks/{webhookId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#put-webhooks-webhookid-state">PUT /webhooks/{webhookId}/state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#delete-webhooks-webhookid">DELETE /webhooks/{webhookId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#standard-api-request-error-codes">Standard API request error codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#standard-api-request-headers">Standard API request headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#using-aws-lambda-functions">Using AWS Lambda Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#create-an-aws-lambda-function">Create an AWS Lambda function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#register-your-acrobat-sign-webhook">Register your Acrobat Sign webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#configure-the-aws-api-gateway">Configure the AWS API Gateway</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#deploy-the-api">Deploy the API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#ready-to-use">Ready to Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhookapis.html#using-azure-functions">Using Azure Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webhookapis.html#creating-an-azure-functions-trigger-webhook">Creating an Azure Functions Trigger-Webhook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="webhookapis.html#create-a-js-httptrigger-function">Create a JS HttpTrigger function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="webhookapis.html#register-the-webhook">Register the webhook</a></li>
+<li class="toctree-l4"><a class="reference internal" href="webhookapis.html#get-the-function-s-url">Get the function’s URL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhook-endpoint-api.html">WebhookEndpoint APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#post-webhookendpoints">POST /webhookEndpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#get-webhookendpoints">GET /webhookEndpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#get-webhookendpoints-webhookendpointid">GET /webhookEndpoints/{webhookEndpointId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#put-webhookendpoints-webhookendpointid">PUT /webhookEndpoints/{webhookEndpointId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#delete-webhookendpoints-webhookendpointid">DELETE /webhookEndpoints/{webhookEndpointId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#standard-api-request-headers">Standard API request headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhook-endpoint-api.html#standard-api-request-error-codes">Standard API request error codes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="samples.html">REST API Samples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#the-package">The package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#using-the-samples">Using the Samples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="samples.html#output-path">Output Path</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#create-a-new-widget-with-countersigners">Create a New Widget with Countersigners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#download-an-agreements-audit-report">Download an Agreement’s Audit Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#download-the-combined-document-for-an-agreement">Download the Combined Document for an Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#download-documents-from-an-agreement">Download Documents from an Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#get-an-agreements-status">Get an Agreement’s Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#get-an-agreements-signing-url">Get an Agreement’s Signing URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#send-reminders-to-participants">Send reminders to participants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#send-an-agreement-using-a-library-document">Send an Agreement Using a Library Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#send-an-agreement-using-a-transient-document">Send an Agreement Using a Transient Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#generate-view-url-or-access-code-for-an-agreement">Generate View URL or Access code for an agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html#id1">POST /agreements/{agreementId}/deliverableAccess</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="samples.html#request-headers">Request headers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="samples.html#request-object-schema">Request object schema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="samples.html#path-parameter">Path Parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="samples.html#request-body">Request Body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="samples.html#response">Response</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Web Message Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="events.html#system-requirements">System requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#supported-events">Supported events</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="events.html#workflow-events">Workflow events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="events.html#page-load-events">Page Load events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="events.html#session-events">Session events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="events.html#user-action-events">User action events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#using-events">Using events</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="migrating.html">Migrating and Updating Apps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migrating.html#updating-api-authentication-methods">Updating API authentication methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating.html#migrating-from-soap">Migrating From SOAP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html#soap-to-rest-mapping">SOAP to REST mapping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#general-purpose-methods">General-purpose Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#document-methods">Document Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#status-methods">Status Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#user-methods">User Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#web-form-methods">Web Form Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#test-methods">Test Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html#deprecated-soap-methods">Deprecated SOAP Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#access-methods">Access Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#doc-methods">Doc Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#id1">Status Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migrating.html#id2">User Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://www.adobe.com/go/acrobatsigndevrnotes#://">API release notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevguide#://">Developer Guide (core v6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignwebhook#://">    Webhook Reference (v6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/signgov#://">Solutions for Government</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/embedpartner#://">Acrobat Sign Embed</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignsdks#://">SDK downloads</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignpostman#://">Postman workspace</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevaccount#://">    Free developer account form</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigntechblog#://">    FAQs and tech tips</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/esign-dev-cert#://">Application certification form</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignintegrations#://">Integration guides</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/trust/resources.html#://">Security and compliance</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevforum#://">Forum</a></li>
+</ul>
+
+          
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+      <div class="fixedbar">
+        <div class="wy-menu-items">
+          <a href="https://www.adobe.com/go/acrobatsigndevhome" class="topbarlink">Dev Home</a>
+          <a href="https://www.adobe.com/documentcloud/industries/government.html" class="topbarlink">Government</a>
+          <a href="https://www.adobe.com/documentcloud/integrations/isv-partner-program.html" class="topbarlink">Partner</a>
+          <a href="	https://www.adobe.com/go/acrobatsignforum"  class="topbarlink">Forum</a>
+        </div>
+        <div class="sign-in">
+          <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+        </div>
+      </div>
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+
+      
+      
+      <div class="wy-nav-content">
+        
+        <span class="lastupdated" style="color:lightgrey">
+          Last update: Dec 17, 2025. 
+        </span>
+        
+          <div class="rst-content">
+            
+            <!--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>API Best Practices</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="gstarted.html" class="btn btn-neutral float-right" title="Create an Application Quickstart" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Acrobat Sign API Overview" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>-->
+            <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <div itemprop="articleBody">
+                
+  <div class="section" id="api-best-practices">
+<h1>API Best Practices<a class="headerlink" href="#api-best-practices" title="Permalink to this heading">¶</a></h1>
+<div class="section" id="base-uri">
+<h2>Base URI<a class="headerlink" href="#base-uri" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="details">
+<h3>Details<a class="headerlink" href="#details" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Adobe Acrobat Sign utilizes a multi-sharded architecture, distributing accounts across different API endpoints based on geographical regions. To interact with the Sign API, it is essential to first identify the appropriate access point for your account. This endpoint can vary, such as <a class="reference external" href="https://api.na1.adobesign.com">api.na1.adobesign.com</a>, <a class="reference external" href="https://api.na4.adobesign.com">api.na4.adobesign.com</a>, <a class="reference external" href="https://api.na1.adobesign.com">api.eu1.adobesign.com</a>, or others, depending on your account’s regional allocation</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">baseUri</span></code> API response includes the <code class="docutils literal notranslate"><span class="pre">apiAccessPoint</span></code>, which is a critical parameter needed to route subsequent API requests to the correct endpoint for accessing other Acrobat Sign APIs</p></li>
+<li><p>If other APIs are accessed using an incorrect endpoint, the request will be considered invalid and will not be processed</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="bad-practices-identified">
+<h3>Bad Practices Identified<a class="headerlink" href="#bad-practices-identified" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Redundant invocation of the <code class="docutils literal notranslate"><span class="pre">getBaseUri</span></code> API after obtaining the access token</p></li>
+<li><p>Redundant invocation of the <code class="docutils literal notranslate"><span class="pre">getBaseUri</span></code> API before every REST call for each user within the same account</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="best-practices">
+<h3>Best Practices<a class="headerlink" href="#best-practices" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>If a subsequent REST API invocation returns <code class="docutils literal notranslate"><span class="pre">INVALID_API_ACCESS_POINT</span></code>, it indicates that the <code class="docutils literal notranslate"><span class="pre">apiAccessPoint</span></code> is incorrect. In this case, re-invoke the <code class="docutils literal notranslate"><span class="pre">getBaseUri</span></code> API to obtain the correct endpoint</p></li>
+<li><p>Cache and reuse the <code class="docutils literal notranslate"><span class="pre">apiAccessPoint</span></code> for all users within the same account, as the base URI remains consistent across the account. This optimization, based on your workflow use case, will prevent redundant invocations of the <code class="docutils literal notranslate"><span class="pre">getBaseUri</span> <span class="pre">API</span></code></p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="pseudo-code">
+<h3>Pseudo Code<a class="headerlink" href="#pseudo-code" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="good-pattern">
+<h4>Good Pattern<a class="headerlink" href="#good-pattern" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>//Required OAuth Scopes**:
+//Accepts ANY valid OAuth scope** - This endpoint accepts any valid OAuth access token regardless of scope. It is used to retrieve the correct API access point (base URI) for subsequent API calls.
+//Should be called before making other API calls to ensure you&#39;re using the correct base URI
+## Scenario 1: Partner Application (Multiple Accounts)
+
+// Cache to store base URIs for different accounts
+private Map&lt;String, String&gt; baseUriCache = new HashMap&lt;&gt;();
+
+// Method to invoke API with base URI caching
+public ApiResponse invokeApi(String apiEndpoint, Map&lt;String, String&gt; apiParams, String accountId) {
+    // Check if base URI for the account is cached
+    String apiAccessPoint = baseUriCache.get(accountId);
+
+    if (apiAccessPoint == null) {
+        // If not cached, invoke baseUri API to get the base URI
+        apiAccessPoint = getBaseUriForAccount(accountId);
+        // Cache the base URI for future use
+        baseUriCache.put(accountId, apiAccessPoint);
+    }
+
+    // Perform the REST API call with the cached or newly retrieved base URI
+    ApiResponse apiResponse = callRestApi(apiAccessPoint + apiEndpoint, apiParams);
+
+    // Check if INVALID_API_ACCESS_POINT error is returned
+    if (apiResponse.getError().equals(&quot;INVALID_API_ACCESS_POINT&quot;)) {
+        // Reinvoke baseUri API to get correct access point
+        apiAccessPoint = getBaseUriForAccount(accountId);
+        // Update the cache with the new base URI
+        baseUriCache.put(accountId, apiAccessPoint);
+        // Retry API call with the updated access point
+        apiResponse = callRestApi(apiAccessPoint + apiEndpoint, apiParams);
+    }
+
+    // Return final API response
+    return apiResponse;
+}
+
+
+# This method:
+# 1. Gets an access token for a user in the specified account
+# 2. Calls the getBaseUri API endpoint with that access token
+# 3. Returns the api_access_point from the response
+
+private String getBaseUriForAccount(String accountId) {
+    # Step 1: Get an access token for a user in this account
+    # This typically involves:
+    # - Using application credentials (client_id, client_secret) to authenticate
+    # - Exchanging them for an access token via OAuth flow
+    # Or using a service account token if available
+    # For partner apps, you might have:
+    # - A service account user per customer account
+    # - Or use account-level tokens stored securely
+    String accessToken = getAccessTokenForAccount(accountId);
+
+    # Step 2: Call the getBaseUri API endpoint
+    # GET /api/rest/v6/base_uris
+    # Headers: Authorization: Bearer {accessToken}
+    BaseUriResponse baseUriResponse = callGetBaseUriApi(accessToken);
+
+    # Step 3: Extract and return the api_access_point
+    # Response format: { &quot;api_access_point&quot;: &quot;https://api.na1.echosign.com&quot;,
+    #                   &quot;web_access_point&quot;: &quot;https://secure.na1.echosign.com&quot; }
+    return baseUriResponse.getApiAccessPoint();
+}
+
+private String getAccessTokenForAccount(String accountId) {
+    # Implementation depends on your authentication setup:
+    # - OAuth 2.0 flow with client credentials
+    # - Service account authentication
+    # - Stored tokens (if securely managed)
+
+    # Example: OAuth 2.0 client credentials flow
+    # POST /oauth/v2/token
+    # Body: grant_type=client_credentials&amp;client_id={client_id}&amp;client_secret={client_secret}
+    #
+
+    return oauthService.getAccessToken(accountId);
+}
+
+private BaseUriResponse callGetBaseUriApi(String accessToken) {
+    # GET /api/rest/v6/base_uris
+    # Headers:
+    #   Authorization: Bearer {accessToken}
+
+    # Response:
+    #   {&quot;api_access_point&quot;: &quot;https://api.na1.echosign.com&quot;,
+    #   &quot;web_access_point&quot;: &quot;https://secure.na1.echosign.com&quot;}
+
+
+    HttpHeaders headers = new HttpHeaders();
+    headers.set(&quot;Authorization&quot;, &quot;Bearer &quot; + accessToken);
+
+    return restTemplate.getForObject(
+        &quot;https://api.echosign.com/api/rest/v6/base_uris&quot;,
+        BaseUriResponse.class,
+        headers
+    );
+}
+
+
+---
+
+## Scenario 2: Customer Application (Single Identity)
+#Customer applications typically work with a single user identity and don&#39;t need to manage multiple accounts. This simplifies the implementation significantly
+
+private String cachedBaseUri = null;
+
+public ApiResponse invokeApi(String apiEndpoint, Map&lt;String, String&gt; apiParams) {
+    // Check if base URI is cached
+    if (cachedBaseUri == null) {
+        // If not cached, get the base URI using the current user&#39;s access token
+        cachedBaseUri = getBaseUriForCurrentUser();
+    }
+
+    // Perform the REST API call with the cached or newly retrieved base URI
+    ApiResponse apiResponse = callRestApi(cachedBaseUri + apiEndpoint, apiParams);
+
+    // Check if INVALID_API_ACCESS_POINT error is returned
+    if (apiResponse.getError() != null &amp;&amp; apiResponse.getError().equals(&quot;INVALID_API_ACCESS_POINT&quot;)) {
+        // Reinvoke baseUri API to get correct access point
+        cachedBaseUri = getBaseUriForCurrentUser();
+        // Retry API call with the updated access point
+        apiResponse = callRestApi(cachedBaseUri + apiEndpoint, apiParams);
+    }
+
+    // Return final API response
+    return apiResponse;
+}
+
+
+##  For customer apps, this is simpler:
+## 1. Use the current user&#39;s access token (from OAuth login flow)
+## 2. Call the getBaseUri API endpoint
+## 3. Return the api_access_point
+
+private String getBaseUriForCurrentUser() {
+    // Step 1: Get the current user&#39;s access token
+    // In customer apps, this is typically obtained during OAuth login:
+    // - User authorizes the app
+    // - App receives access token
+    // - Token is stored in session or secure storage
+    String accessToken = getCurrentUserAccessToken();
+
+    // Step 2: Call the getBaseUri API endpoint
+    // GET /api/rest/v6/base_uris
+    // Headers: Authorization: Bearer {accessToken}
+    BaseUriResponse baseUriResponse = callGetBaseUriApi(accessToken);
+
+    // Step 3: Extract and return the api_access_point
+    return baseUriResponse.getApiAccessPoint();
+}
+
+private String getCurrentUserAccessToken() {
+    # In customer apps, this is typically:
+    # - Retrieved from session storage after OAuth login
+    # - Or from secure token storage
+    # - Or from the OAuth token exchange flow
+
+    return sessionManager.getAccessToken();
+}
+callGetBaseUriApi(String accessToken) {
+    #Same as partner scenario.
+}
+```
+
+---
+
+## Key Differences Summary
+
+| Aspect | Partner Application | Customer Application |
+|--------|-------------------|---------------------|
+| **Account Management** | Multiple accounts | Single identity |
+| **Caching Structure** | `Map&lt;String, String&gt;` (accountId → baseUri) | Single `String` variable |
+| **Access Token Source** | Per-account tokens (service accounts, stored tokens) | Current user&#39;s token (from OAuth login) |
+| **Complexity** | Higher (needs account management) | Lower (single user context) |
+| **Use Case** | ISVs, integrations managing multiple customers | End-user applications |
+
+---
+
+## Important Notes
+
+1. **getBaseUriForAccount Implementation**:
+- Must obtain an access token for a user in the target account
+- The access token is used to call the `/api/rest/v6/base_uris` endpoint
+- The response contains `api_access_point` which should be cached
+
+2. **Error Handling**:
+- Always handle `INVALID_API_ACCESS_POINT` errors
+- This can occur if an account is migrated to a different shard
+- When this error occurs, refresh the base URI and retry
+
+3. **Token Management**:
+- Partner apps: Need secure storage/retrieval of per-account tokens
+- Customer apps: Typically use session-based token storage
+
+4. **Cache Invalidation**:
+- Consider implementing cache expiration/TTL
+- Invalidate cache on `INVALID_API_ACCESS_POINT` errors
+- May want to refresh cache periodically
+</pre></div>
+</div>
+</div>
+<div class="section" id="bad-pattern">
+<h4>Bad Pattern<a class="headerlink" href="#bad-pattern" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">ApiResponse</span> <span class="n">invokeApi</span><span class="p">(</span><span class="n">String</span> <span class="n">apiEndpoint</span><span class="p">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">apiParams</span><span class="p">,</span> <span class="n">String</span> <span class="n">accountId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Always</span> <span class="n">invoke</span> <span class="n">baseUri</span> <span class="n">API</span> <span class="n">to</span> <span class="n">get</span> <span class="n">the</span> <span class="n">base</span> <span class="n">URI</span><span class="p">,</span> <span class="n">even</span> <span class="k">if</span> <span class="n">it</span><span class="s1">&#39;s already known</span>
+    <span class="n">String</span> <span class="n">apiAccessPoint</span> <span class="o">=</span> <span class="n">getBaseUriForAccount</span><span class="p">(</span><span class="n">accountId</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Perform</span> <span class="n">the</span> <span class="n">REST</span> <span class="n">API</span> <span class="n">call</span> <span class="k">with</span> <span class="n">the</span> <span class="n">retrieved</span> <span class="n">base</span> <span class="n">URI</span>
+    <span class="n">ApiResponse</span> <span class="n">apiResponse</span> <span class="o">=</span> <span class="n">callRestApi</span><span class="p">(</span><span class="n">apiAccessPoint</span> <span class="o">+</span> <span class="n">apiEndpoint</span><span class="p">,</span> <span class="n">apiParams</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Return</span> <span class="n">final</span> <span class="n">API</span> <span class="n">response</span>
+    <span class="k">return</span> <span class="n">apiResponse</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="transient-document">
+<h2>Transient Document<a class="headerlink" href="#transient-document" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="id1">
+<h3>Details<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>The document uploaded through this API call is considered transient, as it remains accessible for only seven days following the upload</p></li>
+<li><p>The returned transient document ID can be used in subsequent API calls to reference the uploaded file</p></li>
+<li><p>The transient document request is a multipart request comprising three components: the filename, the MIME type, and the file stream</p></li>
+<li><p>This request allows for the upload of only one file at a time</p></li>
+<li><p>The API output includes the <code class="docutils literal notranslate"><span class="pre">transientDocumentId</span></code>, which is subsequently used in the agreement creation API</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id2">
+<h3>Bad Practices Identified<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><p>Invocation of API with invalid parameters causing request failures</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Empty file name and content</p></li>
+<li><p>File name greater than 255 characters</p></li>
+<li><p>File size exceeding the defined limit</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="id3">
+<h3>Best Practices<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><p>Please navigate to /transient_Documents <a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/transientDocuments">endpoint ErrorCodes</a>. To understand the validations that should be performed before the actual request invocation for this case, consider the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>File Size Validation</strong>: Ensure the file does not exceed the maximum allowed size(default value 10MB, min 1 byte, and max 100MB).</p></li>
+<li><p><strong>File Name Length Validation</strong>: Verify that the file name length is greater than 0 and less than 255 characters.</p></li>
+<li><p><strong>File Type Validation</strong>: Confirm that the file type is acceptable based on the specified MIME types.</p></li>
+<li><p><strong>Empty File Check</strong>: Ensure that the file is not empty before proceeding with the upload.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="https://helpx.adobe.com/sign/kb/adobesign-doc-upload-error.html">Handle Document Upload Error Scenarios</a>,  that can occur in case document can not be processed</p></li>
+<li><p>Have look at <a class="reference external" href="https://helpx.adobe.com/sign/using/transaction-limits.html">https://helpx.adobe.com/sign/using/transaction-limits.html</a> to know the limitation on uploaded file size as per service level</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If you attempt to upload a document that exceeds the specified boundaries, an error message will be displayed under the file, stating, “Upload limit exceeded.”</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Use library document if the same document need to be referenced for multiple agreement creation in future.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Details for available library documents can also be retrieved through <a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/libraryDocuments">the APIs provided by Acrobat Sign</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id4">
+<h3>Pseudo Code<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="id5">
+<h4>Good Pattern<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>**Required OAuth Scopes** (ANY ONE of the following is sufficient):
+- `agreement_write` - Required for creating agreements (most common for file uploads)
+- `agreement_sign` - Required for signing agreements
+- `widget_write` - Required for creating widgets
+- `library_write` - Required for creating library documents
+
+**Version-Specific Scopes**:
+- **API v5 and earlier**: Also accepts `agreement_send` scope (deprecated in v6+)
+- **API v6+**: `agreement_send` scope is **NOT** accepted
+
+**API Type-Specific Scopes** (additional scopes accepted for special API types):
+- **PRIVATE API type**: Also accepts `workflow_write` scope
+- **INTERNAL_PARTNER API type**: Also accepts `agreement_sign` and `user_write` scopes
+
+
+// method to perform input parameter validation
+public boolean validateAndUploadFile(String filePath, String fileName) {
+
+    // Step 1: Validate File Name
+    if (fileName is null OR fileName is empty) {
+        System.out.println(&quot;Error: File name cannot be empty.&quot;);
+        return false; // Exit if validation fails
+    }
+
+    if (fileName.length() &gt; 255) {
+        System.out.println(&quot;Error: File name exceeds 255 characters.&quot;);
+        return false; // Exit if validation fails
+    }
+
+    // Step 2: Validate File
+    File file = new File(filePath);  // Assume File is a valid object representing the file
+
+    if (!file.exists() OR file is a directory) {
+        System.out.println(&quot;Error: File does not exist or is a directory.&quot;);
+        return false; // Exit if validation fails
+    }
+
+    if (file.length() == 0) {
+        System.out.println(&quot;Error: File is empty.&quot;);
+        return false; // Exit if validation fails
+    }
+
+    if (file.length() &gt; MAX_FILE_SIZE) { // MAX_FILE_SIZE is predefined (e.g., 10MB)
+        System.out.println(&quot;Error: File size exceeds the maximum allowed size.&quot;);
+        return false; // Exit if validation fails
+    }
+
+
+    System.out.println(&quot;File is valid.&quot;);
+    return true;
+
+}
+
+public void invokeRestApi() {
+    String filePath = &lt;filePath&gt;;
+    String fileName = &lt;fileName&gt;;
+
+    // method executing client side validation on filePath and fileName
+    // Do note, there can be more validation that need to performed. This is just a sample. Have a look at the Swagger documentation for more details.
+    if(!validateAndUploadFile(filePath, fileName)) {
+        return;
+    }
+
+    invokeTransientDocumentApi(filePath, fileName);
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h4>Bad Pattern<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">void</span> <span class="n">invokeRestApi</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">filePath</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">filePath</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="n">String</span> <span class="n">fileName</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">fileName</span><span class="o">&gt;</span><span class="p">;</span>
+
+    <span class="n">invokeTransientDocumentApi</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">fileName</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="create-agreement">
+<h2>Create Agreement<a class="headerlink" href="#create-agreement" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="id7">
+<h3>Details<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><p>Primary endpoint to create agreement using transient document, library document or URL</p></li>
+<li><p>Agreement is created in one of the following 3 states</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>DRAFT</strong> - to incrementally build the agreement before sending out</p></li>
+<li><p><strong>AUTHORING</strong> - to <a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/addTemplateFieldsToAgreement">add or edit form fields</a> in the agreement</p></li>
+<li><p><strong>IN_PROCESS</strong> - to immediately send the agreement</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>The output is the agreementId used as input parameter to invoke other APIs such as /aggregate, /formData</p></li>
+</ul>
+</div></blockquote>
+<div class="literal-block-wrapper docutils container" id="id50">
+<div class="code-block-caption"><span class="caption-text">JSON Response</span><a class="headerlink" href="#id50" title="Permalink to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CBJCHBCAA6OAO1cHinUC-Z0PoIHJnM5_CRQFaBHrhFO7&quot;</span>
+<span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>Bad Practices Identified<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><p>Invocation of API with invalid parameters</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Email validation</p></li>
+<li><p>Expired transientDocumentId</p></li>
+<li><p>Invalid state</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="id9">
+<h3>Best Practices<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Add fundamental pre-validation on inputs before invoking the API</p></li>
+<li><p>Look through <a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements">the endpoint ErrorCodes</a> to to know more about the client side validations and what all error codes are expected</p></li>
+<li><p>Ensure that the necessary fields are populated with appropriate values, including <code class="docutils literal notranslate"><span class="pre">transientDocumentId</span></code>, <code class="docutils literal notranslate"><span class="pre">libraryDocumentId</span></code>, <code class="docutils literal notranslate"><span class="pre">urlFileInfo</span></code>, <code class="docutils literal notranslate"><span class="pre">membersInfo</span></code>, <code class="docutils literal notranslate"><span class="pre">email</span></code>, <code class="docutils literal notranslate"><span class="pre">state</span></code>, and others as required.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id10">
+<h3>Pseudo Code<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="id11">
+<h4>Good Pattern<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JSON</span><span class="p">:</span>
+
+<span class="p">{</span>
+<span class="s2">&quot;participantSetsInfo&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;NDA&quot;</span><span class="p">,</span>
+<span class="s2">&quot;signatureType&quot;</span><span class="p">:</span> <span class="s2">&quot;ESIGN&quot;</span><span class="p">,</span>
+<span class="s2">&quot;signatureFlow&quot;</span><span class="p">:</span> <span class="s2">&quot;SENDER_SIGNATURE_NOT_REQUIRED&quot;</span>
+<span class="s2">&quot;fileInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;transientDocumentId&quot;</span><span class="p">:</span> <span class="s2">&quot;3AAABLblqZhXXXXXXXXXXXX&quot;</span><span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;DRAFT&quot;</span>
+<span class="p">}</span>
+
+<span class="n">JSON</span> <span class="k">for</span> <span class="n">IN_PROCESS</span> <span class="n">state</span><span class="p">:</span>
+
+<span class="p">{</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;NDA&quot;</span><span class="p">,</span>
+<span class="s2">&quot;signatureType&quot;</span><span class="p">:</span> <span class="s2">&quot;ESIGN&quot;</span><span class="p">,</span>
+<span class="s2">&quot;signatureFlow&quot;</span><span class="p">:</span> <span class="s2">&quot;SENDER_SIGNATURE_NOT_REQUIRED&quot;</span><span class="p">,</span>
+<span class="s2">&quot;fileInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;transientDocumentId&quot;</span><span class="p">:</span> <span class="s2">&quot;3AAABLblqZhXXXXXXXXXXXX&quot;</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;IN_PROCESS&quot;</span><span class="p">,</span>
+<span class="s2">&quot;participantSetsInfo&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;end78183@adobe.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h4>Bad Pattern<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;participantSetsInfo&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;recipientSetMemberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;not-an-email&quot;</span> <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Invalid NDA Example&quot;</span><span class="p">,</span>
+<span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;This will fail due to invalid data.&quot;</span><span class="p">,</span>
+<span class="s2">&quot;signatureType&quot;</span><span class="p">:</span> <span class="s2">&quot;ESIGN&quot;</span><span class="p">,</span>
+<span class="s2">&quot;signatureFlow&quot;</span><span class="p">:</span> <span class="s2">&quot;SENDER_SIGNATURE_NOT_REQUIRED&quot;</span>
+<span class="s2">&quot;fileInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;transientDocumentId&quot;</span><span class="p">:</span> <span class="s2">&quot;not-a-real-transient-id&quot;</span><span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;DRAFT&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="agreement-state">
+<h2>Agreement State<a class="headerlink" href="#agreement-state" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="id13">
+<h3>Details<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">agreementId</span></code> obtained from the <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/agreement</span></code> API is utilized as a path parameter to invoke this API, which is responsible for transitioning the state of the agreement.</p></li>
+<li><p>Following is the allowed transition state of agreement. DRAFT → AUTHORING → IN_PROCESS → CANCELLED/COMPLETED</p></li>
+<li><p>For GET agreements{id} allowed states DRAFT → AUTHORING → IN_PROCESS → IN_REVISION</p></li>
+</ul>
+<p>It is important to know that the IN_REVISION agreement state supports the capability of modifying an in-flight agreement by removing recipients, but it is not an extension of the authoring state and does not offer the full range of agreement modifications that are possible when the agreement in the authoring state.</p>
+<ul>
+<li><p>Form fields can be added to the agreements only when it is in the AUTHORING state</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Refer Form Field Addition <a class="reference external" href="https://helpx.adobe.com/sign/kb/place-form-fields-in-a-document-using-rest-api-adobe-sign.html">during Agreement Send</a> and on <a class="reference external" href="https://helpx.adobe.com/sign/kb/formfields-option-is-not-available-in-v6-of-rest-api-adobe-sign.html">agreement authoring</a> using V6 Rest API.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id14">
+<h3>Bad Practices Identified<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Attempting to transition an agreement to an invalid state, such as moving an agreement to the <strong>AUTHORING</strong> state when it is already in the <strong>IN_PROCESS</strong> state, will result in an error. Valid state transitions must adhere to the predefined state flow</p></li>
+<li><p>Invoking the <code class="docutils literal notranslate"><span class="pre">formField</span></code> API to enter or edit form field data while the agreement is already in the <strong>IN_PROCESS</strong> state is not permitted. Modifications to form field data should occur only when the agreement is in an appropriate state for editing</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id15">
+<h3>Best Practices<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><p>To check the status of an agreement, call the <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/agreements/{agreementId}</span></code> API. Based on the returned status of the agreement, you can then invoke the <code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/agreements/{agreementId}/state</span></code> API to update the agreement’s state accordingly</p></li>
+<li><p>Ensure <code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/agreements/{agreementId}/state</span></code> is used to transition only between correct states</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>DRAFT → AUTHORING → (PUT /agreements/{agreementId}/formFields) → IN_PROCESS  → CANCELLED/COMPLETED</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Once the agreement has been sent, it can no longer be modified or authored. Any attempts to make changes to the agreement’s content are prohibited after it has been dispatched</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id16">
+<h3>Pseudo Code<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="id17">
+<h4>Good Pattern<a class="headerlink" href="#id17" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">void</span> <span class="n">manageAgreementState</span><span class="p">(</span><span class="n">String</span> <span class="n">agreementId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Get</span> <span class="n">current</span> <span class="n">agreement</span> <span class="n">status</span>
+    <span class="n">String</span> <span class="n">currentStatus</span> <span class="o">=</span> <span class="n">getAgreementStatus</span><span class="p">(</span><span class="n">agreementId</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Handle</span> <span class="n">state</span> <span class="n">transitions</span> <span class="n">based</span> <span class="n">on</span> <span class="n">current</span> <span class="n">status</span>
+    <span class="n">switch</span> <span class="p">(</span><span class="n">currentStatus</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="s2">&quot;DRAFT&quot;</span><span class="p">:</span>
+            <span class="o">//</span> <span class="n">Transition</span> <span class="n">DRAFT</span> <span class="o">-&gt;</span> <span class="n">AUTHORING</span>
+            <span class="n">updateAgreementState</span><span class="p">(</span><span class="n">agreementId</span><span class="p">,</span> <span class="s2">&quot;AUTHORING&quot;</span><span class="p">);</span>
+
+            <span class="o">//</span> <span class="n">After</span> <span class="n">transitioning</span> <span class="n">to</span> <span class="n">AUTHORING</span><span class="p">,</span> <span class="n">update</span> <span class="n">form</span> <span class="n">fields</span>
+            <span class="n">updateFormFields</span><span class="p">(</span><span class="n">agreementId</span><span class="p">);</span>
+
+            <span class="o">//</span> <span class="n">Transition</span> <span class="n">AUTHORING</span> <span class="o">-&gt;</span> <span class="n">IN_PROCESS</span>
+            <span class="n">updateAgreementState</span><span class="p">(</span><span class="n">agreementId</span><span class="p">,</span> <span class="s2">&quot;IN_PROCESS&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+
+        <span class="k">case</span> <span class="s2">&quot;IN_PROCESS&quot;</span><span class="p">:</span>
+            <span class="o">//</span> <span class="n">Agreement</span> <span class="ow">is</span> <span class="ow">in</span> <span class="n">process</span><span class="p">,</span> <span class="n">no</span> <span class="n">further</span> <span class="n">authoring</span> <span class="n">allowed</span>
+            <span class="o">//</span> <span class="n">Optionally</span><span class="p">,</span> <span class="n">transition</span> <span class="n">to</span> <span class="n">COMPLETED</span> <span class="ow">or</span> <span class="n">CANCELLED</span> <span class="k">if</span> <span class="n">needed</span>
+            <span class="o">//</span> <span class="n">updateAgreementState</span><span class="p">(</span><span class="n">agreementId</span><span class="p">,</span> <span class="s2">&quot;COMPLETED&quot;</span><span class="p">)</span> <span class="ow">or</span>
+            <span class="o">//</span> <span class="n">updateAgreementState</span><span class="p">(</span><span class="n">agreementId</span><span class="p">,</span> <span class="s2">&quot;CANCELLED&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+
+        <span class="k">case</span> <span class="s2">&quot;CANCELLED&quot;</span><span class="p">:</span>
+        <span class="k">case</span> <span class="s2">&quot;COMPLETED&quot;</span><span class="p">:</span>
+            <span class="o">//</span> <span class="n">No</span> <span class="n">further</span> <span class="n">actions</span> <span class="n">allowed</span> <span class="k">if</span> <span class="n">the</span> <span class="n">agreement</span> <span class="ow">is</span> <span class="n">completed</span> <span class="ow">or</span> <span class="n">canceled</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No further actions allowed. Agreement is either completed or cancelled.&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+
+        <span class="n">default</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: Unknown or invalid agreement status.&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id18">
+<h4>Bad Pattern<a class="headerlink" href="#id18" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">void</span> <span class="n">manageAgreementState</span><span class="p">(</span><span class="n">String</span> <span class="n">agreementId</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="o">//</span> <span class="n">Violation</span><span class="p">:</span> <span class="n">Trying</span> <span class="n">to</span> <span class="n">update</span> <span class="n">form</span> <span class="n">fields</span> <span class="n">even</span> <span class="n">though</span> <span class="n">agreement</span> <span class="n">might</span> <span class="n">be</span> <span class="ow">in</span> <span class="n">DRAFT</span> <span class="ow">or</span> <span class="n">COMPLETED</span> <span class="n">state</span>
+    <span class="n">addUpdateFormData</span><span class="p">(</span><span class="n">agreementId</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Violation</span><span class="p">:</span> <span class="n">Invalid</span> <span class="n">state</span> <span class="n">transitions</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">,</span> <span class="n">COMPLETED</span> <span class="o">-&gt;</span> <span class="n">IN_PROCESS</span><span class="p">)</span>
+    <span class="n">updateAgreementState</span><span class="p">(</span><span class="n">agreementId</span><span class="p">,</span> <span class="s2">&quot;IN_PROCESS&quot;</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Violation</span><span class="p">:</span> <span class="n">Trying</span> <span class="n">to</span> <span class="n">update</span> <span class="n">form</span> <span class="n">fields</span> <span class="n">again</span> <span class="ow">in</span> <span class="n">an</span> <span class="n">invalid</span> <span class="n">state</span>
+    <span class="n">addUpdateFormData</span><span class="p">(</span><span class="n">agreementId</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="signing-url">
+<h2>Signing URL<a class="headerlink" href="#signing-url" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="id19">
+<h3>Details<a class="headerlink" href="#id19" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><p>This API is used to obtain Signing URL for the agreement created. Obtaining the signing Url is useful for hosted signing where you can load the signing URL in a browser window on a mobile device and get the agreement signed in person</p>
+</div></blockquote>
+</div>
+<div class="section" id="id20">
+<h3>Bad Practices Identified<a class="headerlink" href="#id20" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><dl class="simple">
+<dt>Immediately invoking the Signing URL API right after the agreement is created may result in a <code class="docutils literal notranslate"><span class="pre">404</span> <span class="pre">HTTP</span></code> status code response. This occurs because the agreement may not yet be fully processed and available for signing</dt><dd><ul class="simple">
+<li><p>Agreement creation in the V6 APIs is asynchronous. Once the agreement is created, an asynchronous processing job is initiated, which subsequently changes the state of the agreement</p></li>
+<li><p>In this intermediate state, if the Signing URL API is called, it may return a 404 status code with the description: <strong>DOCUMENT_NOT_YET_AVAILABLE</strong>. This indicates that the document is not yet fully processed and accessible for signing</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="id21">
+<h3>Best Practices<a class="headerlink" href="#id21" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Handle the <code class="docutils literal notranslate"><span class="pre">404</span></code> status code when invoking the Signing URL API with care. Do not assume that a <code class="docutils literal notranslate"><span class="pre">404</span></code> error indicates that document processing has failed; it may simply mean that the agreement is still in an intermediate state. Implement a retry mechanism or wait for the agreement to reach a valid state before reattempting to retrieve the signing URL</p></li>
+<li><p>Poll the <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/agreements/{agreementId}</span></code> API to check the status of the agreement. Ensure that the status has transitioned to <strong>OUT_FOR_SIGNATURE</strong> before invoking the Signing URL API to retrieve the signing URL for the agreement. This approach ensures that the agreement is ready for signing. (Wait between polls: start at 2 seconds, give up after 10 minutes for interactive/UI flows and up to 30 minutes for background jobs. Stop polling when status becomes terminal: SIGNED, APPROVED, CANCELLED, ABANDONED, EXPIRED (or equivalent in your version)).</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id22">
+<h3>Pseudo Code<a class="headerlink" href="#id22" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="id23">
+<h4>Good Pattern<a class="headerlink" href="#id23" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>**Required OAuth Scopes**:
+- **API v6+**: Always requires `agreement_write` scope
+- **API v5 and earlier**: Conditional scopes based on request parameters:
+- If `authoringRequested` OR `sendThroughWeb` is `true`: requires `agreement_write`
+- If both `authoringRequested` AND `sendThroughWeb` are `false`: requires `agreement_send`
+- If `autoLoginUser` is `true`: additionally requires `user_login` scope
+public String getSigningUrl() {
+
+    // Step 1: Create Agreement
+    String agreementId = invokeCreateAgreementAPI();
+
+    // Step 2: Polling to check if the agreement is &quot;OUT_FOR_SIGNATURE&quot;
+    // add backoffTime and maxRetries to handle the polling mechanism
+    boolean isOutForSignature = false;
+    int backoffTime = 1000; // Initial backoff time in milliseconds (1 second)
+    int maxRetries = 5;
+    int attempt = 0;
+
+    while (!isOutForSignature &amp;&amp; attempt &lt; maxRetries) {
+        // Poll agreement status
+        String agreementStatus = pollAgreementStatus(agreementId);
+
+        if (agreementStatus.equals(&quot;OUT_FOR_SIGNATURE&quot;)) {
+            isOutForSignature = true;
+        } else {
+            // Exponential backoff
+            try {
+                Thread.sleep(backoffTime);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            backoffTime *= 2;  // Double the backoff time
+            attempt++;
+        }
+    }
+
+    if (isOutForSignature) {
+            String signingUrl = invokeGetSigningUrlAPI(agreementId);
+            print(&quot;Signing URL: &quot; + signingUrl);
+            return signingUrl;
+        } else {
+            print(&quot;Failed to get agreement status within retry limit.&quot;);
+        }
+    return null;
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="id24">
+<h4>Bad Pattern<a class="headerlink" href="#id24" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">String</span> <span class="n">getSigningUrl</span><span class="p">()</span> <span class="p">{</span>
+        <span class="o">//</span> <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Create</span> <span class="n">Agreement</span>
+        <span class="n">String</span> <span class="n">agreementId</span> <span class="o">=</span> <span class="n">invokeCreateAgreementAPI</span><span class="p">();</span>
+        <span class="o">//</span> <span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Invoke</span> <span class="n">getSigningUrl</span> <span class="n">API</span> <span class="n">to</span> <span class="n">get</span> <span class="n">the</span> <span class="n">signing</span> <span class="n">URL</span>
+        <span class="n">String</span> <span class="n">signingUrl</span> <span class="o">=</span> <span class="n">invokeGetSigningUrlAPI</span><span class="p">(</span><span class="n">agreementId</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="n">signingUrl</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tracking-progress-status-of-agreement">
+<h2>Tracking Progress / Status of Agreement<a class="headerlink" href="#tracking-progress-status-of-agreement" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="id25">
+<h3>Details<a class="headerlink" href="#id25" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><p>Once an agreement is sent, Acrobat Sign can provide the current status of the agreement along with a complete history of events that have occurred related to that specific agreement</p></li>
+<li><p>You can track the agreement progress in different ways:</p>
+<blockquote>
+<div><ul>
+<li><p>Using <a class="reference external" href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html#best-practices">Webhooks</a> to receive per-agreement change updates event.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Webhooks acts a callback on configured endpoint with appropriate event details whenever the agreement status changes</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementInfo">GET /agreements/{agreementId}</a> (field -  status,  in the response) can be polled (at an appropriate polling frequency) to retrieve updated agreement status</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id26">
+<h3>Bad Practices Identified<a class="headerlink" href="#id26" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Polling /agreement/{id} API for agreements in either draft or terminal state</p></li>
+<li><p>High frequency polling /agreement/{id} API for agreements status to query latest agreement status changes.</p></li>
+<li><p>Polling implemented with no/incorrect backoff policy ignoring the document age etc.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id27">
+<h3>Best Practices<a class="headerlink" href="#id27" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><p>Webhooks: <a class="reference external" href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html#best-practices">Webhooks can be setup</a> on the agreement or account resource level (<a class="reference external" href="https://opensource.adobe.com/acrobat-sign/acrobat_sign_events/index.html#webhook-scopes">see scopes</a>) to get notified on any updates on agreement resource, as it transitions through</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Reduced API Invocations: This will help reduce the api redundant invocations, and you can update your system whenever there is a webhook notification received, avoiding reduce n/w resource overhead</p></li>
+<li><p>Backup: To not miss on events in case of unnoticed issue( webhook endpoint not reachable setup etc.), a polling mechanism with a very lenient frequency can be setup to maintain consistency, with optimised resource usage.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/getAgreementInfo">Poll GET /agreements/{agreementId}</a> API with an appropriate backoff policy to avoid redundant network overhead and throttling scenarios. This strategy helps reduce resource usage while still effectively monitoring the agreement’s status changes.</p></li>
+<li><p>Poll the <code class="docutils literal notranslate"><span class="pre">/agreements/{id}</span></code> API only for agreements that are in non-terminal states, specifically those that are not in the “Draft” state or are currently in <strong>IN_PROCESS</strong>. This ensures efficient monitoring of agreements that are actively being processed</p></li>
+<li><p>Terminate the polling once the agreement reaches a terminal state, specifically when it transitions to <strong>Completed</strong> or <strong>Canceled</strong>. This ensures efficient resource utilization and avoids unnecessary API calls</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id28">
+<h3>Pseudo Code<a class="headerlink" href="#id28" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="id29">
+<h4>Good Pattern<a class="headerlink" href="#id29" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">void</span> <span class="n">handleAgreementNotification</span><span class="p">(</span><span class="n">Agreement</span> <span class="n">agreement</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Webhook</span> <span class="n">received</span><span class="p">:</span> <span class="n">update</span> <span class="n">system</span> <span class="n">based</span> <span class="n">on</span> <span class="n">agreement</span><span class="s1">&#39;s new status</span>
+    <span class="n">boolean</span> <span class="n">handleWebhookNotification</span> <span class="o">=</span> <span class="n">updateAgreementWithNewStatusFromWebhooks</span><span class="p">(</span><span class="n">agreement</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">handleAgreementNotification</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span> <span class="n">webhook</span> <span class="n">was</span> <span class="ow">not</span> <span class="n">processed</span> <span class="n">due</span> <span class="n">to</span> <span class="n">miscellanous</span> <span class="n">reasons</span>
+    <span class="o">//</span> <span class="n">poll</span> <span class="k">for</span> <span class="n">agreement</span> <span class="n">status</span>
+
+    <span class="o">//</span> <span class="n">check</span> <span class="k">if</span> <span class="n">the</span> <span class="n">current</span> <span class="n">agreement</span> <span class="n">status</span> <span class="ow">is</span> <span class="n">non</span><span class="o">-</span><span class="n">terminal</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">isTerminalState</span><span class="p">(</span><span class="n">agreement</span><span class="o">.</span><span class="n">getStatus</span><span class="p">()))</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">startPollingForAgreementStatus</span><span class="p">(</span><span class="n">agreement</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+<span class="n">public</span> <span class="n">void</span> <span class="n">startPollingForAgreementStatus</span><span class="p">(</span><span class="n">Agreement</span> <span class="n">agreement</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">int</span> <span class="n">backoffTime</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span> <span class="o">//</span> <span class="n">Initial</span> <span class="n">backoff</span> <span class="n">time</span> <span class="p">(</span><span class="ow">in</span> <span class="n">milliseconds</span><span class="p">)</span>
+    <span class="nb">int</span> <span class="n">maxBackoff</span> <span class="o">=</span> <span class="mi">60000</span><span class="p">;</span> <span class="o">//</span> <span class="n">Maximum</span> <span class="n">backoff</span> <span class="n">time</span>
+    <span class="n">String</span> <span class="n">currentStatus</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Keep</span> <span class="n">polling</span> <span class="n">until</span> <span class="n">the</span> <span class="n">agreement</span> <span class="n">reaches</span> <span class="n">a</span> <span class="n">terminal</span> <span class="n">state</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">true</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="o">//</span> <span class="n">Get</span> <span class="n">the</span> <span class="n">current</span> <span class="n">agreement</span> <span class="n">status</span>
+        <span class="n">currentStatus</span> <span class="o">=</span> <span class="n">getAgreementStatus</span><span class="p">(</span><span class="n">agreementId</span><span class="p">);</span>
+
+        <span class="o">//</span> <span class="n">If</span> <span class="n">agreement</span> <span class="ow">is</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">terminal</span> <span class="n">state</span><span class="p">,</span> <span class="n">stop</span> <span class="n">polling</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">isTerminalState</span><span class="p">(</span><span class="n">currentStatus</span><span class="p">))</span> <span class="p">{</span>
+
+            <span class="n">terminatePolling</span><span class="p">(</span><span class="n">agreementId</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+
+        <span class="p">}</span>
+
+        <span class="o">//</span> <span class="n">Wait</span> <span class="k">for</span> <span class="n">the</span> <span class="n">backoff</span> <span class="n">time</span> <span class="n">before</span> <span class="nb">next</span> <span class="n">polling</span>
+        <span class="n">waitFor</span><span class="p">(</span><span class="n">backoffTime</span><span class="p">);</span>
+
+        <span class="o">//</span> <span class="n">Increase</span> <span class="n">the</span> <span class="n">backoff</span> <span class="n">time</span> <span class="p">(</span><span class="n">exponential</span> <span class="n">backoff</span><span class="p">)</span>
+        <span class="n">backoffTime</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">backoffTime</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">maxBackoff</span><span class="p">);</span>
+
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id30">
+<h4>Bad Pattern<a class="headerlink" href="#id30" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">void</span> <span class="n">handleAgreementNotification</span><span class="p">(</span><span class="n">Agreement</span> <span class="n">agreement</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Webhook</span> <span class="n">received</span><span class="p">:</span> <span class="n">update</span> <span class="n">system</span> <span class="n">based</span> <span class="n">on</span> <span class="n">agreement</span><span class="s1">&#39;s new status</span>
+    <span class="n">boolean</span> <span class="n">handleWebhookNotification</span> <span class="o">=</span> <span class="n">updateAgreementWithNewStatusFromWebhooks</span><span class="p">(</span><span class="n">agreement</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">handleAgreementNotification</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="o">//</span> <span class="n">no</span> <span class="n">fallback</span>
+    <span class="o">//</span> <span class="k">return</span><span class="p">;</span>
+
+    <span class="n">startPollingForAgreementStatus</span><span class="p">(</span><span class="n">agreement</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+<span class="n">public</span> <span class="n">void</span> <span class="n">startPollingForAgreementStatus</span><span class="p">(</span><span class="n">Agreement</span> <span class="n">agreement</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">currentStatus</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">true</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">currentStatus</span> <span class="o">=</span> <span class="n">getAgreementStatus</span><span class="p">(</span><span class="n">agreementId</span><span class="p">);</span>
+
+        <span class="o">//</span> <span class="n">If</span> <span class="n">agreement</span> <span class="ow">is</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">terminal</span> <span class="n">state</span><span class="p">,</span> <span class="n">stop</span> <span class="n">polling</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">isTerminalState</span><span class="p">(</span><span class="n">currentStatus</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">terminatePolling</span><span class="p">(</span><span class="n">agreementId</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="retrieving-list-of-agreements-and-details">
+<h2>Retrieving List of Agreements and Details<a class="headerlink" href="#retrieving-list-of-agreements-and-details" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="id31">
+<h3>Details<a class="headerlink" href="#id31" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><p>To retrieve list of agreements, REST V6 APIs have different endpoints</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>GET v6/agreements : Retrieves agreements in a paginated manner depending on page size. Has filtering ability on groupId</p></li>
+<li><p>POST v6/search : Retrieves agreements in a paginated manner based on more advance criteria provided on the basis of createdDate, expirationDate, externalId, groupId, libraryDocumentId, modifiedDate etc. This API also provides a way to filter the results between date ranges and display them in a sorted manner</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>GET v6/agreements</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>“groupId” : Allows filtering results based on groups</p></li>
+<li><p>“pageSize” : Paginated navigation allows to control the result set item count in the response</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>POST v6/search</p>
+<blockquote>
+<div><ul>
+<li><p>“creationDate, modified/expirationDate” : Helps narrow down the result set based on provided date range, to reduce the result items of the response</p></li>
+<li><p>“type” : a filter against the agreement asset type like “WIDGET”, “AGREEMENT”, “MEGASIGN_CHILD”, “MEGASIGN_PARENT”, “WIDGET_INSTANCE”, “LIBRARY_TEMPLATE”.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>This further helps narrowing the search items to only target “agreement” type only</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>“status” : a filter against the agreement asset on the basis of agreement’s status : “WAITING_FOR_MY_SIGNATURE”, “WAITING_FOR_MY_APPROVAL”, “WAITING_FOR_MY_DELEGATION”, “OUT_FOR_SIGNATURE”, “OUT_FOR_DELIVERY”, etc</p></li>
+<li><p>“role” : a filter against the agreement asset on the basis on target user roles : “SENDER”, “CC”, “SIGNER”, “APPROVER”, “FORM_FILLER”, etc</p></li>
+<li><p>“sortByField”/ “sortByOrder” : Defines the field by which the results will be ordered</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id32">
+<h3>Bad Practices Identified<a class="headerlink" href="#id32" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><p>Usage of v5 or earlier GET /agreements API. These APIs do not have support for pagination and as well as advance filtering. As a result this increases the response time and increases network traffic</p></li>
+<li><p>Calling v6/agreements API at a higher frequency. Even though this API is paginated, clients should have a valid case as to why they need to call this API at a higher frequency</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Ideally, client should limit calling these APIs at a frequency lower than 3</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Iteratively calling /agreements/{agreementId} based on criteria such as status, role, created date, modified date, etc</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id33">
+<h3>Best Practices<a class="headerlink" href="#id33" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Call GET v6/agreements or POST v6/search APIs and leverage pagination. This would ensure lesser response time and network traffic and optimal usage of resources</p></li>
+<li><p>If clients have a use case to filter agreements from the response returned from v6/agreements API, then they should instead call POST v6/search API, as this API has advance filtering capabilities that returns the agreements assets on the basis of ownership (“OWNED”, “SHARED”, “SHARED_AND_OWNED”), role, status, participantEmail, workflowId etc</p></li>
+<li><p>If clients have a use case that they want the result set to be filtered according to createdDate, expirationDate, modifiedDate. Then they use POST v6/search API that provide a capability to filter the results according the these parameter. Clients would just have to provide the startDate and endDate for which they need the agreement assets to be returned</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id34">
+<h3>Pseudo Code<a class="headerlink" href="#id34" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="id35">
+<h4>Good Pattern<a class="headerlink" href="#id35" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>**Required OAuth Scopes**:
+- `agreement_read` - Required to retrieve agreements for the user
+
+@GET
+Public List&lt;UserAgreements&gt; getAgreementsAndDetails(String query, String id, String group, String namespace, String cursor, String pageSize){...}
+</pre></div>
+</div>
+</div>
+<div class="section" id="id36">
+<h4>Bad Pattern<a class="headerlink" href="#id36" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@GET</span>
+<span class="n">Public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UserAgreements</span><span class="o">&gt;</span> <span class="n">getAgreementsAndDetails</span><span class="p">(</span><span class="n">String</span> <span class="n">query</span><span class="p">,</span> <span class="n">String</span> <span class="nb">id</span><span class="p">,</span> <span class="n">String</span> <span class="n">group</span><span class="p">,</span> <span class="n">String</span> <span class="n">namespace</span><span class="p">){</span><span class="o">...</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="retrieving-list-of-agreements-of-a-widget">
+<h2>Retrieving List of Agreements of a Widget<a class="headerlink" href="#retrieving-list-of-agreements-of-a-widget" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="id37">
+<h3>Details<a class="headerlink" href="#id37" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><p>Once a widget is created, all the agreements that were created using this widget can be retrieved by using the following two APIs</p>
+<blockquote>
+<div><ul>
+<li><p>GET v6/widgets/{widgetId}/agreements : Fetches list of agreements for the provided widgetId in a paginated manner</p></li>
+<li><p>POST v6/search : Fetches all agreements associated with the given associated widgetId additionally providing search, filter, sort capabilities</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Specify type= WIDGET_INSTANCE search criteria</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Best practices are similar to what is mentioned in the “Retrieving List of Agreement and Details”</p></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="retrieving-list-of-users-and-details">
+<h2>Retrieving List of Users and Details<a class="headerlink" href="#retrieving-list-of-users-and-details" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="id38">
+<h3>Details<a class="headerlink" href="#id38" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><p>To retrieve list of users and user’s details, following two APIs are used</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>GET v6/users : Fetched list of all users of the account in a paginated manner. This API has capability to filter the result set on the basis of their account administrator status (“ADMIN_ONLY”, “NON_ADMIN_ONLY”, “ALL”)</p></li>
+<li><p>GET v6/users/{userId} : Retrieves detailed information about the given user</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="id39">
+<h3>Bad Practices Identified<a class="headerlink" href="#id39" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Usage of v5 or older GET /users API. This is not a paginated API, thus increasing response time and network traffic</p></li>
+<li><p>Iteratively calling GET v6/users API with no limit on the number of invocations</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id40">
+<h3>Best Practices<a class="headerlink" href="#id40" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><p>Use paginated GET v6/users API in place of older version API and leverage pagination by defining the pageSize correctly, to reduce data transfer across network, resulting in faster response times.</p></li>
+<li><p>Limit GET all /users  invocations to a limited (once per-hour, few per-day invocations)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Introduce sufficient delay(hour or two) between invocations on bulk endpoints (GET all based endpoints)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Cache response received from GET v6/users/{userId} whenever possible to avoid repeated invocation this API for a particular user</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id41">
+<h3>Pseudo Code<a class="headerlink" href="#id41" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="id42">
+<h4>Good Pattern<a class="headerlink" href="#id42" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UserDetails</span><span class="o">&gt;</span> <span class="n">getUsersAndDetails</span><span class="p">(</span><span class="n">String</span> <span class="n">query</span><span class="p">,</span> <span class="n">String</span> <span class="nb">id</span><span class="p">,</span> <span class="n">String</span> <span class="n">group</span><span class="p">,</span> <span class="n">String</span> <span class="n">namespace</span><span class="p">,</span> <span class="n">String</span> <span class="n">cursor</span><span class="p">,</span> <span class="n">String</span> <span class="n">pageSize</span><span class="p">){</span><span class="o">...</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id43">
+<h4>Bad Pattern<a class="headerlink" href="#id43" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UserDetails</span><span class="o">&gt;</span> <span class="n">getUsersAndDetails</span><span class="p">(</span><span class="n">String</span> <span class="n">query</span><span class="p">,</span> <span class="n">String</span> <span class="nb">id</span><span class="p">,</span> <span class="n">String</span> <span class="n">group</span><span class="p">,</span> <span class="n">String</span> <span class="n">namespace</span><span class="p">){</span><span class="o">...</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="api-rate-limits-and-retry">
+<h2>API Rate Limits and Retry<a class="headerlink" href="#api-rate-limits-and-retry" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="id44">
+<h3>Details<a class="headerlink" href="#id44" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><p>To prevent Acrobat Sign APIs being overwhelmed by too many requests, Adobe throttles Requests</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Different parameters passed to the same endpoint might contribute a different amount of resource consumption</p></li>
+<li><p>Your service package (small business, business, enterprise) directly influences your transaction rate. Higher tiers of service have higher throttle thresholds</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>When a request is throttled, the client will receive an HTTP 429 “Too Many Requests” response with an error message appropriate to the request, it means the user/account has consumed over the limit of allowed resources within a certain time frame</p></li>
+<li><p>Client should handle the throttling errors appropriately to retry after the “wait_time”</p></li>
+<li><p>Rate Limit varies for different API endpoints</p></li>
+<li><p>Rate limited REST API Response</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Response received on a rate limited Invocation</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;THROTTLING_TOO_MANY_REQUESTS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;&lt;error_message_with_wait_time&gt; (apiActionId=&lt;api_action_id&gt;)&quot;</span>
+    <span class="s2">&quot;retryAfter&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">wait_time_in_seconds</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Retry-After Header</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Retry</span><span class="o">-</span><span class="n">After</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">wait_time_in_seconds</span><span class="o">&gt;</span> <span class="o">//</span><span class="n">minimum</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="n">the</span> <span class="n">client</span> <span class="n">must</span> <span class="n">wait</span> <span class="n">until</span> <span class="n">it</span> <span class="n">can</span> <span class="n">make</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">request</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id45">
+<h3>Bad Practices Identified<a class="headerlink" href="#id45" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Continuous invocation of API, even though the API failed with http error code 429</p></li>
+<li><p>If the API returned 429, clients not waiting for appropriate wait_time before the retrying the API call</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id46">
+<h3>Best Practices<a class="headerlink" href="#id46" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><p>When the api invocation receives a “HTTP error code 429” (rate limited), calling clients should use the retry header(Retry-After), and should pause invocation of sign apis, until the wait_time has elapsed</p>
+<blockquote>
+<div><ul>
+<li><p>To use the Retry-after delay, do the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Wait the number of seconds specified in the Retry-After header</p></li>
+<li><p>Retry with Exponential backoff, using the recommended “Retry-After” delay.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>It is recommend to log, monitor, and build alerts to get notified when the API calls are rate limited, to identify such rate-limited patterns</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id47">
+<h3>Pseudo Code<a class="headerlink" href="#id47" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="id48">
+<h4>Good Pattern<a class="headerlink" href="#id48" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">callSignApiWithRetry</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+
+    <span class="n">MAX_RETRIES</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">BASE_BACKOFF_SECONDS</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">MAX_BACKOFF_SECONDS</span> <span class="o">=</span> <span class="mi">60</span>
+
+    <span class="n">attempt</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">attempt</span> <span class="o">&lt;</span> <span class="n">MAX_RETRIES</span><span class="p">):</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="n">executeHttpRequest</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">200</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">body</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">429</span><span class="p">):</span>
+            <span class="n">attempt</span><span class="o">++</span>
+
+            <span class="n">retryAfter</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;Retry-After&quot;</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">retryAfter</span> <span class="n">exists</span><span class="p">):</span>
+                <span class="n">waitTime</span> <span class="o">=</span> <span class="n">retryAfter</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="o">//</span> <span class="n">Fallback</span> <span class="n">exponential</span> <span class="n">backoff</span>
+                <span class="n">waitTime</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span>
+                    <span class="n">BASE_BACKOFF_SECONDS</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">^</span> <span class="n">attempt</span><span class="p">),</span>
+                    <span class="n">MAX_BACKOFF_SECONDS</span>
+                <span class="p">)</span>
+
+            <span class="n">log</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;Sign API throttled. &quot;</span> <span class="o">+</span>
+                <span class="s2">&quot;Attempt=</span><span class="si">{}</span><span class="s2">, Waiting=</span><span class="si">{}</span><span class="s2"> seconds&quot;</span><span class="p">,</span>
+                <span class="n">attempt</span><span class="p">,</span> <span class="n">waitTime</span>
+            <span class="p">)</span>
+
+            <span class="n">sleep</span><span class="p">(</span><span class="n">waitTime</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="ow">is</span> <span class="n">retryable</span> <span class="mi">5</span><span class="n">xx</span><span class="p">):</span>
+            <span class="n">attempt</span><span class="o">++</span>
+            <span class="n">waitTime</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span>
+                <span class="n">BASE_BACKOFF_SECONDS</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">^</span> <span class="n">attempt</span><span class="p">),</span>
+                <span class="n">MAX_BACKOFF_SECONDS</span>
+            <span class="p">)</span>
+
+            <span class="n">sleep</span><span class="p">(</span><span class="n">waitTime</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="o">//</span> <span class="n">Non</span><span class="o">-</span><span class="n">retryable</span> <span class="n">errors</span> <span class="p">(</span><span class="mi">4</span><span class="n">xx</span> <span class="k">except</span> <span class="mi">429</span><span class="p">)</span>
+        <span class="n">throw</span> <span class="n">ApiException</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+    <span class="n">throw</span> <span class="n">RetryLimitExceededException</span><span class="p">(</span><span class="s2">&quot;Max retries exceeded&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id49">
+<h4>Bad Pattern<a class="headerlink" href="#id49" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Hammering</span> <span class="n">the</span> <span class="n">API</span> <span class="n">after</span> <span class="mi">429</span> <span class="p">(</span><span class="n">no</span> <span class="n">delay</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">hasMoreWork</span><span class="p">():</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/api/rest/latest/agreements&quot;</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">429</span><span class="p">:</span>
+    <span class="o">//</span> <span class="n">ignore</span> <span class="n">Retry</span><span class="o">-</span><span class="n">After</span><span class="p">;</span> <span class="n">keep</span> <span class="n">going</span>
+    <span class="k">continue</span>
+<span class="n">handle</span><span class="p">(</span><span class="n">resp</span><span class="p">);</span>
+<span class="o">/**/</span>
+
+<span class="o">//</span> <span class="n">Fixed</span><span class="o">-</span><span class="n">delay</span> <span class="n">retries</span> <span class="n">ignoring</span> <span class="n">Retry</span><span class="o">-</span><span class="n">After</span> <span class="ow">and</span> <span class="n">backoff</span>
+<span class="o">//</span> <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="mf">1.</span><span class="o">.</span><span class="n">infinite</span><span class="p">:</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/api/rest/v5/agreements?query=NDA&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="mi">429</span><span class="p">:</span>
+    <span class="k">break</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">100</span><span class="n">ms</span><span class="p">)</span> <span class="o">//</span> <span class="n">too</span> <span class="n">short</span><span class="p">;</span> <span class="n">constant</span><span class="p">;</span> <span class="n">ignores</span> <span class="n">server</span> <span class="n">guidance</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+            </div>
+            <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Adobe Inc..
+      <span class="lastupdated">
+        Last update: Dec 17, 2025. 
+        <img src="../_static/adobelogo.png" class="logo"/> 
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+          </div>
+        </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+    });
+  </script> 
+
+</body>
+
+</html>
