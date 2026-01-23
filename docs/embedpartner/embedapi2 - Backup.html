@@ -1,0 +1,2760 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download JAVA, JS, C#, REST, or OpenAPI SDKs, test with Postman, or use Acrobat Sign Embed and the Solutions for Government APIs"/>
+     <title>Embed 2.0 API &mdash; Acrobat Sign Embed  (v 1.0)</title>
+  <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />
+  <link href="../_static/copybutton.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+  
+  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/embedapi2 - Backup.html" />
+  
+
+  
+  
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../"
+    src="../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/jquery.js"></script>
+  <script type="text/javascript" src="../_static/underscore.js"></script>
+  <script type="text/javascript" src="../_static/doctools.js"></script>
+  <script type="text/javascript" src="../_static/language_data.js"></script>
+  <script type="text/javascript" src="../_static/searchtools.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+  
+  <link rel="search" title="Search" href="search.html" /> 
+
+  <script>  window.marketingtech = { adobe: { launch: { url: 'https://assets.adobedtm.com/d4d114c60e50/a0e989131fd5/launch-5dd5dd2177e6.min.js', controlPageLoad: false, }, alloy: { edgeConfigId: '2cba807b-7430-41ae-9aac-db2b0da742d5', }, target: false, audienceManager: false, }, sophia: false, };</script><script src=https://www.adobe.com/marketingtech/main.standard.min.js></script>
+
+  <script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+          $('.fixedbar, .wy-nav-side').addClass('scroll');
+          $('.wy-top-menu-wrapper').fadeOut();
+        } else {
+          $('.fixedbar, .wy-nav-side').removeClass('scroll');
+          $('.wy-top-menu-wrapper').fadeIn();
+        }
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn();
+        } else {
+          $('#scroll').fadeOut();
+        }
+      });
+      $('#scroll').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+      });
+    });
+  </script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+    
+    <div class="fixedbarsearch"><img src="../_static/images/acrobatsignlogo.svg" class="searchlogo"/>
+      
+<div role="search" class="inlinediv">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </div>
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side"><!-- scrolling area -->
+      <div class="wy-side-scroll" >
+        
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+          
+          
+          
+          
+          
+          <p class="caption" role="heading"><span class="caption-text">Acrobat Sign Embed Home</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Developing with Acrobat Sign Embed</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#embed-2-0-updates">Embed 2.0 updates:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#benefits-and-overview">Benefits and overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#build-and-deploy-in-four-easy-steps">Build and deploy in four easy steps</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Acrobat Sign Embed 1.0</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="onboarding.html">Onboarding overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="onboarding.html#build-and-deploy-in-4-easy-steps">Build and deploy in 4 easy steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="provisioningfaq.html">Provisioning Design and FAQ v.1.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="provisioningfaq.html#provisioning-faqs">Provisioning FAQs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provisioningfaq.html#new-account-provisioning-flow">New account provisioning flow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gstarted.html">Partner Application Quickstart v.1.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#create-an-app-in-the-web-ui">Create an app in the web UI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#get-the-app-id-and-secret">Get the app ID and secret</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#configure-oauth">Configure OAuth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gstarted.html#configure-scopes">Configure scopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#create-an-authorization-request-link">Create an authorization request link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#configure-the-redirect-uri-on-your-server">Configure the redirect URI on your server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#success-vs-failure">Success vs failure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#the-customer-experience">The customer experience</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstarted.html#getting-the-access-token">Getting the access token</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="partnercertification.html">Certifying Your Partner App v.1.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="partnercertification.html#certification-best-practices">Certification best practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partnercertification.html#security-review">Security review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partnercertification.html#post-certification">Post “certification”</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="videos.html">How-to Video Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Migrate from Embed 1.0 to Embed 2.0</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration_overview.html">Upgrading to OEM Embed 2.0 - Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migration_overview.html#why-is-adobe-requiring-the-upgrade-to-the-oem-embed-2-0-platform">Why is Adobe requiring the upgrade to the OEM Embed 2.0 Platform?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_overview.html#what-are-the-benefits-of-the-oem-embed-2-0-platform">What are the benefits of the OEM Embed 2.0 Platform?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_overview.html#what-is-the-upgrade-timeline">What is the upgrade timeline?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="migration_steps.html">Phases of the upgrade</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migration_steps.html#phase-1-adobe-and-the-partner-discuss-the-oem-2-0-partner-platform-and-the-upgrade-process">Phase 1 - Adobe and the Partner discuss the OEM 2.0 Partner platform and the upgrade process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_steps.html#phase-2-partner-integrates-with-2-0-oem-partner-platform">Phase 2 - Partner integrates with 2.0 OEM Partner platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_steps.html#phase-3-cutover">Phase 3 - “Cutover”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_steps.html#phase-4-adobe-and-partner-review-the-status-after-cutover-partner-retires-their-legacy-processes">Phase 4 - Adobe and Partner review the status after cutover. Partner retires their legacy processes.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="migration_changes.html">Changes in the Acrobat Sign product and APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migration_changes.html#changes-in-the-acrobat-sign-product">Changes in the Acrobat Sign product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_changes.html#changes-in-the-acrobat-sign-api">Changes in the Acrobat Sign API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="migration_faq.html">Implementation Notes and Best Practice</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#changes">Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#embed-2-0-deprecates-the-following">Embed 2.0 deprecates the following:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#embed-2-0-adds-the-following">Embed 2.0 adds the following:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#access-token-storage-and-validation">Access token storage and validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#pre-migration-planning">Pre-migration planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#testing-migrations">Testing Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#testing-environments">Testing Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration_faq.html#migration-status-of-a-user">Migration Status of a User</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="migration_faq.html#request-form-parameters">Request Form parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration_faq.html#response-object">Response Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration_faq.html#error-response">Error Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration_faq.html#partner-migration-status-apis-headers">Partner Migration Status APIs Headers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Acrobat Sign Embed 2.0</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="onboarding2.html">Embed Partner Onboarding v 2.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#set-up-parent-organization">Set up Parent organization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#create-parent-organization">Create Parent organization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#accept-invite-and-access-adobe-admin-console">Accept invite and access Adobe Admin Console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#claim-domain">Claim domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#create-a-directory-and-link-with-the-claimed-domain">Create a Directory and link with the claimed domain</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#create-and-configure-child-organization">Create and configure Child organization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#create-a-child-organization">Create a Child organization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#allocate-transactions-to-the-child-organization">Allocate transactions to the Child organization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#create-a-technical-account">Create a technical account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#generate-technical-account-token-via-ui-or-via-curl-command">Generate Technical Account Token via UI or via curl command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#register-the-partner-on-acrobat-sign">Register the partner on Acrobat Sign</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#call-the-sign-get-baseuris-api">Call the Sign GET BaseUris API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#call-the-register-partner-api">Call the register Partner API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="onboarding2.html#provide-account-info-to-adobe">Provide account info to Adobe</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding2.html#onboard-your-customers">Onboard your customers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="embedapi2.html">Embed 2.0 API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#base-endpoint-api">Base Endpoint API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#authentication-token-apis">Authentication: Token APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#common-auth-token-api-attributes">Common auth token API attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#create-an-embed-user-token">Create an Embed user token</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#request">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#response">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#errors">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#validate-embed-user-token">Validate Embed User token</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id1">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id2">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id3">Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#common-attributes">Common attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#register-apis">Register APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#create-partner">Create partner</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id4">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id5">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id6">Errors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#account-apis">Account APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#common-account-api-header-attributes">Common account API header attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#create-account">Create Account</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id7">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#account-creation-response-object">Account creation response object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id8">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#update-account">Update Account</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id9">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id10">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#get-account">Get Account</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id11">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id12">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#get-all-accounts">Get All Accounts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id13">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#error">Error</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#user-apis">User APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#common-user-api-header-attributes">Common user API header attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#post-user">POST user</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id14">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id15">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id16">Error</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#put-user">PUT User</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id17">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id18">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#get-user">GET User</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id19">Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="embedapi2.html#id20">Errors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#consumables-apis">Consumables APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#consumables-summary-on-integration">Consumables summary on integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#get-consumables-summary-on-account-level">Get consumables summary on account level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#get-consumables-summary-details-on-account-level">Get consumables summary details on account level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#commonerrorresponse">CommonErrorResponse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#id23">Partner APIs Common Headers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="embedapi2.html#gdpr-delete-userinfo">GDPR Delete userInfo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#delete-userinfo-as-per-gdpr-compliance">Delete userInfo as per GDPR compliance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#queryparams">QueryParams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#id24">Partner APIs Common Headers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#successresponse">SuccessResponse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedapi2.html#errorresponse">ErrorResponse</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="channel_webhooks.html">Channel Webhooks User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="channel_webhooks.html#configuring-channel-webhooks">Configuring Channel Webhooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="channel_webhooks.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="channel_webhooks.html#configure-a-webhook-and-subscribe-to-events">Configure a webhook and subscribe to events</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="partnercertification2.html">Certifying Your Partner App 2.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="partnercertification2.html#certification-best-practices">Certification best practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partnercertification2.html#security-review">Security review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partnercertification2.html#post-certification">Post “certification”</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="videos2.html">How-to Video Tutorials 2.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://www.adobe.com/go/acrobatsigndevrnotes#://">API release notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevguide#://">Developer Guide (core v6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignwebhook#://">    Webhook Reference (v6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/signgov#://">Solutions for Government</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/embedpartner#://">Acrobat Sign Embed</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignsdks#://">SDK downloads</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignpostman#://">Postman workspace</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevaccount#://">    Free developer account form</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigntechblog#://">    FAQs and tech tips</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/esign-dev-cert#://">Application certification form</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignintegrations#://">Integration guides</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/trust/resources.html#://">Security and compliance</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevforum#://">Forum</a></li>
+</ul>
+
+          
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+      <div class="fixedbar">
+        <div class="wy-menu-items">
+          <a href="https://www.adobe.com/go/acrobatsigndevhome" class="topbarlink">Dev Home</a>
+          <a href="https://www.adobe.com/documentcloud/industries/government.html" class="topbarlink">Government</a>
+          <a href="https://www.adobe.com/documentcloud/integrations/isv-partner-program.html" class="topbarlink">Partner</a>
+          <a href="	https://www.adobe.com/go/acrobatsignforum"  class="topbarlink">Forum</a>
+        </div>
+        <div class="sign-in">
+          <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+        </div>
+      </div>
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+
+      
+      
+      <div class="wy-nav-content">
+        
+        <span class="lastupdated" style="color:lightgrey">
+          Last update: Oct 27, 2025. 
+        </span>
+        
+          <div class="rst-content">
+            
+            <!--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="toc.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Embed 2.0 API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>-->
+            <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <div itemprop="articleBody">
+                
+  <div class="section" id="embed-2-0-api">
+<h1>Embed 2.0 API<a class="headerlink" href="#embed-2-0-api" title="Permalink to this heading">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Your feedback is valuable and is vital in improving our product and documentation. Send suggestions to <a class="reference external" href="mailto:acrobatsignembed&#37;&#52;&#48;adobe&#46;com">acrobatsignembed<span>&#64;</span>adobe<span>&#46;</span>com</a>.</p>
+</div>
+<p>The Acrobat Sign Embed 2.0 frictionless model release exposes new APIs for streamlining account management as well as creating and validating new user tokens. Embed 2.0 provides the following benefits:</p>
+<ul class="simple">
+<li><p>Seamless onboarding of new customers via the API</p></li>
+<li><p>Partner ownership of all aspects of their end-customer relationship. End customers are not known to Adobe</p></li>
+<li><p>Access to the Adobe Admin Console, Global Admin Console, and Developer Console</p></li>
+<li><p>Support ticket access via the Admin Console</p></li>
+<li><p>The ability to add, remove, and fully manage end-users independently from Adobe</p></li>
+<li><p>Eliminates provisioning conflicts</p></li>
+</ul>
+<p>Adobe provisions Embed 2.0 customers with access to both the Global and Admin Consoles so they can:</p>
+<ul class="simple">
+<li><p>Use the consoles for managing all licensed Adobe products.</p></li>
+<li><p>Create and assign roles for partner’s users (e.g. developers; not customers).</p></li>
+<li><p>Set up Federated directory and define Identity Provider (IdP).</p></li>
+<li><p>Claim domains (e.g. ‘oempartner.com’) for use with all customers (e.g. <a class="reference external" href="mailto:bob&#46;smith_joesbikeshop&#37;&#52;&#48;oempartner&#46;com">bob<span>&#46;</span>smith_joesbikeshop<span>&#64;</span>oempartner<span>&#46;</span>com</a>)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Adobe creates and assigns a Sign ‘channel’ for exclusive partner use. All customer accounts will inherit from this channel’s settings. You will collaborate with the Acrobat Sign partner team to define set of ‘global’ settings for all of your customers.</p>
+</div>
+<p>As described in the <a class="reference external" href="onboarding.html">onboarding guide</a>, creating a technical account involves these high level steps in the Developer Console:</p>
+<ol class="arabic simple">
+<li><p>Create a token for creating a new customer organization within Acrobat Sign.</p></li>
+<li><p>Use your token for creating new users. Repeat as necessary.</p></li>
+<li><p>Use the the technical account token in the Adobe Developer Portal, and generate a cURL to create an endpoint such as:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[https://ims-na1-stg1.adobelogin.com/ims/token/v2?grant_type=client_credentials&amp;
+client_id=xxxxxxxxxxxx&amp;
+client_secret=xxxxxxxxxx&amp;scope=sign_webhook_retention,openid,widget_write,workflow_read,agreement_send,agreement_sign,AdobeID,agreement_write,widget_read,sign_webhook_read,sign_user_write,agreement_read,agreement_retention,sign_user_read,sign_library_read,user_management_sdk,agreement_vault,sign_user_login,sign_webhook_write,sign_library_retention,sign_library_write,workflow_write]
+(https://ims-na1-stg1.adobelogin.com/ims/token/v2?grant_type=client_credentials&amp;client_id=xxxxxxxxxx&amp;client_secret=xxxxxxxxxx&amp;scope=sign_webhook_retention,openid,widget_write,workflow_read,agreement_send,agreement_sign,AdobeID,agreement_write,widget_read,sign_webhook_read,sign_user_write,agreement_read,agreement_retention,sign_user_read,sign_library_read,user_management_sdk,agreement_vault,sign_user_login,sign_webhook_write,sign_library_retention,sign_library_write,workflow_write)
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The rest of this document provides details about new Embed 2.0 APIs.</p>
+</div>
+<div class="section" id="base-endpoint-api">
+<h2>Base Endpoint API<a class="headerlink" href="#base-endpoint-api" title="Permalink to this heading">¶</a></h2>
+<p><strong>Get Base_uri</strong></p>
+<p>Acrobat Sign APIs come with location awareness, so it’s important to use the correct geographic access point when calling resource-based APIs to ensure success. We highly recommend that clients store the base endpoint URL for each environment. This way, you can retrieve the appropriate geographic access points (<a class="reference external" href="https://api.na1.adobesign.com">https://api.na1.adobesign.com</a>, <a class="reference external" href="https://api.eu1.adobesign.com">https://api.eu1.adobesign.com</a>) for your resource-based API calls. Before making any API calls, make sure to include the valid access point returned as part of the base endpoint API in your request.</p>
+<table class="colwidths-given docutils align-default" id="id21">
+<caption><span class="caption-text">Base API Host</span><a class="headerlink" href="#id21" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Environment</p></th>
+<th class="head"><p>Base API Host</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sandbox Production</p></td>
+<td><p><a class="reference external" href="https://api.adobesignsandbox.com">https://api.adobesignsandbox.com</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Production</p></td>
+<td><p><a class="reference external" href="https://api.adobesign.com">https://api.adobesign.com</a></p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id22">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id22" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HTTP Method</p></td>
+<td><p>GET</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint Operation</p></td>
+<td><p>{Base Api Host}/api/rest/v6/baseUris</p></td>
+</tr>
+<tr class="row-even"><td><p>Description</p></td>
+<td><p>Very first API call to fetch geographical aware access points before you can call further apis.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Authentication</p></td>
+<td><p>Valid user/technical account token</p></td>
+</tr>
+<tr class="row-even"><td><p>Request Header</p></td>
+<td><p><a class="reference internal" href="#commonattributes"><span class="std std-ref">Auth API Headers</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Response Object</p></td>
+<td><p><a class="reference internal" href="#baseuriresponse"><span class="std std-ref">BaseUri Response</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>HTTP Status Code</p></td>
+<td><p>200</p></td>
+</tr>
+<tr class="row-odd"><td><p>Error Code</p></td>
+<td><p><a class="reference internal" href="#baseurierror"><span class="std std-ref">BaseUri Error Codes</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id23">
+<caption><span class="caption-text">Response Object</span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>apiAccessPoint</p></td>
+<td><p>String</p></td>
+<td><p>The access point from where other APIs need to be accessed. In case other APIs are accessed from a different end point, it will be considered an invalid request.</p></td>
+</tr>
+<tr class="row-odd"><td><p>webAccessPoint</p></td>
+<td><p>String</p></td>
+<td><p>Web access point acting as base host domain for all web based calls</p></td>
+</tr>
+</tbody>
+</table>
+<p id="baseuriresponse"><strong>BaseUri: Sample Response</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;apiAccessPoint&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.na1.echosign.com/&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;webAccessPoint&quot;</span><span class="p">:</span> <span class="s2">&quot;https://secure.na1.echosign.com/&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p id="baseurierror"><strong>BaseUri: Error Response</strong></p>
+<table class="colwidths-given docutils align-default" id="id24">
+<caption><span class="caption-text">Error codes</span><a class="headerlink" href="#id24" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>HTTP Status Code</p></th>
+<th class="head"><p>ErrorCode</p></th>
+<th class="head"><p>Message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>401</p></td>
+<td><p>INVALID_ACCESS_TOKEN</p></td>
+<td><p>Access token provided is invalid or has expired.</p></td>
+</tr>
+<tr class="row-odd"><td><p>401</p></td>
+<td><p>NO_AUTHORIZATION_HEADER</p></td>
+<td><p>Authorization header not provided.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="authentication-token-apis">
+<h2>Authentication: Token APIs<a class="headerlink" href="#authentication-token-apis" title="Permalink to this heading">¶</a></h2>
+<p>Call these APIs via the AdobeSignAuthService for user token generation and validation:</p>
+<ul class="simple">
+<li><p>POST Token: Exchange technical account token for a user token.</p></li>
+<li><p>POST Validate Token: Validate Sign Embed User Token.</p></li>
+</ul>
+<div class="section" id="common-auth-token-api-attributes">
+<h3>Common auth token API attributes<a class="headerlink" href="#common-auth-token-api-attributes" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default" id="id25">
+<caption><span class="caption-text">Common header attributes</span><a class="headerlink" href="#id25" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Header Name</p></th>
+<th class="head"><p>Values</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>content-type</p></td>
+<td><p>application/x-www-form-urlencoded</p></td>
+<td><p>The resource media type.</p></td>
+</tr>
+<tr class="row-odd"><td><p>x-request-id</p></td>
+<td><p>String</p></td>
+<td><p>A string value needed to track a given request</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="create-an-embed-user-token">
+<h3>Create an Embed user token<a class="headerlink" href="#create-an-embed-user-token" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default" id="id26">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id26" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HTTP Method</p></td>
+<td><p>POST</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint Operation</p></td>
+<td><p>{apiAccessPoint}/api/gateway/adobesignauthservice/api/v1/token</p></td>
+</tr>
+<tr class="row-even"><td><p>Description</p></td>
+<td><p>API to generate Sign Embed user Token.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Request Header</p></td>
+<td><p>Auth API Headers</p></td>
+</tr>
+<tr class="row-even"><td><p>Request Object</p></td>
+<td><p>Create token parameters</p></td>
+</tr>
+<tr class="row-odd"><td><p>Response Object</p></td>
+<td><p>Create token response</p></td>
+</tr>
+<tr class="row-even"><td><p>HTTP Status Code</p></td>
+<td><p>200</p></td>
+</tr>
+<tr class="row-odd"><td><p>Error Code</p></td>
+<td><p>Generate Token - Error response</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="request">
+<h4>Request<a class="headerlink" href="#request" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id27">
+<caption><span class="caption-text">Request Parameters</span><a class="headerlink" href="#id27" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 70%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default Value</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Mandatory Fields by POST</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>client_id</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>IMS Client Id</p></td>
+<td><p>Required</p></td>
+</tr>
+<tr class="row-odd"><td><p>client_secret</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>IMS client secret</p></td>
+<td><p>Required</p></td>
+</tr>
+<tr class="row-even"><td><p>grant_type</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Auth Grant type</p></td>
+<td><p>Required</p></td>
+</tr>
+<tr class="row-odd"><td><p>subject_token</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Unsigned JWT token of the user with email as payload.  Refer below section for more details.</p></td>
+<td><p>Required</p></td>
+</tr>
+<tr class="row-even"><td><p>subject_token_type</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>jwt: subject token type</p></td>
+<td><p>Required</p></td>
+</tr>
+<tr class="row-odd"><td><p>actor_token_type</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>access_token - actor Token type</p></td>
+<td><p>Required</p></td>
+</tr>
+<tr class="row-even"><td><p>actor_token</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Technical account token with mandatory scope: sign_oem_user_impersonate.</p></td>
+<td><p>Required</p></td>
+</tr>
+<tr class="row-odd"><td><p>scope</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Scopes requested for the user access token. It must be a subset of the scopes that are available in the technical account token: openid, AdobeID, agreement_read, agreement_sign, agreement_write, agreement_send, agreement_retention, agreement_vault, sign_library_read, sign_library_write, sign_library_retention, widget_read, widget_write, workflow_read, workflow_write, sign_user_write, sign_user_read, sign_user_login, sign_webhook_read, sign_webhook_write, sign_webhook_retention <strong>The following scopes are not allowed for user access token:</strong> sign_account_read, sign_account_write, sign_oem_user_impersonate, ee.GROUP_SIGN_OEM, user_management_sdk</p></td>
+<td><p>Required</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Generating Subject Token</strong></p>
+<p>Subject identifies the principal for which the JWT token <a class="reference external" href="https://jwt.io/introduction">https://jwt.io/introduction</a> belongs &amp; access token is being minted by exchanging technical account token(actor token). Subject is scoped to be locally unique in context of authorization server identified by email. The jwt token belonging to this subject is termed subject_token which is an unsigned one and has “email” as claim.</p>
+<p><strong>Sample subject token (jwt)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9</span><span class="o">.</span><span class="n">eyJlbWFpbCI6InN1YmplY3RfZW1haWxAc2lnbmVtYmVkcGFydG5lci5jb20ifQ</span><span class="o">.</span><span class="n">IOqyTkveGBDhfmanxttJnrcO</span><span class="o">-</span><span class="n">X8iYK1yyu7mU5Eb3dY</span>
+
+<span class="n">Payload</span><span class="p">:</span>
+
+<span class="p">{</span>
+  <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;subject_email@signembedpartner.com&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For quick testing, copy this sample value and paste in jwt.io, Navigate to right hand payload section &amp; update “email”. The jwt token at left side will be updated automatically. You can use this as subject token in token exchange api</p>
+<p><strong>How to generate programmatically?</strong></p>
+<p>You can use libraries <a class="reference external" href="https://jwt.io/libraries">https://jwt.io/libraries</a> based on different languages to generate an unsigned subject token.</p>
+<p><strong>Sample Request parameters</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client_id</span><span class="p">:</span><span class="o">&lt;</span><span class="n">IMS_client_id</span><span class="o">&gt;</span>
+<span class="n">client_secret</span><span class="p">:</span><span class="o">&lt;</span><span class="n">client_secret</span><span class="o">&gt;</span>
+<span class="n">grant_type</span><span class="p">:</span><span class="n">urn</span><span class="p">:</span><span class="n">ietf</span><span class="p">:</span><span class="n">params</span><span class="p">:</span><span class="n">oauth</span><span class="p">:</span><span class="n">grant</span><span class="o">-</span><span class="nb">type</span><span class="p">:</span><span class="n">token</span><span class="o">-</span><span class="n">exchange</span>
+<span class="n">subject_token</span><span class="p">:</span><span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJlbWFpbCI6InRlc3R1c2VyZW1haWxAam9lc2Jpa2VzaG9wLmNvbSJ9</span><span class="o">.</span><span class="n">smfBPHgx68LXnwzKV_t2DurHyHT1aPlzFB8nxo_RiBY</span>
+<span class="n">subject_token_type</span><span class="p">:</span><span class="n">jwt</span>
+<span class="n">actor_token_type</span><span class="p">:</span><span class="n">access_token</span>
+<span class="n">actor_token</span><span class="p">:</span><span class="o">&lt;</span><span class="n">technical_account_token</span><span class="o">&gt;</span>
+<span class="n">scope</span><span class="p">:</span><span class="n">sign_webhook_retention</span><span class="p">,</span><span class="n">widget_write</span><span class="p">,</span><span class="n">workflow_read</span><span class="p">,</span><span class="n">agreement_send</span><span class="p">,</span><span class="n">agreement_sign</span><span class="p">,</span><span class="n">agreement_write</span><span class="p">,</span><span class="n">widget_read</span><span class="p">,</span><span class="n">sign_webhook_read</span><span class="p">,</span><span class="n">sign_user_write</span><span class="p">,</span><span class="n">agreement_read</span><span class="p">,</span><span class="n">agreement_retention</span><span class="p">,</span><span class="n">sign_user_read</span><span class="p">,</span><span class="n">sign_library_read</span><span class="p">,</span><span class="n">agreement_vault</span><span class="p">,</span><span class="n">sign_user_login</span><span class="p">,</span><span class="n">sign_webhook_write</span><span class="p">,</span><span class="n">sign_library_retention</span><span class="p">,</span><span class="n">sign_library_write</span><span class="p">,</span><span class="n">workflow_write</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="response">
+<h4>Response<a class="headerlink" href="#response" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id28">
+<caption><span class="caption-text">Response Parameters</span><a class="headerlink" href="#id28" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>access_token</p></td>
+<td><p>String</p></td>
+<td><p>User Access Token value</p></td>
+</tr>
+<tr class="row-odd"><td><p>token_type</p></td>
+<td><p>String</p></td>
+<td><p>Token type: <code class="docutils literal notranslate"><span class="pre">access_token</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>expires_in</p></td>
+<td><p>Long</p></td>
+<td><p>Duration before expiry in seconds. The user token expires in 5 minutes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>scope</p></td>
+<td><p>String</p></td>
+<td><p>Scope available in the  user access token.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample Response</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;access_token&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">user_access_token</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;token_type&quot;</span><span class="p">:</span> <span class="s2">&quot;access_token&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;expires_in&quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+    <span class="s2">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;sign_webhook_retention,openid,widget_write,workflow_read,agreement_send,agreement_sign,AdobeID,agreement_write,widget_read,sign_webhook_read,sign_user_write,agreement_read,agreement_retention,sign_user_read,sign_library_read,agreement_vault,sign_user_login,sign_webhook_write,sign_library_retention,sign_library_write,workflow_write&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="errors">
+<h4>Errors<a class="headerlink" href="#errors" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id29">
+<caption><span class="caption-text">Error codes for create an embed user token</span><a class="headerlink" href="#id29" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>HTTP Status Code</p></th>
+<th class="head"><p>Error code</p></th>
+<th class="head"><p>Message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>BAD_REQUEST</p></td>
+<td><p>The request provided is invalid.</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p>INVALID_REQUEST</p></td>
+<td><p>&lt;required param name&gt; is missing or invalid.</p></td>
+</tr>
+<tr class="row-even"><td><p>401</p></td>
+<td><p>INVALID_AUTHENTICATING_TOKEN</p></td>
+<td><p>actor_token is missing or invalid.</p></td>
+</tr>
+<tr class="row-odd"><td><p>403</p></td>
+<td><p>AUTHENTICATION_FAILED</p></td>
+<td><p>Partner is not onboarded successfully.</p></td>
+</tr>
+<tr class="row-even"><td><p>403</p></td>
+<td><p>PERMISSION_DENIED</p></td>
+<td><p>The API caller does not have the permission to execute this operation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>500</p></td>
+<td><p>INTERNAL_SERVER_ERROR</p></td>
+<td><p>Some miscellaneous error has occurred.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="validate-embed-user-token">
+<h3>Validate Embed User token<a class="headerlink" href="#validate-embed-user-token" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default" id="id30">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id30" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HTTP Method</p></td>
+<td><p>POST</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint Operation</p></td>
+<td><p>{apiAccessPoint}/api/gateway/adobesignauthservice/api/v1/validate_token</p></td>
+</tr>
+<tr class="row-even"><td><p>Description</p></td>
+<td><p>API to check the validity of the user token.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Request Header</p></td>
+<td><p>Auth API Headers</p></td>
+</tr>
+<tr class="row-even"><td><p>Request Object</p></td>
+<td><p>Validate token request</p></td>
+</tr>
+<tr class="row-odd"><td><p>Response Object</p></td>
+<td><p>Validate token Response</p></td>
+</tr>
+<tr class="row-even"><td><p>HTTP Status Code</p></td>
+<td><p>200</p></td>
+</tr>
+<tr class="row-odd"><td><p>Error Code</p></td>
+<td><p>Error Response - Validate Token</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h4>Request<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id31">
+<caption><span class="caption-text">Request Parameters</span><a class="headerlink" href="#id31" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>type</p></th>
+<th class="head"><p>Default Value</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Mandatory Fields by POST</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>client_id</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>IMS Client Id</p></td>
+<td><p>Required</p></td>
+</tr>
+<tr class="row-odd"><td><p>token</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>User access token</p></td>
+<td><p>Required</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Token type</p></td>
+<td><p>Required</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample Request</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client_id</span><span class="p">:</span><span class="o">&lt;</span><span class="n">IMS_client_id</span><span class="o">&gt;</span>
+<span class="n">token</span><span class="p">:</span><span class="o">&lt;</span><span class="n">user_access_token</span><span class="o">&gt;</span>
+<span class="nb">type</span><span class="p">:</span><span class="n">access_token</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h4>Response<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id32">
+<caption><span class="caption-text">Response Parameters</span><a class="headerlink" href="#id32" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>valid</p></td>
+<td><p>boolean</p></td>
+<td><p>Returns if the token is valid or not.</p></td>
+</tr>
+<tr class="row-odd"><td><p>expires_at</p></td>
+<td><p>long</p></td>
+<td><p>Token Expiry time in Epoc sec.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample Response</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;valid&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;expires_at&quot;</span><span class="p">:</span> <span class="mi">1673987741</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h4>Errors<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id33">
+<caption><span class="caption-text">Error codes for validate account</span><a class="headerlink" href="#id33" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>HTTP Status Code</p></th>
+<th class="head"><p>Error code</p></th>
+<th class="head"><p>Message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>BAD_REQUEST</p></td>
+<td><p>The request provided is invalid.</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p>INVALID_REQUEST</p></td>
+<td><p>&lt;required param name&gt; is missing or invalid.</p></td>
+</tr>
+<tr class="row-even"><td><p>500</p></td>
+<td><p>INTERNAL_SERVER_ERROR</p></td>
+<td><p>Some miscellaneous error has occurred.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="common-attributes">
+<span id="commonattributes"></span><h4>Common attributes<a class="headerlink" href="#common-attributes" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id34">
+<caption><span class="caption-text">Account &amp; User APIs: Common headers for Partner APIs</span><a class="headerlink" href="#id34" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Header name</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Authorization</p></td>
+<td><p>Bearer &lt;Technical Account Token&gt;</p></td>
+<td><p>Technical account token that is generated by the partner and tha Partner is onboarded before hand.</p></td>
+</tr>
+<tr class="row-odd"><td><p>content-type</p></td>
+<td><p>application/json</p></td>
+<td><p>Media type of the resource.</p></td>
+</tr>
+<tr class="row-even"><td><p>x-request-id</p></td>
+<td><p>String</p></td>
+<td><p>A string value needed to track a given request.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id35">
+<caption><span class="caption-text">Common headers for Auth token APIs</span><a class="headerlink" href="#id35" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Header name</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>content-type</p></td>
+<td><p>application/x-www-form-urlencoded</p></td>
+<td><p>Media type of the resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>x-request-id</p></td>
+<td><p>String</p></td>
+<td><p>A string value needed to track a given request.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="register-apis">
+<h2>Register APIs<a class="headerlink" href="#register-apis" title="Permalink to this heading">¶</a></h2>
+<p>Register APIs allow you to register your partner application with Acrobat Sign as part of the on-boarding process. Call this API directly with your technical account token for each technical account. You must also do this in the sandbox environment as well.</p>
+<p>You can call the following API to register your partner application by directly using Technical account token:</p>
+<ul class="simple">
+<li><p>Post Partners - Register the partner with Acrobat Sign</p></li>
+</ul>
+<div class="section" id="create-partner">
+<h3>Create partner<a class="headerlink" href="#create-partner" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default" id="id36">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id36" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HTTP Method</p></td>
+<td><p>POST</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint Operation</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">{apiAccessPoint}/api/gateway/signembed/v1/partners</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Authentication/Authorization</p></td>
+<td><p>Values:</p>
+<ul class="simple">
+<li><p>Valid Technical Account Token</p></li>
+<li><p>Mandatory scopes in token: <code class="docutils literal notranslate"><span class="pre">sign_user_write</span></code>, <code class="docutils literal notranslate"><span class="pre">sign_user_read</span></code>, <code class="docutils literal notranslate"><span class="pre">sign_account_write</span></code>, <code class="docutils literal notranslate"><span class="pre">sign_account_read</span></code>, <code class="docutils literal notranslate"><span class="pre">sign_oem_user_impersonate</span></code></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Description</p></td>
+<td><p>API to register the Partner with Acrobat Sign. This would be called once as part of Partner onboarding.</p></td>
+</tr>
+<tr class="row-even"><td><p>Request Header</p></td>
+<td><p>Partner APIs Common Headers</p></td>
+</tr>
+<tr class="row-odd"><td><p>Request Object</p></td>
+<td><p>RegisterPartnerRequest</p></td>
+</tr>
+<tr class="row-even"><td><p>Response Object</p></td>
+<td><p>RegisterPartnerResponse</p></td>
+</tr>
+<tr class="row-odd"><td><p>HTTP Status Code</p></td>
+<td><p>201</p></td>
+</tr>
+<tr class="row-even"><td><p>Error Code       Error Response</p></td>
+<td><p>Error Response - Register Partner</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id4">
+<h4>Request<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id37">
+<caption><span class="caption-text">Register Partner request parameters</span><a class="headerlink" href="#id37" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 30%" />
+<col style="width: 30%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Requirement</p></th>
+<th class="head"><p>Validations/Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>NA</p></td>
+<td><p>Identifiable partner name</p></td>
+<td><p>Required</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>domains</p></td>
+<td><p>List&lt;String&gt;</p></td>
+<td><p>List of all the domains claimed/trusted by the partner org</p></td>
+<td><p>List of domains claimed/trusted by the partner organization</p></td>
+<td><p>Optional</p></td>
+<td><p>domain regex validation
+Validated against the domains claimed/trusted by the partner org</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Register partner sample request</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Partner Name&quot;</span><span class="p">,</span>
+<span class="s2">&quot;domains&quot;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s2">&quot;partnerdomain.com&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;partnerdomain.us&quot;</span>
+ <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h4>Response<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id38">
+<caption><span class="caption-text">Register partner response parameters</span><a class="headerlink" href="#id38" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 14%" />
+<col style="width: 5%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>imsClientId</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>The client ID associated with the technical account</p></td>
+</tr>
+<tr class="row-odd"><td><p>created</p></td>
+<td><p>Date</p></td>
+<td></td>
+<td><p>Created date in ISO format</p></td>
+</tr>
+<tr class="row-even"><td><p>domains</p></td>
+<td><p>List&lt;String&gt;</p></td>
+<td></td>
+<td><p>List of domains claimed/trusted by the partner</p></td>
+</tr>
+<tr class="row-odd"><td><p>id</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Id for the Partner.</p></td>
+</tr>
+<tr class="row-even"><td><p>modified</p></td>
+<td><p>Date</p></td>
+<td></td>
+<td><p>Last modified date in ISO format</p></td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Identifiable partner name</p></td>
+</tr>
+<tr class="row-even"><td><p>orgGuid</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Id of the IMS organization.</p></td>
+</tr>
+<tr class="row-odd"><td><p>status</p></td>
+<td><p>String</p></td>
+<td><p>INACTIVE</p></td>
+<td><p>Status of the Partner.</p></td>
+</tr>
+<tr class="row-even"><td><p>technicalAccountId</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Technical account ID associated with the technical account.</p></td>
+</tr>
+<tr class="row-odd"><td><p>updatedBy</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Technical account ID associated with the technical account.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Register partner sample response</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;id&quot;</span> <span class="p">:</span><span class="s2">&quot;1234&quot;</span><span class="p">,</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Partner Name&quot;</span><span class="p">,</span>
+<span class="s2">&quot;orgGuid&quot;</span><span class="p">:</span> <span class="s2">&quot;PartnerOrgGuid&quot;</span><span class="p">,</span>
+<span class="s2">&quot;imsClientId&quot;</span><span class="p">:</span> <span class="s2">&quot;CliendIdOfTechnicalAccToken&quot;</span><span class="p">,</span>
+<span class="s2">&quot;technicalAccountId&quot;</span><span class="p">:</span> <span class="s2">&quot;41AC2000634002540A49403A@techacct.adobe.com&quot;</span><span class="p">,</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;INACTIVE&quot;</span><span class="p">,</span>
+<span class="s2">&quot;updatedBy&quot;</span><span class="p">:</span> <span class="s2">&quot;41AC2000634002540A49403A@techacct.adobe.com&quot;</span><span class="p">,</span>
+<span class="s2">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span>
+<span class="s2">&quot;modified&quot;</span><span class="p">:</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span>
+<span class="s2">&quot;domains&quot;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s2">&quot;partnerdomain.com&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;partnerdomain.in&quot;</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h4>Errors<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id39">
+<caption><span class="caption-text">Error codes for register partner response</span><a class="headerlink" href="#id39" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>HTTP Status Code</p></th>
+<th class="head"><p>Error code</p></th>
+<th class="head"><p>Message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>INVALID_PARAMETER</p></td>
+<td><p>The &lt;param_name&gt; value specified is invalid.</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p>DOMAIN_NOT_ElIGIBLE</p></td>
+<td><p>One or more domains are not allowed for the given partner.</p></td>
+</tr>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>INVALID_JSON</p></td>
+<td><p>An invalid JSON was specified.</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p>MISSING_REQUIRED_PARAM</p></td>
+<td><p>Required parameter &lt;param name&gt; is missing.</p></td>
+</tr>
+<tr class="row-even"><td><p>401</p></td>
+<td><p>INVALID_ACCESS_TOKEN</p></td>
+<td><p>Access token provided is invalid or has expired.</p></td>
+</tr>
+<tr class="row-odd"><td><p>403</p></td>
+<td><p>MISSING_SCOPES</p></td>
+<td><p>The token does not contain the required scopes.</p></td>
+</tr>
+<tr class="row-even"><td><p>404</p></td>
+<td><p>ORG_DOMAINS_NOT_FOUND</p></td>
+<td><p>Org does not have any owned or trusted federated domains.</p></td>
+</tr>
+<tr class="row-odd"><td><p>409</p></td>
+<td><p>TECHNICAL_ACCOUNT_ID_ALREADY_EXISTS</p></td>
+<td><p>Partner already exists for this Technical Account Id.</p></td>
+</tr>
+<tr class="row-even"><td><p>500</p></td>
+<td><p>INTERNAL_SERVER_ERROR</p></td>
+<td><p>Some miscellaneous error has occurred.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="account-apis">
+<span id="accountatt"></span><h2>Account APIs<a class="headerlink" href="#account-apis" title="Permalink to this heading">¶</a></h2>
+<p>Call these APIs directly using a technical account token to create or update an account.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>POST Account - To create a new account.</p></li>
+<li><p>PUT Account - To update a new account.</p></li>
+<li><p>GET Account - To fetch an account info.</p></li>
+<li><p>GET All Accounts - To fetch all accounts in a channel.</p></li>
+</ul>
+</div></blockquote>
+<div class="section" id="common-account-api-header-attributes">
+<h3>Common account API header attributes<a class="headerlink" href="#common-account-api-header-attributes" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default" id="id40">
+<caption><span class="caption-text">Common header attributes</span><a class="headerlink" href="#id40" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Header Name</p></th>
+<th class="head"><p>Values</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Authorization</p></td>
+<td><p>Bearer &lt;Technical Account Token&gt;</p></td>
+<td><p>Technical account token that is generated by the partner and the Partner is onboarded beforehand.</p></td>
+</tr>
+<tr class="row-odd"><td><p>content-type</p></td>
+<td><p>application/json</p></td>
+<td><p>The resource media type.</p></td>
+</tr>
+<tr class="row-even"><td><p>x-request-id</p></td>
+<td><p>String</p></td>
+<td><p>A string value needed to track a given request</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="create-account">
+<h3>Create Account<a class="headerlink" href="#create-account" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default" id="id41">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id41" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HTTP Method</p></td>
+<td><p>POST</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint Operation</p></td>
+<td><p>{apiAccessPoint}/api/gateway/signembed/v1/accounts</p></td>
+</tr>
+<tr class="row-even"><td><p>Authentication/ Authorization</p></td>
+<td><ul class="simple">
+<li><p>Valid technical account token.</p></li>
+<li><p>Required scopes in token: <code class="docutils literal notranslate"><span class="pre">sign_account_write</span></code>.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Audience</p></td>
+<td><p>Partner will call this API to create new accounts for their customers.</p></td>
+</tr>
+<tr class="row-even"><td><p>Request Header</p></td>
+<td><p>Partner APIs Common Headers</p></td>
+</tr>
+<tr class="row-odd"><td><p>Request Object</p></td>
+<td><p>AccountProvisionRequest</p></td>
+</tr>
+<tr class="row-even"><td><p>Response Object</p></td>
+<td><p>AccountProvisionResponse</p></td>
+</tr>
+<tr class="row-odd"><td><p>HTTP Status Code</p></td>
+<td><p>201</p></td>
+</tr>
+<tr class="row-even"><td><p>Error Code</p></td>
+<td><p>Error Response: Create Account</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id7">
+<h4>Request<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id42">
+<caption><span class="caption-text">Account create-update request parameters</span><a class="headerlink" href="#id42" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 35%" />
+<col style="width: 25%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Needed in POST/PUT</p></th>
+<th class="head"><p>Updatable by PUT</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>String</p></td>
+<td><p>NA</p></td>
+<td><p>Account ID of the Account</p></td>
+<td><p>Required and Permitted only in PUT</p></td>
+<td><p>Immutable</p></td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>NA</p></td>
+<td><p>Name of the account. The name must only include numbers and letters. No special characters or spaces are allowed.</p></td>
+<td><p>Required</p></td>
+<td><p>mutable</p></td>
+</tr>
+<tr class="row-even"><td><p>company</p></td>
+<td><p>String</p></td>
+<td><p>“”</p></td>
+<td><p>Name of the company</p></td>
+<td><p>Optional</p></td>
+<td><p>mutable</p></td>
+</tr>
+<tr class="row-odd"><td><p>consumables</p></td>
+<td><p>List&lt;Consumable&gt;</p></td>
+<td><p>[ ]</p></td>
+<td><p>List of Consumables</p></td>
+<td><p>Optional</p></td>
+<td><p>mutable</p></td>
+</tr>
+<tr class="row-even"><td><p>countryCode</p></td>
+<td><p>String</p></td>
+<td><p>NA</p></td>
+<td><p>Target Country for Account Provisioning. Ex US, FR, GB</p></td>
+<td><p>Required</p></td>
+<td><p>Immutable</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id43">
+<caption><span class="caption-text">Consumable</span><a class="headerlink" href="#id43" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 35%" />
+<col style="width: 25%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default Value</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Needed in POST/PUT</p></th>
+<th class="head"><p>Updatable by PUT</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>String</p></td>
+<td><p>NA</p></td>
+<td><p>Name of consumable supported in Embed Accounts.</p>
+<ul class="simple">
+<li><p>KBA_ANNUAL</p></li>
+<li><p>PHONE_AUTH_ANNUAL</p></li>
+<li><p>SEAT</p></li>
+</ul>
+</td>
+<td><p>Required</p></td>
+<td><p>mutable</p></td>
+</tr>
+<tr class="row-odd"><td><p>attributes</p></td>
+<td><p>Object</p></td>
+<td><p>N/A</p></td>
+<td><p>Properties for each consumable type</p></td>
+<td><p>Required</p></td>
+<td><p>mutable</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample Account Provisioning Request</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;SignEmbedTestAccount&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;Sign Embed Test Account&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;countryCode&quot;</span><span class="p">:</span> <span class="s2">&quot;US&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;consumables&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;SEATS&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;cap&quot;</span><span class="p">:</span> <span class="mi">1</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;PHONE_AUTH&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;cap&quot;</span><span class="p">:</span> <span class="mi">1</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;KBA&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;cap&quot;</span><span class="p">:</span> <span class="mi">1</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="account-creation-response-object">
+<h4>Account creation response object<a class="headerlink" href="#account-creation-response-object" title="Permalink to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 31%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>REST Object</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>accountId</p></td>
+<td><p>String</p></td>
+<td><p>Account ID</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample account creation response</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;accountId&quot;</span> <span class="p">:</span> <span class="s2">&quot;2aabnucbm3xsdfweldvwporqvjqzxdkjorbikaifuiwufwihs*&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h4>Errors<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id44">
+<caption><span class="caption-text">Error codes for AccountCreateErrorResponse</span><a class="headerlink" href="#id44" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>HTTP Status Code</p></th>
+<th class="head"><p>Error code</p></th>
+<th class="head"><p>Message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>MISSING_REQUIRED_PARAMS</p></td>
+<td><p>Required parameter &lt;param name&gt; is missing.</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p>INVALID_JSON</p></td>
+<td><p>An invalid JSON was specified.</p></td>
+</tr>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>INVALID_PARAMETER</p></td>
+<td><p>The &lt;param_name&gt; value specified is invalid.</p></td>
+</tr>
+<tr class="row-odd"><td><p>401</p></td>
+<td><p>INVALID_ACCESS_TOKEN</p></td>
+<td><p>Access token provided is invalid or has expired.</p></td>
+</tr>
+<tr class="row-even"><td><p>403</p></td>
+<td><p>MISSING_SCOPES</p></td>
+<td><p>The token does not contain the required scopes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>403</p></td>
+<td><p>AUTHENTICATION_FAILED</p></td>
+<td><p>Partner is not onboarded successfully.</p></td>
+</tr>
+<tr class="row-even"><td><p>409</p></td>
+<td><p>ACCOUNT_ALREADY_EXISTS</p></td>
+<td><p>Account with this name already exists.</p></td>
+</tr>
+<tr class="row-odd"><td><p>500</p></td>
+<td><p>INTERNAL_SERVER_ERROR</p></td>
+<td><p>Some miscellaneous error has occurred.</p></td>
+</tr>
+<tr class="row-even"><td><p>500</p></td>
+<td><p>ACCOUNT_COULD_NOT_BE_CONFIGURED</p></td>
+<td><p>Account with accountId {account id} could not be configured properly.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="update-account">
+<h3>Update Account<a class="headerlink" href="#update-account" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default" id="id45">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id45" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HTTP Method</p></td>
+<td><p>PUT</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint Operation</p></td>
+<td><p>{apiAccessPoint}/api/gateway/signembed/v1/accounts/&lt;accountId&gt;</p></td>
+</tr>
+<tr class="row-even"><td><p>Authentication/ Authorization</p></td>
+<td><ul class="simple">
+<li><p>Valid technical account token.</p></li>
+<li><p>Required scopes: <code class="docutils literal notranslate"><span class="pre">sign_account_write</span></code></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Audience</p></td>
+<td><p>Partner will call this API to update existing Embed account.</p></td>
+</tr>
+<tr class="row-even"><td><p>Request Header</p></td>
+<td><p>Partner APIs Common Headers</p></td>
+</tr>
+<tr class="row-odd"><td><p>Request Object</p></td>
+<td><p>AccountUpdateRequest</p></td>
+</tr>
+<tr class="row-even"><td><p>Response Object</p></td>
+<td><p>No Content</p></td>
+</tr>
+<tr class="row-odd"><td><p>HTTP Status Code</p></td>
+<td><p>204</p></td>
+</tr>
+<tr class="row-even"><td><p>Error Code</p></td>
+<td><p>ErrorCodes - Update Account</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id9">
+<h4>Request<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h4>
+<p>Account update request parameters</p>
+<p><strong>Sample Account Update Request</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;accountid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;SignEmbedTestAccountUpdated&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;Sign Embed Test Account Updated&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;consumables&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;SEATS&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;cap&quot;</span><span class="p">:</span> <span class="mi">10</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;PHONE_AUTH&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;cap&quot;</span><span class="p">:</span> <span class="mi">10</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;KBA&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;cap&quot;</span><span class="p">:</span> <span class="mi">10</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h4>Errors<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id46">
+<caption><span class="caption-text">Error codes for AccountUpdateErrorResponse</span><a class="headerlink" href="#id46" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>HTTP Status Code</p></th>
+<th class="head"><p>Error code</p></th>
+<th class="head"><p>Message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>MISSING_REQUIRED_PARAMS</p></td>
+<td><p>Missing required parameters &lt;required param name&gt;.</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p>INVALID_PARAMETER</p></td>
+<td><p>The &lt;param_name&gt; value specified is invalid.</p></td>
+</tr>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>INVALID_INPUT</p></td>
+<td><p>An invalid input is provided.</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p>INVALID_JSON</p></td>
+<td><p>An invalid JSON was specified.</p></td>
+</tr>
+<tr class="row-even"><td><p>401</p></td>
+<td><p>INVALID_ACCESS_TOKEN</p></td>
+<td><p>Access token provided is invalid or has expired.</p></td>
+</tr>
+<tr class="row-odd"><td><p>403</p></td>
+<td><p>MISSING_SCOPES</p></td>
+<td><p>The token does not contain the required scopes.</p></td>
+</tr>
+<tr class="row-even"><td><p>403</p></td>
+<td><p>AUTHENTICATION_FAILED</p></td>
+<td><p>Partner is not onboarded successfully.</p></td>
+</tr>
+<tr class="row-odd"><td><p>403</p></td>
+<td><p>PERMISSION_DENIED</p></td>
+<td><p>The API caller does not have the permission to execute this operation.</p></td>
+</tr>
+<tr class="row-even"><td><p>404</p></td>
+<td><p>ACCOUNT_NOT_FOUND</p></td>
+<td><p>Account does not exist.</p></td>
+</tr>
+<tr class="row-odd"><td><p>409</p></td>
+<td><p>ACCOUNT_ALREADY_EXISTS</p></td>
+<td><p>An account with this name already exists.</p></td>
+</tr>
+<tr class="row-even"><td><p>500</p></td>
+<td><p>INTERNAL_SERVER_ERROR</p></td>
+<td><p>Some miscellaneous error has occurred.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="get-account">
+<h3>Get Account<a class="headerlink" href="#get-account" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default" id="id47">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id47" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HTTP Method</p></td>
+<td><p>GET</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint Operation</p></td>
+<td><p>{apiAccessPoint}/api/gateway/signembed/v1/accounts/&lt;accountId&gt;</p></td>
+</tr>
+<tr class="row-even"><td><p>Authorization</p></td>
+<td><ul class="simple">
+<li><p>Valid technical account token.</p></li>
+<li><p>Required Scopes in token: sign_account_read</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Audience</p></td>
+<td><p>Partner will call this API to fetch account details for their customers.</p></td>
+</tr>
+<tr class="row-even"><td><p>Request Header</p></td>
+<td><p>Partner APIs Common Headers</p></td>
+</tr>
+<tr class="row-odd"><td><p>Request Object</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Response Object</p></td>
+<td><p>GetAccountResponse</p></td>
+</tr>
+<tr class="row-odd"><td><p>HTTP Status Code</p></td>
+<td><p>200</p></td>
+</tr>
+<tr class="row-even"><td><p>Error Code</p></td>
+<td><p>ErrorCodes - get Account</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id11">
+<h4>Response<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id48">
+<caption><span class="caption-text">Response Object GetAccountResponse</span><a class="headerlink" href="#id48" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>String</p></td>
+<td><p>account ID</p></td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>Name of the account</p></td>
+</tr>
+<tr class="row-even"><td><p>company</p></td>
+<td><p>String</p></td>
+<td><p>Name of the company</p></td>
+</tr>
+<tr class="row-odd"><td><p>consumables</p></td>
+<td><p>List&lt;Consumable&gt;</p></td>
+<td><p>LList of Consumables with values. For example, KBA, PHONE_AUTH, and SEATS.</p></td>
+</tr>
+<tr class="row-even"><td><p>countryCode</p></td>
+<td><p>String</p></td>
+<td><p>Target Country for Account Provisioning. Ex US, FR, GB</p></td>
+</tr>
+<tr class="row-odd"><td><p>created</p></td>
+<td><p>Date</p></td>
+<td><p>Account created date in ISO format.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample account creation GetAccountResponse</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;accountId&quot;</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;SignEmbedTestAccountUpdated&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;Sign Embed Test Account Updated&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;consumables&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;SEATS&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;cap&quot;</span><span class="p">:</span> <span class="mi">10</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;PHONE_AUTH&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;cap&quot;</span><span class="p">:</span> <span class="mi">10</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;KBA&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;cap&quot;</span><span class="p">:</span> <span class="mi">10</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-01-17T12:27:08Z&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h4>Errors<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id49">
+<caption><span class="caption-text">Error codes for AccountGetErrorResponse</span><a class="headerlink" href="#id49" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>HTTP Status Code</p></th>
+<th class="head"><p>Error code</p></th>
+<th class="head"><p>Message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>INVALID_INPUT</p></td>
+<td><p>An invalid input is provided.</p></td>
+</tr>
+<tr class="row-odd"><td><p>401</p></td>
+<td><p>INVALID_ACCESS_TOKEN</p></td>
+<td><p>Access token provided is invalid or has expired.</p></td>
+</tr>
+<tr class="row-even"><td><p>403</p></td>
+<td><p>MISSING_SCOPES</p></td>
+<td><p>The token does not contain the required scopes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>403</p></td>
+<td><p>AUTHENTICATION_FAILED</p></td>
+<td><p>Partner is not onboarded successfully.</p></td>
+</tr>
+<tr class="row-even"><td><p>403</p></td>
+<td><p>PERMISSION_DENIED</p></td>
+<td><p>The API caller does not have the permission to execute this operation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>404</p></td>
+<td><p>ACCOUNT_NOT_FOUND</p></td>
+<td><p>Account does not exist.</p></td>
+</tr>
+<tr class="row-even"><td><p>500</p></td>
+<td><p>INTERNAL_SERVER_ERROR</p></td>
+<td><p>Some miscellaneous error has occurred.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="get-all-accounts">
+<h3>Get All Accounts<a class="headerlink" href="#get-all-accounts" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default" id="id50">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id50" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HTTP Method</p></td>
+<td><p>GET</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint Operation</p></td>
+<td><p>/v1/accounts?isLegacy={true/false}&amp;pagesSize={}&amp;pageNumber={}</p></td>
+</tr>
+<tr class="row-even"><td><p>Authorization</p></td>
+<td><ul class="simple">
+<li><p>Valid Technical Account Token.</p></li>
+<li><p>Mandatory Scope in token - sign_account_read</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Audience</p></td>
+<td><p>Partner will call this API to fetch paginated list of accounts for all their customers.</p></td>
+</tr>
+<tr class="row-even"><td><p>Request Header</p></td>
+<td><p>Partner APIs Common Headers</p></td>
+</tr>
+<tr class="row-odd"><td><p>Request Object</p></td>
+<td><p>GetAccountsResponse</p></td>
+</tr>
+<tr class="row-even"><td><p>HTTP Status Code</p></td>
+<td><p>200</p></td>
+</tr>
+<tr class="row-odd"><td><p>Error Code</p></td>
+<td><p>ErrorCodes - get Account</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id51">
+<caption><span class="caption-text">Query Params</span><a class="headerlink" href="#id51" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 35%" />
+<col style="width: 10%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Needed</p></th>
+<th class="head"><p>Data Range</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pageNumber</p></td>
+<td><p>Integer</p></td>
+<td><p>pageNumber to navigate through pages</p></td>
+<td><p>Optional</p></td>
+<td><dl class="simple">
+<dt>default:0</dt><dd><ul class="simple">
+<li><p>If pageNumber less than 0, throw INVALID_PARAMETER exception</p></li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p>pageSize</p></td>
+<td><p>Integer</p></td>
+<td><p>pageSize to limit the number of records that will be fetched.</p></td>
+<td><p>Optional</p></td>
+<td><dl class="simple">
+<dt>default:20 max:100</dt><dd><ul class="simple">
+<li><p>If pageSize less than 1, throw INVALID_PARAMETER exception</p></li>
+<li><p>If pageSize given is more than 100, throw PAGE_SIZE_LIMIT_EXCEEDED exception</p></li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td><p>isLegacy</p></td>
+<td><p>boolean</p></td>
+<td><p>Return legacy accounts that are on old Sign Embed Models.</p></td>
+<td><p>Optional</p></td>
+<td><dl class="simple">
+<dt>default:false</dt><dd><ul class="simple">
+<li><p>If isLegacy value provided is not a boolean, throw INVALID_PARAMETER exception</p></li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id13">
+<h4>Response<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id52">
+<caption><span class="caption-text">Response Object GetAccountResponse</span><a class="headerlink" href="#id52" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>accountList</p></td>
+<td><p>List&lt;Account&gt;</p></td>
+<td><p>List of Account details.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id53">
+<caption><span class="caption-text">Account</span><a class="headerlink" href="#id53" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>accountId</p></td>
+<td><p>String</p></td>
+<td><p>Secure Account id to identify an Account</p></td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>Name of the account</p></td>
+</tr>
+<tr class="row-even"><td><p>created</p></td>
+<td><p>Date</p></td>
+<td><p>Account created date in ISO format.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample GetAccountsResponse</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;accountList&quot;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;accountId&quot;</span><span class="p">:</span> <span class="s2">&quot;secureAccountId1234&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Joes Bike Shop&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-01-17T12:27:08Z&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;accountId&quot;</span><span class="p">:</span> <span class="s2">&quot;secureAccountId2345&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Acme Corp&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-01-17T12:27:08Z&quot;</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="error">
+<h4>Error<a class="headerlink" href="#error" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id54">
+<caption><span class="caption-text">Error Response for Get Accounts</span><a class="headerlink" href="#id54" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>HTTP Status Code</p></th>
+<th class="head"><p>Error code</p></th>
+<th class="head"><p>Message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>INVALID_PARAMETER</p></td>
+<td><p>The pageSize specified must be greater than or equal to 1.</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p>PAGE_SIZE_LIMIT_EXCEEDED</p></td>
+<td><p>Page size has exceeded the maximum length of 100.</p></td>
+</tr>
+<tr class="row-even"><td><p>401</p></td>
+<td><p>INVALID_TOKEN</p></td>
+<td><p>The token provided is invalid or expired.</p></td>
+</tr>
+<tr class="row-odd"><td><p>401</p></td>
+<td><p>MISSING_SCOPES</p></td>
+<td><p>The token does not contain the required scopes.</p></td>
+</tr>
+<tr class="row-even"><td><p>401</p></td>
+<td><p>AUTHENTICATION_FAILED</p></td>
+<td><p>Partner is not onboarded successfully.</p></td>
+</tr>
+<tr class="row-odd"><td><p>403</p></td>
+<td><p>PERMISSION_DENIED</p></td>
+<td><p>The API caller does not have the permission to execute this operation.</p></td>
+</tr>
+<tr class="row-even"><td><p>500</p></td>
+<td><p>INTERNAL_SERVER_ERROR</p></td>
+<td><p>Some miscellaneous error has occurred.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="user-apis">
+<h2>User APIs<a class="headerlink" href="#user-apis" title="Permalink to this heading">¶</a></h2>
+<p>Call these APIs directly using a technical account token to create or update an account and users.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>POST User - To add a user to an account.</p></li>
+<li><p>PUT User - To update a user.</p></li>
+<li><p>GET User - To fetch user info.</p></li>
+</ul>
+</div></blockquote>
+<div class="section" id="common-user-api-header-attributes">
+<h3>Common user API header attributes<a class="headerlink" href="#common-user-api-header-attributes" title="Permalink to this heading">¶</a></h3>
+<p>Common user header attributes are identical to the <a class="reference internal" href="#accountatt"><span class="std std-ref">Account APIs</span></a>.</p>
+</div>
+<div class="section" id="post-user">
+<h3>POST user<a class="headerlink" href="#post-user" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default" id="id55">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id55" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HTTP Method</p></td>
+<td><p>POST</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint Operation</p></td>
+<td><p>{apiAccessPoint}/api/gateway/signembed/v1/users</p></td>
+</tr>
+<tr class="row-even"><td><p>Authentication/ Authorization</p></td>
+<td><ul class="simple">
+<li><p>Valid Technical Account Token or Sign Embed user Admin token.</p></li>
+<li><p>RMandatory Scopes required in token: <code class="docutils literal notranslate"><span class="pre">sign_user_write</span></code>.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Audience</p></td>
+<td><p>Partner will call this API to add a new user to their customer’s account.</p></td>
+</tr>
+<tr class="row-even"><td><p>Request Header</p></td>
+<td><p>Partner APIs Common Headers</p></td>
+</tr>
+<tr class="row-odd"><td><p>Request Object</p></td>
+<td><p>Create User Request</p></td>
+</tr>
+<tr class="row-even"><td><p>Response Object</p></td>
+<td><p>Create User Response</p></td>
+</tr>
+<tr class="row-odd"><td><p>HTTP Status Code</p></td>
+<td><p>201</p></td>
+</tr>
+<tr class="row-even"><td><p>Error Code</p></td>
+<td><p>ErrorCodes - Create User</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id14">
+<h4>Request<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id56">
+<caption><span class="caption-text">Create-update user request parameters</span><a class="headerlink" href="#id56" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 35%" />
+<col style="width: 25%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default Value</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Mandatory Fields by POST/PUT</p></th>
+<th class="head"><p>Update Allowed via PUT</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Id to uniquely identify a user.</p></td>
+<td><p>Required and permitted only in a PUT call</p></td>
+<td><p>Immutable</p></td>
+</tr>
+<tr class="row-odd"><td><p>email</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Email of the user.</p></td>
+<td><p>Required</p></td>
+<td><p>Mutable</p></td>
+</tr>
+<tr class="row-even"><td><p>emailAlias</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Email alias with customer domain displayed in the audit report.</p></td>
+<td><p>Optional</p></td>
+<td><p>Mutable</p></td>
+</tr>
+<tr class="row-odd"><td><p>firstName</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>First Name of the User.</p></td>
+<td><p>Required</p></td>
+<td><p>Mutable</p></td>
+</tr>
+<tr class="row-even"><td><p>lastName</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Last Name of the User.</p></td>
+<td><p>Required</p></td>
+<td><p>Mutable</p></td>
+</tr>
+<tr class="row-odd"><td><p>accountId</p></td>
+<td><p>String</p></td>
+<td></td>
+<td><p>Account ID where the user needs to be added.</p></td>
+<td><p>Required. Optional if User token is used for Authentication.</p></td>
+<td><p>Immutable</p></td>
+</tr>
+<tr class="row-even"><td><p>status</p></td>
+<td><p>String</p></td>
+<td><p>ACTIVE</p></td>
+<td><p>Status of the user.</p></td>
+<td><p>Optional. Not supported in POST. Defaults to ACTIVE.</p></td>
+<td><p>Mutable</p></td>
+</tr>
+<tr class="row-odd"><td><p>initials</p></td>
+<td><p>String</p></td>
+<td><p>“”</p></td>
+<td><p>Initials of the user name.</p></td>
+<td><p>Optional</p></td>
+<td><p>Mutable</p></td>
+</tr>
+<tr class="row-even"><td><p>phone</p></td>
+<td><p>String</p></td>
+<td><p>“”</p></td>
+<td><p>Phone number of the user.</p></td>
+<td><p>Optional</p></td>
+<td><p>Mutable</p></td>
+</tr>
+<tr class="row-odd"><td><p>title</p></td>
+<td><p>String</p></td>
+<td><p>“”</p></td>
+<td><p>Job Title of the user.</p></td>
+<td><p>Optional</p></td>
+<td><p>Mutable</p></td>
+</tr>
+<tr class="row-even"><td><p>company</p></td>
+<td><p>String</p></td>
+<td><p>“”</p></td>
+<td><p>Name of the company.</p></td>
+<td><p>Optional</p></td>
+<td><p>Mutable</p></td>
+</tr>
+<tr class="row-odd"><td><p>roles</p></td>
+<td><p>List&lt;String&gt;</p></td>
+<td></td>
+<td><p>User roles Values: ACCOUNT_ADMIN, PRIVACY_ADMI</p></td>
+<td><p>Optional</p></td>
+<td><p>Mutable</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample user creation request body</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;firstName&quot;</span><span class="p">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;lastName&quot;</span><span class="p">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe_joesbikeshop@partnerdomain.com&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;emailAlias&quot;</span><span class="p">:</span><span class="s2">&quot;johndoe@joesbikeshop.com&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;accountId&quot;</span><span class="p">:</span> <span class="s2">&quot;CBJCHBCAABAAyQTAasUNZ-lxF0gKyvZUaB6rQ3UfrKr1&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;initials&quot;</span><span class="p">:</span> <span class="s2">&quot;JD&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678111&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;SDE&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;Joes Bike Shop&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;roles&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;ACCOUNT_ADMIN&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PRIVACY_ADMIN&quot;</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id15">
+<h4>Response<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h4>
+<p><strong>Create User Response</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 19%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>userId</p></td>
+<td><p>String</p></td>
+<td><p>User ID</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id16">
+<h4>Error<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id57">
+<caption><span class="caption-text">Error codes for UserCreateErrorResponse</span><a class="headerlink" href="#id57" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>HTTP Status Code</p></th>
+<th class="head"><p>Error code</p></th>
+<th class="head"><p>Message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>MISSING_REQUIRED_PARAMS</p></td>
+<td><p>Required parameter &lt;param name&gt; is missing.</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p>INVALID_PARAMETER</p></td>
+<td><p>The &lt;param_name&gt; value specified is invalid.</p></td>
+</tr>
+<tr class="row-even"><td><p>401</p></td>
+<td><p>INVALID_ACCESS_TOKEN</p></td>
+<td><p>Token provided is invalid or has expired.</p></td>
+</tr>
+<tr class="row-odd"><td><p>403</p></td>
+<td><p>MISSING_SCOPES</p></td>
+<td><p>The token does not contain the required scopes.</p></td>
+</tr>
+<tr class="row-even"><td><p>403</p></td>
+<td><p>AUTHENTICATION_FAILED</p></td>
+<td><p>Partner is not onboarded successfully.</p></td>
+</tr>
+<tr class="row-odd"><td><p>403</p></td>
+<td><p>MAXIMUM_USERS_FOR_ACCOUNT_LIMIT_EXCEEDED</p></td>
+<td><p>Maximum active user limit reached for the account.</p></td>
+</tr>
+<tr class="row-even"><td><p>403</p></td>
+<td><p>PERMISSION_DENIED</p></td>
+<td><p>The API caller does not have permission to execute this operation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>404</p></td>
+<td><p>ACCOUNT_NOT_FOUND</p></td>
+<td><p>Account does not exist.</p></td>
+</tr>
+<tr class="row-even"><td><p>409</p></td>
+<td><p>USER_ALREADY_EXISTS</p></td>
+<td><p>User with this email already exists.</p></td>
+</tr>
+<tr class="row-odd"><td><p>500</p></td>
+<td><p>USER_COULD_NOT_BE_CREATED</p></td>
+<td><p>User could not be created.</p></td>
+</tr>
+<tr class="row-even"><td><p>500</p></td>
+<td><p>INTERNAL_SERVER_ERROR</p></td>
+<td><p>Some miscellaneous error has occurred.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="put-user">
+<h3>PUT User<a class="headerlink" href="#put-user" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default" id="id58">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id58" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HTTP Method</p></td>
+<td><p>PUT</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint Operation</p></td>
+<td><p>{apiAccessPoint}/api/gateway/signembed/v1/users/&lt;userId&gt;</p></td>
+</tr>
+<tr class="row-even"><td><p>Authentication/ Authorization</p></td>
+<td><ul class="simple">
+<li><p>Valid Technical Account Token or Admin User Token.</p></li>
+<li><p>Mandator scopes in token: <code class="docutils literal notranslate"><span class="pre">sign_user_write</span></code>.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Audience</p></td>
+<td><p>Partner will call this API to update the user attributes in the customer’s Account.</p></td>
+</tr>
+<tr class="row-even"><td><p>Request Header</p></td>
+<td><p>Partner APIs Common Headers</p></td>
+</tr>
+<tr class="row-odd"><td><p>Request Object</p></td>
+<td><p>UpdateUserRequest</p></td>
+</tr>
+<tr class="row-even"><td><p>Response Object</p></td>
+<td><p>No Content</p></td>
+</tr>
+<tr class="row-odd"><td><p>HTTP Status Code</p></td>
+<td><p>204</p></td>
+</tr>
+<tr class="row-even"><td><p>Error Code</p></td>
+<td><p>ErrorCode - Update User</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id17">
+<h4>Request<a class="headerlink" href="#id17" title="Permalink to this heading">¶</a></h4>
+<p><strong>Sample update user request body</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;userId&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;firstName&quot;</span><span class="p">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;lastName&quot;</span><span class="p">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe_joesbikeshop@partnerdomain.com&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;emailAlias&quot;</span><span class="p">:</span><span class="s2">&quot;johndoe@joesbikeshop.com&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;accountId&quot;</span><span class="p">:</span> <span class="s2">&quot;CBJCHBCAABAAyQTAasUNZ-lxF0gKyvZUaB6rQ3UfrKr1&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;initials&quot;</span><span class="p">:</span> <span class="s2">&quot;JD&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678111&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;SDE&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;Joes Bike Shop&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;roles&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;ACCOUNT_ADMIN&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PRIVACY_ADMIN&quot;</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id18">
+<h4>Errors<a class="headerlink" href="#id18" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id59">
+<caption><span class="caption-text">Error codes for UserUpdateErrorResponse</span><a class="headerlink" href="#id59" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>HTTP Status Code</p></th>
+<th class="head"><p>Error code</p></th>
+<th class="head"><p>Message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>MISSING_REQUIRED_PARAMS</p></td>
+<td><p>Required parameter &lt;param name&gt; is missing.</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p>INVALID_PARAMETER</p></td>
+<td><p>The &lt;param_name&gt; value specified is invalid.</p></td>
+</tr>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>INVALID_JSON</p></td>
+<td><p>An invalid JSON was specified.</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p>INVALID_INPUT</p></td>
+<td><p>An invalid input is provided.</p></td>
+</tr>
+<tr class="row-even"><td><p>401</p></td>
+<td><p>INVALID_ACCESS_TOKEN</p></td>
+<td><p>Access token provided is invalid or has expired.</p></td>
+</tr>
+<tr class="row-odd"><td><p>403</p></td>
+<td><p>MISSING_SCOPES</p></td>
+<td><p>The token does not contain the required scopes.</p></td>
+</tr>
+<tr class="row-even"><td><p>403</p></td>
+<td><p>AUTHENTICATION_FAILED</p></td>
+<td><p>Partner is not onboarded successfully.</p></td>
+</tr>
+<tr class="row-odd"><td><p>403</p></td>
+<td><p>PERMISSION_DENIED</p></td>
+<td><p>The API caller does not have the permission to execute this operation.</p></td>
+</tr>
+<tr class="row-even"><td><p>404</p></td>
+<td><p>ACCOUNT_NOT_FOUND</p></td>
+<td><p>Account does not exist.</p></td>
+</tr>
+<tr class="row-odd"><td><p>404</p></td>
+<td><p>USER_NOT_FOUND</p></td>
+<td><p>User does not exist.</p></td>
+</tr>
+<tr class="row-even"><td><p>409</p></td>
+<td><p>USER_ALREADY_EXISTS</p></td>
+<td><p>User with this email already exists.</p></td>
+</tr>
+<tr class="row-odd"><td><p>500</p></td>
+<td><p>INTERNAL_SERVER_ERROR</p></td>
+<td><p>Some miscellaneous error has occurred.</p></td>
+</tr>
+<tr class="row-even"><td><p>500</p></td>
+<td><p>USER_COULD_NOT_BE_UPDATED</p></td>
+<td><p>User could not be updated.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="get-user">
+<h3>GET User<a class="headerlink" href="#get-user" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default" id="id60">
+<caption><span class="caption-text">Overview</span><a class="headerlink" href="#id60" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HTTP Method</p></td>
+<td><p>GET</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint Operation</p></td>
+<td><p>/api/gateway/signembed/v1/users/&lt;userId&gt;</p></td>
+</tr>
+<tr class="row-even"><td><p>Authorization</p></td>
+<td><ul class="simple">
+<li><p>Valid Technical Account Token or Admin User Token.</p></li>
+<li><p>Mandatory scopes in token: <code class="docutils literal notranslate"><span class="pre">sign_user_read</span></code>.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Audience</p></td>
+<td><p>Partner will call this API to fetch details of a user.</p></td>
+</tr>
+<tr class="row-even"><td><p>Request Header</p></td>
+<td><p>Partner APIs Common Headers</p></td>
+</tr>
+<tr class="row-odd"><td><p>Request Object</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Response Object</p></td>
+<td><p>Get User Response</p></td>
+</tr>
+<tr class="row-odd"><td><p>HTTP Status Code</p></td>
+<td><p>200</p></td>
+</tr>
+<tr class="row-even"><td><p>Error Code</p></td>
+<td><p>ErrorCodes - Get User</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id19">
+<h4>Response<a class="headerlink" href="#id19" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id61">
+<caption><span class="caption-text">Get  user response attributes</span><a class="headerlink" href="#id61" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>String</p></td>
+<td><p>Id to uniquely identify a user.</p></td>
+</tr>
+<tr class="row-odd"><td><p>email</p></td>
+<td><p>String</p></td>
+<td><p>Email of the user.</p></td>
+</tr>
+<tr class="row-even"><td><p>emailAlias</p></td>
+<td><p>String</p></td>
+<td><p>Email alias with customer domain displayed in the audit report.</p></td>
+</tr>
+<tr class="row-odd"><td><p>firstName</p></td>
+<td><p>String</p></td>
+<td><p>First Name of User.</p></td>
+</tr>
+<tr class="row-even"><td><p>lastName</p></td>
+<td><p>String</p></td>
+<td><p>Last Name of the User.</p></td>
+</tr>
+<tr class="row-odd"><td><p>accountId</p></td>
+<td><p>String</p></td>
+<td><p>Account ID of the user’s account.</p></td>
+</tr>
+<tr class="row-even"><td><p>status</p></td>
+<td><p>String</p></td>
+<td><p>Status of the user.</p></td>
+</tr>
+<tr class="row-odd"><td><p>initials</p></td>
+<td><p>String</p></td>
+<td><p>Initials of the user name.</p></td>
+</tr>
+<tr class="row-even"><td><p>phone</p></td>
+<td><p>String</p></td>
+<td><p>Phone number of the user.</p></td>
+</tr>
+<tr class="row-odd"><td><p>title</p></td>
+<td><p>String</p></td>
+<td><p>Job Title of the user.</p></td>
+</tr>
+<tr class="row-even"><td><p>company</p></td>
+<td><p>String</p></td>
+<td><p>Name of the company.</p></td>
+</tr>
+<tr class="row-odd"><td><p>roles</p></td>
+<td><p>List&lt;String&gt;</p></td>
+<td><p>ACCOUNT_ADMIN, PRIVACY_ADMIN: User roles values.</p></td>
+</tr>
+<tr class="row-even"><td><p>created</p></td>
+<td><p>Date</p></td>
+<td><p>User creation date in ISO format.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample get user response</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;userId&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe_joesbikeshop@partnerdomain.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;emailAlias&quot;</span><span class="p">:</span><span class="s2">&quot;johndoe@joesbikeshop.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;firstName&quot;</span><span class="p">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lastName&quot;</span><span class="p">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;accountId&quot;</span><span class="p">:</span> <span class="s2">&quot;CBJCHBCAABAAuchiIJRXpJ-IyaFxK6QvRPrLEahWSuRW&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;initials&quot;</span><span class="p">:</span> <span class="s2">&quot;JD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;Joes Bike Shop&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;roles&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;ACCOUNT_ADMIN&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;PRIVACY_ADMIN&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;created&quot;</span><span class="p">:</span><span class="s2">&quot;2023-01-17T12:27:08Z&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id20">
+<h4>Errors<a class="headerlink" href="#id20" title="Permalink to this heading">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id62">
+<caption><span class="caption-text">Error codes for UserGetErrorResponse</span><a class="headerlink" href="#id62" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>HTTP Status Code</p></th>
+<th class="head"><p>Error code</p></th>
+<th class="head"><p>Message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>INVALID_PARAMETER</p></td>
+<td><p>The &lt;param_name&gt; value specified is invalid.</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p>INVALID_ACCESS_TOKEN</p></td>
+<td><p>Access token provided is invalid or has expired.</p></td>
+</tr>
+<tr class="row-even"><td><p>403</p></td>
+<td><p>MISSING_SCOPES</p></td>
+<td><p>TThe token does not contain the required scopes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>403</p></td>
+<td><p>AUTHENTICATION_FAILED</p></td>
+<td><p>Partner is not onboarded successfully.</p></td>
+</tr>
+<tr class="row-even"><td><p>403</p></td>
+<td><p>PERMISSION_DENIED</p></td>
+<td><p>The API caller does not have the permission to execute this operation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>404</p></td>
+<td><p>USER_NOT_FOUND</p></td>
+<td><p>User does not exist.</p></td>
+</tr>
+<tr class="row-even"><td><p>500</p></td>
+<td><p>INTERNAL_SERVER_ERROR</p></td>
+<td><p>Some miscellaneous error has occurred.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+            </div>
+            <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2023, Adobe Inc..
+      <span class="lastupdated">
+        Last update: Oct 27, 2025. 
+        <img src="../_static/adobelogo.png" class="logo"/> 
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+          </div>
+        </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+    });
+  </script> 
+
+</body>
+
+</html>

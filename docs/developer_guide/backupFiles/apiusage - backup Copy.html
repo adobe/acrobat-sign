@@ -1,0 +1,1650 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Create, manage, track, and automate signing workflows with the Acrobat Sign APIs. Create apps that integrate with Adobe's enterprise-class product lineup. Download JAVA, JS, C#, REST, or OpenAPI SDKs, test with Postman, or use Acrobat Sign Embed and the Solutions for Government APIs"/>
+     <title>API Usage &mdash; Acrobat Sign Developer Guide</title>
+  <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link href="../_static/jquery-ui.css" rel="stylesheet" />
+  <link href="../_static/copybutton.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  
+  
+  <link rel="canonical" href="https://opensource.adobe.com/acrobat-sign/developer_guide/backupFiles/apiusage - backup Copy.html" />
+  
+
+  
+  
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../../"
+    src="../../_static/documentation_options.js"></script>
+  <script type="text/javascript" src="../_static/jquery.js"></script>
+  <script type="text/javascript" src="../_static/underscore.js"></script>
+  <script type="text/javascript" src="../_static/doctools.js"></script>
+  <script type="text/javascript" src="../_static/language_data.js"></script>
+  <script type="text/javascript" src="../_static/searchtools.js"></script>
+  <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+  <script type="text/javascript" src="../_static/copybutton.js"></script>
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+  
+  <link rel="search" title="Search" href="../search.html" /> 
+
+  <script>  window.marketingtech = { adobe: { launch: { url: 'https://assets.adobedtm.com/d4d114c60e50/a0e989131fd5/launch-5dd5dd2177e6.min.js', controlPageLoad: false, }, alloy: { edgeConfigId: '2cba807b-7430-41ae-9aac-db2b0da742d5', }, target: false, audienceManager: false, }, sophia: false, };</script><script src=https://www.adobe.com/marketingtech/main.standard.min.js></script>
+
+  <script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+          $('.fixedbar, .wy-nav-side').addClass('scroll');
+          $('.wy-top-menu-wrapper').fadeOut();
+        } else {
+          $('.fixedbar, .wy-nav-side').removeClass('scroll');
+          $('.wy-top-menu-wrapper').fadeIn();
+        }
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn();
+        } else {
+          $('#scroll').fadeOut();
+        }
+      });
+      $('#scroll').click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+      });
+    });
+  </script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+    
+    <div class="fixedbarsearch"><img src="../_static/images/acrobatsignlogo.svg" class="searchlogo"/>
+      
+<div role="search" class="inlinediv">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </div>
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side"><!-- scrolling area -->
+      <div class="wy-side-scroll" >
+        
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+          
+          
+          
+          
+          
+          <p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Acrobat Sign API Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#get-a-free-developer-account">Get a free developer account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#create-an-app">Create an app</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../gstarted.html">Create an Application Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gstarted.html#create-an-app-in-the-web-ui">Create an app in the web UI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../gstarted.html#get-the-app-id-and-secret">Get the app ID and secret</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gstarted.html#configure-oauth">Configure OAuth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gstarted.html#configure-scopes">Configure scopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../gstarted.html#create-an-authorization-request-link">Create an authorization request link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gstarted.html#configure-the-redirect-uri-on-your-server">Configure the redirect URI on your server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gstarted.html#success-vs-failure">Success vs failure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gstarted.html#the-customer-experience">The customer experience</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gstarted.html#getting-the-access-token">Getting the access token</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../oauth.html">Managing OAuth Tokens</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../oauth.html#authorization-request">Authorization request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oauth.html#access-token-request">Access token request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oauth.html#refresh-token-request">Refresh token request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oauth.html#revoking-a-token">Revoking a token</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../scenarios.html">Example Scenarios</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../scenarios.html#parental-consent">Parental Consent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scenarios.html#creating-a-widget">Creating a Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scenarios.html#photo-rights">Photo Rights</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../apiusage.html">API Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../apiusage.html#send-for-signing-create-an-agreement">Send for Signing (Create an agreement)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../apiusage.html#upload-a-document">Upload a document</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apiusage.html#send-the-document">Send the document</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../apiusage.html#resolve-request-signature-integration-error">Resolve Request Signature integration error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apiusage.html#check-the-document-signing-status">Check the Document signing status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apiusage.html#send-reminders">Send Reminders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apiusage.html#download-the-agreement">Download the Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apiusage.html#create-a-widget">Create a Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apiusage.html#get-the-signing-url">Get the Signing URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apiusage.html#add-form-fields-to-agreements">Add form fields to agreements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apiusage.html#generate-templates-from-in-progress-or-signed-agreements">Generate templates from in-progress or signed agreements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apiusage.html#send-private-messages-to-the-counter-signers">Send private messages to the counter signers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apiusage.html#redirect-signers-to-a-specific-url">Redirect signers to a specific URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apiusage.html#add-agreement-redirect-options">Add Agreement Redirect Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apiusage.html#api-throttling">API Throttling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../apiusage.html#rest-api">REST API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../apiusage.html#system-load-throttling">System Load Throttling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../apiusage.html#handling-rate-limiting-http-429">Handling Rate Limiting (HTTP 429)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../apiusage.html#agreement-document-processing">Agreement Document Processing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../apiusage.html#megasign-send-in-bulk">MegaSign (Send in Bulk)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../apiusage.html#webform-signing">Webform Signing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../apiusage.html#webform-first-signer-participant">Webform First Signer/Participant</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../webhookapis.html">Webhook APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../webhookapis.html#post-webhooks">POST /webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../webhookapis.html#get-webhooks">GET /webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../webhookapis.html#get-webhooks-webhookid">GET /webhooks/{webhookId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../webhookapis.html#put-webhooks-webhookid">PUT /webhooks/{webhookId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../webhookapis.html#put-webhooks-webhookid-state">PUT /webhooks/{webhookId}/state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../webhookapis.html#delete-webhooks-webhookid">DELETE /webhooks/{webhookId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../webhookapis.html#standard-api-request-error-codes">Standard API request error codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../webhookapis.html#standard-api-request-headers">Standard API request headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../webhookapis.html#using-aws-lambda-functions">Using AWS Lambda Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../webhookapis.html#create-an-aws-lambda-function">Create an AWS Lambda function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../webhookapis.html#register-your-acrobat-sign-webhook">Register your Acrobat Sign webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../webhookapis.html#configure-the-aws-api-gateway">Configure the AWS API Gateway</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../webhookapis.html#deploy-the-api">Deploy the API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../webhookapis.html#ready-to-use">Ready to Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../webhookapis.html#using-azure-functions">Using Azure Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../webhookapis.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../webhookapis.html#creating-an-azure-functions-trigger-webhook">Creating an Azure Functions Trigger-Webhook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../webhookapis.html#create-a-js-httptrigger-function">Create a JS HttpTrigger function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../webhookapis.html#register-the-webhook">Register the webhook</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../webhookapis.html#get-the-function-s-url">Get the function’s URL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../webhook-endpoint-api.html">WebhookEndpoint APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../webhook-endpoint-api.html#post-webhookendpoints">POST /webhookEndpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../webhook-endpoint-api.html#get-webhookendpoints">GET /webhookEndpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../webhook-endpoint-api.html#get-webhookendpoints-webhookendpointid">GET /webhookEndpoints/{webhookEndpointId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../webhook-endpoint-api.html#put-webhookendpoints-webhookendpointid">PUT /webhookEndpoints/{webhookEndpointId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../webhook-endpoint-api.html#delete-webhookendpoints-webhookendpointid">DELETE /webhookEndpoints/{webhookEndpointId}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../webhook-endpoint-api.html#standard-api-request-headers">Standard API request headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../webhook-endpoint-api.html#standard-api-request-error-codes">Standard API request error codes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../samples.html">REST API Samples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../samples.html#the-package">The package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../samples.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../samples.html#using-the-samples">Using the Samples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../samples.html#output-path">Output Path</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../samples.html#create-a-new-widget-with-countersigners">Create a New Widget with Countersigners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../samples.html#download-an-agreements-audit-report">Download an Agreement’s Audit Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../samples.html#download-the-combined-document-for-an-agreement">Download the Combined Document for an Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../samples.html#download-documents-from-an-agreement">Download Documents from an Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../samples.html#get-an-agreements-status">Get an Agreement’s Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../samples.html#get-an-agreements-signing-url">Get an Agreement’s Signing URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../samples.html#send-reminders-to-participants">Send reminders to participants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../samples.html#send-an-agreement-using-a-library-document">Send an Agreement Using a Library Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../samples.html#send-an-agreement-using-a-transient-document">Send an Agreement Using a Transient Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../samples.html#generate-view-url-or-access-code-for-an-agreement">Generate View URL or Access code for an agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../samples.html#id1">POST /agreements/{agreementId}/deliverableAccess</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../samples.html#request-headers">Request headers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../samples.html#request-object-schema">Request object schema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../samples.html#path-parameter">Path Parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../samples.html#request-body">Request Body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../samples.html#response">Response</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../events.html">Web Message Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../events.html#system-requirements">System requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../events.html#supported-events">Supported events</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../events.html#workflow-events">Workflow events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../events.html#page-load-events">Page Load events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../events.html#session-events">Session events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../events.html#user-action-events">User action events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../events.html#using-events">Using events</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../migrating.html">Migrating and Updating Apps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../migrating.html#updating-api-authentication-methods">Updating API authentication methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migrating.html#migrating-from-soap">Migrating From SOAP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../migrating.html#soap-to-rest-mapping">SOAP to REST mapping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../migrating.html#general-purpose-methods">General-purpose Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../migrating.html#document-methods">Document Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../migrating.html#status-methods">Status Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../migrating.html#user-methods">User Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../migrating.html#web-form-methods">Web Form Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../migrating.html#test-methods">Test Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../migrating.html#deprecated-soap-methods">Deprecated SOAP Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../migrating.html#access-methods">Access Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../migrating.html#doc-methods">Doc Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../migrating.html#id1">Status Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../migrating.html#id2">User Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://www.adobe.com/go/acrobatsigndevrnotes#://">API release notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://secure.na1.adobesign.com/public/docs/restapi/v6#://">API Reference (v6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevguide#://">Developer Guide (core v6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignwebhook#://">    Webhook Reference (v6)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/signgov#://">Solutions for Government</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://opensource.adobe.com/acrobat-sign/embedpartner#://">Acrobat Sign Embed</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignsdks#://">SDK downloads</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignpostman#://">Postman workspace</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevaccount#://">    Free developer account form</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigntechblog#://">    FAQs and tech tips</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/esign-dev-cert#://">Application certification form</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsignintegrations#://">Integration guides</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://exchange.adobe.com/apps/browse/?product=SIGN&amp;sort=MOST_RECENT#://">3rd party integrations</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/trust/resources.html#://">Security and compliance</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.adobe.com/go/acrobatsigndevforum#://">Forum</a></li>
+</ul>
+
+          
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+      <div class="fixedbar">
+        <div class="wy-menu-items">
+          <a href="https://www.adobe.com/go/acrobatsigndevhome" class="topbarlink">Dev Home</a>
+          <a href="https://www.adobe.com/documentcloud/industries/government.html" class="topbarlink">Government</a>
+          <a href="https://www.adobe.com/documentcloud/integrations/isv-partner-program.html" class="topbarlink">Partner</a>
+          <a href="	https://www.adobe.com/go/acrobatsignforum"  class="topbarlink">Forum</a>
+        </div>
+        <div class="sign-in">
+          <a href="https://secure.echosign.com/public/login" class="btn btn-console">Sign In</a>
+        </div>
+      </div>
+      <!--- @@@@@@@@@@@@@@@@ Custom @@@@@@@@@@@@@@@@ -->
+
+      
+      
+      <div class="wy-nav-content">
+        
+        <span class="lastupdated" style="color:lightgrey">
+          Last update: Apr 21, 2025. 
+        </span>
+        
+          <div class="rst-content">
+            
+            <!--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../toc.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>API Usage</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>-->
+            <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <div itemprop="articleBody">
+                
+  <div class="section" id="api-usage">
+<h1>API Usage<a class="headerlink" href="#api-usage" title="Permalink to this heading">¶</a></h1>
+<p>The Acrobat Sign API enables you to create client-side applications that leverage the signing features provided by Acrobat Sign. This guide covers common scenarios where you can use the API.</p>
+<p>Using the Acrobat Sign REST APIs, you can build elegant and scalable client-side applications in any scripting language that supports REST-based API calls. This section provides information on the API endpoint, request headers, request body, and the response. Before you begin, you can browse through the <a class="reference external" href="https://www.adobe.com/go/acrobatsignapireference">API Reference</a> and try a few endpoints.</p>
+<p>A 3-step basic signing workflow involves:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#send"><span class="std std-ref">Send the document</span></a></p></li>
+<li><p><a class="reference internal" href="#checkstatus"><span class="std std-ref">Check the Document signing status</span></a></p></li>
+<li><p><a class="reference internal" href="#download"><span class="std std-ref">Download the Agreement</span></a></p></li>
+<li><p><a class="reference internal" href="#resolvesignerror"><span class="std std-ref">Resolve Request Signature integration error</span></a></p></li>
+</ul>
+<div class="section" id="send-for-signing-create-an-agreement">
+<span id="sendforsigning"></span><h2>Send for Signing (Create an agreement)<a class="headerlink" href="#send-for-signing-create-an-agreement" title="Permalink to this heading">¶</a></h2>
+<p>Your CRM or document management system can send/upload documents for signing, either automatically or through user-initiated actions. When the document gets signed by all the parties, a PDF copy of the signed document(agreement) can be retrieved by your application.</p>
+<img alt="backupFiles/images/sign_devguide_1.png" src="backupFiles/images/sign_devguide_1.png" />
+<p>While getting the authorization code from the Acrobat Sign service, you also received the API access point as part of a query parameter (See <a class="reference internal" href="../gstarted.html#token"><span class="std std-ref">Create an authorization request link</span></a>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://secure.echosign.com/public/oauth?
+   redirect_uri=https://your-oAuthInteraction-Server/your-oAuth-Page.html&amp;
+   response_type=code&amp;
+   client_id=xxxxxxxxxx&amp;
+   state=xxxxxxxxxx&amp;
+   scope=user_read:account+user_write:account+user_login:account+agreement_read:account+agreement_write:account+agreement_send:account+widget_read:account+widget_write:account+library_read:account+library_write:account+workflow_read:account+workflow_write:account
+</pre></div>
+</div>
+<p>For all future service calls, Acrobat Sign sends the requests to this access point.</p>
+<div class="section" id="upload-a-document">
+<span id="upload"></span><h3>Upload a document<a class="headerlink" href="#upload-a-document" title="Permalink to this heading">¶</a></h3>
+<p>To upload a PDF document for signing, send a POST request to the <code class="docutils literal notranslate"><span class="pre">transientDocuments</span></code> endpoint. This is a multipart request consisting of filename, MIME type, and the file stream. You will get back an ID as a response that uniquely represents the document. Your application needs to specify the recipients and other sending options required for sending the document for signing. Your application can also specify a callback URL that will be used by Acrobat Sign to notify when the signature process is complete.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">v6</span><span class="o">/</span><span class="n">transientDocuments</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">na1</span><span class="o">.</span><span class="n">echosign</span><span class="o">.</span><span class="n">com</span>
+<span class="n">Authorization</span><span class="p">:</span> <span class="n">Bearer</span> <span class="n">MvyABjNotARealTokenHkYyi</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">multipart</span><span class="o">/</span><span class="n">form</span><span class="o">-</span><span class="n">data</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Disposition</span><span class="p">:</span> <span class="n">form</span><span class="o">-</span><span class="n">data</span><span class="p">;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;;File&quot;</span><span class="p">;</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;MyPDF.pdf&quot;</span>
+
+<span class="o">&lt;</span><span class="n">PDF</span> <span class="n">CONTENT</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>You will get the following JSON body containing the <code class="docutils literal notranslate"><span class="pre">transientDocumentId</span></code> that will uniquely represent the uploaded document:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;transientDocumentId&quot;</span><span class="p">:</span><span class="s2">&quot;3AAABLblqZhBVYbgJbl--NotArEaLID_zjaBYK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The document uploaded through this call is termed as a <em>transient document</em> since it is available only for 7 days after the upload.</p>
+<p>You can only upload one file at a time through this request.</p>
+<p><a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/getMergeInfo">TRY IT OUT</a></p>
+</div>
+<div class="section" id="send-the-document">
+<span id="send"></span><h3>Send the document<a class="headerlink" href="#send-the-document" title="Permalink to this heading">¶</a></h3>
+<p>Once you have uploaded the document, send the document to all the related parties for signing. For this to happen, you need to create an <em>agreement.</em></p>
+<p>For creating an agreement, send a POST request to the <code class="docutils literal notranslate"><span class="pre">/agreements</span></code> endpoint with the following JSON body:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">v6</span><span class="o">/</span><span class="n">agreements</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">na1</span><span class="o">.</span><span class="n">echosign</span><span class="o">.</span><span class="n">com</span>
+<span class="n">Authorization</span><span class="p">:</span> <span class="n">Bearer</span> <span class="mi">3</span><span class="n">AAABLblNOTREALTOKENLDaV</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;fileInfos&quot;</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="s2">&quot;transientDocumentId&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;copy-transient-from-the-upload-document-step&gt;&quot;</span>
+    <span class="p">}],</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;MyTestAgreement&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;participantSetsInfo&quot;</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;signer@somecompany.com&quot;</span>
+        <span class="p">}],</span>
+        <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span>
+    <span class="p">}],</span>
+    <span class="s2">&quot;signatureType&quot;</span><span class="p">:</span> <span class="s2">&quot;ESIGN&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;IN_PROCESS&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Replace the value for the following attributes with the correct values:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 94%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">transientDocumentId</span></code></p></td>
+<td><p>The unique ID representing the uploaded document.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>The name of the agreement.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">email</span></code></p></td>
+<td><p>Recipient’s email address.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">signatureType</span></code></p></td>
+<td><p>The type of signature you would like to request. The possible values are <code class="docutils literal notranslate"><span class="pre">ESIGN</span></code> and <code class="docutils literal notranslate"><span class="pre">WRITTEN</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">order</span></code></p></td>
+<td><p>Index indicating the position at which this signing group needs to sign. Signing group to sign at first place is assigned 1 as index.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">role</span></code></p></td>
+<td><p>Role of the participant set. The possible values are: <code class="docutils literal notranslate"><span class="pre">SIGNER</span></code>, <code class="docutils literal notranslate"><span class="pre">APPROVER</span></code>, <code class="docutils literal notranslate"><span class="pre">ACCEPTOR</span></code>, <code class="docutils literal notranslate"><span class="pre">CERTIFIED_RECIPIENT</span></code>, <code class="docutils literal notranslate"><span class="pre">FORM_FILLER</span></code> or <code class="docutils literal notranslate"><span class="pre">DELEGATE_TO_SIGNER</span></code>, <code class="docutils literal notranslate"><span class="pre">DELEGATE_TO_APPROVER</span></code>, <code class="docutils literal notranslate"><span class="pre">DELEGATE_TO_ACCEPTOR</span></code>, <code class="docutils literal notranslate"><span class="pre">DELEGATE_TO_CERTIFIED_RECIPIENT</span></code>, <code class="docutils literal notranslate"><span class="pre">DELEGATE_TO_FORM_FILLER</span></code>, or <code class="docutils literal notranslate"><span class="pre">SHARE</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">state</span></code></p></td>
+<td><p>The state in which the agreement should land. The possible values are <code class="docutils literal notranslate"><span class="pre">AUTHORING</span></code>, <code class="docutils literal notranslate"><span class="pre">DRAFT</span></code>, or <code class="docutils literal notranslate"><span class="pre">IN_PROCESS</span></code>. You can use a) <code class="docutils literal notranslate"><span class="pre">DRAFT</span></code> to incrementally build the agreement before sending out, b) <code class="docutils literal notranslate"><span class="pre">AUTHORING</span></code> to add or edit form fields in the agreement, c) <code class="docutils literal notranslate"><span class="pre">IN_PROCESS</span></code> to immediately send the agreement. You can use the <code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/agreements/{agreementId}/state</span></code> endpoint to transition an agreement between the above-mentioned states. An allowed transition would follow this sequence: <code class="docutils literal notranslate"><span class="pre">DRAFT</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">AUTHORING</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">IN_PROCESS</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">CANCELLED</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>You will get the following response containing the <code class="docutils literal notranslate"><span class="pre">id</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;an-adobe-sign-generated-id&gt;&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The returned <code class="docutils literal notranslate"><span class="pre">agreementId</span></code> must be used to refer to the agreement in all subsequent API calls. This ID must be used to retrieve up-to-date status of the agreement, either by polling or when Acrobat Sign notifies your application of any status change.</p>
+<p><a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/">TRY IT OUT</a></p>
+</div>
+</div>
+<div class="section" id="resolve-request-signature-integration-error">
+<span id="resolvesignerror"></span><h2>Resolve Request Signature integration error<a class="headerlink" href="#resolve-request-signature-integration-error" title="Permalink to this heading">¶</a></h2>
+<p>You may get an error when trying to create and send agreements for signature if your browser blocks third-party cookies. You can resolve this issue by enabling cookieless Request Signature workflow for your integration as follows:</p>
+<ol class="arabic simple">
+<li><p>Create a test API Application to validate the changes before enabling the cookieless workflow in your Production environment.</p></li>
+<li><p>Conduct required testing and implement necessary adjustments on your side.</p></li>
+<li><p>Have your OAuth API application ID ready.</p></li>
+<li><p>Contact Adobe Customer Support to enable the cookieless workflow for your Production API Application ID.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To contact Adobe Customer Support, go to the <a class="reference external" href="https://adminconsole.adobe.com/">Adobe Admin Console</a> and log in using your admin credentials. Next, select the <strong>Support</strong> tab and then select <strong>Create Case</strong>.</p>
+</div>
+</div>
+<div class="section" id="check-the-document-signing-status">
+<span id="checkstatus"></span><h2>Check the Document signing status<a class="headerlink" href="#check-the-document-signing-status" title="Permalink to this heading">¶</a></h2>
+<p>Acrobat Sign can return the current status of the agreement and a complete history of events that have happened on that particular agreement. The simplest mechanism is for your application to provide a webhook URL when sending the document for signature. Acrobat Sign will then ping your webhook with the appropriate event whenever the agreement status changes.</p>
+<img alt="backupFiles/images/sign_devguide_2.png" src="backupFiles/images/sign_devguide_2.png" />
+<p>You can also get the current status of an agreement by sending a GET request to <code class="docutils literal notranslate"><span class="pre">/agreements/{agreementid}</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">v6</span><span class="o">/</span><span class="n">agreements</span><span class="o">/</span><span class="mi">3</span><span class="n">AAABLblqZNOTREALAGREEMENTID5_BjiH</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">na1</span><span class="o">.</span><span class="n">echosign</span><span class="o">.</span><span class="n">com</span>
+<span class="n">Authorization</span><span class="p">:</span> <span class="n">Bearer</span> <span class="mi">3</span><span class="n">AAANOTREALTOKENMS</span><span class="o">-</span><span class="mi">4</span><span class="n">ATH</span>
+</pre></div>
+</div>
+<p>You need to provide your access token in the <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header and the <code class="docutils literal notranslate"><span class="pre">agreementId</span></code> in the API call itself. You will get the following JSON response:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;an-adobe-sign-generated-id&gt;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;MyTestAgreement&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;participantSetsInfo&quot;</span><span class="p">:</span> <span class="p">[{</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[{</span>
+      <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;signer@somecompany.com&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
+      <span class="p">}</span>
+    <span class="p">}],</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="p">}],</span>
+  <span class="s2">&quot;senderEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;sender@somecompany.com&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;createdDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-07-23T08:13:16Z&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;signatureType&quot;</span><span class="p">:</span> <span class="s2">&quot;ESIGN&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;locale&quot;</span><span class="p">:</span> <span class="s2">&quot;en_US&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;OUT_FOR_SIGNATURE&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;documentVisibilityEnabled&quot;</span><span class="p">:</span> <span class="n">false</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>By default, the webhook URL is called whenever an event involving a particular transaction occurs in Acrobat Sign. The webhook event includes the ID of the agreement whose status has changed, the current status of the agreement, and information on the event that resulted in the callback. Your application logic can evaluate the received status and decide whether to perform an action in the calling system.</p>
+<blockquote>
+<div><p>An alternate way to determine an agreement’s status sent for signature is for your application to periodically poll Acrobat Sign regarding the agreement’s status. The upside of polling is that it can be used in cases where your calling application is behind your firewall and not accessible from the Internet, thus enabling Acrobat Sign to complete a callback. The downside of polling is that you have to create a scheduling mechanism within your application to periodically query the status of all documents that were not yet signed, check whether the document’s status has changed, and update your system accordingly. If you choose to use polling, we recommend you have different policies based on document “age”. In other words, you would reduce the frequency of polling for documents not signed after a certain number of days.</p>
+</div></blockquote>
+<p><a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/_0_1_2">TRY IT OUT</a></p>
+</div>
+<div class="section" id="send-reminders">
+<span id="sendreminder"></span><h2>Send Reminders<a class="headerlink" href="#send-reminders" title="Permalink to this heading">¶</a></h2>
+<p>A signing reminder can be sent to all the signers if they have not signed the agreement. When you send a reminder, the signers will get the same notification email that was originally sent.</p>
+<img alt="backupFiles/images/sign_devguide_3.png" src="backupFiles/images/sign_devguide_3.png" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">v6</span><span class="o">/</span><span class="n">agreements</span><span class="o">/</span><span class="p">{</span><span class="n">agreementId</span><span class="p">}</span><span class="o">/</span><span class="n">reminders</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">na1</span><span class="o">.</span><span class="n">echosign</span><span class="o">.</span><span class="n">com</span>
+<span class="n">Authorization</span><span class="p">:</span> <span class="n">Bearer</span> <span class="mi">3</span><span class="n">AAABLblNOTREALTOKENLDaV</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+<span class="p">{</span>
+  <span class="s2">&quot;recipientParticipantIds&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;&lt;id of a participant&gt;.&quot;</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;nextSentDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt; The date when the reminder is scheduled to be sent next.&gt;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt; valid status of reminder (ACTIVE)&gt;&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note that you need to provide the <code class="docutils literal notranslate"><span class="pre">agreementId</span></code> in the request URL. You will get the following response from the server:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nb">id</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">An</span> <span class="n">identifier</span> <span class="n">of</span> <span class="n">the</span> <span class="n">reminder</span> <span class="n">resource</span> <span class="n">created</span> <span class="n">on</span> <span class="n">the</span> <span class="n">server</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/createReminderOnParticipant">TRY IT OUT</a></p>
+</div>
+<div class="section" id="download-the-agreement">
+<span id="download"></span><h2>Download the Agreement<a class="headerlink" href="#download-the-agreement" title="Permalink to this heading">¶</a></h2>
+<p>Once an agreement is signed, your application can retrieve the signed copy of the PDF and store that within your application.</p>
+<img alt="backupFiles/images/sign_devguide_4.png" src="backupFiles/images/sign_devguide_4.png" />
+<p>The signed agreement can also be retrieved by sending a GET request to <code class="docutils literal notranslate"><span class="pre">/agreements/{agreementId}/combinedDocument</span></code>. This will return a single combined PDF document for the documents associated with the agreement. To retrieve any supporting document, you can send a GET request to <code class="docutils literal notranslate"><span class="pre">/agreements/{agreementId}/documents</span></code>. This will return the IDs of all the main and supporting documents of an agreement.</p>
+<p>The returned document ID can be used in the <code class="docutils literal notranslate"><span class="pre">/agreements/{agreementId}/documents/{documentId}</span></code> call to retrieve the file stream of a document of the agreement. Depending on your application, you can also retrieve the form field data that your signer may have entered when signing the document by sending a GET request to <code class="docutils literal notranslate"><span class="pre">/agreements/{agreementId}/formData</span></code>. The data can be used to update your calling application with the information provided by the signer during signing.</p>
+<p>Send the following GET request to retrieve the signed agreement:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">v6</span><span class="o">/</span><span class="n">agreements</span><span class="o">/</span><span class="mi">3</span><span class="n">AAA5NOTREALIDiH</span><span class="o">/</span><span class="n">combinedDocument</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">na1</span><span class="o">.</span><span class="n">echosign</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="mi">443</span>
+<span class="n">Authorization</span><span class="p">:</span> <span class="n">Bearer</span> <span class="mi">3</span><span class="n">AAABLblqZhB9BF</span>
+</pre></div>
+</div>
+<p>The response body will contain the content of the PDF file, which you can save locally through your application.</p>
+<p>Note that the agreement can be downloaded even before it gets signed. Provide the <code class="docutils literal notranslate"><span class="pre">versionId</span></code> attribute when invoking <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/agreements/{agreementId}/combinedDocument/</span></code> to get the correct version of the agreement. For example, when the agreement is sent to two entities for signing, and when only one entity signs, the document can still be downloaded. If the <code class="docutils literal notranslate"><span class="pre">versionId</span></code> is not specified, the document in the latest state is returned.</p>
+<p><a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/_0_1_2_3_4_5_6">TRY IT OUT</a></p>
+</div>
+<div class="section" id="create-a-widget">
+<span id="widget"></span><h2>Create a Widget<a class="headerlink" href="#create-a-widget" title="Permalink to this heading">¶</a></h2>
+<p>To create a widget through the API, you must first call /transientDocuments, then send a POST request to upload the document. This is a multipart request consisting of file name, MIME type, and the file stream. The returned <code class="docutils literal notranslate"><span class="pre">transientDocumentId</span></code> is to be used to refer to the document in the widget creation call (<code class="docutils literal notranslate"><span class="pre">/widgets</span></code>, POST). The API endpoint, in addition to the widget key, returns an embed-code, which can be used for embedding the widget within your application, as well as a URL at which the widget gets hosted. The URL can be posted within your application for users to navigate to for signing a document.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">v6</span><span class="o">/</span><span class="n">widgets</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">na1</span><span class="o">.</span><span class="n">echosign</span><span class="o">.</span><span class="n">com</span>
+<span class="n">Authorization</span><span class="p">:</span> <span class="n">Bearer</span> <span class="mi">3</span><span class="n">AAABLblqZNotRelaTOKEN</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+<span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;MyTestWidget&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;widgetParticipantSetInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}],</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;A valid role of the widget signer (SIGNER/APPROVER)&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;A valid state in which the widget should land (ACTIVE/AUTHORING/DRAFT)&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You will get the following JSON response:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">The</span> <span class="n">unique</span> <span class="n">identifier</span> <span class="n">of</span> <span class="n">widget</span> <span class="n">which</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="n">to</span> <span class="n">retrieve</span> <span class="n">the</span> <span class="n">data</span> <span class="n">entered</span> <span class="n">by</span> <span class="n">the</span> <span class="n">signers</span><span class="o">.&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now, the Widget URL can be circulated to the parents for signing. At any time, to get information about the Widget, send a GET request to <code class="docutils literal notranslate"><span class="pre">/widgets/{widgetId}</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">v6</span><span class="o">/</span><span class="n">widgets</span><span class="o">/</span><span class="mi">3</span><span class="n">AAANotTheRealID6o</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">na1</span><span class="o">.</span><span class="n">echosign</span><span class="o">.</span><span class="n">com</span>
+</pre></div>
+</div>
+<p>You will get a JSON response containing details about the widget, including participants’ information and status.</p>
+<p>You can also send a GET request to <code class="docutils literal notranslate"><span class="pre">/widgets/{widgetId}/formData</span></code> to retrieve the data entered (by the parents) in the document when it got signed.</p>
+<p>Each time a widget is signed by a person, a separate instance of a document gets created. To get the agreements created using the widget, call <code class="docutils literal notranslate"><span class="pre">/widgets/{widgetID}/agreements</span></code> GET where <em>widgetID</em> is the key returned by the service while creating the widget. To retrieve the data filled by the users at the time of signing the widget, call <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/widgets/{widgetID}/formData</span></code>. The service returns data in comma-separated value (CSV) file format. The first line includes the column header names, and each row represents a distinct instance of the widget.</p>
+<p><a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/widgets/">TRY IT OUT</a></p>
+</div>
+<div class="section" id="get-the-signing-url">
+<span id="geturl"></span><h2>Get the Signing URL<a class="headerlink" href="#get-the-signing-url" title="Permalink to this heading">¶</a></h2>
+<p>When the agreement is ready for signing, invoke <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/agreements/{agreementId}/signingUrls</span></code> to get the signing URL:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">v6</span><span class="o">/</span><span class="n">agreements</span><span class="o">/</span><span class="mi">3</span><span class="n">AANotRealIDQN8_gg</span><span class="o">/</span><span class="n">signingUrls</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">na1</span><span class="o">.</span><span class="n">echosign</span><span class="o">.</span><span class="n">com</span>
+<span class="n">Authorization</span><span class="p">:</span> <span class="n">Bearer</span> <span class="mi">3</span><span class="n">AAABLblqZNotRelaTOKEN</span>
+</pre></div>
+</div>
+<p>You will get the following JSON response containing the signing URL:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;signingUrlSetInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;signingUrls&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;FJ@MYCOMPANY.COM&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;esignUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://secure.na1.echosign.com/public/apiesign?pid=CBFNotTheRealIDw3w*&quot;</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Getting the signing URL becomes useful for scenarios involving in-person signing. Load the signing URL in a browser window on a mobile device and get the agreement signed in person.</p>
+<p><a class="reference external" href="https://secure.na1.echosign.com/public/docs/restapi/v6#!/agreements/_0_1_2_3_4">TRY IT OUT</a></p>
+</div>
+<div class="section" id="add-form-fields-to-agreements">
+<span id="formfieldgenerator"></span><h2>Add form fields to agreements<a class="headerlink" href="#add-form-fields-to-agreements" title="Permalink to this heading">¶</a></h2>
+<p>Acrobat Sign APIs allow you to add form fields to a PDF document using anchored text within the PDF content. To create a new agreement, you define FormFieldGenerator via the POST/agreements REST API and provide AgreementInfo parameters, which include a FileInfo array.</p>
+<p>Each FormFieldGenerator specifies the form field description, participant set name, anchored text to search for, and where to place the form field.
+FormFieldGenerator specifications apply to all documents within an agreement. However, with the <code class="docutils literal notranslate"><span class="pre">AnchorTextInfo</span></code> JSON object’s new parameter <strong>fileInfoLabel</strong>, you can specify which document each FormFieldGenerator should target. For example, if an agreement contains multiple documents for different signers but shares the same anchored text, you can assign a FormFieldGenerator to a specific document.</p>
+<p><strong>To add form fields to all the documents in an agreement</strong>:</p>
+<ol class="arabic simple">
+<li><p>Send a POST request to the transientDocuments endpoint for all the documents you want to include in the agreement.</p></li>
+<li><p>Define FormFieldGenerator via the POST/agreements REST API and provide AgreementInfo parameters.</p></li>
+</ol>
+<p><strong>To add form fields to specific documents in an agreement</strong>:</p>
+<ol class="arabic">
+<li><p>Send a POST request to the transientDocuments endpoint for all the documents (Document A and Document B in the current example) you want to include in the agreement.</p>
+<blockquote>
+<div><p>You get each agreement’s unique ID as a response, which is required for associating a document to the FormFieldGenerator.</p>
+</div></blockquote>
+</li>
+<li><p>Use the agreement IDs and the ‘fileInfoLabel’ parameter to precisely position form fields for various recipients. To do so, send a POST request to the /agreements endpoint with the following JSON body:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;fileInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;DocumentA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;transientDocumentId&quot;</span><span class="p">:</span> <span class="s2">&quot;xxxxxxxxxx&quot;</span><span class="p">},</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;DocumentB&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;transientDocumentId&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyyyyyyyy&quot;</span><span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sample agreement: Anchor tags&quot;</span><span class="p">,</span>
+<span class="s2">&quot;participantSetsInfo&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;rosemary@email.com&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;signer_one&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;cjones@email.com&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;signer_two&quot;</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;signatureType&quot;</span><span class="p">:</span> <span class="s2">&quot;ESIGN&quot;</span><span class="p">,</span>
+<span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;IN_PROCESS&quot;</span><span class="p">,</span>
+<span class="s2">&quot;formFieldGenerators&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;formFieldNamePrefix&quot;</span><span class="p">:</span> <span class="s2">&quot;signature_one&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;anchorTextInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;fileInfoLabel&quot;</span><span class="p">:</span> <span class="s2">&quot;DocumentA&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;anchorText&quot;</span><span class="p">:</span> <span class="s2">&quot;2018 United States Holiday Calendar&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;anchoredFormFieldLocation&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;offsetX&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;offsetY&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+        <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="mi">12</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;formFieldDescription&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;backgroundColor&quot;</span><span class="p">:</span> <span class="s2">&quot;0xD9D1D1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;borderColor&quot;</span><span class="p">:</span> <span class="s2">&quot;0xFF0000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;borderWidth&quot;</span><span class="p">:</span> <span class="s2">&quot;0.5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;inputType&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNATURE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;contentType&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNATURE_BLOCK&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;participantSetName&quot;</span><span class="p">:</span> <span class="s2">&quot;signer_one&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;formFieldNamePrefix&quot;</span><span class="p">:</span> <span class="s2">&quot;signature_two&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;anchorTextInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;fileInfoLabel&quot;</span><span class="p">:</span> <span class="s2">&quot;DocumentA&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;anchorText&quot;</span><span class="p">:</span> <span class="s2">&quot;2018 United States Holiday Calendar&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;anchoredFormFieldLocation&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;offsetX&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;offsetY&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">70</span><span class="p">,</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="mi">8</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;formFieldDescription&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;backgroundColor&quot;</span><span class="p">:</span> <span class="s2">&quot;0xD1D9D1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;borderColor&quot;</span><span class="p">:</span> <span class="s2">&quot;0xFF0000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;borderWidth&quot;</span><span class="p">:</span> <span class="s2">&quot;0.5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;inputType&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNATURE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;contentType&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNATURE_BLOCK&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;participantSetName&quot;</span><span class="p">:</span> <span class="s2">&quot;signer_two&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;formFieldNamePrefix&quot;</span><span class="p">:</span> <span class="s2">&quot;signature_three&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;anchorTextInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;fileInfoLabel&quot;</span><span class="p">:</span> <span class="s2">&quot;DocumentB&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;anchorText&quot;</span><span class="p">:</span> <span class="s2">&quot;United States 2020 Holiday Schedule&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;anchoredFormFieldLocation&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;offsetX&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;offsetY&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">40</span><span class="p">,</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="mi">8</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;formFieldDescription&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;backgroundColor&quot;</span><span class="p">:</span> <span class="s2">&quot;0xD1D1D9&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;borderColor&quot;</span><span class="p">:</span> <span class="s2">&quot;0xFF0000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;borderWidth&quot;</span><span class="p">:</span> <span class="s2">&quot;0.5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;inputType&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNATURE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;contentType&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNATURE_BLOCK&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;participantSetName&quot;</span><span class="p">:</span> <span class="s2">&quot;signer_one&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/agreements/createAgreement">TRY IT OUT</a></p>
+<p>You’ll get the following response containing the <code class="docutils literal notranslate"><span class="pre">id</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;an-adobe-sign-generated-id&gt;&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Once the agreement id is generated, you can open the agreement to verify the placement of the signature fields, as shown below. The signers get the ‘After’ view of the agreement.</p>
+<img alt="backupFiles/images/anchor-text-sample.png" src="backupFiles/images/anchor-text-sample.png" />
+</div>
+<div class="section" id="generate-templates-from-in-progress-or-signed-agreements">
+<h2>Generate templates from in-progress or signed agreements<a class="headerlink" href="#generate-templates-from-in-progress-or-signed-agreements" title="Permalink to this heading">¶</a></h2>
+<p>Acrobat Sign now allows you to generate Agreement templates from in-progress or completed agreements. To generate a template:</p>
+<ol class="arabic">
+<li><p>Get the id of the agreement by sending a GET request to /agreements/{agreementid}:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Go to <a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/agreements/createAgreement">Get/agreements</a></p></li>
+<li><p>Select <strong>OAuth Access-Token</strong> to fetch the required access token.</p></li>
+<li><p>Select <strong>Try it out!</strong>. The Response Body displays a list of agreements with different status.</p></li>
+<li><p>For any in-progress or Signed agreement, copy the ‘id’ string.</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>To generate the new template ID from the above copied id:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Go to <a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/libraryDocuments/createLibraryDocument">Post/libraryDocuments</a></p></li>
+<li><p>Select <strong>OAuth Access-Token</strong> to fetch the required access token.</p></li>
+</ol>
+<img alt="backupFiles/images/template-3.png" src="backupFiles/images/template-3.png" />
+<ol class="loweralpha simple" start="3">
+<li><p>In the LibraryDocumentInfo field, enter the following JSON:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;fileInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;agreementId&quot;</span><span class="p">:</span> <span class="s2">&quot;CBJCHBCAABAAKrGqtTd7ODjEKDb4czMjRTXppG3H1RGV&quot;</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;template testing&quot;</span><span class="p">,</span>
+<span class="s2">&quot;sharingMode&quot;</span><span class="p">:</span> <span class="s2">&quot;USER&quot;</span><span class="p">,</span>
+<span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span>
+<span class="s2">&quot;templateTypes&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;DOCUMENT&quot;</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="loweralpha" start="4">
+<li><p>Select <strong>Try it out!</strong>.</p>
+<blockquote>
+<div><p>You’ll get the following response containing the template id.</p>
+</div></blockquote>
+</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Request</span> <span class="n">URL</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">na1</span><span class="o">.</span><span class="n">echosignstage</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="mi">443</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">v6</span><span class="o">/</span><span class="n">libraryDocuments</span>
+<span class="n">Response</span> <span class="n">Body</span><span class="p">:</span>
+<span class="p">{</span>
+<span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;CBJCHBCAABAAncSuj1tFB_PyS-FMa7dL5oRJXOsEiILU&quot;</span>
+<span class="p">}</span>
+<span class="n">Response</span> <span class="n">Headers</span><span class="p">:</span>
+<span class="p">{</span>
+<span class="s2">&quot;Cache-Control&quot;</span><span class="p">:</span> <span class="s2">&quot;no-cache, no-store, must-revalidate&quot;</span><span class="p">,</span>
+<span class="s2">&quot;Content-Length&quot;</span><span class="p">:</span> <span class="s2">&quot;53&quot;</span><span class="p">,</span>
+<span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json;charset=UTF-8&quot;</span><span class="p">,</span>
+<span class="s2">&quot;Etag&quot;</span><span class="p">:</span> <span class="s2">&quot;D0CA32AB5F61126FA86F33034A7BE6.B89F308E6D0E27BA4E894BA77DD2DD&quot;</span><span class="p">,</span>
+<span class="s2">&quot;Expires&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="s2">&quot;Pragma&quot;</span><span class="p">:</span> <span class="s2">&quot;no-cache&quot;</span><span class="p">,</span>
+<span class="s2">&quot;X-Request-Id&quot;</span><span class="p">:</span> <span class="s2">&quot;c3b05346-728b-4167-80c5-ec00e3e10359&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="loweralpha simple" start="5">
+<li><p>Copy the document ID and save it for getting the template URL via the POST View endpoint for library documents.</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+<ol class="arabic" start="3">
+<li><p>Go to <a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/libraryDocuments/createLibraryDocumentView">Post/libraryDouments</a></p></li>
+<li><p>Select <strong>OAuth Access-Token</strong> to fetch the required access token.</p></li>
+<li><p>In the <em>LibraryDocumentID</em> field, paste the document ID that you copied above.</p></li>
+<li><p>In the <em>LibraryViewInfo</em> field, enter the following json:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="p">{</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="n">ALL</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<ol class="arabic" start="7">
+<li><p>Select <strong>Try it out!</strong></p>
+<blockquote>
+<div><img alt="backupFiles/images/template-1.png" src="backupFiles/images/template-1.png" />
+</div></blockquote>
+</li>
+<li><p>From the Response Body, copy the url for ‘Document’ and paste it in the browser. It opens the newly generated template, as shown below.</p>
+<blockquote>
+<div><img alt="backupFiles/images/template-2.png" src="backupFiles/images/template-2.png" />
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="send-private-messages-to-the-counter-signers">
+<h2>Send private messages to the counter signers<a class="headerlink" href="#send-private-messages-to-the-counter-signers" title="Permalink to this heading">¶</a></h2>
+<p>You can send private messages to the counter signers or adhoc participants of an agreement. To do so:</p>
+<ol class="arabic">
+<li><p>Create a transient document using the following steps:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Go to the <a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/transientDocuments/createTransientDocument">Post/transientDocuments</a> endpoint and request OAuth access token for widget_write:self.</p></li>
+</ol>
+<img alt="backupFiles/images/private-message-1.png" src="backupFiles/images/private-message-1.png" />
+<ol class="loweralpha simple" start="2">
+<li><p>For the <em>File parameter</em>, select <strong>Browse</strong> and then select the agreement to which you want to add a message.</p></li>
+<li><p>Select <strong>Try it out!</strong>.</p></li>
+<li><p>From the response body, copy the <code class="docutils literal notranslate"><span class="pre">transientDocumentID</span></code>.</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Create a Post widget using the following steps:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Go to the <a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/widgets/createWidget">POST /widgets</a> endpoint and in the <em>WidgetInfo</em> field, enter the following JSON, where you replace the <code class="docutils literal notranslate"><span class="pre">transientDocumentID</span></code> with the string copied in the previous step.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;additionalParticipantSetsInfo&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;cjones.adobe@email.com&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;cjones@adobe.com&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;adhoc group&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;Private Message for adhoc group&quot;</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;fileInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;transientDocumentId&quot;</span><span class="p">:</span> <span class="s2">&quot;xxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Demo Webform&quot;</span><span class="p">,</span>
+<span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span>
+<span class="s2">&quot;widgetParticipantSetInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="loweralpha simple" start="2">
+<li><p>Select <strong>Try it out!</strong></p></li>
+<li><p>Once the widget is created, copy the ID from the Response body.</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>To get the agreement URL:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Go to the <a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/widgets/getWidgetView">POST /widgets/{id}/views</a> and request OAuth access token for widget_read:self.</p></li>
+<li><p>In the <em>widgetID</em> field, paste the copied ID.</p></li>
+<li><p>In the <em>WidgetViewInfo</em> field, enter the following JSON and select <strong>Try it out!</strong>:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;DOCUMENT&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>From the Response Body, copy the document URL and paste it into a browser.</p></li>
+<li><p>Enter your login credentials when prompted.</p></li>
+<li><p>You can now edit the private message for the ad-hoc recipients, as shown below.</p></li>
+</ol>
+<img alt="backupFiles/images/private-message-3.png" src="backupFiles/images/private-message-3.png" />
+</div>
+<div class="section" id="redirect-signers-to-a-specific-url">
+<h2>Redirect signers to a specific URL<a class="headerlink" href="#redirect-signers-to-a-specific-url" title="Permalink to this heading">¶</a></h2>
+<p>You can customize the agreement so that signers are automatically directed to a particular URL after signing (ESIGNED event), after a custom time gap. While creating an agreement, you must provide the redirect information (delay in seconds, URL) as part of the payload. Alternatively, Account Admins can set redirect information at the account and group levels using Acrobat Sign Account Setup page.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The redirect information provided as part of the payload (API level) overrides the values set at the account and group levels.</p>
+</div>
+<p><strong>Prerequisites</strong></p>
+<p>Account Admins must enable the POST_SIGN_REDIRECT_ENABLED feature using the following steps:</p>
+<ol class="arabic">
+<li><p>Go to <strong>Account Settings</strong> &gt; <strong>Account Setup</strong> and then take the following steps:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Under <em>Post Agreement Completion URL Redirect</em> select the checkboxes for <strong>Recipients should be redirected after completing agreement</strong> and <strong>Recipients should be redirected after declining agreement</strong>.</p></li>
+<li><p>In the field boxes, enter the url where you want to redirect the signers.</p></li>
+<li><p>Select <strong>Save</strong>.</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+<p>Alternatively, go to <strong>Group Setup</strong> &gt; <strong>Post Agreement Completion URL</strong>.</p>
+<img alt="backupFiles/images/agreement-signed-redirect-1.png" src="backupFiles/images/agreement-signed-redirect-1.png" />
+<ol class="arabic simple" start="2">
+<li><p>Set <strong>POST_SIGN_REDIRECT_ENABLED</strong> = TRUE</p></li>
+</ol>
+<p><strong>To redirect signers to a specific URL, follow these steps</strong>:</p>
+<ol class="arabic simple">
+<li><p>Go to the <a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/transientDocuments/createTransientDocument">Post/transientDocuments</a> endpoint and request OAuth access token for agreement_read and workflow_read.</p></li>
+<li><p>Create an agreement using <a class="reference external" href="https://previewusers.na1.echosignawspreview.com/public/docs/restapi/v6#!/agreements/createAgreement">V6 POST /agreements</a> ` and enter the JSON payload with the <cite>redirectOptions</cite> object, including the <cite>redirectUrl</cite> and <cite>redirectDelay</cite> parameters set according to your requirements. The minimal postSignOption payload object allows for just the redirect URL to be specified. The default delay is zero seconds, that is, signers will be immediately redirected upon signing the agreement. As participants sign the agreement, they are automatically redirected to the specified URL after the set delay.</p></li>
+</ol>
+<p>JSON payload examples:</p>
+<ul>
+<li><p>Minimal postSignOption payload object, where you specify only redirect URL. The default delay is zero seconds, where signers are immediately redirected upon signing the agreement.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“postSignOption”: {</dt><dd><p>“redirectUrl”:”<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>”</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+<li><p>Redirect with no delay after signing (immediate redirect):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“postSignOption”: {</dt><dd><p>“redirectUrl”:”<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>”,
+“redirectDelay”: 0</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+<li><p>Redirect with a delay of 2 seconds after signing:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“postSignOption”: {</dt><dd><p>“redirectUrl”:”<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>”,
+“redirectDelay”: 2</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+<li><p>Redirect with no delay after signing (null delay - immediate redirect):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“postSignOption”: {</dt><dd><p>“redirectUrl”:”<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>”,
+“redirectDelay”: null</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+</ul>
+<p>As participants sign the agreement, they are automatically redirected to the specified URL after a specified delay.</p>
+<p>JSON payload to create an agreement with Post Sign Redirect Options that redirects each signer upon signing to “<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>” after a delay of 5 seconds:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;ccs&quot;</span><span class="p">:</span> <span class="p">[],</span>
+<span class="s2">&quot;createdDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;deviceInfo&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;documentRetentionApplied&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+<span class="s2">&quot;documentVisibilityEnabled&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">&quot;emailOption&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;expirationTime&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">&quot;externalId&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;fileInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;transientDocumentId&quot;</span><span class="p">:</span> <span class="s2">&quot;CBSCTBABDUAAABACAABAAElUgc9mrHBK8FGaOKeTJ7s3zB68eYQiqCXkrTJJssW2FnXixXX60RZNQDkl5tfsMhs3govR0O2S2WvHKHwQpJn0BoGLuyRSIsTQN6JfJMniGXhK_29STm8QO8V9aAWjs7lW-dHe67ioF_oZT7Qx6nda3nBLYO24946bvqn0zkRo-9YmBk5_4gWzbMNIficPeT74kUKYEtz7QL1ZRdS1erQITNR7DYQFFSZgUX5lKZbDPFqX375c9QSMQ09oWI6mOJlj70qenVdXMA7pnpvQUX0fb0cNgfhmlW1x1IS7rbW8*&quot;</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;firstReminderDelay&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">&quot;formFieldLayerTemplates&quot;</span><span class="p">:</span> <span class="p">[],</span>
+<span class="s2">&quot;hasFormFieldData&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+<span class="s2">&quot;hasSignerIdentityReport&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+<span class="s2">&quot;isDocumentRetentionApplied&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+<span class="s2">&quot;locale&quot;</span><span class="p">:</span> <span class="s2">&quot;en_US&quot;</span><span class="p">,</span>
+<span class="s2">&quot;mergeFieldInfo&quot;</span><span class="p">:</span> <span class="p">[],</span>
+<span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Please review and complete this agreement&quot;</span><span class="p">,</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Post Sign Redirection Test&quot;</span><span class="p">,</span>
+<span class="s2">&quot;parentId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;participantSetsInfo&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;signer1@outlook.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;First Signer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;notaryAuthentication&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;signingOrder&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;visiblePages&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;signer2@outlook.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Second Signer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;notaryAuthentication&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;signingOrder&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;visiblePages&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;signer3@outlook.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Third Signer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;notaryAuthentication&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;signingOrder&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;visiblePages&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;postSignOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;redirectDelay&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;redirectUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.adobe.com&quot;</span>
+<span class="p">},</span>
+<span class="s2">&quot;reminderFrequency&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;senderEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;signatureType&quot;</span><span class="p">:</span> <span class="s2">&quot;ESIGN&quot;</span><span class="p">,</span>
+<span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;IN_PROCESS&quot;</span><span class="p">,</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;OUT_FOR_SIGNATURE&quot;</span><span class="p">,</span>
+<span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;AGREEMENT&quot;</span><span class="p">,</span>
+<span class="s2">&quot;vaultingInfo&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;notaryInfo&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;workflowId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">&quot;workflow&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;agreementNameInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;authoringInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ccsListInfo&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;defaultValues&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;minListCount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;maxListCount&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;displayName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;expirationInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;maxDays&quot;</span><span class="p">:</span> <span class="mi">180</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;fileInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;workflowLibraryDocumentSelectorList&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;localeInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;es_ES&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;availableLocales&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;en_US&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;en_US_Echosign&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;en_GB&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;de_DE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fr_FR&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;nl_NL&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;it_IT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fi_FI&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;da_DK&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sv_SE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;es_ES&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;nb_NO&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;nn_NO&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;no_NO&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pt_BR&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pt_PT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ru_RU&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;is_IS&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ja_JP&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;zh_CN&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;zh_TW&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ko_KR&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pl_PL&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;in_ID&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ms_MY&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;vi_VN&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;th_TH&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cs_CZ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;tr_TR&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ca_ES&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;eu_ES&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hr_HR&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hu_HU&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ro_RO&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sk_SK&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sl_SI&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;uk_UA&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;zz_ZZ&quot;</span>
+    <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;mergeFieldsInfo&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;messageInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;modified&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;passwordInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;recipientsListInfo&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;minListCount&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;maxListCount&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+        <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;allowfax&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;allowSender&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;scopeId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+<span class="p">},</span>
+<span class="s2">&quot;authoringRequested&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+<span class="s2">&quot;signatureFlow&quot;</span><span class="p">:</span> <span class="s2">&quot;HYBRID&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Once a signer signs the agreement, they are redirected to the set URL after a specified delay.
+The redirect Url reflects the status of the agreement, as shown below.</p>
+<img alt="backupFiles/images/agreement-signed-redirect-2.png" src="backupFiles/images/agreement-signed-redirect-2.png" />
+</div>
+<div class="section" id="add-agreement-redirect-options">
+<h2>Add Agreement Redirect Options<a class="headerlink" href="#add-agreement-redirect-options" title="Permalink to this heading">¶</a></h2>
+<p>You can redirect signers to a specific URL with a custom delay when they decline an agreement. (DECLINED event) using the new payload object called redirectOptions.
+While creating an agreement, you must provide the redirect information (delay in seconds, URL) as part of the payload. Alternatively, Account Admins can set redirect information at the account and group levels using Acrobat Sign Account Setup page.
+Unlike Post Sign Options, Agreement Redirect Options allows you to also specify the action which is an alias for the agreement event upon which the signers will get redirected to the specified URL with a given delay. Currently, Acrobat Sign supports only DECLINED agreement events.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The redirect information provided as part of the payload (API level) overrides the values set at the account and group levels.</p>
+</div>
+<p><strong>Prerequisite</strong></p>
+<p>Account Admins must enable the POST_SIGN_REDIRECT_ENABLED feature using the following steps:</p>
+<ol class="arabic">
+<li><p>Go to <strong>Account Settings</strong> &gt; <strong>Account Setup</strong> and then take the following steps:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Under <em>Post Agreement Completion URL Redirect</em> select the checkboxes for <strong>Recipients should be redirected after completing agreement</strong> and <strong>Recipients should be redirected after declining agreement</strong>.</p></li>
+<li><p>In the field boxes, enter the url where you want to redirect the signers.</p></li>
+<li><p>Select <strong>Save</strong>.</p></li>
+</ol>
+<p>Alternatively, go to <strong>Group Setup</strong> &gt; <strong>Post Agreement Completion URL</strong>.</p>
+</div></blockquote>
+</li>
+</ol>
+<p><strong>To add agreement redirect options</strong>:</p>
+<ol class="arabic simple">
+<li><p>Go to the <a class="reference external" href="https://secure.na1.echosignstage.com/public/docs/restapi/v6#!/transientDocuments/createTransientDocument">Post/transientDocuments</a> endpoint and request OAuth access token.</p></li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p>Create an agreement using <a class="reference external" href="https://previewusers.na1.echosignawspreview.com/public/docs/restapi/v6#!/agreements/createAgreement">V6 POST /agreements</a> ` and enter the JSON payload with the <cite>redirectOptions`</cite> object, including the <cite>action</cite>, <cite>url</cite>, and <cite>delay</cite> parameters set according to your requirements.</p></li>
+</ol>
+<p>The minimal redirectOptions payload object allows for just the action and the redirect URL to be specified. The default delay is zero seconds, where the signer is immediately redirected upon declining the agreement.</p>
+<p>Here are examples of JSON payloads for different redirect scenarios:</p>
+<ul>
+<li><p>Redirect upon declining with no delay (immediate redirect):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“redirectOptions”: {</dt><dd><p>“action”:”DECLINED”,
+“url”:”<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>”,
+“delay”: 0</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+<li><p>Redirect upon declining with no delay (null delay - immediate redirect):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“redirectOptions”: {</dt><dd><p>“action”:”DECLINED”,
+“url”:”<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>”,
+“delay”: null</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+<li><p>Redirect upon declining with no delay (default delay is zero seconds - immediate redirect):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“redirectOptions”: {</dt><dd><p>“action”:”DECLINED”,
+“url”:”<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>”</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+<li><p>Redirect upon declining with a delay of 1 second:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“redirectOptions”: {</dt><dd><p>“action”: “DECLINED”,
+“url”: “<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>”,
+“delay”: 1</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+<li><p>Redirect upon declining with a delay of exactly 5 seconds:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“redirectOptions”: {</dt><dd><p>“action”: “DECLINED”,
+“url”:”<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>”,
+“delay”: 5</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</li>
+</ul>
+<p>JSON payload to create an agreement with Redirect Options that redirects a signer that declines the agreement to “<a class="reference external" href="https://www.adobe.com">https://www.adobe.com</a>” after a delay of 5 seconds:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;ccs&quot;</span><span class="p">:</span> <span class="p">[],</span>
+<span class="s2">&quot;createdDate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;deviceInfo&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;documentRetentionApplied&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+<span class="s2">&quot;documentVisibilityEnabled&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">&quot;emailOption&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;expirationTime&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">&quot;externalId&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;fileInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;transientDocumentId&quot;</span><span class="p">:</span> <span class="s2">&quot;CBSCTBABDUAAABACAABAAElUgc9mrHBK8FGaOKeTJ7s3zB68eYQiqCXkrTJJssW2FnXixXX60RZNQDkl5tfsMhs3govR0O2S2WvHKHwQpJn0BoGLuyRSIsTQN6JfJMniGXhK_29STm8QO8V9aAWjs7lW-dHe67ioF_oZT7Qx6nda3nBLYO24946bvqn0zkRo-9YmBk5_4gWzbMNIficPeT74kUKYEtz7QL1ZRdS1erQITNR7DYQFFSZgUX5lKZbDPFqX375c9QSMQ09oWI6mOJlj70qenVdXMA7pnpvQUX0fb0cNgfhmlW1x1IS7rbW8*&quot;</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;firstReminderDelay&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">&quot;formFieldLayerTemplates&quot;</span><span class="p">:</span> <span class="p">[],</span>
+<span class="s2">&quot;hasFormFieldData&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+<span class="s2">&quot;hasSignerIdentityReport&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+<span class="s2">&quot;isDocumentRetentionApplied&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+<span class="s2">&quot;locale&quot;</span><span class="p">:</span> <span class="s2">&quot;en_US&quot;</span><span class="p">,</span>
+<span class="s2">&quot;mergeFieldInfo&quot;</span><span class="p">:</span> <span class="p">[],</span>
+<span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Please review and complete this agreement&quot;</span><span class="p">,</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Agreement Redirect Options Test&quot;</span><span class="p">,</span>
+<span class="s2">&quot;parentId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;participantSetsInfo&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;signer1@outlook.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;First Signer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;notaryAuthentication&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;signingOrder&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;visiblePages&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;signer2@outlook.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Second Signer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;notaryAuthentication&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;signingOrder&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;visiblePages&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;memberInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;signer3@outlook.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Third Signer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;notaryAuthentication&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;signingOrder&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s2">&quot;privateMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;visiblePages&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;redirectOptions&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;DECLINED&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;delay&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.adobe.com&quot;</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;reminderFrequency&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;securityOption&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;senderEmail&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;signatureType&quot;</span><span class="p">:</span> <span class="s2">&quot;ESIGN&quot;</span><span class="p">,</span>
+<span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;IN_PROCESS&quot;</span><span class="p">,</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;OUT_FOR_SIGNATURE&quot;</span><span class="p">,</span>
+<span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;AGREEMENT&quot;</span><span class="p">,</span>
+<span class="s2">&quot;vaultingInfo&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;notaryInfo&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="s2">&quot;workflowId&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">&quot;workflow&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;agreementNameInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;authoringInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ccsListInfo&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;defaultValues&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;minListCount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;maxListCount&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;displayName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;expirationInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;maxDays&quot;</span><span class="p">:</span> <span class="mi">180</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;fileInfos&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;workflowLibraryDocumentSelectorList&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;localeInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;es_ES&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;availableLocales&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;en_US&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;en_US_Echosign&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;en_GB&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;de_DE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fr_FR&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;nl_NL&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;it_IT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fi_FI&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;da_DK&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sv_SE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;es_ES&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;nb_NO&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;nn_NO&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;no_NO&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pt_BR&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pt_PT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ru_RU&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;is_IS&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ja_JP&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;zh_CN&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;zh_TW&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ko_KR&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pl_PL&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;in_ID&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ms_MY&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;vi_VN&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;th_TH&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cs_CZ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;tr_TR&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ca_ES&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;eu_ES&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hr_HR&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hu_HU&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ro_RO&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sk_SK&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sl_SI&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;uk_UA&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;zz_ZZ&quot;</span>
+    <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;mergeFieldsInfo&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;messageInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;modified&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;passwordInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;recipientsListInfo&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;defaultValue&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;minListCount&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;maxListCount&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+        <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;allowfax&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;allowSender&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;authenticationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;SIGNER&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;scopeId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+<span class="p">},</span>
+<span class="s2">&quot;authoringRequested&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+<span class="s2">&quot;signatureFlow&quot;</span><span class="p">:</span> <span class="s2">&quot;HYBRID&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If a signer declines an agreement, they are redirected to the set URL after a specified delay.
+The redirect Url reflects the status of the agreement, as shown below.</p>
+<img alt="backupFiles/images/agreement-signed-redirect-3.png" src="backupFiles/images/agreement-signed-redirect-3.png" />
+</div>
+<div class="section" id="api-throttling">
+<h2>API Throttling<a class="headerlink" href="#api-throttling" title="Permalink to this heading">¶</a></h2>
+<p>To prevent your API from being overwhelmed by too many requests, Adobe throttles requests to your API.</p>
+<p>When a request is throttled, the client will receive an <strong>HTTP 429 “Too Many Requests”</strong> response with an error message appropriate to the request. When a request gets back an HTTP 429 response, it means the user has consumed over the limit of allowed resources within a certain time frame. It could be a violation of the per-minute, -hour, or -day limit. The user will be allowed to make more requests in the next minute, hour, or day (depending on which threshold was crossed).</p>
+<p>Each request made to Acrobat Sign is evaluated based on the system resources it will consume. Different parameters passed to the same endpoint might contribute a different amount of resource consumption. Your service package (small business, business, enterprise) directly influences your transaction rate. Higher tiers of service have higher throttle thresholds.</p>
+<div class="section" id="rest-api-response">
+<h3>REST API Response<a class="headerlink" href="#rest-api-response" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;THROTTLING_TOO_MANY_REQUESTS&quot;</span><span class="p">,</span>
+<span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;&lt;error_message_with_wait_time&gt; (apiActionId=&lt;api_action_id&gt;)&quot;</span>
+<span class="s2">&quot;retryAfter&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">wait_time_in_seconds</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Also, a <em>Retry-After</em> HTTP header will be added into the response (<a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-7.1.3">see RFC-7231 Section 7.1.3</a>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Retry</span><span class="o">-</span><span class="n">After</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">wait_time_in_seconds</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>is the minimum time in seconds the client must wait until it can make the next request. When the <em>retryAfter</em> timer expires, the client’s resource count is reset to 0 for the over-limit threshold. Therefore, the client can send the request again and it should go through without being blocked.</p>
+</div>
+<div class="section" id="steps-to-take-when-throttled">
+<h3>Steps to take when throttled<a class="headerlink" href="#steps-to-take-when-throttled" title="Permalink to this heading">¶</a></h3>
+<p>It is recommended that developers design workflows that can handle the HTTP 429 exceptions gracefully and use the retry-time from either the response body or from the “Retry-After” header to recover from such errors.</p>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+            </div>
+            <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Adobe Inc..
+      <span class="lastupdated">
+        Last update: Apr 21, 2025. 
+        <img src="../_static/adobelogo.png" class="logo"/> 
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+          </div>
+        </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+    });
+  </script> 
+
+</body>
+
+</html>
