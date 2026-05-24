@@ -19,7 +19,7 @@ using IO.Swagger.Client;
 using System.Reflection;
 using Newtonsoft.Json;
 
-namespace IO.Swagger.Test
+namespace IO.Swagger.Test.model.megaSigns
 {
     /// <summary>
     ///  Class for testing MegaSignCreationInfo

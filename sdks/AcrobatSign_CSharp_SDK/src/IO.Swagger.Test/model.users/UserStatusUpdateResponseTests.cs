@@ -19,7 +19,7 @@ using IO.Swagger.Client;
 using System.Reflection;
 using Newtonsoft.Json;
 
-namespace IO.Swagger.Test
+namespace IO.Swagger.Test.model.users
 {
     /// <summary>
     ///  Class for testing UserStatusUpdateResponse
